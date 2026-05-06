@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "routes": [
+    { "src": "/browse", "dest": "/browse.html" },
+    { "src": "/profile", "dest": "/profile.html" },
+    { "src": "/refer", "dest": "/refer.html" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
+}

@@ -78,7 +78,7 @@
           Guided introductions
         </span>
       </div>
-      <p class="hero-clarify">Work permit, insurance and transfer documents handled.</p>
+      <p class="hero-clarify">No placement fees. Browse and meet for free — a simple admin fee only if you proceed with a transfer.</p>
     </div>
 
     <div class="hero-vis">
@@ -224,23 +224,34 @@
         <div class="benefit-visual">
           <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
             <rect width="280" height="160" fill="#FFF3EE" rx="12"/>
-            <rect x="28" y="68" width="64" height="52" rx="5" fill="white" stroke="#F5C4B0" stroke-width="1.5"/>
-            <polygon points="60,36 16,72 104,72" fill="#F5C4B0"/>
-            <rect x="46" y="86" width="16" height="20" rx="2" fill="#F5C4B0"/>
-            <rect x="68" y="86" width="20" height="12" rx="2" fill="#FFF3EE"/>
-            <rect x="192" y="68" width="64" height="52" rx="5" fill="white" stroke="#F5C4B0" stroke-width="1.5"/>
-            <polygon points="224,36 180,72 268,72" fill="#FFAC8E"/>
-            <rect x="210" y="86" width="16" height="20" rx="2" fill="#F5C4B0"/>
-            <rect x="232" y="86" width="20" height="12" rx="2" fill="#FFF3EE"/>
-            <path d="M100 95 Q140 78 184 95" stroke="#C1623F" stroke-width="2" stroke-dasharray="5,3" fill="none" stroke-linecap="round"/>
-            <polygon points="184,89 192,95 180,101" fill="#C1623F"/>
-            <rect x="118" y="70" width="48" height="16" rx="8" fill="#C1623F"/>
-            <text x="142" y="81" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="white">Local only</text>
-            <g transform="translate(232,14)">
-              <circle cx="14" cy="14" r="14" fill="white" stroke="#F5C4B0" stroke-width="1.5"/>
-              <line x1="6" y1="6" x2="22" y2="22" stroke="#C1623F" stroke-width="2" stroke-linecap="round"/>
-              <line x1="22" y1="6" x2="6" y2="22" stroke="#C1623F" stroke-width="2" stroke-linecap="round"/>
+            <!-- Left SG home -->
+            <rect x="18" y="72" width="58" height="48" rx="5" fill="white" stroke="#F5C4B0" stroke-width="1.5"/>
+            <polygon points="47,40 10,76 84,76" fill="#F5C4B0"/>
+            <rect x="34" y="90" width="14" height="22" rx="2" fill="#F5C4B0"/>
+            <rect x="54" y="90" width="16" height="13" rx="2" fill="#FFF3EE"/>
+            <!-- Right SG home -->
+            <rect x="204" y="72" width="58" height="48" rx="5" fill="white" stroke="#FFAC8E" stroke-width="1.5"/>
+            <polygon points="233,40 196,76 270,76" fill="#FFAC8E"/>
+            <rect x="218" y="90" width="14" height="22" rx="2" fill="#F5C4B0"/>
+            <rect x="238" y="90" width="16" height="13" rx="2" fill="#FFF3EE"/>
+            <!-- Dashed local transfer arrow -->
+            <path d="M84 96 Q140 75 196 96" stroke="#2C8A6E" stroke-width="2.5" stroke-dasharray="6,4" fill="none" stroke-linecap="round"/>
+            <polygon points="192,89 202,96 190,103" fill="#2C8A6E"/>
+            <!-- "Local transfer" label -->
+            <rect x="108" y="68" width="64" height="18" rx="9" fill="#2C8A6E"/>
+            <text x="140" y="80" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="white">Local transfer</text>
+            <!-- Crossed-out airplane — top left, clearly visible -->
+            <g transform="translate(14,8)">
+              <circle cx="22" cy="22" r="20" fill="white" stroke="#F5C4B0" stroke-width="1.5"/>
+              <!-- Airplane body -->
+              <path d="M22 12 L26 20 L34 18 L32 22 L26 22 L24 30 L20 30 L18 22 L12 22 L10 18 L18 20 Z" fill="#F5C4B0"/>
+              <!-- Bold red X -->
+              <line x1="8" y1="8" x2="36" y2="36" stroke="#C1623F" stroke-width="3" stroke-linecap="round"/>
+              <line x1="36" y1="8" x2="8" y2="36" stroke="#C1623F" stroke-width="3" stroke-linecap="round"/>
             </g>
+            <!-- "No flights" label -->
+            <rect x="10" y="54" width="60" height="14" rx="7" fill="#C1623F"/>
+            <text x="40" y="64" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7.5" font-weight="700" fill="white">No flights ✕</text>
           </svg>
         </div>
         <div class="benefit-label benefit-label--peach">Previous employer</div>
@@ -292,6 +303,12 @@
       </div>
 
     </div>
+    <div class="swipe-hint" aria-hidden="true">
+      <div class="swipe-hint-dot active"></div>
+      <div class="swipe-hint-dot"></div>
+      <div class="swipe-hint-dot"></div>
+      <span style="margin-left:4px">Swipe to see more</span>
+    </div>
   </div>
 </section>
 
@@ -331,6 +348,7 @@
             <span class="verify-tick">&#10003; Contact verified</span>
             <span class="verify-tick">&#10003; History reviewed</span>
           </div>
+          <div class="hcard-direct-hire">Direct hire admin supported</div>
         </div>
       </div>
 
@@ -387,6 +405,12 @@
       </div>
 
     </div>
+    <div class="swipe-hint" aria-hidden="true">
+      <div class="swipe-hint-dot active"></div>
+      <div class="swipe-hint-dot"></div>
+      <div class="swipe-hint-dot"></div>
+      <span style="margin-left:4px">Swipe to see more</span>
+    </div>
     <div class="preview-cta rev">
       <a href="browse.html" class="btn btn-green btn-lg">Browse all referred helpers &rarr;</a>
       <p class="preview-cta-note">Introductions typically arranged within 3 days</p>
@@ -421,7 +445,6 @@
             <div class="tcard-name">Michelle L.</div>
             <div class="tcard-role">Mother of 2 &middot; Bishan</div>
           </div>
-          <span class="tcard-matched">Matched via referral</span>
         </div>
       </div>
 
@@ -440,7 +463,6 @@
             <div class="tcard-name">Rajesh K.</div>
             <div class="tcard-role">Family of 4 &middot; Woodlands</div>
           </div>
-          <span class="tcard-matched">Matched via referral</span>
         </div>
       </div>
 
@@ -459,7 +481,6 @@
             <div class="tcard-name">Lin S.</div>
             <div class="tcard-role">Singapore employer &middot; Buona Vista</div>
           </div>
-          <span class="tcard-matched">Matched via referral</span>
         </div>
       </div>
 
@@ -530,7 +551,7 @@
         <span class="ref-av-ct">+40 helpers referred</span>
       </div>
       <h2 class="ref-hl">Know a good helper?</h2>
-      <p class="ref-sub">Refer someone you trust.<br>We'll handle the follow-up.</p>
+      <p class="ref-sub" style="max-width:420px">Refer someone you trust.<br>We'll handle the follow-up.</p>
       <div class="ref-chips">
         <span class="chip chip-dk">
           <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M5.5 1l1 2.8 3 .3-2.2 2 .7 2.9L5.5 7.7 3 9l.7-2.9-2.2-2 3-.3z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>

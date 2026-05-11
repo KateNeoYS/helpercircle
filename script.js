@@ -38,7 +38,6 @@ if (revEls.length) {
   const obs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      // stagger siblings with .rev class
       const parent = entry.target.parentElement;
       const revSibs = [...parent.querySelectorAll(':scope > .rev')];
       const idx = revSibs.indexOf(entry.target);
@@ -101,8 +100,13 @@ if (filterBar) {
   filterBar.addEventListener('click', e => {
     const chip = e.target.closest('.fchip');
     if (!chip) return;
-    filterBar.querySelectorAll('.fchip').forEach(c => c.classList.remove('on'));
+    // Toggle active class and aria-pressed on all chips
+    filterBar.querySelectorAll('.fchip').forEach(c => {
+      c.classList.remove('on');
+      c.setAttribute('aria-pressed', 'false');
+    });
     chip.classList.add('on');
+    chip.setAttribute('aria-pressed', 'true');
     runFilters();
   });
 }

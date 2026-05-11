@@ -5,7 +5,29 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Refer a Helper — Helper Circle</title>
   <meta name="description" content="Refer a domestic helper you trust to Helper Circle. Quick referral, incentive provided, no long form. Singapore's employer-led referral service."/>
+  <!-- OG tags -->
+  <meta property="og:url" content="https://helpercircle.vercel.app/refer.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Refer a Helper — Helper Circle"/>
+  <meta property="og:description" content="Refer a domestic helper you trust to Helper Circle. Quick referral, incentive provided, no long form."/>
   <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* SVG avatar stack */
+    .ref-av-svg {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--c100, #fff);
+      margin-left: -8px;
+      flex-shrink: 0;
+    }
+    .ref-av-svg:first-child { margin-left: 0; }
+    .ref-av-svg svg { display: block; }
+  </style>
 </head>
 <body>
 
@@ -86,11 +108,27 @@
         </div>
       </div>
 
+      <!-- Avatar stack — SVG silhouettes replacing Unsplash stock faces -->
       <div style="margin-top:30px;display:flex;align-items:center;gap:13px">
-        <div style="display:flex">
-          <div class="ref-av" style="border-color:var(--c100)"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=faces" alt=""/></div>
-          <div class="ref-av" style="border-color:var(--c100)"><img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=80&h=80&fit=crop&crop=faces" alt=""/></div>
-          <div class="ref-av" style="border-color:var(--c100)"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=faces" alt=""/></div>
+        <div style="display:flex;align-items:center">
+          <span class="ref-av-svg" aria-hidden="true" style="background:#d4efe3;">
+            <svg viewBox="0 0 40 40" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="15" r="7" fill="#1a6b4a"/>
+              <ellipse cx="20" cy="33" rx="12" ry="8" fill="#1a6b4a"/>
+            </svg>
+          </span>
+          <span class="ref-av-svg" aria-hidden="true" style="background:#e8f4ed;">
+            <svg viewBox="0 0 40 40" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="15" r="7" fill="#2d8c62"/>
+              <ellipse cx="20" cy="33" rx="12" ry="8" fill="#2d8c62"/>
+            </svg>
+          </span>
+          <span class="ref-av-svg" aria-hidden="true" style="background:#c8e8d6;">
+            <svg viewBox="0 0 40 40" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="15" r="7" fill="#145a3c"/>
+              <ellipse cx="20" cy="33" rx="12" ry="8" fill="#145a3c"/>
+            </svg>
+          </span>
         </div>
         <span style="font-size:.85rem;color:var(--muted)">Joined <strong style="color:var(--ink)">40+ helpers</strong> already listed</span>
       </div>
@@ -273,12 +311,13 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-legal">&copy; 2025 Helper Circle &middot; Singapore &middot; Not a maid agency</p>
+      <p class="footer-legal">&copy; <span id="year"></span> Helper Circle &middot; Singapore &middot; Not a maid agency</p>
       <p class="footer-legal">hello@helpercircle.sg</p>
     </div>
   </div>
 </footer>
 
 <script src="script.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

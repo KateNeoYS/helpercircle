@@ -2553,3 +2553,87 @@ em { font-style: italic; color: var(--clr-primary); }
 
 /* Prevent last word orphan on hero sub */
 .hero-sub { text-wrap: pretty; }
+
+/* =============================================================
+   FIXES — May 2026
+   ============================================================= */
+
+/* ── Keyboard focus rings ── */
+:focus-visible {
+  outline: 3px solid var(--clr-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-xs);
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── Filter chip active state (browse page) ── */
+.fchip {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 16px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  background: var(--clr-white);
+  border: 1.5px solid var(--clr-border);
+  color: var(--clr-text-muted);
+  cursor: pointer;
+  transition: background var(--dur-base) var(--ease),
+              border-color var(--dur-base) var(--ease),
+              color var(--dur-base) var(--ease);
+  white-space: nowrap;
+}
+.fchip:hover {
+  background: var(--clr-primary-bg);
+  border-color: var(--clr-primary);
+  color: var(--clr-primary);
+}
+.fchip.on,
+.fchip[aria-pressed="true"] {
+  background: var(--clr-primary);
+  border-color: var(--clr-primary);
+  color: var(--clr-white);
+  font-weight: 600;
+}
+
+/* ── Browse empty state ── */
+#browse-empty {
+  text-align: center;
+  padding: 60px 0 40px;
+}
+#browse-empty p {
+  color: var(--clr-text-muted);
+  margin-bottom: var(--space-4);
+  font-size: var(--text-base);
+}
+
+/* ── SVG avatar stack (refer page) ── */
+.ref-av-svg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--clr-white);
+  margin-left: -8px;
+  flex-shrink: 0;
+}
+.ref-av-svg:first-child {
+  margin-left: 0;
+}
+.ref-av-svg svg {
+  display: block;
+}
+
+/* ── Muted text contrast — ensure 4.5:1 on white ── */
+.browse-sub,
+.hcard-meta,
+.footer-tagline,
+.preview-sub,
+.hero-clarify {
+  color: var(--clr-text-muted); /* #64696E — passes AA on white */
+}

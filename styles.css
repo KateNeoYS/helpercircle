@@ -2760,3 +2760,153 @@ em { font-style: italic; color: var(--clr-primary); }
     margin-bottom: var(--space-5);
   }
 }
+
+/* =============================================================
+   MOBILE UX — May 2026
+   Fix 2: Hero card stack swipe affordance on mobile
+   Fix 4: Refer page mobile visual balance
+   ============================================================= */
+
+/* ── FIX 2: Hero card stack on mobile ──
+   On desktop the cards stack with parallax rotation — looks great.
+   On mobile they collapse into a single visible card with no
+   affordance. We flatten the stack into a horizontal scroll
+   strip so users can swipe through them naturally. */
+
+@media (max-width: 768px) {
+  .hero-vis {
+    width: 100%;
+    overflow: hidden;
+    margin-top: var(--space-8);
+  }
+
+  .card-stack {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 8px 4px 16px;
+    /* Reset desktop rotation/positioning */
+    position: static;
+    height: auto;
+  }
+
+  .card-stack::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Scroll dots indicator */
+  .card-stack::after {
+    content: '';
+    min-width: 20px;
+    flex-shrink: 0;
+  }
+
+  .hc {
+    /* Reset desktop absolute positioning and rotation */
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    rotate: none !important;
+
+    /* Card sizing for mobile swipe */
+    min-width: 220px;
+    max-width: 240px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  }
+
+  .hc img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Swipe hint label — shown below the strip */
+  .card-stack-hint {
+    display: block;
+  }
+}
+
+/* Hide swipe hint on desktop */
+.card-stack-hint {
+  display: none;
+  text-align: center;
+  font-size: var(--text-xs);
+  color: var(--clr-text-muted);
+  margin-top: 6px;
+  letter-spacing: 0.02em;
+}
+
+/* ── FIX 4: Refer page — mobile visual balance ──
+   The two-column hero (copy left, form right) stacks on mobile.
+   Ensure the form doesn't feel crammed and copy breathes. */
+
+@media (max-width: 768px) {
+  .refer-hero-inner {
+    flex-direction: column;
+    gap: var(--space-8);
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-8);
+  }
+
+  .refer-hero .rev {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Tighten the refer headline on mobile */
+  .refer-hl {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+    text-wrap: balance;
+  }
+
+  /* Form card full width on mobile */
+  .form-card {
+    width: 100%;
+    padding: var(--space-6) var(--space-5);
+    border-radius: var(--radius-lg);
+  }
+
+  /* Stack the two-column form row on mobile */
+  .form-row {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  /* Why-refer items stack more comfortably */
+  .refer-why {
+    gap: var(--space-5);
+  }
+
+  .refer-why-item {
+    gap: var(--space-3);
+  }
+
+  /* Avatar + social proof row wraps cleanly */
+  .ref-av-stack {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Stats grid single column on mobile */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  /* How referrals work steps stack vertically */
+  .how-steps {
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+}

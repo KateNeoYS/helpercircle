@@ -6,6 +6,10 @@
   <title>Siti Nur A. — Helper Profile · Helper Circle</title>
   <meta name="description" content="Siti Nur A. is an Indonesian helper with 6 years' experience in Singapore, referred by her previous employer. View her verified profile on Helper Circle."/>
   <link rel="stylesheet" href="styles.css"/>
+  <meta property="og:url" content="https://helpercircle.vercel.app/profile.html"/>
+  <meta property="og:type" content="profile"/>
+  <meta property="og:title" content="Siti Nur A. — Helper Profile · Helper Circle"/>
+  <meta property="og:description" content="Siti Nur A. is an Indonesian helper with 6 years' experience in Singapore, referred by her previous employer. View her verified profile on Helper Circle."/>
 </head>
 <body>
 
@@ -356,12 +360,13 @@
     </div>
     <div class="footer-bottom">
       <p class="footer-origin">Started by a Singapore family who knew there had to be a better way.</p>
-      <p class="footer-legal">&copy; 2025 Helper Circle &middot; Singapore &middot; Not a maid agency</p>
+      <p class="footer-legal">&copy; <span id="year"></span> Helper Circle &middot; Singapore &middot; Not a maid agency</p>
       <p class="footer-legal">hello@helpercircle.sg</p>
     </div>
   </div>
 </footer>
 
 <script src="script.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

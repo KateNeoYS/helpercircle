@@ -2637,3 +2637,126 @@ em { font-style: italic; color: var(--clr-primary); }
 .hero-clarify {
   color: var(--clr-text-muted); /* #64696E — passes AA on white */
 }
+
+/* =============================================================
+   UX POLISH — May 2026
+   Fixes: year script, micro-trust wrap, filter scroll hint,
+          hero H1 orphan guard, spacing rhythm
+   ============================================================= */
+
+/* ── FIX 1: Footer year — ensure span never shows blank ──
+   The <span id="year"> is populated by inline JS at bottom
+   of each page. This is a fallback so it never looks broken. */
+#year:empty::after {
+  content: '2026';
+}
+
+/* ── FIX 2: Micro-trust strip — wrap gracefully on mobile ── */
+.hero-micro-trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  row-gap: 8px;
+}
+.micro-trust-sep {
+  color: var(--clr-text-faint);
+  line-height: 1;
+  /* hide separators when wrapping — they orphan at line ends */
+}
+@media (max-width: 640px) {
+  .micro-trust-sep {
+    display: none;
+  }
+  .hero-micro-trust {
+    gap: 6px 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .micro-trust-item {
+    font-size: 0.80rem;
+    gap: 5px;
+  }
+}
+
+/* ── FIX 3: Filter chip row — scroll hint on mobile ── */
+.browse-hero .wrap {
+  position: relative;
+}
+.filter-bar {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--space-2);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  padding-bottom: 4px;
+  /* allow chips to scroll without pushing layout */
+  scroll-snap-type: x proximity;
+}
+.filter-bar::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+.fchip {
+  scroll-snap-align: start;
+  flex-shrink: 0; /* prevent chips from shrinking */
+}
+
+/* Fade-right gradient hint that more chips exist */
+@media (max-width: 768px) {
+  .browse-hero .wrap {
+    /* overlay a fade on the right edge of the filter row */
+    position: relative;
+  }
+  .filter-bar::after {
+    content: '';
+    position: sticky;
+    right: 0;
+    top: 0;
+    min-width: 40px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, var(--clr-white));
+    pointer-events: none;
+    flex-shrink: 0;
+  }
+}
+
+/* ── FIX 4: Hero H1 orphan guard ── */
+.hero-hl {
+  text-wrap: balance;
+  max-width: 560px;
+}
+@media (max-width: 480px) {
+  .hero-hl {
+    font-size: clamp(1.9rem, 7vw, 2.6rem);
+    max-width: 100%;
+  }
+}
+
+/* ── FIX 5: General mobile spacing rhythm ── */
+@media (max-width: 768px) {
+  /* Slightly more breathing room between hero elements */
+  .hero-ctas {
+    margin-bottom: var(--space-5);
+  }
+  .hero-micro-trust {
+    margin-bottom: var(--space-4);
+  }
+  .hero-trust {
+    margin-bottom: var(--space-3);
+  }
+
+  /* Browse page: tighten hero padding so filters are closer to fold */
+  .browse-hero {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-6);
+  }
+
+  /* Reduce H1 bottom margin on browse to close gap to filter chips */
+  .browse-hl {
+    margin-bottom: var(--space-3);
+  }
+  .browse-sub {
+    margin-bottom: var(--space-5);
+  }
+}

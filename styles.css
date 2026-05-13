@@ -2910,3 +2910,121 @@ em { font-style: italic; color: var(--clr-primary); }
     gap: var(--space-6);
   }
 }
+/* ═══════════════════════════════════════════════════
+   HERO CSS PATCH — append to bottom of styles.css
+   (these rules override earlier declarations)
+   ═══════════════════════════════════════════════════ */
+
+/* ── Desktop: tighter grid gap, sub max-width ── */
+.hero-grid {
+  gap: 56px; /* was var(--space-16) ~80px — pulls cards closer to copy */
+}
+.hero-sub {
+  max-width: 440px; /* was 480px — faster scanning */
+  margin-bottom: var(--space-6); /* tighter before CTAs */
+}
+.hero-hl {
+  max-width: 520px;
+}
+.hero-clarify {
+  max-width: 380px;
+  padding-top: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+/* ── Micro-trust: better spacing & separator visibility ── */
+.hero-micro-trust {
+  gap: 10px;
+  margin-bottom: var(--space-4);
+}
+.micro-trust-item {
+  gap: 6px;
+  font-size: 0.8rem;
+}
+.micro-trust-sep {
+  color: var(--clr-text-muted);
+  opacity: 0.5;
+}
+
+/* ── Trust chips: consistent height & padding ── */
+.hero-trust .chip {
+  min-height: 30px;
+  padding: 5px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ── CTA spacing ── */
+.hero-ctas {
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+/* ── Desktop cards: better face crop ── */
+.hc img {
+  object-position: center 12%; /* show faces higher up */
+}
+
+/* ── Tablet ~1000px ── */
+@media (max-width: 1000px) {
+  .hero-grid {
+    gap: 40px;
+  }
+  .hc-a { width: 218px; height: 290px; }
+  .hc-b { width: 204px; height: 272px; }
+  .hc-c { width: 190px; height: 254px; }
+}
+
+/* ── Mobile ~860px: tighten vertical density ── */
+@media (max-width: 860px) {
+  .hero { padding: 84px 0 36px; }
+  .hero-grid { gap: 28px; }
+  .hero-vis { height: 320px; }
+  .hero-sub { margin-bottom: var(--space-5); }
+  .hero-ctas { margin-bottom: var(--space-3); }
+  .hero-trust { margin-bottom: var(--space-3); }
+
+  /* Cards: slightly larger, better face visibility */
+  .hc-a { width: 162px; height: 216px; left: 12px; top: 0; }
+  .hc-b { width: 152px; height: 202px; right: 10px; top: 22px; }
+  .hc-c { width: 142px; height: 188px; left: 60px; bottom: 8px; }
+
+  .hc img {
+    object-fit: cover;
+    object-position: center 18%; /* faces visible, not cropped */
+    width: 100%; height: 100%;
+  }
+}
+
+/* ── Mobile ~768px: left-align, tighter spacing ── */
+@media (max-width: 768px) {
+  .hero-left { text-align: left; }
+  .hero-ctas { justify-content: flex-start; }
+  .hero-trust { justify-content: flex-start; }
+  .hero-clarify { text-align: left; }
+
+  .hero-micro-trust {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .micro-trust-sep { display: none; }
+  .micro-trust-item { font-size: 0.78rem; }
+
+  /* Card composition for mobile */
+  .hero-vis { height: 310px; }
+  .hc-a { width: 148px; height: 198px; top: 0; left: 12px; transform: rotate(-3deg); }
+  .hc-b { width: 138px; height: 184px; top: 16px; right: 12px; transform: rotate(2.5deg); }
+  .hc-c { width: 130px; height: 172px; bottom: 6px; left: 54px; transform: rotate(-1deg); }
+}
+
+/* ── Small phones ~390px ── */
+@media (max-width: 390px) {
+  .hero-hl { font-size: clamp(1.65rem, 7.5vw, 1.95rem); }
+  .hero-sub { font-size: 0.9rem; }
+  .hero-vis { height: 280px; }
+  .hc-a { width: 132px; height: 176px; }
+  .hc-b { width: 122px; height: 164px; }
+  .hc-c { width: 114px; height: 152px; }
+}

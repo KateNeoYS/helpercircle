@@ -3042,3 +3042,17 @@ em { font-style: italic; color: var(--clr-primary); }
     text-align: center;
   }
 }
+@media (max-width: 860px) {
+  .hero-sub { display: none; }
+  .hero-clarify { display: none; }
+  .hero-ctas {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .hero-ctas .btn {
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+  }
+}

@@ -3140,3 +3140,14 @@ em { font-style: italic; color: var(--clr-primary); }
   0%, 100% { transform: rotate(45deg) translateY(0); }
   50% { transform: rotate(45deg) translateY(6px); }
 }
+@media (min-width: 861px) {
+  .hc-c {
+    bottom: -20px !important;
+    left: 160px !important;
+    transform: rotate(1deg) !important;
+    z-index: 4 !important;
+  }
+  .hc-c img {
+    object-position: center 8% !important;
+  }
+}

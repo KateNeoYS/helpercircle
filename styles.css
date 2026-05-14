@@ -3151,3 +3151,20 @@ em { font-style: italic; color: var(--clr-primary); }
     object-position: center 8% !important;
   }
 }
+/* ── Global font size correction ── */
+:root {
+  --text-xs:   0.78rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+}
+
+/* ── Desktop: restore sub paragraph to fill left column height ── */
+@media (min-width: 861px) {
+  .hero-sub {
+    display: block !important;
+    font-size: 0.95rem !important;
+    max-width: 420px !important;
+    color: var(--clr-text-muted) !important;
+    margin-bottom: var(--space-5) !important;
+  }
+}

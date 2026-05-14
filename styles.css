@@ -3069,3 +3069,31 @@ em { font-style: italic; color: var(--clr-primary); }
   .hc-b { width: 145px; height: 193px; right: 8px; top: 20px; }
   .hc-c { width: 145px; height: 193px; left: 52px; bottom: 0; }
 }
+/* ── Desktop: hide redundant copy ── */
+@media (min-width: 861px) {
+  .hero-sub { display: none !important; }
+  .hero-clarify { display: none !important; }
+}
+
+/* ── Desktop: fix card stack ── */
+@media (min-width: 861px) {
+  .hero-vis {
+    height: 480px !important;
+    width: 420px !important;
+  }
+  .hc-a {
+    width: 248px !important; height: 328px !important;
+    top: 0 !important; left: 18px !important;
+    transform: rotate(-4deg) !important;
+  }
+  .hc-b {
+    width: 232px !important; height: 308px !important;
+    top: 26px !important; right: 0 !important; left: auto !important;
+    transform: rotate(3deg) !important;
+  }
+  .hc-c {
+    width: 216px !important; height: 288px !important;
+    bottom: 0 !important; left: 100px !important;
+    transform: rotate(-1.5deg) !important;
+  }
+}

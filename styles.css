@@ -3056,17 +3056,16 @@ em { font-style: italic; color: var(--clr-primary); }
     text-align: center;
   }
 }
-/* ── Clean up hero copy on all screens ── */
-.hero-sub { display: none; }
-.hero-clarify { display: none; }
-
-/* ── Desktop card stack fix ── */
+/* ── Remove conflicting card overrides ── */
 @media (min-width: 861px) {
-  .hero-vis {
-    position: relative;
-    height: 520px;
-  }
-  .hc-a { position: absolute; left: 0; top: 0; z-index: 3; }
-  .hc-b { position: absolute; right: 0; top: 40px; z-index: 2; }
-  .hc-c { position: absolute; left: 80px; bottom: 0; z-index: 1; }
+  .hero-vis { position: relative; height: 520px; }
+  .hc { position: absolute; }
+}
+
+/* ── Mobile cards: equal size, tight composition ── */
+@media (max-width: 860px) {
+  .hero-vis { height: 240px; margin-top: 0; gap: 0; }
+  .hc-a { width: 145px; height: 193px; left: 8px; top: 0; }
+  .hc-b { width: 145px; height: 193px; right: 8px; top: 20px; }
+  .hc-c { width: 145px; height: 193px; left: 52px; bottom: 0; }
 }

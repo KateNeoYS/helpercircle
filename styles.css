@@ -3097,3 +3097,46 @@ em { font-style: italic; color: var(--clr-primary); }
     transform: rotate(-1.5deg) !important;
   }
 }
+/* ── Desktop: proper card spread ── */
+@media (min-width: 861px) {
+  .hero-vis {
+    height: 500px !important;
+    width: 100% !important;
+  }
+  .hc-a {
+    width: 240px !important; height: 318px !important;
+    top: 20px !important; left: 0 !important;
+    transform: rotate(-3deg) !important;
+    z-index: 3 !important;
+  }
+  .hc-b {
+    width: 224px !important; height: 298px !important;
+    top: 0 !important; right: 20px !important; left: auto !important;
+    transform: rotate(2deg) !important;
+    z-index: 2 !important;
+  }
+  .hc-c {
+    width: 210px !important; height: 278px !important;
+    bottom: 0 !important; left: 120px !important;
+    transform: rotate(-1deg) !important;
+    z-index: 1 !important;
+  }
+}
+
+/* ── Scroll hint arrow ── */
+.hero::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-right: 2px solid var(--clr-text-muted);
+  border-bottom: 2px solid var(--clr-text-muted);
+  transform: rotate(45deg);
+  margin: 0 auto;
+  opacity: 0.4;
+  animation: bounce 1.8s infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: rotate(45deg) translateY(0); }
+  50% { transform: rotate(45deg) translateY(6px); }
+}

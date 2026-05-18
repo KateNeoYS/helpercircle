@@ -3530,3 +3530,15 @@ em { font-style: italic; color: var(--clr-primary); }
     gap: var(--space-3) var(--space-4) !important;
   }
 }
+.pricing-footnote {
+  font-size: var(--text-sm);
+  color: var(--clr-text-muted);
+  text-align: center;
+  margin-top: var(--space-2);
+  line-height: 1.6;
+}
+.pricing-footnote-link {
+  color: var(--clr-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

@@ -3507,3 +3507,26 @@ em { font-style: italic; color: var(--clr-primary); }
     font-size: clamp(1.4rem, 5vw, 2rem) !important;
   }
 }
+/* ── Pricing editorial: breathing room ── */
+.pricing-editorial {
+  gap: var(--space-12) !important;
+}
+.pricing-fee-row {
+  margin-bottom: var(--space-6) !important;
+  padding: var(--space-7) var(--space-8) !important;
+}
+.pricing-includes-grid {
+  gap: var(--space-4) var(--space-8) !important;
+  margin-bottom: var(--space-8) !important;
+  padding: 0 var(--space-2) !important;
+}
+.pricing-editorial-cta {
+  margin-top: var(--space-2) !important;
+}
+
+@media (max-width: 768px) {
+  .pricing-includes-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--space-3) var(--space-4) !important;
+  }
+}

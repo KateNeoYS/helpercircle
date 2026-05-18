@@ -3542,3 +3542,22 @@ em { font-style: italic; color: var(--clr-primary); }
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+/* ── Pricing footnote: smaller, lighter ── */
+.pricing-footnote {
+  font-size: var(--text-xs) !important;
+  color: var(--clr-text-muted) !important;
+  text-align: center !important;
+  margin-top: var(--space-4) !important;
+  line-height: 1.6 !important;
+  max-width: 480px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ── Mobile: single column includes to avoid word wrapping ── */
+@media (max-width: 768px) {
+  .pricing-includes-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-3) !important;
+  }
+}

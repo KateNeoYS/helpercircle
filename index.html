@@ -665,5 +665,19 @@
 
 <script src="script.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+  // Benefit cards swipe dots
+  const grid = document.querySelector('.benefit-grid');
+  const dots = document.querySelectorAll('.swipe-hint-dot');
+  if (grid && dots.length) {
+    grid.addEventListener('scroll', () => {
+      const card = grid.querySelector('.benefit-card');
+      if (!card) return;
+      const cardW = card.offsetWidth + 24;
+      const idx = Math.round(grid.scrollLeft / cardW);
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }, { passive: true });
+  }
+</script>
 </body>
 </html>

@@ -4429,3 +4429,78 @@ em { font-style: italic; color: var(--clr-primary); }
    The .is-open class is toggled by JS on touch devices.
    See README in your repo for the JS snippet to include.
    ============================================================= */
+
+/* =============================================================
+   HERO CARD STACK — MOBILE FINAL OVERRIDE
+   The card stack accumulated 14+ conflicting .hc-a/b/c rules
+   across the codebase. On mobile we collapse to a horizontal
+   swipe row of three IDENTICAL cards. This block lives at the
+   end of the file so it wins the cascade unconditionally.
+   ============================================================= */
+@media (max-width: 860px) {
+  .hero-vis {
+    height: auto !important;
+    width: 100% !important;
+    margin-top: var(--space-6, 18px);
+    overflow: hidden;
+  }
+  .card-stack {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 8px 4px 16px !important;
+    position: static !important;
+    height: auto !important;
+  }
+  .card-stack::-webkit-scrollbar { display: none; }
+
+  /* All three cards: identical, neutral position, flex-grown photo */
+  .hc,
+  .hc-a,
+  .hc-b,
+  .hc-c {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    rotate: none !important;
+    width: 220px !important;
+    min-width: 220px !important;
+    max-width: 220px !important;
+    height: 290px !important;
+    flex: 0 0 220px !important;
+    scroll-snap-align: center;
+    border-radius: var(--radius-lg, 16px) !important;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+    margin: 0 !important;
+  }
+  .hc img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+  }
+}
+
+/* Small phones — slightly tighter cards but still identical */
+@media (max-width: 400px) {
+  .hc,
+  .hc-a,
+  .hc-b,
+  .hc-c {
+    width: 200px !important;
+    min-width: 200px !important;
+    max-width: 200px !important;
+    height: 264px !important;
+    flex: 0 0 200px !important;
+  }
+}

@@ -2560,6 +2560,7 @@ em { font-style: italic; color: var(--clr-primary); }
   .card-stack {
     display: flex;
     flex-direction: row;
+    align-items: stretch;
     gap: 12px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -2588,17 +2589,24 @@ em { font-style: italic; color: var(--clr-primary); }
     top: auto !important;
     left: auto !important;
     right: auto !important;
+    bottom: auto !important;
     transform: none !important;
     rotate: none !important;
 
-    /* Card sizing for mobile swipe */
+    /* Normalize size — all three cards same shape on mobile */
+    width: 220px !important;
     min-width: 220px;
     max-width: 240px;
+    height: auto !important;
     flex-shrink: 0;
     scroll-snap-align: center;
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+
+    /* Stack contents top-to-bottom so the label sits below the photo */
+    display: flex;
+    flex-direction: column;
   }
 
   .hc img {

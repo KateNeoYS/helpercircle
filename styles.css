@@ -4437,10 +4437,19 @@ em { font-style: italic; color: var(--clr-primary); }
 
 /* Center benefits section heading */
 .benefits-new-hdr {
-  text-align: center;
+  text-align: center !important;
+  max-width: 800px;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 .benefits-new-hdr .kicker {
   display: inline-block;
+}
+.benefits-new-hdr h2,
+.benefits-new-hdr .h2 {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* Prevent orphan in hero subtitle */
@@ -4448,16 +4457,46 @@ em { font-style: italic; color: var(--clr-primary); }
   text-wrap: pretty;
 }
 
-/* Balance hero micro-trust bullets into 2x2 on narrow viewports */
+/* Hero micro-trust — balanced layout */
 .hero-micro-trust {
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-  text-wrap: balance;
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 18px;
+  max-width: 100%;
 }
 
-@media (max-width: 900px) {
+.micro-trust-item {
+  flex: 0 0 auto;
+}
+
+.micro-trust-sep {
+  display: inline-block;
+}
+
+/* On medium screens: force 2 per row by hiding separators at break points */
+@media (max-width: 1100px) {
   .hero-micro-trust {
-    max-width: 480px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Hide the 2nd and 4th separators so items break into 2+2 cleanly */
+  .hero-micro-trust .micro-trust-sep:nth-of-type(2),
+  .hero-micro-trust .micro-trust-sep:nth-of-type(4) {
+    display: none;
+  }
+}
+
+/* On mobile: stack vertically, hide all separators */
+@media (max-width: 600px) {
+  .hero-micro-trust {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    max-width: 100%;
+  }
+  .hero-micro-trust .micro-trust-sep {
+    display: none;
   }
 }

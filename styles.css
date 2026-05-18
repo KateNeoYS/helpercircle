@@ -974,7 +974,7 @@ em { font-style: italic; color: var(--clr-primary); }
 .bsc-text { font-size: var(--text-sm); color: var(--clr-text-muted); line-height: var(--lh-normal); margin: 0; }
 
 /* ── HELPER PREVIEW ── */
-.preview { padding: var(--space-18) 0; background: var(--clr-white); }
+.preview { padding: var(--space-18) 0; background: var(--clr-cream); }
 .preview-hdr {
   display: flex; align-items: flex-end; justify-content: space-between;
   margin-bottom: var(--space-8); flex-wrap: wrap; gap: var(--space-4);
@@ -1041,7 +1041,7 @@ em { font-style: italic; color: var(--clr-primary); }
 .preview-cta-note { font-size: var(--text-sm); color: var(--clr-text-muted); }
 
 /* ── TESTIMONIALS & TRUST ── */
-.testimonials { padding: var(--space-18) 0; background: var(--clr-cream); }
+.testimonials { padding: var(--space-18) 0; background: var(--clr-white); }
 .testimonials-hdr { text-align: center; margin-bottom: var(--space-10); }
 .testimonials-hdr .h2 { margin-bottom: var(--space-3); }
 .testimonials-sub {

@@ -4642,3 +4642,59 @@ em { font-style: italic; color: var(--clr-primary); }
     max-width: 100% !important;
   }
 }
+
+
+/* ═══ MOBILE FIXES — Card heights & text orphans ═══ */
+
+/* Fix: Equal card heights in hero photo stack on mobile */
+@media (max-width: 768px) {
+  .card-stack {
+    display: flex !important;
+    gap: 12px;
+    align-items: stretch !important;
+  }
+  .card-stack > * {
+    flex: 1 1 0;
+    min-height: 0;
+  }
+  .card-stack img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    aspect-ratio: 3/4;
+  }
+}
+
+/* Force consistent card heights for helper preview cards in hero */
+.hcard-photo,
+.hcard-img {
+  aspect-ratio: 3/4 !important;
+  overflow: hidden;
+}
+.hcard-photo img,
+.hcard-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block;
+}
+
+/* Prevent orphan words across key text blocks */
+.preview-sub,
+.pricing-fee-label,
+.pricing-fee-sublabel,
+.pricing-editorial-sub,
+.benefits-new-hdr .h2,
+.hero-sub,
+.footer-heart,
+.tcard-quote,
+.bcard-quote,
+.helper-card .hcard-meta {
+  text-wrap: pretty;
+}
+
+/* Stronger orphan prevention for shorter critical lines */
+.pricing-fee-label,
+.preview-sub {
+  text-wrap: balance;
+}

@@ -3628,3 +3628,9 @@ em { font-style: italic; color: var(--clr-primary); }
 /* ── Mobile: fix preview headline orphan ── */
 @media (max-width: 860px) {
   .preview-hdr
+@media (max-width: 860px) {
+  .testimonials-grid + .swipe-hint {
+    margin-top: var(--space-4) !important;
+    margin-bottom: var(--space-4) !important;
+  }
+}

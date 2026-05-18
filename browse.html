@@ -4,12 +4,11 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Browse Helpers — Helper Circle</title>
-  <meta name="description" content="Browse employer-referred domestic helpers in Singapore. Filter by specialty, experience, and availability."/>
-  <!-- OG tags -->
+  <meta name="description" content="Meet domestic helpers in Singapore personally referred by a previous employer. Direct hire with admin support."/>
   <meta property="og:url" content="https://helpercircle.vercel.app/browse.html"/>
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="Browse Helpers — Helper Circle"/>
-  <meta property="og:description" content="Browse employer-referred domestic helpers in Singapore. Filter by specialty, experience, and availability."/>
+  <meta property="og:description" content="Meet domestic helpers in Singapore personally referred by a previous employer."/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -34,49 +33,38 @@
   </div>
 </header>
 
-<!-- ═══ BROWSE HERO / FILTERS ═══ -->
+<!-- ═══ BROWSE HERO ═══ -->
 <section class="browse-hero">
   <div class="wrap browse-hero-inner">
     <h1 class="browse-hl">Employer-referred helpers</h1>
-    <p class="browse-sub">Every helper below was referred by a previous employer. Browse, filter, and request an introduction.</p>
-
-    <div class="search-bar">
-      <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
-        <circle cx="7" cy="7" r="5.5" stroke="#9BA3A8" stroke-width="1.4"/>
-        <path d="M11.5 11.5L15 15" stroke="#9BA3A8" stroke-width="1.4" stroke-linecap="round"/>
-      </svg>
-      <input type="text" id="search-input" placeholder="Search by name or specialty&hellip;" aria-label="Search helpers"/>
-    </div>
-
-    <div class="filter-bar" id="filter-bar" role="group" aria-label="Filter helpers">
-      <button class="fchip on" data-filter="all" aria-pressed="true">All helpers</button>
-      <button class="fchip" data-filter="Childcare" aria-pressed="false">Childcare</button>
-      <button class="fchip" data-filter="Elderly care" aria-pressed="false">Elderly care</button>
-      <button class="fchip" data-filter="Cooking" aria-pressed="false">Cooking</button>
-      <button class="fchip" data-filter="Ready transfer" aria-pressed="false">Ready transfer</button>
-      <button class="fchip" data-filter="3+ years" aria-pressed="false">3+ years</button>
-      <button class="fchip" data-filter="5+ years" aria-pressed="false">5+ years</button>
-      <button class="fchip" data-filter="Employer-referred" aria-pressed="false">Employer-referred</button>
-    </div>
+    <p class="browse-sub">Each helper below was personally referred by a Singapore family they worked for. Browse independently. You decide who to meet.</p>
   </div>
 </section>
 
 <!-- ═══ BROWSE GRID ═══ -->
 <section class="browse-body">
   <div class="wrap">
-    <p class="browse-ct" id="browse-ct"><strong>3</strong> helpers found</p>
+    <p class="browse-ct" id="browse-ct" style="text-align:center;color:var(--muted);font-size:.95rem;margin-bottom:32px;">
+      <strong>3 helpers</strong> currently shared by previous employers. New profiles added as families refer them.
+    </p>
+
     <div class="browse-grid" id="browse-grid">
 
-      <div class="helper-card" data-tags="Childcare,Employer-referred,5+ years,Ready transfer" data-name="siti" onclick="window.location='profile.html'">
+      <div class="helper-card" data-name="siti" onclick="window.location='profile.html'">
         <div class="hcard-img">
           <img src="images/siti.jpg" alt="Siti Nur A." onerror="this.style.display='none'"/>
         </div>
         <div class="hcard-body">
           <div class="hcard-name">Siti Nur A.</div>
-          <div class="hcard-meta">Indonesian · 6 years experience</div>
-          <div class="hcard-tags">
-            <span class="htag htag-g">Childcare</span>
-            <span class="htag">Ready transfer</span>
+          <div class="hcard-meta">Indonesian · 6 years in Singapore</div>
+          <p style="font-family:var(--fd, Georgia, serif);font-style:italic;font-size:1rem;line-height:1.5;color:#3a4540;margin:14px 0 10px;padding-left:14px;border-left:2px solid rgba(244,153,119,.45);">
+            "She never needed reminding about anything."
+          </p>
+          <p style="font-size:.78rem;color:var(--muted);letter-spacing:.02em;margin:0 0 14px;font-weight:500;">
+            — Michelle L., Bishan
+          </p>
+          <div class="hcard-meta" style="margin-bottom:10px;font-weight:500;">
+            Experienced with childcare
           </div>
           <div class="hcard-ref">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="#2F8F73" stroke-width="1"/><path d="M3.5 6l1.5 1.5 3-3" stroke="#2F8F73" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -85,15 +73,21 @@
         </div>
       </div>
 
-      <div class="helper-card" data-tags="Elderly care,Employer-referred,3+ years" data-name="ayeaye" onclick="window.location='profile.html'">
+      <div class="helper-card" data-name="ayeaye" onclick="window.location='profile.html'">
         <div class="hcard-img">
           <img src="images/ayeaye.jpg" alt="Aye Aye M." onerror="this.style.display='none'"/>
         </div>
         <div class="hcard-body">
           <div class="hcard-name">Aye Aye M.</div>
-          <div class="hcard-meta">Myanmar · 4 years experience</div>
-          <div class="hcard-tags">
-            <span class="htag htag-g">Elderly care</span>
+          <div class="hcard-meta">Myanmar · 4 years in Singapore</div>
+          <p style="font-family:var(--fd, Georgia, serif);font-style:italic;font-size:1rem;line-height:1.5;color:#3a4540;margin:14px 0 10px;padding-left:14px;border-left:2px solid rgba(244,153,119,.45);">
+            "Calm, patient, and steady with my mother-in-law."
+          </p>
+          <p style="font-size:.78rem;color:var(--muted);letter-spacing:.02em;margin:0 0 14px;font-weight:500;">
+            — R. Tan, Tampines
+          </p>
+          <div class="hcard-meta" style="margin-bottom:10px;font-weight:500;">
+            Experienced with eldercare
           </div>
           <div class="hcard-ref">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="#2F8F73" stroke-width="1"/><path d="M3.5 6l1.5 1.5 3-3" stroke="#2F8F73" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -102,17 +96,21 @@
         </div>
       </div>
 
-      <div class="helper-card" data-tags="Childcare,Elderly care,Employer-referred,5+ years,Ready transfer" data-name="rizalyn" onclick="window.location='profile.html'">
+      <div class="helper-card" data-name="rizalyn" onclick="window.location='profile.html'">
         <div class="hcard-img">
           <img src="images/rizalyn.jpg" alt="Rizalyn D." onerror="this.style.display='none'"/>
         </div>
         <div class="hcard-body">
           <div class="hcard-name">Rizalyn D.</div>
-          <div class="hcard-meta">Filipino · 8 years experience</div>
-          <div class="hcard-tags">
-            <span class="htag htag-g">Childcare</span>
-            <span class="htag htag-g">Elderly care</span>
-            <span class="htag">Ready transfer</span>
+          <div class="hcard-meta">Filipino · 8 years in Singapore</div>
+          <p style="font-family:var(--fd, Georgia, serif);font-style:italic;font-size:1rem;line-height:1.5;color:#3a4540;margin:14px 0 10px;padding-left:14px;border-left:2px solid rgba(244,153,119,.45);">
+            "She made our house feel like home for our boys."
+          </p>
+          <p style="font-size:.78rem;color:var(--muted);letter-spacing:.02em;margin:0 0 14px;font-weight:500;">
+            — J. Lim, Bukit Timah
+          </p>
+          <div class="hcard-meta" style="margin-bottom:10px;font-weight:500;">
+            Experienced with childcare &amp; eldercare
           </div>
           <div class="hcard-ref">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="#2F8F73" stroke-width="1"/><path d="M3.5 6l1.5 1.5 3-3" stroke="#2F8F73" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -123,10 +121,59 @@
 
     </div>
 
-    <!-- Empty state -->
-    <div id="browse-empty" style="display:none;text-align:center;padding:60px 0 40px">
-      <p style="color:var(--muted);margin-bottom:16px">No helpers match this filter right now.</p>
-      <button class="btn btn-outline" onclick="document.querySelector('.fchip[data-filter=all]').click()">Browse all helpers →</button>
+    <!-- Quiet trust signal strip -->
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:64px;padding-top:32px;border-top:1px solid rgba(0,0,0,.08);font-size:.8rem;color:var(--muted);letter-spacing:.02em;">
+      <span>Personally referred</span>
+      <span style="opacity:.4">·</span>
+      <span>Referrer details checked</span>
+      <span style="opacity:.4">·</span>
+      <span>Direct hire — admin supported</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ REFERRAL BANNER ═══ -->
+<section class="ref-banner">
+  <div class="ref-banner-bg">
+    <div class="rblob rblob-a"></div>
+    <div class="rblob rblob-b"></div>
+    <div class="rblob rblob-c"></div>
+  </div>
+  <div class="wrap ref-inner">
+
+    <div class="rev">
+      <div class="ref-avs">
+        <div class="ref-av-initial" aria-hidden="true">S</div>
+        <div class="ref-av-initial" aria-hidden="true">R</div>
+        <div class="ref-av-initial" aria-hidden="true">A</div>
+        <span class="ref-av-ct">+40 helpers referred</span>
+      </div>
+      <h2 class="ref-hl">Know a good helper?</h2>
+      <p class="ref-sub" style="max-width:420px">Refer someone you trust.<br>We'll coordinate the paperwork.</p>
+      <div class="ref-chips">
+        <span class="chip chip-dk">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M5.5 1l1 2.8 3 .3-2.2 2 .7 2.9L5.5 7.7 3 9l.7-2.9-2.2-2 3-.3z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>
+          Quick referral
+        </span>
+        <span class="chip chip-dk">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4" stroke="currentColor" stroke-width="1"/><path d="M5.5 3.5v2.5l1.5 1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+          Takes 2 minutes
+        </span>
+        <span class="chip chip-dk">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M7 3l2 2.5-2 2.5" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Paperwork sorted
+        </span>
+      </div>
+      <a href="refer.html" class="btn btn-peach">Refer a Helper</a>
+    </div>
+
+    <div class="rev">
+      <div class="ref-card">
+        <div class="ref-card-ttl">From a previous employer</div>
+        <p style="font-size:1.05rem;font-family:var(--fd);font-style:italic;color:rgba(255,255,255,.85);line-height:1.65;margin-bottom:18px;">"We didn't want to send her home. Helper Circle made it easy to pass her on to a good family."</p>
+        <p style="font-size:.78rem;color:rgba(255,255,255,.42);font-weight:600;letter-spacing:.04em;">— R.T., Singapore employer, 2024</p>
+      </div>
     </div>
 
   </div>
@@ -138,7 +185,7 @@
     <div class="footer-inner">
 
       <p class="footer-heart">
-        Started by a Singapore family who knew there had to be a better way.
+        Helper Circle helps Singapore families pass along helpers they trust.
       </p>
 
       <nav class="footer-nav" aria-label="Footer">

@@ -4560,3 +4560,21 @@ em { font-style: italic; color: var(--clr-primary); }
     justify-content: flex-start !important;
   }
 }
+
+
+/* Footer tagline — balanced wrapping (no orphans) */
+.footer-heart {
+  text-wrap: balance !important;
+  max-width: 480px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* On mobile keep it left-aligned but still balanced */
+@media (max-width: 768px) {
+  .footer-heart {
+    text-wrap: balance !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}

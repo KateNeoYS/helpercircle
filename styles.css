@@ -3611,3 +3611,20 @@ em { font-style: italic; color: var(--clr-primary); }
     gap: var(--space-3) !important;
   }
 }
+/* ── Background alternation ── */
+.testimonials {
+  background: var(--clr-white) !important;
+}
+.before-after {
+  background: var(--clr-cream) !important;
+  border-color: transparent !important;
+}
+
+/* ── Desktop: fix testimonials-sub orphan ── */
+.testimonials-sub {
+  max-width: 380px !important;
+}
+
+/* ── Mobile: fix preview headline orphan ── */
+@media (max-width: 860px) {
+  .preview-hdr

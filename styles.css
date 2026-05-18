@@ -2077,7 +2077,7 @@ em { font-style: italic; color: var(--clr-primary); }
 .hero-sub { max-width: 460px; }
 .hero-clarify { max-width: 400px; }
 .testimonials-hdr .h2 { max-width: 380px; margin-left: auto; margin-right: auto; }
-.benefits-new-hdr .h2 { max-width: 400px; }
+.benefits-new-hdr .h2 { max-width: 400px; margin-left: auto; margin-right: auto; }
 
 /* ── 3. Mobile hero — unified alignment ── */
 @media (max-width: 768px) {
@@ -4432,63 +4432,33 @@ em { font-style: italic; color: var(--clr-primary); }
   gap: 16px;
   flex-wrap: wrap;
 }
-.bfilter-
-/* ═══ POLISH FIXES — May 2026 ═══ */
 
-/* Center benefits section heading */
-.benefits-new-hdr {
-  text-align: center !important;
-  max-width: 800px;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-.benefits-new-hdr .kicker {
-  display: inline-block;
-}
-.benefits-new-hdr h2,
-.benefits-new-hdr .h2 {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
+/* ═══ POLISH FIXES — May 2026 ═══ */
 
 /* Prevent orphan in hero subtitle */
 .hero-sub {
   text-wrap: pretty;
 }
 
-/* Hero micro-trust — balanced layout */
+/* Hero micro-trust — balanced 2x2 layout on narrow viewports */
 .hero-micro-trust {
-  display: flex !important;
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px 18px;
-  max-width: 100%;
 }
 
-.micro-trust-item {
-  flex: 0 0 auto;
-}
-
-.micro-trust-sep {
-  display: inline-block;
-}
-
-/* On medium screens: force 2 per row by hiding separators at break points */
 @media (max-width: 1100px) {
   .hero-micro-trust {
     max-width: 540px;
     margin-left: auto;
     margin-right: auto;
   }
-  /* Hide the 2nd and 4th separators so items break into 2+2 cleanly */
   .hero-micro-trust .micro-trust-sep:nth-of-type(2),
   .hero-micro-trust .micro-trust-sep:nth-of-type(4) {
     display: none;
   }
 }
 
-/* On mobile: stack vertically, hide all separators */
 @media (max-width: 600px) {
   .hero-micro-trust {
     flex-direction: column;
@@ -4499,27 +4469,4 @@ em { font-style: italic; color: var(--clr-primary); }
   .hero-micro-trust .micro-trust-sep {
     display: none;
   }
-}
-/* FORCE CENTER benefits heading — override all */
-section .benefits-new-hdr,
-.benefits-new-hdr {
-  text-align: center !important;
-  display: block !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.benefits-new-hdr > * {
-  text-align: center !important;
-}
-
-.benefits-new-hdr h2,
-.benefits-new-hdr .h2 {
-  text-align: center !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  width: 100% !important;
-  display: block !important;
 }

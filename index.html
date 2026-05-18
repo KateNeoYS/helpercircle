@@ -675,48 +675,32 @@
 <script src="script.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script>
-  // Benefit cards swipe dots
-  const benefitGrid = document.querySelector('.benefit-grid');
-  const benefitDots = document.querySelectorAll('.benefit-grid ~ .swipe-hint .swipe-hint-dot');
-  if (benefitGrid && benefitDots.length) {
-    benefitGrid.addEventListener('scroll', () => {
-      const card = benefitGrid.querySelector('.benefit-card');
-      if (!card) return;
-      const cardW = card.offsetWidth + 24;
-      const idx = Math.round(benefitGrid.scrollLeft / cardW);
-      benefitDots.forEach((d, i) => d.classList.toggle('active', i === idx));
-    }, { passive: true });
-  }
+      function trackSwipe(gridEl, dotsEl) {
+        if (!gridEl || !dotsEl.length) return;
+        gridEl.addEventListener('scroll', () => {
+          const card = gridEl.firstElementChild;
+          if (!card) return;
+          const gap = parseInt(getComputedStyle(gridEl).gap) || 16;
+          const cardW = card.offsetWidth + gap;
+          const idx = Math.min(Math.round(gridEl.scrollLeft / cardW), dotsEl.length - 1);
+          dotsEl.forEach((d, i) => d.classList.toggle('active', i === idx));
+        }, { passive: true });
+      }
 
-  // Helper cards swipe dots
-  const helperGrid = document.querySelector('.preview-grid');
-  const helperDots = document.querySelectorAll('.preview .swipe-hint .swipe-hint-dot');
-  if (helperGrid && helperDots.length) {
-    helperGrid.addEventListener('scroll', () => {
-      const card = helperGrid.querySelector('.helper-card');
-      if (!card) return;
-      const cardW = card.offsetWidth + 16;
-      const idx = Math.round(helperGrid.scrollLeft / cardW);
-      helperDots.forEach((d, i) => d.classList.toggle('active', i === idx));
-    }, { passive: true });
-  }
+      trackSwipe(
+        document.querySelector('.benefit-grid'),
+        document.querySelectorAll('.benefit-grid + .swipe-hint .swipe-hint-dot')
+      );
 
-  // Testimonial cards — add swipe hint visibility signal
-  const tGrid = document.querySelector('.testimonials-grid');
-  if (tGrid && window.innerWidth <= 860) {
-    tGrid.style.paddingBottom = '8px';
-  }
-</script>
-  // Testimonial swipe dots
-  const tDots = document.querySelectorAll('.testimonials .swipe-hint .swipe-hint-dot');
-  if (tGrid && tDots.length) {
-    tGrid.addEventListener('scroll', () => {
-      const card = tGrid.querySelector('.tcard');
-      if (!card) return;
-      const cardW = card.offsetWidth + 16;
-      const idx = Math.round(tGrid.scrollLeft / cardW);
-      tDots.forEach((d, i) => d.classList.toggle('active', i === idx));
-    }, { passive: true });
-  }
+      trackSwipe(
+        document.querySelector('.preview-grid'),
+        document.querySelectorAll('.preview-grid + .swipe-hint .swipe-hint-dot')
+      );
+
+      trackSwipe(
+        document.querySelector('.testimonials-grid'),
+        document.querySelectorAll('.testimonials-grid + .swipe-hint .swipe-hint-dot')
+      );
+    </script>
 </body>
 </html>

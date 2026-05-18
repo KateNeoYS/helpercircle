@@ -172,6 +172,52 @@
       box-shadow: 0 0 0 3px rgba(44, 138, 110, 0.1);
     }
     .form-card-v2 textarea { min-height: 90px; resize: vertical; line-height: 1.55; }
+
+    /* Soft example guidance — for the transfer-context field */
+    .field-examples {
+      margin-top: 8px;
+      padding: 12px 14px 12px 16px;
+      background: rgba(44, 138, 110, 0.035);
+      border-radius: 10px;
+      border: 1px solid rgba(44, 138, 110, 0.08);
+    }
+    .field-examples-label {
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--clr-text-muted, #5A6661);
+      margin: 0 0 4px;
+      letter-spacing: 0.02em;
+    }
+    .field-examples-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .field-examples-list li {
+      font-size: 0.82rem;
+      color: var(--clr-text-muted, #5A6661);
+      line-height: 1.55;
+      padding-left: 12px;
+      position: relative;
+    }
+    .field-examples-list li::before {
+      content: '·';
+      position: absolute;
+      left: 2px;
+      color: rgba(44, 138, 110, 0.55);
+      font-weight: 700;
+    }
+    .field-help-hint {
+      font-size: 0.78rem;
+      color: var(--clr-text-muted, #5A6661);
+      margin: 6px 0 0;
+      line-height: 1.55;
+      font-style: italic;
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+    }
     .form-row-v2 {
       display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
     }
@@ -620,6 +666,21 @@
                   <option>More than 3 months</option>
                   <option>Still deciding</option>
                 </select>
+              </div>
+
+              <div class="fg-v2">
+                <label for="helper-context">Why is your helper looking for a new family? <span class="opt-tag">(optional)</span></label>
+                <textarea id="helper-context" placeholder="A short line or two in your own words is plenty."></textarea>
+                <p class="field-help-hint">This helps us introduce her more thoughtfully to suitable families.</p>
+                <div class="field-examples">
+                  <p class="field-examples-label">Examples</p>
+                  <ul class="field-examples-list">
+                    <li>Relocating overseas</li>
+                    <li>Children are older now</li>
+                    <li>Elderly parent no longer requires care</li>
+                    <li>Looking for a household better suited to her experience</li>
+                  </ul>
+                </div>
               </div>
 
               <div class="fg-v2">

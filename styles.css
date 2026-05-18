@@ -3284,3 +3284,28 @@ em { font-style: italic; color: var(--clr-primary); }
     padding: var(--space-5) var(--space-6) !important;
   }
 }
+/* ── How It Works: separation + alignment fixes ── */
+
+/* White background to separate from cream hero */
+.how {
+  background: var(--clr-white) !important;
+}
+
+/* Re-centre the header */
+.how-hdr {
+  text-align: center !important;
+}
+.how-hdr .h2,
+.how-hdr .kicker {
+  text-align: center !important;
+}
+
+/* Mobile: reduce gap between last card and footer pill */
+@media (max-width: 860px) {
+  .how-steps {
+    margin-bottom: 0 !important;
+  }
+  .how-footer {
+    margin-top: var(--space-6) !important;
+  }
+}

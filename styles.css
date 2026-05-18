@@ -3594,6 +3594,7 @@ em { font-style: italic; color: var(--clr-primary); }
   .hcard-body {
     padding: var(--space-4) !important;
   }
+}
 /* ── Preview section: cream background to separate from pricing white ── */
 .preview {
   background: var(--clr-cream) !important;
@@ -3626,8 +3627,6 @@ em { font-style: italic; color: var(--clr-primary); }
 }
 
 /* ── Mobile: fix preview headline orphan ── */
-@media (max-width: 860px) {
-  .preview-hdr
 @media (max-width: 860px) {
   .testimonials-grid + .swipe-hint {
     margin-top: var(--space-4) !important;
@@ -4433,298 +4432,21 @@ em { font-style: italic; color: var(--clr-primary); }
   flex-wrap: wrap;
 }
 
-/* ═══ POLISH FIXES — May 2026 ═══ */
+/* ═══════════════════════════════════════════
+   POLISH BLOCK — May 2026 (final clean version)
+   ═══════════════════════════════════════════ */
 
-/* Prevent orphan in hero subtitle */
-.hero-sub {
-  text-wrap: pretty;
-}
-
-/* Hero micro-trust — force 2x2 balanced layout */
-.hero-micro-trust {
-  display: flex !important;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 6px 14px;
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.micro-trust-item {
-  flex: 0 0 auto;
-  white-space: nowrap;
-}
-
-/* Tablet and below: force exactly 2 items per row by hiding the middle separator */
-@media (max-width: 1200px) {
-  .hero-micro-trust {
-    max-width: 560px;
-  }
-  /* Hide separators 2 and 4 to create natural 2+2 break */
-  .hero-micro-trust .micro-trust-sep:nth-of-type(2) {
-    flex-basis: 100%;
-    height: 0;
-    width: 0;
-    visibility: hidden;
-    margin: 0;
-    padding: 0;
-  }
-  .hero-micro-trust .micro-trust-sep:nth-of-type(4) {
-    display: none;
-  }
-}
-
-/* Mobile: stack vertically */
-@media (max-width: 600px) {
-  .hero-micro-trust {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    max-width: 100%;
-  }
-  .hero-micro-trust .micro-trust-sep {
-    display: none;
-  }
-  .micro-trust-item {
-    white-space: normal;
-  }
-}
-
-
-/* ═══ PRICING SECTION REDESIGN — May 2026 ═══ */
-
-/* Wider pricing container so it fills more of the desktop */
-.pricing-editorial {
-  max-width: 980px !important;
-}
-
-/* More generous fee row — bigger, more visually substantial */
-@media (min-width: 901px) {
-  .pricing-fee-row {
-    padding: 32px 40px !important;
-    gap: 36px !important;
-    border-radius: 20px !important;
-  }
-  .pricing-fee-amount {
-    font-size: 3.4rem !important;
-  }
-  .pricing-fee-label {
-    font-size: 1.05rem !important;
-    margin-bottom: 6px !important;
-  }
-  .pricing-fee-sublabel {
-    font-size: 0.92rem !important;
-  }
-
-  /* 3-column includes grid on wider screens for better use of space */
-  .pricing-includes-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 20px 32px !important;
-    padding: 8px 16px !important;
-  }
-
-  .pricing-include-item {
-    font-size: 0.96rem !important;
-  }
-}
-
-/* Decorative side accents — subtle, only on very wide screens */
-@media (min-width: 1200px) {
-  .pricing-editorial {
-    position: relative;
-  }
-  .pricing-editorial::before,
-  .pricing-editorial::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(47, 143, 115, 0.06) 0%, transparent 70%);
-    transform: translateY(-50%);
-    pointer-events: none;
-  }
-  .pricing-editorial::before {
-    left: -120px;
-  }
-  .pricing-editorial::after {
-    right: -120px;
-  }
-}
-
-
-/* ═══ MOBILE ALIGNMENT FIXES — May 2026 ═══ */
-/* Ensure consistent left-alignment on mobile across all sections */
-
-@media (max-width: 768px) {
-  /* Hero trust bullets — left align on mobile */
-  .hero-micro-trust {
-    align-items: flex-start !important;
-    margin-left: 0 !important;
-    margin-right: auto !important;
-    text-align: left !important;
-  }
-  .micro-trust-item {
-    text-align: left !important;
-  }
-
-  /* Pricing section — left align on mobile */
-  .pricing-editorial-hdr {
-    text-align: left !important;
-  }
-  .pricing-heading {
-    text-align: left !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    max-width: 100% !important;
-  }
-  .pricing-editorial-sub {
-    text-align: left !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    max-width: 100% !important;
-  }
-  .pricing-footnote {
-    text-align: left !important;
-  }
-  .pricing-editorial-cta {
-    margin-left: 0 !important;
-    margin-right: auto !important;
-  }
-
-  /* Footer — left align tagline on mobile */
-  .footer-heart {
-    text-align: left !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    max-width: 100% !important;
-  }
-  .footer-inner {
-    text-align: left !important;
-  }
-  .footer-nav {
-    justify-content: flex-start !important;
-  }
-  .footer-legal-strip {
-    justify-content: flex-start !important;
-    text-align: left !important;
-  }
-
-  /* Benefits section — left align on mobile too */
-  .benefits-new-hdr {
-    text-align: left !important;
-  }
-  .benefits-new-hdr .kicker {
-    margin-left: 0 !important;
-  }
-  .benefits-new-hdr .h2 {
-    text-align: left !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    max-width: 100% !important;
-  }
-
-  /* Testimonials — left align on mobile */
-  .testimonials-hdr {
-    text-align: left !important;
-  }
-  .testimonials-hdr .h2 {
-    text-align: left !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    max-width: 100% !important;
-  }
-  .testimonials-sub {
-    text-align: left !important;
-    max-width: 100% !important;
-  }
-}
-
-
-/* ═══ MOBILE FIXES — Card heights & text orphans ═══ */
-
-/* Fix: Equal card heights in hero photo stack on mobile */
-@media (max-width: 768px) {
-  .card-stack {
-    display: flex !important;
-    gap: 12px;
-    align-items: stretch !important;
-  }
-  .card-stack > * {
-    flex: 1 1 0;
-    min-height: 0;
-  }
-  .card-stack img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    aspect-ratio: 3/4;
-  }
-}
-
-/* Force consistent card heights for helper preview cards in hero */
-.hcard-photo,
-.hcard-img {
-  aspect-ratio: 3/4 !important;
-  overflow: hidden;
-}
-.hcard-photo img,
-.hcard-img img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  display: block;
-}
-
-/* Prevent orphan words across key text blocks */
-.preview-sub,
-.pricing-fee-label,
-.pricing-fee-sublabel,
-.pricing-editorial-sub,
-.benefits-new-hdr .h2,
-.hero-sub,
-.footer-heart,
-.tcard-quote,
-.bcard-quote,
-.helper-card .hcard-meta {
-  text-wrap: pretty;
-}
-
-/* Stronger orphan prevention for shorter critical lines */
-.pricing-fee-label,
-.preview-sub {
-  text-wrap: balance;
-}
-
-
-/* ═══════════════════════════════════════════════
-   FINAL OVERRIDES — May 2026
-   These rules use !important to win against any
-   earlier conflicting CSS in the file
-   ═══════════════════════════════════════════════ */
-
-/* "Trusted by real families" — single line on desktop */
+/* Desktop: keep testimonials title on 1 line */
 @media (min-width: 769px) {
   .testimonials-hdr .h2 {
-    max-width: 600px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
     white-space: nowrap !important;
   }
-}
-
-/* Hero subtitle — 2 lines on desktop, no orphan */
-@media (min-width: 769px) {
   .hero-sub {
-    max-width: 600px !important;
-    text-wrap: balance !important;
+    text-wrap: pretty !important;
   }
 }
 
-/* Pricing section — desktop styling */
+/* Pricing — wider, more substantial on desktop */
 @media (min-width: 901px) {
   .pricing-editorial {
     max-width: 980px !important;
@@ -4736,9 +4458,6 @@ em { font-style: italic; color: var(--clr-primary); }
   .pricing-fee-amount {
     font-size: 3.4rem !important;
   }
-  .pricing-fee-label {
-    font-size: 1.05rem !important;
-  }
   .pricing-includes-grid {
     grid-template-columns: repeat(3, 1fr) !important;
     gap: 20px 32px !important;
@@ -4749,13 +4468,11 @@ em { font-style: italic; color: var(--clr-primary); }
   }
 }
 
-/* Hero trust bullets — force 2x2 layout on standard screens */
+/* Hero trust bullets — force 2x2 on mid screens */
 @media (min-width: 769px) and (max-width: 1280px) {
   .hero-micro-trust {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: flex-start !important;
     max-width: 560px !important;
+    flex-wrap: wrap !important;
     gap: 8px 14px !important;
   }
   .micro-trust-item {
@@ -4786,9 +4503,51 @@ em { font-style: italic; color: var(--clr-primary); }
   object-fit: cover !important;
 }
 
-/* Orphan prevention — final pass */
+/* Orphan prevention */
 .preview-sub,
+.pricing-fee-label,
 .pricing-fee-sublabel,
-.pricing-editorial-sub {
+.pricing-editorial-sub,
+.hero-sub,
+.footer-heart {
   text-wrap: pretty !important;
+}
+
+/* Mobile: left-align everything */
+@media (max-width: 768px) {
+  .hero-micro-trust {
+    align-items: flex-start !important;
+    margin-left: 0 !important;
+  }
+  .pricing-editorial-hdr,
+  .pricing-heading,
+  .pricing-editorial-sub,
+  .pricing-footnote {
+    text-align: left !important;
+    margin-left: 0 !important;
+    max-width: 100% !important;
+  }
+  .pricing-editorial-cta {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+  .footer-heart,
+  .footer-inner,
+  .testimonials-hdr,
+  .testimonials-sub,
+  .benefits-new-hdr {
+    text-align: left !important;
+    max-width: 100% !important;
+  }
+  .testimonials-hdr .h2,
+  .benefits-new-hdr .h2 {
+    text-align: left !important;
+    margin-left: 0 !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+  .footer-nav,
+  .footer-legal-strip {
+    justify-content: flex-start !important;
+  }
 }

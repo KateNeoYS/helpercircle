@@ -3644,3 +3644,22 @@ em { font-style: italic; color: var(--clr-primary); }
 .testimonials-grid + .swipe-hint {
   margin-bottom: var(--space-8) !important;
 }
+/* ── Desktop section background alternation ── */
+@media (min-width: 861px) {
+  .benefits   { background: var(--clr-cream) !important; }
+  .pricing    { background: var(--clr-white) !important; }
+  .preview    { background: var(--clr-cream) !important; }
+  .testimonials { background: var(--clr-white) !important; }
+  .testimonials-section { background: var(--clr-white) !important; }
+}
+
+/* ── Desktop: testimonials title — no early wrap ── */
+@media (min-width: 861px) {
+  .testimonials-hdr .h2 {
+    white-space: nowrap !important;
+  }
+  .testimonials-sub {
+    max-width: 420px !important;
+    margin: 0 auto !important;
+  }
+}

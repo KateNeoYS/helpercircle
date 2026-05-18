@@ -171,7 +171,7 @@
   </div>
 </section>
 
-<!-- ═══ OTHER HELPERS — only the 2 canonical ones ═══ -->
+<!-- ═══ OTHER HELPERS — compact unified cards ═══ -->
 <section class="more-helpers">
   <div class="wrap">
     <div class="more-helpers-hdr" style="margin-bottom: 32px;">
@@ -182,54 +182,47 @@
       <a href="browse.html" class="btn btn-outline">Browse all &rarr;</a>
     </div>
 
-    <div class="helper-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; max-width: 800px; margin-left: auto; margin-right: auto;">
+    <div class="hcard-grid hcard-grid--two" style="margin-left: auto; margin-right: auto;">
 
-      <!-- Aye Aye M. -->
-      <div class="hcard rev" onclick="window.location='profile.html'" style="cursor: pointer;">
+      <!-- Aye Aye M. — Employer referred -->
+      <a href="profile.html" class="hcard" data-toggle-overlay data-name="ayeaye">
         <div class="hcard-photo">
           <img src="images/ayeaye.jpg" alt="Aye Aye M."/>
-          <div class="hcard-hover-overlay">
-            <p class="hcard-bio-text">4 years eldercare in Tampines. Calm, patient, and steady.</p>
-            <a href="profile.html" class="btn btn-white btn-sm">View Profile</a>
+          <span class="hcard-tier hcard-tier--referred">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            Employer referred
+          </span>
+          <div class="hcard-overlay">
+            <p class="hcard-overlay-quote">"Calm, patient, and steady with my mother-in-law."</p>
+            <span class="hcard-overlay-cite">— Joanne K., Tampines</span>
+            <span class="hcard-overlay-specialty">Specialises in eldercare</span>
           </div>
         </div>
-        <div class="hcard-content">
-          <div class="hcard-info">
-            <div class="hcard-name">Aye Aye M.</div>
-            <div class="hcard-meta">Myanmar &middot; 4 yrs</div>
-          </div>
-          <div class="hcard-tags">
-            <span class="tag tag-specialty tag-elder">Eldercare</span>
-          </div>
-          <div class="hcard-verify">
-            <span class="verify-tick">&#10003; Employer-referred</span>
-          </div>
+        <div class="hcard-body">
+          <h3 class="hcard-name">Aye Aye M.</h3>
+          <p class="hcard-meta">Myanmar · 4 years in Singapore</p>
         </div>
-      </div>
+      </a>
 
-      <!-- Rizalyn D. -->
-      <div class="hcard rev" onclick="window.location='profile.html'" style="cursor: pointer;">
+      <!-- Rizalyn D. — Referral verified -->
+      <a href="profile.html" class="hcard" data-toggle-overlay data-name="rizalyn">
         <div class="hcard-photo">
           <img src="images/rizalyn.jpg" alt="Rizalyn D."/>
-          <div class="hcard-hover-overlay">
-            <p class="hcard-bio-text">8 years with one family in Clementi. Childcare and eldercare experience.</p>
-            <a href="profile.html" class="btn btn-white btn-sm">View Profile</a>
+          <span class="hcard-tier hcard-tier--verified">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>
+            Referral verified
+          </span>
+          <div class="hcard-overlay">
+            <p class="hcard-overlay-quote">"She made our house feel like home for our boys."</p>
+            <span class="hcard-overlay-cite">— J. Lim, Bukit Timah</span>
+            <span class="hcard-overlay-specialty">Experienced in childcare &amp; eldercare</span>
           </div>
         </div>
-        <div class="hcard-content">
-          <div class="hcard-info">
-            <div class="hcard-name">Rizalyn D.</div>
-            <div class="hcard-meta">Filipino &middot; 8 yrs</div>
-          </div>
-          <div class="hcard-tags">
-            <span class="tag tag-specialty tag-childcare">Childcare</span>
-            <span class="tag tag-specialty tag-elder">Eldercare</span>
-          </div>
-          <div class="hcard-verify">
-            <span class="verify-tick">&#10003; Employer-referred</span>
-          </div>
+        <div class="hcard-body">
+          <h3 class="hcard-name">Rizalyn D.</h3>
+          <p class="hcard-meta">Filipino · 8 years in Singapore</p>
         </div>
-      </div>
+      </a>
 
     </div>
   </div>
@@ -266,5 +259,25 @@
 
 <script src="script.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<!-- Tap-to-reveal for compact .hcard overlays on touch devices -->
+<script>
+(function () {
+  if (window.matchMedia('(hover: hover)').matches) return;
+  document.addEventListener('click', function (e) {
+    var card = e.target.closest('.hcard[data-toggle-overlay]');
+    if (!card) {
+      document.querySelectorAll('.hcard.is-open').forEach(function (c) { c.classList.remove('is-open'); });
+      return;
+    }
+    if (card.classList.contains('hcard--full')) return;
+    if (!card.classList.contains('is-open')) {
+      e.preventDefault();
+      document.querySelectorAll('.hcard.is-open').forEach(function (c) { if (c !== card) c.classList.remove('is-open'); });
+      card.classList.add('is-open');
+    }
+  }, true);
+})();
+</script>
 </body>
 </html>

@@ -48,76 +48,67 @@
       Currently introducing <strong>3 helpers</strong>. New profiles added as families refer them.
     </p>
 
-    <div class="browse-grid" id="browse-grid">
+    <div class="hcard-grid hcard-grid--static" id="browse-grid">
 
-      <div class="helper-card" data-name="siti" onclick="window.location='profile.html'">
-        <div class="hcard-img">
+      <!-- Siti Nur A. — Referral verified -->
+      <a href="profile.html" class="hcard hcard--full" data-name="siti">
+        <div class="hcard-photo">
           <img src="images/siti.jpg" alt="Siti Nur A." onerror="this.style.display='none'"/>
         </div>
         <div class="hcard-body">
-          <div class="hcard-name">Siti Nur A.</div>
-          <div class="hcard-meta">Indonesian · 6 years in Singapore</div>
-          <p style="font-family:var(--fd, Georgia, serif);font-style:italic;font-size:1rem;line-height:1.5;color:#3a4540;margin:14px 0 10px;padding-left:14px;border-left:2px solid rgba(244,153,119,.45);">
-            "She never needed reminding about anything."
-          </p>
-          <p style="font-size:.78rem;color:var(--muted);letter-spacing:.02em;margin:0 0 14px;font-weight:500;">
-            — Priscilla T., Bishan
-          </p>
-          <div class="hcard-meta" style="margin-bottom:10px;font-weight:500;">
-            Childcare specialist
-          </div>
-          <div class="hcard-ref">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="#2F8F73" stroke-width="1"/><path d="M3.5 6l1.5 1.5 3-3" stroke="#2F8F73" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Referred by previous employer
-          </div>
+          <h3 class="hcard-name">Siti Nur A.</h3>
+          <p class="hcard-meta">Indonesian · 6 years in Singapore</p>
+          <blockquote class="hcard-quote">
+            <p>"She never needed reminding about anything."</p>
+            <cite>— Priscilla T., Bishan</cite>
+          </blockquote>
+          <p class="hcard-specialty">Experienced in childcare support</p>
+          <span class="hcard-tier-row hcard-tier-row--verified">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>
+            Referral verified
+          </span>
         </div>
-      </div>
+      </a>
 
-      <div class="helper-card" data-name="ayeaye" onclick="window.location='profile.html'">
-        <div class="hcard-img">
+      <!-- Aye Aye M. — Employer referred -->
+      <a href="profile.html" class="hcard hcard--full" data-name="ayeaye">
+        <div class="hcard-photo">
           <img src="images/ayeaye.jpg" alt="Aye Aye M." onerror="this.style.display='none'"/>
         </div>
         <div class="hcard-body">
-          <div class="hcard-name">Aye Aye M.</div>
-          <div class="hcard-meta">Myanmar · 4 years in Singapore</div>
-          <p style="font-family:var(--fd, Georgia, serif);font-style:italic;font-size:1rem;line-height:1.5;color:#3a4540;margin:14px 0 10px;padding-left:14px;border-left:2px solid rgba(244,153,119,.45);">
-            "Calm, patient, and steady with my mother-in-law."
-          </p>
-          <p style="font-size:.78rem;color:var(--muted);letter-spacing:.02em;margin:0 0 14px;font-weight:500;">
-            — Joanne K., Tampines
-          </p>
-          <div class="hcard-meta" style="margin-bottom:10px;font-weight:500;">
-            Eldercare specialist
-          </div>
-          <div class="hcard-ref">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="#2F8F73" stroke-width="1"/><path d="M3.5 6l1.5 1.5 3-3" stroke="#2F8F73" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Referred by previous employer
-          </div>
+          <h3 class="hcard-name">Aye Aye M.</h3>
+          <p class="hcard-meta">Myanmar · 4 years in Singapore</p>
+          <blockquote class="hcard-quote">
+            <p>"Calm, patient, and steady with my mother-in-law."</p>
+            <cite>— Joanne K., Tampines</cite>
+          </blockquote>
+          <p class="hcard-specialty">Specialises in eldercare</p>
+          <span class="hcard-tier-row">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            Employer referred
+          </span>
         </div>
-      </div>
+      </a>
 
-      <div class="helper-card" data-name="rizalyn" onclick="window.location='profile.html'">
-        <div class="hcard-img">
+      <!-- Rizalyn D. — Referral verified -->
+      <a href="profile.html" class="hcard hcard--full" data-name="rizalyn">
+        <div class="hcard-photo">
           <img src="images/rizalyn.jpg" alt="Rizalyn D." onerror="this.style.display='none'"/>
         </div>
         <div class="hcard-body">
-          <div class="hcard-name">Rizalyn D.</div>
-          <div class="hcard-meta">Filipino · 8 years in Singapore</div>
-          <p style="font-family:var(--fd, Georgia, serif);font-style:italic;font-size:1rem;line-height:1.5;color:#3a4540;margin:14px 0 10px;padding-left:14px;border-left:2px solid rgba(244,153,119,.45);">
-            "She made our house feel like home for our boys."
-          </p>
-          <p style="font-size:.78rem;color:var(--muted);letter-spacing:.02em;margin:0 0 14px;font-weight:500;">
-            — J. Lim, Bukit Timah
-          </p>
-          <div class="hcard-meta" style="margin-bottom:10px;font-weight:500;">
-            Childcare &amp; eldercare
-          </div>
-          <div class="hcard-ref">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="#2F8F73" stroke-width="1"/><path d="M3.5 6l1.5 1.5 3-3" stroke="#2F8F73" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Referred by previous employer
-          </div>
+          <h3 class="hcard-name">Rizalyn D.</h3>
+          <p class="hcard-meta">Filipino · 8 years in Singapore</p>
+          <blockquote class="hcard-quote">
+            <p>"She made our house feel like home for our boys."</p>
+            <cite>— J. Lim, Bukit Timah</cite>
+          </blockquote>
+          <p class="hcard-specialty">Experienced in childcare &amp; eldercare</p>
+          <span class="hcard-tier-row hcard-tier-row--verified">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>
+            Referral verified
+          </span>
         </div>
-      </div>
+      </a>
 
     </div>
 
@@ -210,5 +201,25 @@
 
 <script src="script.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<!-- Tap-to-reveal for compact .hcard overlays on touch devices -->
+<script>
+(function () {
+  if (window.matchMedia('(hover: hover)').matches) return;
+  document.addEventListener('click', function (e) {
+    var card = e.target.closest('.hcard[data-toggle-overlay]');
+    if (!card) {
+      document.querySelectorAll('.hcard.is-open').forEach(function (c) { c.classList.remove('is-open'); });
+      return;
+    }
+    if (card.classList.contains('hcard--full')) return;
+    if (!card.classList.contains('is-open')) {
+      e.preventDefault();
+      document.querySelectorAll('.hcard.is-open').forEach(function (c) { if (c !== card) c.classList.remove('is-open'); });
+      card.classList.add('is-open');
+    }
+  }, true);
+})();
+</script>
 </body>
 </html>

@@ -11,16 +11,11 @@
   <meta property="og:description" content="Refer a domestic helper you trust. Takes 2 minutes, we handle the rest."/>
   <link rel="stylesheet" href="styles.css"/>
   <style>
-    /* Page-specific minimal refinements — using only inline styles */
     .refer-hero-v2 {
       padding: clamp(56px, 8vw, 96px) 0 clamp(48px, 6vw, 72px);
       background: var(--clr-cream, #FCF7EE);
       position: relative;
       overflow: hidden;
-    }
-    .refer-hero-v2 .wrap {
-      position: relative;
-      z-index: 2;
     }
     .refer-grid {
       display: grid;
@@ -29,14 +24,9 @@
       align-items: start;
     }
     @media (max-width: 880px) {
-      .refer-grid {
-        grid-template-columns: 1fr;
-        gap: 36px;
-      }
+      .refer-grid { grid-template-columns: 1fr; gap: 36px; }
     }
-    .refer-left .kicker {
-      margin-bottom: 16px;
-    }
+    .refer-left .kicker { margin-bottom: 16px; }
     .refer-hl-v2 {
       font-size: clamp(2.2rem, 4.5vw, 3.4rem);
       line-height: 1.05;
@@ -46,279 +36,276 @@
       font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
       color: var(--clr-ink, #1F2A24);
     }
-    .refer-hl-v2 em {
-      font-style: italic;
-      color: var(--clr-primary, #2C8A6E);
-    }
+    .refer-hl-v2 em { font-style: italic; color: var(--clr-primary, #2C8A6E); }
     .refer-sub-v2 {
-      font-size: 1.05rem;
-      line-height: 1.6;
+      font-size: 1.05rem; line-height: 1.6;
       color: var(--clr-text-muted, #4A5651);
-      margin: 0 0 24px;
-      max-width: 460px;
+      margin: 0 0 24px; max-width: 460px;
       text-wrap: pretty;
     }
     .refer-warm {
       font-family: var(--font-display, Georgia, serif);
       font-style: italic;
-      font-size: 1.02rem;
-      line-height: 1.55;
+      font-size: 1.02rem; line-height: 1.55;
       color: var(--clr-text, #1F2A24);
       padding-left: 16px;
       border-left: 2px solid rgba(244, 153, 119, 0.45);
-      margin: 28px 0 32px;
-      max-width: 440px;
+      margin: 24px 0 36px; max-width: 440px;
     }
     .refer-pills-v2 {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 0 0 28px;
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px;
     }
     .refer-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 12px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.005em;
-      color: var(--clr-text, #1F2A24);
-      background: #fff;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 12px; font-size: 0.82rem; font-weight: 500;
+      color: var(--clr-text, #1F2A24); background: #fff;
       border: 1px solid rgba(44, 95, 79, 0.18);
       border-radius: 999px;
     }
-    .refer-pill svg {
-      flex-shrink: 0;
+    .refer-benefits {
+      margin: 8px 0 0; padding: 0; list-style: none;
+      display: flex; flex-direction: column; gap: 22px;
+      max-width: 440px;
     }
-
-    /* Lighter form card */
+    .refer-benefit { display: flex; gap: 16px; align-items: flex-start; }
+    .refer-benefit-icon {
+      flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
+      background: #fff; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 1px 2px rgba(31, 42, 36, 0.04), 0 4px 12px -4px rgba(31, 42, 36, 0.08);
+    }
+    .refer-benefit-icon.is-peach { background: #FFF1EB; }
+    .refer-benefit-icon.is-green { background: #E8F1ED; }
+    .refer-benefit-icon.is-cream { background: #F9F2E5; }
+    .refer-benefit-text { flex: 1; padding-top: 4px; }
+    .refer-benefit-title {
+      font-size: 0.98rem; font-weight: 600;
+      color: var(--clr-text, #1F2A24);
+      margin: 0 0 4px; line-height: 1.35;
+    }
+    .refer-benefit-sub {
+      font-size: 0.86rem;
+      color: var(--clr-text-muted, #4A5651);
+      margin: 0; line-height: 1.55;
+    }
+    .incentive-box {
+      margin-top: 32px; padding: 18px 20px;
+      background: #fff; border-radius: 14px;
+      border: 1px dashed rgba(244, 153, 119, 0.5);
+      max-width: 440px;
+    }
+    .incentive-title {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.92rem; font-weight: 600;
+      color: var(--clr-text, #1F2A24); margin: 0 0 10px;
+    }
+    .incentive-title svg { color: #E8825C; }
+    .incentive-options {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 6px;
+      font-size: 0.85rem; color: var(--clr-text-muted, #4A5651);
+    }
+    .incentive-options li { display: flex; gap: 8px; align-items: flex-start; }
+    .incentive-options li::before { content: "•"; color: #E8825C; flex-shrink: 0; }
+    .incentive-note {
+      font-size: 0.75rem; color: var(--clr-text-muted, #4A5651);
+      margin: 10px 0 0; font-style: italic;
+    }
     .form-card-v2 {
-      background: #fff;
-      border-radius: 18px;
+      background: #fff; border-radius: 18px;
       padding: clamp(24px, 3vw, 36px);
       border: 1px solid rgba(31, 42, 36, 0.08);
       box-shadow: 0 1px 0 rgba(31, 42, 36, 0.02), 0 8px 28px -16px rgba(31, 42, 36, 0.08);
     }
     .form-card-v2 .form-card-ttl-v2 {
       font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
-      font-size: 1.7rem;
-      font-weight: 500;
+      font-size: 1.7rem; font-weight: 500;
       margin: 0 0 6px;
-      letter-spacing: -0.005em;
     }
     .form-card-v2 .form-card-sub-v2 {
-      font-size: 0.93rem;
-      color: var(--clr-text-muted, #4A5651);
-      margin: 0 0 22px;
-      line-height: 1.55;
+      font-size: 0.93rem; color: var(--clr-text-muted, #4A5651);
+      margin: 0 0 22px; line-height: 1.55;
     }
-
-    .form-card-v2 .fg-v2 {
-      margin-bottom: 14px;
-    }
+    .form-card-v2 .fg-v2 { margin-bottom: 14px; }
     .form-card-v2 .fg-v2 label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--clr-text, #1F2A24);
-      margin-bottom: 6px;
-      letter-spacing: 0.005em;
+      display: block; font-size: 0.85rem; font-weight: 500;
+      color: var(--clr-text, #1F2A24); margin-bottom: 6px;
     }
     .form-card-v2 .fg-v2 .opt-tag {
-      font-size: 0.75rem;
-      color: var(--clr-text-muted, #4A5651);
-      font-weight: 400;
-      margin-left: 4px;
+      font-size: 0.75rem; color: var(--clr-text-muted, #4A5651);
+      font-weight: 400; margin-left: 4px;
     }
-    .form-card-v2 input,
-    .form-card-v2 select,
-    .form-card-v2 textarea {
-      width: 100%;
-      padding: 10px 14px;
+    .form-card-v2 input, .form-card-v2 select, .form-card-v2 textarea {
+      width: 100%; padding: 10px 14px;
       border: 1px solid rgba(31, 42, 36, 0.14);
-      border-radius: 10px;
-      background: #fff;
-      font-size: 0.95rem;
-      font-family: inherit;
+      border-radius: 10px; background: #fff;
+      font-size: 0.95rem; font-family: inherit;
       color: var(--clr-text, #1F2A24);
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
       box-sizing: border-box;
     }
-    .form-card-v2 input:focus,
-    .form-card-v2 select:focus,
-    .form-card-v2 textarea:focus {
+    .form-card-v2 input:focus, .form-card-v2 select:focus, .form-card-v2 textarea:focus {
       outline: none;
       border-color: var(--clr-primary, #2C8A6E);
       box-shadow: 0 0 0 3px rgba(44, 138, 110, 0.12);
     }
-    .form-card-v2 textarea {
-      min-height: 78px;
-      resize: vertical;
-      line-height: 1.5;
-    }
+    .form-card-v2 textarea { min-height: 90px; resize: vertical; line-height: 1.5; }
     .form-row-v2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
     }
     @media (max-width: 520px) {
-      .form-row-v2 {
-        grid-template-columns: 1fr;
-      }
+      .form-row-v2 { grid-template-columns: 1fr; }
     }
-
-    /* Expandable optional section */
+    .contact-toggle {
+      display: inline-flex; gap: 4px;
+      background: rgba(31, 42, 36, 0.05);
+      border-radius: 8px; padding: 3px;
+      margin-bottom: 6px;
+    }
+    .contact-toggle button {
+      appearance: none; border: none; background: transparent;
+      padding: 5px 12px; font-size: 0.78rem; font-weight: 500;
+      color: var(--clr-text-muted, #4A5651);
+      cursor: pointer; border-radius: 6px;
+      font-family: inherit; transition: all 0.15s ease;
+    }
+    .contact-toggle button.on {
+      background: #fff; color: var(--clr-text, #1F2A24);
+      box-shadow: 0 1px 2px rgba(31, 42, 36, 0.06);
+    }
     .form-expand-toggle {
-      appearance: none;
-      border: none;
-      background: transparent;
+      appearance: none; border: none; background: transparent;
       color: var(--clr-primary, #2C8A6E);
-      font-size: 0.88rem;
-      font-weight: 500;
-      cursor: pointer;
-      padding: 10px 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: inherit;
-      text-decoration: underline;
+      font-size: 0.88rem; font-weight: 500; cursor: pointer;
+      padding: 14px 0 4px;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: inherit; text-decoration: underline;
       text-underline-offset: 3px;
       text-decoration-color: rgba(44, 138, 110, 0.35);
     }
-    .form-expand-toggle:hover {
-      text-decoration-color: var(--clr-primary, #2C8A6E);
-    }
-    .form-expand-toggle .arrow {
-      transition: transform 0.2s ease;
-    }
-    .form-expand-toggle.open .arrow {
-      transform: rotate(180deg);
-    }
+    .form-expand-toggle:hover { text-decoration-color: var(--clr-primary, #2C8A6E); }
+    .form-expand-toggle .arrow { transition: transform 0.2s ease; }
+    .form-expand-toggle.open .arrow { transform: rotate(180deg); }
     .form-expand-panel {
-      display: none;
-      padding-top: 8px;
+      display: none; padding-top: 14px; margin-top: 8px;
       border-top: 1px dashed rgba(31, 42, 36, 0.1);
-      margin-top: 8px;
     }
-    .form-expand-panel.open {
-      display: block;
-    }
+    .form-expand-panel.open { display: block; }
     .form-section-hint {
-      font-size: 0.78rem;
-      color: var(--clr-text-muted, #4A5651);
-      line-height: 1.55;
-      margin: 0 0 14px;
-      padding: 10px 12px;
-      background: rgba(44, 138, 110, 0.05);
-      border-radius: 8px;
-      border-left: 2px solid rgba(44, 138, 110, 0.3);
+      font-size: 0.78rem; color: var(--clr-text-muted, #4A5651);
+      line-height: 1.55; margin: 0 0 16px;
+      padding: 10px 12px; background: rgba(44, 138, 110, 0.05);
+      border-radius: 8px; border-left: 2px solid rgba(44, 138, 110, 0.3);
     }
-
-    /* Verified badge callout */
     .verified-callout {
-      margin-top: 14px;
-      padding: 12px 14px;
+      margin-top: 14px; padding: 12px 14px;
       background: rgba(44, 138, 110, 0.06);
       border-radius: 10px;
-      font-size: 0.82rem;
-      line-height: 1.55;
+      font-size: 0.82rem; line-height: 1.55;
       color: var(--clr-text, #1F2A24);
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
+      display: flex; gap: 10px; align-items: flex-start;
     }
-    .verified-callout svg {
-      flex-shrink: 0;
-      margin-top: 2px;
-      color: var(--clr-primary, #2C8A6E);
+    .verified-callout svg { flex-shrink: 0; margin-top: 2px; color: var(--clr-primary, #2C8A6E); }
+    .verified-callout strong { color: var(--clr-primary, #2C8A6E); }
+    .checkbox-group {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px;
     }
-    .verified-callout strong {
-      color: var(--clr-primary, #2C8A6E);
+    @media (max-width: 520px) {
+      .checkbox-group { grid-template-columns: 1fr; }
     }
-
-    .submit-btn-v2 {
-      margin-top: 18px;
-      width: 100%;
+    .checkbox-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 9px 12px;
+      border: 1px solid rgba(31, 42, 36, 0.14);
+      border-radius: 8px; cursor: pointer;
+      font-size: 0.88rem; transition: all 0.15s ease;
+      user-select: none;
     }
+    .checkbox-item:hover {
+      border-color: rgba(44, 138, 110, 0.35);
+      background: rgba(44, 138, 110, 0.03);
+    }
+    .checkbox-item input {
+      width: auto; margin: 0;
+      accent-color: var(--clr-primary, #2C8A6E);
+      cursor: pointer;
+    }
+    .checkbox-item input:checked + span {
+      color: var(--clr-primary, #2C8A6E); font-weight: 500;
+    }
+    .quote-suggestions { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+    .quote-suggestions-label {
+      font-size: 0.75rem; color: var(--clr-text-muted, #4A5651);
+      margin: 0 0 4px;
+    }
+    .quote-suggestion-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .quote-chip {
+      appearance: none;
+      border: 1px dashed rgba(44, 138, 110, 0.35);
+      background: transparent; color: var(--clr-primary, #2C8A6E);
+      padding: 6px 10px; font-size: 0.78rem;
+      border-radius: 999px; cursor: pointer;
+      font-family: inherit; transition: all 0.15s ease;
+      line-height: 1.3; text-align: left;
+    }
+    .quote-chip:hover {
+      background: rgba(44, 138, 110, 0.06); border-style: solid;
+    }
+    .quote-counter {
+      font-size: 0.72rem; color: var(--clr-text-muted, #4A5651);
+      text-align: right; margin: 6px 0 0;
+    }
+    .quote-counter.is-good { color: var(--clr-primary, #2C8A6E); }
+    .submit-btn-v2 { margin-top: 18px; width: 100%; }
     .submit-note-v2 {
-      font-size: 0.76rem;
-      color: var(--clr-text-muted, #4A5651);
-      text-align: center;
-      margin: 10px 0 0;
-      line-height: 1.55;
+      font-size: 0.76rem; color: var(--clr-text-muted, #4A5651);
+      text-align: center; margin: 10px 0 0; line-height: 1.55;
     }
-
-    /* Lightweight horizontal timeline */
-    .timeline-section {
-      padding: clamp(56px, 7vw, 88px) 0;
-      background: #fff;
-    }
-    .timeline-hdr {
-      text-align: center;
-      max-width: 520px;
-      margin: 0 auto 40px;
-    }
-    .timeline-hdr .kicker {
-      margin-bottom: 12px;
-    }
-    .timeline-hdr h2 {
+    .next-section { padding: clamp(56px, 7vw, 88px) 0; background: #fff; }
+    .next-hdr { text-align: center; max-width: 560px; margin: 0 auto 48px; }
+    .next-hdr .kicker { margin-bottom: 12px; }
+    .next-hdr h2 {
       font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
-      font-size: clamp(1.9rem, 3vw, 2.4rem);
-      font-weight: 500;
-      letter-spacing: -0.005em;
-      margin: 0;
+      font-size: clamp(1.9rem, 3vw, 2.4rem); font-weight: 500;
+      letter-spacing: -0.005em; margin: 0 0 12px;
       color: var(--clr-ink, #1F2A24);
     }
-    .timeline-flow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      max-width: 880px;
-      margin: 0 auto;
+    .next-hdr p {
+      font-size: 0.95rem; color: var(--clr-text-muted, #4A5651);
+      line-height: 1.6; margin: 0;
     }
-    .timeline-step {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 22px;
-      background: var(--clr-cream, #FCF7EE);
-      border-radius: 12px;
-      font-size: 0.95rem;
-      color: var(--clr-text, #1F2A24);
-      font-weight: 500;
+    .next-flow {
+      max-width: 720px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 0;
     }
-    .timeline-step .tl-num {
-      font-size: 0.7rem;
-      font-weight: 700;
-      width: 22px;
-      height: 22px;
+    .next-step { display: flex; gap: 20px; padding: 22px 0; position: relative; }
+    .next-step:not(:last-child)::after {
+      content: ""; position: absolute;
+      left: 19px; top: 60px; bottom: -10px;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(44, 138, 110, 0.4), rgba(44, 138, 110, 0.1));
+    }
+    .next-num {
+      flex-shrink: 0; width: 40px; height: 40px;
       border-radius: 50%;
       background: var(--clr-primary, #2C8A6E);
       color: #fff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      letter-spacing: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.95rem; font-weight: 600;
+      box-shadow: 0 0 0 4px rgba(44, 138, 110, 0.1);
     }
-    .timeline-arrow {
-      color: var(--clr-text-muted, #4A5651);
-      opacity: 0.6;
+    .next-body { flex: 1; padding-top: 6px; }
+    .next-title {
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--clr-text, #1F2A24);
+      margin: 0 0 6px;
     }
-    @media (max-width: 720px) {
-      .timeline-flow {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .timeline-step {
-        justify-content: center;
-      }
-      .timeline-arrow {
-        transform: rotate(90deg);
-        margin: 0 auto;
-      }
+    .next-detail {
+      font-size: 0.92rem; line-height: 1.6;
+      color: var(--clr-text-muted, #4A5651); margin: 0;
+    }
+    .next-meta {
+      font-size: 0.78rem; color: var(--clr-primary, #2C8A6E);
+      margin-top: 6px; font-weight: 500;
     }
   </style>
 </head>
@@ -349,7 +336,7 @@
   <div class="wrap">
     <div class="refer-grid">
 
-      <!-- Left: copy -->
+      <!-- Left: copy + visualized benefits + incentive -->
       <div class="refer-left">
         <div class="kicker">For previous employers</div>
         <h1 class="refer-hl-v2">Know a <em>good helper?</em></h1>
@@ -364,16 +351,63 @@
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h7M7 3.5L9.5 6 7 8.5" stroke="#2C8A6E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
             We handle the follow-up
           </span>
-          <span class="refer-pill">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1l1 2.8 3 .3-2.2 2 .7 2.9L6 7.7 3.5 8.9l.7-2.9L2 4.1l3-.3z" stroke="#2C8A6E" stroke-width="1.1" stroke-linejoin="round"/></svg>
-            Optional referral incentive
-          </span>
         </div>
 
         <p class="refer-warm">Many referrals happen because families genuinely want to help a trusted helper find a good next home in Singapore.</p>
+
+        <ul class="refer-benefits">
+          <li class="refer-benefit">
+            <div class="refer-benefit-icon is-peach" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M2 12l8-3v-6l2 1v5l8 3-8 3v4l-2-1v-3l-8-3z" stroke="#E8825C" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="refer-benefit-text">
+              <p class="refer-benefit-title">Save her flight home</p>
+              <p class="refer-benefit-sub">A local transfer keeps her here in Singapore — no repatriation costs.</p>
+            </div>
+          </li>
+          <li class="refer-benefit">
+            <div class="refer-benefit-icon is-green" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="7" width="18" height="13" rx="2" stroke="#2C8A6E" stroke-width="1.5"/>
+                <path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2" stroke="#2C8A6E" stroke-width="1.5"/>
+                <path d="M3 13h18" stroke="#2C8A6E" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div class="refer-benefit-text">
+              <p class="refer-benefit-title">Help her find a good next family</p>
+              <p class="refer-benefit-sub">She secures her next job without taking on agency loans.</p>
+            </div>
+          </li>
+          <li class="refer-benefit">
+            <div class="refer-benefit-icon is-cream" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 21s-7-4.5-9-9.5C2 8 4 5 7 5c2 0 3 1 5 3 2-2 3-3 5-3 3 0 5 3 4 6.5-2 5-9 9.5-9 9.5z" stroke="#B8884A" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="refer-benefit-text">
+              <p class="refer-benefit-title">A small thank-you from us</p>
+              <p class="refer-benefit-sub">A token of appreciation when your referral is successfully placed.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="incentive-box">
+          <div class="incentive-title">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.7 4.8 5.1.5-3.8 3.4 1.2 5L8 12l-4.2 2.7 1.2-5-3.8-3.4 5.1-.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            Our thank-you when she's placed
+          </div>
+          <ul class="incentive-options">
+            <li>S$30 FairPrice voucher</li>
+            <li>S$30 donation made in your name</li>
+            <li>Or pass it forward to her</li>
+          </ul>
+          <p class="incentive-note">Choose one when your referral is successfully placed.</p>
+        </div>
       </div>
 
-      <!-- Right: lighter form -->
+      <!-- Right: form -->
       <div class="form-card-v2">
         <div id="form-wrap">
           <h2 class="form-card-ttl-v2">Refer a helper</h2>
@@ -381,15 +415,19 @@
 
           <form id="refer-form" novalidate>
 
-            <!-- Just 4 required fields visible initially -->
             <div class="form-row-v2">
               <div class="fg-v2">
                 <label for="your-name">Your name</label>
                 <input type="text" id="your-name" placeholder="Jane Tan" required/>
               </div>
               <div class="fg-v2">
-                <label for="your-email">Your email <span class="opt-tag">(for verification)</span></label>
+                <label>Your contact <span class="opt-tag">(for verification)</span></label>
+                <div class="contact-toggle" role="group" aria-label="Contact type">
+                  <button type="button" id="toggle-email" class="on">Email</button>
+                  <button type="button" id="toggle-phone">Phone</button>
+                </div>
                 <input type="email" id="your-email" placeholder="you@email.com"/>
+                <input type="tel" id="your-phone" placeholder="+65 9XXX XXXX" style="display:none;"/>
               </div>
             </div>
 
@@ -404,15 +442,13 @@
               </div>
             </div>
 
-            <!-- Verified badge callout -->
             <div class="verified-callout">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5L13 4v4c0 3-2.2 5.5-5 6-2.8-.5-5-3-5-6V4l5-2.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M5.5 8l2 2 3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>Sharing your email gets your referral a <strong>Referral verified</strong> badge after a quick verification call. Your email is never shared publicly.</span>
+              <span>Sharing your contact gets your referral a <strong>Referral verified</strong> badge after a quick verification call. Your contact is never shared publicly.</span>
             </div>
 
-            <!-- Expandable optional details -->
             <button type="button" class="form-expand-toggle" id="expand-toggle" aria-expanded="false">
-              Add more details (optional)
+              <span id="expand-toggle-text">Add more details (optional)</span>
               <svg class="arrow" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2.5 4l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
 
@@ -445,35 +481,43 @@
                 </div>
               </div>
 
-              <div class="form-row-v2">
-                <div class="fg-v2">
-                  <label for="helper-specialty">What's she experienced with?</label>
-                  <select id="helper-specialty">
-                    <option value="">Select</option>
-                    <option>Childcare</option>
-                    <option>Eldercare</option>
-                    <option>Infant care</option>
-                    <option>Cooking</option>
-                    <option>Housekeeping</option>
-                    <option>Pet care</option>
-                    <option>Multiple areas</option>
-                  </select>
-                </div>
-                <div class="fg-v2">
-                  <label for="helper-situation">When is she available?</label>
-                  <select id="helper-situation">
-                    <option value="">Select</option>
-                    <option>Available now</option>
-                    <option>Within 1 month</option>
-                    <option>1–3 months</option>
-                    <option>Still deciding</option>
-                  </select>
+              <div class="fg-v2">
+                <label>What's she experienced with? <span class="opt-tag">(select all that apply)</span></label>
+                <div class="checkbox-group">
+                  <label class="checkbox-item"><input type="checkbox" value="Childcare"/> <span>Childcare</span></label>
+                  <label class="checkbox-item"><input type="checkbox" value="Eldercare"/> <span>Eldercare</span></label>
+                  <label class="checkbox-item"><input type="checkbox" value="Infant care"/> <span>Infant care</span></label>
+                  <label class="checkbox-item"><input type="checkbox" value="Cooking"/> <span>Cooking</span></label>
+                  <label class="checkbox-item"><input type="checkbox" value="Housekeeping"/> <span>Housekeeping</span></label>
+                  <label class="checkbox-item"><input type="checkbox" value="Pet care"/> <span>Pet care</span></label>
                 </div>
               </div>
 
               <div class="fg-v2">
-                <label for="helper-quote">Why are you referring her?</label>
-                <textarea id="helper-quote" placeholder="e.g. 'She never needed reminding about anything. The kids loved her.' Specific examples help us write her profile honestly."></textarea>
+                <label for="helper-situation">When is she available?</label>
+                <select id="helper-situation">
+                  <option value="">Select</option>
+                  <option>Available now</option>
+                  <option>Within 1 month</option>
+                  <option>1–3 months</option>
+                  <option>More than 3 months</option>
+                  <option>Still deciding</option>
+                </select>
+              </div>
+
+              <div class="fg-v2">
+                <label for="helper-quote">Why are you referring her? <span class="opt-tag">(aim for 30–80 words)</span></label>
+                <textarea id="helper-quote" placeholder="Tell us in your own words what made her stand out. Specific examples are most helpful."></textarea>
+                <p class="quote-counter" id="quote-counter">0 words</p>
+
+                <div class="quote-suggestions">
+                  <p class="quote-suggestions-label">Need help? Try a starter:</p>
+                  <div class="quote-suggestion-chips">
+                    <button type="button" class="quote-chip" data-text="She was with us for [X] years and we were sad to say goodbye. She's reliable, kind to our kids, and never needed reminding about anything.">Reliable and kind</button>
+                    <button type="button" class="quote-chip" data-text="She's calm and steady — especially with our elderly parent. Patient through difficult moments and trustworthy in our home.">Calm with elderly</button>
+                    <button type="button" class="quote-chip" data-text="She handled our household independently from day one. Excellent cook, organised, and good with kids of all ages.">Self-directed</button>
+                  </div>
+                </div>
               </div>
 
               <div class="fg-v2">
@@ -487,14 +531,17 @@
           </form>
         </div>
 
-        <!-- Success -->
         <div class="form-success" id="form-success" style="display:none;text-align:center;padding:24px 0;">
           <div style="width:54px;height:54px;border-radius:50%;background:rgba(44,138,110,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="#2C8A6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <h3 style="font-family:var(--font-display, Georgia, serif);font-size:1.5rem;font-weight:500;margin:0 0 10px;">Referral received</h3>
-          <p style="font-size:0.95rem;color:var(--clr-text-muted, #4A5651);line-height:1.6;margin:0 0 20px;max-width:340px;margin-left:auto;margin-right:auto;">Thank you. We'll be in touch within 2 business days to verify and list them.</p>
-          <a href="browse.html" class="btn btn-outline">Browse Helpers</a>
+          <p style="font-size:0.95rem;color:var(--clr-text-muted, #4A5651);line-height:1.6;margin:0 0 8px;max-width:340px;margin-left:auto;margin-right:auto;">A confirmation email is on its way. We'll be in touch within 2 business days.</p>
+          <p style="font-size:0.85rem;color:var(--clr-text-muted, #4A5651);line-height:1.6;margin:0 0 24px;max-width:340px;margin-left:auto;margin-right:auto;">Know another good helper?</p>
+          <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+            <button type="button" id="refer-another" class="btn btn-green">Refer another helper</button>
+            <a href="browse.html" class="btn btn-outline">Browse Helpers</a>
+          </div>
         </div>
       </div>
 
@@ -502,32 +549,57 @@
   </div>
 </section>
 
-<!-- ═══ AFTER YOU SUBMIT — horizontal timeline ═══ -->
-<section class="timeline-section">
+<!-- ═══ AFTER YOU SUBMIT — detailed vertical timeline ═══ -->
+<section class="next-section">
   <div class="wrap">
-    <div class="timeline-hdr">
+    <div class="next-hdr">
       <div class="kicker">What happens next</div>
-      <h2>After you submit a referral</h2>
+      <h2>How your referral becomes a profile</h2>
+      <p>Every referral goes through the same careful process — whether the helper is your former employee or someone you're vouching for.</p>
     </div>
-    <div class="timeline-flow">
-      <div class="timeline-step">
-        <span class="tl-num">1</span>
-        <span>Submit referral</span>
+    <div class="next-flow">
+
+      <div class="next-step">
+        <div class="next-num">1</div>
+        <div class="next-body">
+          <h3 class="next-title">Confirmation email — within minutes</h3>
+          <p class="next-detail">You'll receive an email confirming we've received your referral, along with a short summary of what you submitted.</p>
+        </div>
       </div>
-      <span class="timeline-arrow">
-        <svg width="20" height="14" viewBox="0 0 20 14" fill="none"><path d="M2 7h16M14 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
-      <div class="timeline-step">
-        <span class="tl-num">2</span>
-        <span>We verify</span>
+
+      <div class="next-step">
+        <div class="next-num">2</div>
+        <div class="next-body">
+          <h3 class="next-title">We reach out to the helper — within 2 business days</h3>
+          <p class="next-detail">We message her on WhatsApp to introduce ourselves, confirm she'd like to be referred, and gather a few more details (work history, photo, availability).</p>
+        </div>
       </div>
-      <span class="timeline-arrow">
-        <svg width="20" height="14" viewBox="0 0 20 14" fill="none"><path d="M2 7h16M14 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
-      <div class="timeline-step">
-        <span class="tl-num">3</span>
-        <span>Profile goes live</span>
+
+      <div class="next-step">
+        <div class="next-num">3</div>
+        <div class="next-body">
+          <h3 class="next-title">Verification call with you</h3>
+          <p class="next-detail">If you've shared your contact, we'll call or email you with 2–3 quick questions about her — her strengths, work style, and why you're vouching for her. About 5 minutes.</p>
+          <p class="next-meta">→ This step earns her the "Referral verified" badge on her profile.</p>
+        </div>
       </div>
+
+      <div class="next-step">
+        <div class="next-num">4</div>
+        <div class="next-body">
+          <h3 class="next-title">We write and share her profile draft</h3>
+          <p class="next-detail">We turn your input plus our conversations into a calm, editorial profile. Both you and the helper see it before it goes live, with a chance to suggest edits.</p>
+        </div>
+      </div>
+
+      <div class="next-step">
+        <div class="next-num">5</div>
+        <div class="next-body">
+          <h3 class="next-title">Profile goes live — you'll be the first to know</h3>
+          <p class="next-detail">Once published, we email you with the link. If she finds a new family through Helper Circle, we'll send your thank-you token (your choice of voucher, donation, or pass-it-forward).</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -565,55 +637,108 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  // Email/phone toggle
+  (function() {
+    var tEmail = document.getElementById('toggle-email');
+    var tPhone = document.getElementById('toggle-phone');
+    var iEmail = document.getElementById('your-email');
+    var iPhone = document.getElementById('your-phone');
+    if (!tEmail || !tPhone) return;
+    tEmail.addEventListener('click', function() {
+      tEmail.classList.add('on'); tPhone.classList.remove('on');
+      iEmail.style.display = ''; iPhone.style.display = 'none';
+    });
+    tPhone.addEventListener('click', function() {
+      tPhone.classList.add('on'); tEmail.classList.remove('on');
+      iPhone.style.display = ''; iEmail.style.display = 'none';
+    });
+  })();
+
   // Expandable section toggle
   (function() {
     var toggle = document.getElementById('expand-toggle');
     var panel = document.getElementById('expand-panel');
+    var label = document.getElementById('expand-toggle-text');
     if (!toggle || !panel) return;
-
     toggle.addEventListener('click', function() {
       var isOpen = panel.classList.contains('open');
       if (isOpen) {
-        panel.classList.remove('open');
-        toggle.classList.remove('open');
+        panel.classList.remove('open'); toggle.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
-        toggle.firstChild.textContent = 'Add more details (optional) ';
+        label.textContent = 'Add more details (optional)';
       } else {
-        panel.classList.add('open');
-        toggle.classList.add('open');
+        panel.classList.add('open'); toggle.classList.add('open');
         toggle.setAttribute('aria-expanded', 'true');
-        toggle.firstChild.textContent = 'Hide optional details ';
+        label.textContent = 'Hide optional details';
       }
     });
   })();
 
-  // Form submit (simulated — wire to backend later)
+  // Quote suggestions + word counter
+  (function() {
+    var chips = document.querySelectorAll('.quote-chip');
+    var textarea = document.getElementById('helper-quote');
+    var counter = document.getElementById('quote-counter');
+    if (!textarea) return;
+    chips.forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        textarea.value = chip.dataset.text;
+        textarea.focus();
+        updateCounter();
+      });
+    });
+    function updateCounter() {
+      var text = textarea.value.trim();
+      var words = text === '' ? 0 : text.split(/\s+/).length;
+      counter.textContent = words + ' word' + (words === 1 ? '' : 's');
+      counter.classList.toggle('is-good', words >= 30 && words <= 80);
+    }
+    textarea.addEventListener('input', updateCounter);
+    updateCounter();
+  })();
+
+  // Form submit + refer another
   (function() {
     var form = document.getElementById('refer-form');
     var formWrap = document.getElementById('form-wrap');
     var success = document.getElementById('form-success');
+    var referAnother = document.getElementById('refer-another');
     if (!form) return;
 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      // Basic validation
       var requiredFields = form.querySelectorAll('[required]');
       var valid = true;
       requiredFields.forEach(function(field) {
         if (!field.value.trim()) {
-          field.style.borderColor = '#D85959';
-          valid = false;
-        } else {
-          field.style.borderColor = '';
-        }
+          field.style.borderColor = '#D85959'; valid = false;
+        } else { field.style.borderColor = ''; }
       });
-
       if (!valid) return;
-
-      // Show success
       formWrap.style.display = 'none';
       success.style.display = 'block';
+      window.scrollTo({ top: success.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
     });
+
+    if (referAnother) {
+      referAnother.addEventListener('click', function() {
+        form.reset();
+        document.querySelectorAll('.checkbox-item input').forEach(function(cb) { cb.checked = false; });
+        var counter = document.getElementById('quote-counter');
+        if (counter) { counter.textContent = '0 words'; counter.classList.remove('is-good'); }
+        var panel = document.getElementById('expand-panel');
+        var toggle = document.getElementById('expand-toggle');
+        var label = document.getElementById('expand-toggle-text');
+        if (panel && panel.classList.contains('open')) {
+          panel.classList.remove('open'); toggle.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          if (label) label.textContent = 'Add more details (optional)';
+        }
+        success.style.display = 'none';
+        formWrap.style.display = 'block';
+        window.scrollTo({ top: formWrap.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+      });
+    }
   })();
 </script>
 </body>

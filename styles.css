@@ -4504,3 +4504,63 @@ em { font-style: italic; color: var(--clr-primary); }
     flex: 0 0 200px !important;
   }
 }
+
+/* =============================================================
+   MOBILE FINAL OVERRIDES (round 2)
+   1. Hero micro-trust list — 2-column grid instead of stacked
+   2. Hero card stack — bring sizes back down (was 220×290 too big)
+   ============================================================= */
+
+@media (max-width: 860px) {
+  /* Lay the four trust bullets in a tight 2×2 grid */
+  .hero-micro-trust {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    flex-direction: unset !important;
+    align-items: start !important;
+    gap: 6px 14px !important;
+    margin-top: var(--space-3, 12px);
+  }
+  .micro-trust-sep { display: none !important; }
+  .micro-trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+
+  /* Shrink hero cards to original-ish mobile size */
+  .hc,
+  .hc-a,
+  .hc-b,
+  .hc-c {
+    width: 148px !important;
+    min-width: 148px !important;
+    max-width: 148px !important;
+    height: 198px !important;
+    flex: 0 0 148px !important;
+  }
+}
+
+/* Small phones — keep the 2×2 grid but tighten */
+@media (max-width: 400px) {
+  .hero-micro-trust {
+    gap: 5px 10px !important;
+  }
+  .micro-trust-item {
+    font-size: 0.78rem;
+    gap: 5px;
+  }
+
+  .hc,
+  .hc-a,
+  .hc-b,
+  .hc-c {
+    width: 138px !important;
+    min-width: 138px !important;
+    max-width: 138px !important;
+    height: 184px !important;
+    flex: 0 0 138px !important;
+  }
+}

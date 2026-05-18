@@ -3708,3 +3708,5 @@ em { font-style: italic; color: var(--clr-primary); }
     text-align: center !important;
   }
 }
+/* ── Correct pricing section selector ── */
+.pricing-section { background: var(--clr-cream) !important; }

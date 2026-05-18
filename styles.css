@@ -4698,3 +4698,97 @@ em { font-style: italic; color: var(--clr-primary); }
 .preview-sub {
   text-wrap: balance;
 }
+
+
+/* ═══════════════════════════════════════════════
+   FINAL OVERRIDES — May 2026
+   These rules use !important to win against any
+   earlier conflicting CSS in the file
+   ═══════════════════════════════════════════════ */
+
+/* "Trusted by real families" — single line on desktop */
+@media (min-width: 769px) {
+  .testimonials-hdr .h2 {
+    max-width: 600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* Hero subtitle — 2 lines on desktop, no orphan */
+@media (min-width: 769px) {
+  .hero-sub {
+    max-width: 600px !important;
+    text-wrap: balance !important;
+  }
+}
+
+/* Pricing section — desktop styling */
+@media (min-width: 901px) {
+  .pricing-editorial {
+    max-width: 980px !important;
+  }
+  .pricing-fee-row {
+    padding: 32px 40px !important;
+    gap: 36px !important;
+  }
+  .pricing-fee-amount {
+    font-size: 3.4rem !important;
+  }
+  .pricing-fee-label {
+    font-size: 1.05rem !important;
+  }
+  .pricing-includes-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px 32px !important;
+  }
+  .pricing-fee-label,
+  .pricing-fee-sublabel {
+    text-wrap: pretty !important;
+  }
+}
+
+/* Hero trust bullets — force 2x2 layout on standard screens */
+@media (min-width: 769px) and (max-width: 1280px) {
+  .hero-micro-trust {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    max-width: 560px !important;
+    gap: 8px 14px !important;
+  }
+  .micro-trust-item {
+    white-space: nowrap !important;
+  }
+  .hero-micro-trust .micro-trust-sep:nth-of-type(2) {
+    flex-basis: 100% !important;
+    width: 0 !important;
+    height: 0 !important;
+    visibility: hidden !important;
+    margin: 0 !important;
+  }
+  .hero-micro-trust .micro-trust-sep:nth-of-type(4) {
+    display: none !important;
+  }
+}
+
+/* Card height consistency */
+.hcard-photo,
+.hcard-img {
+  aspect-ratio: 3/4 !important;
+  overflow: hidden !important;
+}
+.hcard-photo img,
+.hcard-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Orphan prevention — final pass */
+.preview-sub,
+.pricing-fee-sublabel,
+.pricing-editorial-sub {
+  text-wrap: pretty !important;
+}

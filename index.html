@@ -683,10 +683,18 @@
         document.querySelectorAll('.benefit-grid + .swipe-hint .swipe-hint-dot')
       );
 
-      trackSwipe(
-        document.querySelector('.preview-grid'),
-        document.querySelectorAll('.preview .swipe-hint .swipe-hint-dot')
-      );
+      (function() {
+  const grid = document.querySelector('.preview-grid');
+  const dots = document.querySelectorAll('.preview .swipe-hint .swipe-hint-dot');
+  if (!grid || !dots.length) return;
+  grid.addEventListener('scroll', function() {
+    const card = grid.querySelector('.helper-card');
+    if (!card) return;
+    const cardW = card.getBoundingClientRect().width + 16;
+    const idx = Math.min(Math.round(grid.scrollLeft / cardW), dots.length - 1);
+    dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+  }, { passive: true });
+})();
 
       trackSwipe(
         document.querySelector('.testimonials-grid'),

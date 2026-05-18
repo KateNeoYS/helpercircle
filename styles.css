@@ -4468,26 +4468,14 @@ em { font-style: italic; color: var(--clr-primary); }
   }
 }
 
-/* Hero trust bullets — force 2x2 on mid screens */
-@media (min-width: 769px) and (max-width: 1280px) {
-  .hero-micro-trust {
-    max-width: 560px !important;
-    flex-wrap: wrap !important;
-    gap: 8px 14px !important;
-  }
-  .micro-trust-item {
-    white-space: nowrap !important;
-  }
-  .hero-micro-trust .micro-trust-sep:nth-of-type(2) {
-    flex-basis: 100% !important;
-    width: 0 !important;
-    height: 0 !important;
-    visibility: hidden !important;
-    margin: 0 !important;
-  }
-  .hero-micro-trust .micro-trust-sep:nth-of-type(4) {
-    display: none !important;
-  }
+/* Hero trust bullets — single row when possible, clean wrap otherwise */
+.hero-micro-trust {
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+  gap: 6px 14px !important;
+}
+.micro-trust-item {
+  white-space: nowrap !important;
 }
 
 /* Card height consistency */
@@ -4548,6 +4536,27 @@ em { font-style: italic; color: var(--clr-primary); }
   }
   .footer-nav,
   .footer-legal-strip {
+    justify-content: flex-start !important;
+  }
+}
+
+
+/* Center pricing fee row + includes grid on desktop */
+@media (min-width: 901px) {
+  .pricing-fee-row {
+    justify-content: center !important;
+    text-align: left !important;
+    max-width: 760px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .pricing-includes-grid {
+    max-width: 760px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center !important;
+  }
+  .pricing-include-item {
     justify-content: flex-start !important;
   }
 }

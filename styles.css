@@ -3634,3 +3634,9 @@ em { font-style: italic; color: var(--clr-primary); }
     margin-bottom: var(--space-4) !important;
   }
 }
+/* Desktop: testimonials header — prevent early wrap */
+@media (min-width: 861px) {
+  .testimonials-hdr .h2 {
+    white-space: nowrap !important;
+  }
+}

@@ -4564,3 +4564,37 @@ em { font-style: italic; color: var(--clr-primary); }
     flex: 0 0 138px !important;
   }
 }
+
+/* =============================================================
+   MOBILE: HEADER CLEARANCE FIX
+   The fixed site header is 68px tall. Several pages reset their
+   hero/first-section top padding to 40px on mobile, hiding the
+   first 28px of content behind the header. Restore safe clearance.
+   ============================================================= */
+@media (max-width: 768px) {
+  /* Browse page hero — restore clearance above the H1 */
+  .browse-hero {
+    padding-top: 96px !important;
+  }
+
+  /* Refer page hero — restore clearance above the eyebrow + H1 */
+  .refer-hero {
+    padding-top: 0 !important;
+  }
+  .refer-hero-inner {
+    padding-top: 96px !important;
+  }
+
+  /* Profile page header — restore clearance above the photo */
+  .prof-header {
+    padding-top: 96px !important;
+  }
+
+  /* In-page anchor jumps (e.g. clicking "How It Works" in nav) */
+  /* — make the section land below the fixed header */
+  #how,
+  .how,
+  section[id] {
+    scroll-margin-top: 84px;
+  }
+}

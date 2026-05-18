@@ -984,57 +984,7 @@ em { font-style: italic; color: var(--clr-primary); }
 /* Helper card — equal height via grid stretch */
 .preview-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-5); align-items: stretch; }
 
-.helper-card {
-  background: var(--clr-white); border-radius: var(--radius-xl);
-  overflow: hidden; border: 1.5px solid var(--clr-border);
-  display: flex; flex-direction: column;
-  transition: transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
-  cursor: pointer;
-}
-.helper-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-.hcard-img { position: relative; height: 280px; overflow: hidden; background: var(--clr-primary-bg); flex-shrink: 0; }
-.hcard-img img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center 15%;
-  transition: transform var(--dur-slow) var(--ease);
-}
-.helper-card:hover .hcard-img img { transform: scale(1.05); }
-.hcard-over {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(12,42,30,.94) 0%, rgba(12,42,30,.5) 55%, rgba(12,42,30,.04) 100%);
-  display: flex; flex-direction: column; justify-content: flex-end;
-  padding: var(--space-6); gap: var(--space-3);
-  opacity: 0; transition: opacity var(--dur-base) var(--ease);
-}
-.helper-card:hover .hcard-over { opacity: 1; }
-.hcard-bio { font-size: var(--text-sm); color: rgba(255,255,255,.88); line-height: var(--lh-normal); }
-.hcard-body {
-  padding: var(--space-5);
-  display: flex; flex-direction: column;
-  flex: 1;
-}
-.hcard-top {
-  display: flex; align-items: flex-start; justify-content: space-between;
-  gap: var(--space-2); margin-bottom: var(--space-3);
-}
-.hcard-name { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 500; margin-bottom: 2px; }
-.hcard-meta { font-size: var(--text-sm); color: var(--clr-text-muted); }
-.hcard-badge {
-  font-size: var(--text-xs); font-weight: 700; padding: 4px 10px;
-  border-radius: var(--radius-full); background: var(--clr-primary-bg);
-  color: var(--clr-primary); white-space: nowrap; flex-shrink: 0;
-  align-self: flex-start;
-}
-.hcard-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-top: auto; padding-top: var(--space-3); }
-
-/* Trust signal line per card — new */
-.hcard-trust-line {
-  display: flex; align-items: center; gap: 5px;
-  font-size: var(--text-xs); color: var(--clr-text-muted);
-  margin-top: var(--space-3);
-  padding-top: var(--space-3);
-  border-top: 1px solid var(--clr-border);
-}
-.hcard-trust-line svg { flex-shrink: 0; color: var(--clr-primary); }
+/* [removed] ORIGINAL .helper-card block — replaced by unified .hcard system at end of file */
 
 /* Preview CTA */
 .preview-cta { text-align: center; margin-top: var(--space-9); display: flex; flex-direction: column; align-items: center; gap: var(--space-3); }
@@ -1679,29 +1629,8 @@ em { font-style: italic; color: var(--clr-primary); }
     align-items: unset !important;
   }
   .preview-grid::-webkit-scrollbar { display: none; }
-  .preview-grid .helper-card,
-  .preview-grid > .helper-card {
-    flex: 0 0 82vw !important;
-    max-width: 320px !important;
-    width: 82vw !important;
-    scroll-snap-align: start;
-    min-width: 260px;
-    /* Cards must be full self-contained flex columns */
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  /* Helper portrait — consistent crop across all cards */
-  .hcard-img {
-    height: 240px;
-    flex-shrink: 0;
-  }
-  .hcard-img img {
-    object-fit: cover;
-    object-position: center 30%;
-    width: 100%;
-    height: 100%;
-  }
+  /* Legacy preview-grid/.helper-card mobile rules removed —
+     unified .hcard-grid handles its own mobile carousel below. */
 
   /* ── TESTIMONIALS — horizontal carousel ── */
   .testimonials-grid {
@@ -1745,7 +1674,7 @@ em { font-style: italic; color: var(--clr-primary); }
 
   /* ── GENERAL CARD SAFETY ── */
   /* Prevent any card from overflowing the viewport */
-  .helper-card, .outcome-card, .tcard, .how-step {
+  .outcome-card, .tcard, .how-step, .hcard {
     box-sizing: border-box;
     max-width: 100vw;
   }
@@ -1767,14 +1696,11 @@ em { font-style: italic; color: var(--clr-primary); }
 
 /* ── Tiny phones (SE, 375px) ── */
 @media (max-width: 390px) {
-  .how-step, .outcome-card,
-  .preview-grid .helper-card,
-  .tcard {
+  .how-step, .outcome-card, .tcard {
     flex: 0 0 88vw !important;
     max-width: 310px !important;
     width: 88vw !important;
   }
-  .hcard-img { height: 220px; }
   .wrap { padding: 0 16px; }
 }
 
@@ -1908,154 +1834,7 @@ em { font-style: italic; color: var(--clr-primary); }
   }
 }
 
-/* =============================================================
-   HELPER GRID — clean rebuild (replaces .preview-grid + .helper-card)
-   ============================================================= */
-.preview { padding: var(--space-18) 0; background: var(--clr-cream); }
-.preview-hdr {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: var(--space-8);
-  flex-wrap: wrap;
-  gap: var(--space-4);
-}
-
-/* 3-col desktop grid */
-.helper-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  align-items: stretch;
-  margin-bottom: var(--space-8);
-}
-
-/* Single card */
-.hcard {
-  background: var(--clr-white);
-  border: 1.5px solid var(--clr-border);
-  border-radius: 28px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  transition: transform 260ms ease, box-shadow 260ms ease;
-}
-.hcard:hover { transform: translateY(-5px); box-shadow: 0 20px 56px rgba(0,0,0,.12); }
-
-/* Photo container — fixed height, consistent crop */
-.hcard-photo {
-  position: relative;
-  height: 280px;
-  overflow: hidden;
-  flex-shrink: 0;
-  background: var(--clr-primary-bg);
-}
-.hcard-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 30%;
-  display: block;
-  transition: transform 400ms ease;
-}
-.hcard:hover .hcard-photo img { transform: scale(1.04); }
-
-/* Hover overlay */
-.hcard-hover-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(12,42,30,.92) 0%, rgba(12,42,30,.5) 55%, transparent 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 24px;
-  gap: 12px;
-  opacity: 0;
-  transition: opacity 260ms ease;
-}
-.hcard:hover .hcard-hover-overlay { opacity: 1; }
-.hcard-bio-text {
-  font-size: 0.82rem;
-  color: rgba(255,255,255,.88);
-  line-height: 1.6;
-}
-
-/* Card body */
-.hcard-content {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  gap: 0;
-}
-.hcard-info { margin-bottom: 14px; }
-.hcard-name {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 500;
-  color: var(--clr-text);
-  margin-bottom: 2px;
-}
-.hcard-meta { font-size: 0.82rem; color: var(--clr-text-muted); }
-
-/* Specialty tags */
-.hcard-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 14px;
-}
-
-/* Verification row — quiet, below tags */
-.hcard-verify {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  padding-top: 14px;
-  border-top: 1px solid var(--clr-border);
-  margin-top: auto;
-}
-.verify-tick {
-  font-size: 0.70rem;
-  color: var(--clr-text-muted);
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-/* Tablet: 2 cols */
-@media (max-width: 1000px) {
-  .helper-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* Mobile: horizontal carousel */
-@media (max-width: 768px) {
-  .helper-grid {
-    display: flex !important;
-    flex-direction: row;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    gap: 14px;
-    padding-bottom: 8px;
-    margin-bottom: 24px;
-  }
-  .helper-grid::-webkit-scrollbar { display: none; }
-  .hcard {
-    flex: 0 0 84vw;
-    max-width: 320px;
-    min-width: 260px;
-    scroll-snap-align: start;
-  }
-  .hcard-photo { height: 240px; }
-  .preview-hdr { flex-direction: column; align-items: flex-start; gap: 12px; }
-}
-
-@media (max-width: 390px) {
-  .hcard { flex: 0 0 88vw; }
-  .benefit-card { flex: 0 0 88vw; }
-}
+/* [removed] CLEAN REBUILD .helper-grid/.hcard block — replaced by unified .hcard system at end of file */
 
 /* =============================================================
    FINAL POLISH PASS — typography, mobile, swipe affordance
@@ -2204,9 +1983,7 @@ em { font-style: italic; color: var(--clr-primary); }
 }
 
 /* ── 5. Portrait consistency — all card images ── */
-.hcard-photo img,
-.hcard-img img,
-.hc img {
+.hcard-photo img {
   object-fit: cover;
   object-position: center 25%;
   width: 100%;
@@ -3565,36 +3342,7 @@ em { font-style: italic; color: var(--clr-primary); }
    HELPER PREVIEW — Mobile compression
    ════════════════════════════════ */
 
-/* Mobile: horizontal swipe carousel, compact cards */
-@media (max-width: 860px) {
-  .preview-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
-    gap: var(--space-4) !important;
-    padding-bottom: var(--space-2) !important;
-    scrollbar-width: none !important;
-  }
-  .preview-grid::-webkit-scrollbar { display: none; }
-
-  .helper-card {
-    flex: 0 0 78% !important;
-    scroll-snap-align: start !important;
-    min-width: 0 !important;
-  }
-
-  /* Shorter photo on mobile */
-  .hcard-img {
-    height: 200px !important;
-  }
-
-  /* Tighter body padding */
-  .hcard-body {
-    padding: var(--space-4) !important;
-  }
-}
+/* [removed] Legacy .preview-grid + .helper-card mobile override — replaced by unified .hcard system at end of file */
 /* ── Preview section: cream background to separate from pricing white ── */
 .preview {
   background: var(--clr-cream) !important;
@@ -3787,22 +3535,7 @@ em { font-style: italic; color: var(--clr-primary); }
     padding: var(--space-12) 0 !important;
   }
 }
-/* ── Force helper-grid carousel on mobile (final override) ── */
-@media (max-width: 860px) {
-  .helper-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    overflow-x: scroll !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
-    gap: 16px !important;
-  }
-  .helper-grid > .hcard {
-    flex: 0 0 78% !important;
-    scroll-snap-align: start !important;
-    min-width: 0 !important;
-  }
-}
+/* [removed] Legacy .helper-grid carousel mobile override — replaced by unified .hcard system at end of file */
 
 /* ── Pricing: white on all screen sizes, final override ── */
 .pricing-section { background: var(--clr-white) !important; }
@@ -4028,126 +3761,7 @@ em { font-style: italic; color: var(--clr-primary); }
   gap: clamp(20px, 2.4vw, 36px);
 }
 
-/* ── CARD: large, quiet, editorial ────────────────────────── */
-.bcard {
-  background: var(--clr-white);
-  border: 1px solid var(--clr-border);
-  border-radius: 20px;
-  overflow: hidden;
-  transition: transform var(--dur-slow) var(--ease),
-              box-shadow var(--dur-slow) var(--ease),
-              border-color var(--dur-slow) var(--ease);
-}
-.bcard:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
-  border-color: var(--clr-sand);
-}
-.bcard-link {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-}
-
-/* Photo: tall 5:6 aspect, single trust chip floats on it */
-.bcard-photo {
-  position: relative;
-  aspect-ratio: 5 / 6;
-  overflow: hidden;
-  background: linear-gradient(170deg, #EEF3F0 0%, #CCDDD5 100%);
-}
-.bcard-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
-  display: block;
-  transition: transform 600ms var(--ease);
-}
-.bcard:hover .bcard-photo img {
-  transform: scale(1.03);
-}
-.bcard-chip {
-  position: absolute;
-  bottom: 14px;
-  left: 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: var(--text-xs);
-  font-weight: 600;
-  color: var(--clr-primary);
-  background: rgba(255, 255, 255, 0.96);
-  padding: 6px 10px;
-  border-radius: var(--radius-full);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  letter-spacing: 0;
-}
-.bcard-chip svg {
-  color: var(--clr-primary);
-}
-
-/* Body: name + human line + quote + CTA */
-.bcard-body {
-  padding: var(--space-6) var(--space-6) var(--space-5);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-.bcard-name {
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  font-weight: 500;
-  color: var(--clr-text);
-  margin: 0;
-  letter-spacing: -0.005em;
-}
-.bcard-line {
-  font-size: var(--text-sm);
-  color: var(--clr-text-muted);
-  margin: 0;
-  line-height: var(--lh-normal);
-}
-
-/* The trust-bearing quote — italic, restrained */
-.bcard-quote {
-  margin: var(--space-2) 0 0;
-  padding: var(--space-4) 0 0;
-  border-top: 1px solid var(--clr-border);
-}
-.bcard-quote p {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: var(--text-base);
-  font-weight: 400;
-  color: var(--clr-text-2);
-  line-height: var(--lh-relaxed);
-  margin: 0 0 var(--space-2);
-  text-wrap: pretty;
-}
-.bcard-quote cite {
-  font-style: normal;
-  font-size: var(--text-xs);
-  font-weight: 500;
-  color: var(--clr-text-muted);
-  letter-spacing: 0.01em;
-}
-
-/* CTA: text-link feel, full-width interactive area is the card */
-.bcard-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  margin-top: var(--space-3);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--clr-primary);
-  transition: gap var(--dur-fast) var(--ease);
-}
-.bcard:hover .bcard-cta {
-  gap: 8px;
-}
+/* [removed] Legacy .bcard editorial block — replaced by unified .hcard system at end of file */
 
 /* ── Empty state ──────────────────────────────────────────── */
 .bgrid-empty {
@@ -4354,14 +3968,7 @@ em { font-style: italic; color: var(--clr-primary); }
     grid-template-columns: 1fr;
     gap: var(--space-6);
   }
-  .bcard {
-    max-width: 480px;
-    margin: 0 auto;
-    width: 100%;
-  }
-  .bcard-body {
-    padding: var(--space-5) var(--space-5) var(--space-4);
-  }
+/* [removed] Legacy .bcard mobile responsive rule — replaced by unified .hcard system at end of file */
   .btrust {
     flex-direction: column;
     gap: 6px;
@@ -4478,18 +4085,7 @@ em { font-style: italic; color: var(--clr-primary); }
   white-space: nowrap !important;
 }
 
-/* Card height consistency */
-.hcard-photo,
-.hcard-img {
-  aspect-ratio: 3/4 !important;
-  overflow: hidden !important;
-}
-.hcard-photo img,
-.hcard-img img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-}
+/* Card height consistency now handled by unified .hcard system at end of file. */
 
 /* Orphan prevention */
 .preview-sub,
@@ -4578,3 +4174,250 @@ em { font-style: italic; color: var(--clr-primary); }
     margin-right: 0 !important;
   }
 }
+
+
+/* =============================================================
+   UNIFIED HELPER CARD — single component, two display modes
+   .hcard                → compact, hover/tap-to-reveal quote (homepage, other helpers)
+   .hcard.hcard--full    → full editorial card, quote always visible (Browse Helpers)
+   ============================================================= */
+
+/* Grid containers */
+.hcard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.4vw, 36px);
+  align-items: stretch;
+}
+.hcard-grid--two { grid-template-columns: repeat(2, 1fr); max-width: 760px; }
+
+/* Card shell */
+.hcard {
+  background: var(--clr-white);
+  border: 1px solid var(--clr-border);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 260ms var(--ease), box-shadow 260ms var(--ease), border-color 260ms var(--ease);
+}
+.hcard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
+  border-color: var(--clr-sand, rgba(0,0,0,0.12));
+}
+
+/* Photo */
+.hcard-photo {
+  position: relative;
+  aspect-ratio: 5 / 6;
+  overflow: hidden;
+  background: linear-gradient(170deg, #EEF3F0 0%, #CCDDD5 100%);
+}
+.hcard-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  transition: transform 600ms var(--ease);
+}
+.hcard:hover .hcard-photo img { transform: scale(1.03); }
+
+/* Tier badge — quiet pill, bottom-left of photo */
+.hcard-tier {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  letter-spacing: 0;
+  transition: opacity 220ms var(--ease);
+}
+.hcard-tier svg { flex-shrink: 0; }
+.hcard-tier--verified {
+  color: var(--clr-primary);
+  background: rgba(255, 255, 255, 0.96);
+}
+.hcard-tier--referred {
+  color: var(--clr-text-2, #5F5E5A);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+/* Hover/tap overlay — compact card only */
+.hcard-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(12, 42, 30, 0.94) 0%, rgba(12, 42, 30, 0.55) 55%, rgba(12, 42, 30, 0.05) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-5);
+  gap: var(--space-2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 260ms var(--ease);
+}
+.hcard:hover .hcard-overlay,
+.hcard.is-open .hcard-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+.hcard:hover .hcard-tier,
+.hcard.is-open .hcard-tier { opacity: 0; }
+
+.hcard-overlay-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-base);
+  line-height: var(--lh-relaxed);
+  color: rgba(255, 255, 255, 0.96);
+  margin: 0;
+  text-wrap: pretty;
+}
+.hcard-overlay-cite {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.78);
+  font-style: normal;
+  font-weight: 500;
+}
+.hcard-overlay-specialty {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-display);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* Body */
+.hcard-body {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+.hcard-name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: var(--clr-text);
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+.hcard-meta {
+  font-size: var(--text-sm);
+  color: var(--clr-text-muted);
+  margin: 0;
+  line-height: var(--lh-normal);
+}
+
+/* ── FULL variant (Browse Helpers): quote always visible inline ── */
+.hcard--full .hcard-overlay { display: none; }
+.hcard--full .hcard-tier { display: none; }
+.hcard--full .hcard-body {
+  padding: var(--space-6) var(--space-6) var(--space-5);
+  gap: var(--space-2);
+}
+
+.hcard-quote {
+  margin: var(--space-3) 0 0;
+  padding: var(--space-4) 0 0;
+  border-top: 1px solid var(--clr-border);
+}
+.hcard-quote p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-base);
+  font-weight: 400;
+  color: var(--clr-text-2, var(--clr-text));
+  line-height: var(--lh-relaxed);
+  margin: 0 0 var(--space-2);
+  text-wrap: pretty;
+}
+.hcard-quote cite {
+  font-style: normal;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.01em;
+}
+.hcard-specialty {
+  font-size: var(--text-sm);
+  color: var(--clr-text-muted);
+  margin: var(--space-2) 0 0;
+  font-style: italic;
+  font-family: var(--font-display);
+}
+
+/* Tier footer line — full variant only */
+.hcard-tier-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--clr-border);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--clr-text-muted);
+}
+.hcard-tier-row svg { flex-shrink: 0; }
+.hcard-tier-row--verified { color: var(--clr-primary); }
+.hcard-tier-row--verified svg { color: var(--clr-primary); }
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 1000px) {
+  .hcard-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  /* Default: carousel on mobile (homepage, other helpers) */
+  .hcard-grid:not(.hcard-grid--static) {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 14px;
+    padding-bottom: 8px;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .hcard-grid:not(.hcard-grid--static)::-webkit-scrollbar { display: none; }
+  .hcard-grid:not(.hcard-grid--static) > .hcard {
+    flex: 0 0 78%;
+    max-width: 320px;
+    min-width: 260px;
+    scroll-snap-align: start;
+  }
+  /* Browse Helpers stays as stacked single column */
+  .hcard-grid--static {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .hcard-grid--static > .hcard {
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+/* =============================================================
+   UNIFIED HELPER CARD — tap-to-reveal JS hook
+   The .is-open class is toggled by JS on touch devices.
+   See README in your repo for the JS snippet to include.
+   ============================================================= */

@@ -3640,3 +3640,7 @@ em { font-style: italic; color: var(--clr-primary); }
     white-space: nowrap !important;
   }
 }
+/* Push swipe hint up, away from before-after section */
+.testimonials-grid + .swipe-hint {
+  margin-bottom: var(--space-8) !important;
+}

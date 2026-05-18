@@ -3807,3 +3807,99 @@ em { font-style: italic; color: var(--clr-primary); }
 
 /* ── Pricing: white on all screen sizes, final override ── */
 .pricing-section { background: var(--clr-white) !important; }
+
+   /* ════════════════════════════════════════════════════════════
+   FINAL POLISH PASS — May 2026
+   Appended overrides. Do not edit code above this block.
+   ════════════════════════════════════════════════════════════ */
+
+/* ── 1. Hero photo cluster: align backdrop cards (Siti + Rizalyn)
+   so both top edges match. Aye Aye stays lowest in front.
+   Original: .hc-a top:0, .hc-b top:26px → mismatch.            */
+.hc-b {
+  top: 0 !important;
+}
+
+/* Optional micro-balance: keep front card visually deepest */
+.hc-c {
+  bottom: 24px !important;
+}
+
+/* ── 2. Hero subhead: prevent awkward orphan wraps             */
+.hero-sub {
+  text-wrap: pretty;
+}
+
+/* ── 3. Hero badge row: already correct in HTML (chip-g for
+   first two = trust signals, plain .chip for third = process).
+   Tiny tweak: lift the outlined chip's border so the role is
+   clearer at a glance.                                          */
+.hero-trust .chip:not(.chip-g):not(.chip-p):not(.chip-dk) {
+  border-color: var(--clr-primary);
+  color: var(--clr-primary);
+  background: var(--clr-white);
+}
+
+/* ── 4. Mobile hero photo cluster: prevent right-edge cut-off  */
+@media (max-width: 860px) {
+  .hero-vis {
+    overflow: hidden;
+  }
+  .hc-a, .hc-b, .hc-c {
+    max-width: calc(100vw - 32px);
+  }
+}
+
+/* ── 5. "Better for everyone" cards: balance visual density.
+   Reduce the busy middle card's visual height slightly so the
+   trio reads as a set, not a centerpiece + bookends.           */
+.benefit-card--peach .benefit-visual {
+  height: 168px;
+}
+.benefit-card--green .benefit-visual,
+.benefit-card--sand .benefit-visual {
+  height: 180px;
+}
+
+/* ── 6. Pricing section: tighten top whitespace                */
+.pricing-section {
+  padding-top: clamp(56px, 7vw, 88px) !important;
+}
+@media (max-width: 860px) {
+  .pricing-section {
+    padding-top: 48px !important;
+  }
+}
+
+/* ── 7. "Know a good helper?" green panel: reduce vertical
+   padding so it doesn't dwarf the content. Also tighten the
+   testimonial card's inner padding on desktop.                 */
+.ref-banner {
+  padding: clamp(64px, 8vw, 104px) 0 !important;
+}
+.ref-card {
+  padding: var(--space-6) var(--space-7);
+}
+@media (min-width: 861px) {
+  .ref-inner {
+    align-items: center;
+    gap: var(--space-10);
+  }
+}
+
+/* ── 8. Footer (image 16 context): improve text contrast on
+   the dark-green footer for the tagline and origin lines.
+   Lift from 0.5/0.38 to AA-passing values.                     */
+.footer-tagline {
+  color: rgba(252, 247, 238, 0.78) !important;
+}
+.footer-origin {
+  color: rgba(252, 247, 238, 0.68) !important;
+}
+.footer-heart {
+  color: rgba(252, 247, 238, 0.74) !important;
+}
+.footer-legal-strip,
+.footer-legal {
+  color: rgba(252, 247, 238, 0.48) !important;
+}

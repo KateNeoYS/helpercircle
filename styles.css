@@ -3363,3 +3363,12 @@ em { font-style: italic; color: var(--clr-primary); }
     flex: 0 0 78% !important;
   }
 }
+@media (max-width: 860px) {
+  .how-hdr {
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+  .how-hdr .kicker {
+    text-align: left !important;
+  }
+}

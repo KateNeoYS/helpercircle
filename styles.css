@@ -3710,3 +3710,81 @@ em { font-style: italic; color: var(--clr-primary); }
 }
 /* ── Correct pricing section selector ── */
 .pricing-section { background: var(--clr-cream) !important; }
+
+   /* ════════════════════════════════
+   FOOTER — elegant minimal redesign
+   ════════════════════════════════ */
+
+.site-footer {
+  background: var(--clr-primary-dk) !important;
+  padding: var(--space-12) 0 var(--space-8) !important;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  text-align: center;
+}
+
+/* Emotional brand line */
+.footer-heart {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-md);
+  color: rgba(255,255,255,.62);
+  max-width: 420px;
+  line-height: var(--lh-relaxed);
+  margin: 0;
+}
+
+/* Minimal nav */
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+.footer-nav a {
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,.55);
+  text-decoration: none;
+  transition: color var(--dur-fast);
+}
+.footer-nav a:hover { color: var(--clr-white); }
+.footer-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: var(--text-sm);
+}
+
+/* Legal strip */
+.footer-legal-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,.28);
+}
+.footer-legal-strip a {
+  color: rgba(255,255,255,.35);
+  text-decoration: none;
+}
+.footer-legal-strip a:hover { color: rgba(255,255,255,.6); }
+
+/* Testimonial card in ref-banner — tighter on mobile */
+@media (max-width: 860px) {
+  .ref-quote {
+    padding: var(--space-5) !important;
+  }
+  .ref-quote-text {
+    font-size: var(--text-sm) !important;
+    line-height: var(--lh-normal) !important;
+  }
+  .ref-banner {
+    padding: var(--space-12) 0 !important;
+  }
+}

@@ -684,14 +684,17 @@
       );
 
       (function() {
-  const grid = document.querySelector('.preview-grid');
-  const dots = document.querySelectorAll('.preview .swipe-hint .swipe-hint-dot');
-  if (!grid) return;
-  grid.addEventListener('scroll', function() {
+  function updatePreviewDots() {
+    const grid = document.querySelector('.preview-grid');
+    const dots = document.querySelectorAll('.preview .swipe-hint .swipe-hint-dot');
+    if (!grid || !dots.length) return;
     const pct = grid.scrollLeft / (grid.scrollWidth - grid.clientWidth);
     const idx = Math.min(Math.floor(pct * dots.length), dots.length - 1);
     dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
-  }, { passive: true });
+  }
+  window.addEventListener('scroll', updatePreviewDots, { passive: true });
+  document.addEventListener('touchmove', updatePreviewDots, { passive: true });
+  document.addEventListener('touchend', updatePreviewDots, { passive: true });
 })();
 
       trackSwipe(

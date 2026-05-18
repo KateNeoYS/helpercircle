@@ -11,301 +11,416 @@
   <meta property="og:description" content="Refer a domestic helper you trust. Takes 2 minutes, we handle the rest."/>
   <link rel="stylesheet" href="styles.css"/>
   <style>
+    /* ═══ HERO ═══ */
     .refer-hero-v2 {
-      padding: clamp(56px, 8vw, 96px) 0 clamp(48px, 6vw, 72px);
+      padding: clamp(56px, 8vw, 88px) 0 clamp(40px, 5vw, 56px);
       background: var(--clr-cream, #FCF7EE);
       position: relative;
       overflow: hidden;
     }
     .refer-grid {
       display: grid;
-      grid-template-columns: 1fr 1.05fr;
-      gap: clamp(40px, 6vw, 72px);
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(48px, 7vw, 88px);
       align-items: start;
     }
     @media (max-width: 880px) {
-      .refer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .refer-grid { grid-template-columns: 1fr; gap: 40px; }
     }
-    .refer-left .kicker { margin-bottom: 16px; }
+
+    /* Left column */
+    .refer-left .kicker { margin-bottom: 14px; }
     .refer-hl-v2 {
-      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
-      line-height: 1.05;
-      letter-spacing: -0.01em;
-      margin: 0 0 18px;
+      font-size: clamp(2.2rem, 4.3vw, 3.2rem);
+      line-height: 1.04;
+      letter-spacing: -0.012em;
+      margin: 0 0 14px;
       font-weight: 500;
       font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
       color: var(--clr-ink, #1F2A24);
     }
     .refer-hl-v2 em { font-style: italic; color: var(--clr-primary, #2C8A6E); }
     .refer-sub-v2 {
-      font-size: 1.05rem; line-height: 1.6;
-      color: var(--clr-text-muted, #4A5651);
-      margin: 0 0 24px; max-width: 460px;
+      font-size: 1.02rem; line-height: 1.55;
+      color: var(--clr-text-muted, #5A6661);
+      margin: 0 0 22px; max-width: 440px;
       text-wrap: pretty;
+    }
+    .refer-pills-v2 {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px;
+    }
+    .refer-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 12px; font-size: 0.8rem; font-weight: 500;
+      color: var(--clr-text, #1F2A24); background: #fff;
+      border: 1px solid rgba(44, 95, 79, 0.14);
+      border-radius: 999px;
     }
     .refer-warm {
       font-family: var(--font-display, Georgia, serif);
       font-style: italic;
-      font-size: 1.02rem; line-height: 1.55;
+      font-size: 1rem; line-height: 1.55;
       color: var(--clr-text, #1F2A24);
       padding-left: 16px;
-      border-left: 2px solid rgba(244, 153, 119, 0.45);
-      margin: 24px 0 36px; max-width: 440px;
+      border-left: 2px solid rgba(244, 153, 119, 0.4);
+      margin: 0 0 36px; max-width: 420px;
     }
-    .refer-pills-v2 {
-      display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px;
-    }
-    .refer-pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 7px 12px; font-size: 0.82rem; font-weight: 500;
-      color: var(--clr-text, #1F2A24); background: #fff;
-      border: 1px solid rgba(44, 95, 79, 0.18);
-      border-radius: 999px;
-    }
+
+    /* Benefit list — tighter, more scannable */
     .refer-benefits {
-      margin: 8px 0 0; padding: 0; list-style: none;
-      display: flex; flex-direction: column; gap: 22px;
-      max-width: 440px;
+      margin: 0 0 32px; padding: 0; list-style: none;
+      display: flex; flex-direction: column; gap: 20px;
+      max-width: 420px;
     }
-    .refer-benefit { display: flex; gap: 16px; align-items: flex-start; }
+    .refer-benefit { display: flex; gap: 14px; align-items: flex-start; }
     .refer-benefit-icon {
-      flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
+      flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%;
       background: #fff; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 1px 2px rgba(31, 42, 36, 0.04), 0 4px 12px -4px rgba(31, 42, 36, 0.08);
+      box-shadow: 0 1px 2px rgba(31, 42, 36, 0.03), 0 3px 8px -3px rgba(31, 42, 36, 0.06);
     }
     .refer-benefit-icon.is-peach { background: #FFF1EB; }
     .refer-benefit-icon.is-green { background: #E8F1ED; }
     .refer-benefit-icon.is-cream { background: #F9F2E5; }
-    .refer-benefit-text { flex: 1; padding-top: 4px; }
+    .refer-benefit-text { flex: 1; padding-top: 3px; }
     .refer-benefit-title {
-      font-size: 0.98rem; font-weight: 600;
+      font-size: 0.94rem; font-weight: 600;
       color: var(--clr-text, #1F2A24);
-      margin: 0 0 4px; line-height: 1.35;
+      margin: 0 0 3px; line-height: 1.35;
+      letter-spacing: -0.005em;
     }
     .refer-benefit-sub {
-      font-size: 0.86rem;
-      color: var(--clr-text-muted, #4A5651);
-      margin: 0; line-height: 1.55;
+      font-size: 0.84rem;
+      color: var(--clr-text-muted, #5A6661);
+      margin: 0; line-height: 1.5;
     }
+
+    /* Appreciation card — very soft, gentle thank-you */
     .incentive-box {
-      margin-top: 32px; padding: 18px 20px;
-      background: #fff; border-radius: 14px;
-      border: 1px dashed rgba(244, 153, 119, 0.5);
-      max-width: 440px;
+      margin-top: 0; padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 10px;
+      border: 1px solid rgba(31, 42, 36, 0.05);
+      max-width: 420px;
     }
     .incentive-title {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 0.92rem; font-weight: 600;
-      color: var(--clr-text, #1F2A24); margin: 0 0 10px;
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.78rem; font-weight: 500;
+      color: var(--clr-text-muted, #5A6661);
+      margin: 0 0 8px;
+      letter-spacing: 0.003em;
     }
-    .incentive-title svg { color: #E8825C; }
+    .incentive-title svg { color: rgba(184, 136, 74, 0.55); }
     .incentive-options {
       list-style: none; padding: 0; margin: 0;
-      display: flex; flex-direction: column; gap: 6px;
-      font-size: 0.85rem; color: var(--clr-text-muted, #4A5651);
+      display: flex; flex-direction: column; gap: 4px;
+      font-size: 0.78rem; color: rgba(90, 102, 97, 0.85);
+      line-height: 1.5;
     }
-    .incentive-options li { display: flex; gap: 8px; align-items: flex-start; }
-    .incentive-options li::before { content: "•"; color: #E8825C; flex-shrink: 0; }
+    .incentive-options li { display: flex; gap: 7px; align-items: flex-start; }
+    .incentive-options li::before {
+      content: "·"; color: rgba(184, 136, 74, 0.55);
+      font-weight: 700; flex-shrink: 0;
+    }
     .incentive-note {
-      font-size: 0.75rem; color: var(--clr-text-muted, #4A5651);
-      margin: 10px 0 0; font-style: italic;
+      font-size: 0.68rem; color: rgba(90, 102, 97, 0.6);
+      margin: 8px 0 0; font-style: italic;
+      line-height: 1.45;
     }
+
+    /* ═══ FORM CARD ═══ */
     .form-card-v2 {
-      background: #fff; border-radius: 18px;
-      padding: clamp(24px, 3vw, 36px);
-      border: 1px solid rgba(31, 42, 36, 0.08);
-      box-shadow: 0 1px 0 rgba(31, 42, 36, 0.02), 0 8px 28px -16px rgba(31, 42, 36, 0.08);
+      background: #fff; border-radius: 16px;
+      padding: clamp(28px, 3vw, 38px);
+      border: 1px solid rgba(31, 42, 36, 0.06);
+      box-shadow: 0 1px 0 rgba(31, 42, 36, 0.02), 0 6px 24px -14px rgba(31, 42, 36, 0.06);
     }
     .form-card-v2 .form-card-ttl-v2 {
       font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
-      font-size: 1.7rem; font-weight: 500;
+      font-size: 1.65rem; font-weight: 500;
       margin: 0 0 6px;
+      letter-spacing: -0.005em;
     }
     .form-card-v2 .form-card-sub-v2 {
-      font-size: 0.93rem; color: var(--clr-text-muted, #4A5651);
-      margin: 0 0 22px; line-height: 1.55;
+      font-size: 0.9rem; color: var(--clr-text-muted, #5A6661);
+      margin: 0 0 26px; line-height: 1.55;
     }
     .form-card-v2 .fg-v2 { margin-bottom: 14px; }
     .form-card-v2 .fg-v2 label {
-      display: block; font-size: 0.85rem; font-weight: 500;
-      color: var(--clr-text, #1F2A24); margin-bottom: 6px;
+      display: block; font-size: 0.82rem; font-weight: 500;
+      color: var(--clr-text, #1F2A24); margin-bottom: 7px;
+      letter-spacing: 0.003em;
     }
     .form-card-v2 .fg-v2 .opt-tag {
-      font-size: 0.75rem; color: var(--clr-text-muted, #4A5651);
+      font-size: 0.72rem; color: var(--clr-text-muted, #5A6661);
       font-weight: 400; margin-left: 4px;
     }
     .form-card-v2 input, .form-card-v2 select, .form-card-v2 textarea {
-      width: 100%; padding: 10px 14px;
-      border: 1px solid rgba(31, 42, 36, 0.14);
+      width: 100%; padding: 11px 14px;
+      border: 1px solid rgba(31, 42, 36, 0.1);
       border-radius: 10px; background: #fff;
-      font-size: 0.95rem; font-family: inherit;
+      font-size: 0.93rem; font-family: inherit;
       color: var(--clr-text, #1F2A24);
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
       box-sizing: border-box;
     }
+    .form-card-v2 input::placeholder, .form-card-v2 textarea::placeholder {
+      color: rgba(90, 102, 97, 0.5);
+    }
     .form-card-v2 input:focus, .form-card-v2 select:focus, .form-card-v2 textarea:focus {
       outline: none;
       border-color: var(--clr-primary, #2C8A6E);
-      box-shadow: 0 0 0 3px rgba(44, 138, 110, 0.12);
+      box-shadow: 0 0 0 3px rgba(44, 138, 110, 0.1);
     }
-    .form-card-v2 textarea { min-height: 90px; resize: vertical; line-height: 1.5; }
+    .form-card-v2 textarea { min-height: 90px; resize: vertical; line-height: 1.55; }
     .form-row-v2 {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
     }
     @media (max-width: 520px) {
-      .form-row-v2 { grid-template-columns: 1fr; }
+      .form-row-v2 { grid-template-columns: 1fr; gap: 0; }
     }
+
+    /* Contact toggle */
     .contact-toggle {
-      display: inline-flex; gap: 4px;
-      background: rgba(31, 42, 36, 0.05);
-      border-radius: 8px; padding: 3px;
-      margin-bottom: 6px;
+      display: inline-flex; gap: 2px;
+      background: rgba(31, 42, 36, 0.04);
+      border-radius: 8px; padding: 2px;
+      margin-bottom: 7px;
     }
     .contact-toggle button {
       appearance: none; border: none; background: transparent;
-      padding: 5px 12px; font-size: 0.78rem; font-weight: 500;
-      color: var(--clr-text-muted, #4A5651);
+      padding: 5px 12px; font-size: 0.75rem; font-weight: 500;
+      color: var(--clr-text-muted, #5A6661);
       cursor: pointer; border-radius: 6px;
       font-family: inherit; transition: all 0.15s ease;
     }
     .contact-toggle button.on {
       background: #fff; color: var(--clr-text, #1F2A24);
-      box-shadow: 0 1px 2px rgba(31, 42, 36, 0.06);
+      box-shadow: 0 1px 2px rgba(31, 42, 36, 0.05);
     }
+
+    /* Verified callout — subtle trust note */
+    .verified-callout {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: rgba(44, 138, 110, 0.04);
+      border-radius: 8px;
+      font-size: 0.78rem; line-height: 1.5;
+      color: var(--clr-text-muted, #5A6661);
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .verified-callout svg {
+      flex-shrink: 0; margin-top: 2px;
+      color: rgba(44, 138, 110, 0.7);
+    }
+    .verified-callout strong {
+      color: var(--clr-text, #1F2A24); font-weight: 600;
+    }
+
+    /* Expandable section */
     .form-expand-toggle {
       appearance: none; border: none; background: transparent;
       color: var(--clr-primary, #2C8A6E);
-      font-size: 0.88rem; font-weight: 500; cursor: pointer;
-      padding: 14px 0 4px;
+      font-size: 0.85rem; font-weight: 500; cursor: pointer;
+      padding: 18px 0 8px;
       display: inline-flex; align-items: center; gap: 6px;
-      font-family: inherit; text-decoration: underline;
-      text-underline-offset: 3px;
-      text-decoration-color: rgba(44, 138, 110, 0.35);
+      font-family: inherit;
+      letter-spacing: 0.003em;
     }
-    .form-expand-toggle:hover { text-decoration-color: var(--clr-primary, #2C8A6E); }
     .form-expand-toggle .arrow { transition: transform 0.2s ease; }
     .form-expand-toggle.open .arrow { transform: rotate(180deg); }
     .form-expand-panel {
-      display: none; padding-top: 14px; margin-top: 8px;
-      border-top: 1px dashed rgba(31, 42, 36, 0.1);
+      display: none; padding-top: 14px; margin-top: 4px;
+      border-top: 1px solid rgba(31, 42, 36, 0.06);
     }
     .form-expand-panel.open { display: block; }
     .form-section-hint {
-      font-size: 0.78rem; color: var(--clr-text-muted, #4A5651);
-      line-height: 1.55; margin: 0 0 16px;
-      padding: 10px 12px; background: rgba(44, 138, 110, 0.05);
-      border-radius: 8px; border-left: 2px solid rgba(44, 138, 110, 0.3);
+      font-size: 0.78rem; color: var(--clr-text-muted, #5A6661);
+      line-height: 1.5; margin: 0 0 14px;
+      font-style: italic;
     }
-    .verified-callout {
-      margin-top: 14px; padding: 12px 14px;
-      background: rgba(44, 138, 110, 0.06);
-      border-radius: 10px;
-      font-size: 0.82rem; line-height: 1.55;
-      color: var(--clr-text, #1F2A24);
-      display: flex; gap: 10px; align-items: flex-start;
-    }
-    .verified-callout svg { flex-shrink: 0; margin-top: 2px; color: var(--clr-primary, #2C8A6E); }
-    .verified-callout strong { color: var(--clr-primary, #2C8A6E); }
-    .checkbox-group {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px;
+
+    /* Skills pill grid — softer, less rigid */
+    .skill-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
     }
     @media (max-width: 520px) {
-      .checkbox-group { grid-template-columns: 1fr; }
+      .skill-grid { grid-template-columns: 1fr; }
     }
-    .checkbox-item {
+    .skill-pill {
       display: flex; align-items: center; gap: 8px;
-      padding: 9px 12px;
-      border: 1px solid rgba(31, 42, 36, 0.14);
-      border-radius: 8px; cursor: pointer;
-      font-size: 0.88rem; transition: all 0.15s ease;
-      user-select: none;
-    }
-    .checkbox-item:hover {
-      border-color: rgba(44, 138, 110, 0.35);
-      background: rgba(44, 138, 110, 0.03);
-    }
-    .checkbox-item input {
-      width: auto; margin: 0;
-      accent-color: var(--clr-primary, #2C8A6E);
+      padding: 8px 13px;
+      background: #fff;
+      border: 1px solid rgba(31, 42, 36, 0.08);
+      border-radius: 999px;
       cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.15s ease;
+      user-select: none;
+      color: var(--clr-text-muted, #5A6661);
     }
-    .checkbox-item input:checked + span {
-      color: var(--clr-primary, #2C8A6E); font-weight: 500;
+    .skill-pill:hover {
+      border-color: rgba(44, 138, 110, 0.3);
+      background: rgba(44, 138, 110, 0.02);
     }
-    .quote-suggestions { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+    .skill-pill input {
+      width: 14px !important; height: 14px;
+      margin: 0; padding: 0;
+      accent-color: var(--clr-primary, #2C8A6E);
+      cursor: pointer; flex-shrink: 0;
+    }
+    .skill-pill.is-checked {
+      background: rgba(44, 138, 110, 0.05);
+      border-color: rgba(44, 138, 110, 0.4);
+      color: var(--clr-primary, #2C8A6E);
+      font-weight: 500;
+    }
+
+    /* Quote starter chips */
+    .quote-suggestions { margin-top: 10px; }
     .quote-suggestions-label {
-      font-size: 0.75rem; color: var(--clr-text-muted, #4A5651);
-      margin: 0 0 4px;
+      font-size: 0.72rem; color: var(--clr-text-muted, #5A6661);
+      margin: 0 0 6px;
     }
     .quote-suggestion-chips { display: flex; flex-wrap: wrap; gap: 6px; }
     .quote-chip {
       appearance: none;
-      border: 1px dashed rgba(44, 138, 110, 0.35);
+      border: 1px solid rgba(44, 138, 110, 0.25);
       background: transparent; color: var(--clr-primary, #2C8A6E);
-      padding: 6px 10px; font-size: 0.78rem;
+      padding: 5px 10px; font-size: 0.75rem;
       border-radius: 999px; cursor: pointer;
       font-family: inherit; transition: all 0.15s ease;
       line-height: 1.3; text-align: left;
     }
     .quote-chip:hover {
-      background: rgba(44, 138, 110, 0.06); border-style: solid;
+      background: rgba(44, 138, 110, 0.05);
+      border-color: rgba(44, 138, 110, 0.45);
     }
     .quote-counter {
-      font-size: 0.72rem; color: var(--clr-text-muted, #4A5651);
+      font-size: 0.7rem; color: var(--clr-text-muted, #5A6661);
       text-align: right; margin: 6px 0 0;
     }
     .quote-counter.is-good { color: var(--clr-primary, #2C8A6E); }
-    .submit-btn-v2 { margin-top: 18px; width: 100%; }
+
+    .submit-btn-v2 { margin-top: 22px; width: 100%; }
     .submit-note-v2 {
-      font-size: 0.76rem; color: var(--clr-text-muted, #4A5651);
-      text-align: center; margin: 10px 0 0; line-height: 1.55;
+      font-size: 0.74rem; color: var(--clr-text-muted, #5A6661);
+      text-align: center; margin: 12px 0 0; line-height: 1.5;
     }
-    .next-section { padding: clamp(56px, 7vw, 88px) 0; background: #fff; }
-    .next-hdr { text-align: center; max-width: 560px; margin: 0 auto 48px; }
+
+    /* ═══ SUCCESS STATE ═══ */
+    .form-success {
+      display: none;
+      padding: 48px 24px;
+      text-align: center;
+      min-height: 480px;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .form-success.is-active { display: flex; }
+    .success-check {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(44, 138, 110, 0.08);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 22px;
+    }
+    .success-title {
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-size: 1.6rem; font-weight: 500;
+      margin: 0 0 14px;
+      color: var(--clr-ink, #1F2A24);
+      letter-spacing: -0.005em;
+    }
+    .success-body {
+      font-size: 0.94rem; color: var(--clr-text-muted, #5A6661);
+      line-height: 1.6; margin: 0 0 8px;
+      max-width: 340px;
+    }
+    .success-meta {
+      font-size: 0.78rem; color: rgba(90, 102, 97, 0.7);
+      line-height: 1.55; margin: 14px 0 28px;
+      font-style: italic;
+      max-width: 320px;
+    }
+    .success-actions {
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+    }
+
+    /* ═══ WHAT HAPPENS NEXT — lighter ═══ */
+    .next-section {
+      padding: clamp(40px, 5vw, 64px) 0 clamp(48px, 6vw, 72px);
+      background: #fff;
+    }
+    .next-hdr {
+      text-align: center; max-width: 480px;
+      margin: 0 auto 32px;
+    }
     .next-hdr .kicker { margin-bottom: 12px; }
     .next-hdr h2 {
       font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
-      font-size: clamp(1.9rem, 3vw, 2.4rem); font-weight: 500;
-      letter-spacing: -0.005em; margin: 0 0 12px;
+      font-size: clamp(1.85rem, 2.8vw, 2.3rem); font-weight: 500;
+      letter-spacing: -0.008em; margin: 0 0 10px;
       color: var(--clr-ink, #1F2A24);
     }
     .next-hdr p {
-      font-size: 0.95rem; color: var(--clr-text-muted, #4A5651);
-      line-height: 1.6; margin: 0;
+      font-size: 0.92rem; color: var(--clr-text-muted, #5A6661);
+      line-height: 1.55; margin: 0;
     }
     .next-flow {
-      max-width: 720px; margin: 0 auto;
-      display: flex; flex-direction: column; gap: 0;
+      max-width: 640px; margin: 0 auto;
+      display: flex; flex-direction: column;
     }
-    .next-step { display: flex; gap: 20px; padding: 22px 0; position: relative; }
+    .next-step {
+      display: flex; gap: 18px;
+      padding: 18px 0;
+      position: relative;
+    }
     .next-step:not(:last-child)::after {
       content: ""; position: absolute;
-      left: 19px; top: 60px; bottom: -10px;
-      width: 2px;
-      background: linear-gradient(to bottom, rgba(44, 138, 110, 0.4), rgba(44, 138, 110, 0.1));
+      left: 17px; top: 50px; bottom: -8px;
+      width: 1px;
+      background: rgba(44, 138, 110, 0.15);
     }
     .next-num {
-      flex-shrink: 0; width: 40px; height: 40px;
+      flex-shrink: 0; width: 34px; height: 34px;
       border-radius: 50%;
-      background: var(--clr-primary, #2C8A6E);
-      color: #fff;
+      background: rgba(44, 138, 110, 0.08);
+      color: var(--clr-primary, #2C8A6E);
       display: flex; align-items: center; justify-content: center;
-      font-size: 0.95rem; font-weight: 600;
-      box-shadow: 0 0 0 4px rgba(44, 138, 110, 0.1);
+      font-size: 0.85rem; font-weight: 600;
+      letter-spacing: 0;
     }
-    .next-body { flex: 1; padding-top: 6px; }
+    .next-body { flex: 1; padding-top: 5px; }
     .next-title {
-      font-size: 1.05rem; font-weight: 600;
+      font-size: 0.98rem; font-weight: 600;
       color: var(--clr-text, #1F2A24);
-      margin: 0 0 6px;
+      margin: 0 0 4px;
+      letter-spacing: -0.003em;
     }
     .next-detail {
-      font-size: 0.92rem; line-height: 1.6;
-      color: var(--clr-text-muted, #4A5651); margin: 0;
+      font-size: 0.87rem; line-height: 1.55;
+      color: var(--clr-text-muted, #5A6661); margin: 0;
     }
     .next-meta {
-      font-size: 0.78rem; color: var(--clr-primary, #2C8A6E);
+      font-size: 0.74rem;
+      color: var(--clr-primary, #2C8A6E);
       margin-top: 6px; font-weight: 500;
+    }
+
+    /* Mobile refinements */
+    @media (max-width: 880px) {
+      .refer-benefits { max-width: 100%; }
+      .incentive-box { max-width: 100%; }
+      .refer-warm { max-width: 100%; }
+    }
+    @media (max-width: 520px) {
+      .form-card-v2 { padding: 22px; }
+      .skill-pill { padding: 10px 14px; }
+      .form-success { padding: 36px 16px; min-height: auto; }
+      .success-actions .btn { width: 100%; }
     }
   </style>
 </head>
@@ -336,7 +451,7 @@
   <div class="wrap">
     <div class="refer-grid">
 
-      <!-- Left: copy + visualized benefits + incentive -->
+      <!-- Left: storytelling -->
       <div class="refer-left">
         <div class="kicker">For previous employers</div>
         <h1 class="refer-hl-v2">Know a <em>good helper?</em></h1>
@@ -344,66 +459,68 @@
 
         <div class="refer-pills-v2">
           <span class="refer-pill">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="#2C8A6E" stroke-width="1.1"/><path d="M6 3.5v3l1.5 1.5" stroke="#2C8A6E" stroke-width="1.1" stroke-linecap="round"/></svg>
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="#2C8A6E" stroke-width="1.1"/><path d="M6 3.5v3l1.5 1.5" stroke="#2C8A6E" stroke-width="1.1" stroke-linecap="round"/></svg>
             Takes 2 minutes
           </span>
           <span class="refer-pill">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h7M7 3.5L9.5 6 7 8.5" stroke="#2C8A6E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6h7M7 3.5L9.5 6 7 8.5" stroke="#2C8A6E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
             We handle the follow-up
           </span>
         </div>
 
         <p class="refer-warm">Many referrals happen because families genuinely want to help a trusted helper find a good next home in Singapore.</p>
 
+        <!-- Tightened benefit copy -->
         <ul class="refer-benefits">
           <li class="refer-benefit">
             <div class="refer-benefit-icon is-peach" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                 <path d="M2 12l8-3v-6l2 1v5l8 3-8 3v4l-2-1v-3l-8-3z" stroke="#E8825C" stroke-width="1.5" stroke-linejoin="round"/>
               </svg>
             </div>
             <div class="refer-benefit-text">
-              <p class="refer-benefit-title">Save her flight home</p>
-              <p class="refer-benefit-sub">A local transfer keeps her here in Singapore — no repatriation costs.</p>
+              <p class="refer-benefit-title">Local transfer instead of repatriation</p>
+              <p class="refer-benefit-sub">Helps her transition directly to another family.</p>
             </div>
           </li>
           <li class="refer-benefit">
             <div class="refer-benefit-icon is-green" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                 <rect x="3" y="7" width="18" height="13" rx="2" stroke="#2C8A6E" stroke-width="1.5"/>
                 <path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2" stroke="#2C8A6E" stroke-width="1.5"/>
                 <path d="M3 13h18" stroke="#2C8A6E" stroke-width="1.5"/>
               </svg>
             </div>
             <div class="refer-benefit-text">
-              <p class="refer-benefit-title">Help her find a good next family</p>
-              <p class="refer-benefit-sub">She secures her next job without taking on agency loans.</p>
+              <p class="refer-benefit-title">Help her continue working in Singapore</p>
+              <p class="refer-benefit-sub">Avoid unnecessary agency loans and restarting.</p>
             </div>
           </li>
           <li class="refer-benefit">
             <div class="refer-benefit-icon is-cream" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                 <path d="M12 21s-7-4.5-9-9.5C2 8 4 5 7 5c2 0 3 1 5 3 2-2 3-3 5-3 3 0 5 3 4 6.5-2 5-9 9.5-9 9.5z" stroke="#B8884A" stroke-width="1.5" stroke-linejoin="round"/>
               </svg>
             </div>
             <div class="refer-benefit-text">
-              <p class="refer-benefit-title">A small thank-you from us</p>
-              <p class="refer-benefit-sub">A token of appreciation when your referral is successfully placed.</p>
+              <p class="refer-benefit-title">Optional appreciation</p>
+              <p class="refer-benefit-sub">As a small thank-you after successful placement.</p>
             </div>
           </li>
         </ul>
 
+        <!-- Softer appreciation card -->
         <div class="incentive-box">
           <div class="incentive-title">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.7 4.8 5.1.5-3.8 3.4 1.2 5L8 12l-4.2 2.7 1.2-5-3.8-3.4 5.1-.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
-            Our thank-you when she's placed
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.7 4.8 5.1.5-3.8 3.4 1.2 5L8 12l-4.2 2.7 1.2-5-3.8-3.4 5.1-.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            A small thank-you when she's placed
           </div>
           <ul class="incentive-options">
             <li>S$30 FairPrice voucher</li>
-            <li>S$30 donation made in your name</li>
-            <li>Or pass it forward to her</li>
+            <li>S$30 donation in your name</li>
+            <li>Pass it forward to her</li>
           </ul>
-          <p class="incentive-note">Choose one when your referral is successfully placed.</p>
+          <p class="incentive-note">Shared only after successful placement verification.</p>
         </div>
       </div>
 
@@ -443,8 +560,8 @@
             </div>
 
             <div class="verified-callout">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5L13 4v4c0 3-2.2 5.5-5 6-2.8-.5-5-3-5-6V4l5-2.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M5.5 8l2 2 3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>Sharing your contact gets your referral a <strong>Referral verified</strong> badge after a quick verification call. Your contact is never shared publicly.</span>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1.5L13 4v4c0 3-2.2 5.5-5 6-2.8-.5-5-3-5-6V4l5-2.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M5.5 8l2 2 3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Sharing your contact earns a <strong>Referral verified</strong> badge after a quick verification call. Your contact is never shared publicly.</span>
             </div>
 
             <button type="button" class="form-expand-toggle" id="expand-toggle" aria-expanded="false">
@@ -483,13 +600,13 @@
 
               <div class="fg-v2">
                 <label>What's she experienced with? <span class="opt-tag">(select all that apply)</span></label>
-                <div class="checkbox-group">
-                  <label class="checkbox-item"><input type="checkbox" value="Childcare"/> <span>Childcare</span></label>
-                  <label class="checkbox-item"><input type="checkbox" value="Eldercare"/> <span>Eldercare</span></label>
-                  <label class="checkbox-item"><input type="checkbox" value="Infant care"/> <span>Infant care</span></label>
-                  <label class="checkbox-item"><input type="checkbox" value="Cooking"/> <span>Cooking</span></label>
-                  <label class="checkbox-item"><input type="checkbox" value="Housekeeping"/> <span>Housekeeping</span></label>
-                  <label class="checkbox-item"><input type="checkbox" value="Pet care"/> <span>Pet care</span></label>
+                <div class="skill-grid" id="skill-grid">
+                  <label class="skill-pill"><input type="checkbox" value="Childcare"/> <span>Childcare</span></label>
+                  <label class="skill-pill"><input type="checkbox" value="Eldercare"/> <span>Eldercare</span></label>
+                  <label class="skill-pill"><input type="checkbox" value="Infant care"/> <span>Infant care</span></label>
+                  <label class="skill-pill"><input type="checkbox" value="Cooking"/> <span>Cooking</span></label>
+                  <label class="skill-pill"><input type="checkbox" value="Housekeeping"/> <span>Housekeeping</span></label>
+                  <label class="skill-pill"><input type="checkbox" value="Pet care"/> <span>Pet care</span></label>
                 </div>
               </div>
 
@@ -520,25 +637,24 @@
                 </div>
               </div>
 
-              <div class="fg-v2">
-                <label for="referrer-area">Your area <span class="opt-tag">(e.g. Bishan, Tampines)</span></label>
-                <input type="text" id="referrer-area" placeholder="Bishan"/>
-              </div>
             </div>
 
             <button type="submit" class="btn btn-green btn-lg submit-btn-v2">Submit Referral</button>
-            <p class="submit-note-v2">We'll reach out within 2 business days.</p>
+            <p class="submit-note-v2">We'll reach out within 1–2 business days.</p>
+            <p class="submit-note-v2" style="margin-top: 4px; font-style: italic; color: rgba(90, 102, 97, 0.8);">We personally review every referral before any profile goes live.</p>
           </form>
         </div>
 
-        <div class="form-success" id="form-success" style="display:none;text-align:center;padding:24px 0;">
-          <div style="width:54px;height:54px;border-radius:50%;background:rgba(44,138,110,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="#2C8A6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <!-- Refined success state -->
+        <div class="form-success" id="form-success">
+          <div class="success-check">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="#2C8A6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <h3 style="font-family:var(--font-display, Georgia, serif);font-size:1.5rem;font-weight:500;margin:0 0 10px;">Referral received</h3>
-          <p style="font-size:0.95rem;color:var(--clr-text-muted, #4A5651);line-height:1.6;margin:0 0 8px;max-width:340px;margin-left:auto;margin-right:auto;">A confirmation email is on its way. We'll be in touch within 2 business days.</p>
-          <p style="font-size:0.85rem;color:var(--clr-text-muted, #4A5651);line-height:1.6;margin:0 0 24px;max-width:340px;margin-left:auto;margin-right:auto;">Know another good helper?</p>
-          <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+          <h3 class="success-title">Referral received</h3>
+          <p class="success-body">Thank you for helping a trusted helper find a good next home.</p>
+          <p class="success-body" style="margin-top:4px;">We'll review the referral and reach out within 1–2 business days.</p>
+          <p class="success-meta">If successfully placed, we'll share details about our optional appreciation gesture.</p>
+          <div class="success-actions">
             <button type="button" id="refer-another" class="btn btn-green">Refer another helper</button>
             <a href="browse.html" class="btn btn-outline">Browse Helpers</a>
           </div>
@@ -549,54 +665,38 @@
   </div>
 </section>
 
-<!-- ═══ AFTER YOU SUBMIT — detailed vertical timeline ═══ -->
+<!-- ═══ WHAT HAPPENS NEXT — simplified 3-step reassurance ═══ -->
 <section class="next-section">
   <div class="wrap">
     <div class="next-hdr">
       <div class="kicker">What happens next</div>
-      <h2>How your referral becomes a profile</h2>
-      <p>Every referral goes through the same careful process — whether the helper is your former employee or someone you're vouching for.</p>
+      <h2>A simple, careful process</h2>
+      <p>Every referral is reviewed personally — no automation, no bots.</p>
     </div>
     <div class="next-flow">
 
       <div class="next-step">
         <div class="next-num">1</div>
         <div class="next-body">
-          <h3 class="next-title">Confirmation email — within minutes</h3>
-          <p class="next-detail">You'll receive an email confirming we've received your referral, along with a short summary of what you submitted.</p>
+          <h3 class="next-title">We review the referral</h3>
+          <p class="next-detail">You'll get a confirmation email, and we'll reach out within 1–2 business days.</p>
         </div>
       </div>
 
       <div class="next-step">
         <div class="next-num">2</div>
         <div class="next-body">
-          <h3 class="next-title">We reach out to the helper — within 2 business days</h3>
-          <p class="next-detail">We message her on WhatsApp to introduce ourselves, confirm she'd like to be referred, and gather a few more details (work history, photo, availability).</p>
+          <h3 class="next-title">We verify details</h3>
+          <p class="next-detail">A short call helps us maintain trust on the platform.</p>
+          <p class="next-meta">→ Earns the "Referral verified" badge on her profile.</p>
         </div>
       </div>
 
       <div class="next-step">
         <div class="next-num">3</div>
         <div class="next-body">
-          <h3 class="next-title">Verification call with you</h3>
-          <p class="next-detail">If you've shared your contact, we'll call or email you with 2–3 quick questions about her — her strengths, work style, and why you're vouching for her. About 5 minutes.</p>
-          <p class="next-meta">→ This step earns her the "Referral verified" badge on her profile.</p>
-        </div>
-      </div>
-
-      <div class="next-step">
-        <div class="next-num">4</div>
-        <div class="next-body">
-          <h3 class="next-title">We write and share her profile draft</h3>
-          <p class="next-detail">We turn your input plus our conversations into a calm, editorial profile. Both you and the helper see it before it goes live, with a chance to suggest edits.</p>
-        </div>
-      </div>
-
-      <div class="next-step">
-        <div class="next-num">5</div>
-        <div class="next-body">
-          <h3 class="next-title">Profile goes live — you'll be the first to know</h3>
-          <p class="next-detail">Once published, we email you with the link. If she finds a new family through Helper Circle, we'll send your thank-you token (your choice of voucher, donation, or pass-it-forward).</p>
+          <h3 class="next-title">Her profile goes live</h3>
+          <p class="next-detail">We'll notify you once she's listed and ready to meet families.</p>
         </div>
       </div>
 
@@ -654,7 +754,21 @@
     });
   })();
 
-  // Expandable section toggle
+  // Skill pill checked state
+  (function() {
+    document.querySelectorAll('.skill-pill input').forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        var pill = cb.closest('.skill-pill');
+        if (cb.checked) {
+          pill.classList.add('is-checked');
+        } else {
+          pill.classList.remove('is-checked');
+        }
+      });
+    });
+  })();
+
+  // Expandable
   (function() {
     var toggle = document.getElementById('expand-toggle');
     var panel = document.getElementById('expand-panel');
@@ -716,14 +830,16 @@
       });
       if (!valid) return;
       formWrap.style.display = 'none';
-      success.style.display = 'block';
+      success.classList.add('is-active');
       window.scrollTo({ top: success.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
     });
 
     if (referAnother) {
       referAnother.addEventListener('click', function() {
         form.reset();
-        document.querySelectorAll('.checkbox-item input').forEach(function(cb) { cb.checked = false; });
+        document.querySelectorAll('.skill-pill').forEach(function(p) {
+          p.classList.remove('is-checked');
+        });
         var counter = document.getElementById('quote-counter');
         if (counter) { counter.textContent = '0 words'; counter.classList.remove('is-good'); }
         var panel = document.getElementById('expand-panel');
@@ -734,7 +850,7 @@
           toggle.setAttribute('aria-expanded', 'false');
           if (label) label.textContent = 'Add more details (optional)';
         }
-        success.style.display = 'none';
+        success.classList.remove('is-active');
         formWrap.style.display = 'block';
         window.scrollTo({ top: formWrap.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
       });

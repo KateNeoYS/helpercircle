@@ -3594,3 +3594,20 @@ em { font-style: italic; color: var(--clr-primary); }
   .hcard-body {
     padding: var(--space-4) !important;
   }
+/* ── Preview section: cream background to separate from pricing white ── */
+.preview {
+  background: var(--clr-cream) !important;
+}
+
+/* ── Social proof bar: prevent orphan text on mobile ── */
+@media (max-width: 860px) {
+  .sp-item {
+    white-space: nowrap !important;
+    flex-wrap: nowrap !important;
+  }
+  .social-proof-bar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: var(--space-3) !important;
+  }
+}

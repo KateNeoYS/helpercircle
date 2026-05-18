@@ -3788,3 +3788,22 @@ em { font-style: italic; color: var(--clr-primary); }
     padding: var(--space-12) 0 !important;
   }
 }
+/* ── Force preview-grid carousel on mobile (final override) ── */
+@media (max-width: 860px) {
+  .preview-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: scroll !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 16px !important;
+  }
+  .preview-grid > .helper-card {
+    flex: 0 0 78% !important;
+    scroll-snap-align: start !important;
+    min-width: 0 !important;
+  }
+}
+
+/* ── Pricing: white on all screen sizes, final override ── */
+.pricing-section { background: var(--clr-white) !important; }

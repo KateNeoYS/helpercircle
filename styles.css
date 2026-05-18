@@ -3372,3 +3372,138 @@ em { font-style: italic; color: var(--clr-primary); }
     text-align: left !important;
   }
 }
+/* ════════════════════════════════
+   PRICING — Editorial redesign
+   ════════════════════════════════ */
+
+/* Hide old pricing elements if they linger */
+.pricing-inner,
+.pricing-card-wrap,
+.pricing-card { display: none !important; }
+
+.pricing-section {
+  background: var(--clr-white) !important;
+  border-top: 1px solid var(--clr-border) !important;
+  padding: var(--space-18) 0 !important;
+}
+
+.pricing-editorial {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+.pricing-editorial-hdr {
+  text-align: center;
+}
+
+.pricing-heading {
+  max-width: 560px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: var(--space-4) !important;
+}
+
+.pricing-editorial-sub {
+  font-size: var(--text-base);
+  color: var(--clr-text-muted);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: var(--lh-relaxed);
+}
+
+/* Fee row — amount + label inline */
+.pricing-fee-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-6) var(--space-8);
+  background: var(--clr-cream);
+  border-radius: 16px;
+  border: 1px solid var(--clr-border);
+}
+
+.pricing-fee-amount {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 500;
+  color: var(--clr-primary-dk);
+  line-height: 1;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+}
+
+.pricing-fee-label {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--clr-text);
+  margin-bottom: 4px;
+}
+
+.pricing-fee-sublabel {
+  font-size: var(--text-sm);
+  color: var(--clr-text-muted);
+  line-height: 1.5;
+}
+
+/* Includes grid — 2 col */
+.pricing-includes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3) var(--space-6);
+}
+
+.pricing-include-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--text-base);
+  color: var(--clr-text-2);
+  line-height: 1.4;
+}
+
+.pricing-editorial-cta {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+/* ── Benefits: refined cards ── */
+.benefit-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.benefit-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.07) !important;
+}
+.benefit-visual {
+  height: 160px !important;
+}
+.benefit-description {
+  font-size: var(--text-base) !important;
+}
+.benefit-list li {
+  font-size: var(--text-base) !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .pricing-fee-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-5) var(--space-5);
+  }
+  .pricing-includes-grid {
+    grid-template-columns: 1fr;
+  }
+  .pricing-editorial-cta {
+    width: 100%;
+    text-align: center;
+  }
+  .pricing-heading {
+    font-size: clamp(1.4rem, 5vw, 2rem) !important;
+  }
+}

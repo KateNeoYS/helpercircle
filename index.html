@@ -533,6 +533,12 @@
       </div>
 
     </div>
+    <div class="swipe-hint" aria-hidden="true" style="margin-top: var(--space-3)">
+        <div class="swipe-hint-dot active"></div>
+        <div class="swipe-hint-dot"></div>
+        <div class="swipe-hint-dot"></div>
+        <span style="margin-left:4px">Swipe to see more</span>
+      </div>
 
     <!-- Verified referral story -->
     <div class="before-after rev">
@@ -670,16 +676,35 @@
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script>
   // Benefit cards swipe dots
-  const grid = document.querySelector('.benefit-grid');
-  const dots = document.querySelectorAll('.swipe-hint-dot');
-  if (grid && dots.length) {
-    grid.addEventListener('scroll', () => {
-      const card = grid.querySelector('.benefit-card');
+  const benefitGrid = document.querySelector('.benefit-grid');
+  const benefitDots = document.querySelectorAll('.benefit-grid ~ .swipe-hint .swipe-hint-dot');
+  if (benefitGrid && benefitDots.length) {
+    benefitGrid.addEventListener('scroll', () => {
+      const card = benefitGrid.querySelector('.benefit-card');
       if (!card) return;
       const cardW = card.offsetWidth + 24;
-      const idx = Math.round(grid.scrollLeft / cardW);
-      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      const idx = Math.round(benefitGrid.scrollLeft / cardW);
+      benefitDots.forEach((d, i) => d.classList.toggle('active', i === idx));
     }, { passive: true });
+  }
+
+  // Helper cards swipe dots
+  const helperGrid = document.querySelector('.preview-grid');
+  const helperDots = document.querySelectorAll('.preview .swipe-hint .swipe-hint-dot');
+  if (helperGrid && helperDots.length) {
+    helperGrid.addEventListener('scroll', () => {
+      const card = helperGrid.querySelector('.helper-card');
+      if (!card) return;
+      const cardW = card.offsetWidth + 16;
+      const idx = Math.round(helperGrid.scrollLeft / cardW);
+      helperDots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }, { passive: true });
+  }
+
+  // Testimonial cards — add swipe hint visibility signal
+  const tGrid = document.querySelector('.testimonials-grid');
+  if (tGrid && window.innerWidth <= 860) {
+    tGrid.style.paddingBottom = '8px';
   }
 </script>
 </body>

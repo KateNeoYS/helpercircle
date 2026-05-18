@@ -3347,3 +3347,19 @@ em { font-style: italic; color: var(--clr-primary); }
     min-width: 0 !important;
   }
 }
+/* ── How It Works: final alignment fixes ── */
+.how-hdr {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Mobile: slightly narrower cards for better peek */
+@media (max-width: 860px) {
+  .how-step {
+    flex: 0 0 78% !important;
+  }
+}

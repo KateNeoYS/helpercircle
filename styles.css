@@ -3168,3 +3168,119 @@ em { font-style: italic; color: var(--clr-primary); }
     margin-bottom: var(--space-5) !important;
   }
 }
+/* ════════════════════════════════
+   HOW IT WORKS — Premium Refinement
+   ════════════════════════════════ */
+
+/* Section: soft cream background to separate from white hero */
+.how {
+  background: var(--clr-cream) !important;
+}
+
+/* Cards: left-align, always show bullets, softer border */
+.how-step {
+  align-items: flex-start !important;
+  text-align: left !important;
+  border-color: rgba(0,0,0,0.07) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+  transition:
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s ease !important;
+}
+
+/* Hover: gentle elevation only, no green border flash */
+.how-step:hover {
+  border-color: rgba(47,143,115,0.2) !important;
+  box-shadow: 0 8px 24px rgba(47,143,115,0.10) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Step number: smaller, more editorial */
+.how-step-n {
+  font-size: 1.5rem !important;
+  color: var(--clr-primary) !important;
+  opacity: 0.45 !important;
+  margin-bottom: var(--space-3) !important;
+  transition: opacity 0.3s ease !important;
+}
+.how-step:hover .how-step-n {
+  opacity: 0.85 !important;
+  color: var(--clr-primary) !important;
+}
+
+/* Icon: left-aligned, slightly smaller */
+.how-ico {
+  width: 48px !important;
+  height: 48px !important;
+  margin-bottom: var(--space-4) !important;
+  background: rgba(47,143,115,0.09) !important;
+  align-self: flex-start !important;
+  transition: background 0.3s ease !important;
+}
+.how-step:hover .how-ico {
+  background: rgba(47,143,115,0.16) !important;
+}
+/* Keep icon green on hover — don't invert to white */
+.how-step:hover .how-ico svg path,
+.how-step:hover .how-ico svg circle,
+.how-step:hover .how-ico svg rect {
+  stroke: var(--clr-primary) !important;
+}
+
+/* Title: left-aligned */
+.how-step .h3 {
+  text-align: left !important;
+}
+
+/* Sub: left-aligned, full width */
+.how-step-sub {
+  text-align: left !important;
+  max-width: 100% !important;
+  margin-bottom: var(--space-4) !important;
+}
+
+/* Bullets: always visible, no hover reveal */
+.how-step-detail {
+  max-height: none !important;
+  opacity: 1 !important;
+  margin-top: 0 !important;
+  overflow: visible !important;
+}
+.how-step-detail li {
+  border-top: 1px solid rgba(0,0,0,0.05) !important;
+}
+.how-step-detail li::before {
+  opacity: 0.55 !important;
+}
+
+/* Footer: upgrade to soft sage pill */
+.how-footer {
+  margin-top: var(--space-10) !important;
+  padding: var(--space-5) var(--space-8) !important;
+  background: rgba(47,143,115,0.06) !important;
+  border: 1px solid rgba(47,143,115,0.14) !important;
+  border-radius: 16px !important;
+  gap: var(--space-8) !important;
+  justify-content: center !important;
+}
+.how-timeline,
+.how-trust {
+  font-size: var(--text-base) !important;
+}
+.how-trust {
+  color: var(--clr-text-2) !important;
+}
+
+/* Mobile: tighten gap between headline and cards */
+@media (max-width: 860px) {
+  .how-hdr {
+    margin-bottom: var(--space-7) !important;
+  }
+  .how-footer {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: var(--space-4) !important;
+    padding: var(--space-5) var(--space-6) !important;
+  }
+}

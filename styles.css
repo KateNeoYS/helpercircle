@@ -4554,3 +4554,91 @@ em { font-style: italic; color: var(--clr-primary); }
     right: -120px;
   }
 }
+
+
+/* ═══ MOBILE ALIGNMENT FIXES — May 2026 ═══ */
+/* Ensure consistent left-alignment on mobile across all sections */
+
+@media (max-width: 768px) {
+  /* Hero trust bullets — left align on mobile */
+  .hero-micro-trust {
+    align-items: flex-start !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    text-align: left !important;
+  }
+  .micro-trust-item {
+    text-align: left !important;
+  }
+
+  /* Pricing section — left align on mobile */
+  .pricing-editorial-hdr {
+    text-align: left !important;
+  }
+  .pricing-heading {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+  }
+  .pricing-editorial-sub {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+  }
+  .pricing-footnote {
+    text-align: left !important;
+  }
+  .pricing-editorial-cta {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+
+  /* Footer — left align tagline on mobile */
+  .footer-heart {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+  }
+  .footer-inner {
+    text-align: left !important;
+  }
+  .footer-nav {
+    justify-content: flex-start !important;
+  }
+  .footer-legal-strip {
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+
+  /* Benefits section — left align on mobile too */
+  .benefits-new-hdr {
+    text-align: left !important;
+  }
+  .benefits-new-hdr .kicker {
+    margin-left: 0 !important;
+  }
+  .benefits-new-hdr .h2 {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Testimonials — left align on mobile */
+  .testimonials-hdr {
+    text-align: left !important;
+  }
+  .testimonials-hdr .h2 {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+  }
+  .testimonials-sub {
+    text-align: left !important;
+    max-width: 100% !important;
+  }
+}

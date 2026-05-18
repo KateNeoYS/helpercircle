@@ -1911,7 +1911,7 @@ em { font-style: italic; color: var(--clr-primary); }
 /* =============================================================
    HELPER GRID — clean rebuild (replaces .preview-grid + .helper-card)
    ============================================================= */
-.preview { padding: var(--space-18) 0; background: var(--clr-white); }
+.preview { padding: var(--space-18) 0; background: var(--clr-cream); }
 .preview-hdr {
   display: flex;
   align-items: flex-end;

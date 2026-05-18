@@ -4433,3 +4433,31 @@ em { font-style: italic; color: var(--clr-primary); }
   flex-wrap: wrap;
 }
 .bfilter-
+/* ═══ POLISH FIXES — May 2026 ═══ */
+
+/* Center benefits section heading */
+.benefits-new-hdr {
+  text-align: center;
+}
+.benefits-new-hdr .kicker {
+  display: inline-block;
+}
+
+/* Prevent orphan in hero subtitle */
+.hero-sub {
+  text-wrap: pretty;
+}
+
+/* Balance hero micro-trust bullets into 2x2 on narrow viewports */
+.hero-micro-trust {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: balance;
+}
+
+@media (max-width: 900px) {
+  .hero-micro-trust {
+    max-width: 480px;
+  }
+}

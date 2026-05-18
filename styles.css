@@ -3663,3 +3663,48 @@ em { font-style: italic; color: var(--clr-primary); }
     margin: 0 auto !important;
   }
 }
+/* ════════════════════════════════
+   DESKTOP — section backgrounds (authoritative)
+   ════════════════════════════════ */
+@media (min-width: 861px) {
+  .benefits     { background: var(--clr-cream)  !important; }
+  .pricing      { background: var(--clr-white)  !important; }
+  .preview      { background: var(--clr-cream)  !important; }
+  .testimonials { background: var(--clr-white)  !important; }
+}
+
+/* ════════════════════════════════
+   DESKTOP — referred helpers header: centre-align to match other sections
+   ════════════════════════════════ */
+@media (min-width: 861px) {
+  .preview-hdr {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .preview-hdr h2 {
+    text-align: center !important;
+  }
+  .preview-hdr p,
+  .preview-hdr .preview-sub {
+    text-align: center !important;
+  }
+  /* Keep Browse all → link right-aligned separately below grid */
+  .preview-hdr a {
+    align-self: center !important;
+  }
+}
+
+/* ════════════════════════════════
+   DESKTOP — testimonials title: fix orphan, keep centred
+   ════════════════════════════════ */
+@media (min-width: 861px) {
+  .testimonials-hdr .h2 {
+    white-space: nowrap !important;
+  }
+  .testimonials-sub {
+    max-width: 380px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+}

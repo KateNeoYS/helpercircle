@@ -37,93 +37,66 @@
 <!-- ═══ BROWSE HERO ═══ -->
 <section class="browse-hero">
   <div class="wrap browse-hero-inner">
-    <h1 class="browse-hl">Employer-referred helpers</h1>
-    <p class="browse-sub">Every helper below was personally referred by a Singapore family. Each profile is curated, not listed.</p>
+    <h1 class="browse-hl">Referred helpers in Singapore</h1>
+    <p class="browse-sub">A small, growing community of helpers introduced to us by previous employers. We're onboarding new referrals as families share them with us.</p>
   </div>
 </section>
 
 <!-- ═══ BROWSE GRID ═══ -->
+<!-- ═══ HOW REFERRALS WORK ═══ -->
+<!-- TODO: when real helper profiles exist, restore .hcard-grid here above (or below) this explainer section. Keep this section as supporting context for new visitors. -->
 <section class="browse-body">
   <div class="wrap">
-    <p class="browse-ct" id="browse-ct" style="text-align:center;color:var(--muted);font-size:.95rem;margin-bottom:32px;">
-      Currently introducing <strong>3 helpers</strong>. New profiles added as families refer them.
-    </p>
 
-    <div class="hcard-grid hcard-grid--static" id="browse-grid">
+    <!-- Section heading -->
+    <div style="text-align:center; max-width:600px; margin:0 auto 48px;">
+      <div class="kicker" style="display:inline-block; margin-bottom:18px;">Our approach</div>
+      <h2 class="h2" style="text-wrap:balance; margin-bottom:14px;">How a referral becomes a profile</h2>
+      <p style="color:var(--muted); font-size:1.05rem; line-height:1.65;">We don't list helpers from a database. Each profile starts with a family reaching out about someone they've worked with personally — and ends with us making an introduction.</p>
+    </div>
 
-      <!-- Siti Nur A. — Referral verified -->
-      <a href="profile-siti.html" class="hcard hcard--full" data-name="siti">
-        <div class="hcard-photo">
-          <img src="images/siti.jpg" alt="Siti Nur A." onerror="this.style.display='none'"/>
-        </div>
-        <div class="hcard-body">
-          <h3 class="hcard-name">Siti Nur A.</h3>
-          <p class="hcard-meta">Indonesian · 6 years in Singapore</p>
-          <blockquote class="hcard-quote">
-            <p>"She never needed reminding about anything."</p>
-            <cite>— Priscilla T., Bishan</cite>
-          </blockquote>
-          <p class="hcard-specialty">Experienced in childcare support</p>
-          <span class="hcard-tier-row hcard-tier-row--verified">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>
-            Referral verified
-          </span>
-        </div>
-      </a>
+    <!-- 3-step process cards -->
+    <div class="hcard-grid hcard-grid--static" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
 
-      <!-- Aye Aye M. — Employer referred -->
-      <a href="profile-ayeaye.html" class="hcard hcard--full" data-name="ayeaye">
-        <div class="hcard-photo">
-          <img src="images/ayeaye.jpg" alt="Aye Aye M." onerror="this.style.display='none'"/>
-        </div>
-        <div class="hcard-body">
-          <h3 class="hcard-name">Aye Aye M.</h3>
-          <p class="hcard-meta">Myanmar · 4 years in Singapore</p>
-          <blockquote class="hcard-quote">
-            <p>"Calm, patient, and steady with my mother-in-law."</p>
-            <cite>— Joanne K., Tampines</cite>
-          </blockquote>
-          <p class="hcard-specialty">Specialises in eldercare</p>
-          <span class="hcard-tier-row">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-            Employer referred
-          </span>
-        </div>
-      </a>
+      <div class="hcard hcard--full" style="cursor:default; padding: 32px 28px;">
+        <div style="display:inline-flex; width:36px; height:36px; align-items:center; justify-content:center; background:var(--clr-cream); border-radius:50%; color:var(--clr-primary); font-family:var(--fd); font-style:italic; font-size:1.05rem; font-weight:600; margin-bottom:18px;">01</div>
+        <h3 class="hcard-name" style="margin-bottom:10px;">A family reaches out</h3>
+        <p style="color:var(--muted); font-size:.95rem; line-height:1.65;">An employer in Singapore tells us about a helper they've worked with, why she's looking for a new home, and what she's good at.</p>
+      </div>
 
-      <!-- Rizalyn D. — Referral verified -->
-      <a href="profile-rizalyn.html" class="hcard hcard--full" data-name="rizalyn">
-        <div class="hcard-photo">
-          <img src="images/rizalyn.jpg" alt="Rizalyn D." onerror="this.style.display='none'"/>
-        </div>
-        <div class="hcard-body">
-          <h3 class="hcard-name">Rizalyn D.</h3>
-          <p class="hcard-meta">Filipino · 8 years in Singapore</p>
-          <blockquote class="hcard-quote">
-            <p>"She made our house feel like home for our boys."</p>
-            <cite>— J. Lim, Bukit Timah</cite>
-          </blockquote>
-          <p class="hcard-specialty">Experienced in childcare &amp; eldercare</p>
-          <span class="hcard-tier-row hcard-tier-row--verified">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>
-            Referral verified
-          </span>
-        </div>
-      </a>
+      <div class="hcard hcard--full" style="cursor:default; padding: 32px 28px;">
+        <div style="display:inline-flex; width:36px; height:36px; align-items:center; justify-content:center; background:var(--clr-cream); border-radius:50%; color:var(--clr-primary); font-family:var(--fd); font-style:italic; font-size:1.05rem; font-weight:600; margin-bottom:18px;">02</div>
+        <h3 class="hcard-name" style="margin-bottom:10px;">We verify and listen</h3>
+        <p style="color:var(--muted); font-size:.95rem; line-height:1.65;">We speak with both the referrer and the helper. We confirm her work history, her preferences, and what she's hoping for next.</p>
+      </div>
+
+      <div class="hcard hcard--full" style="cursor:default; padding: 32px 28px;">
+        <div style="display:inline-flex; width:36px; height:36px; align-items:center; justify-content:center; background:var(--clr-cream); border-radius:50%; color:var(--clr-primary); font-family:var(--fd); font-style:italic; font-size:1.05rem; font-weight:600; margin-bottom:18px;">03</div>
+        <h3 class="hcard-name" style="margin-bottom:10px;">Her profile goes live</h3>
+        <p style="color:var(--muted); font-size:.95rem; line-height:1.65;">Once we're confident in the referral and the helper is ready, we publish her profile here for families to meet.</p>
+      </div>
 
     </div>
 
-    <!-- Quiet trust signal strip -->
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:64px;padding-top:32px;border-top:1px solid rgba(0,0,0,.08);font-size:.8rem;color:var(--muted);letter-spacing:.02em;">
-      <span>Personally referred</span>
-      <span style="opacity:.4">·</span>
-      <span>Contact verified</span>
-      <span style="opacity:.4">·</span>
-      <span>Work history reviewed</span>
+    <!-- Waitlist signup -->
+    <!-- TODO: connect this form to a real email service (e.g. Formspree, ConvertKit, Tally) when ready. Currently form action goes to mailto as a stop-gap. -->
+    <div style="margin-top: 80px; background: var(--clr-cream); border: 1px solid var(--clr-border-warm); border-radius: var(--radius-xl); padding: 56px 40px; max-width: 620px; margin-left:auto; margin-right:auto;">
+      <div style="text-align:center;">
+        <h3 class="h3" style="font-size:1.7rem; margin-bottom:14px; text-wrap:balance;">Be notified when new profiles go live</h3>
+        <p style="color:var(--muted); font-size:1rem; line-height:1.65; margin-bottom:28px; max-width:440px; margin-left:auto; margin-right:auto;">We'll send you a short email when we introduce a new helper. No newsletters, no marketing &mdash; just a quiet note when there's someone new to meet.</p>
+
+        <form action="mailto:hello@helpercircle.sg?subject=Waitlist%20signup" method="post" enctype="text/plain" style="display:flex; flex-direction:column; gap:12px; max-width:380px; margin:0 auto;">
+          <input type="email" name="email" placeholder="Your email" required style="padding:14px 18px; border:1px solid var(--clr-border); border-radius: var(--radius-md); font-size:1rem; background:white; font-family:inherit;"/>
+          <button type="submit" class="btn btn-green" style="width:100%;">Notify me</button>
+        </form>
+
+        <p style="font-size:.85rem; color:var(--muted); margin-top:18px;">Or refer a helper of your own &mdash; <a href="refer.html" style="color:var(--clr-primary); text-decoration:underline;">tell us about her</a></p>
+      </div>
     </div>
 
   </div>
 </section>
+
 
 <!-- ═══ REFERRAL BANNER ═══ -->
 <section class="ref-banner">
@@ -139,7 +112,7 @@
         <div class="ref-av-initial" aria-hidden="true">S</div>
         <div class="ref-av-initial" aria-hidden="true">R</div>
         <div class="ref-av-initial" aria-hidden="true">A</div>
-        <span class="ref-av-ct">+40 helpers referred</span>
+        <span class="ref-av-ct">A curated circle of trusted referrals</span>
       </div>
       <h2 class="ref-hl">Know a good helper?</h2>
       <p class="ref-sub" style="max-width:420px">Refer someone you trust.<br>We'll handle the follow-up.</p>
@@ -162,9 +135,9 @@
 
     <div class="rev">
       <div class="ref-card">
-        <div class="ref-card-ttl">From a previous employer</div>
-        <p style="font-size:1.05rem;font-family:var(--fd);font-style:italic;color:rgba(255,255,255,.85);line-height:1.65;margin-bottom:18px;">"We didn't want to send her home. Helper Circle made it easy to pass her on to a good family."</p>
-        <p style="font-size:.78rem;color:rgba(255,255,255,.42);font-weight:600;letter-spacing:.04em;">— R.T., Singapore employer, 2024</p>
+        <div class="ref-card-ttl">From the family behind Helper Circle</div>
+        <p style="font-size:1.05rem;font-family:var(--fd);font-style:italic;color:rgba(255,255,255,.85);line-height:1.65;margin-bottom:18px;">"We didn't want to send our helper home. Helper Circle started because there should be a better way to pass a good helper to another good family &mdash; and to make that process clearer for everyone."</p>
+        <p style="font-size:.78rem;color:rgba(255,255,255,.42);font-weight:600;letter-spacing:.04em;">&mdash; The Helper Circle founding family</p>
       </div>
     </div>
 

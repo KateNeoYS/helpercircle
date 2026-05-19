@@ -6885,3 +6885,43 @@ em { font-style: italic; color: var(--clr-primary); }
 .preview-quote {
   border-left-color: rgba(232, 130, 92, 0.42) !important;
 }
+
+/* =============================================================
+   BROWSE PREVIEW SECTION — STRONGER PEACH (May 2026)
+   First pass barely moved the needle. Now applying peach across
+   four touchpoints to genuinely warm this section.
+   ============================================================= */
+
+/* 1. PREVIEW pill (illustrative example) — switch from sage to peach */
+.preview-badge {
+  background: rgba(232, 130, 92, 0.08) !important;
+  border-color: rgba(232, 130, 92, 0.28) !important;
+  color: #9B5B3A !important;
+}
+.preview-badge svg {
+  color: #C66740 !important;
+  opacity: 0.75 !important;
+}
+
+/* 2. Photo placeholder slot — soft peach instead of cream
+   (signals "future content waiting", not "missing/cold") */
+.preview-photo-slot {
+  background: rgba(232, 130, 92, 0.06) !important;
+  border-color: rgba(232, 130, 92, 0.30) !important;
+  color: #9B5B3A !important;
+}
+.preview-photo-slot svg {
+  color: #C66740 !important;
+}
+
+/* 3. Quote left border — thicker + more saturated peach */
+.preview-quote {
+  border-left: 3px solid rgba(232, 130, 92, 0.55) !important;
+  background: rgba(232, 130, 92, 0.04) !important;
+}
+
+/* 4. Outer preview-card border — subtle peach tint to unify
+   the whole composition under one warm accent */
+.preview-card {
+  border-color: rgba(232, 130, 92, 0.16) !important;
+}

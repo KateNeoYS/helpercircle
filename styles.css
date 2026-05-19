@@ -5552,3 +5552,158 @@ em { font-style: italic; color: var(--clr-primary); }
     max-width: none;
   }
 }
+
+/* =============================================================
+   HERO PORTRAITS — editorial (no labels, no inventory cues)
+   Three friendly portraits on the right side of the hero,
+   purposefully unbranded as "available helpers." No names,
+   no verification chips, no "available now" pills. They
+   anchor the brand emotionally — humans behind the platform.
+   Replaces the deleted .hero-vis card-stack at this slot.
+   ============================================================= */
+
+.hero-portraits {
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0 60px;
+}
+
+.hero-portrait {
+  position: absolute;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  background: var(--clr-white);
+}
+.hero-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+}
+
+/* Asymmetric arrangement — one larger, two smaller */
+.hero-portrait--a {
+  /* Largest, centred */
+  width: 220px;
+  height: 280px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-58%) rotate(-3deg);
+  z-index: 2;
+}
+.hero-portrait--b {
+  /* Right-back, smaller */
+  width: 168px;
+  height: 220px;
+  top: 30px;
+  right: 4%;
+  transform: rotate(4deg);
+  z-index: 1;
+}
+.hero-portrait--c {
+  /* Bottom-front, smaller */
+  width: 152px;
+  height: 200px;
+  bottom: 32px;
+  left: 4%;
+  transform: rotate(-2deg);
+  z-index: 3;
+}
+
+.hero-portraits-cap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--fd, 'Cormorant Garamond'), serif;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--clr-text-muted, #6B7370);
+  margin: 0;
+  padding: 0 20px;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tablet — same arrangement, slightly smaller */
+@media (max-width: 1100px) {
+  .hero-portrait--a { width: 200px; height: 256px; }
+  .hero-portrait--b { width: 152px; height: 200px; }
+  .hero-portrait--c { width: 138px; height: 180px; }
+}
+
+/* Mobile — horizontal scroll row, no labels, no overlap */
+@media (max-width: 860px) {
+  .hero-portraits {
+    position: relative !important;
+    min-height: auto;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 24px 0 8px;
+    gap: 14px;
+  }
+
+  /* The three portraits become a horizontal scroll row */
+  .hero-portrait {
+    position: relative !important;
+    width: 148px !important;
+    height: 198px !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    flex-shrink: 0;
+  }
+
+  /* Need a flex container — using a wrapper since we can't add markup */
+  /* Place the portraits inside an explicit row via parent flex layout */
+  .hero-portraits::before {
+    content: "";
+    display: none;
+  }
+
+  /* On mobile we want the portraits in a row, not stacked vertically — switch parent to row + wrap */
+  .hero-portraits {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 12px;
+    padding: 16px 0 12px;
+  }
+  .hero-portraits::-webkit-scrollbar { display: none; }
+
+  .hero-portrait {
+    scroll-snap-align: center;
+  }
+
+  /* Caption sits BELOW the portraits row on mobile, in normal flow */
+  .hero-portraits-cap {
+    position: static !important;
+    order: 99;
+    flex-basis: 100%;
+    text-align: center;
+    margin: 12px 0 0 !important;
+    padding: 0 12px;
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-portrait {
+    width: 138px !important;
+    height: 184px !important;
+  }
+}

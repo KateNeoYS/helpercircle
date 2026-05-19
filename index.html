@@ -453,47 +453,58 @@
   </div>
 </section>
 
-<!-- ═══ WHY EMPLOYER REFERRALS MATTER ═══ -->
-<!-- TODO: replace with real testimonials when available — section uses .testimonials and .tcard classes already styled in styles.css; cards can be swapped 1:1 for testimonial cards with quote + author -->
-<section class="testimonials" id="testimonials">
+<!-- ═══ WHY REFERRALS MATTER ═══ -->
+<!-- TODO: when real employer testimonials exist, this section can be replaced or
+     paired with a .testimonials/.tcard grid (legacy classes still in styles.css).
+     The current asymmetric layout (.why-section) uses its own scoped classes so
+     it can coexist with a future testimonial grid without conflicts. -->
+<section class="why-section" id="why-referrals">
   <div class="wrap">
-    <div class="testimonials-hdr rev">
-      <div class="kicker">A different way to hire</div>
-      <h2 class="h2">Why employer referrals matter</h2>
-      <p class="testimonials-sub" style="max-width: 480px">Direct hire transfers work differently from agency placements. Here's what changes when a helper comes referred by a previous family.</p>
+
+    <div class="why-hdr rev">
+      <div class="kicker">Why referrals matter</div>
+      <h2 class="h2 why-h2">A more thoughtful transition</h2>
+      <p class="why-sub">Direct hire transfers work differently. Here's what changes when a helper comes referred by a previous family.</p>
     </div>
 
-    <!-- 3 educational cards — same grid as testimonial slot for easy future swap -->
-    <div class="testimonials-grid">
+    <div class="why-grid rev">
 
-      <div class="tcard rev">
-        <p class="tcard-quote" style="font-style: normal">Helpers who already know Singapore. Transfer hiring means a helper is already adjusted to local life, language, weather, and food. No restart, no acclimatisation period.</p>
-        <div class="tcard-footer">
-          <div class="tcard-author">
-            <div class="tcard-name">Local experience</div>
-            <div class="tcard-role">Built into every referral</div>
-          </div>
+      <!-- Featured card — the centrepiece idea -->
+      <article class="why-card why-card-feature">
+        <div class="why-icon why-icon-feature" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2.5L4 6v6c0 5 3.5 8.5 8 9.5 4.5-1 8-4.5 8-9.5V6l-8-3.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
-      </div>
+        <h3 class="why-card-h">She already knows&nbsp;Singapore</h3>
+        <p class="why-card-p">No acclimatisation period, no restart. A transferred helper has already settled into local life.</p>
+        <p class="why-card-caption"><em>Familiarity with the language, food, weather, and rhythm of the city &mdash; built into every referral.</em></p>
+      </article>
 
-      <div class="tcard rev">
-        <p class="tcard-quote" style="font-style: normal">Context you can't get from a biodata sheet. A previous family who lived with her knows her routines, temperament, and real strengths. That context is the foundation of our work.</p>
-        <div class="tcard-footer">
-          <div class="tcard-author">
-            <div class="tcard-name">Real context</div>
-            <div class="tcard-role">From people who've worked with her</div>
-          </div>
-        </div>
-      </div>
+      <!-- Two supporting cards stacked on the right -->
+      <div class="why-supporting">
 
-      <div class="tcard rev">
-        <p class="tcard-quote" style="font-style: normal">No placement loans, no salary deductions. Direct hire transfers don't involve agency loans deducted from the helper's pay. The arrangement is healthier for her, and clearer for you.</p>
-        <div class="tcard-footer">
-          <div class="tcard-author">
-            <div class="tcard-name">Fair to both sides</div>
-            <div class="tcard-role">No hidden costs to her wages</div>
+        <article class="why-card why-card-support">
+          <div class="why-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M21 11c0 4.97-4.03 9-9 9a8.96 8.96 0 01-4.5-1.2L3 20l1.2-4.5A8.96 8.96 0 013 11c0-4.97 4.03-9 9-9s9 4.03 9 9z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            </svg>
           </div>
-        </div>
+          <h3 class="why-card-h">Context, not just a&nbsp;CV</h3>
+          <p class="why-card-p">A family who lived with her knows her real strengths &mdash; the things no biodata sheet captures.</p>
+        </article>
+
+        <article class="why-card why-card-support">
+          <div class="why-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s-7-4.5-7-11a4.5 4.5 0 019-1 4.5 4.5 0 019 1c0 6.5-7 11-7 11h-4z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="why-card-h">No loans, no&nbsp;deductions</h3>
+          <p class="why-card-p">Direct hire transfers don't involve agency loans deducted from her pay. Fairer for her, clearer for you.</p>
+        </article>
+
       </div>
 
     </div>

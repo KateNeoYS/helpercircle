@@ -6597,3 +6597,72 @@ em { font-style: italic; color: var(--clr-primary); }
 .how-ico--amber {
   background: rgba(184, 136, 74, 0.12) !important;
 }
+
+/* =============================================================
+   BROWSE PAGE — POLISH PASS (May 2026)
+   Targeted refinements:
+   - Desktop hero composition (tighter, more anchored)
+   - Pathway cards aligned bottom (equal optical weight)
+   - Journey timeline tighter on desktop
+   ============================================================= */
+
+/* ─── Desktop hero: rebalance for composition ─── */
+@media (min-width: 861px) {
+  .browse-hero-inner {
+    grid-template-columns: 1.2fr 0.9fr;
+    gap: 32px;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding-bottom: 8px;
+  }
+  .browse-hero-text {
+    max-width: 520px;
+  }
+  /* Subtle editorial rule under the hero text — anchors composition */
+  .browse-hero-text::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 1.5px;
+    background: rgba(44, 138, 110, 0.42);
+    margin-top: 28px;
+  }
+  /* Note shifts slightly into the gap so it reads as part of one composition */
+  .browse-hero-note {
+    justify-self: start;
+    width: 300px;
+    transform: rotate(1.5deg) translateX(-20px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .browse-hero-inner {
+    max-width: 1120px;
+  }
+  .browse-hero-note {
+    transform: rotate(1.5deg) translateX(-32px);
+  }
+}
+
+/* ─── Pathway cards: equal optical weight, button anchored to bottom ─── */
+.pathway-card {
+  /* Ensures both cards stretch to the same height in the grid */
+  height: 100%;
+}
+.pathway-btn-full {
+  margin-top: auto;
+}
+/* The body paragraph gets a min-height on desktop so cards with shorter
+   copy don't shrink and break visual pairing */
+@media (min-width: 641px) {
+  .pathway-p {
+    min-height: 2.8em;
+  }
+}
+
+/* ─── Journey timeline tighter on desktop ─── */
+@media (min-width: 861px) {
+  .journey-timeline {
+    max-width: 720px !important;
+  }
+}

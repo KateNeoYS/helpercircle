@@ -5856,7 +5856,7 @@ em { font-style: italic; color: var(--clr-primary); }
   margin: 0 auto 28px;
 }
 
-.pricing-card {
+.pricing-panel {
   background: var(--clr-white);
   border: 1px solid var(--clr-border, #E5E1DA);
   border-radius: var(--radius-xl, 20px);
@@ -5865,12 +5865,12 @@ em { font-style: italic; color: var(--clr-primary); }
   flex-direction: column;
 }
 
-.pricing-card-fee {
+.pricing-panel-fee {
   background: var(--clr-cream, #FCF7EE);
   border-color: rgba(44, 138, 110, 0.18);
 }
 
-.pricing-card-eyebrow {
+.pricing-panel-eyebrow {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -5901,18 +5901,18 @@ em { font-style: italic; color: var(--clr-primary); }
   font-family: var(--fd, 'Cormorant Garamond'), serif;
 }
 
-.pricing-card-note {
+.pricing-panel-note {
   font-family: var(--fd, 'Cormorant Garamond'), serif;
   font-size: 1.02rem;
   line-height: 1.55;
   color: var(--clr-text-muted, #6B7370);
   margin: 0 0 22px;
 }
-.pricing-card-note em {
+.pricing-panel-note em {
   font-style: italic;
 }
 
-.pricing-card-list {
+.pricing-panel-list {
   list-style: none;
   margin: 0;
   padding: 18px 0 0;
@@ -5921,13 +5921,13 @@ em { font-style: italic; color: var(--clr-primary); }
   flex-direction: column;
   gap: 8px;
 }
-.pricing-card-list li {
+.pricing-panel-list li {
   font-size: 0.92rem;
   color: var(--clr-text, #2A2926);
   position: relative;
   padding-left: 16px;
 }
-.pricing-card-list li::before {
+.pricing-panel-list li::before {
   content: "—";
   position: absolute;
   left: 0;
@@ -6072,7 +6072,7 @@ em { font-style: italic; color: var(--clr-primary); }
     gap: 14px;
     margin-bottom: 20px;
   }
-  .pricing-card {
+  .pricing-panel {
     padding: 28px 24px 24px;
   }
   .pricing-amount {

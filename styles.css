@@ -6691,3 +6691,47 @@ em { font-style: italic; color: var(--clr-primary); }
 @media (max-width: 860px) {
   .sub-break-mobile { display: inline; }
 }
+
+/* =============================================================
+   BROWSE HERO — refined composition (May 2026)
+   The hero now carries three distinct claims stacked vertically:
+   - H1 (what)
+   - .browse-sub (standard: verification)
+   - .browse-hero-meta (rhythm: referral-driven, not sourced)
+   - Handwritten note (emotional voice, right side)
+   Each carries a different typographic weight to create hierarchy
+   rather than redundancy.
+   ============================================================= */
+
+.browse-hero-meta {
+  margin: 14px 0 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--clr-text-muted, #6B7370);
+  font-style: italic;
+  text-wrap: balance;
+  max-width: 460px;
+}
+
+/* The .browse-sub line is the secondary anchor — slightly larger
+   than the meta line, normal weight, not italic */
+.browse-sub {
+  text-wrap: balance;
+  max-width: 480px;
+}
+
+@media (min-width: 861px) {
+  /* Push the editorial sage rule slightly further down so it sits
+     under all three text elements as a unifying anchor */
+  .browse-hero-text::after {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 860px) {
+  .browse-hero-meta {
+    font-size: 0.88rem;
+    margin-top: 12px;
+    max-width: none;
+  }
+}

@@ -84,7 +84,7 @@
           <circle cx="5.5" cy="5.5" r="4.5" stroke="currentColor" stroke-width="1" fill="none"/>
           <path d="M5.5 3v3l1.8 1" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
         </svg>
-        <span>Preview &mdash; illustrative example, not a live profile</span>
+        <span>Preview &mdash; illustrative example,<br class="sub-break-mobile"> not a live&nbsp;profile</span>
       </div>
 
       <article class="preview-card" aria-label="Example of profile format">
@@ -194,7 +194,20 @@
         <h3 class="pathway-h">Notify me of new&nbsp;profiles</h3>
         <p class="pathway-p">A quiet email when there's someone new to&nbsp;meet.</p>
 
-        <a href="mailto:hello@helpercircle.sg?subject=Notify%20me%20of%20new%20profiles&body=Hi%20Helper%20Circle%2C%0A%0APlease%20notify%20me%20when%20a%20new%20referred%20helper%20goes%20live.%0A%0AThank%20you%21" class="btn btn-green pathway-btn-full">Notify me</a>
+        <form id="form-notify" class="pathway-form-v2" action="https://formspree.io/f/xwvzpank" method="POST">
+          <div class="pathway-field">
+            <label for="notify-email" class="pathway-field-label">Email</label>
+            <input type="email" id="notify-email" name="email" required placeholder="you@email.com" autocomplete="email"/>
+          </div>
+          <button type="submit" class="btn btn-green pathway-btn-full">Notify me</button>
+          <p class="pathway-form-note">We'll only email you when a new helper goes&nbsp;live.</p>
+          <div class="pathway-success" hidden>
+            <p>Thank you. We'll be in touch when there's someone new to&nbsp;meet.</p>
+          </div>
+          <div class="pathway-error" hidden>
+            <p>Something didn't go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p>
+          </div>
+        </form>
       </div>
 
       <!-- Pathway 2: Active match request -->
@@ -208,7 +221,28 @@
         <h3 class="pathway-h">Looking for a helper&nbsp;soon?</h3>
         <p class="pathway-p">Tell us what you need &mdash; we'll reach&nbsp;out.</p>
 
-        <a href="mailto:hello@helpercircle.sg?subject=Looking%20for%20a%20helper&body=Hi%20Helper%20Circle%2C%0A%0AI%27m%20looking%20for%20help%20with%3A%0A%0AHousehold%20size%3A%0A%0ACare%20needed%20%28children%2Felderly%2Fhousehold%29%3A%0A%0AHoping%20to%20start%20by%3A%0A%0AAnything%20else%20we%20should%20know%3A%0A%0AThank%20you%21" class="btn btn-outline pathway-btn-full">Tell us what you need</a>
+        <form id="form-looking" class="pathway-form-v2" action="https://formspree.io/f/xnjrnlbp" method="POST">
+          <div class="pathway-field">
+            <label for="looking-name" class="pathway-field-label">Your name</label>
+            <input type="text" id="looking-name" name="name" required placeholder="Jane Tan" autocomplete="name"/>
+          </div>
+          <div class="pathway-field">
+            <label for="looking-email" class="pathway-field-label">Email</label>
+            <input type="email" id="looking-email" name="email" required placeholder="you@email.com" autocomplete="email"/>
+          </div>
+          <div class="pathway-field">
+            <label for="looking-details" class="pathway-field-label">Briefly, what are you looking for? <span class="pathway-field-opt">(optional)</span></label>
+            <textarea id="looking-details" name="details" rows="3" placeholder="Household size, care needed, hoping to start by&hellip;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-outline pathway-btn-full">Tell us what you need</button>
+          <p class="pathway-form-note">We'll reach out within 1&ndash;2 business&nbsp;days.</p>
+          <div class="pathway-success" hidden>
+            <p>Thank you. We'll be in touch within 1&ndash;2 business&nbsp;days.</p>
+          </div>
+          <div class="pathway-error" hidden>
+            <p>Something didn't go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p>
+          </div>
+        </form>
       </div>
 
     </div>
@@ -315,6 +349,58 @@
       card.classList.add('is-open');
     }
   }, true);
+})();
+</script>
+
+<!-- Formspree AJAX submission for both pathway forms -->
+<script>
+(function () {
+  function wireForm(formId) {
+    var form = document.getElementById(formId);
+    if (!form) return;
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var successEl = form.querySelector('.pathway-success');
+    var errorEl = form.querySelector('.pathway-error');
+    var fields = form.querySelectorAll('.pathway-field');
+    var noteEl = form.querySelector('.pathway-form-note');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.dataset.originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending\u2026';
+      }
+      if (errorEl) errorEl.hidden = true;
+
+      var data = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(function (res) {
+          if (res.ok) {
+            // Hide form fields and submit button, show success
+            fields.forEach(function (f) { f.style.display = 'none'; });
+            if (submitBtn) submitBtn.style.display = 'none';
+            if (noteEl) noteEl.style.display = 'none';
+            if (successEl) successEl.hidden = false;
+          } else {
+            throw new Error('Form submission failed');
+          }
+        })
+        .catch(function () {
+          if (errorEl) errorEl.hidden = false;
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = submitBtn.dataset.originalText || 'Submit';
+          }
+        });
+    });
+  }
+  wireForm('form-notify');
+  wireForm('form-looking');
 })();
 </script>
 </body>

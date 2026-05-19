@@ -6735,3 +6735,153 @@ em { font-style: italic; color: var(--clr-primary); }
     max-width: none;
   }
 }
+
+/* =============================================================
+   BROWSE — PATHWAY FORMS (Formspree, May 2026)
+   Inline forms inside pathway cards. Each card holds a small form
+   with email + submit. Success/error states swap in via JS.
+   ============================================================= */
+
+.pathway-form-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+  width: 100%;
+}
+.pathway-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+.pathway-field-label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--clr-text, #2A2926);
+  letter-spacing: 0.01em;
+}
+.pathway-field-opt {
+  font-weight: 400;
+  color: var(--clr-text-muted, #6B7370);
+  font-size: 0.74rem;
+  margin-left: 2px;
+}
+.pathway-form-v2 input[type="email"],
+.pathway-form-v2 input[type="text"],
+.pathway-form-v2 textarea {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--clr-text, #2A2926);
+  background: var(--clr-white, #FFFFFF);
+  border: 1px solid rgba(31, 42, 36, 0.12);
+  border-radius: 10px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.pathway-form-v2 input[type="email"]:focus,
+.pathway-form-v2 input[type="text"]:focus,
+.pathway-form-v2 textarea:focus {
+  outline: none;
+  border-color: rgba(44, 138, 110, 0.4);
+  box-shadow: 0 0 0 3px rgba(44, 138, 110, 0.08);
+}
+.pathway-form-v2 textarea {
+  resize: vertical;
+  min-height: 76px;
+  line-height: 1.5;
+  font-family: inherit;
+}
+.pathway-form-v2 ::placeholder {
+  color: rgba(31, 42, 36, 0.32);
+}
+.pathway-form-v2 .pathway-btn-full {
+  margin-top: 6px;
+}
+.pathway-form-note {
+  margin: 8px 0 0;
+  font-size: 0.78rem;
+  color: var(--clr-text-muted, #6B7370);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Success state — replaces the form fields inline */
+.pathway-success {
+  padding: 16px 14px;
+  background: rgba(44, 138, 110, 0.08);
+  border: 1px solid rgba(44, 138, 110, 0.22);
+  border-radius: 10px;
+  text-align: center;
+}
+.pathway-success p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--clr-text, #2A2926);
+  font-family: var(--fd, 'Cormorant Garamond'), serif;
+  font-style: italic;
+  text-wrap: balance;
+}
+
+/* Error state — appears above the submit button if request fails */
+.pathway-error {
+  padding: 12px 14px;
+  background: rgba(232, 130, 92, 0.06);
+  border: 1px solid rgba(232, 130, 92, 0.28);
+  border-radius: 8px;
+}
+.pathway-error p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #9B5B3A;
+}
+.pathway-error a {
+  color: #9B5B3A;
+  text-decoration: underline;
+}
+
+/* Disabled-while-submitting state */
+.pathway-form-v2 button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =============================================================
+   BROWSE PAGE — PALETTE INJECTION (May 2026)
+   Matches the homepage's sage → peach → amber progression so
+   visitors moving between pages feel the same warmth system.
+   ============================================================= */
+
+/* ─── 1. Journey timeline dots: sage / peach / amber ─── */
+/* Step 1 keeps sage default. */
+.journey-step:nth-child(2) .journey-dot {
+  background: rgba(232, 130, 92, 0.10) !important;
+  border-color: rgba(232, 130, 92, 0.35) !important;
+}
+.journey-step:nth-child(2) .journey-dot span {
+  color: #C66740 !important;
+}
+.journey-step:nth-child(3) .journey-dot {
+  background: rgba(184, 136, 74, 0.12) !important;
+  border-color: rgba(184, 136, 74, 0.38) !important;
+}
+.journey-step:nth-child(3) .journey-dot span {
+  color: #8A5F2E !important;
+}
+
+/* ─── 2. Hero editorial rule: peach instead of sage ─── */
+@media (min-width: 861px) {
+  .browse-hero-text::after {
+    background: rgba(232, 130, 92, 0.5) !important;
+  }
+}
+
+/* ─── 3. Preview quote left border: peach instead of sage ─── */
+.preview-quote {
+  border-left-color: rgba(232, 130, 92, 0.42) !important;
+}

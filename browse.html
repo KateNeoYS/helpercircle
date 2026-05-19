@@ -9,6 +9,9 @@
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="Meet Helpers — Helper Circle"/>
   <meta property="og:description" content="Meet domestic helpers in Singapore personally referred by a previous employer."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
   <link rel="stylesheet" href="styles.css"/>
   <!-- Vercel Web Analytics -->
   <script>
@@ -42,8 +45,14 @@
 <!-- ═══ BROWSE HERO ═══ -->
 <section class="browse-hero">
   <div class="wrap browse-hero-inner">
-    <h1 class="browse-hl">Helpers, referred by&nbsp;families</h1>
-    <p class="browse-sub">A small, growing circle &mdash; introduced to us one at a time.</p>
+    <div class="browse-hero-text">
+      <h1 class="browse-hl">Helpers, referred by&nbsp;families</h1>
+      <p class="browse-sub">A small, growing circle &mdash; introduced to us one at a&nbsp;time.</p>
+    </div>
+    <aside class="browse-hero-note" aria-hidden="true">
+      <p class="browse-hero-note-body">"Every helper here came to us through a family who knew her&nbsp;personally."</p>
+      <p class="browse-hero-note-by">&mdash; Helper Circle</p>
+    </aside>
   </div>
 </section>
 
@@ -55,18 +64,12 @@
      as supporting context — they remain valuable once inventory exists.
 -->
 
-<!-- ─── Currently onboarding strip ─── -->
+<!-- ─── Onboarding note (editorial, not system-status) ─── -->
 <section class="onboarding-strip">
   <div class="wrap">
-    <div class="ob-inner">
-      <div class="ob-dot" aria-hidden="true">
-        <span class="ob-pulse"></span>
-      </div>
-      <p class="ob-text">
-        <strong>Currently onboarding referrals.</strong>
-        New profiles added as referrals are confirmed.
-      </p>
-    </div>
+    <p class="ob-note">
+      <em>Families continue introducing helpers they've worked with personally. New profiles are added quietly as referrals are&nbsp;confirmed.</em>
+    </p>
   </div>
 </section>
 
@@ -117,37 +120,24 @@
         </div>
 
         <div class="preview-section">
-          <div class="preview-label">Why her previous family referred her</div>
-          <p class="preview-summary">A short editorial summary in the family's own context — why she's transferring, what kind of household suits her, and what they hope for her next.</p>
+          <p class="preview-summary">Calm and reliable, with steady experience in&nbsp;childcare. Already familiar with local&nbsp;routines.</p>
           <blockquote class="preview-quote">
-            "A direct quote from the previous employer, in their voice, about her specific strengths and what they'll miss most."
-            <cite>&mdash; Previous family, neighbourhood</cite>
+            "She never needed reminding about anything."
+            <cite>&mdash; Previous family</cite>
           </blockquote>
         </div>
 
-        <div class="preview-section preview-section-grid">
-          <div>
-            <div class="preview-label">Looking after</div>
-            <p class="preview-detail">Children / elderly / household needs she's most experienced with.</p>
-          </div>
-          <div>
-            <div class="preview-label">Available from</div>
-            <p class="preview-detail">Approximate transfer timing, communicated honestly.</p>
-          </div>
-          <div>
-            <div class="preview-label">Languages</div>
-            <p class="preview-detail">Languages spoken in the household.</p>
-          </div>
-          <div>
-            <div class="preview-label">Salary expectations</div>
-            <p class="preview-detail">A range discussed openly with both sides.</p>
-          </div>
+        <div class="preview-chips">
+          <span class="preview-chip">Childcare</span>
+          <span class="preview-chip">6 years in Singapore</span>
+          <span class="preview-chip">English &amp; Bahasa</span>
+          <span class="preview-chip">Available June</span>
         </div>
 
       </article>
     </div>
 
-    <p class="format-foot">Profiles are anonymised here until a family expresses interest. Photos, full names, and contact details are shared after we introduce both sides.</p>
+    <p class="format-foot">Names, photos, and details are confirmed only when a real referral is&nbsp;published.</p>
 
   </div>
 </section>
@@ -212,10 +202,7 @@
         <h3 class="pathway-h">Notify me of new&nbsp;profiles</h3>
         <p class="pathway-p">A quiet email when there's someone new to&nbsp;meet.</p>
 
-        <form action="mailto:hello@helpercircle.sg?subject=Notify%20me%20of%20new%20profiles" method="post" enctype="text/plain" class="pathway-form">
-          <input type="email" name="email" placeholder="Your email" required class="pathway-input"/>
-          <button type="submit" class="btn btn-green pathway-btn">Notify me</button>
-        </form>
+        <a href="mailto:hello@helpercircle.sg?subject=Notify%20me%20of%20new%20profiles&body=Hi%20Helper%20Circle%2C%0A%0APlease%20notify%20me%20when%20a%20new%20referred%20helper%20goes%20live.%0A%0AThank%20you%21" class="btn btn-green pathway-btn-full">Notify me</a>
       </div>
 
       <!-- Pathway 2: Active match request -->
@@ -250,9 +237,9 @@
 
     <div class="rev">
       <div class="ref-avs">
-        <div class="ref-av-initial" aria-hidden="true">S</div>
-        <div class="ref-av-initial" aria-hidden="true">R</div>
-        <div class="ref-av-initial" aria-hidden="true">A</div>
+        <div class="ref-circle" aria-hidden="true"></div>
+        <div class="ref-circle" aria-hidden="true"></div>
+        <div class="ref-circle" aria-hidden="true"></div>
         <span class="ref-av-ct">A curated circle of trusted referrals</span>
       </div>
       <h2 class="ref-hl">Know a good helper?</h2>

@@ -5283,3 +5283,272 @@ em { font-style: italic; color: var(--clr-primary); }
     padding-top: 14px;
   }
 }
+
+/* =============================================================
+   GLOBAL VERTICAL RHYTHM — May 2026 refinement
+   Modest reduction in section padding sitewide to tighten flow.
+   Editorial breathing room preserved; "empty template" gaps
+   compressed. Targets ~12% reduction from prior values.
+   ============================================================= */
+
+@media (min-width: 769px) {
+  /* Browse page sections — was 88/96, now 72/80 */
+  .format-section,
+  .pathways-section {
+    padding: 72px 0 80px;
+  }
+  .journey-section {
+    padding: 64px 0 72px;
+  }
+
+  /* Why-section on homepage — was 96/104, now 80/88 */
+  .why-section {
+    padding: 80px 0 88px;
+  }
+
+  /* Increase breathing room between heading block and grid on why-section */
+  .why-hdr {
+    margin-bottom: 72px;
+  }
+}
+
+/* =============================================================
+   JOURNEY TIMELINE — editorial horizontal flow
+   Replaces 3-equal-cards "process" pattern with a connected
+   timeline: dots + soft sage line + spare copy beneath each.
+   On mobile, becomes vertical with a left-aligned spine.
+   ============================================================= */
+
+.journey-section {
+  background: var(--clr-cream, #FCF7EE);
+  padding: 80px 0 88px;
+}
+.journey-hdr {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 64px;
+}
+.journey-hdr .kicker {
+  display: inline-block;
+  margin-bottom: 18px;
+}
+.journey-h {
+  margin: 0 auto;
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+/* Desktop: horizontal timeline */
+.journey-timeline {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 880px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  position: relative;
+  counter-reset: journey;
+}
+
+/* Soft sage line connecting the three dots */
+.journey-timeline::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 16.67%;
+  right: 16.67%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(44, 138, 110, 0.25) 12%,
+    rgba(44, 138, 110, 0.25) 88%,
+    transparent 100%);
+  z-index: 0;
+}
+
+.journey-step {
+  position: relative;
+  padding: 0 16px;
+  text-align: center;
+  z-index: 1;
+}
+
+.journey-dot {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--clr-white);
+  border: 1px solid rgba(44, 138, 110, 0.25);
+  margin: 0 auto 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fd, 'Cormorant Garamond'), serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--clr-primary, #2C8A6E);
+  position: relative;
+}
+.journey-dot span {
+  line-height: 1;
+  margin-top: -2px;
+}
+
+.journey-step-h {
+  font-family: var(--fd, 'Cormorant Garamond'), serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  margin: 0 0 8px;
+  line-height: 1.25;
+  color: var(--clr-text, #2A2926);
+  text-wrap: balance;
+}
+
+.journey-step-p {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--clr-text-muted, #6B7370);
+  max-width: 22ch;
+  margin: 0 auto;
+}
+
+/* Tablet — same horizontal but tighter */
+@media (max-width: 900px) {
+  .journey-section {
+    padding: 64px 0 72px;
+  }
+  .journey-hdr {
+    margin-bottom: 48px;
+  }
+  .journey-step {
+    padding: 0 8px;
+  }
+  .journey-step-h {
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile — vertical with left-aligned spine */
+@media (max-width: 640px) {
+  .journey-section {
+    padding: 48px 0 56px;
+  }
+  .journey-hdr {
+    margin-bottom: 40px;
+    padding: 0 4px;
+  }
+  .journey-h {
+    font-size: 1.7rem;
+  }
+
+  .journey-timeline {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-left: 18px;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .journey-timeline::before {
+    /* Switch to vertical spine */
+    top: 22px;
+    bottom: 22px;
+    left: 21px;
+    right: auto;
+    width: 1px;
+    height: auto;
+    background: linear-gradient(180deg,
+      rgba(44, 138, 110, 0.25),
+      rgba(44, 138, 110, 0.25));
+  }
+  .journey-step {
+    text-align: left;
+    padding: 0 0 0 56px;
+    position: relative;
+  }
+  .journey-dot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+  }
+  .journey-step-p {
+    margin: 0;
+    max-width: none;
+  }
+}
+
+/* =============================================================
+   MEET HELPERS POINTER — homepage editorial moment
+   Replaces the previous .preview helper-cards section. A calm,
+   single editorial block pointing to browse.html. No inventory
+   implied. When real helpers exist, replace this with a real
+   .hcard-grid (legacy markup pattern still intact in styles.css).
+   ============================================================= */
+.meet-pointer {
+  padding: 72px 0 80px;
+  background: var(--clr-white);
+}
+.meet-pointer-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+.meet-pointer .kicker {
+  display: inline-block;
+  margin-bottom: 18px;
+}
+.meet-pointer-h {
+  margin: 0 auto 14px;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+.meet-pointer-sub {
+  margin: 0 auto 32px;
+  max-width: 46ch;
+  color: var(--clr-text-muted, #6B7370);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+.meet-pointer-cta {
+  display: inline-block;
+}
+
+@media (max-width: 700px) {
+  .meet-pointer {
+    padding: 48px 0 56px;
+  }
+  .meet-pointer-h {
+    font-size: 1.85rem;
+  }
+  .meet-pointer-sub {
+    font-size: 0.98rem;
+    margin-bottom: 24px;
+  }
+}
+
+/* =============================================================
+   HERO — SINGLE-COLUMN VARIANT (post hero-card removal)
+   With the fanned helper card stack removed from the right side
+   of the hero, the .hero-grid becomes a centred single column.
+   Content stays left-aligned (not centred text) to keep the
+   editorial / confident feel, max-width clamps it nicely.
+   ============================================================= */
+.hero-grid--single {
+  grid-template-columns: 1fr !important;
+  max-width: 720px;
+  margin-left: 0;
+}
+.hero-grid--single .hero-left {
+  max-width: 640px;
+}
+
+@media (max-width: 980px) {
+  .hero-grid--single {
+    max-width: none;
+  }
+}

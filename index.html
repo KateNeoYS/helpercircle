@@ -24,13 +24,13 @@
       <span class="logo-text">Helper<strong>Circle</strong></span>
     </a>
     <nav class="site-nav" id="site-nav">
-      <a href="browse.html" class="nav-a">Browse Helpers</a>
+      <a href="browse.html" class="nav-a">Meet Helpers</a>
       <a href="refer.html" class="nav-a">Refer a Helper</a>
       <a href="#how" class="nav-a">How It Works</a>
       <a href="faq.html" class="nav-a">FAQ</a>
       <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
     </nav>
-    <a href="browse.html" class="btn btn-green btn-sm hdr-cta">Browse Helpers</a>
+    <a href="browse.html" class="btn btn-green btn-sm hdr-cta">Meet Helpers</a>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -41,7 +41,7 @@
 <section class="hero">
   <div class="blob blob-a"></div>
   <div class="blob blob-b"></div>
-  <div class="wrap hero-grid">
+  <div class="wrap hero-grid hero-grid--single">
 
     <div class="hero-left">
       <div class="hero-badge">
@@ -51,7 +51,7 @@
       <h1 class="h1 hero-hl">Find helpers through <br><em>real employer referrals</em></h1>
       <p class="hero-sub">Browse and meet for free. We coordinate paperwork for a S$499 admin fee if you proceed.</p>
       <div class="hero-ctas">
-        <a href="browse.html" class="btn btn-green btn-lg">Browse Helpers</a>
+        <a href="browse.html" class="btn btn-green btn-lg">Meet Helpers</a>
         <a href="refer.html" class="btn btn-outline btn-lg">Refer a Helper</a>
       </div>
       <div class="hero-micro-trust">
@@ -74,38 +74,6 @@
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="6" stroke="#2C8A6E" stroke-width="1.2"/><path d="M4 6.5l1.8 1.8 3.2-3.2" stroke="#2C8A6E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           S$499 if you proceed
         </span>
-      </div>
-      <div class="hero-trust">
-        <span class="chip chip-g">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1L7.1 4l3.2.3-2.3 2.1.7 3.1L6 7.8 3.3 9.5l.7-3.1L1.7 4.3 4.9 4z" stroke="#2F8F73" stroke-width="1.1" stroke-linejoin="round"/></svg>
-          Employer-referred
-        </span>
-        <span class="chip chip-g">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1.5" y="2" width="9" height="8" rx="1.5" stroke="#2F8F73" stroke-width="1.1"/><path d="M3.5 6l1.5 1.5 3-3" stroke="#2F8F73" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Contact checked
-        </span>
-        <span class="chip">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="#61666B" stroke-width="1.1"/><path d="M6 4v2.5l1.5 1.5" stroke="#61666B" stroke-width="1.1" stroke-linecap="round"/></svg>
-          Direct hire
-        </span>
-      </div>
-      <p class="hero-clarify">No placement commissions. Direct hiring with admin support — pay only if you proceed.</p>
-    </div>
-
-    <div class="hero-vis">
-      <div class="card-stack">
-        <div class="hc hc-a">
-          <img src="images/siti.jpg" alt="Siti Nur A."/>
-          <div class="hc-lbl"><span class="hc-name">Siti Nur A.</span><span class="hc-tag">Employer-referred</span></div>
-        </div>
-        <div class="hc hc-b">
-          <img src="images/rizalyn.jpg" alt="Rizalyn D."/>
-          <div class="hc-lbl"><span class="hc-name">Rizalyn D.</span><span class="hc-tag">Available now</span></div>
-        </div>
-        <div class="hc hc-c">
-          <img src="images/ayeaye.jpg" alt="Aye Aye M."/>
-          <div class="hc-lbl"><span class="hc-name">Aye Aye M.</span><span class="hc-tag">Contact checked</span></div>
-        </div>
       </div>
     </div>
 
@@ -360,95 +328,24 @@
         <p class="pricing-footnote">
   Admin fee covers transfer coordination and documentation support. Insurance premiums and MOM permit fees are separate charges. <span style="white-space: nowrap"><a href="faq.html" class="pricing-footnote-link">See FAQ →</a></span>
 </p>
-        <a href="browse.html" class="btn btn-green pricing-editorial-cta">Browse Helpers — Free</a>
+        <a href="browse.html" class="btn btn-green pricing-editorial-cta">Meet Helpers — Free</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ HELPER PREVIEW ═══ -->
-<section class="preview" id="helpers">
+<!-- ═══ MEET HELPERS POINTER ═══ -->
+<!-- TODO: when real helper profiles exist and inventory is healthy, this
+     section can be replaced with a real .hcard-grid showcase (markup pattern
+     preserved in styles.css). The .meet-pointer styling can then be reused
+     as a calmer "view all" footer below the grid. -->
+<section class="meet-pointer" id="helpers">
   <div class="wrap">
-    <div class="preview-hdr rev">
-      <div>
-        <div class="kicker">Referred helpers</div>
-        <h2 class="h2 h2-sm">Meet employer-referred helpers</h2>
-        <p class="preview-sub">Every profile below was vouched for by a previous employer.</p>
-      </div>
-      <a href="browse.html" class="btn btn-outline" style="flex-shrink:0">Browse all &rarr;</a>
-    </div>
-    <div class="hcard-grid">
-
-      <!-- Siti Nur A. — Referral verified -->
-      <a href="profile-siti.html" class="hcard rev" data-toggle-overlay>
-        <div class="hcard-photo">
-          <img src="images/siti.jpg" alt="Siti Nur A."/>
-          <span class="hcard-tier hcard-tier--verified">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>
-            Referral verified
-          </span>
-          <div class="hcard-overlay">
-            <p class="hcard-overlay-quote">"She never needed reminding about anything."</p>
-            <span class="hcard-overlay-cite">— Priscilla T., Bishan</span>
-            <span class="hcard-overlay-specialty">Experienced in childcare support</span>
-          </div>
-        </div>
-        <div class="hcard-body">
-          <h3 class="hcard-name">Siti Nur A.</h3>
-          <p class="hcard-meta">Indonesian · 6 years in Singapore</p>
-        </div>
-      </a>
-
-      <!-- Aye Aye M. — Employer referred -->
-      <a href="profile-ayeaye.html" class="hcard rev" data-toggle-overlay>
-        <div class="hcard-photo">
-          <img src="images/ayeaye.jpg" alt="Aye Aye M."/>
-          <span class="hcard-tier hcard-tier--referred">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-            Employer referred
-          </span>
-          <div class="hcard-overlay">
-            <p class="hcard-overlay-quote">"Calm, patient, and steady with my mother-in-law."</p>
-            <span class="hcard-overlay-cite">— Joanne K., Tampines</span>
-            <span class="hcard-overlay-specialty">Specialises in eldercare</span>
-          </div>
-        </div>
-        <div class="hcard-body">
-          <h3 class="hcard-name">Aye Aye M.</h3>
-          <p class="hcard-meta">Myanmar · 4 years in Singapore</p>
-        </div>
-      </a>
-
-      <!-- Rizalyn D. — Referral verified -->
-      <a href="profile-rizalyn.html" class="hcard rev" data-toggle-overlay>
-        <div class="hcard-photo">
-          <img src="images/rizalyn.jpg" alt="Rizalyn D."/>
-          <span class="hcard-tier hcard-tier--verified">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>
-            Referral verified
-          </span>
-          <div class="hcard-overlay">
-            <p class="hcard-overlay-quote">"She made our house feel like home for our boys."</p>
-            <span class="hcard-overlay-cite">— J. Lim, Bukit Timah</span>
-            <span class="hcard-overlay-specialty">Experienced in childcare &amp; eldercare</span>
-          </div>
-        </div>
-        <div class="hcard-body">
-          <h3 class="hcard-name">Rizalyn D.</h3>
-          <p class="hcard-meta">Filipino · 8 years in Singapore</p>
-        </div>
-      </a>
-
-    </div>
-    <div class="swipe-hint" aria-hidden="true">
-      <div class="swipe-hint-dot active"></div>
-      <div class="swipe-hint-dot"></div>
-      <div class="swipe-hint-dot"></div>
-      <span style="margin-left:4px">Swipe to see more</span>
-    </div>
-    <div class="preview-cta rev">
-      <a href="browse.html" class="btn btn-green btn-lg">Browse all referred helpers &rarr;</a>
-      <p class="preview-cta-note">Introductions typically arranged within 3 days</p>
+    <div class="meet-pointer-inner">
+      <div class="kicker">Meet helpers</div>
+      <h2 class="h2 meet-pointer-h">Introduced one at a&nbsp;time</h2>
+      <p class="meet-pointer-sub">Each profile begins as a conversation with a previous family. We add new helpers as referrals are&nbsp;confirmed.</p>
+      <a href="browse.html" class="btn btn-green btn-lg meet-pointer-cta">Meet our circle &rarr;</a>
     </div>
   </div>
 </section>
@@ -464,7 +361,7 @@
     <div class="why-hdr rev">
       <div class="kicker">Why referrals matter</div>
       <h2 class="h2 why-h2">A more thoughtful transition</h2>
-      <p class="why-sub">Direct hire transfers work differently. Here's what changes when a helper comes referred by a previous family.</p>
+      <p class="why-sub">A different kind of hire &mdash; one that begins with someone who already knows&nbsp;her.</p>
     </div>
 
     <div class="why-grid rev">
@@ -478,8 +375,8 @@
           </svg>
         </div>
         <h3 class="why-card-h">She already knows&nbsp;Singapore</h3>
-        <p class="why-card-p">No acclimatisation period, no restart. A transferred helper has already settled into local life.</p>
-        <p class="why-card-caption"><em>Familiarity with the language, food, weather, and rhythm of the city &mdash; built into every referral.</em></p>
+        <p class="why-card-p">Settled into local life and routines.</p>
+        <p class="why-card-caption"><em>No restart. No acclimatisation period.</em></p>
       </article>
 
       <!-- Two supporting cards stacked on the right -->
@@ -491,8 +388,8 @@
               <path d="M21 11c0 4.97-4.03 9-9 9a8.96 8.96 0 01-4.5-1.2L3 20l1.2-4.5A8.96 8.96 0 013 11c0-4.97 4.03-9 9-9s9 4.03 9 9z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3 class="why-card-h">Context, not just a&nbsp;CV</h3>
-          <p class="why-card-p">A family who lived with her knows her real strengths &mdash; the things no biodata sheet captures.</p>
+          <h3 class="why-card-h">More than a&nbsp;biodata sheet</h3>
+          <p class="why-card-p">Previous families share what resumes miss.</p>
         </article>
 
         <article class="why-card why-card-support">
@@ -501,8 +398,8 @@
               <path d="M12 21s-7-4.5-7-11a4.5 4.5 0 019-1 4.5 4.5 0 019 1c0 6.5-7 11-7 11h-4z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3 class="why-card-h">No loans, no&nbsp;deductions</h3>
-          <p class="why-card-p">Direct hire transfers don't involve agency loans deducted from her pay. Fairer for her, clearer for you.</p>
+          <h3 class="why-card-h">No placement&nbsp;loans</h3>
+          <p class="why-card-p">Clearer for families. Fairer for helpers.</p>
         </article>
 
       </div>
@@ -565,11 +462,12 @@
     <div class="footer-inner">
 
       <p class="footer-heart">
-        Helper Circle helps Singapore families pass along helpers they trust.
+        Started by a Singapore family<br>
+        who knew there had to be a better&nbsp;way.
       </p>
 
       <nav class="footer-nav" aria-label="Footer">
-        <a href="browse.html">Browse Helpers</a>
+        <a href="browse.html">Meet Helpers</a>
         <span class="footer-nav-sep">·</span>
         <a href="refer.html">Refer a Helper</a>
         <span class="footer-nav-sep">·</span>

@@ -349,6 +349,91 @@
     }
     .quote-counter.is-good { color: var(--clr-primary, #2C8A6E); }
 
+    /* ═══ CONSENT BLOCK ═══ */
+    /* Optional: lets the referring employer opt in to chatting with
+       a potential new family. Visually set apart from biographical
+       fields above so it reads as "about you", not "about her". */
+    .consent-block {
+      margin-top: 24px;
+      padding: 22px 22px 20px;
+      background: rgba(44, 138, 110, 0.04);
+      border: 1px solid rgba(44, 138, 110, 0.16);
+      border-radius: 14px;
+    }
+    .consent-hdr { margin-bottom: 14px; }
+    .consent-label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--clr-text, #1F2A24);
+      margin-bottom: 6px;
+    }
+    .consent-sub {
+      margin: 0;
+      font-size: 0.84rem;
+      line-height: 1.55;
+      color: var(--clr-text-muted, #5A6661);
+    }
+    .consent-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .consent-radio {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 14px;
+      background: #fff;
+      border: 1px solid rgba(31, 42, 36, 0.08);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .consent-radio:hover {
+      border-color: rgba(44, 138, 110, 0.32);
+      background: rgba(44, 138, 110, 0.015);
+    }
+    .consent-radio input[type="radio"] {
+      width: 16px;
+      height: 16px;
+      margin: 3px 0 0;
+      flex-shrink: 0;
+      accent-color: var(--clr-primary, #2C8A6E);
+      cursor: pointer;
+    }
+    .consent-radio:has(input:checked) {
+      background: rgba(44, 138, 110, 0.06);
+      border-color: rgba(44, 138, 110, 0.4);
+    }
+    .consent-radio-body {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .consent-radio-title {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--clr-text, #1F2A24);
+      line-height: 1.4;
+    }
+    .consent-radio-desc {
+      font-size: 0.8rem;
+      color: var(--clr-text-muted, #5A6661);
+      line-height: 1.45;
+    }
+    .consent-channels {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed rgba(44, 138, 110, 0.18);
+    }
+    .consent-channels[hidden] { display: none; }
+    .consent-channels-label {
+      font-size: 0.78rem;
+      color: var(--clr-text-muted, #5A6661);
+      margin: 0 0 8px;
+    }
+
     .submit-btn-v2 { margin-top: 22px; width: 100%; }
     .submit-note-v2 {
       font-size: 0.74rem; color: var(--clr-text-muted, #5A6661);
@@ -703,6 +788,40 @@
                 </div>
               </div>
 
+              <!-- ─── Open to chat with next family (optional) ─── -->
+              <div class="fg-v2 consent-block">
+                <div class="consent-hdr">
+                  <label class="consent-label">Open to chatting with the next family? <span class="opt-tag">(optional)</span></label>
+                  <p class="consent-sub">Some families appreciate hearing directly from a previous employer. If you're open to a short conversation when a serious match comes up, we'll ask you first before sharing any contact details.</p>
+                </div>
+
+                <div class="consent-options">
+                  <label class="consent-radio">
+                    <input type="radio" name="open-to-chat" value="yes" id="open-yes"/>
+                    <span class="consent-radio-body">
+                      <span class="consent-radio-title">Yes, I'm open to a short chat</span>
+                      <span class="consent-radio-desc">With a serious potential employer, via Helper Circle.</span>
+                    </span>
+                  </label>
+                  <label class="consent-radio">
+                    <input type="radio" name="open-to-chat" value="no" id="open-no"/>
+                    <span class="consent-radio-body">
+                      <span class="consent-radio-title">I'd prefer Helper Circle handle all communication</span>
+                      <span class="consent-radio-desc">No problem — we'll vouch for the referral on your behalf.</span>
+                    </span>
+                  </label>
+                </div>
+
+                <div class="consent-channels" id="consent-channels" hidden>
+                  <p class="consent-channels-label">Preferred way to reach you:</p>
+                  <div class="skill-grid" style="margin-top: 4px;">
+                    <label class="skill-pill"><input type="checkbox" name="contact-channel" value="WhatsApp"/> <span>WhatsApp</span></label>
+                    <label class="skill-pill"><input type="checkbox" name="contact-channel" value="Email"/> <span>Email</span></label>
+                    <label class="skill-pill"><input type="checkbox" name="contact-channel" value="Either"/> <span>Either is fine</span></label>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
             <button type="submit" class="btn btn-green btn-lg submit-btn-v2">Submit Referral</button>
@@ -831,6 +950,28 @@
           pill.classList.add('is-checked');
         } else {
           pill.classList.remove('is-checked');
+        }
+      });
+    });
+  })();
+
+  // Open-to-chat consent: show channel selector only when "yes" is picked.
+  // Clears any channel checkboxes if user switches back to "no".
+  (function() {
+    var radios = document.querySelectorAll('input[name="open-to-chat"]');
+    var channels = document.getElementById('consent-channels');
+    if (!radios.length || !channels) return;
+    radios.forEach(function(r) {
+      r.addEventListener('change', function() {
+        if (r.value === 'yes' && r.checked) {
+          channels.hidden = false;
+        } else if (r.value === 'no' && r.checked) {
+          channels.hidden = true;
+          channels.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+            cb.checked = false;
+            var pill = cb.closest('.skill-pill');
+            if (pill) pill.classList.remove('is-checked');
+          });
         }
       });
     });

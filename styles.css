@@ -6925,3 +6925,49 @@ em { font-style: italic; color: var(--clr-primary); }
 .preview-card {
   border-color: rgba(232, 130, 92, 0.16) !important;
 }
+
+/* =============================================================
+   BROWSE PREVIEW — DECISIVE PEACH (May 2026)
+   Previous pass was too subtle; pushing values up so peach
+   actually registers visually.
+   ============================================================= */
+
+/* PILLS at the bottom: cream → peach tint with peach-brown text.
+   These occupy a wide horizontal band so they have the most
+   visual impact when colored. */
+.preview-chip {
+  background: rgba(232, 130, 92, 0.10) !important;
+  border-color: rgba(232, 130, 92, 0.32) !important;
+  color: #9B5B3A !important;
+  font-weight: 500;
+}
+
+/* PREVIEW pill — push the peach harder so it's clearly peach,
+   not subtle warm cream */
+.preview-badge {
+  background: rgba(232, 130, 92, 0.14) !important;
+  border-color: rgba(232, 130, 92, 0.40) !important;
+  color: #8B4F2E !important;
+}
+.preview-badge svg {
+  color: #C66740 !important;
+  opacity: 0.9 !important;
+}
+
+/* PHOTO slot — stronger peach so it visibly reads as warm */
+.preview-photo-slot {
+  background: rgba(232, 130, 92, 0.10) !important;
+  border: 1.5px dashed rgba(232, 130, 92, 0.40) !important;
+  color: #9B5B3A !important;
+}
+
+/* QUOTE — beefier left border + slightly stronger tint */
+.preview-quote {
+  border-left: 4px solid rgba(232, 130, 92, 0.65) !important;
+  background: rgba(232, 130, 92, 0.06) !important;
+}
+
+/* CARD outer border — a touch more visible peach */
+.preview-card {
+  border-color: rgba(232, 130, 92, 0.22) !important;
+}

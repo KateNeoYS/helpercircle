@@ -6153,15 +6153,15 @@ em { font-style: italic; color: var(--clr-primary); }
 .figure-note {
   position: absolute;
   bottom: 14px;
-  left: -28px;
+  right: -28px;
   width: 220px;
   padding: 16px 18px 14px;
   background: var(--clr-white, #FFFFFF);
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 6px;
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.10), 0 1px 0 rgba(0, 0, 0, 0.04);
-  /* Slight opposing rotation for editorial collage feel */
-  transform: rotate(-3deg);
+  /* Slight rotation for editorial collage feel (now mirrors to the right) */
+  transform: rotate(3deg);
   z-index: 2;
 }
 .figure-note::before {
@@ -6222,13 +6222,14 @@ em { font-style: italic; color: var(--clr-primary); }
     transform: rotate(-1.5deg);
   }
   .figure-note {
-    /* stays absolute — peeks out from bottom-left of portrait */
+    /* stays absolute — peeks out from bottom-right of portrait */
     position: absolute;
     bottom: 16px;
-    left: 4%;
+    right: 4%;
+    left: auto;
     width: 180px;
     padding: 14px 16px 12px;
-    transform: rotate(-3deg);
+    transform: rotate(3deg);
   }
   .figure-note-body { font-size: 1.05rem; line-height: 1.32; }
   .figure-note-by { font-size: 0.88rem; }
@@ -6245,7 +6246,8 @@ em { font-style: italic; color: var(--clr-primary); }
   .figure-note {
     width: 168px;
     padding: 12px 14px 10px;
-    left: 2%;
+    right: 2%;
+    left: auto;
     bottom: 12px;
   }
   .figure-note-body { font-size: 0.98rem; }
@@ -6486,5 +6488,55 @@ em { font-style: italic; color: var(--clr-primary); }
   }
   .pathway-card {
     padding: 22px 22px 20px !important;
+  }
+}
+
+/* =============================================================
+   MOBILE POLISH PASS (May 2026 — targeted fixes)
+   - Pricing-hdr: left-align on mobile
+   - Pricing-panel-note: better wrap balance
+   - Footer: left-align on mobile
+   ============================================================= */
+
+@media (max-width: 768px) {
+  /* Pricing section header — left-align on mobile (matches title alignment) */
+  .pricing-hdr {
+    text-align: left !important;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .pricing-hdr .kicker {
+    display: inline-block;
+  }
+  .pricing-heading {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+  }
+  .pricing-sub {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+  }
+
+  /* Pricing-panel-note: encourage balanced 2-line wrap */
+  .pricing-panel-note {
+    text-wrap: balance;
+    max-width: 30ch;
+  }
+
+  /* Footer — left-align tagline + nav on mobile */
+  .footer-inner {
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+  .footer-heart {
+    text-align: left !important;
+    max-width: none !important;
+  }
+  .footer-nav,
+  .footer-legal-strip {
+    justify-content: flex-start !important;
   }
 }

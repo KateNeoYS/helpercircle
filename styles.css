@@ -6666,3 +6666,28 @@ em { font-style: italic; color: var(--clr-primary); }
     max-width: 720px !important;
   }
 }
+
+/* =============================================================
+   BROWSE — ORPHAN POLISH (May 2026)
+   text-wrap: balance redistributes lines so trailing pairs
+   don't end up alone on the last line.
+   ============================================================= */
+.ob-note,
+.format-sub,
+.pathway-p {
+  text-wrap: balance;
+}
+
+/* Slightly narrower max-width on the onboarding note so balanced
+   wrap produces tighter, more deliberate lines */
+@media (max-width: 860px) {
+  .ob-note {
+    max-width: 480px;
+  }
+}
+
+/* Mobile-only <br> in hero subtitle (desktop ignores it) */
+.sub-break-mobile { display: none; }
+@media (max-width: 860px) {
+  .sub-break-mobile { display: inline; }
+}

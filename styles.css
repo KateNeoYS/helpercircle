@@ -4683,7 +4683,7 @@ em { font-style: italic; color: var(--clr-primary); }
 
 /* ─── Preview of profile format ─── */
 .format-section {
-  padding: 88px 0 96px;
+  padding: 80px 0 80px;
   background: var(--clr-white);
 }
 .preview-card-wrap {
@@ -4857,7 +4857,7 @@ em { font-style: italic; color: var(--clr-primary); }
 
 /* ─── Process explainer (numbered 3-step) ─── */
 .process-section {
-  padding: 88px 0 96px;
+  padding: 80px 0 80px;
   background: var(--clr-cream);
 }
 .process-grid {
@@ -4906,7 +4906,7 @@ em { font-style: italic; color: var(--clr-primary); }
 
 /* ─── Pathways: two-card engagement section ─── */
 .pathways-section {
-  padding: 88px 0 96px;
+  padding: 80px 0 80px;
   background: var(--clr-white);
 }
 .pathways-grid {
@@ -5079,7 +5079,7 @@ em { font-style: italic; color: var(--clr-primary); }
    ============================================================= */
 
 .why-section {
-  padding: 96px 0 104px;
+  padding: 80px 0 80px;
   background: var(--clr-white);
 }
 
@@ -5489,7 +5489,7 @@ em { font-style: italic; color: var(--clr-primary); }
    .hcard-grid (legacy markup pattern still intact in styles.css).
    ============================================================= */
 .meet-pointer {
-  padding: 72px 0 80px;
+  padding: 80px 0 80px;
   background: var(--clr-cream);
   border-top: 1px solid var(--clr-border);
 }
@@ -6204,37 +6204,65 @@ em { font-style: italic; color: var(--clr-primary); }
   .figure-note { width: 200px; }
 }
 
-/* Mobile — note moves below portrait, no overlap */
+/* Mobile — portrait + note remain a single composed unit (overlapping).
+   The previous approach used flex-column which separated them vertically. */
 @media (max-width: 860px) {
   .hero-figure {
-    padding: 24px 16px 40px;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
+    padding: 16px 24px 32px;
+    /* keep as flex but row-aligned so portrait stays the centrepiece
+       and the note's absolute positioning still anchors to it */
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
   }
   .figure-portrait {
-    width: 240px;
-    height: 304px;
-    transform: rotate(-1deg);
+    width: 220px;
+    height: 286px;
+    transform: rotate(-1.5deg);
   }
   .figure-note {
-    position: relative;
-    left: auto;
-    bottom: auto;
-    top: -18px;
-    margin-left: 60%;
-    width: 200px;
-    transform: rotate(-2.5deg);
+    /* stays absolute — peeks out from bottom-left of portrait */
+    position: absolute;
+    bottom: 16px;
+    left: 4%;
+    width: 180px;
+    padding: 14px 16px 12px;
+    transform: rotate(-3deg);
   }
-  .figure-note-body { font-size: 1.05rem; }
+  .figure-note-body { font-size: 1.05rem; line-height: 1.32; }
+  .figure-note-by { font-size: 0.88rem; }
 }
 
 @media (max-width: 480px) {
-  .figure-portrait { width: 220px; height: 280px; }
-  .figure-note {
-    width: 184px;
-    margin-left: 50%;
+  .hero-figure {
+    padding: 12px 18px 28px;
   }
+  .figure-portrait {
+    width: 200px;
+    height: 260px;
+  }
+  .figure-note {
+    width: 168px;
+    padding: 12px 14px 10px;
+    left: 2%;
+    bottom: 12px;
+  }
+  .figure-note-body { font-size: 0.98rem; }
+  .figure-note-by { font-size: 0.82rem; }
+}
+
+/* Very narrow screens (≤360px — older/budget phones) */
+@media (max-width: 360px) {
+  .figure-portrait {
+    width: 184px;
+    height: 240px;
+  }
+  .figure-note {
+    width: 150px;
+    padding: 10px 12px 9px;
+  }
+  .figure-note-body { font-size: 0.92rem; }
 }
 
 /* =============================================================

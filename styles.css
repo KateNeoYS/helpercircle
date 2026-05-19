@@ -5708,3 +5708,384 @@ em { font-style: italic; color: var(--clr-primary); }
     height: 184px !important;
   }
 }
+
+/* =============================================================
+   REFERRAL BANNER — circle motif (replaces lettered initials)
+   The previous lettered avatars (S/R/A) named fictional helpers.
+   Replaced with abstract overlapping circles that reinforce the
+   "Helper Circle" brand metaphor without naming anyone.
+   The legacy .ref-av-initial styles remain in styles.css and
+   can be repurposed if real avatars (e.g. founder photos) are
+   added later.
+   ============================================================= */
+.ref-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.32);
+  margin-right: -10px;
+  flex-shrink: 0;
+}
+.ref-circle:nth-child(2) {
+  background: rgba(255, 255, 255, 0.12);
+}
+.ref-circle:nth-child(3) {
+  background: rgba(255, 255, 255, 0.16);
+}
+.ref-avs .ref-av-ct {
+  margin-left: 16px;
+}
+
+/* =============================================================
+   HERO PORTRAITS — RESTYLE (May 2026)
+   Goals:
+   - Reduce visual dominance (~30% smaller)
+   - Soften saturation so headline keeps focus
+   - Partial crops on side portraits (peek past edges) — signals
+     "fragment of community" rather than "product photo"
+   ============================================================= */
+@media (min-width: 861px) {
+  .hero-portraits {
+    min-height: 290px;
+    padding: 32px 0 64px;
+  }
+
+  /* Smaller, gentler */
+  .hero-portrait {
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.09);
+  }
+  .hero-portrait img {
+    /* Soften saturation and contrast a touch so portraits feel less
+       "marketplace photoshoot" and more editorial */
+    filter: saturate(0.92) brightness(1.02);
+  }
+
+  /* Featured (centre) — kept proportionally biggest but smaller overall */
+  .hero-portrait--a {
+    width: 168px;
+    height: 220px;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-55%) rotate(-2deg);
+    z-index: 2;
+  }
+
+  /* Right portrait — partial crop, extends past the right edge */
+  .hero-portrait--b {
+    width: 128px;
+    height: 170px;
+    top: 36px;
+    right: -28px;
+    transform: rotate(2.5deg);
+    z-index: 1;
+  }
+
+  /* Left portrait — partial crop, extends past the left edge */
+  .hero-portrait--c {
+    width: 118px;
+    height: 158px;
+    bottom: 64px;
+    left: -22px;
+    transform: rotate(-1.5deg);
+    z-index: 3;
+  }
+
+  /* Caption smaller too */
+  .hero-portraits-cap {
+    font-size: 0.88rem;
+    max-width: 280px;
+    bottom: 8px;
+  }
+}
+
+@media (min-width: 1100px) {
+  /* Add a tiny bit back at very large screens so portraits don't feel lost */
+  .hero-portrait--a { width: 188px; height: 244px; }
+  .hero-portrait--b { width: 142px; height: 188px; }
+  .hero-portrait--c { width: 130px; height: 172px; }
+}
+
+/* =============================================================
+   PRICING — CONCIERGE REDESIGN (May 2026)
+   Replaces SaaS-style pricing card with split-panel editorial:
+   1. Header (kicker + H2 + sub)
+   2. Two-card grid: Our admin fee | What's included
+   3. Below: Separate third-party costs strip
+   4. Single soft CTA
+   Removes giant "S$499" dominance. Adds explicit third-party
+   cost transparency to remove ambiguity.
+   ============================================================= */
+
+.pricing-section {
+  padding: 80px 0 88px;
+  background: var(--clr-white);
+  border-top: 1px solid var(--clr-border);
+}
+
+.pricing-hdr {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 56px;
+}
+.pricing-hdr .kicker {
+  display: inline-block;
+  margin-bottom: 18px;
+}
+.pricing-heading {
+  margin: 0 auto 14px;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+.pricing-sub {
+  margin: 0 auto;
+  max-width: 48ch;
+  color: var(--clr-text-muted, #6B7370);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+/* Split: Our fee | What's included */
+.pricing-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 820px;
+  margin: 0 auto 28px;
+}
+
+.pricing-card {
+  background: var(--clr-white);
+  border: 1px solid var(--clr-border, #E5E1DA);
+  border-radius: var(--radius-xl, 20px);
+  padding: 36px 32px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card-fee {
+  background: var(--clr-cream, #FCF7EE);
+  border-color: rgba(44, 138, 110, 0.18);
+}
+
+.pricing-card-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clr-primary, #2C8A6E);
+  margin-bottom: 20px;
+}
+
+/* The fee — present but not dominant */
+.pricing-amount-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.pricing-amount {
+  font-family: var(--fd, 'Cormorant Garamond'), serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--clr-text, #2A2926);
+}
+.pricing-amount-after {
+  font-size: 0.92rem;
+  color: var(--clr-text-muted, #6B7370);
+  font-style: italic;
+  font-family: var(--fd, 'Cormorant Garamond'), serif;
+}
+
+.pricing-card-note {
+  font-family: var(--fd, 'Cormorant Garamond'), serif;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--clr-text-muted, #6B7370);
+  margin: 0 0 22px;
+}
+.pricing-card-note em {
+  font-style: italic;
+}
+
+.pricing-card-list {
+  list-style: none;
+  margin: 0;
+  padding: 18px 0 0;
+  border-top: 1px solid rgba(44, 138, 110, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pricing-card-list li {
+  font-size: 0.92rem;
+  color: var(--clr-text, #2A2926);
+  position: relative;
+  padding-left: 16px;
+}
+.pricing-card-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--clr-text-muted, #6B7370);
+}
+
+/* What's included — checklist */
+.pricing-includes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.pricing-includes li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.96rem;
+  color: var(--clr-text, #2A2926);
+  line-height: 1.5;
+}
+.pricing-includes svg {
+  flex-shrink: 0;
+  color: var(--clr-primary, #2C8A6E);
+  margin-top: 4px;
+}
+
+/* Third-party costs — clearly separated */
+.pricing-thirdparty {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 32px 32px 28px;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px dashed rgba(0, 0, 0, 0.12);
+  border-radius: var(--radius-xl, 20px);
+}
+.pricing-thirdparty-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.pricing-thirdparty-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--clr-white);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: var(--radius-full, 999px);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--clr-text-muted, #6B7370);
+}
+.pricing-thirdparty-h {
+  font-family: var(--fd, 'Cormorant Garamond'), serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: -0.005em;
+  color: var(--clr-text, #2A2926);
+}
+.pricing-thirdparty-list {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px 28px;
+}
+.pricing-thirdparty-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.pricing-tp-name {
+  font-size: 0.96rem;
+  font-weight: 500;
+  color: var(--clr-text, #2A2926);
+}
+.pricing-tp-desc {
+  font-size: 0.82rem;
+  color: var(--clr-text-muted, #6B7370);
+  line-height: 1.4;
+}
+.pricing-thirdparty-foot {
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 0.86rem;
+  color: var(--clr-text-muted, #6B7370);
+  line-height: 1.55;
+}
+.pricing-thirdparty-link {
+  color: var(--clr-primary, #2C8A6E);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.pricing-thirdparty-link:hover {
+  text-decoration: underline;
+}
+
+.pricing-cta-wrap {
+  text-align: center;
+  margin-top: 36px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .pricing-section {
+    padding: 64px 0 72px;
+  }
+  .pricing-hdr {
+    margin-bottom: 40px;
+  }
+  .pricing-thirdparty-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .pricing-section {
+    padding: 48px 0 56px;
+  }
+  .pricing-hdr {
+    margin-bottom: 36px;
+    padding: 0 4px;
+  }
+  .pricing-heading {
+    font-size: 1.8rem;
+  }
+  .pricing-sub {
+    font-size: 0.96rem;
+  }
+  .pricing-split {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .pricing-card {
+    padding: 28px 24px 24px;
+  }
+  .pricing-amount {
+    font-size: 2rem;
+  }
+  .pricing-thirdparty {
+    padding: 24px 22px 22px;
+  }
+  .pricing-thirdparty-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .pricing-cta-wrap {
+    margin-top: 28px;
+  }
+}

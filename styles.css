@@ -6089,3 +6089,149 @@ em { font-style: italic; color: var(--clr-primary); }
     margin-top: 28px;
   }
 }
+
+/* =============================================================
+   HERO FIGURE — single portrait + handwritten note (May 2026)
+   Replaces the 3-portrait floating cluster. Composition:
+   - One portrait, anchored, with a small "Referral verified" badge
+   - A small handwritten-style note overlapping bottom-left
+   One human story, told well — not marketplace inventory.
+   ============================================================= */
+
+.hero-figure {
+  position: relative;
+  margin: 0;
+  padding: 32px 32px 60px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.figure-portrait {
+  position: relative;
+  width: 280px;
+  height: 360px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.13);
+  background: var(--clr-white);
+  /* Slight rotation gives editorial life without feeling random */
+  transform: rotate(-1.5deg);
+}
+.figure-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  filter: saturate(0.95);
+}
+
+/* Quiet trust badge — top of portrait */
+.figure-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--clr-primary, #2C8A6E);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.figure-badge svg {
+  flex-shrink: 0;
+}
+
+/* Handwritten-style referral note */
+.figure-note {
+  position: absolute;
+  bottom: 14px;
+  left: -28px;
+  width: 220px;
+  padding: 16px 18px 14px;
+  background: var(--clr-cream, #FCF7EE);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10), 0 1px 0 rgba(0, 0, 0, 0.04);
+  /* Slight opposing rotation for editorial collage feel */
+  transform: rotate(-3deg);
+  z-index: 2;
+}
+.figure-note::before {
+  /* Soft warm tint at top to suggest paper texture */
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 28px;
+  background: linear-gradient(180deg, rgba(232, 130, 92, 0.06), transparent);
+  border-radius: 6px 6px 0 0;
+  pointer-events: none;
+}
+.figure-note-body {
+  margin: 0 0 8px;
+  font-family: 'Caveat', 'Cormorant Garamond', cursive, serif;
+  font-size: 1.15rem;
+  line-height: 1.35;
+  color: var(--clr-text, #2A2926);
+  letter-spacing: 0.005em;
+}
+.figure-note-by {
+  margin: 0;
+  font-family: 'Caveat', 'Cormorant Garamond', cursive, serif;
+  font-size: 0.92rem;
+  color: var(--clr-text-muted, #6B7370);
+  letter-spacing: 0.02em;
+}
+
+/* Soften hero badge so it doesn't pre-empt the headline */
+.hero-badge {
+  background: transparent !important;
+  border: 1px solid rgba(44, 138, 110, 0.28) !important;
+  box-shadow: none !important;
+  font-weight: 500 !important;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .figure-portrait { width: 248px; height: 320px; }
+  .figure-note { width: 200px; }
+}
+
+/* Mobile — note moves below portrait, no overlap */
+@media (max-width: 860px) {
+  .hero-figure {
+    padding: 24px 16px 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  .figure-portrait {
+    width: 240px;
+    height: 304px;
+    transform: rotate(-1deg);
+  }
+  .figure-note {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    top: -18px;
+    margin-left: 60%;
+    width: 200px;
+    transform: rotate(-2.5deg);
+  }
+  .figure-note-body { font-size: 1.05rem; }
+}
+
+@media (max-width: 480px) {
+  .figure-portrait { width: 220px; height: 280px; }
+  .figure-note {
+    width: 184px;
+    margin-left: 50%;
+  }
+}

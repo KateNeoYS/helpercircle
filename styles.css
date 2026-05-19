@@ -6557,3 +6557,43 @@ em { font-style: italic; color: var(--clr-primary); }
     transform: translateX(-56px);
   }
 }
+
+/* =============================================================
+   PALETTE INJECTION (May 2026)
+   - Why-card icons: differentiated by tint to break sage monotone
+   - Pricing third-party card: peach tint instead of gray
+   ============================================================= */
+
+/* ─── "Why referrals matter" icons — three different tints ─── */
+/* Card 1 (feature, "She already knows Singapore") keeps sage default.
+   Below: target the supporting cards in document order. */
+.why-supporting .why-card-support:nth-child(1) .why-icon {
+  background: rgba(232, 130, 92, 0.10);
+  color: #C66740;
+}
+.why-supporting .why-card-support:nth-child(2) .why-icon {
+  background: rgba(184, 136, 74, 0.12);
+  color: #8A5F2E;
+}
+
+/* ─── Pricing third-party costs: peach-tinted card ─── */
+.pricing-thirdparty {
+  background: rgba(232, 130, 92, 0.05) !important;
+  border: 1px dashed rgba(232, 130, 92, 0.28) !important;
+}
+.pricing-thirdparty-tag {
+  background: var(--clr-white) !important;
+  border: 1px solid rgba(232, 130, 92, 0.32) !important;
+  color: #9B5B3A !important;
+}
+.pricing-thirdparty-foot {
+  border-top: 1px solid rgba(232, 130, 92, 0.18) !important;
+}
+
+/* ─── How-it-works icons: colored backgrounds for steps 2 and 3 ─── */
+.how-ico--peach {
+  background: rgba(232, 130, 92, 0.10) !important;
+}
+.how-ico--amber {
+  background: rgba(184, 136, 74, 0.12) !important;
+}

@@ -6547,16 +6547,21 @@ em { font-style: italic; color: var(--clr-primary); }
    Balances the empty middle gap between hero text and visual,
    without pulling the figure all the way to centre.
    ============================================================= */
+/* =============================================================
+   HERO FIGURE — shift slightly left on desktop
+   Balances the empty middle gap between hero text and visual.
+   Important: keep justify-content as default (center) so the
+   portrait and note stay grouped together. We move the whole
+   figure left via transform, not by changing flex alignment.
+   ============================================================= */
 @media (min-width: 861px) {
   .hero-figure {
-    justify-content: flex-start;
-    padding-left: 0;
-    margin-left: -40px;
+    transform: translateX(-40px);
   }
 }
 
 @media (min-width: 1200px) {
   .hero-figure {
-    margin-left: -56px;
+    transform: translateX(-56px);
   }
 }

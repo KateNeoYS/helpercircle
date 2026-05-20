@@ -666,12 +666,12 @@
           <h2 class="form-card-ttl-v2">Refer a helper</h2>
           <p class="form-card-sub-v2">Tell us who you're referring. We'll take it from here.</p>
 
-          <form id="refer-form" novalidate>
+          <form id="refer-form" action="https://formspree.io/f/mbdbdqjz" method="POST" novalidate>
 
             <div class="form-row-v2">
               <div class="fg-v2">
                 <label for="your-name">Your name</label>
-                <input type="text" id="your-name" placeholder="Jane Tan" required/>
+                <input type="text" id="your-name" name="your-name" placeholder="Jane Tan" required/>
               </div>
               <div class="fg-v2">
                 <label>Your contact <span class="opt-tag">(for verification)</span></label>
@@ -679,19 +679,19 @@
                   <button type="button" id="toggle-email" class="on">Email</button>
                   <button type="button" id="toggle-phone">Phone</button>
                 </div>
-                <input type="email" id="your-email" placeholder="you@email.com"/>
-                <input type="tel" id="your-phone" placeholder="+65 9XXX XXXX" style="display:none;"/>
+                <input type="email" id="your-email" name="your-email" placeholder="you@email.com"/>
+                <input type="tel" id="your-phone" name="your-phone" placeholder="+65 9XXX XXXX" style="display:none;"/>
               </div>
             </div>
 
             <div class="form-row-v2">
               <div class="fg-v2">
                 <label for="helper-name">Helper's name</label>
-                <input type="text" id="helper-name" placeholder="e.g. Maria S." required/>
+                <input type="text" id="helper-name" name="helper-name" placeholder="e.g. Maria S." required/>
               </div>
               <div class="fg-v2">
                 <label for="helper-phone">Helper's WhatsApp</label>
-                <input type="tel" id="helper-phone" placeholder="+65 9XXX XXXX" required/>
+                <input type="tel" id="helper-phone" name="helper-phone" placeholder="+65 9XXX XXXX" required/>
               </div>
             </div>
 
@@ -711,7 +711,7 @@
               <div class="form-row-v2">
                 <div class="fg-v2">
                   <label for="helper-nationality">Nationality</label>
-                  <select id="helper-nationality">
+                  <select id="helper-nationality" name="helper-nationality">
                     <option value="">Select</option>
                     <option>Filipino</option>
                     <option>Indonesian</option>
@@ -723,7 +723,7 @@
                 </div>
                 <div class="fg-v2">
                   <label for="helper-years-sg">Years in Singapore</label>
-                  <select id="helper-years-sg">
+                  <select id="helper-years-sg" name="helper-years-sg">
                     <option value="">Select</option>
                     <option>Less than 1 year</option>
                     <option>1–2 years</option>
@@ -737,18 +737,18 @@
               <div class="fg-v2">
                 <label>What's she experienced with? <span class="opt-tag">(select all that&nbsp;apply)</span></label>
                 <div class="skill-grid" id="skill-grid">
-                  <label class="skill-pill"><input type="checkbox" value="Childcare"/> <span>Childcare</span></label>
-                  <label class="skill-pill"><input type="checkbox" value="Eldercare"/> <span>Eldercare</span></label>
-                  <label class="skill-pill"><input type="checkbox" value="Infant care"/> <span>Infant care</span></label>
-                  <label class="skill-pill"><input type="checkbox" value="Cooking"/> <span>Cooking</span></label>
-                  <label class="skill-pill"><input type="checkbox" value="Housekeeping"/> <span>Housekeeping</span></label>
-                  <label class="skill-pill"><input type="checkbox" value="Pet care"/> <span>Pet care</span></label>
+                  <label class="skill-pill"><input type="checkbox" name="skills[]" value="Childcare"/> <span>Childcare</span></label>
+                  <label class="skill-pill"><input type="checkbox" name="skills[]" value="Eldercare"/> <span>Eldercare</span></label>
+                  <label class="skill-pill"><input type="checkbox" name="skills[]" value="Infant care"/> <span>Infant care</span></label>
+                  <label class="skill-pill"><input type="checkbox" name="skills[]" value="Cooking"/> <span>Cooking</span></label>
+                  <label class="skill-pill"><input type="checkbox" name="skills[]" value="Housekeeping"/> <span>Housekeeping</span></label>
+                  <label class="skill-pill"><input type="checkbox" name="skills[]" value="Pet care"/> <span>Pet care</span></label>
                 </div>
               </div>
 
               <div class="fg-v2">
                 <label for="helper-situation">When is she available?</label>
-                <select id="helper-situation">
+                <select id="helper-situation" name="helper-situation">
                   <option value="">Select</option>
                   <option>Available now</option>
                   <option>Within 1 month</option>
@@ -760,7 +760,7 @@
 
               <div class="fg-v2">
                 <label for="helper-context">Why is your helper looking for a new family? <span class="opt-tag">(optional)</span></label>
-                <textarea id="helper-context" placeholder="A short line or two in your own words is plenty."></textarea>
+                <textarea id="helper-context" name="helper-context" placeholder="A short line or two in your own words is plenty."></textarea>
                 <p class="field-help-hint">This helps us introduce her more thoughtfully to suitable families.</p>
                 <div class="field-examples">
                   <p class="field-examples-label">Examples</p>
@@ -775,7 +775,7 @@
 
               <div class="fg-v2">
                 <label for="helper-quote">Why are you referring her? <span class="opt-tag">(aim for 30–80&nbsp;words)</span></label>
-                <textarea id="helper-quote" placeholder="Tell us in your own words what made her stand out. Specific examples are most helpful."></textarea>
+                <textarea id="helper-quote" name="helper-quote" placeholder="Tell us in your own words what made her stand out. Specific examples are most helpful."></textarea>
                 <p class="quote-counter" id="quote-counter">0 words</p>
 
                 <div class="quote-suggestions">
@@ -1026,10 +1026,13 @@
     var formWrap = document.getElementById('form-wrap');
     var success = document.getElementById('form-success');
     var referAnother = document.getElementById('refer-another');
+    var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
     if (!form) return;
 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
+
+      // Validate required fields
       var requiredFields = form.querySelectorAll('[required]');
       var valid = true;
       requiredFields.forEach(function(field) {
@@ -1038,9 +1041,45 @@
         } else { field.style.borderColor = ''; }
       });
       if (!valid) return;
-      formWrap.style.display = 'none';
-      success.classList.add('is-active');
-      window.scrollTo({ top: success.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+
+      // Disable submit + show in-flight state
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.dataset.originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending\u2026';
+      }
+
+      // Send to Formspree
+      var data = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(function(res) {
+          if (res.ok) {
+            // Show success
+            formWrap.style.display = 'none';
+            success.classList.add('is-active');
+            window.scrollTo({ top: success.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+          } else {
+            throw new Error('Form submission failed');
+          }
+        })
+        .catch(function() {
+          // Re-enable submit + show inline error message above the button
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = submitBtn.dataset.originalText || 'Submit Referral';
+          }
+          var existingError = form.querySelector('.refer-form-error');
+          if (existingError) existingError.remove();
+          var errorEl = document.createElement('p');
+          errorEl.className = 'refer-form-error';
+          errorEl.style.cssText = 'margin: 12px 0; padding: 12px 14px; background: rgba(232, 130, 92, 0.08); border: 1px solid rgba(232, 130, 92, 0.32); border-radius: 8px; color: #9B5B3A; font-size: 0.88rem; line-height: 1.5; text-align: center;';
+          errorEl.innerHTML = 'Something didn\'t go through. Please try again, or email <a href="mailto:hello@helpercircle.sg" style="color: #9B5B3A; text-decoration: underline;">hello@helpercircle.sg</a> directly.';
+          submitBtn.parentNode.insertBefore(errorEl, submitBtn);
+        });
     });
 
     if (referAnother) {

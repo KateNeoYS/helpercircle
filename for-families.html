@@ -349,10 +349,61 @@
     .ff-not-list {
       list-style: none;
       padding: 0;
-      margin: 0;
+      margin: 0 auto;
+      max-width: 480px;
       display: flex;
       flex-direction: column;
       gap: clamp(12px, 1.8vw, 16px);
+    }
+
+    /* ── PRACTICAL BENEFITS — inset card below the trust bullets ── */
+    .ff-benefits {
+      margin: clamp(36px, 4.5vw, 48px) auto 0;
+      max-width: 520px;
+      padding: clamp(22px, 3vw, 28px) clamp(24px, 3vw, 32px);
+      background: rgba(232, 130, 92, 0.06);
+      border: 1px solid rgba(232, 130, 92, 0.20);
+      border-radius: 14px;
+    }
+    .ff-benefits-label {
+      margin: 0 0 14px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: #9B5B3A;
+      text-align: center;
+    }
+    .ff-benefits-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .ff-benefits-list li {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+    .ff-benefits-mark {
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-size: 1.3rem;
+      color: #C66740;
+      line-height: 1.3;
+      font-weight: 500;
+    }
+    .ff-benefits-body {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--clr-text, #2A2926);
+    }
+    .ff-benefits-body strong {
+      font-weight: 600;
+      color: var(--clr-ink, #1F2A24);
+      margin-right: 4px;
     }
     .ff-not-list li {
       display: grid;
@@ -617,6 +668,25 @@
           </div>
         </li>
       </ul>
+
+      <!-- Practical benefits — what referring saves you -->
+      <div class="ff-benefits">
+        <p class="ff-benefits-label">And on a practical&nbsp;note</p>
+        <ul class="ff-benefits-list">
+          <li>
+            <span class="ff-benefits-mark" aria-hidden="true">+</span>
+            <div class="ff-benefits-body">
+              <strong>No return flight to&nbsp;buy.</strong> A local transfer means you skip the air ticket home &mdash; typically S$300&ndash;600.
+            </div>
+          </li>
+          <li>
+            <span class="ff-benefits-mark" aria-hidden="true">+</span>
+            <div class="ff-benefits-body">
+              <strong>A small token of&nbsp;thanks.</strong> A S$30 FairPrice voucher when your referral is successfully&nbsp;placed.
+            </div>
+          </li>
+        </ul>
+      </div>
 
     </div>
   </div>

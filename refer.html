@@ -679,7 +679,7 @@
                   <button type="button" id="toggle-email" class="on">Email</button>
                   <button type="button" id="toggle-phone">Phone</button>
                 </div>
-                <input type="email" id="your-email" name="your-email" placeholder="you@email.com"/>
+                <input type="email" id="your-email" name="your-email" placeholder="you@email.com" required/>
                 <input type="tel" id="your-phone" name="your-phone" placeholder="+65 9XXX XXXX" style="display:none;"/>
               </div>
             </div>
@@ -934,10 +934,14 @@
     tEmail.addEventListener('click', function() {
       tEmail.classList.add('on'); tPhone.classList.remove('on');
       iEmail.style.display = ''; iPhone.style.display = 'none';
+      iEmail.setAttribute('required', '');
+      iPhone.removeAttribute('required');
     });
     tPhone.addEventListener('click', function() {
       tPhone.classList.add('on'); tEmail.classList.remove('on');
       iPhone.style.display = ''; iEmail.style.display = 'none';
+      iPhone.setAttribute('required', '');
+      iEmail.removeAttribute('required');
     });
   })();
 
@@ -1035,12 +1039,23 @@
       // Validate required fields
       var requiredFields = form.querySelectorAll('[required]');
       var valid = true;
+      var firstInvalid = null;
       requiredFields.forEach(function(field) {
         if (!field.value.trim()) {
           field.style.borderColor = '#D85959'; valid = false;
+          if (!firstInvalid) firstInvalid = field;
         } else { field.style.borderColor = ''; }
       });
-      if (!valid) return;
+      if (!valid) {
+        if (firstInvalid) {
+          window.scrollTo({
+            top: firstInvalid.getBoundingClientRect().top + window.scrollY - 120,
+            behavior: 'smooth'
+          });
+          firstInvalid.focus({ preventScroll: true });
+        }
+        return;
+      }
 
       // Disable submit + show in-flight state
       if (submitBtn) {

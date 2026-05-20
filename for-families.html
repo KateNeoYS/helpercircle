@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>For families saying goodbye &mdash; Helper Circle</title>
+  <meta name="description" content="If your helper is finishing up with you, you can help her find a good next family through Helper Circle. Not an agency. No fees from her. Just a careful introduction."/>
+  <meta property="og:url" content="https://helpercircle.sg/for-families.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="For families saying goodbye &mdash; Helper Circle"/>
+  <meta property="og:description" content="If your helper is finishing up with you, you can help her find a good next family through Helper Circle. Not an agency. No fees from her. Just a careful introduction."/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
+  <link rel="stylesheet" href="styles.css"/>
+
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    /* ═══════════════════════════════════════════════
+       FOR FAMILIES — page-specific styles
+       Scoped inline; reuses styles.css design tokens.
+       ═══════════════════════════════════════════════ */
+
+    /* ── HERO ─────────────────────────────────── */
+    .ff-hero {
+      padding: clamp(96px, 11vw, 120px) 0 clamp(48px, 6vw, 64px);
+      background: var(--clr-cream, #FCF7EE);
+      position: relative;
+    }
+    .ff-hero-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .ff-hero .kicker {
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+    .ff-hl {
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-size: clamp(2.1rem, 5.2vw, 3rem);
+      line-height: 1.06;
+      letter-spacing: -0.012em;
+      font-weight: 500;
+      color: var(--clr-ink, #1F2A24);
+      margin: 0 0 18px;
+      text-wrap: balance;
+      max-width: 16ch;
+    }
+    .ff-sub {
+      font-size: clamp(1.02rem, 2.1vw, 1.15rem);
+      line-height: 1.6;
+      color: var(--clr-text-muted, #5A6661);
+      margin: 0;
+      max-width: 540px;
+      text-wrap: pretty;
+    }
+
+    /* ── BODY SECTIONS ────────────────────────── */
+    .ff-body {
+      padding: clamp(40px, 5vw, 64px) 0 clamp(48px, 6vw, 72px);
+      background: var(--clr-white, #FFFFFF);
+    }
+    .ff-section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: clamp(28px, 3.5vw, 40px) 0;
+    }
+    .ff-section + .ff-section {
+      border-top: 1px solid rgba(31, 42, 36, 0.07);
+    }
+    .ff-section-h {
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-size: clamp(1.4rem, 2.8vw, 1.7rem);
+      line-height: 1.2;
+      font-weight: 500;
+      color: var(--clr-ink, #1F2A24);
+      margin: 0 0 16px;
+      letter-spacing: -0.008em;
+    }
+    .ff-section-p {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--clr-text, #2A2926);
+      margin: 0 0 12px;
+    }
+    .ff-section-p:last-child { margin-bottom: 0; }
+    .ff-section-p--muted {
+      color: var(--clr-text-muted, #5A6661);
+    }
+
+    /* Numbered list (for "what you'd be giving her" / "what's expected") */
+    .ff-list {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .ff-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .ff-list-num {
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #C66740;
+      line-height: 1.5;
+    }
+    .ff-list-body strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--clr-ink, #1F2A24);
+      margin-bottom: 4px;
+    }
+    .ff-list-body span {
+      display: block;
+      font-size: 0.94rem;
+      line-height: 1.6;
+      color: var(--clr-text-muted, #5A6661);
+    }
+
+    /* "Not" list — what this isn't */
+    .ff-notlist {
+      list-style: none;
+      padding: 0;
+      margin: 14px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .ff-notlist li {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 12px;
+      font-size: 0.96rem;
+      line-height: 1.55;
+      color: var(--clr-text, #2A2926);
+      align-items: start;
+    }
+    .ff-notlist-mark {
+      color: #C66740;
+      font-weight: 600;
+      line-height: 1.55;
+    }
+
+    /* ── HANDWRITTEN QUOTE CARD ───────────────── */
+    .ff-quote-section {
+      padding: clamp(48px, 6vw, 80px) 0;
+      background: var(--clr-cream, #FCF7EE);
+    }
+    .ff-quote-card {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: clamp(28px, 4vw, 36px) clamp(28px, 4vw, 36px) clamp(24px, 3vw, 28px);
+      background: var(--clr-white, #FFFFFF);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.07), 0 1px 0 rgba(0, 0, 0, 0.04);
+      transform: rotate(-1deg);
+      position: relative;
+    }
+    .ff-quote-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 32px;
+      background: linear-gradient(180deg, rgba(232, 130, 92, 0.08), transparent);
+      border-radius: 8px 8px 0 0;
+      pointer-events: none;
+    }
+    .ff-quote-body {
+      font-family: 'Caveat', 'Cormorant Garamond', cursive, serif;
+      font-size: clamp(1.3rem, 3vw, 1.55rem);
+      line-height: 1.4;
+      color: var(--clr-text, #2A2926);
+      margin: 0 0 14px;
+    }
+    .ff-quote-by {
+      font-family: 'Caveat', 'Cormorant Garamond', cursive, serif;
+      font-size: 1.05rem;
+      color: var(--clr-text-muted, #6B7370);
+      margin: 0;
+    }
+
+    /* ── CTA ──────────────────────────────────── */
+    .ff-cta {
+      padding: clamp(56px, 7vw, 88px) 0;
+      background: var(--clr-white, #FFFFFF);
+      text-align: center;
+    }
+    .ff-cta-inner {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .ff-cta-h {
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-size: clamp(1.6rem, 3.2vw, 2rem);
+      line-height: 1.15;
+      font-weight: 500;
+      color: var(--clr-ink, #1F2A24);
+      margin: 0 0 12px;
+      text-wrap: balance;
+    }
+    .ff-cta-sub {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--clr-text-muted, #5A6661);
+      margin: 0 0 28px;
+      text-wrap: balance;
+    }
+    .ff-cta .btn {
+      display: inline-block;
+    }
+    .ff-cta-foot {
+      margin: 22px 0 0;
+      font-size: 0.85rem;
+      color: var(--clr-text-muted, #6B7370);
+      font-style: italic;
+    }
+    .ff-cta-foot a {
+      color: var(--clr-primary, #2C8A6E);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(44, 138, 110, 0.32);
+    }
+    .ff-cta-foot a:hover {
+      border-bottom-color: var(--clr-primary, #2C8A6E);
+    }
+
+    @media (max-width: 640px) {
+      .ff-section { padding: 24px 0; }
+      .ff-list li { grid-template-columns: 24px 1fr; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="hc-logo" aria-label="Helper Circle home">
+      <span class="hc"><span>hc</span></span>
+      <span class="hc-word">Helper<strong>Circle</strong></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="browse.html" class="nav-a">Meet Helpers</a>
+      <a href="refer.html" class="nav-a">Refer a Helper</a>
+      <a href="index.html#how" class="nav-a">How It Works</a>
+      <a href="faq.html" class="nav-a">FAQ</a>
+      <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
+    </nav>
+    <a href="refer.html" class="btn btn-green nav-cta">Refer a Helper</a>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="ff-hero">
+  <div class="wrap">
+    <div class="ff-hero-inner">
+      <div class="kicker">If your helper is finishing&nbsp;up</div>
+      <h1 class="ff-hl">Help her find a good next&nbsp;family.</h1>
+      <p class="ff-sub">For Singapore families saying goodbye to a helper they trust &mdash; and hoping she lands somewhere&nbsp;good.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BODY ═══ -->
+<section class="ff-body">
+  <div class="wrap">
+
+    <!-- What this is -->
+    <div class="ff-section">
+      <h2 class="ff-section-h">What this&nbsp;is</h2>
+      <p class="ff-section-p">Helper Circle is a small platform for Singapore families to pass on helpers they've worked with directly to the next family &mdash; instead of leaving her to start over with an&nbsp;agency.</p>
+      <p class="ff-section-p ff-section-p--muted">If you trust her, and she's transferring, we'll help her find a family who'll value her the way you did. Most referrals take 5&ndash;10 minutes of your time, and a short call.</p>
+    </div>
+
+    <!-- What you'd be giving her -->
+    <div class="ff-section">
+      <h2 class="ff-section-h">What you'd be giving&nbsp;her</h2>
+      <ol class="ff-list">
+        <li>
+          <span class="ff-list-num">1</span>
+          <div class="ff-list-body">
+            <strong>Your honest words about her</strong>
+            <span>A real reference, in your voice &mdash; not a recruiter's biodata sheet. Families see exactly what made her good in your home.</span>
+          </div>
+        </li>
+        <li>
+          <span class="ff-list-num">2</span>
+          <div class="ff-list-body">
+            <strong>A direct path to her next family</strong>
+            <span>No agency cycle, no months of biodata circulation. She moves from your home to another known one, with continuity.</span>
+          </div>
+        </li>
+        <li>
+          <span class="ff-list-num">3</span>
+          <div class="ff-list-body">
+            <strong>No loans, no salary cuts</strong>
+            <span>She doesn't pay placement fees, doesn't lose months of salary to commission. The next family pays one transparent admin fee &mdash; never her.</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- What's expected of you -->
+    <div class="ff-section">
+      <h2 class="ff-section-h">What's expected of&nbsp;you</h2>
+      <ol class="ff-list">
+        <li>
+          <span class="ff-list-num">1</span>
+          <div class="ff-list-body">
+            <strong>A short referral form</strong>
+            <span>About 5&ndash;10 minutes. Her background, what she's good at, and a few honest words about your experience with her.</span>
+          </div>
+        </li>
+        <li>
+          <span class="ff-list-num">2</span>
+          <div class="ff-list-body">
+            <strong>A quick verification call</strong>
+            <span>15&ndash;20 minutes, by phone or WhatsApp. We confirm a few details with you so the next family sees a "Referral verified" badge on her profile.</span>
+          </div>
+        </li>
+        <li>
+          <span class="ff-list-num">3</span>
+          <div class="ff-list-body">
+            <strong>Optionally: a short chat with the next family</strong>
+            <span>Only if you opt in. Some next families appreciate a brief conversation with the previous employer. You can always say no &mdash; we'll vouch on your behalf.</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- What this isn't -->
+    <div class="ff-section">
+      <h2 class="ff-section-h">What this&nbsp;isn't</h2>
+      <ul class="ff-notlist">
+        <li><span class="ff-notlist-mark">&mdash;</span><span><strong>Not an agency.</strong> We don't source helpers, recruit from overseas, or run a placement business.</span></li>
+        <li><span class="ff-notlist-mark">&mdash;</span><span><strong>No commission on her salary.</strong> Ever. The next family pays an admin fee directly to us &mdash; she keeps her full pay.</span></li>
+        <li><span class="ff-notlist-mark">&mdash;</span><span><strong>No bulk biodata.</strong> Profiles are added one at a time, only when a real family refers someone they know.</span></li>
+        <li><span class="ff-notlist-mark">&mdash;</span><span><strong>No pressure on you.</strong> If a match doesn't feel right, walk away. The platform exists to make a thoughtful transition easier &mdash; not to push one through.</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ HANDWRITTEN QUOTE ═══ -->
+<section class="ff-quote-section">
+  <div class="wrap">
+    <div class="ff-quote-card">
+      <p class="ff-quote-body">"We didn't want to send our helper home. Helper Circle started because there should be a better way to pass a good helper to another good family &mdash; and to make that process clearer for&nbsp;everyone."</p>
+      <p class="ff-quote-by">&mdash; The Helper Circle founding family</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="ff-cta">
+  <div class="wrap">
+    <div class="ff-cta-inner">
+      <h2 class="ff-cta-h">When you're ready &mdash; refer&nbsp;her.</h2>
+      <p class="ff-cta-sub">The form takes about 5&ndash;10 minutes. We'll be in touch within 1&ndash;2 business&nbsp;days.</p>
+      <a href="refer.html" class="btn btn-green btn-lg">Refer your helper</a>
+      <p class="ff-cta-foot">Questions first? <a href="mailto:hello@helpercircle.sg">Email us</a> or read the <a href="faq.html">FAQ</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+
+      <p class="footer-heart">
+        Helper Circle helps Singapore families pass along helpers they&nbsp;trust.
+      </p>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="browse.html">Meet Helpers</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="refer.html">Refer a Helper</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="index.html#how">How It Works</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="faq.html">FAQ</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">Contact</a>
+      </nav>
+
+      <div class="footer-legal-strip">
+        <span>© <span id="year"></span> Helper Circle · Singapore</span>
+        <span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>

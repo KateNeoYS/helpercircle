@@ -94,42 +94,35 @@
       justify-content: center;
       min-height: 360px;
     }
-    .ff-hero-card {
+    .ff-hero-image-wrap {
       width: 100%;
-      max-width: 380px;
-      padding: 36px 32px 32px;
-      background: var(--clr-white, #FFFFFF);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      border-radius: 10px;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08), 0 1px 0 rgba(0, 0, 0, 0.04);
-      transform: rotate(1.5deg);
-      position: relative;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
-    .ff-hero-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 36px;
-      background: linear-gradient(180deg, rgba(232, 130, 92, 0.10), transparent);
-      border-radius: 10px 10px 0 0;
-      pointer-events: none;
+    .ff-hero-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.10), 0 1px 0 rgba(0, 0, 0, 0.04);
+      background: rgba(0, 0, 0, 0.04);
     }
-    .ff-hero-card-body {
-      font-family: 'Caveat', 'Cormorant Garamond', cursive, serif;
-      font-size: clamp(1.35rem, 2.6vw, 1.55rem);
-      line-height: 1.36;
-      color: var(--clr-text, #2A2926);
-      margin: 0 0 16px;
-    }
-    .ff-hero-card-by {
-      font-family: 'Caveat', 'Cormorant Garamond', cursive, serif;
-      font-size: 1.05rem;
-      color: var(--clr-text-muted, #6B7370);
+    .ff-hero-image-caption {
       margin: 0;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      color: var(--clr-text-muted, #8A8E8B);
+      font-style: italic;
+      text-align: right;
+      padding-right: 4px;
     }
     @media (max-width: 879px) {
       .ff-hero-right { min-height: auto; margin-top: 8px; }
-      .ff-hero-card { max-width: 320px; margin: 0 auto; }
+      .ff-hero-image-wrap { max-width: 100%; margin: 0 auto; }
     }
 
     /* ───── WHY FAMILIES REFER — 3 cards ─────── */
@@ -519,18 +512,21 @@
 <!-- ═══ HEADER ═══ -->
 <header class="site-header" id="site-header">
   <div class="wrap header-inner">
-    <a href="index.html" class="hc-logo" aria-label="Helper Circle home">
-      <span class="hc"><span>hc</span></span>
-      <span class="hc-word">Helper<strong>Circle</strong></span>
+    <a href="index.html" class="logo">
+      <div class="logo-mark" aria-hidden="true"><span class="logo-hc">hc</span></div>
+      <span class="logo-text">Helper<strong>Circle</strong></span>
     </a>
-    <nav class="site-nav" aria-label="Primary">
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
       <a href="browse.html" class="nav-a">Meet Helpers</a>
       <a href="refer.html" class="nav-a">Refer a Helper</a>
       <a href="index.html#how" class="nav-a">How It Works</a>
       <a href="faq.html" class="nav-a">FAQ</a>
       <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
     </nav>
-    <a href="refer.html" class="btn btn-green nav-cta">Refer a Helper</a>
+    <a href="refer.html" class="btn btn-green btn-sm hdr-cta">Refer a Helper</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -547,10 +543,15 @@
           <span class="ff-hero-cta-note">About 5&ndash;10&nbsp;minutes</span>
         </div>
       </div>
-      <aside class="ff-hero-right" aria-hidden="true">
-        <div class="ff-hero-card">
-          <p class="ff-hero-card-body">"She'd been part of our family for four years. We didn't want her to start over from&nbsp;scratch."</p>
-          <p class="ff-hero-card-by">&mdash; A referring family</p>
+      <aside class="ff-hero-right">
+        <div class="ff-hero-image-wrap">
+          <img
+            src="images/hero-illustrative.jpg"
+            alt="A calm Singapore home interior in soft morning light"
+            class="ff-hero-image"
+            loading="eager"
+          />
+          <p class="ff-hero-image-caption">Illustrative scene</p>
         </div>
       </aside>
     </div>
@@ -682,7 +683,7 @@
           <li>
             <span class="ff-benefits-mark" aria-hidden="true">+</span>
             <div class="ff-benefits-body">
-              <strong>A small token of&nbsp;thanks.</strong> A S$30 FairPrice voucher when your referral is successfully&nbsp;placed.
+              <strong>A small token of&nbsp;thanks.</strong> A modest gesture when your referral is successfully placed &mdash; passed forward, donated, or for&nbsp;you.
             </div>
           </li>
         </ul>

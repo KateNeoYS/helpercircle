@@ -6971,3 +6971,36 @@ em { font-style: italic; color: var(--clr-primary); }
 .preview-card {
   border-color: rgba(232, 130, 92, 0.22) !important;
 }
+
+/* =============================================================
+   FOOTER ASIDE — secondary contextual link
+   Sits between the main footer-nav and the legal strip.
+   Quieter typography signals: "this is a situational link,
+   not a primary route".
+   ============================================================= */
+.footer-aside {
+  margin: 14px 0 0;
+  font-size: 0.86rem;
+  font-style: italic;
+  text-align: center;
+  color: rgba(252, 247, 238, 0.62);
+  line-height: 1.5;
+}
+.footer-aside a {
+  color: rgba(252, 247, 238, 0.78);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(252, 247, 238, 0.22);
+  padding-bottom: 1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.footer-aside a:hover {
+  color: rgba(252, 247, 238, 1);
+  border-bottom-color: rgba(252, 247, 238, 0.5);
+}
+
+@media (max-width: 768px) {
+  .footer-aside {
+    text-align: left;
+    margin-top: 10px;
+  }
+}

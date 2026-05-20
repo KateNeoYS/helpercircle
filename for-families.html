@@ -4,11 +4,11 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>For families saying goodbye &mdash; Helper Circle</title>
-  <meta name="description" content="If your helper is finishing up with you, you can help her find a good next family through Helper Circle. Not an agency. No fees from her. Just a careful introduction."/>
+  <meta name="description" content="If your helper is finishing up with you, you can help her find a good next family. Not an agency. No fees from her. Just a careful introduction."/>
   <meta property="og:url" content="https://helpercircle.sg/for-families.html"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="For families saying goodbye &mdash; Helper Circle"/>
-  <meta property="og:description" content="If your helper is finishing up with you, you can help her find a good next family through Helper Circle. Not an agency. No fees from her. Just a careful introduction."/>
+  <meta property="og:title" content="Help her find a good next family &mdash; Helper Circle"/>
+  <meta property="og:description" content="If your helper is finishing up with you, you can help her find a good next family. Not an agency. No fees from her."/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,205 +22,434 @@
 
   <style>
     /* ═══════════════════════════════════════════════
-       FOR FAMILIES — page-specific styles
-       Scoped inline; reuses styles.css design tokens.
+       FOR FAMILIES — editorial landing page
+       Mobile-first, scannable, lightweight. No walls of text.
        ═══════════════════════════════════════════════ */
 
-    /* ── HERO ─────────────────────────────────── */
+    /* ───── HERO ──────────────────────────────── */
     .ff-hero {
-      padding: clamp(96px, 11vw, 120px) 0 clamp(48px, 6vw, 64px);
+      padding: clamp(96px, 11vw, 120px) 0 clamp(56px, 7vw, 80px);
       background: var(--clr-cream, #FCF7EE);
       position: relative;
+      overflow: hidden;
     }
-    .ff-hero-inner {
-      max-width: 720px;
+    .ff-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center;
+      max-width: 1080px;
       margin: 0 auto;
-      text-align: left;
     }
-    .ff-hero .kicker {
+    @media (min-width: 880px) {
+      .ff-hero-grid {
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 56px;
+      }
+    }
+    .ff-hero-left .kicker {
       display: inline-block;
       margin-bottom: 16px;
     }
     .ff-hl {
       font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
-      font-size: clamp(2.1rem, 5.2vw, 3rem);
-      line-height: 1.06;
-      letter-spacing: -0.012em;
+      font-size: clamp(2.2rem, 5.4vw, 3.4rem);
+      line-height: 1.04;
+      letter-spacing: -0.014em;
       font-weight: 500;
       color: var(--clr-ink, #1F2A24);
       margin: 0 0 18px;
       text-wrap: balance;
-      max-width: 16ch;
+      max-width: 14ch;
     }
     .ff-sub {
-      font-size: clamp(1.02rem, 2.1vw, 1.15rem);
+      font-size: clamp(1.05rem, 2.1vw, 1.18rem);
+      line-height: 1.55;
+      color: var(--clr-text-muted, #5A6661);
+      margin: 0 0 28px;
+      max-width: 460px;
+      text-wrap: pretty;
+    }
+    .ff-hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .ff-hero-cta .btn {
+      padding: 14px 28px;
+      font-size: 1rem;
+    }
+    .ff-hero-cta-note {
+      font-size: 0.88rem;
+      color: var(--clr-text-muted, #6B7370);
+      font-style: italic;
+    }
+
+    /* Hero right column — quote card composition (image slot future) */
+    .ff-hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 360px;
+    }
+    .ff-hero-card {
+      width: 100%;
+      max-width: 380px;
+      padding: 36px 32px 32px;
+      background: var(--clr-white, #FFFFFF);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08), 0 1px 0 rgba(0, 0, 0, 0.04);
+      transform: rotate(1.5deg);
+      position: relative;
+    }
+    .ff-hero-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 36px;
+      background: linear-gradient(180deg, rgba(232, 130, 92, 0.10), transparent);
+      border-radius: 10px 10px 0 0;
+      pointer-events: none;
+    }
+    .ff-hero-card-body {
+      font-family: 'Caveat', 'Cormorant Garamond', cursive, serif;
+      font-size: clamp(1.35rem, 2.6vw, 1.55rem);
+      line-height: 1.36;
+      color: var(--clr-text, #2A2926);
+      margin: 0 0 16px;
+    }
+    .ff-hero-card-by {
+      font-family: 'Caveat', 'Cormorant Garamond', cursive, serif;
+      font-size: 1.05rem;
+      color: var(--clr-text-muted, #6B7370);
+      margin: 0;
+    }
+    @media (max-width: 879px) {
+      .ff-hero-right { min-height: auto; margin-top: 8px; }
+      .ff-hero-card { max-width: 320px; margin: 0 auto; }
+    }
+
+    /* ───── WHY FAMILIES REFER — 3 cards ─────── */
+    .ff-why {
+      padding: clamp(64px, 8vw, 96px) 0;
+      background: var(--clr-white, #FFFFFF);
+    }
+    .ff-why-hdr {
+      max-width: 640px;
+      margin: 0 auto clamp(40px, 5vw, 56px);
+      text-align: center;
+    }
+    .ff-why-hdr .kicker {
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+    .ff-why-h {
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-size: clamp(1.7rem, 3.4vw, 2.1rem);
+      line-height: 1.15;
+      font-weight: 500;
+      color: var(--clr-ink, #1F2A24);
+      margin: 0;
+      text-wrap: balance;
+      letter-spacing: -0.008em;
+    }
+    .ff-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    @media (min-width: 720px) {
+      .ff-cards { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    }
+    .ff-card {
+      padding: clamp(28px, 3.2vw, 36px) clamp(24px, 2.8vw, 32px) clamp(26px, 3vw, 34px);
+      background: var(--clr-cream, #FCF7EE);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .ff-card--peach {
+      background: rgba(232, 130, 92, 0.06);
+      border-color: rgba(232, 130, 92, 0.20);
+    }
+    .ff-card--amber {
+      background: rgba(184, 136, 74, 0.08);
+      border-color: rgba(184, 136, 74, 0.22);
+    }
+    .ff-card-ico {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(44, 138, 110, 0.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--clr-primary, #2C8A6E);
+      flex-shrink: 0;
+    }
+    .ff-card--peach .ff-card-ico {
+      background: rgba(232, 130, 92, 0.16);
+      color: #C66740;
+    }
+    .ff-card--amber .ff-card-ico {
+      background: rgba(184, 136, 74, 0.18);
+      color: #8A5F2E;
+    }
+    .ff-card-h {
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-size: 1.3rem;
+      line-height: 1.25;
+      font-weight: 500;
+      color: var(--clr-ink, #1F2A24);
+      margin: 0;
+      text-wrap: balance;
+      letter-spacing: -0.008em;
+    }
+    .ff-card-p {
+      font-size: 0.94rem;
       line-height: 1.6;
       color: var(--clr-text-muted, #5A6661);
       margin: 0;
-      max-width: 540px;
       text-wrap: pretty;
     }
 
-    /* ── BODY SECTIONS ────────────────────────── */
-    .ff-body {
-      padding: clamp(40px, 5vw, 64px) 0 clamp(48px, 6vw, 72px);
-      background: var(--clr-white, #FFFFFF);
+    /* ───── PROCESS — 3 steps horizontal ─────── */
+    .ff-process {
+      padding: clamp(64px, 8vw, 96px) 0;
+      background: var(--clr-cream, #FCF7EE);
     }
-    .ff-section {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: clamp(28px, 3.5vw, 40px) 0;
+    .ff-process-hdr {
+      max-width: 640px;
+      margin: 0 auto clamp(36px, 4.5vw, 52px);
+      text-align: center;
     }
-    .ff-section + .ff-section {
-      border-top: 1px solid rgba(31, 42, 36, 0.07);
+    .ff-process-hdr .kicker {
+      display: inline-block;
+      margin-bottom: 14px;
     }
-    .ff-section-h {
+    .ff-process-h {
       font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
-      font-size: clamp(1.4rem, 2.8vw, 1.7rem);
-      line-height: 1.2;
+      font-size: clamp(1.6rem, 3.2vw, 2rem);
+      line-height: 1.15;
       font-weight: 500;
       color: var(--clr-ink, #1F2A24);
-      margin: 0 0 16px;
+      margin: 0;
+      text-wrap: balance;
       letter-spacing: -0.008em;
     }
-    .ff-section-p {
-      font-size: 1rem;
-      line-height: 1.65;
-      color: var(--clr-text, #2A2926);
-      margin: 0 0 12px;
+    .ff-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      max-width: 880px;
+      margin: 0 auto;
+      position: relative;
     }
-    .ff-section-p:last-child { margin-bottom: 0; }
-    .ff-section-p--muted {
+    @media (min-width: 720px) {
+      .ff-steps {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      /* Soft connector line on desktop */
+      .ff-steps::before {
+        content: "";
+        position: absolute;
+        top: 26px;
+        left: 16.67%;
+        right: 16.67%;
+        height: 1.5px;
+        background: linear-gradient(90deg,
+          transparent 0%,
+          rgba(44, 138, 110, 0.30) 12%,
+          rgba(44, 138, 110, 0.30) 88%,
+          transparent 100%);
+        z-index: 0;
+      }
+    }
+    .ff-step {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 0 8px;
+    }
+    .ff-step-dot {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--clr-cream, #FCF7EE);
+      border: 1.5px solid rgba(44, 138, 110, 0.32);
+      color: var(--clr-primary, #2C8A6E);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    .ff-step:nth-child(2) .ff-step-dot {
+      border-color: rgba(232, 130, 92, 0.45);
+      color: #C66740;
+    }
+    .ff-step:nth-child(3) .ff-step-dot {
+      border-color: rgba(184, 136, 74, 0.45);
+      color: #8A5F2E;
+    }
+    .ff-step-h {
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-size: 1.2rem;
+      line-height: 1.25;
+      font-weight: 500;
+      color: var(--clr-ink, #1F2A24);
+      margin: 0 0 8px;
+      letter-spacing: -0.006em;
+    }
+    .ff-step-p {
+      font-size: 0.92rem;
+      line-height: 1.55;
       color: var(--clr-text-muted, #5A6661);
+      margin: 0 auto;
+      max-width: 230px;
     }
 
-    /* Numbered list (for "what you'd be giving her" / "what's expected") */
-    .ff-list {
+    /* ───── WHAT THIS ISN'T — trust bullets ─── */
+    .ff-not {
+      padding: clamp(64px, 8vw, 96px) 0;
+      background: var(--clr-white, #FFFFFF);
+    }
+    .ff-not-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .ff-not-hdr {
+      text-align: center;
+      margin: 0 auto clamp(36px, 4.5vw, 52px);
+    }
+    .ff-not-hdr .kicker {
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+    .ff-not-h {
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-size: clamp(1.6rem, 3.2vw, 2rem);
+      line-height: 1.15;
+      font-weight: 500;
+      color: var(--clr-ink, #1F2A24);
+      margin: 0;
+      text-wrap: balance;
+      letter-spacing: -0.008em;
+    }
+    .ff-not-list {
       list-style: none;
       padding: 0;
-      margin: 18px 0 0;
+      margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: clamp(18px, 2.5vw, 24px);
     }
-    .ff-list li {
+    .ff-not-list li {
       display: grid;
       grid-template-columns: 28px 1fr;
-      gap: 14px;
+      gap: 16px;
       align-items: start;
+      padding: 0;
     }
-    .ff-list-num {
+    .ff-not-mark {
       font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
-      font-size: 1.1rem;
-      font-weight: 500;
+      font-size: 1.4rem;
       color: #C66740;
-      line-height: 1.5;
+      line-height: 1.3;
+      font-weight: 500;
     }
-    .ff-list-body strong {
+    .ff-not-body strong {
       display: block;
       font-size: 1rem;
       font-weight: 600;
       color: var(--clr-ink, #1F2A24);
       margin-bottom: 4px;
+      line-height: 1.4;
     }
-    .ff-list-body span {
+    .ff-not-body span {
       display: block;
       font-size: 0.94rem;
       line-height: 1.6;
       color: var(--clr-text-muted, #5A6661);
     }
 
-    /* "Not" list — what this isn't */
-    .ff-notlist {
-      list-style: none;
-      padding: 0;
-      margin: 14px 0 0;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .ff-notlist li {
-      display: grid;
-      grid-template-columns: 20px 1fr;
-      gap: 12px;
-      font-size: 0.96rem;
-      line-height: 1.55;
-      color: var(--clr-text, #2A2926);
-      align-items: start;
-    }
-    .ff-notlist-mark {
-      color: #C66740;
-      font-weight: 600;
-      line-height: 1.55;
-    }
-
-    /* ── HANDWRITTEN QUOTE CARD ───────────────── */
-    .ff-quote-section {
-      padding: clamp(48px, 6vw, 80px) 0;
+    /* ───── FOUNDER QUOTE — single emotional anchor ─── */
+    .ff-quote {
+      padding: clamp(72px, 9vw, 104px) 0;
       background: var(--clr-cream, #FCF7EE);
+      text-align: center;
     }
-    .ff-quote-card {
-      max-width: 520px;
+    .ff-quote-inner {
+      max-width: 660px;
       margin: 0 auto;
-      padding: clamp(28px, 4vw, 36px) clamp(28px, 4vw, 36px) clamp(24px, 3vw, 28px);
-      background: var(--clr-white, #FFFFFF);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      border-radius: 8px;
-      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.07), 0 1px 0 rgba(0, 0, 0, 0.04);
-      transform: rotate(-1deg);
-      position: relative;
+      padding: 0 clamp(16px, 3vw, 32px);
     }
-    .ff-quote-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 32px;
-      background: linear-gradient(180deg, rgba(232, 130, 92, 0.08), transparent);
-      border-radius: 8px 8px 0 0;
-      pointer-events: none;
+    .ff-quote-mark {
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-size: 3.6rem;
+      line-height: 0.6;
+      color: #C66740;
+      opacity: 0.5;
+      margin-bottom: 14px;
+      font-weight: 500;
     }
     .ff-quote-body {
-      font-family: 'Caveat', 'Cormorant Garamond', cursive, serif;
-      font-size: clamp(1.3rem, 3vw, 1.55rem);
-      line-height: 1.4;
-      color: var(--clr-text, #2A2926);
-      margin: 0 0 14px;
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-style: italic;
+      font-size: clamp(1.2rem, 2.6vw, 1.5rem);
+      line-height: 1.5;
+      color: var(--clr-ink, #1F2A24);
+      margin: 0 0 22px;
+      text-wrap: balance;
     }
     .ff-quote-by {
-      font-family: 'Caveat', 'Cormorant Garamond', cursive, serif;
-      font-size: 1.05rem;
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--clr-text-muted, #6B7370);
+      font-weight: 500;
       margin: 0;
     }
 
-    /* ── CTA ──────────────────────────────────── */
+    /* ───── FINAL CTA ────────────────────────── */
     .ff-cta {
-      padding: clamp(56px, 7vw, 88px) 0;
+      padding: clamp(72px, 9vw, 104px) 0;
       background: var(--clr-white, #FFFFFF);
       text-align: center;
     }
     .ff-cta-inner {
-      max-width: 560px;
+      max-width: 540px;
       margin: 0 auto;
     }
     .ff-cta-h {
       font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
-      font-size: clamp(1.6rem, 3.2vw, 2rem);
+      font-size: clamp(1.7rem, 3.4vw, 2.1rem);
       line-height: 1.15;
       font-weight: 500;
       color: var(--clr-ink, #1F2A24);
-      margin: 0 0 12px;
+      margin: 0 0 14px;
       text-wrap: balance;
+      letter-spacing: -0.008em;
     }
     .ff-cta-sub {
       font-size: 1rem;
-      line-height: 1.6;
+      line-height: 1.55;
       color: var(--clr-text-muted, #5A6661);
-      margin: 0 0 28px;
-      text-wrap: balance;
+      margin: 0 0 30px;
     }
     .ff-cta .btn {
-      display: inline-block;
+      padding: 14px 30px;
+      font-size: 1rem;
     }
     .ff-cta-foot {
       margin: 22px 0 0;
@@ -235,11 +464,6 @@
     }
     .ff-cta-foot a:hover {
       border-bottom-color: var(--clr-primary, #2C8A6E);
-    }
-
-    @media (max-width: 640px) {
-      .ff-section { padding: 24px 0; }
-      .ff-list li { grid-template-columns: 24px 1fr; gap: 10px; }
     }
   </style>
 </head>
@@ -266,111 +490,163 @@
 <!-- ═══ HERO ═══ -->
 <section class="ff-hero">
   <div class="wrap">
-    <div class="ff-hero-inner">
-      <div class="kicker">If your helper is finishing&nbsp;up</div>
-      <h1 class="ff-hl">Help her find a good next&nbsp;family.</h1>
-      <p class="ff-sub">For Singapore families saying goodbye to a helper they trust &mdash; and hoping she lands somewhere&nbsp;good.</p>
+    <div class="ff-hero-grid">
+      <div class="ff-hero-left">
+        <div class="kicker">If she's finishing up with&nbsp;you</div>
+        <h1 class="ff-hl">Help her find a good next&nbsp;family.</h1>
+        <p class="ff-sub">A quiet way for Singapore families to pass on helpers they trust &mdash; directly to families they vouch&nbsp;for.</p>
+        <div class="ff-hero-cta">
+          <a href="refer.html" class="btn btn-green">Refer your helper</a>
+          <span class="ff-hero-cta-note">About 5&ndash;10&nbsp;minutes</span>
+        </div>
+      </div>
+      <aside class="ff-hero-right" aria-hidden="true">
+        <div class="ff-hero-card">
+          <p class="ff-hero-card-body">"She'd been part of our family for four years. We didn't want her to start over from&nbsp;scratch."</p>
+          <p class="ff-hero-card-by">&mdash; A referring family</p>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
 
-<!-- ═══ BODY ═══ -->
-<section class="ff-body">
+<!-- ═══ WHY FAMILIES REFER ═══ -->
+<section class="ff-why">
   <div class="wrap">
-
-    <!-- What this is -->
-    <div class="ff-section">
-      <h2 class="ff-section-h">What this&nbsp;is</h2>
-      <p class="ff-section-p">Helper Circle is a small platform for Singapore families to pass on helpers they've worked with directly to the next family &mdash; instead of leaving her to start over with an&nbsp;agency.</p>
-      <p class="ff-section-p ff-section-p--muted">If you trust her, and she's transferring, we'll help her find a family who'll value her the way you did. Most referrals take 5&ndash;10 minutes of your time, and a short call.</p>
+    <div class="ff-why-hdr">
+      <div class="kicker">Why families refer</div>
+      <h2 class="ff-why-h">Three quiet reasons it&nbsp;matters</h2>
     </div>
 
-    <!-- What you'd be giving her -->
-    <div class="ff-section">
-      <h2 class="ff-section-h">What you'd be giving&nbsp;her</h2>
-      <ol class="ff-list">
-        <li>
-          <span class="ff-list-num">1</span>
-          <div class="ff-list-body">
-            <strong>Your honest words about her</strong>
-            <span>A real reference, in your voice &mdash; not a recruiter's biodata sheet. Families see exactly what made her good in your home.</span>
-          </div>
-        </li>
-        <li>
-          <span class="ff-list-num">2</span>
-          <div class="ff-list-body">
-            <strong>A direct path to her next family</strong>
-            <span>No agency cycle, no months of biodata circulation. She moves from your home to another known one, with continuity.</span>
-          </div>
-        </li>
-        <li>
-          <span class="ff-list-num">3</span>
-          <div class="ff-list-body">
-            <strong>No loans, no salary cuts</strong>
-            <span>She doesn't pay placement fees, doesn't lose months of salary to commission. The next family pays one transparent admin fee &mdash; never her.</span>
-          </div>
-        </li>
-      </ol>
+    <div class="ff-cards">
+
+      <div class="ff-card">
+        <div class="ff-card-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M11 3.5l2.4 4.9 5.4.78-3.9 3.8.92 5.36L11 15.8l-4.82 2.54.92-5.36L3.2 9.18l5.4-.78L11 3.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="ff-card-h">A trusted introduction</h3>
+        <p class="ff-card-p">Your honest words travel with her. The next family hears about her from someone they can&nbsp;trust.</p>
+      </div>
+
+      <div class="ff-card ff-card--peach">
+        <div class="ff-card-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M3 11h16M14 6l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="ff-card-h">A smoother transition</h3>
+        <p class="ff-card-p">No agency cycle, no months of biodata circulation. From one good home to the&nbsp;next.</p>
+      </div>
+
+      <div class="ff-card ff-card--amber">
+        <div class="ff-card-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="7.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M6.5 14.5l9-9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="ff-card-h">No loans, no salary cuts</h3>
+        <p class="ff-card-p">She doesn't pay placement fees or lose months of pay. She keeps what she&nbsp;earns.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ═══ -->
+<section class="ff-process">
+  <div class="wrap">
+    <div class="ff-process-hdr">
+      <div class="kicker">How it works for&nbsp;you</div>
+      <h2 class="ff-process-h">Three small steps. We do the&nbsp;rest.</h2>
     </div>
 
-    <!-- What's expected of you -->
-    <div class="ff-section">
-      <h2 class="ff-section-h">What's expected of&nbsp;you</h2>
-      <ol class="ff-list">
-        <li>
-          <span class="ff-list-num">1</span>
-          <div class="ff-list-body">
-            <strong>A short referral form</strong>
-            <span>About 5&ndash;10 minutes. Her background, what she's good at, and a few honest words about your experience with her.</span>
-          </div>
-        </li>
-        <li>
-          <span class="ff-list-num">2</span>
-          <div class="ff-list-body">
-            <strong>A quick verification call</strong>
-            <span>15&ndash;20 minutes, by phone or WhatsApp. We confirm a few details with you so the next family sees a "Referral verified" badge on her profile.</span>
-          </div>
-        </li>
-        <li>
-          <span class="ff-list-num">3</span>
-          <div class="ff-list-body">
-            <strong>Optionally: a short chat with the next family</strong>
-            <span>Only if you opt in. Some next families appreciate a brief conversation with the previous employer. You can always say no &mdash; we'll vouch on your behalf.</span>
-          </div>
-        </li>
-      </ol>
-    </div>
+    <div class="ff-steps">
+      <div class="ff-step">
+        <div class="ff-step-dot" aria-hidden="true">1</div>
+        <h3 class="ff-step-h">Tell us about her</h3>
+        <p class="ff-step-p">A short form in your own words. About 5&ndash;10&nbsp;minutes.</p>
+      </div>
 
-    <!-- What this isn't -->
-    <div class="ff-section">
-      <h2 class="ff-section-h">What this&nbsp;isn't</h2>
-      <ul class="ff-notlist">
-        <li><span class="ff-notlist-mark">&mdash;</span><span><strong>Not an agency.</strong> We don't source helpers, recruit from overseas, or run a placement business.</span></li>
-        <li><span class="ff-notlist-mark">&mdash;</span><span><strong>No commission on her salary.</strong> Ever. The next family pays an admin fee directly to us &mdash; she keeps her full pay.</span></li>
-        <li><span class="ff-notlist-mark">&mdash;</span><span><strong>No bulk biodata.</strong> Profiles are added one at a time, only when a real family refers someone they know.</span></li>
-        <li><span class="ff-notlist-mark">&mdash;</span><span><strong>No pressure on you.</strong> If a match doesn't feel right, walk away. The platform exists to make a thoughtful transition easier &mdash; not to push one through.</span></li>
+      <div class="ff-step">
+        <div class="ff-step-dot" aria-hidden="true">2</div>
+        <h3 class="ff-step-h">A quick verification call</h3>
+        <p class="ff-step-p">15&ndash;20 minutes to confirm a few details. Her profile earns a "Referral verified"&nbsp;badge.</p>
+      </div>
+
+      <div class="ff-step">
+        <div class="ff-step-dot" aria-hidden="true">3</div>
+        <h3 class="ff-step-h">We introduce, you step&nbsp;back</h3>
+        <p class="ff-step-p">We handle the matching with the next family. You can stay involved as much or as little as you&nbsp;like.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHAT THIS ISN'T ═══ -->
+<section class="ff-not">
+  <div class="wrap">
+    <div class="ff-not-inner">
+
+      <div class="ff-not-hdr">
+        <div class="kicker">For clarity</div>
+        <h2 class="ff-not-h">What this&nbsp;isn't</h2>
+      </div>
+
+      <ul class="ff-not-list">
+        <li>
+          <span class="ff-not-mark" aria-hidden="true">&mdash;</span>
+          <div class="ff-not-body">
+            <strong>Not an agency.</strong>
+            <span>We don't source helpers or recruit from overseas. Every profile begins with a real family.</span>
+          </div>
+        </li>
+        <li>
+          <span class="ff-not-mark" aria-hidden="true">&mdash;</span>
+          <div class="ff-not-body">
+            <strong>No commission on her&nbsp;salary.</strong>
+            <span>The next family pays a transparent admin fee directly to us. She keeps her full&nbsp;pay.</span>
+          </div>
+        </li>
+        <li>
+          <span class="ff-not-mark" aria-hidden="true">&mdash;</span>
+          <div class="ff-not-body">
+            <strong>No bulk biodata.</strong>
+            <span>Profiles are added one at a time, only when a real family refers someone they&nbsp;know.</span>
+          </div>
+        </li>
+        <li>
+          <span class="ff-not-mark" aria-hidden="true">&mdash;</span>
+          <div class="ff-not-body">
+            <strong>No pressure on&nbsp;you.</strong>
+            <span>If a match doesn't feel right, walk away. The platform exists to make the goodbye easier &mdash; not to push one&nbsp;through.</span>
+          </div>
+        </li>
       </ul>
-    </div>
 
+    </div>
   </div>
 </section>
 
-<!-- ═══ HANDWRITTEN QUOTE ═══ -->
-<section class="ff-quote-section">
+<!-- ═══ FOUNDER QUOTE — single emotional anchor ═══ -->
+<section class="ff-quote">
   <div class="wrap">
-    <div class="ff-quote-card">
-      <p class="ff-quote-body">"We didn't want to send our helper home. Helper Circle started because there should be a better way to pass a good helper to another good family &mdash; and to make that process clearer for&nbsp;everyone."</p>
-      <p class="ff-quote-by">&mdash; The Helper Circle founding family</p>
+    <div class="ff-quote-inner">
+      <div class="ff-quote-mark" aria-hidden="true">&ldquo;</div>
+      <p class="ff-quote-body">We didn't want to send our helper home. Helper Circle started because there should be a better way to pass a good helper to another good family &mdash; and to make that process clearer for&nbsp;everyone.</p>
+      <p class="ff-quote-by">The Helper Circle founding family</p>
     </div>
   </div>
 </section>
 
-<!-- ═══ CTA ═══ -->
+<!-- ═══ FINAL CTA ═══ -->
 <section class="ff-cta">
   <div class="wrap">
     <div class="ff-cta-inner">
       <h2 class="ff-cta-h">When you're ready &mdash; refer&nbsp;her.</h2>
-      <p class="ff-cta-sub">The form takes about 5&ndash;10 minutes. We'll be in touch within 1&ndash;2 business&nbsp;days.</p>
+      <p class="ff-cta-sub">We'll be in touch within 1&ndash;2 business&nbsp;days.</p>
       <a href="refer.html" class="btn btn-green btn-lg">Refer your helper</a>
       <p class="ff-cta-foot">Questions first? <a href="mailto:hello@helpercircle.sg">Email us</a> or read the <a href="faq.html">FAQ</a>.</p>
     </div>

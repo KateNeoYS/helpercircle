@@ -1098,6 +1098,18 @@
           toggle.setAttribute('aria-expanded', 'false');
           if (label) label.textContent = 'Add more details (optional)';
         }
+        // Restore submit button to original state (was left as "Sending…" disabled
+        // after the previous successful submission)
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = submitBtn.dataset.originalText || 'Submit Referral';
+        }
+        // Clear any error message that might still be visible from a failed attempt
+        var existingError = form.querySelector('.refer-form-error');
+        if (existingError) existingError.remove();
+        // Reset the consent channel section visibility
+        var channels = document.getElementById('consent-channels');
+        if (channels) channels.hidden = true;
         success.classList.remove('is-active');
         formWrap.style.display = 'block';
         window.scrollTo({ top: formWrap.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });

@@ -225,6 +225,26 @@
       .form-row-v2 { grid-template-columns: 1fr; gap: 0; }
     }
 
+    /* Contact toggle */
+    .contact-toggle {
+      display: inline-flex; gap: 2px;
+      background: rgba(31, 42, 36, 0.04);
+      border-radius: 8px; padding: 2px;
+      margin-bottom: 7px;
+      flex-wrap: wrap;
+    }
+    .contact-toggle button {
+      appearance: none; border: none; background: transparent;
+      padding: 5px 12px; font-size: 0.75rem; font-weight: 500;
+      color: var(--clr-text-muted, #5A6661);
+      cursor: pointer; border-radius: 6px;
+      font-family: inherit; transition: all 0.15s ease;
+    }
+    .contact-toggle button.on {
+      background: #fff; color: var(--clr-text, #1F2A24);
+      box-shadow: 0 1px 2px rgba(31, 42, 36, 0.05);
+    }
+
     /* Verified callout — subtle trust note */
     .verified-callout {
       margin-top: 10px;
@@ -655,8 +675,15 @@
                 <input type="text" id="your-name" name="your-name" placeholder="Jane Tan" required/>
               </div>
               <div class="fg-v2">
-                <label for="your-contact">Best way to reach you <span class="opt-tag">(optional)</span></label>
-                <input type="text" id="your-contact" name="your-contact" placeholder="WhatsApp, email — whatever works for you"/>
+                <label>Best way to reach you</label>
+                <div class="contact-toggle" role="group" aria-label="Contact type">
+                  <button type="button" id="toggle-mobile" class="on">Mobile</button>
+                  <button type="button" id="toggle-email">Email</button>
+                  <button type="button" id="toggle-facebook">Facebook</button>
+                </div>
+                <input type="tel" id="your-mobile" name="your-mobile" placeholder="+65 9XXX XXXX" required/>
+                <input type="email" id="your-email" name="your-email" placeholder="you@email.com" style="display:none;"/>
+                <input type="text" id="your-facebook" name="your-facebook" placeholder="facebook.com/your.profile or your username" style="display:none;"/>
               </div>
             </div>
 
@@ -673,7 +700,7 @@
 
             <div class="verified-callout">
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1.5L13 4v4c0 3-2.2 5.5-5 6-2.8-.5-5-3-5-6V4l5-2.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M5.5 8l2 2 3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>Your contact is for us only &mdash; never shared publicly, never used for marketing. If you'd rather we reach you through the helper first, leave it blank.</span>
+              <span>Your contact is for us only &mdash; never shared publicly, never used for marketing. We'll reach out to confirm a few details about the&nbsp;referral.</span>
             </div>
 
             <button type="button" class="form-expand-toggle" id="expand-toggle" aria-expanded="false">
@@ -903,7 +930,39 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Email/phone toggle removed — single open contact field is used now.
+  // Contact toggle — Mobile / Email / Facebook
+  (function() {
+    var buttons = {
+      mobile:   document.getElementById('toggle-mobile'),
+      email:    document.getElementById('toggle-email'),
+      facebook: document.getElementById('toggle-facebook')
+    };
+    var inputs = {
+      mobile:   document.getElementById('your-mobile'),
+      email:    document.getElementById('your-email'),
+      facebook: document.getElementById('your-facebook')
+    };
+    if (!buttons.mobile || !buttons.email || !buttons.facebook) return;
+
+    function select(which) {
+      Object.keys(buttons).forEach(function(key) {
+        var isActive = (key === which);
+        buttons[key].classList.toggle('on', isActive);
+        inputs[key].style.display = isActive ? '' : 'none';
+        if (isActive) {
+          inputs[key].setAttribute('required', '');
+        } else {
+          inputs[key].removeAttribute('required');
+          // Clear hidden field so we don't submit stale data from a prior selection
+          inputs[key].value = '';
+        }
+      });
+    }
+
+    buttons.mobile.addEventListener('click',   function() { select('mobile');   });
+    buttons.email.addEventListener('click',    function() { select('email');    });
+    buttons.facebook.addEventListener('click', function() { select('facebook'); });
+  })();
 
   // Skill pill checked state
   (function() {

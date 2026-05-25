@@ -833,15 +833,15 @@
               </div>
 
               <div class="qn-row">
-                <label>Your contact <span class="opt-tag">(for verification)</span></label>
+                <label>Best way to reach you <span class="opt-tag">(pick one)</span></label>
                 <div class="contact-toggle" role="group" aria-label="Contact type">
-                  <button type="button" id="qn-toggle-email" class="on">Email</button>
-                  <button type="button" id="qn-toggle-whatsapp">WhatsApp</button>
-                  <button type="button" id="qn-toggle-phone">Phone</button>
+                  <button type="button" id="qn-toggle-mobile" class="on">Mobile</button>
+                  <button type="button" id="qn-toggle-email">Email</button>
+                  <button type="button" id="qn-toggle-facebook">Facebook</button>
                 </div>
-                <input type="email" id="qn-email" name="your-email" placeholder="you@email.com" required>
-                <input type="tel" id="qn-whatsapp" name="your-whatsapp" placeholder="+65 9XXX XXXX" style="display:none;">
-                <input type="tel" id="qn-phone" name="your-phone" placeholder="+65 9XXX XXXX" style="display:none;">
+                <input type="tel" id="qn-mobile" name="your-mobile" placeholder="+65 9XXX XXXX" required>
+                <input type="email" id="qn-email" name="your-email" placeholder="you@email.com" style="display:none;">
+                <input type="text" id="qn-facebook" name="your-facebook" placeholder="facebook.com/yourname or @username" style="display:none;">
               </div>
 
               <div class="qn-row">
@@ -870,15 +870,15 @@
                 <input type="text" id="your-name" name="your-name" placeholder="Jane Tan" required/>
               </div>
               <div class="fg-v2">
-                <label>Your contact <span class="opt-tag">(for verification)</span></label>
+                <label>Best way to reach you <span class="opt-tag">(pick one)</span></label>
                 <div class="contact-toggle" role="group" aria-label="Contact type">
-                  <button type="button" id="toggle-email" class="on">Email</button>
-                  <button type="button" id="toggle-whatsapp">WhatsApp</button>
-                  <button type="button" id="toggle-phone">Phone</button>
+                  <button type="button" id="toggle-mobile" class="on">Mobile</button>
+                  <button type="button" id="toggle-email">Email</button>
+                  <button type="button" id="toggle-facebook">Facebook</button>
                 </div>
-                <input type="email" id="your-email" name="your-email" placeholder="you@email.com" required/>
-                <input type="tel" id="your-whatsapp" name="your-whatsapp" placeholder="+65 9XXX XXXX" style="display:none;"/>
-                <input type="tel" id="your-phone" name="your-phone" placeholder="+65 9XXX XXXX" style="display:none;"/>
+                <input type="tel" id="your-mobile" name="your-mobile" placeholder="+65 9XXX XXXX" required/>
+                <input type="email" id="your-email" name="your-email" placeholder="you@email.com" style="display:none;"/>
+                <input type="text" id="your-facebook" name="your-facebook" placeholder="facebook.com/yourname or @username" style="display:none;"/>
               </div>
             </div>
 
@@ -1126,19 +1126,19 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Email/WhatsApp/Phone toggle (full form)
+  // Mobile/Email/Facebook toggle (full form)
   (function() {
+    var tMobile = document.getElementById('toggle-mobile');
     var tEmail = document.getElementById('toggle-email');
-    var tWhatsapp = document.getElementById('toggle-whatsapp');
-    var tPhone = document.getElementById('toggle-phone');
+    var tFacebook = document.getElementById('toggle-facebook');
+    var iMobile = document.getElementById('your-mobile');
     var iEmail = document.getElementById('your-email');
-    var iWhatsapp = document.getElementById('your-whatsapp');
-    var iPhone = document.getElementById('your-phone');
-    if (!tEmail || !tWhatsapp || !tPhone) return;
+    var iFacebook = document.getElementById('your-facebook');
+    if (!tMobile || !tEmail || !tFacebook) return;
 
     function activate(activeBtn, activeInput) {
-      [tEmail, tWhatsapp, tPhone].forEach(function(b) { b.classList.remove('on'); });
-      [iEmail, iWhatsapp, iPhone].forEach(function(i) {
+      [tMobile, tEmail, tFacebook].forEach(function(b) { b.classList.remove('on'); });
+      [iMobile, iEmail, iFacebook].forEach(function(i) {
         i.style.display = 'none';
         i.removeAttribute('required');
       });
@@ -1147,9 +1147,9 @@
       activeInput.setAttribute('required', '');
     }
 
+    tMobile.addEventListener('click', function() { activate(tMobile, iMobile); });
     tEmail.addEventListener('click', function() { activate(tEmail, iEmail); });
-    tWhatsapp.addEventListener('click', function() { activate(tWhatsapp, iWhatsapp); });
-    tPhone.addEventListener('click', function() { activate(tPhone, iPhone); });
+    tFacebook.addEventListener('click', function() { activate(tFacebook, iFacebook); });
   })();
 
   // Skill pill checked state
@@ -1240,16 +1240,16 @@
     var qnSubmitBtn = qnForm.querySelector('button[type="submit"]');
 
     // Contact toggle (Quick Note) — same pattern as full form
+    var qnTMobile = document.getElementById('qn-toggle-mobile');
     var qnTEmail = document.getElementById('qn-toggle-email');
-    var qnTWhatsapp = document.getElementById('qn-toggle-whatsapp');
-    var qnTPhone = document.getElementById('qn-toggle-phone');
+    var qnTFacebook = document.getElementById('qn-toggle-facebook');
+    var qnIMobile = document.getElementById('qn-mobile');
     var qnIEmail = document.getElementById('qn-email');
-    var qnIWhatsapp = document.getElementById('qn-whatsapp');
-    var qnIPhone = document.getElementById('qn-phone');
-    if (qnTEmail && qnTWhatsapp && qnTPhone) {
+    var qnIFacebook = document.getElementById('qn-facebook');
+    if (qnTMobile && qnTEmail && qnTFacebook) {
       function qnActivate(activeBtn, activeInput) {
-        [qnTEmail, qnTWhatsapp, qnTPhone].forEach(function(b) { b.classList.remove('on'); });
-        [qnIEmail, qnIWhatsapp, qnIPhone].forEach(function(i) {
+        [qnTMobile, qnTEmail, qnTFacebook].forEach(function(b) { b.classList.remove('on'); });
+        [qnIMobile, qnIEmail, qnIFacebook].forEach(function(i) {
           i.style.display = 'none';
           i.removeAttribute('required');
         });
@@ -1257,9 +1257,9 @@
         activeInput.style.display = '';
         activeInput.setAttribute('required', '');
       }
+      qnTMobile.addEventListener('click', function() { qnActivate(qnTMobile, qnIMobile); });
       qnTEmail.addEventListener('click', function() { qnActivate(qnTEmail, qnIEmail); });
-      qnTWhatsapp.addEventListener('click', function() { qnActivate(qnTWhatsapp, qnIWhatsapp); });
-      qnTPhone.addEventListener('click', function() { qnActivate(qnTPhone, qnIPhone); });
+      qnTFacebook.addEventListener('click', function() { qnActivate(qnTFacebook, qnIFacebook); });
     }
 
     qnForm.addEventListener('submit', function(e) {

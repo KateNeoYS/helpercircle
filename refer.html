@@ -178,6 +178,10 @@
       color: var(--clr-text, #2A2926);
       letter-spacing: 0.01em;
     }
+    .quick-note-form .opt-tag {
+      font-size: 0.72rem; color: var(--clr-text-muted, #5A6661);
+      font-weight: 400; margin-left: 4px;
+    }
     .quick-note-form input,
     .quick-note-form textarea {
       width: 100%;
@@ -378,6 +382,10 @@
       color: var(--clr-text-muted, #5A6661);
       cursor: pointer; border-radius: 6px;
       font-family: inherit; transition: all 0.15s ease;
+    }
+    .contact-toggle button:focus,
+    .contact-toggle button:focus-visible {
+      outline: none;
     }
     .contact-toggle button.on {
       background: #fff; color: var(--clr-text, #1F2A24);
@@ -825,14 +833,14 @@
               </div>
 
               <div class="qn-row">
-                <label>Your contact</label>
+                <label>Your contact <span class="opt-tag">(for verification)</span></label>
                 <div class="contact-toggle" role="group" aria-label="Contact type">
-                  <button type="button" id="qn-toggle-email">Email</button>
-                  <button type="button" id="qn-toggle-whatsapp" class="on">WhatsApp</button>
+                  <button type="button" id="qn-toggle-email" class="on">Email</button>
+                  <button type="button" id="qn-toggle-whatsapp">WhatsApp</button>
                   <button type="button" id="qn-toggle-phone">Phone</button>
                 </div>
-                <input type="email" id="qn-email" name="your-email" placeholder="you@email.com" style="display:none;">
-                <input type="tel" id="qn-whatsapp" name="your-whatsapp" placeholder="+65 9XXX XXXX" required>
+                <input type="email" id="qn-email" name="your-email" placeholder="you@email.com" required>
+                <input type="tel" id="qn-whatsapp" name="your-whatsapp" placeholder="+65 9XXX XXXX" style="display:none;">
                 <input type="tel" id="qn-phone" name="your-phone" placeholder="+65 9XXX XXXX" style="display:none;">
               </div>
 

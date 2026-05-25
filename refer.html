@@ -127,6 +127,146 @@
       line-height: 1.45;
     }
 
+    /* ═══ QUICK NOTE — shortcut card ═══ */
+    .quick-note-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(232, 130, 92, 0.18);
+      border-radius: 12px;
+      padding: 26px 28px 24px;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .quick-note-card::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: -1px; right: -1px;
+      height: 3px;
+      background: linear-gradient(90deg, #E8825C, #C66740);
+      border-radius: 12px 12px 0 0;
+      opacity: 0.88;
+    }
+    .quick-note-kicker {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #C66740;
+      margin-bottom: 8px;
+    }
+    .quick-note-title {
+      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-weight: 500;
+      font-size: 1.45rem;
+      color: var(--clr-ink, #1F2A24);
+      line-height: 1.15;
+      margin-bottom: 6px;
+      letter-spacing: -0.008em;
+    }
+    .quick-note-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: var(--clr-text-muted, #5A6661);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .quick-note-form .qn-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+    .quick-note-form label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--clr-text, #2A2926);
+      letter-spacing: 0.01em;
+    }
+    .quick-note-form input,
+    .quick-note-form textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid rgba(31, 42, 36, 0.16);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.94rem;
+      color: var(--clr-ink, #1F2A24);
+      background: #FFFFFF;
+      transition: border-color 0.15s ease;
+    }
+    .quick-note-form input:focus,
+    .quick-note-form textarea:focus {
+      outline: none;
+      border-color: #2C8A6E;
+    }
+    .quick-note-form textarea { resize: vertical; min-height: 56px; font-family: 'Inter', sans-serif; }
+    .quick-note-submit {
+      width: 100%;
+      padding: 12px 18px;
+      background: #2C8A6E;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: background 0.15s ease;
+      margin-top: 4px;
+    }
+    .quick-note-submit:hover { background: #237259; }
+    .quick-note-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .qn-helper {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.76rem;
+      color: var(--clr-text-muted, #5A6661);
+      margin-top: 10px;
+      text-align: center;
+      line-height: 1.45;
+    }
+    .qn-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 22px 0 18px;
+    }
+    .qn-divider::before,
+    .qn-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(31, 42, 36, 0.10);
+    }
+    .qn-divider-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--clr-text-muted, #5A6661);
+    }
+    .quick-note-success {
+      display: none;
+      background: rgba(44, 138, 110, 0.06);
+      border: 1px solid rgba(44, 138, 110, 0.22);
+      border-radius: 12px;
+      padding: 24px 26px;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    .quick-note-success.is-active { display: block; }
+    .quick-note-success h3 {
+      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-weight: 500;
+      font-size: 1.35rem;
+      color: var(--clr-ink, #1F2A24);
+      margin-bottom: 6px;
+      letter-spacing: -0.008em;
+    }
+    .quick-note-success p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: var(--clr-text, #2A2926);
+      line-height: 1.55;
+    }
+
     /* ═══ FORM CARD ═══ */
     .form-card-v2 {
       background: #fff; border-radius: 16px;
@@ -231,7 +371,6 @@
       background: rgba(31, 42, 36, 0.04);
       border-radius: 8px; padding: 2px;
       margin-bottom: 7px;
-      flex-wrap: wrap;
     }
     .contact-toggle button {
       appearance: none; border: none; background: transparent;
@@ -605,7 +744,7 @@
           </span>
         </div>
 
-        <p class="refer-warm">Many referrals happen because families genuinely want to help a trusted helper find a good next home in Singapore.</p>
+        <p class="refer-warm">Many referrals happen because families genuinely want to help a trusted helper find a good next home in&nbsp;Singapore.</p>
 
         <!-- Tightened benefit copy -->
         <ul class="refer-benefits">
@@ -664,10 +803,58 @@
       <!-- Right: form -->
       <div class="form-card-v2">
         <div id="form-wrap">
-          <h2 class="form-card-ttl-v2">Refer a helper</h2>
-          <p class="form-card-sub-v2">Tell us who you're referring. We'll take it from here.</p>
+
+          <!-- ═══ QUICK NOTE — shortcut path ═══ -->
+          <div class="quick-note-success" id="qn-success">
+            <h3>Got it. We&rsquo;ll be in touch.</h3>
+            <p>We&rsquo;ll reach out within a day or two. No rush from your side.</p>
+          </div>
+
+          <div class="quick-note-card" id="qn-card">
+            <div class="quick-note-kicker">Quick note &middot; about 60 seconds</div>
+            <h3 class="quick-note-title">Prefer to chat first?</h3>
+            <p class="quick-note-sub">Send us a short note. We&rsquo;ll reach out and gather the rest naturally &mdash; no long form needed.</p>
+
+            <form id="quick-note-form" class="quick-note-form" action="https://formspree.io/f/mbdbdqjz" method="POST" novalidate>
+              <input type="hidden" name="form-type" value="quick-note">
+              <input type="hidden" name="_subject" value="Helper Circle — Quick Note submission">
+
+              <div class="qn-row">
+                <label for="qn-name">Your name</label>
+                <input type="text" id="qn-name" name="your-name" placeholder="Jane Tan" required>
+              </div>
+
+              <div class="qn-row">
+                <label>Your contact</label>
+                <div class="contact-toggle" role="group" aria-label="Contact type">
+                  <button type="button" id="qn-toggle-email">Email</button>
+                  <button type="button" id="qn-toggle-whatsapp" class="on">WhatsApp</button>
+                  <button type="button" id="qn-toggle-phone">Phone</button>
+                </div>
+                <input type="email" id="qn-email" name="your-email" placeholder="you@email.com" style="display:none;">
+                <input type="tel" id="qn-whatsapp" name="your-whatsapp" placeholder="+65 9XXX XXXX" required>
+                <input type="tel" id="qn-phone" name="your-phone" placeholder="+65 9XXX XXXX" style="display:none;">
+              </div>
+
+              <div class="qn-row">
+                <label for="qn-context">A line about her <span style="color: var(--clr-text-muted, #5A6661); font-weight: 400;">(optional)</span></label>
+                <textarea id="qn-context" name="context" placeholder="e.g. Has been with us 4 years, transferring in August" rows="2"></textarea>
+              </div>
+
+              <button type="submit" class="quick-note-submit">Send quick note</button>
+              <p class="qn-helper">We&rsquo;ll reach out within a day or two.</p>
+            </form>
+          </div>
+
+          <div class="qn-divider">
+            <span class="qn-divider-text">Or share details now</span>
+          </div>
+
+          <h2 class="form-card-ttl-v2">The full referral</h2>
+          <p class="form-card-sub-v2">About 5&ndash;10 minutes. Best if you&rsquo;d rather share everything in one go.</p>
 
           <form id="refer-form" action="https://formspree.io/f/mbdbdqjz" method="POST" novalidate>
+            <input type="hidden" name="form-type" value="full-referral">
 
             <div class="form-row-v2">
               <div class="fg-v2">
@@ -675,15 +862,15 @@
                 <input type="text" id="your-name" name="your-name" placeholder="Jane Tan" required/>
               </div>
               <div class="fg-v2">
-                <label>Best way to reach you <span class="opt-tag">(pick one)</span></label>
+                <label>Your contact <span class="opt-tag">(for verification)</span></label>
                 <div class="contact-toggle" role="group" aria-label="Contact type">
-                  <button type="button" id="toggle-mobile" class="on">Mobile</button>
-                  <button type="button" id="toggle-email">Email</button>
-                  <button type="button" id="toggle-facebook">Facebook</button>
+                  <button type="button" id="toggle-email" class="on">Email</button>
+                  <button type="button" id="toggle-whatsapp">WhatsApp</button>
+                  <button type="button" id="toggle-phone">Phone</button>
                 </div>
-                <input type="tel" id="your-mobile" name="your-mobile" placeholder="+65 9XXX XXXX" required/>
-                <input type="email" id="your-email" name="your-email" placeholder="you@email.com" style="display:none;"/>
-                <input type="text" id="your-facebook" name="your-facebook" placeholder="facebook.com/your.profile or your username" style="display:none;"/>
+                <input type="email" id="your-email" name="your-email" placeholder="you@email.com" required/>
+                <input type="tel" id="your-whatsapp" name="your-whatsapp" placeholder="+65 9XXX XXXX" style="display:none;"/>
+                <input type="tel" id="your-phone" name="your-phone" placeholder="+65 9XXX XXXX" style="display:none;"/>
               </div>
             </div>
 
@@ -700,7 +887,7 @@
 
             <div class="verified-callout">
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1.5L13 4v4c0 3-2.2 5.5-5 6-2.8-.5-5-3-5-6V4l5-2.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M5.5 8l2 2 3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>Your contact is for us only &mdash; never shared publicly, never used for marketing. We'll reach out to confirm a few details about the&nbsp;referral.</span>
+              <span>Sharing your contact earns a <strong>Referral verified</strong> badge after a quick verification call. Your contact is never shared publicly.</span>
             </div>
 
             <button type="button" class="form-expand-toggle" id="expand-toggle" aria-expanded="false">
@@ -875,7 +1062,8 @@
         <div class="next-num">2</div>
         <div class="next-body">
           <h3 class="next-title">We verify details</h3>
-          <p class="next-detail">A short call to confirm a few things &mdash; this is how we keep introductions thoughtful and honest for everyone&nbsp;involved.</p>
+          <p class="next-detail">A short call helps us maintain trust on the&nbsp;platform.</p>
+          <p class="next-meta">→ Earns the "Referral verified" badge on her profile.</p>
         </div>
       </div>
 
@@ -930,38 +1118,30 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Contact toggle — Mobile / Email / Facebook
+  // Email/WhatsApp/Phone toggle (full form)
   (function() {
-    var buttons = {
-      mobile:   document.getElementById('toggle-mobile'),
-      email:    document.getElementById('toggle-email'),
-      facebook: document.getElementById('toggle-facebook')
-    };
-    var inputs = {
-      mobile:   document.getElementById('your-mobile'),
-      email:    document.getElementById('your-email'),
-      facebook: document.getElementById('your-facebook')
-    };
-    if (!buttons.mobile || !buttons.email || !buttons.facebook) return;
+    var tEmail = document.getElementById('toggle-email');
+    var tWhatsapp = document.getElementById('toggle-whatsapp');
+    var tPhone = document.getElementById('toggle-phone');
+    var iEmail = document.getElementById('your-email');
+    var iWhatsapp = document.getElementById('your-whatsapp');
+    var iPhone = document.getElementById('your-phone');
+    if (!tEmail || !tWhatsapp || !tPhone) return;
 
-    function select(which) {
-      Object.keys(buttons).forEach(function(key) {
-        var isActive = (key === which);
-        buttons[key].classList.toggle('on', isActive);
-        inputs[key].style.display = isActive ? '' : 'none';
-        if (isActive) {
-          inputs[key].setAttribute('required', '');
-        } else {
-          inputs[key].removeAttribute('required');
-          // Clear hidden field so we don't submit stale data from a prior selection
-          inputs[key].value = '';
-        }
+    function activate(activeBtn, activeInput) {
+      [tEmail, tWhatsapp, tPhone].forEach(function(b) { b.classList.remove('on'); });
+      [iEmail, iWhatsapp, iPhone].forEach(function(i) {
+        i.style.display = 'none';
+        i.removeAttribute('required');
       });
+      activeBtn.classList.add('on');
+      activeInput.style.display = '';
+      activeInput.setAttribute('required', '');
     }
 
-    buttons.mobile.addEventListener('click',   function() { select('mobile');   });
-    buttons.email.addEventListener('click',    function() { select('email');    });
-    buttons.facebook.addEventListener('click', function() { select('facebook'); });
+    tEmail.addEventListener('click', function() { activate(tEmail, iEmail); });
+    tWhatsapp.addEventListener('click', function() { activate(tWhatsapp, iWhatsapp); });
+    tPhone.addEventListener('click', function() { activate(tPhone, iPhone); });
   })();
 
   // Skill pill checked state
@@ -1041,6 +1221,96 @@
     }
     textarea.addEventListener('input', updateCounter);
     updateCounter();
+  })();
+
+  // Quick Note shortcut form submission
+  (function() {
+    var qnForm = document.getElementById('quick-note-form');
+    var qnCard = document.getElementById('qn-card');
+    var qnSuccess = document.getElementById('qn-success');
+    if (!qnForm) return;
+    var qnSubmitBtn = qnForm.querySelector('button[type="submit"]');
+
+    // Contact toggle (Quick Note) — same pattern as full form
+    var qnTEmail = document.getElementById('qn-toggle-email');
+    var qnTWhatsapp = document.getElementById('qn-toggle-whatsapp');
+    var qnTPhone = document.getElementById('qn-toggle-phone');
+    var qnIEmail = document.getElementById('qn-email');
+    var qnIWhatsapp = document.getElementById('qn-whatsapp');
+    var qnIPhone = document.getElementById('qn-phone');
+    if (qnTEmail && qnTWhatsapp && qnTPhone) {
+      function qnActivate(activeBtn, activeInput) {
+        [qnTEmail, qnTWhatsapp, qnTPhone].forEach(function(b) { b.classList.remove('on'); });
+        [qnIEmail, qnIWhatsapp, qnIPhone].forEach(function(i) {
+          i.style.display = 'none';
+          i.removeAttribute('required');
+        });
+        activeBtn.classList.add('on');
+        activeInput.style.display = '';
+        activeInput.setAttribute('required', '');
+      }
+      qnTEmail.addEventListener('click', function() { qnActivate(qnTEmail, qnIEmail); });
+      qnTWhatsapp.addEventListener('click', function() { qnActivate(qnTWhatsapp, qnIWhatsapp); });
+      qnTPhone.addEventListener('click', function() { qnActivate(qnTPhone, qnIPhone); });
+    }
+
+    qnForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var requiredFields = qnForm.querySelectorAll('[required]');
+      var valid = true;
+      var firstInvalid = null;
+      requiredFields.forEach(function(field) {
+        if (!field.value.trim()) {
+          field.style.borderColor = '#D85959'; valid = false;
+          if (!firstInvalid) firstInvalid = field;
+        } else { field.style.borderColor = ''; }
+      });
+      if (!valid) {
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+
+      if (qnSubmitBtn) {
+        qnSubmitBtn.disabled = true;
+        qnSubmitBtn.dataset.originalText = qnSubmitBtn.textContent;
+        qnSubmitBtn.textContent = 'Sending\u2026';
+      }
+
+      var data = new FormData(qnForm);
+      fetch(qnForm.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(function(res) {
+          if (res.ok) {
+            qnCard.style.display = 'none';
+            qnSuccess.classList.add('is-active');
+            var divider = document.querySelector('.qn-divider');
+            if (divider) divider.style.display = 'none';
+            window.scrollTo({
+              top: qnSuccess.getBoundingClientRect().top + window.scrollY - 100,
+              behavior: 'smooth'
+            });
+          } else {
+            throw new Error('Quick note submission failed');
+          }
+        })
+        .catch(function() {
+          if (qnSubmitBtn) {
+            qnSubmitBtn.disabled = false;
+            qnSubmitBtn.textContent = qnSubmitBtn.dataset.originalText || 'Send quick note';
+          }
+          var existingError = qnForm.querySelector('.qn-form-error');
+          if (existingError) existingError.remove();
+          var errorEl = document.createElement('p');
+          errorEl.className = 'qn-form-error';
+          errorEl.style.cssText = 'margin: 10px 0 0; padding: 10px 12px; background: rgba(232, 130, 92, 0.08); border: 1px solid rgba(232, 130, 92, 0.32); border-radius: 8px; color: #9B5B3A; font-size: 0.82rem; line-height: 1.5; text-align: center;';
+          errorEl.innerHTML = 'Couldn\u2019t send. Please try again or email <a href="mailto:hello@helpercircle.sg" style="color: #9B5B3A;">hello@helpercircle.sg</a>.';
+          qnSubmitBtn.parentNode.appendChild(errorEl);
+        });
+    });
   })();
 
   // Form submit + refer another

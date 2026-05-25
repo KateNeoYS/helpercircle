@@ -223,7 +223,7 @@
       margin: 0 auto;
     }
     @media (min-width: 720px) {
-      .ff-cards { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .ff-cards { grid-template-columns: repeat(2, 1fr); gap: 22px; }
     }
     .ff-card {
       padding: clamp(28px, 3.2vw, 36px) clamp(24px, 2.8vw, 32px) clamp(26px, 3vw, 34px);
@@ -241,6 +241,10 @@
     .ff-card--amber {
       background: rgba(184, 136, 74, 0.08);
       border-color: rgba(184, 136, 74, 0.22);
+    }
+    .ff-card--sage {
+      background: rgba(44, 138, 110, 0.05);
+      border-color: rgba(44, 138, 110, 0.18);
     }
     .ff-card-ico {
       width: 44px;
@@ -260,6 +264,10 @@
     .ff-card--amber .ff-card-ico {
       background: rgba(184, 136, 74, 0.18);
       color: #8A5F2E;
+    }
+    .ff-card--sage .ff-card-ico {
+      background: rgba(44, 138, 110, 0.14);
+      color: #2C8A6E;
     }
     .ff-card-h {
       font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
@@ -583,13 +591,13 @@
       <span class="logo-text">Helper<strong>Circle</strong></span>
     </a>
     <nav class="site-nav" id="site-nav" aria-label="Primary">
-      <a href="browse.html" class="nav-a">Browse helpers</a>
-      <a href="refer.html" class="nav-a">Refer a helper</a>
-      <a href="index.html#how" class="nav-a">How it works</a>
+      <a href="browse.html" class="nav-a">Meet Helpers</a>
+      <a href="refer.html" class="nav-a">Refer a Helper</a>
+      <a href="index.html#how" class="nav-a">How It Works</a>
       <a href="faq.html" class="nav-a">FAQ</a>
       <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
     </nav>
-    <a href="refer.html" class="btn btn-green btn-sm hdr-cta">Refer a helper</a>
+    <a href="refer.html" class="btn btn-green btn-sm hdr-cta">Refer a Helper</a>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -634,45 +642,65 @@
   </div>
 </section>
 
-<!-- ═══ WHY FAMILIES REFER ═══ -->
+<!-- ═══ WHY REFER THROUGH HELPER CIRCLE ═══ -->
 <section class="ff-why">
   <div class="wrap">
     <div class="ff-why-hdr">
-      <div class="kicker">Why families refer</div>
-      <h2 class="ff-why-h">Three quiet reasons it&nbsp;matters</h2>
+      <div class="kicker">Why refer through Helper&nbsp;Circle</div>
+      <h2 class="ff-why-h">Four things we do, so you&nbsp;don't.</h2>
     </div>
 
     <div class="ff-cards">
 
+      <!-- Card 1 — Filtering the noise -->
       <div class="ff-card">
         <div class="ff-card-ico" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <path d="M11 3.5l2.4 4.9 5.4.78-3.9 3.8.92 5.36L11 15.8l-4.82 2.54.92-5.36L3.2 9.18l5.4-.78L11 3.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M14 14l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </div>
-        <h3 class="ff-card-h">A trusted introduction</h3>
-        <p class="ff-card-p">Your honest words travel with&nbsp;her.</p>
+        <h3 class="ff-card-h">You won't filter thirty&nbsp;messages.</h3>
+        <p class="ff-card-p">We speak with families looking for a helper, listen carefully, and only introduce the few who feel like a genuine fit for&nbsp;her.</p>
       </div>
 
+      <!-- Card 2 — Paperwork support -->
       <div class="ff-card ff-card--peach">
         <div class="ff-card-ico" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <path d="M3 11h16M14 6l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5 3h9l4 4v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M13 3v5h5" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M8 13h6M8 16h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
           </svg>
         </div>
-        <h3 class="ff-card-h">A smoother transition</h3>
-        <p class="ff-card-p">From one good home to the&nbsp;next.</p>
+        <h3 class="ff-card-h">The paperwork, quietly&nbsp;handled.</h3>
+        <p class="ff-card-p">Transfer letters, work permit renewal, insurance coordination &mdash; we walk through it with you and the next&nbsp;family.</p>
       </div>
 
+      <!-- Card 3 — Her trust carried forward -->
       <div class="ff-card ff-card--amber">
         <div class="ff-card-ico" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <circle cx="11" cy="11" r="7.5" stroke="currentColor" stroke-width="1.4"/>
-            <path d="M6.5 14.5l9-9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M11 18s-6.5-4-6.5-9a4 4 0 016.5-3.1A4 4 0 0117.5 9c0 5-6.5 9-6.5 9z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3 class="ff-card-h">No loans, no salary cuts</h3>
-        <p class="ff-card-p">She keeps what she&nbsp;earns.</p>
+        <h3 class="ff-card-h">Her story carried&nbsp;forward.</h3>
+        <p class="ff-card-p">Years of knowing her don't get re-explained. We bring what matters &mdash; her strengths, her routines, what she loves &mdash; to the next&nbsp;family.</p>
+      </div>
+
+      <!-- Card 4 — Appreciation -->
+      <div class="ff-card ff-card--sage">
+        <div class="ff-card-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M4 9h14v9a2 2 0 01-2 2H6a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M3 6h16v3H3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M11 6v14" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M11 6s-2.5-3-4.5-1.5S8.5 6.5 11 6z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M11 6s2.5-3 4.5-1.5S13.5 6.5 11 6z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="ff-card-h">A small gesture, when it&nbsp;lands.</h3>
+        <p class="ff-card-p">When the referral leads to a good next chapter, we pass on a small appreciation &mdash; for you, for her, or donated. Your&nbsp;choice.</p>
       </div>
 
     </div>
@@ -802,11 +830,11 @@
       </p>
 
       <nav class="footer-nav" aria-label="Footer">
-        <a href="browse.html">Browse helpers</a>
+        <a href="browse.html">Meet Helpers</a>
         <span class="footer-nav-sep">·</span>
-        <a href="refer.html">Refer a helper</a>
+        <a href="refer.html">Refer a Helper</a>
         <span class="footer-nav-sep">·</span>
-        <a href="index.html#how">How it works</a>
+        <a href="index.html#how">How It Works</a>
         <span class="footer-nav-sep">·</span>
         <a href="faq.html">FAQ</a>
         <span class="footer-nav-sep">·</span>

@@ -127,6 +127,68 @@
       line-height: 1.45;
     }
 
+    /* ═══ TAB SWITCHER — Quick Note vs Full Referral ═══ */
+    .form-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      padding: 4px;
+      background: rgba(31, 42, 36, 0.04);
+      border-radius: 10px;
+      margin-bottom: 22px;
+    }
+    .form-tab {
+      appearance: none;
+      border: none;
+      background: transparent;
+      padding: 11px 14px 9px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.18s ease;
+      text-align: center;
+    }
+    .form-tab:focus,
+    .form-tab:focus-visible {
+      outline: none;
+    }
+    .form-tab-label {
+      display: block;
+      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--clr-text-muted, #5A6661);
+      line-height: 1.2;
+      letter-spacing: -0.005em;
+      margin-bottom: 2px;
+    }
+    .form-tab-meta {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--clr-text-muted, #5A6661);
+      opacity: 0.78;
+    }
+    .form-tab.on {
+      background: #fff;
+      box-shadow: 0 1px 2px rgba(31, 42, 36, 0.06), 0 2px 6px -2px rgba(31, 42, 36, 0.04);
+    }
+    .form-tab.on .form-tab-label {
+      color: var(--clr-ink, #1F2A24);
+    }
+    .form-tab.on .form-tab-meta {
+      color: var(--clr-primary, #2C8A6E);
+      opacity: 1;
+    }
+    .form-pane {
+      display: none;
+    }
+    .form-pane.is-active {
+      display: block;
+    }
+
     /* ═══ QUICK NOTE — shortcut card ═══ */
     .quick-note-card {
       background: #FFFFFF;
@@ -821,16 +883,26 @@
       <div class="form-card-v2">
         <div id="form-wrap">
 
-          <!-- ═══ QUICK NOTE — shortcut path ═══ -->
+          <!-- Tab switcher -->
+          <div class="form-tabs" role="tablist">
+            <button type="button" class="form-tab on" id="tab-btn-quick" role="tab" aria-selected="true" aria-controls="tab-quick">
+              <span class="form-tab-label">Quick note</span>
+              <span class="form-tab-meta">60 SECONDS</span>
+            </button>
+            <button type="button" class="form-tab" id="tab-btn-full" role="tab" aria-selected="false" aria-controls="tab-full">
+              <span class="form-tab-label">Full referral</span>
+              <span class="form-tab-meta">5&ndash;10 MINUTES</span>
+            </button>
+          </div>
+
+          <!-- ═══ QUICK NOTE PANE ═══ -->
           <div class="quick-note-success" id="qn-success">
             <h3>Got it. We&rsquo;ll be in touch.</h3>
             <p>We&rsquo;ll reach out within a day or two. No rush from your side.</p>
           </div>
 
-          <div class="quick-note-card" id="qn-card">
-            <div class="quick-note-kicker">Quick note &middot; about 60 seconds</div>
-            <h3 class="quick-note-title">Prefer to chat first?</h3>
-            <p class="quick-note-sub">Send us a short note. We&rsquo;ll reach out and gather the rest naturally &mdash; no long form needed.</p>
+          <div class="form-pane is-active" id="tab-quick" role="tabpanel" aria-labelledby="tab-btn-quick">
+            <p class="quick-note-sub" style="margin-bottom: 18px;">Send a short note. We&rsquo;ll reach out and gather the rest naturally.</p>
 
             <form id="quick-note-form" class="quick-note-form" action="https://formspree.io/f/mbdbdqjz" method="POST" novalidate>
               <input type="hidden" name="form-type" value="quick-note">
@@ -863,21 +935,17 @@
             </form>
           </div>
 
-          <div class="qn-divider">
-            <span class="qn-divider-text">Or share details now</span>
-          </div>
+          <!-- ═══ FULL REFERRAL PANE ═══ -->
+          <div class="form-pane" id="tab-full" role="tabpanel" aria-labelledby="tab-btn-full">
 
-          <h2 class="form-card-ttl-v2">The full referral</h2>
-          <p class="form-card-sub-v2">About 5&ndash;10 minutes. Best if you&rsquo;d rather share everything in one go.</p>
+            <form id="refer-form" action="https://formspree.io/f/mbdbdqjz" method="POST" novalidate>
+              <input type="hidden" name="form-type" value="full-referral">
 
-          <form id="refer-form" action="https://formspree.io/f/mbdbdqjz" method="POST" novalidate>
-            <input type="hidden" name="form-type" value="full-referral">
-
-            <div class="form-row-v2">
-              <div class="fg-v2">
-                <label for="your-name">Your name</label>
-                <input type="text" id="your-name" name="your-name" placeholder="Jane Tan" required/>
-              </div>
+              <div class="form-row-v2">
+                <div class="fg-v2">
+                  <label for="your-name">Your name</label>
+                  <input type="text" id="your-name" name="your-name" placeholder="Jane Tan" required/>
+                </div>
               <div class="fg-v2">
                 <label>Best way to reach you <span class="opt-tag">(pick one)</span></label>
                 <div class="contact-toggle" role="group" aria-label="Contact type">
@@ -1035,6 +1103,7 @@
             <p class="submit-note-v2">We'll reach out within 1–2 business days.</p>
             <p class="submit-note-v2" style="margin-top: 4px; font-style: italic; color: rgba(90, 102, 97, 0.8);">We personally review every referral before any profile goes&nbsp;live.</p>
           </form>
+          </div>
         </div>
 
         <!-- Refined success state -->
@@ -1134,6 +1203,36 @@
 <script src="script.js"></script>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Form tab switcher (Quick Note vs Full Referral)
+  (function() {
+    var tabBtnQuick = document.getElementById('tab-btn-quick');
+    var tabBtnFull = document.getElementById('tab-btn-full');
+    var paneQuick = document.getElementById('tab-quick');
+    var paneFull = document.getElementById('tab-full');
+    if (!tabBtnQuick || !tabBtnFull || !paneQuick || !paneFull) return;
+
+    function showTab(which) {
+      if (which === 'quick') {
+        tabBtnQuick.classList.add('on');
+        tabBtnFull.classList.remove('on');
+        tabBtnQuick.setAttribute('aria-selected', 'true');
+        tabBtnFull.setAttribute('aria-selected', 'false');
+        paneQuick.classList.add('is-active');
+        paneFull.classList.remove('is-active');
+      } else {
+        tabBtnFull.classList.add('on');
+        tabBtnQuick.classList.remove('on');
+        tabBtnFull.setAttribute('aria-selected', 'true');
+        tabBtnQuick.setAttribute('aria-selected', 'false');
+        paneFull.classList.add('is-active');
+        paneQuick.classList.remove('is-active');
+      }
+    }
+
+    tabBtnQuick.addEventListener('click', function() { showTab('quick'); });
+    tabBtnFull.addEventListener('click', function() { showTab('full'); });
+  })();
 
   // Mobile/Email/Facebook toggle (full form)
   (function() {
@@ -1243,8 +1342,9 @@
   // Quick Note shortcut form submission
   (function() {
     var qnForm = document.getElementById('quick-note-form');
-    var qnCard = document.getElementById('qn-card');
+    var qnPane = document.getElementById('tab-quick');
     var qnSuccess = document.getElementById('qn-success');
+    var formTabs = document.querySelector('.form-tabs');
     if (!qnForm) return;
     var qnSubmitBtn = qnForm.querySelector('button[type="submit"]');
 
@@ -1302,10 +1402,9 @@
       })
         .then(function(res) {
           if (res.ok) {
-            qnCard.style.display = 'none';
+            qnPane.style.display = 'none';
+            if (formTabs) formTabs.style.display = 'none';
             qnSuccess.classList.add('is-active');
-            var divider = document.querySelector('.qn-divider');
-            if (divider) divider.style.display = 'none';
             window.scrollTo({
               top: qnSuccess.getBoundingClientRect().top + window.scrollY - 100,
               behavior: 'smooth'

@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Refer a Helper — Helper Circle</title>
-  <meta name="description" content="Refer a domestic helper you trust. About 5–10 minutes — we handle the rest."/>
-  <meta property="og:url" content="https://helpercircle.vercel.app/refer.html"/>
+  <title>Refer Your Helper to a New Family in Singapore — Helper Circle</title>
+  <meta name="description" content="Pass on a domestic helper you trust to her next family. About 5–10 minutes to complete the referral. We coordinate the introduction and MOM transfer paperwork."/>
+  <link rel="canonical" href="https://helpercircle.sg/refer.html"/>
+  <meta property="og:url" content="https://helpercircle.sg/refer.html"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Refer a Helper — Helper Circle"/>
-  <meta property="og:description" content="Refer a domestic helper you trust. About 5–10 minutes — we handle the rest."/>
+  <meta property="og:title" content="Refer Your Helper to a New Family in Singapore — Helper Circle"/>
+  <meta property="og:description" content="Pass on a domestic helper you trust to her next family. About 5–10 minutes — we handle the rest."/>
+  <meta property="og:image" content="https://helpercircle.sg/heroillustrative.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
   <link rel="stylesheet" href="styles.css"/>
   <style>
     /* ═══ HERO ═══ */
@@ -127,221 +130,6 @@
       line-height: 1.45;
     }
 
-    /* ═══ TAB SWITCHER — Quick Note vs Full Referral ═══ */
-    .form-tabs {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4px;
-      padding: 4px;
-      background: rgba(31, 42, 36, 0.04);
-      border-radius: 10px;
-      margin-bottom: 22px;
-    }
-    .form-tab {
-      appearance: none;
-      border: none;
-      background: transparent;
-      padding: 11px 14px 9px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: inherit;
-      transition: all 0.18s ease;
-      text-align: center;
-    }
-    .form-tab:focus,
-    .form-tab:focus-visible {
-      outline: none;
-    }
-    .form-tab-label {
-      display: block;
-      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--clr-text-muted, #5A6661);
-      line-height: 1.2;
-      letter-spacing: -0.005em;
-      margin-bottom: 2px;
-    }
-    .form-tab-meta {
-      display: block;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      color: var(--clr-text-muted, #5A6661);
-      opacity: 0.78;
-    }
-    .form-tab.on {
-      background: #fff;
-      box-shadow: 0 1px 2px rgba(31, 42, 36, 0.06), 0 2px 6px -2px rgba(31, 42, 36, 0.04);
-    }
-    .form-tab.on .form-tab-label {
-      color: var(--clr-ink, #1F2A24);
-    }
-    .form-tab.on .form-tab-meta {
-      color: var(--clr-primary, #2C8A6E);
-      opacity: 1;
-    }
-    .form-pane {
-      display: none;
-    }
-    .form-pane.is-active {
-      display: block;
-    }
-
-    /* ═══ QUICK NOTE — shortcut card ═══ */
-    .quick-note-card {
-      background: #FFFFFF;
-      border: 1px solid rgba(232, 130, 92, 0.18);
-      border-radius: 12px;
-      padding: 20px 22px 18px;
-      margin-bottom: 14px;
-      position: relative;
-    }
-    .quick-note-card::before {
-      content: '';
-      position: absolute;
-      top: -1px; left: -1px; right: -1px;
-      height: 3px;
-      background: linear-gradient(90deg, #E8825C, #C66740);
-      border-radius: 12px 12px 0 0;
-      opacity: 0.88;
-    }
-    .quick-note-kicker {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #C66740;
-      margin-bottom: 4px;
-    }
-    .quick-note-title {
-      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
-      font-weight: 500;
-      font-size: 1.3rem;
-      color: var(--clr-ink, #1F2A24);
-      line-height: 1.15;
-      margin-bottom: 4px;
-      letter-spacing: -0.008em;
-    }
-    .quick-note-sub {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.84rem;
-      color: var(--clr-text-muted, #5A6661);
-      line-height: 1.45;
-      margin-bottom: 12px;
-    }
-    .quick-note-form .qn-row { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
-    .quick-note-form label {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.76rem;
-      font-weight: 500;
-      color: var(--clr-text, #2A2926);
-      letter-spacing: 0.01em;
-    }
-    .quick-note-form .opt-tag {
-      font-size: 0.7rem; color: var(--clr-text-muted, #5A6661);
-      font-weight: 400; margin-left: 4px;
-    }
-    .quick-note-form input,
-    .quick-note-form textarea {
-      width: 100%;
-      padding: 8px 11px;
-      border: 1px solid rgba(31, 42, 36, 0.16);
-      border-radius: 8px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      color: var(--clr-ink, #1F2A24);
-      background: #FFFFFF;
-      transition: border-color 0.15s ease;
-    }
-    .quick-note-form input:focus,
-    .quick-note-form textarea:focus {
-      outline: none;
-      border-color: #2C8A6E;
-    }
-    .quick-note-form textarea { resize: vertical; min-height: 36px; font-family: 'Inter', sans-serif; }
-    .quick-note-submit {
-      width: 100%;
-      padding: 10px 18px;
-      background: #2C8A6E;
-      color: #FFFFFF;
-      border: none;
-      border-radius: 8px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      cursor: pointer;
-      transition: background 0.15s ease;
-      margin-top: 2px;
-    }
-    .quick-note-submit:hover { background: #237259; }
-    .quick-note-submit:disabled { opacity: 0.6; cursor: not-allowed; }
-    .qn-helper {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.72rem;
-      color: var(--clr-text-muted, #5A6661);
-      margin-top: 6px;
-      text-align: center;
-      line-height: 1.45;
-    }
-    .qn-divider {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 14px 0 12px;
-    }
-    .qn-divider::before,
-    .qn-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: rgba(31, 42, 36, 0.10);
-    }
-    .qn-divider-text {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--clr-text-muted, #5A6661);
-    }
-    /* When the full-referral heading sits directly after the Quick Note divider,
-       tighten its spacing so we don't double up on vertical breathing room. */
-    .qn-divider + .form-card-ttl-v2 {
-      font-size: 1.4rem;
-      margin-bottom: 4px;
-    }
-    .qn-divider + .form-card-ttl-v2 + .form-card-sub-v2 {
-      margin-bottom: 18px;
-    }
-    .quick-note-success {
-      display: none;
-      background: rgba(44, 138, 110, 0.06);
-      border: 1px solid rgba(44, 138, 110, 0.22);
-      border-radius: 12px;
-      padding: 24px 26px;
-      margin-bottom: 18px;
-      text-align: center;
-    }
-    .quick-note-success.is-active { display: block; }
-    .quick-note-success h3 {
-      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
-      font-weight: 500;
-      font-size: 1.35rem;
-      color: var(--clr-ink, #1F2A24);
-      margin-bottom: 6px;
-      letter-spacing: -0.008em;
-    }
-    .quick-note-success p {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.88rem;
-      color: var(--clr-text, #2A2926);
-      line-height: 1.55;
-    }
-
     /* ═══ FORM CARD ═══ */
     .form-card-v2 {
       background: #fff; border-radius: 16px;
@@ -453,10 +241,6 @@
       color: var(--clr-text-muted, #5A6661);
       cursor: pointer; border-radius: 6px;
       font-family: inherit; transition: all 0.15s ease;
-    }
-    .contact-toggle button:focus,
-    .contact-toggle button:focus-visible {
-      outline: none;
     }
     .contact-toggle button.on {
       background: #fff; color: var(--clr-text, #1F2A24);
@@ -823,7 +607,7 @@
           </span>
         </div>
 
-        <p class="refer-warm">Many referrals happen because families genuinely want to help a trusted helper find a good next home in&nbsp;Singapore.</p>
+        <p class="refer-warm">Many referrals happen because families genuinely want to help a trusted helper find a good next home in Singapore.</p>
 
         <!-- Tightened benefit copy -->
         <ul class="refer-benefits">
@@ -882,80 +666,24 @@
       <!-- Right: form -->
       <div class="form-card-v2">
         <div id="form-wrap">
+          <h2 class="form-card-ttl-v2">Refer a helper</h2>
+          <p class="form-card-sub-v2">Tell us who you're referring. We'll take it from here.</p>
 
-          <!-- Tab switcher -->
-          <div class="form-tabs" role="tablist">
-            <button type="button" class="form-tab on" id="tab-btn-quick" role="tab" aria-selected="true" aria-controls="tab-quick">
-              <span class="form-tab-label">Quick note</span>
-              <span class="form-tab-meta">60 SECONDS</span>
-            </button>
-            <button type="button" class="form-tab" id="tab-btn-full" role="tab" aria-selected="false" aria-controls="tab-full">
-              <span class="form-tab-label">Full referral</span>
-              <span class="form-tab-meta">5&ndash;10 MINUTES</span>
-            </button>
-          </div>
+          <form id="refer-form" action="https://formspree.io/f/mbdbdqjz" method="POST" novalidate>
 
-          <!-- ═══ QUICK NOTE PANE ═══ -->
-          <div class="quick-note-success" id="qn-success">
-            <h3>Got it. We&rsquo;ll be in touch.</h3>
-            <p>We&rsquo;ll reach out within a day or two. No rush from your side.</p>
-          </div>
-
-          <div class="form-pane is-active" id="tab-quick" role="tabpanel" aria-labelledby="tab-btn-quick">
-            <p class="quick-note-sub" style="margin-bottom: 18px;">Send a short note. We&rsquo;ll reach out and gather the rest naturally.</p>
-
-            <form id="quick-note-form" class="quick-note-form" action="https://formspree.io/f/mbdbdqjz" method="POST" novalidate>
-              <input type="hidden" name="form-type" value="quick-note">
-              <input type="hidden" name="_subject" value="Helper Circle — Quick Note submission">
-
-              <div class="qn-row">
-                <label for="qn-name">Your name</label>
-                <input type="text" id="qn-name" name="your-name" placeholder="Jane Tan" required>
-              </div>
-
-              <div class="qn-row">
-                <label>Best way to reach you <span class="opt-tag">(pick one)</span></label>
-                <div class="contact-toggle" role="group" aria-label="Contact type">
-                  <button type="button" id="qn-toggle-mobile" class="on">Mobile</button>
-                  <button type="button" id="qn-toggle-email">Email</button>
-                  <button type="button" id="qn-toggle-facebook">Facebook</button>
-                </div>
-                <input type="tel" id="qn-mobile" name="your-mobile" placeholder="+65 9XXX XXXX" required>
-                <input type="email" id="qn-email" name="your-email" placeholder="you@email.com" style="display:none;">
-                <input type="text" id="qn-facebook" name="your-facebook" placeholder="facebook.com/yourname or @username" style="display:none;">
-              </div>
-
-              <div class="qn-row">
-                <label for="qn-context">A line about her <span style="color: var(--clr-text-muted, #5A6661); font-weight: 400;">(optional)</span></label>
-                <textarea id="qn-context" name="context" placeholder="e.g. Has been with us 4 years, transferring in August" rows="1"></textarea>
-              </div>
-
-              <button type="submit" class="quick-note-submit">Send quick note</button>
-              <p class="qn-helper">We&rsquo;ll reach out within a day or two.</p>
-            </form>
-          </div>
-
-          <!-- ═══ FULL REFERRAL PANE ═══ -->
-          <div class="form-pane" id="tab-full" role="tabpanel" aria-labelledby="tab-btn-full">
-
-            <form id="refer-form" action="https://formspree.io/f/mbdbdqjz" method="POST" novalidate>
-              <input type="hidden" name="form-type" value="full-referral">
-
-              <div class="form-row-v2">
-                <div class="fg-v2">
-                  <label for="your-name">Your name</label>
-                  <input type="text" id="your-name" name="your-name" placeholder="Jane Tan" required/>
-                </div>
+            <div class="form-row-v2">
               <div class="fg-v2">
-                <label>Best way to reach you <span class="opt-tag">(pick one)</span></label>
+                <label for="your-name">Your name</label>
+                <input type="text" id="your-name" name="your-name" placeholder="Jane Tan" required/>
+              </div>
+              <div class="fg-v2">
+                <label>Your contact <span class="opt-tag">(for verification)</span></label>
                 <div class="contact-toggle" role="group" aria-label="Contact type">
-                  <button type="button" id="toggle-mobile" class="on">Mobile</button>
-                  <button type="button" id="toggle-email">Email</button>
-                  <button type="button" id="toggle-facebook">Facebook</button>
+                  <button type="button" id="toggle-email" class="on">Email</button>
+                  <button type="button" id="toggle-phone">Phone</button>
                 </div>
-                <input type="tel" id="your-mobile" name="your-mobile" placeholder="+65 9XXX XXXX" required/>
-                <input type="email" id="your-email" name="your-email" placeholder="you@email.com" style="display:none;"/>
-                <input type="text" id="your-facebook" name="your-facebook" placeholder="facebook.com/yourname or @username" style="display:none;"/>
+                <input type="email" id="your-email" name="your-email" placeholder="you@email.com" required/>
+                <input type="tel" id="your-phone" name="your-phone" placeholder="+65 9XXX XXXX" style="display:none;"/>
               </div>
             </div>
 
@@ -1103,7 +831,6 @@
             <p class="submit-note-v2">We'll reach out within 1–2 business days.</p>
             <p class="submit-note-v2" style="margin-top: 4px; font-style: italic; color: rgba(90, 102, 97, 0.8);">We personally review every referral before any profile goes&nbsp;live.</p>
           </form>
-          </div>
         </div>
 
         <!-- Refined success state -->
@@ -1204,60 +931,25 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Form tab switcher (Quick Note vs Full Referral)
+  // Email/phone toggle
   (function() {
-    var tabBtnQuick = document.getElementById('tab-btn-quick');
-    var tabBtnFull = document.getElementById('tab-btn-full');
-    var paneQuick = document.getElementById('tab-quick');
-    var paneFull = document.getElementById('tab-full');
-    if (!tabBtnQuick || !tabBtnFull || !paneQuick || !paneFull) return;
-
-    function showTab(which) {
-      if (which === 'quick') {
-        tabBtnQuick.classList.add('on');
-        tabBtnFull.classList.remove('on');
-        tabBtnQuick.setAttribute('aria-selected', 'true');
-        tabBtnFull.setAttribute('aria-selected', 'false');
-        paneQuick.classList.add('is-active');
-        paneFull.classList.remove('is-active');
-      } else {
-        tabBtnFull.classList.add('on');
-        tabBtnQuick.classList.remove('on');
-        tabBtnFull.setAttribute('aria-selected', 'true');
-        tabBtnQuick.setAttribute('aria-selected', 'false');
-        paneFull.classList.add('is-active');
-        paneQuick.classList.remove('is-active');
-      }
-    }
-
-    tabBtnQuick.addEventListener('click', function() { showTab('quick'); });
-    tabBtnFull.addEventListener('click', function() { showTab('full'); });
-  })();
-
-  // Mobile/Email/Facebook toggle (full form)
-  (function() {
-    var tMobile = document.getElementById('toggle-mobile');
     var tEmail = document.getElementById('toggle-email');
-    var tFacebook = document.getElementById('toggle-facebook');
-    var iMobile = document.getElementById('your-mobile');
+    var tPhone = document.getElementById('toggle-phone');
     var iEmail = document.getElementById('your-email');
-    var iFacebook = document.getElementById('your-facebook');
-    if (!tMobile || !tEmail || !tFacebook) return;
-
-    function activate(activeBtn, activeInput) {
-      [tMobile, tEmail, tFacebook].forEach(function(b) { b.classList.remove('on'); });
-      [iMobile, iEmail, iFacebook].forEach(function(i) {
-        i.style.display = 'none';
-        i.removeAttribute('required');
-      });
-      activeBtn.classList.add('on');
-      activeInput.style.display = '';
-      activeInput.setAttribute('required', '');
-    }
-
-    tMobile.addEventListener('click', function() { activate(tMobile, iMobile); });
-    tEmail.addEventListener('click', function() { activate(tEmail, iEmail); });
-    tFacebook.addEventListener('click', function() { activate(tFacebook, iFacebook); });
+    var iPhone = document.getElementById('your-phone');
+    if (!tEmail || !tPhone) return;
+    tEmail.addEventListener('click', function() {
+      tEmail.classList.add('on'); tPhone.classList.remove('on');
+      iEmail.style.display = ''; iPhone.style.display = 'none';
+      iEmail.setAttribute('required', '');
+      iPhone.removeAttribute('required');
+    });
+    tPhone.addEventListener('click', function() {
+      tPhone.classList.add('on'); tEmail.classList.remove('on');
+      iPhone.style.display = ''; iEmail.style.display = 'none';
+      iPhone.setAttribute('required', '');
+      iEmail.removeAttribute('required');
+    });
   })();
 
   // Skill pill checked state
@@ -1337,96 +1029,6 @@
     }
     textarea.addEventListener('input', updateCounter);
     updateCounter();
-  })();
-
-  // Quick Note shortcut form submission
-  (function() {
-    var qnForm = document.getElementById('quick-note-form');
-    var qnPane = document.getElementById('tab-quick');
-    var qnSuccess = document.getElementById('qn-success');
-    var formTabs = document.querySelector('.form-tabs');
-    if (!qnForm) return;
-    var qnSubmitBtn = qnForm.querySelector('button[type="submit"]');
-
-    // Contact toggle (Quick Note) — same pattern as full form
-    var qnTMobile = document.getElementById('qn-toggle-mobile');
-    var qnTEmail = document.getElementById('qn-toggle-email');
-    var qnTFacebook = document.getElementById('qn-toggle-facebook');
-    var qnIMobile = document.getElementById('qn-mobile');
-    var qnIEmail = document.getElementById('qn-email');
-    var qnIFacebook = document.getElementById('qn-facebook');
-    if (qnTMobile && qnTEmail && qnTFacebook) {
-      function qnActivate(activeBtn, activeInput) {
-        [qnTMobile, qnTEmail, qnTFacebook].forEach(function(b) { b.classList.remove('on'); });
-        [qnIMobile, qnIEmail, qnIFacebook].forEach(function(i) {
-          i.style.display = 'none';
-          i.removeAttribute('required');
-        });
-        activeBtn.classList.add('on');
-        activeInput.style.display = '';
-        activeInput.setAttribute('required', '');
-      }
-      qnTMobile.addEventListener('click', function() { qnActivate(qnTMobile, qnIMobile); });
-      qnTEmail.addEventListener('click', function() { qnActivate(qnTEmail, qnIEmail); });
-      qnTFacebook.addEventListener('click', function() { qnActivate(qnTFacebook, qnIFacebook); });
-    }
-
-    qnForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      var requiredFields = qnForm.querySelectorAll('[required]');
-      var valid = true;
-      var firstInvalid = null;
-      requiredFields.forEach(function(field) {
-        if (!field.value.trim()) {
-          field.style.borderColor = '#D85959'; valid = false;
-          if (!firstInvalid) firstInvalid = field;
-        } else { field.style.borderColor = ''; }
-      });
-      if (!valid) {
-        if (firstInvalid) firstInvalid.focus();
-        return;
-      }
-
-      if (qnSubmitBtn) {
-        qnSubmitBtn.disabled = true;
-        qnSubmitBtn.dataset.originalText = qnSubmitBtn.textContent;
-        qnSubmitBtn.textContent = 'Sending\u2026';
-      }
-
-      var data = new FormData(qnForm);
-      fetch(qnForm.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      })
-        .then(function(res) {
-          if (res.ok) {
-            qnPane.style.display = 'none';
-            if (formTabs) formTabs.style.display = 'none';
-            qnSuccess.classList.add('is-active');
-            window.scrollTo({
-              top: qnSuccess.getBoundingClientRect().top + window.scrollY - 100,
-              behavior: 'smooth'
-            });
-          } else {
-            throw new Error('Quick note submission failed');
-          }
-        })
-        .catch(function() {
-          if (qnSubmitBtn) {
-            qnSubmitBtn.disabled = false;
-            qnSubmitBtn.textContent = qnSubmitBtn.dataset.originalText || 'Send quick note';
-          }
-          var existingError = qnForm.querySelector('.qn-form-error');
-          if (existingError) existingError.remove();
-          var errorEl = document.createElement('p');
-          errorEl.className = 'qn-form-error';
-          errorEl.style.cssText = 'margin: 10px 0 0; padding: 10px 12px; background: rgba(232, 130, 92, 0.08); border: 1px solid rgba(232, 130, 92, 0.32); border-radius: 8px; color: #9B5B3A; font-size: 0.82rem; line-height: 1.5; text-align: center;';
-          errorEl.innerHTML = 'Couldn\u2019t send. Please try again or email <a href="mailto:hello@helpercircle.sg" style="color: #9B5B3A;">hello@helpercircle.sg</a>.';
-          qnSubmitBtn.parentNode.appendChild(errorEl);
-        });
-    });
   })();
 
   // Form submit + refer another

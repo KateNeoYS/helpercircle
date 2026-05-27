@@ -1,4 +1,14 @@
+# Helper Circle — robots.txt
+# https://helpercircle.sg
+
 User-agent: *
 Allow: /
+
+# Don't index the orphaned helper profile mocks
+# (these are placeholder pages with no real-person content)
+Disallow: /profile.html
+Disallow: /profile-siti.html
+Disallow: /profile-ayeaye.html
+Disallow: /profile-rizalyn.html
 
 Sitemap: https://helpercircle.sg/sitemap.xml

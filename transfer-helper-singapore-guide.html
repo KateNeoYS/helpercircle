@@ -35,7 +35,69 @@
       border-bottom: 1px solid var(--clr-border-warm, #E4D9CA);
     }
     .guide-hero-inner {
-      max-width: 720px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: start;
+      max-width: 1100px;
+    }
+    @media (max-width: 880px) {
+      .guide-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+    .guide-hero-text { max-width: 580px; }
+
+    /* Table of contents card — calm, editorial */
+    .guide-toc {
+      background: #fff;
+      border: 1px solid var(--clr-border-warm, #E4D9CA);
+      border-radius: 10px;
+      padding: 22px 26px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .guide-toc-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--clr-primary, #2C8A6E);
+      margin: 0 0 14px;
+    }
+    .guide-toc-list {
+      list-style: none;
+      counter-reset: toc;
+      margin: 0;
+      padding: 0;
+    }
+    .guide-toc-list li {
+      counter-increment: toc;
+      padding: 7px 0;
+      border-top: 1px solid rgba(228, 217, 202, 0.6);
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+    }
+    .guide-toc-list li:first-child { border-top: none; }
+    .guide-toc-list li::before {
+      content: counter(toc, decimal-leading-zero);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--clr-text-muted, #64696E);
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
+    }
+    .guide-toc-list a {
+      font-size: 0.92rem;
+      line-height: 1.45;
+      color: var(--clr-text-2, #383838);
+      border-bottom: 1px solid transparent;
+      transition: color 180ms ease, border-color 180ms ease;
+    }
+    .guide-toc-list a:hover {
+      color: var(--clr-primary, #2C8A6E);
+      border-bottom-color: var(--clr-primary, #2C8A6E);
     }
     .guide-kicker {
       display: inline-block;
@@ -141,12 +203,12 @@
     }
     .guide-article li::marker { color: var(--clr-primary, #2C8A6E); }
     .guide-article strong { font-weight: 600; color: var(--clr-text, #1E1E1E); }
-    .guide-article a {
+    .guide-article a:not(.btn) {
       color: var(--clr-primary, #2C8A6E);
       border-bottom: 1px solid rgba(44, 138, 110, 0.3);
       transition: border-color 180ms ease;
     }
-    .guide-article a:hover {
+    .guide-article a:not(.btn):hover {
       border-bottom-color: var(--clr-primary, #2C8A6E);
     }
 
@@ -252,14 +314,28 @@
 <section class="guide-hero">
   <div class="wrap">
     <div class="guide-hero-inner">
-      <span class="guide-kicker">A family's guide</span>
-      <h1 class="guide-h1">Transferring your helper to another employer in&nbsp;Singapore</h1>
-      <p class="guide-lede">A calm, accurate walkthrough of how a helper passes from one family to the next under Singapore's Ministry of Manpower rules &mdash; what the process actually looks like, who pays what, and the choices families face along the&nbsp;way.</p>
-      <p class="guide-meta">
-        <strong>Reading time:</strong> about 8&ndash;10 minutes
-        <span class="guide-meta-sep">&middot;</span>
-        <strong>Last updated:</strong> May 2026
-      </p>
+      <div class="guide-hero-text">
+        <span class="guide-kicker">A family's guide</span>
+        <h1 class="guide-h1">Transferring your helper to another employer in&nbsp;Singapore</h1>
+        <p class="guide-lede">What the MOM transfer process actually looks like &mdash; and the decisions families face along the&nbsp;way.</p>
+        <p class="guide-meta">
+          <strong>Reading time:</strong> about 8 minutes
+          <span class="guide-meta-sep">&middot;</span>
+          <strong>Updated:</strong> May 2026
+        </p>
+      </div>
+      <aside class="guide-toc" aria-label="In this guide">
+      <p class="guide-toc-title">In this guide</p>
+      <ol class="guide-toc-list">
+        <li><a href="#what-transferring-means">What "transferring" means under MOM</a></li>
+        <li><a href="#the-process">The six-step process</a></li>
+        <li><a href="#who-pays-what">Who pays what</a></li>
+        <li><a href="#the-real-decisions">The decisions that aren't on the form</a></li>
+        <li><a href="#agencies-vs-referrals">Where agencies and referrals fit</a></li>
+        <li><a href="#practical-pointers">Practical pointers</a></li>
+        <li><a href="#mom-resources">Useful MOM resources</a></li>
+      </ol>
+    </aside>
     </div>
   </div>
 </section>
@@ -269,18 +345,10 @@
   <article class="guide-article wrap">
 
     <div class="guide-about">
-      <p>This guide is written by <a href="index.html">Helper Circle</a>, a small Singapore-based referral platform for families passing on a helper they've worked with to her next family. We're not an agency &mdash; we don't source helpers and we don't charge fees from her. We've written this because the transfer process is more knowable than it first appears, and most families end up navigating it alongside a difficult decision. The MOM rules belong to everyone; we're just trying to make them legible.</p>
+      <p>This guide is written by <a href="index.html">Helper Circle</a> &mdash; a Singapore referral platform for families passing on a helper to her next family. We're not an agency. The MOM rules belong to everyone; we've just tried to make them&nbsp;legible.</p>
     </div>
 
-    <h2>Why this question comes up in the first place</h2>
-
-    <p>Most Singapore families don't go looking for information about transferring a helper until they suddenly need it. A relocation appears on the horizon. A child grows up and the household no longer needs a live-in helper. A helper completes a contract and is thinking about her own next chapter. Or a family is on the other side of it &mdash; they need a helper and someone has mentioned that hiring a transfer helper, already in Singapore, may be a calmer path than going through an overseas placement.</p>
-
-    <p>In all of these cases, the underlying question is the same: <em>what does it actually take to move a helper's Work Permit from one employer to another?</em></p>
-
-    <p>The short answer is that it's a fairly structured process governed by the Ministry of Manpower (MOM), and once you understand the moving parts it's not difficult. The longer answer &mdash; which is what most of this guide is about &mdash; is that the paperwork is only one layer. There are conversations to have, decisions to make, and trade-offs that aren't always obvious until you're in them.</p>
-
-    <h2>What "transferring a helper" means under MOM</h2>
+    <h2 id="what-transferring-means">What "transferring a helper" means under MOM</h2>
 
     <p>A migrant domestic worker (MDW, often just called a helper) in Singapore works on a Work Permit that is tied to one specific employer. When she changes employers, that Work Permit is cancelled and a new one is issued in the new employer's name. The helper does not need to leave Singapore for this to happen. The whole transition takes place locally, usually over a few weeks.</p>
 
@@ -296,7 +364,7 @@
 
     <p>Without all three, the transfer doesn't happen. The first two are conversations; the third is an application.</p>
 
-    <h2>The step-by-step process</h2>
+    <h2 id="the-process">The step-by-step process</h2>
 
     <h3>1. Agree, in principle, between the families</h3>
 
@@ -331,7 +399,7 @@
       <p>The total elapsed time from application to new Work Permit being issued is usually two to four weeks, sometimes a bit longer if there are application clarifications or medical scheduling delays. Don't promise a specific day until the IPA is in hand.</p>
     </div>
 
-    <h2>Who pays what</h2>
+    <h2 id="who-pays-what">Who pays what</h2>
 
     <p>This is one of the most common sources of confusion, so it's worth being precise.</p>
 
@@ -346,7 +414,7 @@
       <p>We don't charge the helper any placement fee, and we don't take a percentage of her salary. Our fee (a one-time S$499) is paid by the receiving family, only after both sides have agreed to proceed. We mention this here for transparency &mdash; not every referral path is structured this way, and the question is worth asking of anyone you talk to.</p>
     </div>
 
-    <h2>The decisions that aren't on the form</h2>
+    <h2 id="the-real-decisions">The decisions that aren't on the form</h2>
 
     <p>The MOM process answers <em>how</em>. It doesn't answer the questions families actually find hard. A short, honest list:</p>
 
@@ -362,21 +430,17 @@
 
     <p>A helper is a person making her own choices. The transfer might be aligned with what she actually wants, or it might be a path of least resistance. Asking her directly &mdash; not via a translator, not via the current employer &mdash; about her own plans is the most respectful step in the process. It's also the one most often skipped.</p>
 
-    <h2>Where employment agencies fit (and where they don't)</h2>
+    <h2 id="agencies-vs-referrals">Where agencies and referrals fit</h2>
 
-    <p>Singapore's licensed Employment Agencies (EAs) are regulated by MOM and can handle the entire transfer end-to-end, including taking custody of the helper between employers if there's a gap. For families who want a single counter-party managing everything, an EA can make sense.</p>
+    <p>Singapore's licensed Employment Agencies (EAs) handle transfers end-to-end, including custody of the helper between employers if there's a gap. They source helpers, hold rosters, screen in bulk, and charge a placement fee. For families who want a single counter-party managing everything, this can make sense.</p>
 
-    <p>What an EA does that a referral platform doesn't: source helpers, hold rosters of available candidates, screen biodata in bulk, and assume responsibility for the helper between assignments. What an EA charges for: all of the above, typically structured as a placement fee.</p>
+    <p>A referral starts from a different place: a family who already knows the helper passes her on to another family, with a careful introduction and the MOM paperwork coordinated. No roster to choose from &mdash; just the helper in front of you and the family vouching for her.</p>
 
-    <p>MOM has been explicit, in public statements, that agencies <em>"should only offer matching services and cannot provide false or excessive assurances, such as the promise of higher pay or lighter workload, to entice MDWs to change employers."</em> Not all agencies operate at that standard. Asking direct questions &mdash; what fees the helper pays, what assurances she's been given, how her transfer was initiated &mdash; usually surfaces the answer.</p>
+    <p>One is not better than the other; they suit different situations. If you need to hire within a week, a referral platform almost certainly isn't fast enough. If you're flexible on timing and you'd rather meet one well-vouched-for helper than scan twenty biodata sheets, a referral path can be calmer.</p>
 
-    <h2>Where referrals fit</h2>
+    <p>One thing worth knowing: MOM has said publicly that agencies <em>"should only offer matching services and cannot provide false or excessive assurances, such as the promise of higher pay or lighter workload, to entice MDWs to change employers."</em> Not all agencies operate at that standard. Asking direct questions &mdash; what fees the helper pays, what assurances she's been given, how her transfer was initiated &mdash; usually surfaces the answer.</p>
 
-    <p>A referral starts from a different place. It begins with a family who already knows the helper passing her on to another family, with a careful introduction and the MOM paperwork coordinated. There's no roster to choose from; there's just the helper in front of you and the family who's vouching for her.</p>
-
-    <p>This isn't the right path for every family. If you need to hire someone within a week, a referral platform almost certainly isn't fast enough &mdash; introductions happen at the pace of real conversations and real handovers. If you're flexible on timing and you'd rather meet one well-vouched-for helper than scan twenty biodata sheets, a referral path can be calmer.</p>
-
-    <h2>A few practical pointers</h2>
+    <h2 id="practical-pointers">A few practical pointers</h2>
 
     <ul>
       <li><strong>Get the IPA before you make commitments.</strong> Verbal agreements about timing are fine to start; firm dates should wait for the IPA in hand.</li>
@@ -386,7 +450,7 @@
       <li><strong>Pay the levy on the right schedule.</strong> Set up GIRO before the transfer date. A missed levy payment can revoke the Work Permit, and reinstating one is a hassle no one needs.</li>
     </ul>
 
-    <h2>Useful MOM resources</h2>
+    <h2 id="mom-resources">Useful MOM resources</h2>
 
     <p>The official source &mdash; ahead of any third-party blog &mdash; is the Ministry of Manpower:</p>
 

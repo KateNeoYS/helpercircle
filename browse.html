@@ -67,6 +67,32 @@
     .preview-card-link:hover .preview-cta {
       color: var(--clr-primary-dk);
     }
+
+    /* Editorial follow-up below the helper card.
+       Soft, centered, intentionally not a card — signals "small by design"
+       without creating an empty-slot feel. */
+    .circle-more {
+      max-width: 540px;
+      margin: 40px auto 0;
+      text-align: center;
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic;
+      font-size: 1.08rem;
+      line-height: 1.65;
+      color: var(--clr-text-muted);
+      text-wrap: balance;
+    }
+    .circle-more a {
+      color: var(--clr-primary);
+      font-style: normal;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color .15s;
+    }
+    .circle-more a:hover {
+      border-bottom-color: var(--clr-primary);
+    }
   </style>
   <!-- Vercel Web Analytics -->
   <script>
@@ -130,9 +156,9 @@
   <div class="wrap">
 
     <div class="format-hdr">
-      <div class="kicker">Helpers in the circle</div>
-      <h2 class="h2">Meet&nbsp;Kartika</h2>
-      <p class="format-sub">Each profile here was referred personally by a family who knows&nbsp;her.</p>
+      <div class="kicker">In the circle</div>
+      <h2 class="h2">In the circle right&nbsp;now</h2>
+      <p class="format-sub">A small number, each one personally&nbsp;referred.</p>
     </div>
 
     <!-- Kartika's card — links through to her full profile -->
@@ -181,6 +207,11 @@
         </article>
       </a>
     </div>
+
+    <!-- Editorial follow-up: signals the small-by-design nature without inventory tone -->
+    <p class="circle-more">
+      More to come, as families share their helpers with&nbsp;us. If you know a good helper looking for her next home &mdash; <a href="refer.html">refer her&nbsp;&rarr;</a>
+    </p>
 
   </div>
 </section>

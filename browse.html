@@ -3,19 +3,71 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Meet Transfer Helpers in Singapore — Helper Circle</title>
-  <meta name="description" content="Meet domestic helpers in Singapore personally referred by a previous employer. New referrals added as families come forward — never in bulk, never sourced."/>
-  <link rel="canonical" href="https://helpercircle.sg/browse.html"/>
-  <meta property="og:url" content="https://helpercircle.sg/browse.html"/>
+  <title>Meet Helpers — Helper Circle</title>
+  <meta name="description" content="Meet domestic helpers in Singapore personally referred by a previous employer."/>
+  <meta property="og:url" content="https://helpercircle.vercel.app/browse.html"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Meet Transfer Helpers in Singapore — Helper Circle"/>
+  <meta property="og:title" content="Meet Helpers — Helper Circle"/>
   <meta property="og:description" content="Meet domestic helpers in Singapore personally referred by a previous employer."/>
-  <meta property="og:image" content="https://helpercircle.sg/heroillustrative.jpg"/>
-  <meta name="twitter:card" content="summary_large_image"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
   <link rel="stylesheet" href="styles.css"/>
+
+  <!-- Page-scoped: live preview card (Kartika and future helpers).
+       Builds on the existing .preview-card styles in styles.css, but adds
+       the real-photo treatment, link behaviour, and "read full profile" CTA. -->
+  <style>
+    /* Make the entire card a clickable link */
+    .preview-card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .preview-card-link:hover {
+      transform: translateY(-3px);
+    }
+    .preview-card-link:hover .preview-card--live {
+      box-shadow: 0 12px 32px rgba(31, 42, 36, 0.10);
+      border-color: var(--clr-primary-lt);
+    }
+    .preview-card--live {
+      cursor: pointer;
+      transition: box-shadow .25s ease, border-color .25s ease;
+    }
+
+    /* Real photo in the photo slot — replaces the placeholder SVG/label */
+    .preview-photo-slot--live {
+      padding: 0;
+      overflow: hidden;
+      border: 2px solid var(--clr-cream-dk);
+      background: var(--clr-cream);
+    }
+    .preview-photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* CTA row at the bottom of the live card */
+    .preview-cta-row {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--clr-border-warm);
+      text-align: right;
+    }
+    .preview-cta {
+      font-size: .92rem;
+      font-weight: 600;
+      color: var(--clr-primary);
+      letter-spacing: .005em;
+    }
+    .preview-card-link:hover .preview-cta {
+      color: var(--clr-primary-dk);
+    }
+  </style>
   <!-- Vercel Web Analytics -->
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -69,70 +121,66 @@
 -->
 
 
-<!-- ─── Preview of profile format ─── -->
-<!-- TODO: replace this single preview block with a real .hcard-grid of profiles when inventory exists. The .preview-card class can be repurposed for an "example profile" link inside FAQ later. -->
+<!-- ─── Helpers in the circle ─── -->
+<!-- Each card is a teaser that links through to the helper's full profile page.
+     When we have more than one helper, this section becomes a grid. For now,
+     a single card sits centered. The "Preview — illustrative example" badge is
+     gone — these are real, vouched-for helpers. -->
 <section class="format-section">
   <div class="wrap">
 
     <div class="format-hdr">
-      <div class="kicker">What you'll see here</div>
-      <h2 class="h2">What a referred profile looks&nbsp;like</h2>
-      <p class="format-sub">A representative example. Names and photos are confirmed only when a real referral is&nbsp;published.</p>
+      <div class="kicker">Helpers in the circle</div>
+      <h2 class="h2">Meet&nbsp;Kartika</h2>
+      <p class="format-sub">Each profile here was referred personally by a family who knows&nbsp;her.</p>
     </div>
 
-    <!-- Single demonstrative preview card — clearly labeled as illustrative -->
+    <!-- Kartika's card — links through to her full profile -->
     <div class="preview-card-wrap">
-      <div class="preview-badge">
-        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
-          <circle cx="5.5" cy="5.5" r="4.5" stroke="currentColor" stroke-width="1" fill="none"/>
-          <path d="M5.5 3v3l1.8 1" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-        </svg>
-        <span>Preview &mdash; illustrative example,<br class="sub-break-mobile"> not a live&nbsp;profile</span>
-      </div>
 
-      <article class="preview-card" aria-label="Example of profile format">
+      <a href="profile-kartika.html" class="preview-card-link" aria-label="Read Kartika's full profile">
+        <article class="preview-card preview-card--live" aria-label="Kartika S. — referred helper">
 
-        <div class="preview-top">
-          <div class="preview-photo-slot" aria-hidden="true">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="9" r="3.5" stroke="currentColor" stroke-width="1.2" opacity=".35"/>
-              <path d="M5 19c.6-3 3.3-5 7-5s6.4 2 7 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".35"/>
-            </svg>
-            <span class="preview-photo-label">Photo when published</span>
-          </div>
-
-          <div class="preview-meta">
-            <div class="preview-tier">
-              <svg width="12" height="13" viewBox="0 0 12 13" fill="none" aria-hidden="true">
-                <path d="M6 1L2 2.5v4c0 2.8 1.7 5 4 5.5 2.3-.5 4-2.7 4-5.5v-4L6 1z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
-                <path d="M4 6.5l1.5 1.5L8 5.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span>Referral verified</span>
+          <div class="preview-top">
+            <div class="preview-photo-slot preview-photo-slot--live" aria-hidden="true">
+              <img src="images/kartika.jpg" alt="" class="preview-photo-img"/>
             </div>
-            <h3 class="preview-name">First name <span class="preview-initial">L.</span></h3>
-            <p class="preview-line">Nationality &middot; Years in Singapore &middot; Specialty</p>
+
+            <div class="preview-meta">
+              <div class="preview-tier">
+                <svg width="12" height="13" viewBox="0 0 12 13" fill="none" aria-hidden="true">
+                  <path d="M6 1L2 2.5v4c0 2.8 1.7 5 4 5.5 2.3-.5 4-2.7 4-5.5v-4L6 1z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+                  <path d="M4 6.5l1.5 1.5L8 5.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Referral verified</span>
+              </div>
+              <h3 class="preview-name">Kartika <span class="preview-initial">S.</span></h3>
+              <p class="preview-line">Indonesian &middot; Elderly care &amp;&nbsp;household</p>
+            </div>
           </div>
-        </div>
 
-        <div class="preview-section">
-          <p class="preview-summary">Calm and reliable, with steady experience in&nbsp;childcare. Already familiar with local&nbsp;routines.</p>
-          <blockquote class="preview-quote">
-            "She never needed reminding about anything."
-            <cite>&mdash; Previous family</cite>
-          </blockquote>
-        </div>
+          <div class="preview-section">
+            <p class="preview-summary">Sincere, calm, and quietly very good at her work. Currently caring for an elderly family member, available from end&nbsp;June.</p>
+            <blockquote class="preview-quote">
+              "She follows the schedule and asks when she doesn't understand &mdash; she never guesses her way through."
+              <cite>&mdash; Sheila, her current employer</cite>
+            </blockquote>
+          </div>
 
-        <div class="preview-chips">
-          <span class="preview-chip">Childcare</span>
-          <span class="preview-chip">6 years in Singapore</span>
-          <span class="preview-chip">English &amp; Bahasa</span>
-          <span class="preview-chip">Available June</span>
-        </div>
+          <div class="preview-chips">
+            <span class="preview-chip">Elderly care</span>
+            <span class="preview-chip">Household</span>
+            <span class="preview-chip">Bahasa Melayu</span>
+            <span class="preview-chip">Available end June</span>
+          </div>
 
-      </article>
+          <div class="preview-cta-row">
+            <span class="preview-cta">Read her full profile &rarr;</span>
+          </div>
+
+        </article>
+      </a>
     </div>
-
-    <p class="format-foot">Names, photos, and details are confirmed only when a real referral is&nbsp;published.</p>
 
   </div>
 </section>
@@ -198,10 +246,6 @@
         <p class="pathway-p">A quiet email when there's someone new to&nbsp;meet.</p>
 
         <form id="form-notify" class="pathway-form-v2" action="https://formspree.io/f/xwvzpank" method="POST">
-          <div class="pathway-field">
-            <label for="notify-name" class="pathway-field-label">Your name <span class="pathway-field-opt">(optional)</span></label>
-            <input type="text" id="notify-name" name="name" placeholder="Jane Tan" autocomplete="name"/>
-          </div>
           <div class="pathway-field">
             <label for="notify-email" class="pathway-field-label">Email</label>
             <input type="email" id="notify-email" name="email" required placeholder="you@email.com" autocomplete="email"/>

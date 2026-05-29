@@ -14,20 +14,31 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
   <link rel="stylesheet" href="styles.css"/>
 
-  <!-- Page-scoped styles: profile layout. Kept here rather than in styles.css
-       to avoid bloating the global stylesheet until we have multiple profiles. -->
+  <!-- Page-scoped styles for the profile layout.
+       Designed for scanability-first: hero → quick facts → employer notes → form.
+       Editorial / calm / premium register — not agency-coded. -->
   <style>
-    /* ─── Profile container ─── */
-    .profile-section { padding: 96px 0 64px; background: var(--clr-white); }
-    .profile-wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    /* ─── Page container ─── */
+    .profile-page { background: var(--clr-white); }
+    .profile-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 
-    /* Profile photo */
+    /* ─── HERO ─── */
+    .profile-hero {
+      padding: 80px 0 48px;
+      background: var(--clr-white);
+    }
+    .profile-hero-inner {
+      display: flex;
+      gap: 36px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
     .profile-photo-wrap {
+      flex: 0 0 180px;
       width: 180px;
       height: 180px;
       border-radius: 50%;
       overflow: hidden;
-      margin: 0 0 28px;
       border: 3px solid var(--clr-cream-dk);
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
     }
@@ -37,88 +48,179 @@
       object-fit: cover;
       display: block;
     }
-
-    /* Header */
+    .profile-hero-text {
+      flex: 1 1 320px;
+      min-width: 0;
+    }
     .profile-name {
       font-family: var(--fd, 'Cormorant Garamond', serif);
       font-weight: 500;
       font-size: clamp(2.4rem, 5vw, 3.2rem);
       letter-spacing: -0.012em;
       color: var(--clr-text);
+      margin: 0 0 6px;
+      text-wrap: balance;
+      line-height: 1.05;
+    }
+    .profile-descriptor {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--clr-text-muted);
+      margin: 0 0 18px;
+    }
+
+    /* Editorial verified line — single line, names Sheila, no checkmarks */
+    .profile-verified-line {
+      font-size: .95rem;
+      color: var(--clr-text-2);
+      line-height: 1.6;
+      margin: 0 0 16px;
+      padding: 14px 0 14px 18px;
+      border-left: 2px solid var(--clr-primary);
+      background: linear-gradient(to right, var(--clr-primary-bg) 0%, transparent 70%);
+      border-radius: 0 4px 4px 0;
+    }
+    .profile-verified-line strong {
+      color: var(--clr-primary);
+      font-weight: 600;
+    }
+
+    /* Sheila quote — handwritten-card feel, brand's emotional anchor */
+    .profile-quote {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic;
+      font-size: 1.18rem;
+      line-height: 1.55;
+      color: var(--clr-text-2);
+      margin: 24px 0 12px;
+      text-wrap: balance;
+    }
+    .profile-quote-attr {
+      font-size: .85rem;
+      color: var(--clr-text-muted);
+      margin: 0 0 28px;
+    }
+
+    /* CTA row right after hero */
+    .profile-hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .profile-hero-cta .btn { white-space: nowrap; }
+    .profile-hero-cta-meta {
+      font-size: .87rem;
+      color: var(--clr-text-muted);
+    }
+
+    /* ─── AT A GLANCE (chips) ─── */
+    .profile-glance {
+      padding: 36px 0 12px;
+      background: var(--clr-white);
+    }
+    .profile-section-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--clr-primary);
+      margin: 0 0 14px;
+    }
+    .profile-chips {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .profile-chip {
+      font-size: .88rem;
+      color: var(--clr-text-2);
+      background: var(--clr-cream);
+      border: 1px solid var(--clr-border-warm);
+      padding: 7px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    /* ─── KEY FACTS GRID ─── */
+    .profile-facts {
+      padding: 36px 0;
+      background: var(--clr-white);
+    }
+    .profile-facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0;
+      border-top: 1px solid var(--clr-border-warm);
+      border-left: 1px solid var(--clr-border-warm);
+    }
+    .profile-fact {
+      padding: 22px 22px;
+      border-right: 1px solid var(--clr-border-warm);
+      border-bottom: 1px solid var(--clr-border-warm);
+      background: var(--clr-white);
+    }
+    .profile-fact-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--clr-text-muted);
+      margin: 0 0 8px;
+    }
+    .profile-fact-value {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--clr-text);
+      margin: 0;
+    }
+    .profile-fact-value strong { font-weight: 600; }
+
+    /* ─── EMPLOYER NOTES (the moat) ─── */
+    .profile-notes {
+      padding: 56px 0;
+      background: var(--clr-cream);
+      border-top: 1px solid var(--clr-border-warm);
+    }
+    .profile-notes-hdr {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: clamp(1.7rem, 3.5vw, 2.1rem);
+      letter-spacing: -0.008em;
+      color: var(--clr-text);
       margin: 0 0 8px;
       text-wrap: balance;
     }
-    .profile-line {
-      font-family: var(--fd, 'Cormorant Garamond', serif);
-      font-style: italic;
-      font-size: 1.1rem;
+    .profile-notes-sub {
+      font-size: .95rem;
       color: var(--clr-text-muted);
-      margin: 0 0 16px;
+      margin: 0 0 32px;
+      font-style: italic;
     }
-    .profile-verified {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: .82rem; font-weight: 600; letter-spacing: .02em;
-      color: var(--clr-primary);
-      background: var(--clr-primary-bg);
-      padding: 6px 12px; border-radius: 999px;
-      margin-bottom: 32px;
-    }
-
-    /* Editorial divider */
-    .profile-rule {
-      width: 48px; height: 1.5px;
-      background: var(--clr-primary);
-      margin: 32px 0;
-      opacity: .55;
-    }
-
-    /* Prose */
-    .profile-prose p {
+    .profile-notes-prose p {
       font-size: 1.05rem;
       line-height: 1.75;
       color: var(--clr-text-2);
       margin: 0 0 1.1em;
       text-wrap: pretty;
     }
+    .profile-notes-prose p:last-child { margin-bottom: 0; }
 
-    /* At-a-glance chips */
-    .profile-glance-h {
-      font-family: var(--fd, 'Cormorant Garamond', serif);
-      font-weight: 500;
-      font-size: 1.4rem;
-      color: var(--clr-text);
-      margin: 0 0 14px;
-    }
-    .profile-chips {
-      display: flex; flex-wrap: wrap; gap: 8px;
-      margin-bottom: 32px;
-    }
-    .profile-chip {
-      font-size: .85rem;
-      color: var(--clr-text-2);
-      background: var(--clr-cream-dk);
-      border: 1px solid var(--clr-border-warm);
-      padding: 5px 12px; border-radius: 999px;
-      white-space: nowrap;
-    }
-
-    /* Note blocks (language, religion) */
-    .profile-note {
-      background: var(--clr-cream);
+    /* Inline mini-notes within the notes section (language / religion) */
+    .profile-mini-note {
+      background: var(--clr-white);
       border-left: 3px solid var(--clr-primary);
       padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      margin: 0 0 16px;
+      border-radius: 0 6px 6px 0;
+      margin: 18px 0;
     }
-    .profile-note p {
+    .profile-mini-note p {
       margin: 0;
       font-size: .98rem;
       line-height: 1.65;
       color: var(--clr-text-2);
     }
-    .profile-note strong { color: var(--clr-text); font-weight: 600; }
+    .profile-mini-note strong { color: var(--clr-text); font-weight: 600; }
 
-    /* Closing line */
     .profile-foot {
       font-style: italic;
       color: var(--clr-text-muted);
@@ -126,11 +228,10 @@
       margin: 32px 0 0;
     }
 
-    /* ─── Ask-about form section ─── */
+    /* ─── ASK ABOUT FORM ─── */
     .profile-ask {
-      background: var(--clr-cream);
-      padding: 64px 0;
-      border-top: 1px solid var(--clr-border-warm);
+      background: var(--clr-white);
+      padding: 64px 0 80px;
     }
     .profile-ask-inner { max-width: 560px; margin: 0 auto; padding: 0 24px; }
     .profile-ask-kicker {
@@ -141,7 +242,8 @@
       text-transform: uppercase;
       color: var(--clr-primary);
       background: var(--clr-primary-bg);
-      padding: 4px 10px; border-radius: 4px;
+      padding: 4px 10px;
+      border-radius: 4px;
       margin-bottom: 12px;
     }
     .profile-ask-h {
@@ -191,11 +293,7 @@
       border-color: var(--clr-primary);
     }
     .ask-field textarea { resize: vertical; min-height: 80px; }
-
-    .ask-submit {
-      width: 100%;
-      margin-top: 4px;
-    }
+    .ask-submit { width: 100%; margin-top: 4px; }
     .ask-foot-note {
       font-size: .82rem;
       color: var(--clr-text-muted);
@@ -218,6 +316,26 @@
       color: var(--clr-text-2);
       line-height: 1.6;
     }
+
+    /* ─── MOBILE ADJUSTMENTS ─── */
+    @media (max-width: 640px) {
+      .profile-hero { padding: 56px 0 36px; }
+      .profile-hero-inner { gap: 24px; }
+      .profile-photo-wrap {
+        flex: 0 0 140px;
+        width: 140px;
+        height: 140px;
+        margin: 0 auto;
+      }
+      .profile-hero-text { text-align: center; }
+      .profile-verified-line { text-align: left; }
+      .profile-hero-cta { display: flex; justify-content: center; }
+      .profile-hero-cta .btn { width: 100%; }
+      .profile-facts-grid {
+        grid-template-columns: 1fr;
+      }
+      .profile-fact { padding: 20px 18px; }
+    }
   </style>
 
   <!-- Vercel Web Analytics -->
@@ -226,7 +344,7 @@
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
-<body>
+<body class="profile-page">
 
 <!-- ═══ HEADER ═══ -->
 <header class="site-header" id="site-header">
@@ -249,62 +367,127 @@
   </div>
 </header>
 
-<!-- ═══ PROFILE ═══ -->
-<section class="profile-section">
+<!-- ═══ HERO ═══ -->
+<section class="profile-hero">
   <div class="profile-wrap">
+    <div class="profile-hero-inner">
 
-    <div class="profile-photo-wrap">
-      <img src="images/kartika.jpg" alt="Kartika" class="profile-photo" loading="lazy"/>
+      <div class="profile-photo-wrap">
+        <img src="images/kartika.jpg" alt="Kartika" class="profile-photo" loading="eager"/>
+      </div>
+
+      <div class="profile-hero-text">
+        <h1 class="profile-name">Kartika&nbsp;S.</h1>
+        <p class="profile-descriptor">Indonesian &middot; Elderly care &amp; household</p>
+
+        <p class="profile-verified-line">
+          <strong>Referred by Sheila</strong>, her current employer. We've spoken with both and confirmed her work&nbsp;history.
+        </p>
+
+        <p class="profile-quote">"She follows the schedule and asks when she doesn't understand &mdash; she never guesses her way&nbsp;through."</p>
+        <p class="profile-quote-attr">&mdash; Sheila, her current employer</p>
+
+        <div class="profile-hero-cta">
+          <a href="#ask" class="btn btn-green">Ask about Kartika</a>
+          <span class="profile-hero-cta-meta">We respond within 1&ndash;2 business&nbsp;days</span>
+        </div>
+      </div>
+
     </div>
+  </div>
+</section>
 
-    <h1 class="profile-name">Kartika&nbsp;S.</h1>
-    <p class="profile-line">Indonesian &middot; Elderly care &amp; household</p>
-
-    <div class="profile-verified" aria-label="Referral verified">
-      <svg width="13" height="14" viewBox="0 0 12 13" fill="none" aria-hidden="true">
-        <path d="M6 1L2 2.5v4c0 2.8 1.7 5 4 5.5 2.3-.5 4-2.7 4-5.5v-4L6 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
-        <path d="M4 6.5l1.5 1.5L8 5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <span>Referral verified &mdash; vouched for by her current employer, Sheila</span>
-    </div>
-
-    <div class="profile-rule" aria-hidden="true"></div>
-
-    <div class="profile-prose">
-      <p>Kartika has been working with Sheila's family in Singapore, caring for Sheila's 85-year-old&nbsp;mother. Sheila is now helping Kartika find a good next family by the end of&nbsp;June, when Sheila's long-time previous helper returns to her household.</p>
-
-      <p>Before her current role, Kartika completed a two-year contract with a Singapore family whose school-age children were twelve and&nbsp;fifteen.</p>
-
-      <p>Sheila describes her as warm, easy to talk to, and quietly very good at her work. She's sincere and straightforward &mdash; she follows a given schedule well, doesn't need reminders, and asks when she doesn't understand something rather than guessing her way through. She's turning forty, fit and active. She's the kind of helper who has the day's routine running &mdash; the laundry done, the ironing finished, the kitchen spotless &mdash; sometimes before Sheila is&nbsp;awake.</p>
-
-      <p>Her steady, calm temperament shows up in everything she does. She has a real affinity with people too: in her current home she's built a warm rapport with Sheila's Cantonese-speaking mother and gets on with her&nbsp;easily.</p>
-
-      <p>She's most at home in a close, kind household &mdash; a family that looks after one another. She's a confident kitchen assistant rather than an independent cook for elaborate cuisines, and her petite build means she's best matched to elderly care where the person isn't&nbsp;large.</p>
-    </div>
-
-    <div class="profile-rule" aria-hidden="true"></div>
-
-    <h2 class="profile-glance-h">At a&nbsp;glance</h2>
+<!-- ═══ AT A GLANCE ═══ -->
+<section class="profile-glance">
+  <div class="profile-wrap">
+    <p class="profile-section-label">At a glance</p>
     <div class="profile-chips">
       <span class="profile-chip">Elderly care</span>
       <span class="profile-chip">General household</span>
       <span class="profile-chip">Childcare (school-age)</span>
       <span class="profile-chip">Cooking (simple)</span>
       <span class="profile-chip">Cat-friendly</span>
-      <span class="profile-chip">Bahasa Melayu (strongest)</span>
+      <span class="profile-chip">Bahasa Melayu</span>
       <span class="profile-chip">Basic English</span>
       <span class="profile-chip">Indonesian</span>
-      <span class="profile-chip">Comfortable sharing a room</span>
-      <span class="profile-chip">One rest day a week</span>
-      <span class="profile-chip">Available from end June 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KEY FACTS GRID ═══ -->
+<section class="profile-facts">
+  <div class="profile-wrap">
+    <p class="profile-section-label">The essentials</p>
+    <div class="profile-facts-grid">
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Currently</p>
+        <p class="profile-fact-value">Caring for Sheila's 85-year-old&nbsp;mother</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Available from</p>
+        <p class="profile-fact-value"><strong>End June 2026</strong></p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Why she's moving on</p>
+        <p class="profile-fact-value">Sheila's long-time previous helper is returning to the&nbsp;household</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Previous role</p>
+        <p class="profile-fact-value">Completed a 2-year contract caring for children aged 12 and&nbsp;15</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Strongest language</p>
+        <p class="profile-fact-value">Bahasa Melayu (also basic&nbsp;English)</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Religion</p>
+        <p class="profile-fact-value">Muslim &middot; comfortable preparing pork for the&nbsp;family</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Room</p>
+        <p class="profile-fact-value">Comfortable sharing</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Rest day</p>
+        <p class="profile-fact-value">One day a week</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EMPLOYER NOTES (the moat) ═══ -->
+<section class="profile-notes">
+  <div class="profile-wrap">
+    <h2 class="profile-notes-hdr">Notes from her&nbsp;employer</h2>
+    <p class="profile-notes-sub">Written from what Sheila shared with us about working with&nbsp;Kartika.</p>
+
+    <div class="profile-notes-prose">
+      <p>Kartika has been working with Sheila's family in Singapore, caring for Sheila's 85-year-old&nbsp;mother. Sheila is now helping her find a good next family by the end of June, when Sheila's long-time previous helper returns to the&nbsp;household.</p>
+
+      <p>Before her current role, Kartika completed a two-year contract with a Singapore family whose school-age children were twelve and&nbsp;fifteen.</p>
+
+      <p>Sheila describes her as warm, easy to talk to, and quietly very good at her work. She's sincere and straightforward &mdash; she follows a given schedule well, doesn't need reminders, and asks when she doesn't understand something rather than guessing her way&nbsp;through. She's turning forty, fit and active. She's the kind of helper who has the day's routine running &mdash; the laundry done, the ironing finished, the kitchen spotless &mdash; sometimes before Sheila is&nbsp;awake.</p>
+
+      <p>Her steady, calm temperament shows up in everything she does. She has a real affinity with people too: in her current home she's built a warm rapport with Sheila's Cantonese-speaking mother and gets on with her&nbsp;easily.</p>
+
+      <p>She's most at home in a close, kind household &mdash; a family that looks after one another. She's a confident kitchen assistant rather than an independent cook for elaborate cuisines, and her petite build means she's best matched to elderly care where the person isn't&nbsp;large.</p>
     </div>
 
-    <div class="profile-note">
-      <p><strong>Language:</strong> Bahasa Melayu is her strongest language and where she's most herself. She also gets by in basic English &mdash; but she'd be most at home, and most effective, in a household where Malay is&nbsp;spoken.</p>
+    <div class="profile-mini-note">
+      <p><strong>On language:</strong> Bahasa Melayu is her strongest language and where she's most herself. She also gets by in basic English &mdash; but she'd be most at home, and most effective, in a household where Malay is&nbsp;spoken.</p>
     </div>
 
-    <div class="profile-note">
-      <p><strong>Religion:</strong> Kartika is Muslim. She doesn't eat pork herself but is comfortable preparing it for the&nbsp;family.</p>
+    <div class="profile-mini-note">
+      <p><strong>On religion:</strong> Kartika is Muslim. She doesn't eat pork herself but is comfortable preparing it for the&nbsp;family.</p>
     </div>
 
     <p class="profile-foot">Full employment history available to interested families, with Kartika's&nbsp;consent.</p>
@@ -313,7 +496,7 @@
 </section>
 
 <!-- ═══ ASK ABOUT KARTIKA ═══ -->
-<section class="profile-ask">
+<section class="profile-ask" id="ask">
   <div class="profile-ask-inner">
 
     <span class="profile-ask-kicker">Interested?</span>
@@ -321,7 +504,6 @@
     <p class="profile-ask-sub">Tell us a little about your household and we'll be in touch within 1&ndash;2 business&nbsp;days. We'll only move forward if it feels like a genuine&nbsp;fit.</p>
 
     <form id="form-ask" action="https://formspree.io/f/mredjvwg" method="POST">
-      <!-- Hidden field: tells you which profile triggered the form -->
       <input type="hidden" name="helper-name" value="Kartika S."/>
       <input type="hidden" name="_subject" value="Helper Circle — Interest in Kartika S."/>
 
@@ -403,7 +585,7 @@
 <script src="script.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-<!-- Formspree AJAX submission for ask-about form -->
+<!-- Formspree AJAX submission -->
 <script>
 (function () {
   var form = document.getElementById('form-ask');

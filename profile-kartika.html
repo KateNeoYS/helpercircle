@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Kartika S. — Helper Circle</title>
+  <meta name="description" content="A referred helper, vouched for by her current employer. Contact Helper Circle to learn more."/>
+
+  <!-- Noindex: this profile is unlisted and shared by direct URL only -->
+  <meta name="robots" content="noindex, nofollow"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
+  <link rel="stylesheet" href="styles.css"/>
+
+  <!-- Page-scoped styles: profile layout. Kept here rather than in styles.css
+       to avoid bloating the global stylesheet until we have multiple profiles. -->
+  <style>
+    /* ─── Profile container ─── */
+    .profile-section { padding: 96px 0 64px; background: var(--clr-white); }
+    .profile-wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    /* Profile photo */
+    .profile-photo-wrap {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 0 28px;
+      border: 3px solid var(--clr-cream-dk);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Header */
+    .profile-name {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      letter-spacing: -0.012em;
+      color: var(--clr-text);
+      margin: 0 0 8px;
+      text-wrap: balance;
+    }
+    .profile-line {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--clr-text-muted);
+      margin: 0 0 16px;
+    }
+    .profile-verified {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; font-weight: 600; letter-spacing: .02em;
+      color: var(--clr-primary);
+      background: var(--clr-primary-bg);
+      padding: 6px 12px; border-radius: 999px;
+      margin-bottom: 32px;
+    }
+
+    /* Editorial divider */
+    .profile-rule {
+      width: 48px; height: 1.5px;
+      background: var(--clr-primary);
+      margin: 32px 0;
+      opacity: .55;
+    }
+
+    /* Prose */
+    .profile-prose p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--clr-text-2);
+      margin: 0 0 1.1em;
+      text-wrap: pretty;
+    }
+
+    /* At-a-glance chips */
+    .profile-glance-h {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: 1.4rem;
+      color: var(--clr-text);
+      margin: 0 0 14px;
+    }
+    .profile-chips {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 32px;
+    }
+    .profile-chip {
+      font-size: .85rem;
+      color: var(--clr-text-2);
+      background: var(--clr-cream-dk);
+      border: 1px solid var(--clr-border-warm);
+      padding: 5px 12px; border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    /* Note blocks (language, religion) */
+    .profile-note {
+      background: var(--clr-cream);
+      border-left: 3px solid var(--clr-primary);
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 0 0 16px;
+    }
+    .profile-note p {
+      margin: 0;
+      font-size: .98rem;
+      line-height: 1.65;
+      color: var(--clr-text-2);
+    }
+    .profile-note strong { color: var(--clr-text); font-weight: 600; }
+
+    /* Closing line */
+    .profile-foot {
+      font-style: italic;
+      color: var(--clr-text-muted);
+      font-size: .92rem;
+      margin: 32px 0 0;
+    }
+
+    /* ─── Ask-about form section ─── */
+    .profile-ask {
+      background: var(--clr-cream);
+      padding: 64px 0;
+      border-top: 1px solid var(--clr-border-warm);
+    }
+    .profile-ask-inner { max-width: 560px; margin: 0 auto; padding: 0 24px; }
+    .profile-ask-kicker {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--clr-primary);
+      background: var(--clr-primary-bg);
+      padding: 4px 10px; border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .profile-ask-h {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: clamp(1.7rem, 3.5vw, 2.1rem);
+      letter-spacing: -0.008em;
+      color: var(--clr-text);
+      margin: 0 0 12px;
+      text-wrap: balance;
+    }
+    .profile-ask-sub {
+      font-size: 1rem;
+      color: var(--clr-text-muted);
+      line-height: 1.65;
+      margin: 0 0 28px;
+    }
+
+    .ask-field { margin-bottom: 16px; }
+    .ask-field label {
+      display: block;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--clr-text);
+      margin-bottom: 6px;
+    }
+    .ask-field-opt {
+      font-weight: 400;
+      color: var(--clr-text-muted);
+      font-size: .8rem;
+    }
+    .ask-field input,
+    .ask-field textarea {
+      width: 100%;
+      padding: 11px 13px;
+      font-size: .98rem;
+      font-family: inherit;
+      color: var(--clr-text);
+      background: var(--clr-white);
+      border: 1px solid var(--clr-border);
+      border-radius: 6px;
+      transition: border-color .15s;
+    }
+    .ask-field input:focus,
+    .ask-field textarea:focus {
+      outline: none;
+      border-color: var(--clr-primary);
+    }
+    .ask-field textarea { resize: vertical; min-height: 80px; }
+
+    .ask-submit {
+      width: 100%;
+      margin-top: 4px;
+    }
+    .ask-foot-note {
+      font-size: .82rem;
+      color: var(--clr-text-muted);
+      margin: 14px 0 0;
+      line-height: 1.55;
+    }
+    .ask-success, .ask-error {
+      background: var(--clr-primary-bg);
+      border-left: 3px solid var(--clr-primary);
+      padding: 16px 18px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 12px;
+    }
+    .ask-error {
+      background: #FFF0EB;
+      border-left-color: var(--clr-coral);
+    }
+    .ask-success p, .ask-error p {
+      margin: 0;
+      color: var(--clr-text-2);
+      line-height: 1.6;
+    }
+  </style>
+
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark" aria-hidden="true"><span class="logo-hc">hc</span></div>
+      <span class="logo-text">Helper<strong>Circle</strong></span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="browse.html" class="nav-a">Meet Helpers</a>
+      <a href="refer.html" class="nav-a">Refer a Helper</a>
+      <a href="index.html#how" class="nav-a">How It Works</a>
+      <a href="faq.html" class="nav-a">FAQ</a>
+      <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
+    </nav>
+    <a href="refer.html" class="btn btn-green btn-sm hdr-cta">Refer a Helper</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ═══ PROFILE ═══ -->
+<section class="profile-section">
+  <div class="profile-wrap">
+
+    <div class="profile-photo-wrap">
+      <img src="images/kartika.jpg" alt="Kartika" class="profile-photo" loading="lazy"/>
+    </div>
+
+    <h1 class="profile-name">Kartika&nbsp;S.</h1>
+    <p class="profile-line">Indonesian &middot; Elderly care &amp; household</p>
+
+    <div class="profile-verified" aria-label="Referral verified">
+      <svg width="13" height="14" viewBox="0 0 12 13" fill="none" aria-hidden="true">
+        <path d="M6 1L2 2.5v4c0 2.8 1.7 5 4 5.5 2.3-.5 4-2.7 4-5.5v-4L6 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+        <path d="M4 6.5l1.5 1.5L8 5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Referral verified &mdash; vouched for by her current employer, Sheila</span>
+    </div>
+
+    <div class="profile-rule" aria-hidden="true"></div>
+
+    <div class="profile-prose">
+      <p>Kartika has been working with Sheila's family in Singapore, caring for Sheila's 85-year-old&nbsp;mother. Sheila is now helping Kartika find a good next family by the end of&nbsp;June, when Sheila's long-time previous helper returns to her household.</p>
+
+      <p>Before her current role, Kartika completed a two-year contract with a Singapore family whose school-age children were twelve and&nbsp;fifteen.</p>
+
+      <p>Sheila describes her as warm, easy to talk to, and quietly very good at her work. She's sincere and straightforward &mdash; she follows a given schedule well, doesn't need reminders, and asks when she doesn't understand something rather than guessing her way through. She's turning forty, fit and active. She's the kind of helper who has the day's routine running &mdash; the laundry done, the ironing finished, the kitchen spotless &mdash; sometimes before Sheila is&nbsp;awake.</p>
+
+      <p>Her steady, calm temperament shows up in everything she does. She has a real affinity with people too: in her current home she's built a warm rapport with Sheila's Cantonese-speaking mother and gets on with her&nbsp;easily.</p>
+
+      <p>She's most at home in a close, kind household &mdash; a family that looks after one another. She's a confident kitchen assistant rather than an independent cook for elaborate cuisines, and her petite build means she's best matched to elderly care where the person isn't&nbsp;large.</p>
+    </div>
+
+    <div class="profile-rule" aria-hidden="true"></div>
+
+    <h2 class="profile-glance-h">At a&nbsp;glance</h2>
+    <div class="profile-chips">
+      <span class="profile-chip">Elderly care</span>
+      <span class="profile-chip">General household</span>
+      <span class="profile-chip">Childcare (school-age)</span>
+      <span class="profile-chip">Cooking (simple)</span>
+      <span class="profile-chip">Cat-friendly</span>
+      <span class="profile-chip">Bahasa Melayu (strongest)</span>
+      <span class="profile-chip">Basic English</span>
+      <span class="profile-chip">Indonesian</span>
+      <span class="profile-chip">Comfortable sharing a room</span>
+      <span class="profile-chip">One rest day a week</span>
+      <span class="profile-chip">Available from end June 2026</span>
+    </div>
+
+    <div class="profile-note">
+      <p><strong>Language:</strong> Bahasa Melayu is her strongest language and where she's most herself. She also gets by in basic English &mdash; but she'd be most at home, and most effective, in a household where Malay is&nbsp;spoken.</p>
+    </div>
+
+    <div class="profile-note">
+      <p><strong>Religion:</strong> Kartika is Muslim. She doesn't eat pork herself but is comfortable preparing it for the&nbsp;family.</p>
+    </div>
+
+    <p class="profile-foot">Full employment history available to interested families, with Kartika's&nbsp;consent.</p>
+
+  </div>
+</section>
+
+<!-- ═══ ASK ABOUT KARTIKA ═══ -->
+<section class="profile-ask">
+  <div class="profile-ask-inner">
+
+    <span class="profile-ask-kicker">Interested?</span>
+    <h2 class="profile-ask-h">Ask about&nbsp;Kartika</h2>
+    <p class="profile-ask-sub">Tell us a little about your household and we'll be in touch within 1&ndash;2 business&nbsp;days. We'll only move forward if it feels like a genuine&nbsp;fit.</p>
+
+    <form id="form-ask" action="https://formspree.io/f/mredjvwg" method="POST">
+      <!-- Hidden field: tells you which profile triggered the form -->
+      <input type="hidden" name="helper-name" value="Kartika S."/>
+      <input type="hidden" name="_subject" value="Helper Circle — Interest in Kartika S."/>
+
+      <div class="ask-field">
+        <label for="ask-name">Your name</label>
+        <input type="text" id="ask-name" name="name" required placeholder="Jane Tan" autocomplete="name"/>
+      </div>
+
+      <div class="ask-field">
+        <label for="ask-email">Email</label>
+        <input type="email" id="ask-email" name="email" required placeholder="you@email.com" autocomplete="email"/>
+      </div>
+
+      <div class="ask-field">
+        <label for="ask-phone">Phone <span class="ask-field-opt">(optional, but helps)</span></label>
+        <input type="tel" id="ask-phone" name="phone" placeholder="+65 9123 4567" autocomplete="tel"/>
+      </div>
+
+      <div class="ask-field">
+        <label for="ask-household">Briefly, your household</label>
+        <textarea id="ask-household" name="household" rows="3" required placeholder="Who lives at home, ages, any pets, what your typical day looks like&hellip;"></textarea>
+      </div>
+
+      <div class="ask-field">
+        <label for="ask-why">Why Kartika? <span class="ask-field-opt">(optional)</span></label>
+        <textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you're hoping for&hellip;"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-green ask-submit">Send to Helper Circle</button>
+
+      <p class="ask-foot-note">We read every message personally. If Kartika seems like a fit for your household, we'll set up a short call to talk through the next&nbsp;step.</p>
+
+      <div class="ask-success" hidden>
+        <p>Thank you. We've received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p>
+      </div>
+      <div class="ask-error" hidden>
+        <p>Something didn't go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p>
+      </div>
+    </form>
+
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+
+      <p class="footer-heart">
+        Started by a Singapore family who knew there had to be a better way.
+      </p>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="browse.html">Meet Helpers</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="refer.html">Refer a Helper</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="index.html#how">How It Works</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="faq.html">FAQ</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">Contact</a>
+      </nav>
+
+      <p class="footer-aside">
+        <a href="for-families.html">For families saying goodbye to a helper &rarr;</a>
+      </p>
+
+      <div class="footer-legal-strip">
+        <span>© <span id="year"></span> Helper Circle · Singapore</span>
+        <span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<!-- Formspree AJAX submission for ask-about form -->
+<script>
+(function () {
+  var form = document.getElementById('form-ask');
+  if (!form) return;
+  var submitBtn = form.querySelector('button[type="submit"]');
+  var successEl = form.querySelector('.ask-success');
+  var errorEl = form.querySelector('.ask-error');
+  var fields = form.querySelectorAll('.ask-field');
+  var noteEl = form.querySelector('.ask-foot-note');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.dataset.originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending\u2026';
+    }
+    if (errorEl) errorEl.hidden = true;
+
+    var data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(function (res) {
+        if (res.ok) {
+          fields.forEach(function (f) { f.style.display = 'none'; });
+          if (submitBtn) submitBtn.style.display = 'none';
+          if (noteEl) noteEl.style.display = 'none';
+          if (successEl) successEl.hidden = false;
+        } else {
+          throw new Error('Form submission failed');
+        }
+      })
+      .catch(function () {
+        if (errorEl) errorEl.hidden = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = submitBtn.dataset.originalText || 'Send to Helper Circle';
+        }
+      });
+  });
+})();
+</script>
+</body>
+</html>

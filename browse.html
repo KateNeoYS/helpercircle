@@ -93,6 +93,31 @@
     .circle-more a:hover {
       border-bottom-color: var(--clr-primary);
     }
+
+    /* On-card status for helpers who've joined a new family.
+       Sits in the slot the "Referral verified" tier badge used to occupy —
+       same sage pill rhythm, but a calm dot instead of a checkmark.
+       The status itself is the signal; trust rests on the named referrer. */
+    .preview-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 4px 11px;
+      margin-bottom: 10px;
+      background: rgba(44, 138, 110, 0.10);
+      color: var(--clr-primary, #2C8A6E);
+      border-radius: var(--radius-full, 999px);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    .preview-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      flex: 0 0 6px;
+    }
   </style>
   <!-- Vercel Web Analytics -->
   <script>
@@ -147,11 +172,10 @@
 -->
 
 
-<!-- ─── Helpers in the circle ─── -->
-<!-- Each card is a teaser that links through to the helper's full profile page.
-     When we have more than one helper, this section becomes a grid. For now,
-     a single card sits centered. The "Preview — illustrative example" badge is
-     gone — these are real, vouched-for helpers. -->
+<!-- ─── In the circle right now (live availability) ─── -->
+<!-- Helpers currently available appear here as cards linking to their profiles.
+     Empty for now — Kartika has joined a new family and moved to the section
+     below. The "More to come" line carries the empty state. -->
 <section class="format-section">
   <div class="wrap">
 
@@ -161,11 +185,33 @@
       <p class="format-sub">A small number, each one personally&nbsp;referred.</p>
     </div>
 
-    <!-- Kartika's card — links through to her full profile -->
+    <!-- Editorial follow-up: signals the small-by-design nature without inventory tone -->
+    <p class="circle-more">
+      More to come, as families share their helpers with&nbsp;us. If you know a good helper looking for her next home &mdash; <a href="refer.html">refer her&nbsp;&rarr;</a>
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ─── Helpers who've joined new families ─── -->
+<!-- Read-only record cards. A helper appears here once she's joined a new
+     family through the circle. Her card links through to her (now form-free)
+     profile, which stays up as a record. -->
+<section class="format-section">
+  <div class="wrap">
+
+    <div class="format-hdr">
+      <div class="kicker">The circle, continued</div>
+      <h2 class="h2">Helpers who've joined new&nbsp;families</h2>
+      <p class="format-sub">A quiet record of those introduced to their next family through&nbsp;us.</p>
+    </div>
+
+    <!-- Kartika's card — moved here on joining a new family. Links to her profile. -->
     <div class="preview-card-wrap">
 
-      <a href="profile-kartika.html" class="preview-card-link" aria-label="Read Kartika's full profile">
-        <article class="preview-card preview-card--live" aria-label="Kartika S. — referred helper">
+      <a href="profile-kartika.html" class="preview-card-link" aria-label="Read Kartika's profile">
+        <article class="preview-card preview-card--live" aria-label="Kartika S. — joined a new family">
 
           <div class="preview-top">
             <div class="preview-photo-slot preview-photo-slot--live" aria-hidden="true">
@@ -173,12 +219,9 @@
             </div>
 
             <div class="preview-meta">
-              <div class="preview-tier">
-                <svg width="12" height="13" viewBox="0 0 12 13" fill="none" aria-hidden="true">
-                  <path d="M6 1L2 2.5v4c0 2.8 1.7 5 4 5.5 2.3-.5 4-2.7 4-5.5v-4L6 1z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
-                  <path d="M4 6.5l1.5 1.5L8 5.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span>Referral verified</span>
+              <div class="preview-status">
+                <span class="preview-status-dot" aria-hidden="true"></span>
+                <span>Joined a new family &middot; 2 June&nbsp;2026</span>
               </div>
               <h3 class="preview-name">Kartika <span class="preview-initial">S.</span></h3>
               <p class="preview-line">Indonesian &middot; Elderly care &amp;&nbsp;household</p>
@@ -186,10 +229,10 @@
           </div>
 
           <div class="preview-section">
-            <p class="preview-summary">Sincere, calm, and quietly very good at her work. Currently caring for an elderly family member, available from end&nbsp;June.</p>
+            <p class="preview-summary">Sincere, calm, and quietly very good at her&nbsp;work.</p>
             <blockquote class="preview-quote">
               "She follows the schedule and asks when she doesn't understand &mdash; she never guesses her way through."
-              <cite>&mdash; Sheila, her current employer</cite>
+              <cite>&mdash; Sheila, her previous employer</cite>
             </blockquote>
           </div>
 
@@ -197,21 +240,15 @@
             <span class="preview-chip">Elderly care</span>
             <span class="preview-chip">Household</span>
             <span class="preview-chip">Bahasa Melayu</span>
-            <span class="preview-chip">Available end June</span>
           </div>
 
           <div class="preview-cta-row">
-            <span class="preview-cta">Read her full profile &rarr;</span>
+            <span class="preview-cta">Read her profile &rarr;</span>
           </div>
 
         </article>
       </a>
     </div>
-
-    <!-- Editorial follow-up: signals the small-by-design nature without inventory tone -->
-    <p class="circle-more">
-      More to come, as families share their helpers with&nbsp;us. If you know a good helper looking for her next home &mdash; <a href="refer.html">refer her&nbsp;&rarr;</a>
-    </p>
 
   </div>
 </section>

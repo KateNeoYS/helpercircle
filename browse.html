@@ -118,6 +118,143 @@
       background: currentColor;
       flex: 0 0 6px;
     }
+
+    /* ═══════════════════════════════════════════════════════
+       TRUST-FIRST REDESIGN
+       Compact hero → proof (success card) → availability → how it works.
+       Built on existing tokens; no styles.css changes.
+       ═══════════════════════════════════════════════════════ */
+
+    /* Compact, trust-led hero — replaces the tall two-column .browse-hero.
+       Three qualitative trust pillars instead of vanity metrics. */
+    .bhero {
+      background: var(--clr-cream);
+      padding: 60px 0 52px;
+      border-bottom: 1px solid var(--clr-border-warm);
+      text-align: center;
+    }
+    .bhero-inner { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    .bhero-hl {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: clamp(2.2rem, 5vw, 3.1rem);
+      letter-spacing: -0.012em;
+      line-height: 1.05;
+      color: var(--clr-ink, #1F2A24);
+      margin: 0 0 14px;
+      text-wrap: balance;
+    }
+    .bhero-sub {
+      font-size: 1.08rem;
+      line-height: 1.6;
+      color: var(--clr-text-muted);
+      max-width: 520px;
+      margin: 0 auto 26px;
+      text-wrap: balance;
+    }
+    .bhero-pillars {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 28px;
+    }
+    .bhero-pillar {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--clr-text-2, #2A2926);
+      background: var(--clr-white);
+      border: 1px solid var(--clr-border-warm);
+      border-radius: 999px;
+      padding: 9px 16px;
+    }
+    .bhero-pillar-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--clr-primary); flex: 0 0 7px;
+    }
+    .bhero-cta { margin: 0; }
+
+    /* Tighter section rhythm (reduce page whitespace) */
+    .section-tight { padding: 56px 0 56px; }
+    .format-hdr-tight { margin-bottom: 36px; }
+
+    /* Featured success card — slightly narrower, recommendation emphasized */
+    .success-card-wrap { max-width: 480px; }
+    .referred-by {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .07em; text-transform: uppercase;
+      color: var(--clr-primary);
+      margin: 0 0 8px;
+    }
+    .referred-by-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--clr-primary); flex: 0 0 6px;
+    }
+    .preview-card--feature .preview-quote {
+      border-left-color: var(--clr-primary);
+      font-size: 1rem;
+    }
+    .preview-card--feature .preview-quote cite { color: var(--clr-primary); }
+
+    /* Empty-state card for current availability — optimistic, not bare */
+    .empty-state {
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+      background: var(--clr-cream);
+      border: 1px solid var(--clr-border-warm);
+      border-radius: var(--radius-xl, 20px);
+      padding: 40px 32px 36px;
+    }
+    .empty-state-icon {
+      color: var(--clr-primary);
+      opacity: .5;
+      margin-bottom: 16px;
+      line-height: 0;
+    }
+    .empty-state-h {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: 1.5rem;
+      letter-spacing: -0.006em;
+      color: var(--clr-text);
+      margin: 0 0 10px;
+      text-wrap: balance;
+    }
+    .empty-state-p {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--clr-text-muted);
+      max-width: 380px;
+      margin: 0 auto 22px;
+      text-wrap: balance;
+    }
+    .empty-state-cta { margin: 0; }
+    .empty-state-alt {
+      margin: 16px 0 0;
+      font-size: .85rem;
+      color: var(--clr-text-muted);
+    }
+    .empty-state-alt a {
+      color: var(--clr-primary);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color .15s;
+    }
+    .empty-state-alt a:hover { border-bottom-color: var(--clr-primary); }
+
+    @media (max-width: 640px) {
+      .bhero { padding: 44px 0 40px; }
+      .bhero-pillars { gap: 8px; }
+      .bhero-pillar { font-size: .84rem; padding: 8px 13px; }
+      .section-tight { padding: 44px 0 44px; }
+      .empty-state { padding: 32px 22px 30px; }
+    }
   </style>
   <!-- Vercel Web Analytics -->
   <script>
@@ -149,69 +286,42 @@
 </header>
 
 <!-- ═══ BROWSE HERO ═══ -->
-<section class="browse-hero">
-  <div class="wrap browse-hero-inner">
-    <div class="browse-hero-text">
-      <h1 class="browse-hl">Helpers, referred by&nbsp;families</h1>
-      <p class="browse-sub">Each profile is verified individually before it goes&nbsp;live.</p>
-      <p class="browse-hero-meta">New referrals come from families passing on a helper they trust &mdash; never in bulk, never&nbsp;recruited.</p>
+<!-- Compact, trust-first. Qualitative trust pillars (true at any count) stand in
+     for vanity metrics; the success card below carries the proof it works. -->
+<section class="bhero">
+  <div class="bhero-inner">
+    <h1 class="bhero-hl">A small circle of trusted&nbsp;referrals</h1>
+    <p class="bhero-sub">Every helper here comes through a family recommendation &mdash; never bulk&nbsp;recruitment.</p>
+    <div class="bhero-pillars">
+      <span class="bhero-pillar"><span class="bhero-pillar-dot" aria-hidden="true"></span>Family-referred</span>
+      <span class="bhero-pillar"><span class="bhero-pillar-dot" aria-hidden="true"></span>Personally verified</span>
+      <span class="bhero-pillar"><span class="bhero-pillar-dot" aria-hidden="true"></span>No agency fees</span>
     </div>
-    <aside class="browse-hero-note" aria-hidden="true">
-      <p class="browse-hero-note-body">"Every helper here came to us through a family who knew her&nbsp;personally."</p>
-      <p class="browse-hero-note-by">&mdash; Helper Circle</p>
-    </aside>
+    <a href="refer.html" class="btn btn-green bhero-cta">Refer a Helper</a>
   </div>
 </section>
 
 <!-- ═══ BROWSE BODY ═══ -->
-<!-- Structure note for future expansion:
-     When real helper profiles exist, replace the .preview-profile-section
-     below with a .hcard-grid (already in styles.css, used previously).
-     Keep all other sections (.format-section, .process-section, .pathways-section)
-     as supporting context — they remain valuable once inventory exists.
--->
+<!-- Order is deliberate: proof (success) → current availability (empty state)
+     → how it works → ways to stay in touch. Trust and outcomes lead; inventory
+     never opens the page. When more helpers exist, each section becomes a grid. -->
 
 
-<!-- ─── In the circle right now (live availability) ─── -->
-<!-- Helpers currently available appear here as cards linking to their profiles.
-     Empty for now — Kartika has found her next family and moved to the section
-     below. The "More to come" line carries the empty state. -->
-<section class="format-section">
+<!-- ─── Success: helpers who've found their next family (proof, shown first) ─── -->
+<section class="format-section section-tight">
   <div class="wrap">
 
-    <div class="format-hdr">
-      <div class="kicker">In the circle</div>
-      <h2 class="h2">In the circle right&nbsp;now</h2>
-      <p class="format-sub">A small number, each one personally&nbsp;referred.</p>
-    </div>
-
-    <!-- Editorial follow-up: signals the small-by-design nature without inventory tone -->
-    <p class="circle-more">
-      More to come, as families share their helpers with&nbsp;us. If you know a good helper looking for her next home &mdash; <a href="refer.html">refer her&nbsp;&rarr;</a>
-    </p>
-
-  </div>
-</section>
-
-
-<!-- ─── Helpers who've found their next family ─── -->
-<!-- Read-only record cards. A helper appears here once she's found her next
-     family through the circle — whether she's joining soon or already moved.
-     Her card links through to her (now form-free) profile, kept as a record. -->
-<section class="format-section">
-  <div class="wrap">
-
-    <div class="format-hdr">
+    <div class="format-hdr format-hdr-tight">
       <div class="kicker">The circle, continued</div>
       <h2 class="h2">Helpers who've found their next&nbsp;family</h2>
-      <p class="format-sub">A quiet record of those introduced to their next family through&nbsp;us.</p>
+      <p class="format-sub">A quiet record of helpers introduced to their next family through Helper&nbsp;Circle.</p>
     </div>
 
-    <!-- Kartika's card — moved here on joining a new family. Links to her profile. -->
-    <div class="preview-card-wrap">
-
+    <!-- Kartika — the first referral introduced to a new family. Links to her profile.
+         Featured treatment: narrower card, the employer recommendation emphasized. -->
+    <div class="preview-card-wrap success-card-wrap">
       <a href="profile-kartika.html" class="preview-card-link" aria-label="Read Kartika's profile">
-        <article class="preview-card preview-card--live" aria-label="Kartika S. — joining a new family">
+        <article class="preview-card preview-card--live preview-card--feature" aria-label="Kartika S. — joining a new family">
 
           <div class="preview-top">
             <div class="preview-photo-slot preview-photo-slot--live" aria-hidden="true">
@@ -230,9 +340,10 @@
 
           <div class="preview-section">
             <p class="preview-summary">Sincere, calm, and quietly very good at her&nbsp;work.</p>
+            <p class="referred-by"><span class="referred-by-dot" aria-hidden="true"></span>Referred by Sheila, her previous&nbsp;employer</p>
             <blockquote class="preview-quote">
               "She follows the schedule and asks when she doesn't understand &mdash; she never guesses her way through."
-              <cite>&mdash; Sheila, her previous employer</cite>
+              <cite>&mdash; Sheila</cite>
             </blockquote>
           </div>
 
@@ -254,33 +365,62 @@
 </section>
 
 
-<!-- ─── How a referral becomes a profile — editorial timeline ─── -->
+<!-- ─── In the circle right now — current availability (empty state) ─── -->
+<!-- Optimistic, community-framed empty state instead of dead whitespace.
+     Primary CTA refers (supply-side priority); a quiet secondary link sends
+     families looking to hire to the notify form below. -->
+<section class="format-section section-tight">
+  <div class="wrap">
+
+    <div class="format-hdr format-hdr-tight">
+      <div class="kicker">In the circle right now</div>
+      <h2 class="h2">Looking for their next&nbsp;family</h2>
+    </div>
+
+    <div class="empty-state">
+      <div class="empty-state-icon" aria-hidden="true">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2.5 5" stroke-linecap="round"/>
+          <path d="M20 14v12M14 20h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p class="empty-state-h">The circle is quiet right&nbsp;now</p>
+      <p class="empty-state-p">Helper Circle is intentionally small. New referrals arrive when a family passes on a helper they trust &mdash; never in&nbsp;bulk.</p>
+      <a href="refer.html" class="btn btn-green empty-state-cta">Refer a Helper</a>
+      <p class="empty-state-alt">Looking to hire? <a href="#form-notify">Get a quiet note when someone new&nbsp;joins</a></p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─── How it works — adapted from the existing journey timeline (no duplicate section) ─── -->
 <section class="journey-section">
   <div class="wrap">
 
     <div class="journey-hdr">
       <div class="kicker">How it works</div>
-      <h2 class="h2 journey-h">Every profile starts as a&nbsp;conversation</h2>
+      <h2 class="h2 journey-h">From one family to the&nbsp;next</h2>
     </div>
 
-    <ol class="journey-timeline" aria-label="How a referral becomes a profile">
+    <ol class="journey-timeline" aria-label="How a referral works">
 
       <li class="journey-step">
         <div class="journey-dot" aria-hidden="true"><span>1</span></div>
-        <h3 class="journey-step-h">A family reaches&nbsp;out</h3>
-        <p class="journey-step-p">About a helper they've worked&nbsp;with.</p>
+        <h3 class="journey-step-h">A family refers a&nbsp;helper</h3>
+        <p class="journey-step-p">Someone they've worked with and&nbsp;trust.</p>
       </li>
 
       <li class="journey-step">
         <div class="journey-dot" aria-hidden="true"><span>2</span></div>
-        <h3 class="journey-step-h">We verify and&nbsp;listen</h3>
-        <p class="journey-step-p">To both sides, in their own&nbsp;words.</p>
+        <h3 class="journey-step-h">We verify the&nbsp;referral</h3>
+        <p class="journey-step-p">Speaking with both sides, in their own&nbsp;words.</p>
       </li>
 
       <li class="journey-step">
         <div class="journey-dot" aria-hidden="true"><span>3</span></div>
-        <h3 class="journey-step-h">Her profile goes&nbsp;live</h3>
-        <p class="journey-step-p">Quietly. When she's ready to&nbsp;meet.</p>
+        <h3 class="journey-step-h">The new family connects&nbsp;directly</h3>
+        <p class="journey-step-p">No agency in the middle &mdash; you talk&nbsp;directly.</p>
       </li>
 
     </ol>

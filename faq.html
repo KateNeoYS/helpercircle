@@ -297,6 +297,103 @@
     }
     .faq-a p + p { margin-top: 14px; }
 
+    /* Peach em-dash list inside answers */
+    .faq-a .faq-list {
+      list-style: none;
+      margin: 14px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 9px;
+      max-width: 68ch;
+    }
+    .faq-a .faq-list li {
+      position: relative;
+      padding-left: 22px;
+      font-size: 0.97rem;
+      line-height: 1.6;
+      color: var(--clr-text-muted, #5A6661);
+      text-wrap: pretty;
+    }
+    .faq-a .faq-list li::before {
+      content: '\2014';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #C66740;
+      font-weight: 500;
+    }
+
+    /* Small muted in-answer note */
+    .faq-note {
+      margin-top: 16px;
+      padding: 14px 16px;
+      background: rgba(232, 130, 92, 0.06);
+      border: 1px solid rgba(232, 130, 92, 0.18);
+      border-radius: 12px;
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+      max-width: 68ch;
+    }
+    .faq-note .faq-note-icon {
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: #C66740;
+    }
+    .faq-note p {
+      margin: 0 !important;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--clr-text, #2A2926);
+      max-width: none;
+    }
+    .faq-note p strong { color: var(--clr-ink, #1F2A24); font-weight: 600; }
+
+    /* Cost breakdown — editorial rows, not a spreadsheet */
+    .faq-cost {
+      margin-top: 16px;
+      border: 1px solid rgba(31, 42, 36, 0.09);
+      border-radius: 14px;
+      overflow: hidden;
+      max-width: 68ch;
+    }
+    .faq-cost-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(31, 42, 36, 0.06);
+    }
+    .faq-cost-row:last-child { border-bottom: none; }
+    .faq-cost-row.is-head { background: rgba(44, 138, 110, 0.05); }
+    .faq-cost-row.is-own { background: rgba(44, 138, 110, 0.04); }
+    .faq-cost-item {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--clr-text, #2A2926);
+      line-height: 1.45;
+    }
+    .faq-cost-meta {
+      font-size: 0.9rem;
+      color: var(--clr-text-muted, #5A6661);
+      text-align: right;
+      line-height: 1.45;
+      flex-shrink: 0;
+      max-width: 54%;
+    }
+    .faq-cost-row.is-head .faq-cost-item,
+    .faq-cost-row.is-head .faq-cost-meta {
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--clr-primary, #2C8A6E);
+    }
+
+    /* Taller open state for long answers (insurance, cost table) */
+    .faq-item.is-open.faq-item--tall .faq-a { max-height: 1900px; }
+
     /* ── EDITORIAL TRUST CALLOUTS ─────────────── */
     .faq-callout {
       max-width: 820px;
@@ -395,6 +492,9 @@
       .faq-callout-inner { padding: 24px 22px; }
       .faq-callout-text { font-size: 1rem; }
       .faq-cta-actions .btn { width: 100%; max-width: 280px; }
+      .faq-cost-row:not(.is-head) { flex-direction: column; gap: 3px; align-items: flex-start; padding: 12px 15px; }
+      .faq-cost-row:not(.is-head) .faq-cost-meta { text-align: left; max-width: 100%; }
+      .faq-note { padding: 13px 14px; }
     }
   </style>
   <!-- Vercel Web Analytics -->
@@ -655,7 +755,15 @@
             <span class="faq-q-hint">Government and insurance costs are billed at cost, not marked up.</span>
           </button>
           <div class="faq-a">
-            <p>External government or third-party costs such as MOM permit fees, insurance premiums, medical exams, and security bond requirements are charged separately.</p>
+            <p>The Helper Circle admin support fee covers our guidance and documentation support only. A few costs are paid directly to third parties and are not part of our fee:</p>
+            <ul class="faq-list">
+              <li>MOM Work Permit application fee</li>
+              <li>MOM Work Permit issuance fee</li>
+              <li>FDW insurance</li>
+              <li>Security bond (if applicable)</li>
+              <li>Helper&rsquo;s salary and monthly levy</li>
+            </ul>
+            <p>These are billed at cost &mdash; we never mark them up.</p>
           </div>
         </div>
 
@@ -663,6 +771,65 @@
           <button class="faq-q" type="button" aria-expanded="false">Why are insurance and MOM fees charged separately?</button>
           <div class="faq-a">
             <p>These costs vary depending on permit requirements and insurance providers. Separating them keeps pricing transparent and avoids hidden markups.</p>
+          </div>
+        </div>
+
+        <div class="faq-item faq-item--tall">
+          <button class="faq-q" type="button" aria-expanded="false">
+            How do I purchase FDW insurance and a security bond?
+            <span class="faq-q-hint">Usually one package &mdash; and the bond is often already included.</span>
+          </button>
+          <div class="faq-a">
+            <p>Before a Work Permit can be issued, employers are required to put three things in place:</p>
+            <ul class="faq-list">
+              <li>Medical insurance</li>
+              <li>Personal accident insurance</li>
+              <li>A security bond (for non-Malaysian helpers)</li>
+            </ul>
+            <p>In practice you don&rsquo;t buy these one by one. Most insurers offer a single foreign domestic worker (FDW) insurance package that already includes the security bond &mdash; so it&rsquo;s one purchase, not three.</p>
+            <p>You&rsquo;re free to use any MOM-compliant insurer. Commonly used providers in Singapore include Income, AIA, Great Eastern, HL Assurance and MSIG. Helper Circle doesn&rsquo;t receive commissions from any insurer, so the choice is entirely yours.</p>
+            <p>Once your insurance is in place, we can guide you through the MOM transfer application and Work Permit issuance, step by step.</p>
+            <div class="faq-note">
+              <svg class="faq-note-icon" width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 11v5M12 8h.01" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <p><strong>Good to know:</strong> Malaysian helpers don&rsquo;t require a security bond. For helpers of other nationalities, the bond is usually arranged by the insurer as part of the FDW insurance package &mdash; not something you arrange on your&nbsp;own.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item faq-item--tall">
+          <button class="faq-q" type="button" aria-expanded="false">
+            What costs should I expect when hiring a transfer helper?
+            <span class="faq-q-hint">A quick view of every cost &mdash; and who you pay.</span>
+          </button>
+          <div class="faq-a">
+            <p>Here&rsquo;s the full picture, so there are no surprises later. Only the first line is paid to Helper Circle &mdash; everything else goes directly to MOM, your insurer, or your helper.</p>
+            <div class="faq-cost">
+              <div class="faq-cost-row is-head">
+                <span class="faq-cost-item">Cost</span>
+                <span class="faq-cost-meta">Paid to / notes</span>
+              </div>
+              <div class="faq-cost-row is-own">
+                <span class="faq-cost-item">Helper Circle admin support</span>
+                <span class="faq-cost-meta">S$499 once &middot; only if both sides agree to proceed</span>
+              </div>
+              <div class="faq-cost-row">
+                <span class="faq-cost-item">MOM Work Permit fees (application + issuance)</span>
+                <span class="faq-cost-meta">Paid to MOM &middot; set by MOM</span>
+              </div>
+              <div class="faq-cost-row">
+                <span class="faq-cost-item">FDW insurance (security bond included where applicable)</span>
+                <span class="faq-cost-meta">Paid to your insurer &middot; varies</span>
+              </div>
+              <div class="faq-cost-row">
+                <span class="faq-cost-item">Monthly salary</span>
+                <span class="faq-cost-meta">Paid to your helper &middot; agreed directly</span>
+              </div>
+              <div class="faq-cost-row">
+                <span class="faq-cost-item">Monthly FDW levy</span>
+                <span class="faq-cost-meta">Paid to MOM &middot; concessionary rates for eligible households</span>
+              </div>
+            </div>
+            <p>We don&rsquo;t mark up any of these. The only fee we charge is our flat admin support&nbsp;fee.</p>
           </div>
         </div>
 

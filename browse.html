@@ -182,6 +182,7 @@
 
     /* Featured success card — slightly narrower, recommendation emphasized */
     .success-card-wrap { max-width: 480px; }
+    .available-card-wrap { max-width: 480px; }
     .referred-by {
       display: flex; align-items: center; gap: 8px;
       font-size: .72rem; font-weight: 700;
@@ -378,17 +379,48 @@
       <h2 class="h2">Looking for their next&nbsp;family</h2>
     </div>
 
-    <div class="empty-state">
-      <div class="empty-state-icon" aria-hidden="true">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2.5 5" stroke-linecap="round"/>
-          <path d="M20 14v12M14 20h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <p class="empty-state-h">The circle is quiet right&nbsp;now</p>
-      <p class="empty-state-p">Helper Circle is intentionally small. New referrals arrive when a family passes on a helper they trust &mdash; never in&nbsp;bulk.</p>
-      <a href="refer.html" class="btn btn-green empty-state-cta">Refer a Helper</a>
-      <p class="empty-state-alt">Looking to hire? <a href="#looking">Tell us what you're looking&nbsp;for</a></p>
+    <!-- Amie — currently looking for her next family. Mirrors Kartika's card pattern,
+         with availability status in place of the "joining a new family" status. -->
+    <div class="preview-card-wrap available-card-wrap">
+      <a href="profile-amie.html" class="preview-card-link" aria-label="Read Amie's profile">
+        <article class="preview-card preview-card--live preview-card--feature" aria-label="Amie — looking for her next family">
+
+          <div class="preview-top">
+            <div class="preview-photo-slot preview-photo-slot--live" aria-hidden="true">
+              <img src="images/amie.jpg" alt="" class="preview-photo-img"/>
+            </div>
+
+            <div class="preview-meta">
+              <div class="preview-status">
+                <span class="preview-status-dot" aria-hidden="true"></span>
+                <span>Available from end July&nbsp;2026</span>
+              </div>
+              <h3 class="preview-name">Amie</h3>
+              <p class="preview-line">Filipino &middot; 44 &middot; Childcare, household &amp;&nbsp;cooking</p>
+            </div>
+          </div>
+
+          <div class="preview-section">
+            <p class="preview-summary">Trustworthy, capable, and quietly steady across 8 years with her current&nbsp;family.</p>
+            <p class="referred-by"><span class="referred-by-dot" aria-hidden="true"></span>Referred by Anne, her current employer of 8&nbsp;years</p>
+            <blockquote class="preview-quote">
+              "While not naturally demonstrative, Amie is genuinely caring and dependable &mdash; she shows her concern through practical&nbsp;actions."
+              <cite>&mdash; Anne</cite>
+            </blockquote>
+          </div>
+
+          <div class="preview-chips">
+            <span class="preview-chip">Childcare (3 to teens)</span>
+            <span class="preview-chip">Western cooking</span>
+            <span class="preview-chip">17 years in SG</span>
+          </div>
+
+          <div class="preview-cta-row">
+            <span class="preview-cta">Read her profile &rarr;</span>
+          </div>
+
+        </article>
+      </a>
     </div>
 
   </div>

@@ -79,6 +79,17 @@
       padding: 0 14px;
     }
 
+    /* Real photo (when supplied) */
+    .profile-photo {
+      flex: 0 0 180px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
     .profile-hero-text {
       flex: 1 1 320px;
       min-width: 0;
@@ -290,12 +301,17 @@
     /* ─── MOBILE ADJUSTMENTS ─── */
     @media (max-width: 640px) {
       .profile-hero { padding: 40px 0 36px; }
-      .profile-hero-inner { gap: 24px; }
-      .profile-photo-placeholder {
+      .profile-hero-inner {
+        gap: 24px;
+        justify-content: center;
+      }
+      .profile-photo-placeholder,
+      .profile-photo {
         flex: 0 0 140px;
         width: 140px;
         height: 140px;
         margin: 0 auto;
+        align-self: center;
       }
       .profile-hero-text { text-align: center; }
       .profile-verified-line { text-align: left; }

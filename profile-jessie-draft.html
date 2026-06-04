@@ -316,12 +316,17 @@
     /* ─── MOBILE ADJUSTMENTS ─── */
     @media (max-width: 640px) {
       .profile-hero { padding: 40px 0 36px; }
-      .profile-hero-inner { gap: 24px; }
-      .profile-photo-placeholder {
+      .profile-hero-inner {
+        gap: 24px;
+        justify-content: center;
+      }
+      .profile-photo-placeholder,
+      .profile-photo {
         flex: 0 0 140px;
         width: 140px;
         height: 140px;
         margin: 0 auto;
+        align-self: center;
       }
       .profile-hero-text { text-align: center; }
       .profile-verified-line { text-align: left; }

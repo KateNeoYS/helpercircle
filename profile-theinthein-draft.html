@@ -154,6 +154,28 @@
       font-style: italic;
     }
 
+    /* Status pill — for "joined a new family" record */
+    .profile-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--clr-primary-bg);
+      color: var(--clr-primary);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: .92rem;
+      font-weight: 600;
+      letter-spacing: .005em;
+      margin-top: 4px;
+    }
+    .profile-status svg { flex-shrink: 0; }
+    .profile-status-meta {
+      font-size: .87rem;
+      color: var(--clr-text-muted);
+      font-style: italic;
+      margin-top: 10px;
+    }
+
     /* ─── AT A GLANCE ─── */
     .profile-glance {
       padding: 36px 0 12px;
@@ -311,7 +333,7 @@
 <div class="draft-banner">
   <div class="draft-banner-inner">
     <strong>DRAFT — NOT PUBLISHED</strong><br>
-    This is a preview of how Thein Thein's profile would appear, for Hui Cai's review only. The page is unlisted, unsearchable, and not linked from the main site. Once Hui Cai and Thein Thein have both confirmed, we make a real version live.
+    This is a preview of how Thein Thein's referral record would appear on Helper Circle, for Hui Cai's review only. Thein Thein has joined a new family — this page is a verified record of Hui Cai's referral, not a listing. The page is unlisted, unsearchable, and not linked from the main site. Once Hui Cai and Thein Thein have both confirmed, it goes live as a record.
   </div>
 </div>
 
@@ -333,15 +355,21 @@
         <p class="profile-descriptor">Myanmar &middot; Elderly care, household &amp;&nbsp;cooking</p>
 
         <p class="profile-verified-line">
-          <strong>Referred by Hui Cai</strong>, her current employer since November&nbsp;2025. We've spoken with Hui Cai directly about her&nbsp;work.
+          <strong>Referred by Hui Cai</strong>, her employer from November 2025 to July 2026. We've spoken with Hui Cai directly about her&nbsp;work.
         </p>
 
         <p class="profile-quote">"She started out with Chinese employers so she cooks Chinese best, but I've taught her Western, Vietnamese, Indonesian recipes too. She's been a valued member of our&nbsp;household."</p>
-        <p class="profile-quote-attr">&mdash; Hui Cai, her current employer</p>
+        <p class="profile-quote-attr">&mdash; Hui Cai, her previous employer</p>
 
-        <div class="profile-hero-cta">
-          <span class="btn-disabled">Ask about Thein Thein</span>
-          <span class="profile-hero-cta-meta">CTA goes live once Thein Thein&nbsp;confirms</span>
+        <div>
+          <div class="profile-status">
+            <svg width="14" height="14" viewBox="0 0 12 13" fill="none" aria-hidden="true">
+              <path d="M6 1L2 2.5v4c0 2.8 1.7 5 4 5.5 2.3-.5 4-2.7 4-5.5v-4L6 1z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round" fill="none"/>
+              <path d="M4 6.5l1.5 1.5L8 5.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Joined a new family &middot; [joining date &mdash; to confirm]</span>
+          </div>
+          <p class="profile-status-meta">A verified record of Hui Cai's referral. Not currently&nbsp;available.</p>
         </div>
       </div>
 
@@ -373,18 +401,18 @@
     <div class="profile-facts-grid">
 
       <div class="profile-fact">
-        <p class="profile-fact-label">Currently</p>
-        <p class="profile-fact-value">With Hui Cai's family since November&nbsp;2025</p>
+        <p class="profile-fact-label">Most recent role</p>
+        <p class="profile-fact-value">With Hui Cai's family from November 2025 to July&nbsp;2026</p>
       </div>
 
       <div class="profile-fact">
-        <p class="profile-fact-label">Available from</p>
-        <p class="profile-fact-value"><strong>1 July 2026</strong></p>
+        <p class="profile-fact-label">Joined a new family</p>
+        <p class="profile-fact-value"><em>[joining date — to confirm]</em></p>
       </div>
 
       <div class="profile-fact">
-        <p class="profile-fact-label">Why she's moving on</p>
-        <p class="profile-fact-value">Hui Cai's family is moving to a smaller home and no longer needs full-time&nbsp;help</p>
+        <p class="profile-fact-label">Reason for transition</p>
+        <p class="profile-fact-value">Hui Cai's family moved to a smaller home and no longer needed full-time&nbsp;help</p>
       </div>
 
       <div class="profile-fact">
@@ -423,30 +451,31 @@
     <p class="profile-notes-sub">Written from what Hui Cai shared about working with Thein&nbsp;Thein.</p>
 
     <div class="profile-notes-prose">
-      <p>Thein Thein has been with Hui Cai's family since November 2025. She's been in Singapore for thirteen years in total, mostly with Chinese families, which is why her Chinese cooking is her strongest. Hui Cai's family is European, and over their time together Hui Cai has taught her Western, Vietnamese, and Indonesian recipes as well &mdash; she's open to learning and has expanded her repertoire&nbsp;happily.</p>
+      <p>Thein Thein was with Hui Cai's family in Singapore from November 2025 to July 2026. She's been in Singapore for thirteen years in total, mostly with Chinese families, which is why her Chinese cooking is her strongest. Hui Cai's family is European, and over their time together Hui Cai taught her Western, Vietnamese, and Indonesian recipes as well &mdash; she's open to learning and expanded her repertoire&nbsp;happily.</p>
 
-      <p>She manages household chores independently and keeps the home clean and organised. She enjoys looking after children aged three and above &mdash; in Hui Cai's home, she accompanies the daughter to enrichment classes when Hui Cai isn't around, though Hui Cai notes she prefers to do most of the direct childcare herself.</p>
+      <p>She managed household chores independently and kept the home clean and organised. She enjoys looking after children aged three and above &mdash; in Hui Cai's home, she accompanied the daughter to enrichment classes when Hui Cai wasn't around, though Hui Cai noted she preferred to do most of the direct childcare herself.</p>
 
-      <p>From her thirteen years in Singapore, she has experience caring for elderly family members in earlier&nbsp;households.</p>
+      <p>From her thirteen years in Singapore, Thein Thein has experience caring for elderly family members in earlier&nbsp;households.</p>
 
-      <p>Hui Cai is letting her go because the family is moving to a much smaller home and their daughter is older &mdash; they no longer need full-time help. As Hui Cai puts it: <em>"I hope she finds a good family where she fits in well."</em></p>
+      <p>Hui Cai let her go because the family was moving to a much smaller home and their daughter was older &mdash; they no longer needed full-time help. As Hui Cai puts it: <em>"I hope she finds a good family where she fits in well."</em></p>
     </div>
 
-    <p class="profile-foot">Full employment history available to interested families, with Thein Thein's&nbsp;consent.</p>
+    <p class="profile-foot">This is a verified record of Hui Cai's referral, kept on Helper Circle so Thein Thein has a portable referral history. She is not currently available for&nbsp;transfer.</p>
 
   </div>
 </section>
 
 <!-- ═══ DRAFT NOTES FOR KATJA ═══ -->
 <div class="draft-notes">
-  <h3>Before we make this live</h3>
+  <h3>Before we publish this as a record</h3>
+  <p style="margin: 0 0 16px; color: var(--clr-text-2); font-size: .98rem; line-height: 1.7;">A few things to confirm before this goes live as a verified referral record:</p>
   <ul>
-    <li>Has <strong>Thein Thein herself</strong> agreed to being featured here? She'd just need to be expecting it and comfortable with the wording — happy to share this draft with her too.</li>
-    <li>Could you confirm her <strong>age</strong> and how long she's been in Singapore in total?</li>
+    <li>Has <strong>Thein Thein herself</strong> agreed to having a record on Helper Circle? Different consent from her joining our family — this one is about her name, photo, and details being on the website. Happy to share this draft with her so she can read it directly.</li>
+    <li>Does <strong>your referral wording sound right to you</strong> as it reads now? You're welcome to send me edits or a revised version in your own voice — even a few sentences are enough. The page should sound like Hui Cai, not like me.</li>
+    <li>Could you confirm <strong>Thein Thein's age</strong>, and whether the 13+ years in Singapore was mostly continuous?</li>
     <li>What <strong>languages</strong> does she speak (English level, Burmese, any Mandarin from her Chinese-family years)?</li>
-    <li>Is she <strong>comfortable around pets</strong> (cats, dogs)?</li>
-    <li>For the childcare and elderly care detail — anything specific from her past placements you've heard about that would help a next family understand her experience?</li>
-    <li>If she's comfortable, a <strong>photo</strong> would help families connect with her — only if she'd like.</li>
+    <li>If she's comfortable, a <strong>photo</strong> would help future references see her — only if she'd like.</li>
+    <li>The <strong>joining date</strong> with our family — what would you like shown on the page (or would you prefer just "July 2026")?</li>
   </ul>
 </div>
 

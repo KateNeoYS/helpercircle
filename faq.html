@@ -297,6 +297,20 @@
     }
     .faq-a p + p { margin-top: 14px; }
 
+    /* Links inside FAQ answers — read clearly as clickable */
+    .faq-a a {
+      color: var(--clr-primary, #2C8A6E);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(44, 138, 110, 0.45);
+      transition: text-decoration-color 0.15s ease, color 0.15s ease;
+    }
+    .faq-a a:hover {
+      text-decoration-color: var(--clr-primary, #2C8A6E);
+      color: #236E58;
+    }
+
     /* Peach em-dash list inside answers */
     .faq-a .faq-list {
       list-style: none;

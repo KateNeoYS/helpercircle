@@ -261,17 +261,18 @@
 
     /* ── Live profile rows: side-by-side on desktop, swipe carousel on mobile ── */
     .circle-row {
-      display: flex;
+      display: flex !important;
       flex-wrap: wrap;
       justify-content: center;
       align-items: stretch;
       gap: 24px;
+      max-width: 100%;
     }
     .circle-row .preview-card-wrap {
-      margin: 0;
-      flex: 1 1 360px;
-      max-width: 440px;
-      width: auto;
+      margin: 0 !important;
+      flex: 1 1 340px !important;
+      max-width: 440px !important;
+      width: auto !important;
     }
     .circle-row .preview-card-link { display: block; height: 100%; }
     .circle-row .preview-card { height: 100%; display: flex; flex-direction: column; }
@@ -294,8 +295,8 @@
       }
       .circle-row::-webkit-scrollbar { display: none; }
       .circle-row .preview-card-wrap {
-        flex: 0 0 86%;
-        max-width: 86%;
+        flex: 0 0 86% !important;
+        max-width: 86% !important;
         scroll-snap-align: center;
       }
       .circle-dots {

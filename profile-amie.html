@@ -21,7 +21,7 @@
 
     /* ─── HERO ─── */
     .profile-hero {
-      padding: 56px 0 48px;
+      padding: 80px 0 48px;
       background: var(--clr-white);
     }
     .profile-hero-inner {
@@ -340,7 +340,7 @@
 
     /* ─── MOBILE ADJUSTMENTS ─── */
     @media (max-width: 640px) {
-      .profile-hero { padding: 40px 0 36px; }
+      .profile-hero { padding: 56px 0 36px; }
       .profile-hero-inner {
         gap: 24px;
         justify-content: center;
@@ -362,6 +362,27 @@
   </style>
 </head>
 <body class="profile-page">
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark" aria-hidden="true"><span class="logo-hc">hc</span></div>
+      <span class="logo-text">Helper<strong>Circle</strong></span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="browse.html" class="nav-a">Meet Helpers</a>
+      <a href="refer.html" class="nav-a">Refer a Helper</a>
+      <a href="index.html#how" class="nav-a">How It Works</a>
+      <a href="faq.html" class="nav-a">FAQ</a>
+      <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
+    </nav>
+    <a href="refer.html" class="btn btn-green btn-sm hdr-cta">Refer a Helper</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
 <!-- ═══ HERO ═══ -->
 <section class="profile-hero">
@@ -546,6 +567,41 @@
   </div>
 </section>
 
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+
+      <p class="footer-heart">
+        Started by a Singapore family who knew there had to be a better way.
+      </p>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="browse.html">Meet Helpers</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="refer.html">Refer a Helper</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="index.html#how">How It Works</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="faq.html">FAQ</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">Contact</a>
+      </nav>
+
+      <p class="footer-aside">
+        <a href="for-families.html">For families saying goodbye to a helper &rarr;</a>
+      </p>
+
+      <div class="footer-legal-strip">
+        <span>© <span id="year"></span> Helper Circle · Singapore</span>
+        <span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
 <!-- Formspree AJAX submission -->
 <script>
 (function () {
@@ -593,5 +649,7 @@
 })();
 </script>
 
+<script src="script.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

@@ -258,6 +258,65 @@
       .section-tight { padding: 44px 0 44px; }
       .empty-state { padding: 32px 22px 30px; }
     }
+
+    /* ── Live profile rows: side-by-side on desktop, swipe carousel on mobile ── */
+    .circle-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: 24px;
+    }
+    .circle-row .preview-card-wrap {
+      margin: 0;
+      flex: 1 1 360px;
+      max-width: 440px;
+      width: auto;
+    }
+    .circle-row .preview-card-link { display: block; height: 100%; }
+    .circle-row .preview-card { height: 100%; display: flex; flex-direction: column; }
+    .circle-row .preview-cta-row { margin-top: auto; }
+
+    /* Swipe dots — injected by script only when a row holds 2+ cards (mobile only) */
+    .circle-dots { display: none; }
+
+    @media (max-width: 760px) {
+      .circle-row {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-padding: 0 16px;
+        padding-bottom: 14px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .circle-row::-webkit-scrollbar { display: none; }
+      .circle-row .preview-card-wrap {
+        flex: 0 0 86%;
+        max-width: 86%;
+        scroll-snap-align: center;
+      }
+      .circle-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .circle-dot {
+        width: 7px; height: 7px;
+        padding: 0; border: 0;
+        border-radius: 50%;
+        background: var(--clr-border-warm, #E0D8C9);
+        cursor: pointer;
+        transition: background .2s ease, transform .2s ease;
+      }
+      .circle-dot.is-active {
+        background: var(--clr-primary, #2C8A6E);
+        transform: scale(1.3);
+      }
+    }
   </style>
   <!-- Vercel Web Analytics -->
   <script>
@@ -321,6 +380,7 @@
 
     <!-- Kartika — the first referral introduced to a new family. Links to her profile.
          Featured treatment: narrower card, the employer recommendation emphasized. -->
+    <div class="circle-row">
     <div class="preview-card-wrap success-card-wrap">
       <a href="profile-kartika.html" class="preview-card-link" aria-label="Read Kartika's profile">
         <article class="preview-card preview-card--live preview-card--feature" aria-label="Kartika S. — joining a new family">
@@ -362,6 +422,7 @@
         </article>
       </a>
     </div>
+    </div>
 
   </div>
 </section>
@@ -380,6 +441,7 @@
     </div>
 
     <!-- Jessie Ann — currently looking for her next family. Available from 30 June. -->
+    <div class="circle-row">
     <div class="preview-card-wrap available-card-wrap">
       <a href="profile-jessie.html" class="preview-card-link" aria-label="Read Jessie Ann's profile">
         <article class="preview-card preview-card--live preview-card--feature" aria-label="Jessie Ann — looking for her next family">
@@ -464,6 +526,7 @@
 
         </article>
       </a>
+    </div>
     </div>
 
   </div>
@@ -692,6 +755,54 @@
       card.classList.add('is-open');
     }
   }, true);
+})();
+</script>
+
+<!-- Live profile rows: swipe-dot indicators (mobile) -->
+<script>
+(function () {
+  document.querySelectorAll('.circle-row').forEach(function (row) {
+    var cards = row.querySelectorAll('.preview-card-wrap');
+    if (cards.length < 2) return;
+
+    var dots = document.createElement('div');
+    dots.className = 'circle-dots';
+    dots.setAttribute('aria-hidden', 'true');
+
+    cards.forEach(function (card, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'circle-dot' + (i === 0 ? ' is-active' : '');
+      dot.addEventListener('click', function () {
+        var cardRect = card.getBoundingClientRect();
+        var rowRect = row.getBoundingClientRect();
+        var delta = (cardRect.left - rowRect.left) - (rowRect.width - cardRect.width) / 2;
+        row.scrollBy({ left: delta, behavior: 'smooth' });
+      });
+      dots.appendChild(dot);
+    });
+    row.parentNode.insertBefore(dots, row.nextSibling);
+
+    var ticking = false;
+    row.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var rowRect = row.getBoundingClientRect();
+        var center = rowRect.left + rowRect.width / 2;
+        var best = 0, bestDist = Infinity;
+        cards.forEach(function (card, i) {
+          var r = card.getBoundingClientRect();
+          var d = Math.abs((r.left + r.width / 2) - center);
+          if (d < bestDist) { bestDist = d; best = i; }
+        });
+        dots.querySelectorAll('.circle-dot').forEach(function (d, i) {
+          d.classList.toggle('is-active', i === best);
+        });
+        ticking = false;
+      });
+    }, { passive: true });
+  });
 })();
 </script>
 

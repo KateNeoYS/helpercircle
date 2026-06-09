@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Amie — Helper Circle</title>
-  <meta name="description" content="Amie is a Filipino helper with 17 years of Singapore experience, referred by her current employer of 8 years. Available end July 2026."/>
+  <title>{{NAME}} — Helper Circle</title>
+  <meta name="description" content="{{META DESCRIPTION — one sentence: name, nationality, years in SG, who referred her, availability}}"/>
 
   <!-- Strict no-index: this is an unpublished draft -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
@@ -376,6 +376,28 @@
   </style>
 </head>
 <body class="profile-page">
+<!--
+  ══════════════════════════════════════════════════════════════
+  HELPER CIRCLE — PROFILE TEMPLATE
+  Built from the live Amie profile. To create a new profile:
+
+  1. Save as profile-<firstname>.html (lowercase).
+  2. Find-and-replace {{NAME}} with the helper's display name (e.g. Jennifer).
+  3. Replace {{SLUG}} with the image filename (e.g. jennifer → images/jennifer.jpg,
+     a 480×480 crop, object-position: center center).
+  4. Replace {{REFERRER}} with the referring employer's first name.
+  5. Fill every {{...}} and {{TBC}} block. TBC blocks are safe to share with
+     the referrer as-is to collect their input before publishing.
+  6. Leave intact (do NOT delete): the <header> nav, <script src="script.js">,
+     the .ask-direct fallback line, and the noindex meta tag.
+
+  Notes carried over from build:
+  • Hero top padding is 104px desktop / 96px mobile — clears the 68px fixed
+    header. Do not reduce.
+  • Form posts to Formspree mredjvwg and uses the ask-foot-note pattern.
+  • noindex is intentional (helper privacy) — keep it.
+  ══════════════════════════════════════════════════════════════
+-->
 
 <!-- ═══ HEADER ═══ -->
 <header class="site-header" id="site-header">
@@ -403,21 +425,21 @@
   <div class="profile-wrap">
     <div class="profile-hero-inner">
 
-      <img src="images/amie.jpg" alt="Amie" class="profile-photo">
+      <img src="images/{{SLUG}}.jpg" alt="{{NAME}}" class="profile-photo">
 
       <div class="profile-hero-text">
-        <h1 class="profile-name">Amie</h1>
-        <p class="profile-descriptor">Filipino &middot; 44 &middot; Childcare, household &amp; meal&nbsp;planning</p>
+        <h1 class="profile-name">{{NAME}}</h1>
+        <p class="profile-descriptor">{{DESCRIPTOR — e.g. Filipino &middot; 42 &middot; Childcare, household &amp; cooking}}</p>
 
         <p class="profile-verified-line">
-          <strong>Referred by Anne</strong>, her current employer of 8 years. Anne has provided a written reference letter, available to interested&nbsp;families.
+          <strong>Referred by {{REFERRER}}</strong>, {{RELATIONSHIP — e.g. her current employer of N years}}. {{ONE SENTENCE — what the referrer has shared, or reference-letter availability}}
         </p>
 
-        <p class="profile-quote">"Throughout her employment with us, she has been an exceptionally honest, trustworthy, and reliable member of our household. We have entrusted her with the care of our children for many years, including periods when she was in sole charge during school holidays while both parents were&nbsp;working."</p>
-        <p class="profile-quote-attr">&mdash; Anne, her current employer</p>
+        <p class="profile-quote">"{{HERO QUOTE — one short, specific observation from the referrer, in her own words}}"</p>
+        <p class="profile-quote-attr">&mdash; {{REFERRER}}, her current employer</p>
 
         <div class="profile-hero-cta">
-          <a href="#ask" class="btn btn-green">Ask about Amie</a>
+          <a href="#ask" class="btn btn-green">Ask about {{NAME}}</a>
           <span class="profile-hero-cta-meta">We respond within 1&ndash;2 business&nbsp;days</span>
         </div>
       </div>
@@ -431,14 +453,10 @@
   <div class="profile-wrap">
     <p class="profile-section-label">At a glance</p>
     <div class="profile-chips">
-      <span class="profile-chip">Childcare (from age 3 to&nbsp;teens)</span>
-      <span class="profile-chip">Sole charge experience</span>
-      <span class="profile-chip">Meal planning &amp; grocery shopping</span>
-      <span class="profile-chip">Western cooking</span>
-      <span class="profile-chip">Local SG knowledge</span>
-      <span class="profile-chip">Long-term commitment</span>
-      <span class="profile-chip">Fluent English &amp; Tagalog</span>
-      <span class="profile-chip">Comfortable with cats (not&nbsp;dogs)</span>
+      <span class="profile-chip">{{Trait / skill 1}}</span>
+      <span class="profile-chip">{{Trait / skill 2}}</span>
+      <span class="profile-chip">{{Trait / skill 3}}</span>
+      <span class="profile-chip">{{Add 4–8 short, concrete chips — use &amp;nbsp; between the last two words}}</span>
     </div>
   </div>
 </section>
@@ -451,42 +469,42 @@
 
       <div class="profile-fact">
         <p class="profile-fact-label">Currently</p>
-        <p class="profile-fact-value">With Anne's family for the past 8&nbsp;years</p>
+        <p class="profile-fact-value">{{TBC}}</p>
       </div>
 
       <div class="profile-fact">
         <p class="profile-fact-label">Available from</p>
-        <p class="profile-fact-value"><strong>End July 2026</strong></p>
+        <p class="profile-fact-value"><strong>{{TBC}}</strong></p>
       </div>
 
       <div class="profile-fact">
         <p class="profile-fact-label">Why she's moving on</p>
-        <p class="profile-fact-value">Changing family needs &mdash; not related to Amie's&nbsp;work</p>
+        <p class="profile-fact-value">{{TBC — frame as changing family needs, not related to her work}}</p>
       </div>
 
       <div class="profile-fact">
         <p class="profile-fact-label">Singapore experience</p>
-        <p class="profile-fact-value">17 years in Singapore. Five years with her previous employer before joining Anne's family, then 8 years with Anne's&nbsp;family.</p>
+        <p class="profile-fact-value">{{TBC}}</p>
       </div>
 
       <div class="profile-fact">
         <p class="profile-fact-label">Children</p>
-        <p class="profile-fact-value">From preschool age (started caring for Anne's youngest at 3) through teens. Trusted in sole charge during school holidays while both parents were&nbsp;working.</p>
+        <p class="profile-fact-value">{{TBC}}</p>
       </div>
 
       <div class="profile-fact">
         <p class="profile-fact-label">Cooking</p>
-        <p class="profile-fact-value">Cooks Western food well, attentive to individual preferences, comfortable following new recipes and adapting&nbsp;meals</p>
+        <p class="profile-fact-value">{{TBC}}</p>
       </div>
 
       <div class="profile-fact">
         <p class="profile-fact-label">Languages</p>
-        <p class="profile-fact-value">Fluent English (written &amp; spoken), Tagalog. Doesn't speak&nbsp;Mandarin.</p>
+        <p class="profile-fact-value">{{TBC}}</p>
       </div>
 
       <div class="profile-fact">
         <p class="profile-fact-label">Rest days</p>
-        <p class="profile-fact-value">Every Sunday off and public&nbsp;holidays</p>
+        <p class="profile-fact-value">{{TBC}}</p>
       </div>
 
     </div>
@@ -497,44 +515,42 @@
 <section class="profile-notes">
   <div class="profile-wrap">
     <h2 class="profile-notes-hdr">Notes from her&nbsp;employer</h2>
-    <p class="profile-notes-sub">Drawn from a written reference letter Anne has provided, with additional detail from earlier conversations with&nbsp;her.</p>
+    <p class="profile-notes-sub">{{TBC — where these notes are drawn from, e.g. a written reference and earlier conversations}}</p>
 
     <div class="profile-notes-prose">
-      <p>Amie has been with Anne's family in Singapore for the past eight years, and has 17 years of experience living and working in Singapore in total. Before joining Anne's family, she was with her previous employer for five years. From Amie's own account, her first family in Singapore was Chinese, and the family directly before Anne's was Israeli. Her English &mdash; both written and spoken &mdash; is excellent, and she speaks Tagalog. She doesn't speak&nbsp;Mandarin.</p>
+      <p>{{Background — years in SG, family history, languages}}</p>
 
-      <p>Anne describes her as <em>"exceptionally honest, trustworthy, and reliable."</em> The family has entrusted her with the care of their children for many years, including periods of sole charge during school holidays while both parents were working. Amie began caring for their youngest when he was three years old and has supported the family through many stages of the children's development.</p>
+      <p>{{Character &amp; trust — ideally a short quote from the referrer, in <em>"italics"</em>}}</p>
 
-      <p>On the household side, Amie is resourceful with Singapore's day-to-day systems &mdash; familiar with local transport, shopping, and how things work. Anne writes that when their family first moved to Singapore, Amie's local knowledge was invaluable in helping them settle in and navigate everyday tasks. She plans meals, does the grocery shopping, takes the children to and from activities, and manages her own time&nbsp;well.</p>
+      <p>{{Household &amp; daily responsibilities}}</p>
 
-      <p>For cooking, Amie cooks Western food well and is attentive to the individual preferences of children and family members. Anne notes she has a good understanding of likes and dislikes, follows new recipes comfortably, and adapts meals as the household's needs&nbsp;change.</p>
+      <p>{{Cooking}}</p>
 
-      <p>One honest note Anne wanted to share, in her own words: <em>"While not naturally demonstrative, Amie is a genuinely caring and dependable person who shows her concern for others through practical actions. She is attentive to the needs of family members, reliable during difficult periods, and consistently willing to adapt and help wherever&nbsp;needed."</em></p>
+      <p>{{One honest note the referrer wanted to share, in her words}}</p>
 
-      <p>On work style, Anne writes that Amie <em>"is dependable, works well independently, and responds well to clear routines and expectations."</em> This dovetails with what Anne has shared in earlier conversations &mdash; Amie is confident managing established responsibilities and appreciates checking in with employers when priorities change or clarification is&nbsp;needed.</p>
+      <p>{{Work style}}</p>
 
-      <p>The family has cats, and Amie is comfortable with them. She has shared that she's not comfortable with&nbsp;dogs.</p>
+      <p>{{Pets / any specifics}}</p>
 
-      <p>In Amie's own words on what she's hoping for next, she's looking for a small Western family in a condo, with children aged three and&nbsp;above.</p>
-
-      <p>One thing Anne wanted to flag honestly: Amie values her personal time on rest days, and any family considering her should be comfortable with the same arrangement Anne has had &mdash; that her time off is her own, including occasional weekend sleepovers with friends, as long as she's ready for Monday. She always communicates her plans in&nbsp;advance.</p>
+      <p>{{What the helper is hoping for next, in her own words}}</p>
     </div>
 
-    <p class="profile-foot">Full reference letter from Anne available to interested families, with Amie's&nbsp;consent.</p>
+    <p class="profile-foot">{{TBC — reference-letter availability line, with the helper's consent}}</p>
 
   </div>
 </section>
 
-<!-- ═══ ASK ABOUT AMIE FORM ═══ -->
+<!-- ═══ ASK ABOUT {{NAME}} FORM ═══ -->
 <section class="profile-ask" id="ask">
   <div class="profile-ask-inner">
 
     <span class="profile-ask-kicker">Interested?</span>
-    <h2 class="profile-ask-h">Ask about&nbsp;Amie</h2>
+    <h2 class="profile-ask-h">Ask about&nbsp;{{NAME}}</h2>
     <p class="profile-ask-sub">Tell us a little about your household and we'll be in touch within 1&ndash;2 business&nbsp;days. We'll only move forward if it feels like a genuine&nbsp;fit.</p>
 
     <form id="form-ask" action="https://formspree.io/f/mredjvwg" method="POST">
-      <input type="hidden" name="helper-name" value="Amie"/>
-      <input type="hidden" name="_subject" value="Helper Circle — Interest in Amie"/>
+      <input type="hidden" name="helper-name" value="{{NAME}}"/>
+      <input type="hidden" name="_subject" value="Helper Circle — Interest in {{NAME}}"/>
 
       <div class="ask-field">
         <label for="ask-name">Your name</label>
@@ -557,15 +573,15 @@
       </div>
 
       <div class="ask-field">
-        <label for="ask-why">Why Amie? <span class="ask-field-opt">(optional)</span></label>
+        <label for="ask-why">Why {{NAME}}? <span class="ask-field-opt">(optional)</span></label>
         <textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you're hoping for&hellip;"></textarea>
       </div>
 
       <button type="submit" class="btn btn-green ask-submit">Send to Helper Circle</button>
 
-      <p class="ask-foot-note">We read every message personally. If Amie seems like a fit for your household, we'll set up a short call to talk through the next&nbsp;step.</p>
+      <p class="ask-foot-note">We read every message personally. If {{NAME}} seems like a fit for your household, we'll set up a short call to talk through the next&nbsp;step.</p>
 
-      <p class="ask-direct">Prefer to email instead? Reach us directly at <a href="mailto:hello@helpercircle.sg?subject=Interest%20in%20Amie">hello@helpercircle.sg</a>.</p>
+      <p class="ask-direct">Prefer to email instead? Reach us directly at <a href="mailto:hello@helpercircle.sg?subject=Interest%20in%20{{NAME}}">hello@helpercircle.sg</a>.</p>
 
       <div class="ask-success" hidden>
         <p>Thank you. We've received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p>

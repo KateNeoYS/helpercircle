@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Evelyn S. — Helper Circle</title>
   <meta name="description" content="Evelyn, referred by her current employer, is looking for her next family in Singapore. Introduced through Helper Circle."/>
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -332,19 +333,76 @@
       .profile-fact { padding: 20px 18px; }
     }
     .profile-ask {
+      background: var(--clr-white, #FFFFFF);
       padding: 64px 0 80px;
-      border-top: 1px solid rgba(44,138,110,0.12);
     }
-    .profile-ask h2 {
-      font-family: "Cormorant Garamond", serif; font-weight: 500;
-      font-size: clamp(1.7rem, 4vw, 2.3rem); letter-spacing: -0.012em;
-      color: var(--clr-ink); margin: 0 0 10px; text-align: center; text-wrap: balance;
+    .profile-ask-inner { max-width: 560px; margin: 0 auto; padding: 0 24px; }
+    .profile-ask-kicker {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--clr-primary);
+      background: var(--clr-primary-bg);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
     }
-    .profile-ask .profile-ask-sub {
-      text-align: center; color: var(--clr-text-2);
-      margin: 0 auto 26px; max-width: 30rem; line-height: 1.7;
+    .profile-ask-h {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: clamp(1.7rem, 3.5vw, 2.1rem);
+      letter-spacing: -0.008em;
+      color: var(--clr-text);
+      margin: 0 0 12px;
+      text-wrap: balance;
     }
-    .profile-ask .pathway-form-v2 { max-width: 30rem; margin: 0 auto; }
+    .profile-ask-sub {
+      font-size: 1rem;
+      color: var(--clr-text-muted);
+      line-height: 1.65;
+      margin: 0 0 28px;
+    }
+
+    .ask-field { margin-bottom: 16px; }
+    .ask-field label {
+      display: block;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--clr-text);
+      margin-bottom: 6px;
+    }
+    .ask-field-opt {
+      font-weight: 400;
+      color: var(--clr-text-muted);
+      font-size: .8rem;
+    }
+    .ask-field input,
+    .ask-field textarea {
+      width: 100%;
+      padding: 11px 13px;
+      font-size: .98rem;
+      font-family: inherit;
+      color: var(--clr-text);
+      background: var(--clr-white, #FFFFFF);
+      border: 1px solid var(--clr-border, #E8E2D4);
+      border-radius: 6px;
+      transition: border-color .15s;
+    }
+    .ask-field input:focus,
+    .ask-field textarea:focus {
+      outline: none;
+      border-color: var(--clr-primary);
+    }
+    .ask-field textarea { resize: vertical; min-height: 80px; }
+    .ask-submit { width: 100%; margin-top: 4px; }
+    .ask-foot-note {
+      font-size: .82rem;
+      color: var(--clr-text-muted);
+      margin: 14px 0 0;
+      line-height: 1.55;
+    }
     .ask-direct {
       font-size: .82rem;
       color: var(--clr-text-muted);
@@ -352,13 +410,28 @@
       padding-top: 14px;
       border-top: 1px solid var(--clr-border-warm);
       line-height: 1.55;
-      text-align: center;
     }
     .ask-direct a {
       color: var(--clr-primary);
       font-weight: 600;
       text-decoration: none;
       border-bottom: 1px solid var(--clr-primary);
+    }
+    .ask-success, .ask-error {
+      background: var(--clr-primary-bg);
+      border-left: 3px solid var(--clr-primary);
+      padding: 16px 18px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 12px;
+    }
+    .ask-error {
+      background: #FFF0EB;
+      border-left-color: #E8825C;
+    }
+    .ask-success p, .ask-error p {
+      margin: 0;
+      color: var(--clr-text-2);
+      line-height: 1.6;
     }
   </style>
 </head>
@@ -510,85 +583,103 @@
 
 <!-- ═══ ASK ═══ -->
 <section class="profile-ask" id="ask">
-  <div class="profile-wrap">
-    <h2>Ask about Evelyn</h2>
-    <p class="profile-ask-sub">Send a note and we'll be in touch. There's no obligation &mdash; this just opens a conversation.</p>
+  <div class="profile-ask-inner">
 
-    <form id="form-ask-evelyn" class="pathway-form-v2" action="https://formspree.io/f/mredjvwg" method="POST">
-      <input type="hidden" name="helper" value="Evelyn S."/>
-      <div class="pathway-field">
-        <label for="ask-name" class="pathway-field-label">Your name</label>
+    <span class="profile-ask-kicker">Interested?</span>
+    <h2 class="profile-ask-h">Ask about&nbsp;Evelyn</h2>
+    <p class="profile-ask-sub">Tell us a little about your household and we'll be in touch within 1&ndash;2 business&nbsp;days. We'll only move forward if it feels like a genuine&nbsp;fit.</p>
+
+    <form id="form-ask" action="https://formspree.io/f/mredjvwg" method="POST">
+      <input type="hidden" name="helper-name" value="Evelyn"/>
+      <input type="hidden" name="_subject" value="Helper Circle — Interest in Evelyn"/>
+
+      <div class="ask-field">
+        <label for="ask-name">Your name</label>
         <input type="text" id="ask-name" name="name" required placeholder="Jane Tan" autocomplete="name"/>
       </div>
-      <div class="pathway-field">
-        <label for="ask-email" class="pathway-field-label">Email</label>
+
+      <div class="ask-field">
+        <label for="ask-email">Email</label>
         <input type="email" id="ask-email" name="email" required placeholder="you@email.com" autocomplete="email"/>
       </div>
-      <div class="pathway-field">
-        <label for="ask-message" class="pathway-field-label">Anything you'd like to share or ask? <span class="pathway-field-opt">(optional)</span></label>
-        <textarea id="ask-message" name="message" rows="3" placeholder="A little about your household and what you're hoping&nbsp;for&hellip;"></textarea>
+
+      <div class="ask-field">
+        <label for="ask-phone">Phone <span class="ask-field-opt">(optional, but helps)</span></label>
+        <input type="tel" id="ask-phone" name="phone" placeholder="+65 9123 4567" autocomplete="tel"/>
       </div>
-      <button type="submit" class="btn btn-green pathway-btn-full">Ask about Evelyn</button>
-      <p class="pathway-form-note">We'll be in touch, usually within 1&ndash;2 business&nbsp;days.</p>
+
+      <div class="ask-field">
+        <label for="ask-household">Briefly, your household</label>
+        <textarea id="ask-household" name="household" rows="3" required placeholder="Who lives at home, ages, any pets, what your typical day looks like&hellip;"></textarea>
+      </div>
+
+      <div class="ask-field">
+        <label for="ask-why">Why Evelyn? <span class="ask-field-opt">(optional)</span></label>
+        <textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you're hoping for&hellip;"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-green ask-submit">Send to Helper Circle</button>
+
+      <p class="ask-foot-note">We read every message personally. If Evelyn seems like a fit for your household, we'll set up a short call to talk through the next&nbsp;step.</p>
+
       <p class="ask-direct">Prefer to email instead? Reach us directly at <a href="mailto:hello@helpercircle.sg?subject=Interest%20in%20Evelyn">hello@helpercircle.sg</a>.</p>
-      <div class="pathway-success" hidden>
-        <p>Thank you. We'll be in touch about Evelyn&nbsp;soon.</p>
+
+      <div class="ask-success" hidden>
+        <p>Thank you. We've received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p>
       </div>
-      <div class="pathway-error" hidden>
+      <div class="ask-error" hidden>
         <p>Something didn't go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p>
       </div>
     </form>
+
   </div>
 </section>
 
 <script>
 (function () {
-  function wireForm(formId) {
-    var form = document.getElementById(formId);
-    if (!form) return;
-    var submitBtn = form.querySelector('button[type="submit"]');
-    var successEl = form.querySelector('.pathway-success');
-    var errorEl = form.querySelector('.pathway-error');
-    var fields = form.querySelectorAll('.pathway-field');
-    var noteEl = form.querySelector('.pathway-form-note');
-    var directEl = form.querySelector('.ask-direct');
+  var form = document.getElementById('form-ask');
+  if (!form) return;
+  var submitBtn = form.querySelector('button[type="submit"]');
+  var successEl = form.querySelector('.ask-success');
+  var errorEl = form.querySelector('.ask-error');
+  var fields = form.querySelectorAll('.ask-field');
+  var noteEl = form.querySelector('.ask-foot-note');
+  var directEl = form.querySelector('.ask-direct');
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.dataset.originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending\u2026';
-      }
-      if (errorEl) errorEl.hidden = true;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.dataset.originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending\u2026';
+    }
+    if (errorEl) errorEl.hidden = true;
 
-      var data = new FormData(form);
-      fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
+    var data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(function (res) {
+        if (res.ok) {
+          fields.forEach(function (f) { f.style.display = 'none'; });
+          if (submitBtn) submitBtn.style.display = 'none';
+          if (noteEl) noteEl.style.display = 'none';
+          if (directEl) directEl.style.display = 'none';
+          if (successEl) successEl.hidden = false;
+        } else {
+          throw new Error('Form submission failed');
+        }
       })
-        .then(function (res) {
-          if (res.ok) {
-            fields.forEach(function (f) { f.style.display = 'none'; });
-            if (submitBtn) submitBtn.style.display = 'none';
-            if (noteEl) noteEl.style.display = 'none';
-            if (directEl) directEl.style.display = 'none';
-            if (successEl) successEl.hidden = false;
-          } else {
-            throw new Error('Form submission failed');
-          }
-        })
-        .catch(function () {
-          if (errorEl) errorEl.hidden = false;
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = submitBtn.dataset.originalText || 'Submit';
-          }
-        });
-    });
-  }
-  wireForm('form-ask-evelyn');
+      .catch(function () {
+        if (errorEl) errorEl.hidden = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = submitBtn.dataset.originalText || 'Send to Helper Circle';
+        }
+      });
+  });
 })();
 </script>
 <script src="script.js"></script>

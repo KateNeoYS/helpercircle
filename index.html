@@ -192,24 +192,6 @@
   </div>
 </section>
 
-<!-- ═══ CURRENTLY AVAILABLE REFERRED HELPERS ═══ -->
-<section class="avail" id="helpers">
-  <div class="wrap">
-    <div class="avail-hdr rev">
-      <div class="kicker">Open to a transfer</div>
-      <h2 class="h2 h2-sm">Currently available referred&nbsp;helpers</h2>
-      <p class="avail-sub">Meet employer-referred helpers who are open to direct hire&nbsp;transfer.</p>
-    </div>
-
-    <!-- Cards render from helpers-data.js (available helpers, max 3) -->
-    <div class="avail-grid" id="avail-grid"></div>
-
-    <div class="avail-foot rev">
-      <a href="browse.html" class="btn btn-outline">See all referred helpers &rarr;</a>
-    </div>
-  </div>
-</section>
-
 <!-- ═══ WHAT FAMILIES SAY ═══ -->
 <!-- HIDDEN until the real testimonial is confirmed.
      To re-enable: delete the style="display:none" below. -->
@@ -439,7 +421,28 @@
   </div>
 </section>
 
-<!-- ═══ MEET HELPERS POINTER ═══ -->
+<!-- ═══ CURRENTLY AVAILABLE REFERRED HELPERS ═══ -->
+<!-- Shows open-to-transfer profiles. If none are available this section
+     hides and the "Introduced one at a time" pointer below appears instead.
+     Visibility is toggled by helpers-data.js based on the data file. -->
+<section class="avail" id="helpers" style="display:none">
+  <div class="wrap">
+    <div class="avail-hdr rev">
+      <div class="kicker">Open to a transfer</div>
+      <h2 class="h2 h2-sm">Currently available referred&nbsp;helpers</h2>
+      <p class="avail-sub">Meet employer-referred helpers who are open to direct hire&nbsp;transfer.</p>
+    </div>
+
+    <!-- Cards render from helpers-data.js (available helpers, max 3) -->
+    <div class="avail-grid" id="avail-grid"></div>
+
+    <div class="avail-foot rev">
+      <a href="browse.html" class="btn btn-outline">See all referred helpers &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MEET HELPERS POINTER  (empty state — shown only when no helpers available) ═══ -->
 <!-- TODO: when real helper profiles exist and inventory is healthy, this
      section can be replaced with a real .hcard-grid showcase (markup pattern
      preserved in styles.css). The .meet-pointer styling can then be reused

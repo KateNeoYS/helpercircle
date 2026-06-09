@@ -84,17 +84,24 @@ window.HELPERS = [
   function fullName(h) { return h.initial ? (h.name + " " + h.initial) : h.name; }
   function plain(s) { return String(s).replace(/&[a-z]+;/gi, " ").replace(/"/g, ""); }
 
-  /* ── Home page: compact cards into #avail-grid (available only, max 3) ── */
+  /* ── Home page: compact cards into #avail-grid (available only, max 3) ──
+     When at least one helper is available, show the grid section and hide the
+     "Introduced one at a time" pointer. When none are available, hide the grid
+     section and reveal the pointer as the empty state. ── */
   function renderHome(grid) {
+    var section = document.getElementById("helpers");   // the .avail section
+    var pointer = document.getElementById("meet-circle"); // the empty-state pointer
     var accents = ["sage", "peach", "amber"];
     var list = H.filter(function (h) { return h.status === "available"; }).slice(0, 3);
 
     if (!list.length) {
-      grid.innerHTML =
-        '<p class="avail-empty">New referred helpers are introduced one at a time. ' +
-        '<a href="browse.html">See who has recently joined a family &rarr;</a></p>';
+      if (section) section.style.display = "none";
+      if (pointer) pointer.style.display = "";
       return;
     }
+
+    if (section) section.style.display = "";
+    if (pointer) pointer.style.display = "none";
 
     grid.innerHTML = list.map(function (h, i) {
       var accent = accents[i % accents.length];

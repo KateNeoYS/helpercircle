@@ -27,6 +27,9 @@ window.HELPERS = [
     referredBy: "Referred by Sheila, her previous&nbsp;employer",
     quote: "\u201cShe follows the schedule and asks when she doesn\u2019t understand &mdash; she never guesses her way through.\u201d",
     quoteCite: "&mdash; Sheila",
+    nationality: "Indonesian",
+    yearsSG: "",
+    bestFit: "Elderly care &amp; household",
     strengths: ["Elderly care", "Household", "Bahasa Melayu"],
     photo: "images/kartika.jpg",
     profile: "profile-kartika.html"
@@ -42,6 +45,9 @@ window.HELPERS = [
     referredBy: "Referred by Annie, her current employer of 2&nbsp;years",
     quote: "\u201cIt\u2019s simply not in her nature to walk past something that needs&nbsp;doing.\u201d",
     quoteCite: "&mdash; Annie",
+    nationality: "Filipino",
+    yearsSG: "16 years",
+    bestFit: "Housekeeping &amp; cooking, older children",
     strengths: ["Children (primary &amp; teen)", "Multi-cuisine cooking", "16 years in SG"],
     photo: "images/jessie.jpg",
     profile: "profile-jessie.html"
@@ -57,6 +63,9 @@ window.HELPERS = [
     referredBy: "Referred by Anne, her current employer of 8&nbsp;years",
     quote: "\u201cWhile not naturally demonstrative, Amie is genuinely caring and dependable &mdash; she shows her concern through practical&nbsp;actions.\u201d",
     quoteCite: "&mdash; Anne",
+    nationality: "Filipino",
+    yearsSG: "17 years",
+    bestFit: "Childcare &amp; all-round household",
     strengths: ["Childcare (3 to teens)", "Western cooking", "17 years in SG"],
     photo: "images/amie.jpg",
     profile: "profile-amie.html"
@@ -72,6 +81,9 @@ window.HELPERS = [
     referredBy: "Referred by Marianne, her current employer of 1&nbsp;year",
     quote: "\u201cReliable, honest, independent, energetic &mdash; and always in a good&nbsp;mood.\u201d",
     quoteCite: "&mdash; Marianne",
+    nationality: "Filipino",
+    yearsSG: "17 years",
+    bestFit: "Childcare across ages &amp; cooking",
     strengths: ["Childcare (infants to teens)", "Adaptable cooking", "17 years in SG"],
     photo: "images/evelyn.jpeg",
     profile: "profile-evelyn.html"
@@ -105,22 +117,42 @@ window.HELPERS = [
 
     grid.innerHTML = list.map(function (h, i) {
       var accent = accents[i % accents.length];
-      var chips = h.strengths.slice(0, 3).map(function (s) {
-        return '<span class="avail-chip">' + s + "</span>";
+      // key strengths = skills only (drop the "X years in SG" chip), max 2
+      var keyStrengths = h.strengths.filter(function (s) {
+        return !/year/i.test(s);
+      }).slice(0, 2);
+      var chips = keyStrengths.map(function (s) {
+        return '<span class="hc-chip">' + s + "</span>";
       }).join("");
+
+      var natline = h.nationality;
+      var expRow = h.yearsSG
+        ? '<div class="hc-row"><span class="hc-k">Experience</span>' +
+            '<span class="hc-v">' + h.yearsSG + ' in Singapore</span></div>'
+        : "";
+
       return (
-        '<a class="avail-card avail-card--' + accent + '" href="' + h.profile +
+        '<a class="hc-card hc-card--' + accent + '" href="' + h.profile +
         '" aria-label="View ' + plain(h.name) + '\u2019s profile">' +
-          '<div class="avail-photo"><img src="' + h.photo + '" alt="" loading="lazy"/></div>' +
-          '<div class="avail-body">' +
-            '<span class="avail-badge">Employer referred</span>' +
-            '<h3 class="avail-name">' + fullName(h) + "</h3>" +
-            '<p class="avail-line">' + h.line + "</p>" +
-            '<p class="avail-status"><span class="avail-status-dot" aria-hidden="true"></span>' +
-              h.statusLabel + "</p>" +
-            '<div class="avail-chips">' + chips + "</div>" +
-            '<span class="avail-cta">View profile &rarr;</span>' +
-          "</div>" +
+          '<div class="hc-media">' +
+            '<img src="' + h.photo + '" alt="" loading="lazy"/>' +
+            '<span class="hc-badge">Employer referred</span>' +
+            '<div class="hc-namebar">' +
+              '<span class="hc-name">' + fullName(h) + '</span>' +
+              '<span class="hc-natline">' + natline + '</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="hc-body">' +
+            '<p class="hc-status"><span class="hc-dot" aria-hidden="true"></span>' + h.statusLabel + '</p>' +
+            '<div class="hc-snap">' +
+              '<div class="hc-row"><span class="hc-k">Best fit</span>' +
+                '<span class="hc-v">' + h.bestFit + '</span></div>' +
+              '<div class="hc-row"><span class="hc-k">Strengths</span>' +
+                '<span class="hc-v hc-chips">' + chips + '</span></div>' +
+              expRow +
+            '</div>' +
+            '<span class="hc-cta">View profile &rarr;</span>' +
+          '</div>' +
         "</a>"
       );
     }).join("");

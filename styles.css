@@ -7050,7 +7050,7 @@ em { font-style: italic; color: var(--clr-primary); }
   border-color: #D8D2C8;
 }
 .avail-photo {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 5;
   background: var(--clr-cream-dk, #F2EADc);
   overflow: hidden;
 }
@@ -7058,7 +7058,7 @@ em { font-style: italic; color: var(--clr-primary); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 28%;
+  object-position: center 20%;
   display: block;
 }
 .avail-body {
@@ -7202,3 +7202,20 @@ em { font-style: italic; color: var(--clr-primary); }
   .families-say { padding: 48px 0; }
   .fsay-quote { font-size: 1.35rem; }
 }
+
+/* ════════════════════════════════════════════════════════════
+   HERO TRUST ROW — graceful wrap (final override)
+   Four items were separated by literal "·" spans; when the row
+   wrapped, the separator before the wrapped item was orphaned at
+   the end of the line above. Drop the dots, use even spacing so
+   the row wraps cleanly at every width. Markup unchanged.
+   ════════════════════════════════════════════════════════════ */
+.hero-micro-trust {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 8px 18px !important;
+}
+.hero-micro-trust .micro-trust-sep { display: none !important; }
+.hero-micro-trust .micro-trust-item { white-space: nowrap; }

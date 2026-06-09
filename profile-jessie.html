@@ -314,6 +314,20 @@
       margin: 14px 0 0;
       line-height: 1.55;
     }
+    .ask-direct {
+      font-size: .82rem;
+      color: var(--clr-text-muted);
+      margin: 16px 0 0;
+      padding-top: 14px;
+      border-top: 1px solid var(--clr-border-warm);
+      line-height: 1.55;
+    }
+    .ask-direct a {
+      color: var(--clr-primary);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid var(--clr-primary);
+    }
     .ask-success, .ask-error {
       background: var(--clr-primary-bg);
       border-left: 3px solid var(--clr-primary);
@@ -581,6 +595,8 @@
 
       <p class="ask-foot-note">We read every message personally. If Jessie seems like a fit for your household, we'll set up a short call to talk through the next&nbsp;step.</p>
 
+      <p class="ask-direct">Prefer to email instead? Reach us directly at <a href="mailto:hello@helpercircle.sg?subject=Interest%20in%20Jessie%20Ann">hello@helpercircle.sg</a>.</p>
+
       <div class="ask-success" hidden>
         <p>Thank you. We've received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p>
       </div>
@@ -637,6 +653,7 @@
   var errorEl = form.querySelector('.ask-error');
   var fields = form.querySelectorAll('.ask-field');
   var noteEl = form.querySelector('.ask-foot-note');
+  var directEl = form.querySelector('.ask-direct');
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -658,6 +675,7 @@
           fields.forEach(function (f) { f.style.display = 'none'; });
           if (submitBtn) submitBtn.style.display = 'none';
           if (noteEl) noteEl.style.display = 'none';
+          if (directEl) directEl.style.display = 'none';
           if (successEl) successEl.hidden = false;
         } else {
           throw new Error('Form submission failed');

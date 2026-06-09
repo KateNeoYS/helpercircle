@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Maria Fe — Draft profile (Helper Circle)</title>
+  <meta name="description" content="Internal draft for review. Not published."/>
+
+  <!-- Strict no-index: this is an unpublished draft -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
+  <link rel="stylesheet" href="styles.css"/>
+
+  <style>
+    /* ─── Draft banner ─── */
+    .draft-banner {
+      background: #FFF0EB;
+      border-bottom: 2px solid var(--clr-coral, #E8825C);
+      padding: 14px 24px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .draft-banner-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: .92rem;
+      color: #9B5B3A;
+      line-height: 1.5;
+    }
+    .draft-banner-inner strong {
+      color: #C66740;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    /* ─── Page container ─── */
+    .profile-page { background: var(--clr-white); }
+    .profile-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── HERO ─── */
+    .profile-hero {
+      padding: 56px 0 48px;
+      background: var(--clr-white);
+    }
+    .profile-hero-inner {
+      display: flex;
+      gap: 36px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    /* Placeholder photo (no real photo yet) */
+    .profile-photo-placeholder {
+      flex: 0 0 180px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: var(--clr-cream);
+      border: 2px dashed var(--clr-border-warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 6px;
+      color: var(--clr-text-muted);
+    }
+    .profile-photo-placeholder svg { opacity: 0.4; }
+    .profile-photo-placeholder span {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 0 14px;
+    }
+
+    /* Real photo */
+    .profile-photo {
+      flex: 0 0 180px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .profile-hero-text {
+      flex: 1 1 320px;
+      min-width: 0;
+    }
+    .profile-name {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      letter-spacing: -0.012em;
+      color: var(--clr-text);
+      margin: 0 0 6px;
+      text-wrap: balance;
+      line-height: 1.05;
+    }
+    .profile-descriptor {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--clr-text-muted);
+      margin: 0 0 18px;
+    }
+
+    .profile-verified-line {
+      font-size: .95rem;
+      color: var(--clr-text-2);
+      line-height: 1.6;
+      margin: 0 0 16px;
+      padding: 14px 0 14px 18px;
+      border-left: 2px solid var(--clr-primary);
+      background: linear-gradient(to right, var(--clr-primary-bg) 0%, transparent 70%);
+      border-radius: 0 4px 4px 0;
+    }
+    .profile-verified-line strong {
+      color: var(--clr-primary);
+      font-weight: 600;
+    }
+
+    .profile-quote {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic;
+      font-size: 1.18rem;
+      line-height: 1.55;
+      color: var(--clr-text-2);
+      margin: 24px 0 12px;
+      text-wrap: balance;
+    }
+    .profile-quote-attr {
+      font-size: .85rem;
+      color: var(--clr-text-muted);
+      margin: 0 0 28px;
+    }
+
+    /* CTA disabled in draft */
+    .profile-hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-disabled {
+      background: var(--clr-cream-dk);
+      color: var(--clr-text-muted);
+      cursor: not-allowed;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: .95rem;
+      border: 1px solid var(--clr-border-warm);
+    }
+    .profile-hero-cta-meta {
+      font-size: .87rem;
+      color: var(--clr-text-muted);
+      font-style: italic;
+    }
+
+    /* ─── AT A GLANCE ─── */
+    .profile-glance {
+      padding: 36px 0 12px;
+      background: var(--clr-white);
+    }
+    .profile-section-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--clr-primary);
+      margin: 0 0 14px;
+    }
+    .profile-chips {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .profile-chip {
+      font-size: .88rem;
+      color: var(--clr-text-2);
+      background: var(--clr-cream);
+      border: 1px solid var(--clr-border-warm);
+      padding: 7px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .profile-chip-tbc {
+      border-style: dashed;
+      color: var(--clr-text-muted);
+      font-style: italic;
+    }
+
+    /* ─── KEY FACTS GRID ─── */
+    .profile-facts {
+      padding: 36px 0;
+      background: var(--clr-white);
+    }
+    .profile-facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0;
+      border-top: 1px solid var(--clr-border-warm);
+      border-left: 1px solid var(--clr-border-warm);
+    }
+    .profile-fact {
+      padding: 22px 22px;
+      border-right: 1px solid var(--clr-border-warm);
+      border-bottom: 1px solid var(--clr-border-warm);
+      background: var(--clr-white);
+    }
+    .profile-fact-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--clr-text-muted);
+      margin: 0 0 8px;
+    }
+    .profile-fact-value {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--clr-text);
+      margin: 0;
+    }
+    .profile-fact-value strong { font-weight: 600; }
+    .profile-fact-value em {
+      color: var(--clr-text-muted);
+      font-style: italic;
+      font-size: .9rem;
+    }
+
+    /* ─── EMPLOYER NOTES ─── */
+    .profile-notes {
+      padding: 56px 0;
+      background: var(--clr-cream);
+      border-top: 1px solid var(--clr-border-warm);
+    }
+    .profile-notes-hdr {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: clamp(1.7rem, 3.5vw, 2.1rem);
+      letter-spacing: -0.008em;
+      color: var(--clr-text);
+      margin: 0 0 8px;
+      text-wrap: balance;
+    }
+    .profile-notes-sub {
+      font-size: .95rem;
+      color: var(--clr-text-muted);
+      margin: 0 0 32px;
+      font-style: italic;
+    }
+    .profile-notes-prose p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--clr-text-2);
+      margin: 0 0 1.1em;
+      text-wrap: pretty;
+    }
+    .profile-notes-prose p:last-child { margin-bottom: 0; }
+
+    /* TBC placeholder block — visually distinct so referrer/helper know what's needed */
+    .profile-notes-prose p.profile-tbc-block {
+      background: #FFFBF5;
+      border-left: 3px solid #E8825C;
+      padding: 16px 18px;
+      color: #9B5B3A;
+      font-size: 1rem;
+      line-height: 1.6;
+      border-radius: 0 4px 4px 0;
+    }
+    .profile-notes-prose p.profile-tbc-block em {
+      font-style: italic;
+      color: #9B5B3A;
+    }
+
+    .profile-foot {
+      font-style: italic;
+      color: var(--clr-text-muted);
+      font-size: .92rem;
+      margin: 32px 0 0;
+    }
+
+    /* ─── DRAFT-ONLY: NOTES FROM KATE ─── */
+    .draft-notes {
+      background: #FFFBF5;
+      border: 2px dashed #E8825C;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin: 48px auto;
+      max-width: 720px;
+    }
+    .draft-notes h3 {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-size: 1.4rem;
+      color: #9B5B3A;
+      margin: 0 0 14px;
+    }
+    .draft-notes ul {
+      margin: 0;
+      padding-left: 22px;
+      color: var(--clr-text-2);
+      line-height: 1.7;
+    }
+    .draft-notes li {
+      margin-bottom: 10px;
+    }
+    .draft-notes li strong { color: #C66740; }
+
+    /* ─── MOBILE ADJUSTMENTS ─── */
+    @media (max-width: 640px) {
+      .profile-hero { padding: 40px 0 36px; }
+      .profile-hero-inner {
+        gap: 24px;
+        justify-content: center;
+      }
+      .profile-photo-placeholder,
+      .profile-photo {
+        flex: 0 0 140px;
+        width: 140px;
+        height: 140px;
+        margin: 0 auto;
+        align-self: center;
+      }
+      .profile-hero-text { text-align: center; }
+      .profile-verified-line { text-align: left; }
+      .profile-hero-cta { display: flex; justify-content: center; }
+      .profile-facts-grid { grid-template-columns: 1fr; }
+      .profile-fact { padding: 20px 18px; }
+    }
+  </style>
+</head>
+<body class="profile-page">
+
+<!-- ═══ DRAFT BANNER ═══ -->
+<div class="draft-banner">
+  <div class="draft-banner-inner">
+    <strong>DRAFT — NOT PUBLISHED</strong><br>
+    Anna (current employer of 3.5 years) has provided a written reference, and Maria Fe has shared her background, a photo, and consented to be featured. A few details are still needed before going live &mdash; see the checklist at the bottom. The page is unlisted, unsearchable, and not linked from the main&nbsp;site.
+  </div>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="profile-hero">
+  <div class="profile-wrap">
+    <div class="profile-hero-inner">
+
+      <img class="profile-photo" src="images/mariafe.jpeg" alt="Maria Fe">
+
+      <div class="profile-hero-text">
+        <h1 class="profile-name">Maria Fe&nbsp;T.</h1>
+        <p class="profile-descriptor">Filipino &middot; Cooking, household &amp;&nbsp;caregiving</p>
+
+        <p class="profile-verified-line">
+          <strong>Referred by Anna</strong>, her current employer of three and a half years. Anna has provided a written reference on Maria Fe's strengths and how she fits their&nbsp;household.
+        </p>
+
+        <p class="profile-quote">"One of her greatest strengths is her cooking &mdash; she prepares a wide variety of meals, follows recipes well, and consistently produces tasty, well-presented&nbsp;dishes."</p>
+        <p class="profile-quote-attr">&mdash; Anna, her current employer</p>
+
+        <div class="profile-hero-cta">
+          <span class="btn-disabled">Ask about Maria Fe</span>
+          <span class="profile-hero-cta-meta">CTA goes live once profile is&nbsp;complete</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AT A GLANCE ═══ -->
+<section class="profile-glance">
+  <div class="profile-wrap">
+    <p class="profile-section-label">At a glance</p>
+    <div class="profile-chips">
+      <span class="profile-chip">Cooking (wide variety)</span>
+      <span class="profile-chip">Housekeeping &amp; cleaning</span>
+      <span class="profile-chip">Grocery shopping &amp; meal planning</span>
+      <span class="profile-chip">Childcare</span>
+      <span class="profile-chip">Elderly caregiving</span>
+      <span class="profile-chip">Independent &amp; punctual</span>
+      <span class="profile-chip">Filipino</span>
+      <span class="profile-chip-tbc profile-chip">Age (TBC with her)</span>
+      <span class="profile-chip-tbc profile-chip">Languages (TBC with her)</span>
+      <span class="profile-chip-tbc profile-chip">Religion (TBC with her)</span>
+      <span class="profile-chip-tbc profile-chip">Pets (TBC with her)</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KEY FACTS GRID ═══ -->
+<section class="profile-facts">
+  <div class="profile-wrap">
+    <p class="profile-section-label">The essentials</p>
+    <div class="profile-facts-grid">
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Currently</p>
+        <p class="profile-fact-value">With Anna's family for the past 3.5&nbsp;years</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Available from</p>
+        <p class="profile-fact-value"><strong>22 July 2026</strong></p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Why she's moving on</p>
+        <p class="profile-fact-value">The family's circumstances have changed and both sides agreed it's time for a new opportunity. Not related to her performance or&nbsp;conduct.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Singapore experience</p>
+        <p class="profile-fact-value">Since 2016 &mdash; around 10 years, across several families, including completed multi-year&nbsp;contracts.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Strengths (per Anna)</p>
+        <p class="profile-fact-value">Cooking, grocery shopping and meal planning, housekeeping &mdash; trustworthy, punctual, and&nbsp;respectful</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Caregiving &amp; children</p>
+        <p class="profile-fact-value">Experienced with young children (as young as three) and with elderly family members who had significant care&nbsp;needs.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Cooking</p>
+        <p class="profile-fact-value">Prepares a wide variety of meals and follows recipes well; would love to cook Filipino food in her next&nbsp;home.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Languages &amp; faith</p>
+        <p class="profile-fact-value"><em>To confirm with&nbsp;her</em></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EMPLOYER NOTES ═══ -->
+<section class="profile-notes">
+  <div class="profile-wrap">
+    <h2 class="profile-notes-hdr">Notes from her&nbsp;employer</h2>
+    <p class="profile-notes-sub">Drawn from Anna's written reference across three and a half years working with Maria Fe in their&nbsp;home.</p>
+
+    <div class="profile-notes-prose">
+      <p>Maria Fe has been with Anna's family in Singapore for the past three and a half years. The family's circumstances have changed, and both sides have agreed it's time for her to find a new family. Anna describes her as a trustworthy member of the household who has adapted well to the family's needs over the years &mdash; punctual, respectful, and good at maintaining relationships with family&nbsp;members.</p>
+
+      <p>Her standout strength is cooking. In Anna's words: <em>"One of her greatest strengths is her cooking. She is capable of preparing a wide variety of meals, follows recipes well, and consistently produces tasty and well-presented dishes."</em> She also manages grocery shopping and meal planning&nbsp;independently.</p>
+
+      <p>Maria Fe has worked in Singapore since 2016. Across that time she has completed several multi-year contracts and built broad experience &mdash; caring for young children (including a child as young as three) and for elderly family members with significant care needs. She is comfortable across cooking, cleaning, caregiving, and running a busy&nbsp;household.</p>
+
+      <p><strong>Best fit.</strong> Anna believes Maria Fe <em>"would be particularly well suited to a household where her cooking skills and discretion can be fully&nbsp;appreciated."</em></p>
+
+      <p><strong>What she's hoping for.</strong> Maria Fe is open to a range of roles. She'd value some flexibility on her rest day, and would love to be able to cook Filipino food in her next&nbsp;home.</p>
+
+      <p class="profile-tbc-block"><em>To confirm with Maria Fe: her age, the languages she speaks, her religion, her comfort with pets, and a photo if she's happy to be&nbsp;shown.</em></p>
+    </div>
+
+    <p class="profile-foot">Full employment history available to interested families, with Maria Fe's&nbsp;consent.</p>
+
+  </div>
+</section>
+
+<!-- ═══ WHAT'S STILL NEEDED — CHECKLIST ═══ -->
+<div class="draft-notes">
+  <h3>What's still needed before this goes live</h3>
+  <p style="margin: 0 0 16px; color: var(--clr-text-2); font-size: .98rem; line-height: 1.7;">Anna's reference and Maria Fe's background are in. A few details and a photo close&nbsp;it.</p>
+
+  <p style="margin: 18px 0 8px; font-weight: 600; color: var(--clr-text);">From Maria Fe:</p>
+  <ul>
+    <li>Age</li>
+    <li>Languages she speaks</li>
+    <li>Religion</li>
+    <li>Comfort with pets (cats, dogs, others)</li>
+    <li>Photo received &mdash; just confirm she's happy for this one to be shown publicly</li>
+    <li>How she'd like her name shown (full name on the reference: Maria Fe Elefante&nbsp;Taccaban)</li>
+  </ul>
+
+  <p style="margin: 18px 0 8px; font-weight: 600; color: var(--clr-text);">Optional, from Anna:</p>
+  <ul>
+    <li>One concrete moment or example (a dish, an ordinary day) to bring the cooking strength to life &mdash; the reference is warm but general</li>
+  </ul>
+
+  <p style="margin: 18px 0 8px; font-weight: 600; color: var(--clr-text);">Internal record (Kate) — never on the page:</p>
+  <ul>
+    <li>Salary: currently S$900 + S$50/week food allowance; asking <strong>S$950</strong>, flexible off&nbsp;day</li>
+    <li>Available from current job: 22 July&nbsp;2026; open to a range of roles</li>
+    <li>Employer reference: Anna Domun, +65&nbsp;8540&nbsp;4086 (written reference on&nbsp;file)</li>
+    <li><strong>Sensitive — handle off-page, with care:</strong> In 2019 Maria Fe left several short placements (she's described up to four families) because she wasn't given enough rest or enough food. This reflects poor treatment in those homes, not her reliability &mdash; she has completed multi-year contracts before and after (2 years 2016&ndash;18; ~3 years 2020&ndash;22; 3.5 years now). Kept off the public page. If a serious family asks about gaps, frame it honestly and accurately. Worth gently asking Maria Fe how she'd like this period&nbsp;described.</li>
+    <li>Clinical caregiving details (e.g. medical procedures for the elderly grandfather) kept off-page; "significant care needs" covers it with&nbsp;dignity.</li>
+  </ul>
+</div>
+
+</body>
+</html>

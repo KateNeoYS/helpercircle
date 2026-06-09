@@ -7172,7 +7172,7 @@ em { font-style: italic; color: var(--clr-primary); }
    A NOTE FROM THE FOUNDER  (personal, editorial, narrow column)
    ════════════════════════════════════════════════════════════ */
 .founder-note {
-  padding: 80px 0;
+  padding: 64px 0;
   background: var(--clr-white, #FFFFFF);
 }
 .founder-inner {
@@ -7181,13 +7181,13 @@ em { font-style: italic; color: var(--clr-primary); }
   text-align: center;
 }
 .founder-inner .kicker { margin-bottom: 16px; }
-.founder-h { margin: 0 0 30px; }
+.founder-h { margin: 0 0 24px; }
 .founder-body { text-align: left; }
 .founder-body p {
   font-size: 1.06rem;
-  line-height: 1.85;
+  line-height: 1.7;
   color: var(--clr-text-2, #383838);
-  margin: 0 0 18px;
+  margin: 0 0 14px;
 }
 .founder-body p:last-child { margin-bottom: 0; }
 .founder-sign {
@@ -7305,6 +7305,39 @@ em { font-style: italic; color: var(--clr-primary); }
    Everyone" cards are tinted, so they still stand out on white.
    ════════════════════════════════════════════════════════════ */
 .benefits-new { background: var(--clr-white) !important; }
-.founder-note { background: var(--clr-white) !important; }
+.how { background: var(--clr-cream) !important; }
 .avail { background: var(--clr-cream) !important; }
-.families-say { background: var(--clr-cream) !important; }
+.families-say { background: var(--clr-white) !important; }
+
+/* ════════════════════════════════════════════════════════════
+   FOUNDER QUOTE CARD  (primary founder story, in refer banner)
+   Brighter, larger editorial serif; the closing belief line is the
+   prominent takeaway. Tighter banner height. Label kept, subtle.
+   ════════════════════════════════════════════════════════════ */
+.ref-banner { padding: 60px 0 !important; }
+.ref-card-ttl { color: rgba(255,255,255,.45) !important; }
+.ref-card-quote { margin: 0 0 18px; }
+.ref-card-quote p {
+  font-family: var(--fd, 'Cormorant Garamond'), serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,.90);
+  margin: 0 0 14px;
+}
+.ref-card-belief {
+  color: #fff !important;
+  font-weight: 500;
+  margin-bottom: 0 !important;
+}
+.ref-card-cite {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,.55);
+  margin: 14px 0 0;
+}
+@media (max-width: 860px) {
+  .ref-banner { padding: 48px 0 !important; }
+  .ref-card-quote p { font-size: 1.08rem; }
+}

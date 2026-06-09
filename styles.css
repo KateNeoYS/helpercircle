@@ -7173,7 +7173,7 @@ em { font-style: italic; color: var(--clr-primary); }
    ════════════════════════════════════════════════════════════ */
 .founder-note {
   padding: 80px 0;
-  background: var(--clr-cream, #FBF6EE);
+  background: var(--clr-white, #FFFFFF);
 }
 .founder-inner {
   max-width: 600px;
@@ -7296,3 +7296,15 @@ em { font-style: italic; color: var(--clr-primary); }
 @media (max-width: 420px) {
   .hero-micro-trust { grid-template-columns: 1fr !important; gap: 8px 0 !important; }
 }
+
+/* ════════════════════════════════════════════════════════════
+   HOMEPAGE SECTION BACKGROUND ALTERNATION (final override)
+   Visible order: Hero(cream) · Better for Everyone(white) ·
+   How(cream) · Pricing(white) · Available(cream) · Founder(white) ·
+   What Families Say(cream) · Referral banner(dark). The "Better for
+   Everyone" cards are tinted, so they still stand out on white.
+   ════════════════════════════════════════════════════════════ */
+.benefits-new { background: var(--clr-white) !important; }
+.founder-note { background: var(--clr-white) !important; }
+.avail { background: var(--clr-cream) !important; }
+.families-say { background: var(--clr-cream) !important; }

@@ -156,6 +156,55 @@ window.HELPERS = [
         "</a>"
       );
     }).join("");
+
+    buildDots(grid);
+  }
+
+  /* ── Swipe tracker dots for the mobile carousel ── */
+  function buildDots(grid) {
+    // remove any previously injected dots (idempotent)
+    var existing = grid.parentNode.querySelector(".avail-dots");
+    if (existing) existing.parentNode.removeChild(existing);
+
+    var cards = grid.querySelectorAll(".hc-card");
+    if (cards.length < 2) return;
+
+    var dots = document.createElement("div");
+    dots.className = "avail-dots";
+    dots.setAttribute("aria-hidden", "true");
+
+    cards.forEach(function (card, i) {
+      var dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "avail-dot" + (i === 0 ? " is-active" : "");
+      dot.addEventListener("click", function () {
+        var cardRect = card.getBoundingClientRect();
+        var gridRect = grid.getBoundingClientRect();
+        grid.scrollBy({ left: cardRect.left - gridRect.left - 28, behavior: "smooth" });
+      });
+      dots.appendChild(dot);
+    });
+    grid.parentNode.insertBefore(dots, grid.nextSibling);
+
+    var ticking = false;
+    grid.addEventListener("scroll", function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var gridRect = grid.getBoundingClientRect();
+        var center = gridRect.left + gridRect.width / 2;
+        var best = 0, bestDist = Infinity;
+        cards.forEach(function (card, i) {
+          var r = card.getBoundingClientRect();
+          var d = Math.abs((r.left + r.width / 2) - center);
+          if (d < bestDist) { bestDist = d; best = i; }
+        });
+        dots.querySelectorAll(".avail-dot").forEach(function (d, i) {
+          d.classList.toggle("is-active", i === best);
+        });
+        ticking = false;
+      });
+    }, { passive: true });
   }
 
   /* ── Browse page: full feature cards into a .circle-row container ── */

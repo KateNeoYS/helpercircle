@@ -7167,13 +7167,48 @@ em { font-style: italic; color: var(--clr-primary); }
 }
 .avail-empty a { color: var(--clr-primary, #2C8A6E); }
 
+/* Swipe tracker dots — injected by helpers-data.js, mobile only */
+.avail-dots { display: none; }
+
 @media (max-width: 860px) {
   .avail { padding: 56px 0; }
   .avail-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    max-width: 420px;
-    margin: 0 auto;
+    display: flex;
+    grid-template-columns: none;
+    gap: 14px;
+    max-width: none;
+    /* bleed to the screen edges past the .wrap padding */
+    margin: 0 calc(-1 * var(--space-7));
+    padding: 4px var(--space-7) 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-left: var(--space-7);
+    scrollbar-width: none;
+  }
+  .avail-grid::-webkit-scrollbar { display: none; }
+  .hc-card {
+    flex: 0 0 84%;
+    max-width: 320px;
+    scroll-snap-align: start;
+  }
+  .avail-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .avail-dot {
+    width: 7px; height: 7px;
+    padding: 0; border: 0;
+    border-radius: 50%;
+    background: var(--clr-border-warm, #E0D8C9);
+    cursor: pointer;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .avail-dot.is-active {
+    background: var(--clr-primary, #2C8A6E);
+    transform: scale(1.3);
   }
 }
 

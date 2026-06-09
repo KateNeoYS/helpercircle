@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Share Your Feedback — Helper Circle</title>
+  <meta name="description" content="Tell us about your experience with Helper Circle. Your feedback helps us build a more trusted experience for families and helpers."/>
+  <meta property="og:url" content="https://helpercircle.vercel.app/feedback.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Share Your Feedback — Helper Circle"/>
+  <meta property="og:description" content="Tell us about your experience with Helper Circle."/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* ═══ HERO ═══ */
+    .fb-hero {
+      padding: clamp(96px, 11vw, 120px) 0 clamp(28px, 4vw, 40px);
+      background: var(--clr-cream, #FBF6EE);
+      position: relative;
+      overflow: hidden;
+    }
+    .fb-hero-inner { max-width: 600px; }
+    .fb-hero .kicker { margin-bottom: 14px; }
+    .fb-hl {
+      font-size: clamp(2.2rem, 4.3vw, 3.1rem);
+      line-height: 1.05;
+      letter-spacing: -0.012em;
+      margin: 0 0 16px;
+      font-weight: 500;
+      font-family: var(--font-display, "Lora", Georgia, serif);
+      color: var(--clr-ink, #1F2A24);
+      text-wrap: balance;
+    }
+    .fb-hl em { font-style: italic; color: var(--clr-primary, #2C8A6E); }
+    .fb-rule {
+      width: 48px; height: 1.5px;
+      background: rgba(44, 138, 110, 0.5);
+      margin: 0 0 18px;
+    }
+    .fb-sub {
+      font-size: 1.02rem; line-height: 1.6;
+      color: var(--clr-text-muted, #5A6661);
+      margin: 0; max-width: 460px;
+      text-wrap: pretty;
+    }
+
+    /* ═══ WHY WE ASK — small trust card ═══ */
+    .fb-why-wrap {
+      background: var(--clr-cream, #FBF6EE);
+      padding: 0 0 clamp(8px, 2vw, 16px);
+    }
+    .fb-why {
+      max-width: 600px;
+      background: #fff;
+      border: 1px solid rgba(31, 42, 36, 0.06);
+      border-radius: 14px;
+      padding: 22px 24px;
+      box-shadow: 0 1px 0 rgba(31, 42, 36, 0.02), 0 6px 24px -16px rgba(31, 42, 36, 0.06);
+    }
+    .fb-why-ttl {
+      font-family: var(--font-display, "Lora", Georgia, serif);
+      font-size: 1.2rem; font-weight: 500;
+      color: var(--clr-ink, #1F2A24);
+      margin: 0 0 14px;
+      letter-spacing: -0.005em;
+    }
+    .fb-why-list {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 11px;
+    }
+    .fb-why-list li {
+      display: flex; gap: 11px; align-items: flex-start;
+      font-size: 0.92rem; line-height: 1.5;
+      color: var(--clr-text-muted, #5A6661);
+    }
+    .fb-why-list li svg { flex-shrink: 0; margin-top: 3px; }
+
+    /* ═══ FORM ═══ */
+    .fb-form-section {
+      padding: clamp(32px, 5vw, 56px) 0 clamp(48px, 6vw, 80px);
+      background: var(--clr-cream, #FBF6EE);
+    }
+    .fb-card {
+      max-width: 600px;
+      background: #fff; border-radius: 16px;
+      padding: clamp(26px, 3vw, 38px);
+      border: 1px solid rgba(31, 42, 36, 0.06);
+      box-shadow: 0 1px 0 rgba(31, 42, 36, 0.02), 0 6px 24px -14px rgba(31, 42, 36, 0.06);
+    }
+
+    .fb-fieldset { border: 0; padding: 0; margin: 0 0 30px; }
+    .fb-fieldset:last-of-type { margin-bottom: 0; }
+    .fb-legend {
+      font-family: var(--font-display, "Lora", Georgia, serif);
+      font-size: 1.3rem; font-weight: 500;
+      color: var(--clr-ink, #1F2A24);
+      margin: 0 0 4px; padding: 0;
+      letter-spacing: -0.005em;
+    }
+    .fb-legend-sub {
+      font-size: 0.86rem; color: var(--clr-text-muted, #5A6661);
+      margin: 0 0 18px; line-height: 1.5;
+    }
+
+    .fb-fg { margin-bottom: 16px; }
+    .fb-fg:last-child { margin-bottom: 0; }
+    .fb-fg label.fb-label {
+      display: block; font-size: 0.85rem; font-weight: 500;
+      color: var(--clr-text, #1F2A24); margin-bottom: 7px;
+      letter-spacing: 0.003em;
+    }
+    .fb-opt {
+      font-size: 0.74rem; color: var(--clr-text-muted, #5A6661);
+      font-weight: 400; margin-left: 4px;
+    }
+    .fb-card input[type="text"],
+    .fb-card input[type="email"],
+    .fb-card select,
+    .fb-card textarea {
+      width: 100%; padding: 11px 14px;
+      border: 1px solid rgba(31, 42, 36, 0.1);
+      border-radius: 10px; background: #fff;
+      font-size: 0.93rem; font-family: inherit;
+      color: var(--clr-text, #1F2A24);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      box-sizing: border-box;
+    }
+    .fb-card input::placeholder, .fb-card textarea::placeholder {
+      color: rgba(90, 102, 97, 0.5);
+    }
+    .fb-card input:focus, .fb-card select:focus, .fb-card textarea:focus {
+      outline: none;
+      border-color: var(--clr-primary, #2C8A6E);
+      box-shadow: 0 0 0 3px rgba(44, 138, 110, 0.1);
+    }
+    .fb-card textarea { min-height: 92px; resize: vertical; line-height: 1.55; }
+    .fb-help {
+      font-size: 0.78rem; color: var(--clr-text-muted, #5A6661);
+      margin: 7px 0 0; line-height: 1.5;
+    }
+
+    /* Role — radio cards */
+    .fb-roles { display: flex; flex-direction: column; gap: 9px; }
+    @media (min-width: 560px) { .fb-roles { flex-direction: row; } }
+    .fb-role {
+      flex: 1; display: flex; gap: 9px; align-items: center;
+      padding: 12px 14px; cursor: pointer;
+      border: 1px solid rgba(31, 42, 36, 0.12);
+      border-radius: 10px;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .fb-role input { accent-color: var(--clr-primary, #2C8A6E); margin: 0; flex-shrink: 0; cursor: pointer; }
+    .fb-role span { font-size: 0.9rem; color: var(--clr-text, #1F2A24); }
+    .fb-role:has(input:checked) {
+      border-color: rgba(44, 138, 110, 0.45);
+      background: rgba(44, 138, 110, 0.05);
+    }
+
+    /* Star rating — reverse-order radios */
+    .fb-stars {
+      display: inline-flex; flex-direction: row-reverse;
+      gap: 5px;
+    }
+    .fb-stars input {
+      position: absolute; width: 1px; height: 1px;
+      opacity: 0; pointer-events: none;
+    }
+    .fb-stars label {
+      font-size: 2rem; line-height: 1; cursor: pointer;
+      color: #DED8CB;
+      transition: color 0.12s ease, transform 0.12s ease;
+    }
+    .fb-stars label:hover,
+    .fb-stars label:hover ~ label,
+    .fb-stars input:checked ~ label {
+      color: #B8884A;
+    }
+    .fb-stars label:hover { transform: scale(1.08); }
+    .fb-stars input:focus-visible + label {
+      outline: 2px solid var(--clr-primary, #2C8A6E);
+      outline-offset: 2px; border-radius: 4px;
+    }
+    .fb-star-hint {
+      font-size: 0.78rem; color: var(--clr-text-muted, #5A6661);
+      margin: 8px 0 0; min-height: 1.1em;
+    }
+
+    /* Checkboxes */
+    .fb-check {
+      display: flex; gap: 11px; align-items: flex-start;
+      padding: 12px 14px; cursor: pointer;
+      border: 1px solid rgba(31, 42, 36, 0.1);
+      border-radius: 10px;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .fb-check + .fb-check { margin-top: 10px; }
+    .fb-check input {
+      margin: 2px 0 0; flex-shrink: 0;
+      accent-color: var(--clr-primary, #2C8A6E); cursor: pointer;
+    }
+    .fb-check span { font-size: 0.9rem; line-height: 1.45; color: var(--clr-text, #1F2A24); }
+    .fb-check:has(input:checked) {
+      border-color: rgba(44, 138, 110, 0.4);
+      background: rgba(44, 138, 110, 0.05);
+    }
+
+    .fb-submit { margin-top: 26px; width: 100%; }
+    .fb-submit-note {
+      font-size: 0.74rem; color: var(--clr-text-muted, #5A6661);
+      text-align: center; margin: 12px 0 0; line-height: 1.5;
+    }
+
+    /* ═══ SUCCESS STATE ═══ */
+    .fb-success {
+      display: none;
+      padding: 52px 24px; text-align: center;
+      flex-direction: column; align-items: center; justify-content: center;
+      min-height: 380px;
+    }
+    .fb-success.is-active { display: flex; }
+    .fb-success-check {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(44, 138, 110, 0.08);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 22px;
+    }
+    .fb-success-title {
+      font-family: var(--font-display, "Lora", Georgia, serif);
+      font-size: 1.7rem; font-weight: 500;
+      margin: 0 0 14px; color: var(--clr-ink, #1F2A24);
+      letter-spacing: -0.005em;
+    }
+    .fb-success-body {
+      font-size: 0.95rem; color: var(--clr-text-muted, #5A6661);
+      line-height: 1.65; margin: 0 auto 26px; max-width: 380px;
+    }
+
+    @media (max-width: 520px) {
+      .fb-card { padding: 22px; }
+      .fb-success { padding: 40px 16px; min-height: auto; }
+      .fb-success .btn { width: 100%; }
+    }
+  </style>
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark" aria-hidden="true"><span class="logo-hc">hc</span></div>
+      <span class="logo-text">Helper<strong>Circle</strong></span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="browse.html" class="nav-a">Meet Helpers</a>
+      <a href="refer.html" class="nav-a">Refer a Helper</a>
+      <a href="index.html#how" class="nav-a">How It Works</a>
+      <a href="faq.html" class="nav-a">FAQ</a>
+      <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
+    </nav>
+    <a href="browse.html" class="btn btn-green btn-sm hdr-cta">Meet Helpers</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="fb-hero">
+  <div class="wrap">
+    <div class="fb-hero-inner">
+      <div class="kicker">Your experience</div>
+      <h1 class="fb-hl">Tell us how it&nbsp;<em>felt.</em></h1>
+      <div class="fb-rule" aria-hidden="true"></div>
+      <p class="fb-sub">A few honest words from you — whether you referred a helper, hired one, or joined a new family — help us keep Helper Circle thoughtful and trustworthy for the families and helpers who come&nbsp;next.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY WE ASK ═══ -->
+<section class="fb-why-wrap">
+  <div class="wrap">
+    <div class="fb-why">
+      <h2 class="fb-why-ttl">Why we ask for feedback</h2>
+      <ul class="fb-why-list">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.3 4.2 13.3l.7-4.3-3.1-3 4.3-.6L8 1.5z" stroke="#2C8A6E" stroke-width="1.1" stroke-linejoin="round"/></svg>
+          <span>It helps us improve the&nbsp;experience.</span>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 14.5l-.9-.8C3.6 10.5 1.5 8.6 1.5 6.2 1.5 4.3 3 2.8 4.9 2.8c1 0 2 .5 2.6 1.3l.5.6.5-.6c.6-.8 1.6-1.3 2.6-1.3 1.9 0 3.4 1.5 3.4 3.4 0 2.4-2.1 4.3-5.6 7.5l-.9.8z" stroke="#E8825C" stroke-width="1.1" stroke-linejoin="round"/></svg>
+          <span>It helps future families make informed&nbsp;decisions.</span>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5L13 4v4c0 3-2.2 5.5-5 6-2.8-.5-5-3-5-6V4l5-2.5z" stroke="#B8884A" stroke-width="1.1" stroke-linejoin="round"/><path d="M5.7 8l1.7 1.7L10.5 6.4" stroke="#B8884A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>It ensures testimonials on Helper Circle are genuine and&nbsp;permission-based.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FORM ═══ -->
+<section class="fb-form-section">
+  <div class="wrap">
+    <div class="fb-card">
+
+      <div id="fb-form-wrap">
+        <!--
+          TESTIMONIAL HANDLING:
+          Nothing here auto-publishes. This is a static site — submissions arrive by
+          email only. The named fields below (testimonial / testimonial-consent /
+          testimonial-display) are kept clean so that:
+            1. you review each submission manually and publish only with permission, and
+            2. if you later move to Kit / Airtable / Notion, the same field names map
+               straight into a proper review-and-approve dashboard.
+          ACTION NEEDED: create a new Formspree form for feedback and replace
+          YOUR_FEEDBACK_FORM_ID below, then click the verification email.
+        -->
+        <form id="fb-form" action="https://formspree.io/f/YOUR_FEEDBACK_FORM_ID" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New feedback — Helper Circle"/>
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+
+          <!-- ── Section 1: About you ── -->
+          <fieldset class="fb-fieldset">
+            <legend class="fb-legend">About you</legend>
+            <p class="fb-legend-sub">So we know who we're hearing from.</p>
+
+            <div class="fb-fg">
+              <label class="fb-label" for="fb-name">Name</label>
+              <input type="text" id="fb-name" name="name" placeholder="Jane Tan" required/>
+            </div>
+
+            <div class="fb-fg">
+              <label class="fb-label" for="fb-email">Email</label>
+              <input type="email" id="fb-email" name="email" placeholder="you@email.com" required/>
+            </div>
+
+            <div class="fb-fg">
+              <label class="fb-label">I am <span class="fb-opt">(choose one)</span></label>
+              <div class="fb-roles" role="radiogroup" aria-label="I am">
+                <label class="fb-role"><input type="radio" name="role" value="Referring employer" required/> <span>Referring employer</span></label>
+                <label class="fb-role"><input type="radio" name="role" value="Hiring employer"/> <span>Hiring employer</span></label>
+                <label class="fb-role"><input type="radio" name="role" value="Helper"/> <span>Helper</span></label>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- ── Section 2: Your experience ── -->
+          <fieldset class="fb-fieldset">
+            <legend class="fb-legend">Your experience</legend>
+            <p class="fb-legend-sub">No wrong answers — honest is most useful.</p>
+
+            <div class="fb-fg">
+              <label class="fb-label">How would you rate your experience with Helper&nbsp;Circle?</label>
+              <div class="fb-stars" id="fb-stars" role="radiogroup" aria-label="Star rating, 1 to 5">
+                <input type="radio" id="fb-star5" name="rating" value="5"/><label for="fb-star5" title="Excellent" aria-label="5 stars">&#9733;</label>
+                <input type="radio" id="fb-star4" name="rating" value="4"/><label for="fb-star4" title="Good" aria-label="4 stars">&#9733;</label>
+                <input type="radio" id="fb-star3" name="rating" value="3"/><label for="fb-star3" title="Okay" aria-label="3 stars">&#9733;</label>
+                <input type="radio" id="fb-star2" name="rating" value="2"/><label for="fb-star2" title="Not great" aria-label="2 stars">&#9733;</label>
+                <input type="radio" id="fb-star1" name="rating" value="1"/><label for="fb-star1" title="Poor" aria-label="1 star">&#9733;</label>
+              </div>
+              <p class="fb-star-hint" id="fb-star-hint" aria-live="polite"></p>
+            </div>
+
+            <div class="fb-fg">
+              <label class="fb-label" for="fb-helpful">What was most helpful about your&nbsp;experience?</label>
+              <textarea id="fb-helpful" name="most-helpful" placeholder="A line or two is plenty."></textarea>
+            </div>
+
+            <div class="fb-fg">
+              <label class="fb-label" for="fb-improve">What could we&nbsp;improve?</label>
+              <textarea id="fb-improve" name="could-improve" placeholder="We genuinely want to hear it."></textarea>
+            </div>
+          </fieldset>
+
+          <!-- ── Section 3: Testimonial ── -->
+          <fieldset class="fb-fieldset">
+            <legend class="fb-legend">A word for other families</legend>
+            <p class="fb-legend-sub">Optional — but lovely if you have a moment.</p>
+
+            <div class="fb-fg">
+              <label class="fb-label" for="fb-testimonial">If another family was considering Helper Circle, what would you tell&nbsp;them?</label>
+              <textarea id="fb-testimonial" name="testimonial" placeholder="In your own words."></textarea>
+              <p class="fb-help">With your permission, we may feature your testimonial on our website. Nothing is published without your say-so.</p>
+            </div>
+          </fieldset>
+
+          <!-- ── Section 4: Permissions ── -->
+          <fieldset class="fb-fieldset">
+            <legend class="fb-legend">Permissions</legend>
+            <p class="fb-legend-sub">You decide what we may share, and how.</p>
+
+            <div class="fb-fg">
+              <label class="fb-check">
+                <input type="checkbox" name="testimonial-consent" value="Yes — happy to publish"/>
+                <span>I'm happy for Helper Circle to publish my&nbsp;testimonial.</span>
+              </label>
+            </div>
+
+            <div class="fb-fg">
+              <label class="fb-label" for="fb-display">If published, how should we show&nbsp;it?</label>
+              <select id="fb-display" name="testimonial-display">
+                <option value="">Select…</option>
+                <option value="First name only">First name only</option>
+                <option value="Anonymous">Anonymous</option>
+                <option value="Do not publish">Do not publish</option>
+              </select>
+            </div>
+
+            <div class="fb-fg">
+              <label class="fb-check">
+                <input type="checkbox" name="contact-ok" value="Yes — happy to be contacted"/>
+                <span>I'm happy to be contacted if any additional information is&nbsp;needed.</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="btn btn-green btn-lg fb-submit">Share feedback</button>
+          <p class="fb-submit-note">Read by a real person — thank you for taking the&nbsp;time.</p>
+        </form>
+      </div>
+
+      <!-- Success state -->
+      <div class="fb-success" id="fb-success">
+        <div class="fb-success-check">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="#2C8A6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h2 class="fb-success-title">Thank you for your&nbsp;feedback</h2>
+        <p class="fb-success-body">We're grateful that you've taken the time to help improve Helper Circle. Your feedback helps us build a more trusted experience for future families and&nbsp;helpers.</p>
+        <a href="index.html" class="btn btn-outline">Back to home</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+
+      <p class="footer-heart">
+        Helper Circle helps Singapore families pass along helpers they trust.
+      </p>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="browse.html">Meet Helpers</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="refer.html">Refer a Helper</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="index.html#how">How It Works</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="faq.html">FAQ</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">Contact</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="feedback.html">Share Feedback</a>
+      </nav>
+
+      <p class="footer-aside">
+        <a href="for-families.html">For families saying goodbye to a helper &rarr;</a>
+      </p>
+
+      <div class="footer-legal-strip">
+        <span>© <span id="year"></span> Helper Circle · Singapore</span>
+        <span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Star rating hint text
+  (function() {
+    var hints = { '1': 'Poor', '2': 'Not great', '3': 'Okay', '4': 'Good', '5': 'Excellent' };
+    var hint = document.getElementById('fb-star-hint');
+    document.querySelectorAll('#fb-stars input').forEach(function(r) {
+      r.addEventListener('change', function() {
+        if (hint) hint.textContent = hints[r.value] || '';
+      });
+    });
+  })();
+
+  // Form submit (AJAX → Formspree), mirrors refer.html behaviour
+  (function() {
+    var form = document.getElementById('fb-form');
+    var formWrap = document.getElementById('fb-form-wrap');
+    var success = document.getElementById('fb-success');
+    var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Validate required fields
+      var requiredFields = form.querySelectorAll('[required]');
+      var valid = true;
+      var firstInvalid = null;
+      requiredFields.forEach(function(field) {
+        var ok;
+        if (field.type === 'radio') {
+          ok = form.querySelector('input[name="' + field.name + '"]:checked') !== null;
+        } else {
+          ok = field.value.trim() !== '';
+        }
+        if (!ok) {
+          valid = false;
+          if (!firstInvalid) firstInvalid = field;
+          if (field.type !== 'radio') field.style.borderColor = '#D85959';
+        } else if (field.type !== 'radio') {
+          field.style.borderColor = '';
+        }
+      });
+      if (!valid) {
+        if (firstInvalid) {
+          window.scrollTo({
+            top: firstInvalid.getBoundingClientRect().top + window.scrollY - 120,
+            behavior: 'smooth'
+          });
+          firstInvalid.focus({ preventScroll: true });
+        }
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.dataset.originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending\u2026';
+      }
+
+      var data = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(function(res) {
+          if (res.ok) {
+            formWrap.style.display = 'none';
+            success.classList.add('is-active');
+            window.scrollTo({ top: success.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+          } else {
+            throw new Error('Form submission failed');
+          }
+        })
+        .catch(function() {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = submitBtn.dataset.originalText || 'Share feedback';
+          }
+          var existingError = form.querySelector('.fb-form-error');
+          if (existingError) existingError.remove();
+          var errorEl = document.createElement('p');
+          errorEl.className = 'fb-form-error';
+          errorEl.style.cssText = 'margin: 12px 0 0; padding: 12px 14px; background: rgba(232, 130, 92, 0.08); border: 1px solid rgba(232, 130, 92, 0.32); border-radius: 8px; color: #9B5B3A; font-size: 0.88rem; line-height: 1.5; text-align: center;';
+          errorEl.innerHTML = 'Something didn\'t go through. Please try again, or email <a href="mailto:hello@helpercircle.sg" style="color: #9B5B3A; text-decoration: underline;">hello@helpercircle.sg</a> directly.';
+          submitBtn.parentNode.insertBefore(errorEl, submitBtn.nextSibling);
+        });
+    });
+  })();
+</script>
+</body>
+</html>

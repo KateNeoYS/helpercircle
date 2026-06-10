@@ -100,8 +100,8 @@ window.HELPERS = [
     quoteCite: "&mdash; Marianne",
     nationality: "Filipino",
     yearsSG: "17 years",
-    bestFit: "Childcare across ages &amp; cooking",
-    strengths: ["Childcare (infants to teens)", "Adaptable cooking", "17 years in SG"],
+    bestFit: "Childcare (ages 5+) &amp; cooking",
+    strengths: ["Childcare (ages 5+)", "Adaptable cooking", "17 years in SG"],
     photo: "images/evelyn.jpeg",
     profile: "profile-evelyn.html"
   },

@@ -14,6 +14,23 @@
 
    To retire someone from public view entirely, set status to
    "hidden" (or just delete her block).
+
+   ─── TO ADD A NEW HELPER ─────────────────────────────────────
+   1. Scroll to the TEMPLATE block at the bottom of this list.
+   2. Copy it, remove the "//" at the start of each line.
+   3. Add a comma after the previous helper's closing  }  so the
+      list stays comma-separated.
+   4. Fill in the values (you type these yourself — do NOT copy
+      from the profile page's HTML).
+   5. Upload her photo to images/ and create her profile-*.html.
+   Commit, and she appears on both pages automatically.
+
+   Special characters used in the text (type them exactly):
+     &nbsp;   = a space that won't line-break (use before last word)
+     &amp;    = the "&" symbol
+     &middot; = the "·" dot separator
+     &mdash;  = a long dash "—"
+     \u201c \u201d = curly quotes  “ ”      \u2019 = curly apostrophe ’
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
@@ -87,7 +104,46 @@ window.HELPERS = [
     strengths: ["Childcare (infants to teens)", "Adaptable cooking", "17 years in SG"],
     photo: "images/evelyn.jpeg",
     profile: "profile-evelyn.html"
+  },
+  {
+    id: "mariafe",
+    name: "Maria Fe",
+    initial: "T.",
+    status: "available",
+    statusLabel: "Available from 22 July&nbsp;2026",
+    line: "Filipino &middot; 49 &middot; Cooking, household &amp;&nbsp;caregiving",
+    summary: "Trustworthy and adaptable, with cooking a particular strength across her years in&nbsp;Singapore.",
+    referredBy: "Referred by Anna, her current employer of 3.5&nbsp;years",
+    quote: "\u201cOne of her greatest strengths is her cooking &mdash; she prepares a wide variety of meals, follows recipes well, and consistently produces tasty, well-presented&nbsp;dishes.\u201d",
+    quoteCite: "&mdash; Anna",
+    nationality: "Filipino",
+    yearsSG: "10 years",
+    bestFit: "Cooking, household &amp; caregiving",
+    strengths: ["Cooking (wide variety)", "Housekeeping &amp; cleaning", "10 years in SG"],
+    photo: "images/mariafe.jpeg",
+    profile: "profile-mariafe.html"
   }
+
+  // ─── TEMPLATE — copy this, remove the //'s, add a comma after the
+  //     helper above, and fill in the values. Then delete this note. ───
+  // ,{
+  //   id: "firstname",                                  // short lowercase tag, no spaces
+  //   name: "First name",                               // e.g. "Maria Fe"
+  //   initial: "",                                      // surname initial e.g. "T." — or ""
+  //   status: "available",                              // "available" or "placed"
+  //   statusLabel: "Available from 1 Aug&nbsp;2026",    // her availability line
+  //   line: "Filipino &middot; 40 &middot; Cooking &amp;&nbsp;childcare",
+  //   summary: "One honest sentence about her, in her referrer's spirit.",
+  //   referredBy: "Referred by [Name], her current employer of X&nbsp;years",
+  //   quote: "\u201cA short line from the employer about her.\u201d",
+  //   quoteCite: "&mdash; [Referrer first name]",
+  //   nationality: "Filipino",
+  //   yearsSG: "10 years",                              // or "" if unknown
+  //   bestFit: "Cooking &amp; childcare",               // shows in the card snapshot
+  //   strengths: ["Skill one", "Skill two", "10 years in SG"],  // first two show as chips
+  //   photo: "images/firstname.jpeg",                   // upload this file to images/
+  //   profile: "profile-firstname.html"                 // create this page
+  // }
 ];
 
 (function () {

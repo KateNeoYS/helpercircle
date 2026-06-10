@@ -38,7 +38,7 @@ window.HELPERS = [
     id: "jessie",
     name: "Jessie Ann",
     initial: "",
-    status: "available",
+    status: "hidden",
     statusLabel: "Available from 30 June&nbsp;2026",
     line: "Filipino &middot; 49 &middot; Housekeeping focus &amp;&nbsp;cooking",
     summary: "Independent, proactive, and quietly takes ownership of what needs&nbsp;doing.",

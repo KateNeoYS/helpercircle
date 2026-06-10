@@ -7393,7 +7393,7 @@ em { font-style: italic; color: var(--clr-primary); }
    ═══════════════════════════════════════════════════════════ */
 .stories {
   padding: var(--space-18, 72px) 0;
-  background: var(--clr-cream, #FBF6EE);
+  background: var(--clr-white, #fff);
 }
 .stories-hdr {
   text-align: center;

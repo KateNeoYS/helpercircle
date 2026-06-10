@@ -6767,8 +6767,15 @@ em { font-style: italic; color: var(--clr-primary); }
   font-size: 0.74rem;
   margin-left: 2px;
 }
+.pathway-field-hint {
+  margin: 0;
+  font-size: 0.74rem;
+  line-height: 1.45;
+  color: var(--clr-text-muted, #6B7370);
+}
 .pathway-form-v2 input[type="email"],
 .pathway-form-v2 input[type="text"],
+.pathway-form-v2 input[type="tel"],
 .pathway-form-v2 textarea {
   width: 100%;
   padding: 10px 14px;
@@ -6784,6 +6791,7 @@ em { font-style: italic; color: var(--clr-primary); }
 }
 .pathway-form-v2 input[type="email"]:focus,
 .pathway-form-v2 input[type="text"]:focus,
+.pathway-form-v2 input[type="tel"]:focus,
 .pathway-form-v2 textarea:focus {
   outline: none;
   border-color: rgba(44, 138, 110, 0.4);

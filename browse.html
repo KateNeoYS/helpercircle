@@ -512,6 +512,11 @@
             <input type="email" id="looking-email" name="email" required placeholder="you@email.com" autocomplete="email"/>
           </div>
           <div class="pathway-field">
+            <label for="looking-whatsapp" class="pathway-field-label">WhatsApp number <span class="pathway-field-opt">(optional)</span></label>
+            <input type="tel" id="looking-whatsapp" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="+65 9123 4567" pattern="[\d\s()+\-]{6,20}" title="Enter a valid phone number (digits, spaces, +, -, and parentheses are fine)."/>
+            <p class="pathway-field-hint">If you'd rather hear from us on WhatsApp.</p>
+          </div>
+          <div class="pathway-field">
             <label for="looking-details" class="pathway-field-label">Briefly, what are you looking for? <span class="pathway-field-opt">(optional)</span></label>
             <textarea id="looking-details" name="details" rows="3" placeholder="Household size, care needed, hoping to start by&hellip;"></textarea>
           </div>

@@ -7027,12 +7027,15 @@ em { font-style: italic; color: var(--clr-primary); }
   text-wrap: balance;
 }
 .avail-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 22px;
   align-items: stretch;
 }
 .hc-card {
+  flex: 1 1 300px;
+  max-width: 360px;
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -7174,6 +7177,8 @@ em { font-style: italic; color: var(--clr-primary); }
   .avail { padding: 56px 0; }
   .avail-grid {
     display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     grid-template-columns: none;
     gap: 14px;
     max-width: none;

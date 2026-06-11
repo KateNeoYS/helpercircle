@@ -7771,3 +7771,26 @@ em { font-style: italic; color: var(--clr-primary); }
   color: var(--clr-primary-dk, #1B5E48);
 }
 .psig-note--muted { color: var(--clr-text-muted, #64696E); }
+
+/* ═══════════════════════════════════════════════════════════
+   UNIFIED CARD TRUST BADGE  (rendered by helpers-data.js)
+   Badge colour no longer cycles with the card accent — it now
+   encodes the trust signal:
+     .hc-badge--rec = ⭐ Employer Recommended  → solid sage (uniform)
+     .hc-badge--ret = 🔄 Long-Term Retention   → outlined, muted
+   Card-body accent (status / cta / chips) keeps its sage→peach→amber
+   cadence; only the trust badge is unified. Appended last + scoped
+   to .hc-card so it wins over .hc-card--peach/amber .hc-badge.
+   ═══════════════════════════════════════════════════════════ */
+.hc-card .hc-badge--rec {
+  background: var(--clr-primary, #2C8A6E);
+  color: #fff;
+  box-shadow: 0 1px 6px rgba(31, 42, 36, 0.22);
+}
+.hc-card .hc-badge--ret {
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--clr-primary-dk, #1B5E48);
+  border: 1px solid rgba(44, 138, 110, 0.5);
+}
+.hc-card .hc-badge--rec::before,
+.hc-card .hc-badge--ret::before { display: none; }

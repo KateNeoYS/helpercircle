@@ -135,6 +135,11 @@ window.HELPERS = [
   //   line: "Filipino &middot; 40 &middot; Cooking &amp;&nbsp;childcare",
   //   summary: "One honest sentence about her, in her referrer's spirit.",
   //   referredBy: "Referred by [Name], her current employer of X&nbsp;years",
+  //   signal: "recommended",                            // "recommended" (default) or "retention"
+  //   // ↑ For a LONG-TERM RETENTION helper (no employer reference): set
+  //   //   signal: "retention", leave referredBy "", and set ONE of:
+  //   //   retentionYears: 8,   // → badge "8 Years With Same Family"
+  //   //   renewals: 3,         // → badge "3 Contract Renewals"
   //   quote: "\u201cA short line from the employer about her.\u201d",
   //   quoteCite: "&mdash; [Referrer first name]",
   //   nationality: "Filipino",
@@ -151,6 +156,31 @@ window.HELPERS = [
 
   function fullName(h) { return h.initial ? (h.name + " " + h.initial) : h.name; }
   function plain(s) { return String(s).replace(/&[a-z]+;/gi, " ").replace(/"/g, ""); }
+
+  /* ── Trust signal helpers ──
+     Every helper defaults to "recommended" (⭐ Employer Recommended).
+     A "retention" helper (🔄 Long-Term Employer Retention) has no employer
+     reference; set signal:"retention" plus retentionYears OR renewals. */
+  function signalOf(h) { return h.signal === "retention" ? "retention" : "recommended"; }
+  function retentionText(h) {
+    if (h.retentionYears) return h.retentionYears + " Years With Same Family";
+    if (h.renewals)       return h.renewals + " Contract Renewals";
+    return "Long-Term Retention";
+  }
+  // Home-page photo badge: ⭐ recommended (solid sage) · 🔄 retention (outlined)
+  function homeBadge(h) {
+    return signalOf(h) === "retention"
+      ? '<span class="hc-badge hc-badge--ret">\uD83D\uDD04 ' + retentionText(h) + '</span>'
+      : '<span class="hc-badge hc-badge--rec">\u2B50 Employer Recommended</span>';
+  }
+  // Browse-card trust line: recommendation prose · or verified-retention line
+  function signalLineBrowse(h) {
+    if (signalOf(h) === "retention") {
+      return '<p class="referred-by referred-by--ret"><span class="referred-by-dot" aria-hidden="true"></span>' +
+        (h.retentionLabel || (retentionText(h) + ' &middot; employment duration&nbsp;verified')) + '</p>';
+    }
+    return '<p class="referred-by"><span class="referred-by-dot" aria-hidden="true"></span>' + h.referredBy + '</p>';
+  }
 
   /* ── Home page: compact cards into #avail-grid (available only, max 3) ──
      When at least one helper is available, show the grid section and hide the
@@ -192,7 +222,7 @@ window.HELPERS = [
         '" aria-label="View ' + plain(h.name) + '\u2019s profile">' +
           '<div class="hc-media">' +
             '<img src="' + h.photo + '" alt="" loading="lazy"/>' +
-            '<span class="hc-badge">Employer referred</span>' +
+            homeBadge(h) +
             '<div class="hc-namebar">' +
               '<span class="hc-name">' + fullName(h) + '</span>' +
               '<span class="hc-natline">' + natline + '</span>' +
@@ -291,7 +321,7 @@ window.HELPERS = [
 '          </div>\n' +
 '          <div class="preview-section">\n' +
 '            <p class="preview-summary">' + h.summary + '</p>\n' +
-'            <p class="referred-by"><span class="referred-by-dot" aria-hidden="true"></span>' + h.referredBy + '</p>\n' +
+'            ' + signalLineBrowse(h) + '\n' +
 '            <blockquote class="preview-quote">\n' +
 '              ' + h.quote + '\n' +
 '              <cite>' + h.quoteCite + '</cite>\n' +

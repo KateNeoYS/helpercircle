@@ -48,6 +48,7 @@ window.HELPERS = [
     yearsSG: "",
     bestFit: "Elderly care &amp; household",
     strengths: ["Elderly care", "Household", "Bahasa Melayu"],
+    skills: ["Elderly Care", "Housekeeping"],
     photo: "images/kartika.jpg",
     profile: "profile-kartika.html"
   },
@@ -66,6 +67,7 @@ window.HELPERS = [
     yearsSG: "16 years",
     bestFit: "Housekeeping &amp; cooking, older children",
     strengths: ["Children (primary &amp; teen)", "Multi-cuisine cooking", "16 years in SG"],
+    skills: ["Housekeeping", "Cooking", "Childcare"],
     photo: "images/jessie.jpg",
     profile: "profile-jessie.html"
   },
@@ -84,6 +86,7 @@ window.HELPERS = [
     yearsSG: "17 years",
     bestFit: "Childcare &amp; all-round household",
     strengths: ["Childcare (3 to teens)", "Western cooking", "17 years in SG"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
     photo: "images/amie.jpg",
     profile: "profile-amie.html"
   },
@@ -102,6 +105,7 @@ window.HELPERS = [
     yearsSG: "17 years",
     bestFit: "Childcare (ages 5+) &amp; cooking",
     strengths: ["Childcare (ages 5+)", "Adaptable cooking", "17 years in SG"],
+    skills: ["Childcare", "Cooking", "Pets"],
     photo: "images/evelyn.jpeg",
     profile: "profile-evelyn.html"
   },
@@ -120,6 +124,7 @@ window.HELPERS = [
     yearsSG: "10 years",
     bestFit: "Cooking, household &amp; caregiving",
     strengths: ["Cooking (wide variety)", "Housekeeping &amp; cleaning", "10 years in SG"],
+    skills: ["Cooking", "Housekeeping", "Elderly Care"],
     photo: "images/mariafe.jpeg",
     profile: "profile-mariafe.html"
   }
@@ -133,19 +138,24 @@ window.HELPERS = [
   //   status: "available",                              // "available" or "placed"
   //   statusLabel: "Available from 1 Aug&nbsp;2026",    // her availability line
   //   line: "Filipino &middot; 40 &middot; Cooking &amp;&nbsp;childcare",
-  //   summary: "One honest sentence about her, in her referrer's spirit.",
+  //   summary: "One honest sentence about her — shows as the one-line on the card.",
   //   referredBy: "Referred by [Name], her current employer of X&nbsp;years",
-  //   signal: "recommended",                            // "recommended" (default) or "retention"
-  //   // ↑ For a LONG-TERM RETENTION helper (no employer reference): set
-  //   //   signal: "retention", leave referredBy "", and set ONE of:
-  //   //   retentionYears: 8,   // → badge "8 Years With Same Family"
-  //   //   renewals: 3,         // → badge "3 Contract Renewals"
+  //   signal: "referred",                               // "referred" (default, 🟢) or "verified" (🔵)
+  //   // ↑ For a LONG-TERM EMPLOYMENT VERIFIED helper (no recommendation):
+  //   //   signal: "verified", leave referredBy "", and set ONE of:
+  //   //   verifiedYears: 10,   // → "10 years with same employer"
+  //   //   renewals: 3,         // → "3 contract renewals, same employer"
+  //   skills: ["Childcare", "Cooking", "Housekeeping"],  // first 3 show as ticks + power filters
+  //   //   (use the filter vocabulary: Childcare, Infant Care, Housekeeping, Cooking, Elderly Care, Pets)
+  //   age: 40,                                          // optional; else read from `line`
+  //   salary: "S$700&ndash;800",                        // optional; blank shows "Salary on enquiry"
+  //   availability: "transfer",                         // "transfer" (in SG, default) or "overseas"
   //   quote: "\u201cA short line from the employer about her.\u201d",
   //   quoteCite: "&mdash; [Referrer first name]",
   //   nationality: "Filipino",
   //   yearsSG: "10 years",                              // or "" if unknown
-  //   bestFit: "Cooking &amp; childcare",               // shows in the card snapshot
-  //   strengths: ["Skill one", "Skill two", "10 years in SG"],  // first two show as chips
+  //   bestFit: "Cooking &amp; childcare",               // shows on the home-page card
+  //   strengths: ["Skill one", "Skill two", "10 years in SG"],  // home-page card chips
   //   photo: "images/firstname.jpeg",                   // upload this file to images/
   //   profile: "profile-firstname.html"                 // create this page
   // }
@@ -157,37 +167,47 @@ window.HELPERS = [
   function fullName(h) { return h.initial ? (h.name + " " + h.initial) : h.name; }
   function plain(s) { return String(s).replace(/&[a-z]+;/gi, " ").replace(/"/g, ""); }
 
-  /* ── Trust signal helpers ──
-     Every helper defaults to "recommended" (⭐ Employer Recommended).
-     A "retention" helper (🔄 Long-Term Employer Retention) has no employer
-     reference; set signal:"retention" plus retentionYears OR renewals. */
-  function signalOf(h) { return h.signal === "retention" ? "retention" : "recommended"; }
-  function retentionText(h) {
-    if (h.retentionYears) return h.retentionYears + " Years With Same Family";
-    if (h.renewals)       return h.renewals + " Contract Renewals";
-    return "Long-Term Retention";
+  /* ── Trust signals ──
+       "referred" (default) → 🟢 Employer Referred  (current/former employer recommendation)
+       "verified"           → 🔵 Long-Term Employment Verified  (4+ yrs, same employer)
+     For a verified helper: signal:"verified" + verifiedYears (e.g. 10) OR renewals (e.g. 3).
+     (Legacy "recommended"/"retention" still map correctly.) */
+  function signalKey(h) { return (h.signal === "verified" || h.signal === "retention") ? "verified" : "referred"; }
+  function signalLabel(h) { return signalKey(h) === "verified" ? "Long-Term Employment Verified" : "Employer Referred"; }
+  function signalSub(h) {
+    if (signalKey(h) !== "verified") return "Recommended by current or former employer";
+    if (h.verifiedYears || h.retentionYears) return (h.verifiedYears || h.retentionYears) + " years with same employer";
+    if (h.renewals) return h.renewals + " contract renewals, same employer";
+    return "Employment duration verified";
   }
-  // Home-page photo badge: ⭐ recommended (solid sage) · 🔄 retention (outlined)
-  function homeBadge(h) {
-    return signalOf(h) === "retention"
-      ? '<span class="hc-badge hc-badge--ret">\uD83D\uDD04 ' + retentionText(h) + '</span>'
-      : '<span class="hc-badge hc-badge--rec">\u2B50 Employer Recommended</span>';
+  // Clean skill labels (prefer h.skills; else derive from strengths) — power ticks + filters
+  function skillList(h) {
+    if (h.skills && h.skills.length) return h.skills;
+    return (h.strengths || []).filter(function (s) { return !/year/i.test(s); })
+      .map(function (s) { return s.replace(/\s*\(.*?\)\s*/g, " ").replace(/\s+/g, " ").trim(); });
   }
-  // Browse-card trust line: recommendation prose · or verified-retention line
-  function signalLineBrowse(h) {
-    if (signalOf(h) === "retention") {
-      return '<p class="referred-by referred-by--ret"><span class="referred-by-dot" aria-hidden="true"></span>' +
-        (h.retentionLabel || (retentionText(h) + ' &middot; employment duration&nbsp;verified')) + '</p>';
+  function ageOf(h) {
+    if (h.age) return h.age;
+    var parts = String(h.line || "").split("&middot;");
+    for (var i = 0; i < parts.length; i++) {
+      var n = parts[i].replace(/[^0-9]/g, "");
+      if (n && +n > 17 && +n < 75) return +n;
     }
-    return '<p class="referred-by"><span class="referred-by-dot" aria-hidden="true"></span>' + h.referredBy + '</p>';
+    return "";
   }
-  // Browse-card trust badge (top of the card) — same component as the home cards
-  function browseBadge(h) {
-    return '<div class="preview-sig">' +
-      (signalOf(h) === "retention"
-        ? '<span class="tsig tsig--ret">\uD83D\uDD04 ' + retentionText(h) + '</span>'
-        : '<span class="tsig tsig--rec">\u2B50 Employer Recommended</span>') +
-      '</div>';
+  function natCountry(h) {
+    var n = (h.nationality || "").toLowerCase();
+    if (n.indexOf("filipin") > -1) return "philippines";
+    if (n.indexOf("indonesia") > -1) return "indonesia";
+    if (n.indexOf("myanmar") > -1 || n.indexOf("burm") > -1) return "myanmar";
+    return "other";
+  }
+  function availOf(h) { return h.availability === "overseas" ? "overseas" : "transfer"; }
+  // Home-page photo badge: green pill (referred) · blue pill (verified) — colour is the signal
+  function homeBadge(h) {
+    return signalKey(h) === "verified"
+      ? '<span class="hc-badge hc-badge--ver">Long-Term Employment Verified</span>'
+      : '<span class="hc-badge hc-badge--ref">Employer Referred</span>';
   }
 
   /* ── Home page: compact cards into #avail-grid (available only, max 3) ──
@@ -301,46 +321,42 @@ window.HELPERS = [
     }, { passive: true });
   }
 
-  /* ── Browse page: full feature cards into a .circle-row container ── */
+  /* ── Browse marketplace card (compact, scannable) into a .mcard-grid ── */
   function fullCard(h, wrapClass, statusPhrase) {
-    var nameHtml = h.initial
-      ? (h.name + ' <span class="preview-initial">' + h.initial + "</span>")
-      : h.name;
-    var chips = h.strengths.map(function (s) {
-      return '<span class="preview-chip">' + s + "</span>";
-    }).join("\n            ");
+    var key = signalKey(h);
+    var skills = skillList(h);
+    var ticks = skills.slice(0, 3).map(function (s) {
+      return '<li><svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7.4l3 3 6-6.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' + s + '</li>';
+    }).join("");
+    var age = ageOf(h);
+    var ageNat = (age ? age + ' &middot; ' : '') + h.nationality;
+    var salary = h.salary ? h.salary : 'Salary on enquiry';
+    var dataSkills = skills.map(function (s) { return s.toLowerCase(); }).join(" ");
+    var placed = (h.status === "placed");
+    var v = (key === "verified");
+    var nameHtml = h.initial ? (h.name + ' <span class="mcard-init">' + h.initial + '</span>') : h.name;
 
     return (
-'    <div class="preview-card-wrap ' + wrapClass + '">\n' +
-'      <a href="' + h.profile + '" class="preview-card-link" aria-label="Read ' + plain(h.name) + '\u2019s profile">\n' +
-'        <article class="preview-card preview-card--live preview-card--feature" aria-label="' + plain(fullName(h)) + ' \u2014 ' + statusPhrase + '">\n' +
-'          <div class="preview-top">\n' +
-'            <div class="preview-photo-slot preview-photo-slot--live" aria-hidden="true">\n' +
-'              <img src="' + h.photo + '" alt="" class="preview-photo-img"/>\n' +
-'            </div>\n' +
-'            <div class="preview-meta">\n' +
-'              ' + browseBadge(h) + '\n' +
-'              <div class="preview-status">\n' +
-'                <span class="preview-status-dot" aria-hidden="true"></span>\n' +
-'                <span>' + h.statusLabel + '</span>\n' +
-'              </div>\n' +
-'              <h3 class="preview-name">' + nameHtml + '</h3>\n' +
-'              <p class="preview-line">' + h.line + '</p>\n' +
-'            </div>\n' +
+'    <div class="mcard-wrap ' + wrapClass + '" data-signal="' + key + '" data-skills="' + dataSkills + '" data-nat="' + natCountry(h) + '" data-avail="' + availOf(h) + '">\n' +
+'      <a href="' + h.profile + '" class="mcard" aria-label="View ' + plain(fullName(h)) + '\u2019s profile">\n' +
+'        <div class="mcard-media">\n' +
+'          <img src="' + h.photo + '" alt="" loading="lazy"/>\n' +
+'          <span class="mcard-badge mcard-badge--' + (v ? 'ver' : 'ref') + '"><span class="mcard-dot" aria-hidden="true"></span>' + signalLabel(h) + '</span>\n' +
+(placed ? '          <span class="mcard-placed">Joined a family</span>\n' : '') +
+'        </div>\n' +
+'        <div class="mcard-body">\n' +
+'          <div class="mcard-head">\n' +
+'            <h3 class="mcard-name">' + nameHtml + '</h3>\n' +
+'            <p class="mcard-sub">' + ageNat + '</p>\n' +
 '          </div>\n' +
-'          <div class="preview-section">\n' +
-'            <p class="preview-summary">' + h.summary + '</p>\n' +
-'            ' + signalLineBrowse(h) + '\n' +
-'            <blockquote class="preview-quote">\n' +
-'              ' + h.quote + '\n' +
-'              <cite>' + h.quoteCite + '</cite>\n' +
-'            </blockquote>\n' +
+'          <p class="mcard-trust mcard-trust--' + (v ? 'ver' : 'ref') + '">' + signalSub(h) + '</p>\n' +
+'          <ul class="mcard-skills">' + ticks + '</ul>\n' +
+'          <p class="mcard-summary">' + h.summary + '</p>\n' +
+'          <div class="mcard-foot">\n' +
+'            <span class="mcard-salary">' + salary + '</span>\n' +
+'            <span class="mcard-cta">View profile &rarr;</span>\n' +
 '          </div>\n' +
-'          <div class="preview-chips">\n            ' + chips + '\n          </div>\n' +
-'          <div class="preview-cta-row">\n' +
-'            <span class="preview-cta">Read her profile &rarr;</span>\n' +
-'          </div>\n' +
-'        </article>\n' +
+'        </div>\n' +
 '      </a>\n' +
 '    </div>'
     );

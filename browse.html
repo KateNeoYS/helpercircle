@@ -375,39 +375,69 @@
      never opens the page. When more helpers exist, each section becomes a grid. -->
 
 
-<!-- ─── Success: helpers who've found their next family (proof, shown first) ─── -->
-<section class="format-section section-tight">
-  <div class="wrap">
-
-    <div class="format-hdr format-hdr-tight">
-      <div class="kicker">The circle, continued</div>
-      <h2 class="h2">Helpers who've found their next&nbsp;family</h2>
-      <p class="format-sub">A quiet record of helpers introduced to their next family through Helper&nbsp;Circle.</p>
-    </div>
-
-    <!-- Kartika — the first referral introduced to a new family. Links to her profile.
-         Featured treatment: narrower card, the employer recommendation emphasized. -->
-    <div class="circle-row" id="success-row"></div>
-
-  </div>
-</section>
-
-
-<!-- ─── In the circle right now — current availability (empty state) ─── -->
-<!-- Optimistic, community-framed empty state instead of dead whitespace.
-     Primary CTA refers (supply-side priority); a quiet secondary link sends
-     families looking to hire to the notify form below. -->
+<!-- ─── Available helpers — the marketplace grid (filterable) ─── -->
 <section class="format-section section-tight">
   <div class="wrap">
 
     <div class="format-hdr format-hdr-tight">
       <div class="kicker">In the circle right now</div>
-      <h2 class="h2">Looking for their next&nbsp;family</h2>
+      <h2 class="h2">Helpers looking for their next&nbsp;family</h2>
+      <p class="format-sub">Compare at a glance &mdash; every helper carries a verified trust&nbsp;signal.</p>
     </div>
 
-    <!-- Jessie Ann — currently looking for her next family. Available from 30 June. -->
-    <div class="circle-row" id="available-row"></div>
+    <div class="browse-filters" id="browse-filters">
+      <div class="bf-row">
+        <span class="bf-group-label">Trust</span>
+        <button type="button" class="bf-chip" data-group="signal" data-val="referred">Employer Referred</button>
+        <button type="button" class="bf-chip bf-chip--ver" data-group="signal" data-val="verified">Long-Term Verified</button>
+      </div>
+      <div class="bf-row">
+        <span class="bf-group-label">Experience</span>
+        <button type="button" class="bf-chip" data-group="skill" data-val="childcare">Childcare</button>
+        <button type="button" class="bf-chip" data-group="skill" data-val="infant care">Infant care</button>
+        <button type="button" class="bf-chip" data-group="skill" data-val="housekeeping">Housekeeping</button>
+        <button type="button" class="bf-chip" data-group="skill" data-val="cooking">Cooking</button>
+        <button type="button" class="bf-chip" data-group="skill" data-val="elderly care">Elderly care</button>
+        <button type="button" class="bf-chip" data-group="skill" data-val="pets">Pets</button>
+      </div>
+      <div class="bf-row">
+        <span class="bf-group-label">Nationality</span>
+        <button type="button" class="bf-chip" data-group="nat" data-val="indonesia">Indonesia</button>
+        <button type="button" class="bf-chip" data-group="nat" data-val="philippines">Philippines</button>
+        <button type="button" class="bf-chip" data-group="nat" data-val="myanmar">Myanmar</button>
+      </div>
+      <div class="bf-row">
+        <span class="bf-group-label">Availability</span>
+        <button type="button" class="bf-chip" data-group="avail" data-val="transfer">Transfer (in SG)</button>
+        <button type="button" class="bf-chip" data-group="avail" data-val="overseas">Overseas</button>
+      </div>
+      <div class="bf-bar">
+        <span class="bf-count" id="bf-count"></span>
+        <div class="bf-actions">
+          <button type="button" class="bf-clear" id="bf-clear">Clear filters</button>
+          <span class="bf-view" role="group" aria-label="View">
+            <button type="button" id="bf-grid" class="is-on">Grid</button>
+            <button type="button" id="bf-list">List</button>
+          </span>
+        </div>
+      </div>
+    </div>
 
+    <div class="mcard-grid" id="available-row"></div>
+
+  </div>
+</section>
+
+
+<!-- ─── Recently joined a family — proof ─── -->
+<section class="format-section section-tight">
+  <div class="wrap">
+    <div class="format-hdr format-hdr-tight">
+      <div class="kicker">The circle, continued</div>
+      <h2 class="h2">Recently joined a new&nbsp;family</h2>
+      <p class="format-sub">A quiet record of helpers introduced to their next family through Helper&nbsp;Circle.</p>
+    </div>
+    <div class="mcard-grid" id="success-row"></div>
   </div>
 </section>
 
@@ -624,6 +654,65 @@
 
 <!-- Shared helper data — renders the card rows above (single source of truth) -->
 <script src="helpers-data.js"></script>
+
+<!-- Marketplace filters + grid/list view -->
+<script>
+(function () {
+  var root = document.getElementById('browse-filters');
+  var grid = document.getElementById('available-row');
+  if (!root || !grid) return;
+  var chips = root.querySelectorAll('.bf-chip');
+  var countEl = document.getElementById('bf-count');
+
+  function activeBy(group) {
+    var vals = [];
+    root.querySelectorAll('.bf-chip.is-on[data-group="' + group + '"]').forEach(function (c) {
+      vals.push(c.getAttribute('data-val'));
+    });
+    return vals;
+  }
+  function matches(card, vals, attr, multi) {
+    if (!vals.length) return true;
+    var v = (card.getAttribute(attr) || '').toLowerCase();
+    if (!multi) return vals.indexOf(v) > -1;
+    var have = v.split(' ');
+    for (var i = 0; i < vals.length; i++) { if (have.indexOf(vals[i]) > -1) return true; }
+    return false;
+  }
+  function apply() {
+    var sig = activeBy('signal'), sk = activeBy('skill'), nat = activeBy('nat'), av = activeBy('avail');
+    var cards = grid.querySelectorAll('.mcard-wrap'), shown = 0;
+    cards.forEach(function (card) {
+      var ok = matches(card, sig, 'data-signal', false) &&
+               matches(card, sk, 'data-skills', true) &&
+               matches(card, nat, 'data-nat', false) &&
+               matches(card, av, 'data-avail', false);
+      card.style.display = ok ? '' : 'none';
+      if (ok) shown++;
+    });
+    if (countEl) countEl.textContent = shown + (shown === 1 ? ' helper' : ' helpers');
+    var empty = grid.querySelector('.mcard-empty');
+    if (shown === 0) {
+      if (!empty) {
+        empty = document.createElement('p');
+        empty.className = 'mcard-empty';
+        empty.textContent = 'No helpers match these filters yet. Try clearing one.';
+        grid.appendChild(empty);
+      }
+      empty.style.display = '';
+    } else if (empty) { empty.style.display = 'none'; }
+  }
+  chips.forEach(function (c) { c.addEventListener('click', function () { c.classList.toggle('is-on'); apply(); }); });
+  var clearBtn = document.getElementById('bf-clear');
+  if (clearBtn) clearBtn.addEventListener('click', function () { chips.forEach(function (c) { c.classList.remove('is-on'); }); apply(); });
+  var gridBtn = document.getElementById('bf-grid'), listBtn = document.getElementById('bf-list');
+  if (gridBtn && listBtn) {
+    gridBtn.addEventListener('click', function () { grid.classList.remove('is-list'); gridBtn.classList.add('is-on'); listBtn.classList.remove('is-on'); });
+    listBtn.addEventListener('click', function () { grid.classList.add('is-list'); listBtn.classList.add('is-on'); gridBtn.classList.remove('is-on'); });
+  }
+  apply();
+})();
+</script>
 
 <!-- Tap-to-reveal for compact .hcard overlays on touch devices -->
 <script>

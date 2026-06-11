@@ -15,149 +15,130 @@
   <link rel="stylesheet" href="styles.css"/>
 
   <style>
-    /* ─── Draft banner ─── */
-    .draft-banner {
-      background: #FFF0EB;
-      border-bottom: 2px solid var(--clr-coral, #E8825C);
-      padding: 14px 24px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .draft-banner-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      font-size: .92rem;
-      color: #9B5B3A;
-      line-height: 1.5;
-    }
-    .draft-banner-inner strong {
-      color: #C66740;
-      font-weight: 700;
-      letter-spacing: .02em;
-    }
-
-    /* ─── Page container ─── */
-    .profile-page { background: var(--clr-white); }
+    /* Clear the fixed 68px site-header so nothing hides beneath it */
+    body.profile-page { background: var(--clr-white); padding-top: 68px; }
     .profile-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 
+    /* ─── Draft banner (static — sits below the header, never clipped) ─── */
+    .draft-banner {
+      background: #FFF0EB;
+      border-bottom: 1px solid var(--clr-coral, #E8825C);
+      padding: 12px 24px; text-align: center;
+    }
+    .draft-banner-inner {
+      max-width: 720px; margin: 0 auto;
+      font-size: .9rem; color: #9B5B3A; line-height: 1.5;
+    }
+    .draft-banner-inner strong { color: #C66740; font-weight: 700; letter-spacing: .02em; }
+
     /* ─── HERO ─── */
-    .profile-hero { padding: 48px 0 36px; background: var(--clr-white); }
-    .profile-hero-inner { display: flex; gap: 36px; align-items: flex-start; flex-wrap: wrap; }
+    .profile-hero { padding: 40px 0 32px; background: var(--clr-white); }
+    .profile-hero-inner { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
     .profile-photo {
-      flex: 0 0 180px; width: 180px; height: 180px;
-      border-radius: 50%; object-fit: cover; object-position: center top;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      flex: 0 0 190px; width: 190px; height: 190px;
+      border-radius: 20px; object-fit: cover; object-position: center top;
+      background: var(--clr-cream); box-shadow: 0 2px 10px rgba(31,42,36,.10);
     }
     .profile-hero-text { flex: 1 1 320px; min-width: 0; }
     .profile-name {
       font-family: var(--fd, 'Cormorant Garamond', serif);
-      font-weight: 500; font-size: clamp(2.4rem, 5vw, 3.2rem);
+      font-weight: 500; font-size: clamp(2.3rem, 5vw, 3rem);
       letter-spacing: -0.012em; color: var(--clr-text);
-      margin: 0 0 6px; text-wrap: balance; line-height: 1.05;
+      margin: 0 0 4px; line-height: 1.05;
     }
     .profile-descriptor {
       font-family: var(--fd, 'Cormorant Garamond', serif);
-      font-style: italic; font-size: 1.15rem;
-      color: var(--clr-text-muted); margin: 0 0 18px;
+      font-style: italic; font-size: 1.12rem; color: var(--clr-text-muted); margin: 0 0 14px;
     }
+    .profile-meta {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px;
+      font-size: .92rem; color: var(--clr-text-2); margin: 0 0 18px;
+    }
+    .profile-meta .sep { color: var(--clr-text-faint, #9AA0A6); }
 
-    /* ─── Long-Term Employment Verified (blue) ─── */
-    .verified-blue {
-      margin: 0 0 20px; padding: 16px 18px;
-      background: #EAF2F7; border-left: 3px solid #2E6F95;
-      border-radius: 0 6px 6px 0;
+    /* ─── Prominent verification card (the page's signature element) ─── */
+    .verify-card {
+      display: flex; align-items: center; gap: 16px;
+      background: #EAF2F7; border: 1px solid #CBDDE9; border-left: 4px solid #2E6F95;
+      border-radius: 14px; padding: 16px 18px; margin: 0 0 20px;
     }
-    .vb-badge {
-      display: inline-flex; align-items: center; gap: 7px;
-      background: #2E6F95; color: #fff;
-      font-size: .72rem; font-weight: 700; letter-spacing: .05em;
-      text-transform: uppercase; padding: 6px 12px; border-radius: 999px;
-      margin-bottom: 11px;
+    .verify-card-ico {
+      flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%;
+      background: #2E6F95; display: flex; align-items: center; justify-content: center;
     }
-    .vb-badge svg { flex: 0 0 auto; }
-    .vb-line { font-size: .95rem; line-height: 1.6; color: var(--clr-text-2); margin: 0; }
-    .vb-line strong { color: #1F4E6B; font-weight: 600; }
+    .verify-card-title {
+      font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      color: #1F4E6B; margin: 0 0 3px;
+    }
+    .verify-card-fact { font-size: 1.02rem; font-weight: 600; color: var(--clr-text); margin: 0; line-height: 1.35; }
+    .verify-card-fact span { font-weight: 400; color: var(--clr-text-muted); font-size: .92rem; }
 
     /* CTA disabled in draft */
     .profile-hero-cta { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; }
     .btn-disabled {
-      background: var(--clr-cream-dk); color: var(--clr-text-muted);
-      cursor: not-allowed; padding: 12px 24px; border-radius: 999px;
-      font-weight: 600; font-size: .95rem; border: 1px solid var(--clr-border-warm);
+      background: var(--clr-cream-dk); color: var(--clr-text-muted); cursor: not-allowed;
+      padding: 12px 24px; border-radius: 999px; font-weight: 600; font-size: .95rem;
+      border: 1px solid var(--clr-border-warm);
     }
-    .profile-hero-cta-meta { font-size: .87rem; color: var(--clr-text-muted); font-style: italic; }
+    .profile-hero-cta-meta { font-size: .86rem; color: var(--clr-text-muted); font-style: italic; }
 
-    /* ─── Generic content blocks ─── */
-    .profile-block { padding: 30px 0; background: var(--clr-white); }
-    .profile-block + .profile-block { padding-top: 6px; }
+    /* ─── Content blocks ─── */
+    .profile-block { padding: 26px 0; border-top: 1px solid var(--clr-border-warm); }
     .profile-section-label {
-      font-size: .72rem; font-weight: 600; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--clr-primary); margin: 0 0 14px;
+      font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--clr-primary); margin: 0 0 16px;
     }
-    .profile-prose p {
-      font-size: 1.05rem; line-height: 1.75; color: var(--clr-text-2);
-      margin: 0 0 1.1em; text-wrap: pretty;
-    }
-    .profile-prose p:last-child { margin-bottom: 0; }
-    .profile-prose em { color: var(--clr-text-2); }
+    .block-line { font-size: 1rem; line-height: 1.6; color: var(--clr-text-2); margin: 0 0 14px; }
 
-    /* Bullet list (sage dots) */
-    .profile-points { list-style: none; margin: 6px 0 0; padding: 0; }
-    .profile-points li {
-      position: relative; padding-left: 22px; margin: 0 0 10px;
-      font-size: 1.02rem; line-height: 1.6; color: var(--clr-text-2);
+    /* Highlights (Why families consider Eni) */
+    .hl { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .hl li {
+      position: relative; padding-left: 30px;
+      font-size: 1.02rem; line-height: 1.5; color: var(--clr-text-2);
     }
-    .profile-points li:last-child { margin-bottom: 0; }
-    .profile-points li::before {
-      content: ""; position: absolute; left: 2px; top: .55em;
-      width: 8px; height: 8px; border-radius: 50%; background: var(--clr-primary, #2C8A6E);
+    .hl li strong { color: var(--clr-text); font-weight: 600; }
+    .hl li::before {
+      content: ""; position: absolute; left: 0; top: 2px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--clr-primary-bg, #EAF5EF);
+      box-shadow: inset 0 0 0 1.5px var(--clr-primary, #2C8A6E);
     }
-    .profile-muted-note {
-      font-size: .92rem; font-style: italic; color: var(--clr-text-muted);
-      margin: 14px 0 0; line-height: 1.6;
+    .hl li::after {
+      content: ""; position: absolute; left: 6px; top: 8px;
+      width: 6px; height: 3px; border-left: 1.5px solid var(--clr-primary, #2C8A6E);
+      border-bottom: 1.5px solid var(--clr-primary, #2C8A6E); transform: rotate(-45deg);
     }
 
     /* Chips */
-    .profile-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .profile-chip {
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
       font-size: .88rem; color: var(--clr-text-2); background: var(--clr-cream);
-      border: 1px solid var(--clr-border-warm); padding: 7px 14px;
-      border-radius: 999px; white-space: nowrap;
+      border: 1px solid var(--clr-border-warm); padding: 7px 13px; border-radius: 999px; white-space: nowrap;
     }
 
-    /* Facts grid (employment history) */
-    .profile-facts-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0;
-      border-top: 1px solid var(--clr-border-warm); border-left: 1px solid var(--clr-border-warm);
-    }
-    .profile-fact {
-      padding: 22px 22px; border-right: 1px solid var(--clr-border-warm);
-      border-bottom: 1px solid var(--clr-border-warm); background: var(--clr-white);
-    }
-    .profile-fact-label {
-      font-size: .72rem; font-weight: 600; letter-spacing: .08em;
-      text-transform: uppercase; color: var(--clr-text-muted); margin: 0 0 8px;
-    }
-    .profile-fact-value { font-size: 1rem; line-height: 1.6; color: var(--clr-text); margin: 0; }
-    .profile-fact-value strong { font-weight: 600; }
+    /* Mini fact grid */
+    .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px 24px; margin-top: 4px; }
+    .fact-k { font-size: .7rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--clr-text-muted); margin: 0 0 4px; }
+    .fact-v { font-size: .98rem; line-height: 1.5; color: var(--clr-text); margin: 0; }
 
-    .profile-foot {
-      font-style: italic; color: var(--clr-text-muted);
-      font-size: .92rem; margin: 30px 0 0;
-    }
+    .muted-note { font-size: .9rem; font-style: italic; color: var(--clr-text-muted); margin: 14px 0 0; line-height: 1.6; }
 
-    /* ─── MOBILE ─── */
+    /* Verification details — reuse the blue card, full width */
+    .verify-detail { background: #EAF2F7; border: 1px solid #CBDDE9; border-left: 4px solid #2E6F95; border-radius: 12px; padding: 18px 20px; }
+    .verify-detail ul { list-style: none; margin: 10px 0 0; padding: 0; }
+    .verify-detail li { position: relative; padding-left: 22px; margin: 0 0 8px; font-size: .96rem; line-height: 1.5; color: var(--clr-text-2); }
+    .verify-detail li:last-child { margin-bottom: 0; }
+    .verify-detail li::before { content: ""; position: absolute; left: 4px; top: .5em; width: 7px; height: 7px; border-radius: 50%; background: #2E6F95; }
+    .verify-detail strong { color: #1F4E6B; }
+
     @media (max-width: 640px) {
-      .profile-hero { padding: 36px 0 28px; }
-      .profile-hero-inner { gap: 24px; justify-content: center; }
-      .profile-photo { flex: 0 0 140px; width: 140px; height: 140px; margin: 0 auto; }
+      .profile-hero { padding: 28px 0 24px; }
+      .profile-hero-inner { gap: 22px; justify-content: center; }
+      .profile-photo { flex: 0 0 150px; width: 150px; height: 150px; margin: 0 auto; }
       .profile-hero-text { text-align: center; }
-      .verified-blue, .profile-hero-cta { text-align: left; }
-      .profile-hero-cta { display: flex; justify-content: center; }
-      .profile-facts-grid { grid-template-columns: 1fr; }
-      .profile-fact { padding: 20px 18px; }
+      .profile-meta { justify-content: center; }
+      .verify-card, .profile-hero-cta { text-align: left; }
+      .profile-hero-cta { justify-content: center; }
     }
   </style>
 </head>
@@ -166,8 +147,7 @@
 <!-- ═══ DRAFT BANNER ═══ -->
 <div class="draft-banner">
   <div class="draft-banner-inner">
-    <strong>DRAFT — FOR YOUR REVIEW</strong><br>
-    This is Eni's profile &mdash; the first under the new <em>Long-Term Employment Verified</em> category. The page is private and not searchable. Please review the wording before it goes&nbsp;live.
+    <strong>DRAFT — FOR YOUR REVIEW.</strong> Eni's profile, the first under <em>Long-Term Employment Verified</em>. Private and not searchable — please review before it goes&nbsp;live.
   </div>
 </div>
 
@@ -186,9 +166,7 @@
       <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
     </nav>
     <a href="refer.html" class="btn btn-green btn-sm hdr-cta">Refer a Helper</a>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -201,17 +179,26 @@
 
       <div class="profile-hero-text">
         <h1 class="profile-name">Eni&nbsp;T.</h1>
-        <p class="profile-descriptor">Experienced housekeeper &middot; ten years with one Singapore&nbsp;family</p>
+        <p class="profile-descriptor">Experienced housekeeper &middot; Indonesian</p>
 
-        <div class="verified-blue">
-          <span class="vb-badge">
-            <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <circle cx="7" cy="7" r="6" stroke="#fff" stroke-width="1.2"/>
-              <path d="M4.3 7.2l1.8 1.8 3.6-3.8" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        <div class="profile-meta">
+          <span>37 years old</span><span class="sep">·</span>
+          <span>Available now</span><span class="sep">·</span>
+          <span>S$800&ndash;900 / month</span><span class="sep">·</span>
+          <span>Weekly rest day</span>
+        </div>
+
+        <div class="verify-card">
+          <span class="verify-card-ico" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2.5l7.5 3v5.2c0 4.6-3.2 7.9-7.5 9-4.3-1.1-7.5-4.4-7.5-9V5.5l7.5-3z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M8.3 12.1l2.6 2.6 4.8-5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            Long-Term Employment Verified
           </span>
-          <p class="vb-line"><strong>10 years with the same Singapore family (2016&ndash;2026).</strong> Her length of service has been verified through MOM employment records and direct confirmation with her former&nbsp;employer.</p>
+          <div>
+            <p class="verify-card-title">Long-Term Employment Verified</p>
+            <p class="verify-card-fact">10 years with one Singapore family <span>· 2016&ndash;2026</span></p>
+          </div>
         </div>
 
         <div class="profile-hero-cta">
@@ -224,203 +211,102 @@
   </div>
 </section>
 
-<!-- ═══ 1 · PROFILE SUMMARY ═══ -->
-<section class="profile-block">
-  <div class="profile-wrap">
-    <p class="profile-section-label">Profile summary</p>
-    <div class="profile-prose">
-      <p>Eni is an experienced Indonesian housekeeper who spent ten continuous years &mdash; from 2016 to 2026 &mdash; with one family in Singapore. A decade in a single home is uncommon in this kind of work. It points to someone steady and dependable, and to a household that trusted her to keep things running, year after&nbsp;year.</p>
-      <p>Her strength is all-round housekeeping in a busy home. She is used to a large landed property and the daily rhythm of cleaning, laundry, marketing and upkeep &mdash; and she took on more over time, including day-to-day support for the family's elderly grandmother, as the household&nbsp;grew.</p>
-    </div>
-  </div>
-</section>
+<div class="profile-wrap">
 
-<!-- ═══ 2 · AT A GLANCE ═══ -->
-<section class="profile-block">
-  <div class="profile-wrap">
-    <p class="profile-section-label">At a glance</p>
-    <div class="profile-chips">
-      <span class="profile-chip">Indonesian</span>
-      <span class="profile-chip">37 years old</span>
-      <span class="profile-chip">10 years, one SG family (2016&ndash;2026)</span>
-      <span class="profile-chip">Housekeeping-focused</span>
-      <span class="profile-chip">Landed-home experience</span>
-      <span class="profile-chip">Comfortable with cats &amp; dogs</span>
-      <span class="profile-chip">Good with older children</span>
-      <span class="profile-chip">Some elderly-support experience</span>
-      <span class="profile-chip">Simple Chinese home cooking</span>
-      <span class="profile-chip">Malay &amp; basic English</span>
-      <span class="profile-chip">Weekly rest day</span>
-      <span class="profile-chip">Prefers her own room</span>
-      <span class="profile-chip">Expected salary S$800&ndash;900</span>
-      <span class="profile-chip">Available now (in Indonesia)</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 3 · WHY FAMILIES MAY CONSIDER HER ═══ -->
-<section class="profile-block">
-  <div class="profile-wrap">
-    <p class="profile-section-label">Why families may consider her</p>
-    <ul class="profile-points">
-      <li>Ten years with one family &mdash; a rare marker of stability and reliability.</li>
-      <li>Comfortable running a large, busy landed household from end to&nbsp;end.</li>
-      <li>A steady presence who quietly took on more as the home's needs grew, including elderly&nbsp;support.</li>
-      <li>Practical and self-directed, used to managing the daily running of a home without close&nbsp;supervision.</li>
+  <!-- ═══ WHY FAMILIES CONSIDER ENI ═══ -->
+  <section class="profile-block" style="border-top:none">
+    <p class="profile-section-label">Why families consider Eni</p>
+    <ul class="hl">
+      <li><strong>Ten years with one family</strong> — independently verified. A rare marker of stability.</li>
+      <li><strong>Runs a large landed home end-to-end</strong> — housekeeping, laundry, marketing and upkeep.</li>
+      <li><strong>Grew with the household</strong> — took on more over time, including elderly support.</li>
+      <li><strong>Self-directed</strong> — used to running a home without close supervision.</li>
     </ul>
-  </div>
-</section>
+  </section>
 
-<!-- ═══ 4 · HOUSEHOLD EXPERIENCE ═══ -->
-<section class="profile-block">
-  <div class="profile-wrap">
+  <!-- ═══ HOUSEHOLD EXPERIENCE ═══ -->
+  <section class="profile-block">
     <p class="profile-section-label">Household experience</p>
-    <div class="profile-prose">
-      <p>In her most recent role, Eni looked after a three-storey landed home. The household included the family's elderly grandmother, the couple, and a teenage son, with additional family members joining the home over time. As it grew busier and the grandmother came to need more support, Eni's responsibilities grew with&nbsp;it.</p>
-      <p>Her day-to-day work covered general housekeeping, laundry and ironing, grocery shopping and marketing, and the practical upkeep of the property. She also helped care for the family's pets and supported the grandmother day to day, including accompanying her to hospital&nbsp;appointments.</p>
+    <p class="block-line">Her most recent role: a three-storey landed home with a multi-generational family, including an elderly grandmother and a teenage son, that grew busier over her ten&nbsp;years.</p>
+    <div class="chips" style="margin-bottom:18px">
+      <span class="chip">Housekeeping</span>
+      <span class="chip">Laundry &amp; ironing</span>
+      <span class="chip">Grocery &amp; marketing</span>
+      <span class="chip">Home upkeep</span>
+      <span class="chip">Pet care</span>
+      <span class="chip">Elderly support</span>
     </div>
-  </div>
-</section>
+    <div class="facts">
+      <div><p class="fact-k">Housing</p><p class="fact-v">3-storey landed property</p></div>
+      <div><p class="fact-k">Children</p><p class="fact-v">School-age &amp; older — prefers not to care for infants</p></div>
+      <div><p class="fact-k">Elderly</p><p class="fact-v">Experienced (incl. hospital visits); prefers a housekeeping focus</p></div>
+      <div><p class="fact-k">Pets</p><p class="fact-v">Comfortable with cats &amp; dogs</p></div>
+      <div><p class="fact-k">Languages</p><p class="fact-v">Malay &amp; basic English</p></div>
+      <div><p class="fact-k">Why she's moving on</p><p class="fact-v">After 10 years she sought more support as the home grew; the family kept one helper, so she's looking for a new role</p></div>
+    </div>
+  </section>
 
-<!-- ═══ 5 · COOKING ═══ -->
-<section class="profile-block">
-  <div class="profile-wrap">
+  <!-- ═══ COOKING ═══ -->
+  <section class="profile-block">
     <p class="profile-section-label">Cooking</p>
-    <div class="profile-prose">
-      <p>Eni cooks simple Chinese home-style meals &mdash; the everyday dishes that anchor a family table. Although she is Muslim, she is comfortable preparing her employer's full range of dishes, including pork-based&nbsp;soups.</p>
+    <p class="block-line">Simple Chinese home-style meals. Although she is Muslim, she's comfortable preparing her family's full range, including pork-based&nbsp;soups.</p>
+    <div class="chips">
+      <span class="chip">Steamed fish</span>
+      <span class="chip">Cap cai</span>
+      <span class="chip">Fried chicken</span>
+      <span class="chip">Lotus root soup</span>
+      <span class="chip">Pork rib soup</span>
+      <span class="chip">ABC soup</span>
+      <span class="chip">Chicken soup</span>
+      <span class="chip">Steamed egg</span>
     </div>
-    <div class="profile-chips" style="margin-top:16px">
-      <span class="profile-chip">Steamed fish</span>
-      <span class="profile-chip">Cap cai (mixed vegetables)</span>
-      <span class="profile-chip">Fried chicken</span>
-      <span class="profile-chip">Lotus root soup</span>
-      <span class="profile-chip">Pork rib soup</span>
-      <span class="profile-chip">ABC soup</span>
-      <span class="profile-chip">Chicken soup</span>
-      <span class="profile-chip">Steamed egg</span>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ═══ 6 · CHILDREN & ELDERLY ═══ -->
-<section class="profile-block">
-  <div class="profile-wrap">
-    <p class="profile-section-label">Children &amp; elderly</p>
-    <div class="profile-prose">
-      <p>Eni is comfortable around children and is best suited to school-age children rather than infants &mdash; she prefers not to take on the care of&nbsp;babies.</p>
-      <p>She has real experience supporting an elderly person day to day, built over her years helping the family's grandmother. That said, she is clear that she is happiest in a housekeeping-focused role, with elderly support as part of the picture rather than its main&nbsp;focus.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 7 · PETS ═══ -->
-<section class="profile-block">
-  <div class="profile-wrap">
-    <p class="profile-section-label">Pets</p>
-    <div class="profile-prose">
-      <p>Eni is comfortable with both cats and dogs, and helped care for pets in her most recent&nbsp;home.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 8 · EMPLOYMENT HISTORY ═══ -->
-<section class="profile-block">
-  <div class="profile-wrap">
-    <p class="profile-section-label">Employment history</p>
-    <div class="profile-facts-grid">
-
-      <div class="profile-fact">
-        <p class="profile-fact-label">2016 &ndash; 2026 · Singapore (verified)</p>
-        <p class="profile-fact-value">Ten years with one family in a three-storey landed home. General housekeeping, laundry, marketing and upkeep, alongside pet care and day-to-day support for the family's elderly&nbsp;grandmother.</p>
-      </div>
-
-      <div class="profile-fact">
-        <p class="profile-fact-label">Why she is moving on</p>
-        <p class="profile-fact-value">As the household grew and needed more support, Eni asked whether a second helper might join. The family chose to keep one helper, and after ten years she decided to look for a new role. A planned next placement then fell through at short&nbsp;notice.</p>
-      </div>
-
-      <div class="profile-fact">
-        <p class="profile-fact-label">Earlier · Jakarta, Indonesia</p>
-        <p class="profile-fact-value">General housework for a family in Jakarta, until she left to marry. <strong>Self-reported</strong>; her verified record covers her ten Singapore&nbsp;years.</p>
-      </div>
-
-      <div class="profile-fact">
-        <p class="profile-fact-label">Currently</p>
-        <p class="profile-fact-value">In Indonesia, ready for her next family. Passport valid to&nbsp;2030.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 9 · VERIFICATION ═══ -->
-<section class="profile-block">
-  <div class="profile-wrap">
-    <p class="profile-section-label">Verification</p>
-    <div class="verified-blue">
-      <span class="vb-badge">
-        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-          <circle cx="7" cy="7" r="6" stroke="#fff" stroke-width="1.2"/>
-          <path d="M4.3 7.2l1.8 1.8 3.6-3.8" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        What we verified
-      </span>
-      <p class="vb-line"><strong>Ten years of continuous employment in Singapore (February 2016 &ndash; March 2026) with one family.</strong> Confirmed through her MOM employment history and direct contact with her former&nbsp;employer.</p>
-    </div>
-    <p class="profile-muted-note">This confirms her employment and its length &mdash; it is not a personal recommendation. No employer reference is attached to this profile, and her earlier work in Jakarta is&nbsp;self-reported.</p>
-  </div>
-</section>
-
-<!-- ═══ 10 · FAMILY SHE MAY SUIT ═══ -->
-<section class="profile-block">
-  <div class="profile-wrap">
+  <!-- ═══ FAMILY SHE MAY SUIT ═══ -->
+  <section class="profile-block">
     <p class="profile-section-label">Family she may suit</p>
-    <div class="profile-prose">
-      <p>Eni is likely to suit a household that values steady, independent housekeeping and wants someone who will settle in for the long term &mdash; her ten-year record speaks to exactly&nbsp;that.</p>
-    </div>
-    <ul class="profile-points">
-      <li>A busy or larger home, including landed property, where there is plenty to&nbsp;manage.</li>
+    <ul class="hl">
+      <li>A busy or larger home, including landed, with plenty to&nbsp;manage.</li>
       <li>Families with school-age or older children rather than&nbsp;infants.</li>
-      <li>Homes with an elderly member who would welcome kind, everyday support alongside the&nbsp;housekeeping.</li>
-      <li>Pet-owning households.</li>
-      <li>A family comfortable communicating in Malay and simple&nbsp;English.</li>
+      <li>Homes wanting kind, everyday elderly support alongside the&nbsp;housekeeping.</li>
+      <li>Pet-owning households comfortable in Malay and simple&nbsp;English.</li>
     </ul>
-    <p class="profile-muted-note">She may be less suited to roles centred on infant care or intensive elderly nursing, which aren't where her strengths&nbsp;lie.</p>
-    <p class="profile-foot">Full employment history available to interested families, with Eni's&nbsp;consent.</p>
-  </div>
-</section>
+    <p class="muted-note">Less suited to roles centred on infant care or intensive elderly nursing.</p>
+  </section>
+
+  <!-- ═══ VERIFICATION DETAILS ═══ -->
+  <section class="profile-block">
+    <p class="profile-section-label">Verification details</p>
+    <div class="verify-detail">
+      <p style="margin:0;font-size:1rem;color:var(--clr-text)"><strong>Ten years of continuous employment verified</strong> — February 2016 to March 2026, with one Singapore family.</p>
+      <ul>
+        <li>Confirmed against her <strong>MOM employment history</strong></li>
+        <li>Confirmed directly with her <strong>former employer</strong></li>
+      </ul>
+    </div>
+    <p class="muted-note">This confirms her employment and its length — it is not a personal recommendation. No employer reference is attached to this profile, and her earlier work in Jakarta is self-reported.</p>
+  </section>
+
+</div>
 
 <!-- ═══ FOOTER ═══ -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-inner">
-
-      <p class="footer-heart">
-        Started by a Singapore family who knew there had to be a better way.
-      </p>
-
+      <p class="footer-heart">Started by a Singapore family who knew there had to be a better way.</p>
       <nav class="footer-nav" aria-label="Footer">
-        <a href="browse.html">Meet Helpers</a>
-        <span class="footer-nav-sep">·</span>
-        <a href="refer.html">Refer a Helper</a>
-        <span class="footer-nav-sep">·</span>
-        <a href="index.html#how">How It Works</a>
-        <span class="footer-nav-sep">·</span>
-        <a href="faq.html">FAQ</a>
-        <span class="footer-nav-sep">·</span>
+        <a href="browse.html">Meet Helpers</a><span class="footer-nav-sep">·</span>
+        <a href="refer.html">Refer a Helper</a><span class="footer-nav-sep">·</span>
+        <a href="index.html#how">How It Works</a><span class="footer-nav-sep">·</span>
+        <a href="faq.html">FAQ</a><span class="footer-nav-sep">·</span>
         <a href="mailto:hello@helpercircle.sg">Contact</a>
       </nav>
-
-      <p class="footer-aside">
-        <a href="for-families.html">For families saying goodbye to a helper &rarr;</a>
-      </p>
-
+      <p class="footer-aside"><a href="for-families.html">For families saying goodbye to a helper &rarr;</a></p>
       <div class="footer-legal-strip">
         <span>© <span id="year"></span> Helper Circle · Singapore</span>
         <span class="footer-nav-sep">·</span>
         <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>
       </div>
-
     </div>
   </div>
 </footer>

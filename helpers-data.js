@@ -338,18 +338,18 @@ window.HELPERS = [
 
     return (
 '    <div class="mcard-wrap ' + wrapClass + '" data-signal="' + key + '" data-skills="' + dataSkills + '" data-nat="' + natCountry(h) + '" data-avail="' + availOf(h) + '">\n' +
-'      <a href="' + h.profile + '" class="mcard" aria-label="View ' + plain(fullName(h)) + '\u2019s profile">\n' +
+'      <a href="' + h.profile + '" class="mcard mcard--' + (v ? 'ver' : 'ref') + '" aria-label="View ' + plain(fullName(h)) + '\u2019s profile">\n' +
 '        <div class="mcard-media">\n' +
 '          <img src="' + h.photo + '" alt="" loading="lazy"/>\n' +
-'          <span class="mcard-badge mcard-badge--' + (v ? 'ver' : 'ref') + '"><span class="mcard-dot" aria-hidden="true"></span>' + signalLabel(h) + '</span>\n' +
 (placed ? '          <span class="mcard-placed">Joined a family</span>\n' : '') +
 '        </div>\n' +
 '        <div class="mcard-body">\n' +
+'          <span class="mcard-badge mcard-badge--' + (v ? 'ver' : 'ref') + '"><span class="mcard-dot" aria-hidden="true"></span>' + signalLabel(h) + '</span>\n' +
 '          <div class="mcard-head">\n' +
 '            <h3 class="mcard-name">' + nameHtml + '</h3>\n' +
 '            <p class="mcard-sub">' + ageNat + '</p>\n' +
 '          </div>\n' +
-'          <p class="mcard-trust mcard-trust--' + (v ? 'ver' : 'ref') + '">' + signalSub(h) + '</p>\n' +
+(v ? '          <p class="mcard-trust">' + signalSub(h) + '</p>\n' : '') +
 '          <ul class="mcard-skills">' + ticks + '</ul>\n' +
 '          <p class="mcard-summary">' + h.summary + '</p>\n' +
 '          <div class="mcard-foot">\n' +

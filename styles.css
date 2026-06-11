@@ -7712,3 +7712,62 @@ em { font-style: italic; color: var(--clr-primary); }
 @media (max-width: 720px) {
   .trust-ways-grid { grid-template-columns: 1fr; gap: 16px; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   PROFILE "TRUST SIGNALS" BLOCK  (profile-*.html)
+   Shared so every profile uses one source of truth.
+   .psig--rec = Employer Recommended (sage, primary)
+   .psig--ret = Long-Term Retention (muted, secondary) — ready
+                for when a retention helper exists.
+   ═══════════════════════════════════════════════════════════ */
+.profile-trust {
+  padding: 30px 0 8px;
+  background: var(--clr-white, #fff);
+}
+.psig {
+  border-radius: 16px;
+  padding: 20px 22px;
+  margin-top: 4px;
+}
+.psig--rec {
+  background: var(--clr-primary-soft, #F3FAF6);
+  border: 1px solid rgba(44, 138, 110, 0.25);
+  border-left: 3px solid var(--clr-primary, #2C8A6E);
+}
+.psig--ret {
+  background: var(--clr-cream-dk, #F2EADc);
+  border: 1px solid rgba(31, 42, 36, 0.10);
+  border-left: 3px solid rgba(44, 138, 110, 0.45);
+}
+.psig-list {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+.psig-list li {
+  position: relative;
+  padding-left: 22px;
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--clr-text-2, #383838);
+}
+.psig-list li:last-child { margin-bottom: 0; }
+.psig-list li em { font-style: italic; color: var(--clr-text-muted, #64696E); }
+.psig-list li::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: 0.5em;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--clr-primary, #2C8A6E);
+}
+.psig--ret .psig-list li::before { background: rgba(44, 138, 110, 0.55); }
+.psig-note {
+  margin: 13px 0 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--clr-primary-dk, #1B5E48);
+}
+.psig-note--muted { color: var(--clr-text-muted, #64696E); }

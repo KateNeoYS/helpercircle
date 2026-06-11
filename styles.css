@@ -7594,3 +7594,121 @@ em { font-style: italic; color: var(--clr-primary); }
   color: var(--clr-text-muted, #64696E);
   margin: 0 0 16px;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   TRUST SIGNALS  —  badges + "Different ways trust is earned"
+   Added for the trust-signal model:
+     ⭐ Employer Recommended  = solid sage (primary, strongest)
+     🔄 Long-Term Retention   = outlined / muted (clearly secondary)
+   No peach/amber here — those stay as accent punctuation only.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ---- Reusable signal badge (used on homepage, browse cards, profiles) ---- */
+.tsig {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.tsig-mark { font-size: 0.82rem; line-height: 1; }
+
+/* Strongest — solid sage */
+.tsig--rec {
+  background: var(--clr-primary, #2C8A6E);
+  color: #fff;
+}
+/* Secondary — outlined, muted */
+.tsig--ret {
+  background: transparent;
+  color: var(--clr-primary-dk, #1B5E48);
+  border: 1px solid rgba(44, 138, 110, 0.45);
+}
+.tsig--ret .tsig-mark { filter: grayscale(0.15); opacity: 0.9; }
+
+/* ---- Homepage section: Different ways trust is earned ---- */
+.trust-ways {
+  padding: var(--space-18, 72px) 0;
+  background: var(--clr-cream, #FBF6EE);
+}
+.trust-ways-hdr {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto clamp(28px, 4vw, 44px);
+}
+.trust-ways-sub {
+  font-size: 1.04rem;
+  line-height: 1.65;
+  color: var(--clr-text-muted, #64696E);
+  margin: 14px auto 0;
+  max-width: 540px;
+  text-wrap: pretty;
+}
+.trust-ways-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 20px;
+  align-items: stretch;
+  max-width: 920px;
+  margin: 0 auto;
+}
+.tw-card {
+  border-radius: 18px;
+  padding: 30px 30px 28px;
+  display: flex;
+  flex-direction: column;
+}
+.tw-card-h {
+  font-family: var(--font-display, 'Lora', Georgia, serif);
+  font-weight: 500;
+  font-size: clamp(1.32rem, 2vw, 1.6rem);
+  letter-spacing: -0.008em;
+  color: var(--clr-ink, var(--clr-text, #1E1E1E));
+  margin: 16px 0 10px;
+  text-wrap: balance;
+}
+.tw-card-p {
+  font-size: 0.97rem;
+  line-height: 1.62;
+  color: var(--clr-text-2, #383838);
+  margin: 0 0 14px;
+}
+.tw-card-flag {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  font-weight: 600;
+  margin: auto 0 0;
+}
+
+/* Strongest card — faint sage tint, accent bar, lifted */
+.tw-card--rec {
+  background: var(--clr-primary-soft, #F3FAF6);
+  border: 1px solid rgba(44, 138, 110, 0.25);
+  box-shadow: 0 10px 30px rgba(27, 94, 72, 0.08);
+  position: relative;
+}
+.tw-card--rec::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 18px; bottom: 18px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--clr-primary, #2C8A6E);
+}
+.tw-card--rec .tw-card-flag { color: var(--clr-primary-dk, #1B5E48); }
+
+/* Secondary card — muted warm, flat, quieter */
+.tw-card--ret {
+  background: var(--clr-cream-dk, #F2EADc);
+  border: 1px solid rgba(31, 42, 36, 0.08);
+}
+.tw-card-flag--muted { color: var(--clr-text-muted, #64696E); }
+
+@media (max-width: 720px) {
+  .trust-ways-grid { grid-template-columns: 1fr; gap: 16px; }
+}

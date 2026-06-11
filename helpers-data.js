@@ -203,11 +203,18 @@ window.HELPERS = [
     return "other";
   }
   function availOf(h) { return h.availability === "overseas" ? "overseas" : "transfer"; }
-  // Home-page photo badge: green pill (referred) · blue pill (verified) — colour is the signal
+
+  /* Shared trust-badge icons (inline SVG — render everywhere, no emoji tofu)
+     star = Employer Referred · shield-check = Long-Term Employment Verified */
+  var ICON_REF = '<svg class="tb-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.4l2.47 5 5.53.8-4 3.9.94 5.5L12 16l-4.94 2.6.94-5.5-4-3.9 5.53-.8z"/></svg>';
+  var ICON_VER = '<svg class="tb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3.2l6.4 2.2v4.7c0 3.9-2.7 6.8-6.4 7.9-3.7-1.1-6.4-4-6.4-7.9V5.4L12 3.2z" stroke-linejoin="round"/><path d="M9 11.7l2.1 2.1 4-4.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  function signalIcon(h) { return signalKey(h) === "verified" ? ICON_VER : ICON_REF; }
+
+  // Home-page photo badge: green pill (referred) · blue pill (verified), with icon
   function homeBadge(h) {
     return signalKey(h) === "verified"
-      ? '<span class="hc-badge hc-badge--ver">Long-Term Employment Verified</span>'
-      : '<span class="hc-badge hc-badge--ref">Employer Referred</span>';
+      ? '<span class="hc-badge hc-badge--ver">' + ICON_VER + 'Long-Term Employment Verified</span>'
+      : '<span class="hc-badge hc-badge--ref">' + ICON_REF + 'Employer Referred</span>';
   }
 
   /* ── Home page: compact cards into #avail-grid (available only, max 3) ──
@@ -344,7 +351,7 @@ window.HELPERS = [
 (placed ? '          <span class="mcard-placed">Joined a family</span>\n' : '') +
 '        </div>\n' +
 '        <div class="mcard-body">\n' +
-'          <span class="mcard-badge mcard-badge--' + (v ? 'ver' : 'ref') + '"><span class="mcard-dot" aria-hidden="true"></span>' + signalLabel(h) + '</span>\n' +
+'          <span class="mcard-badge mcard-badge--' + (v ? 'ver' : 'ref') + '">' + signalIcon(h) + signalLabel(h) + '</span>\n' +
 '          <div class="mcard-head">\n' +
 '            <h3 class="mcard-name">' + nameHtml + '</h3>\n' +
 '            <p class="mcard-sub">' + ageNat + '</p>\n' +

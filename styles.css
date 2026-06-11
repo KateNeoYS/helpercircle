@@ -7794,3 +7794,6 @@ em { font-style: italic; color: var(--clr-primary); }
 }
 .hc-card .hc-badge--rec::before,
 .hc-card .hc-badge--ret::before { display: none; }
+
+/* Trust badge on browse feature cards (sits at the top of the meta column) */
+.preview-sig { margin: 0 0 10px; }

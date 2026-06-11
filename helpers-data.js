@@ -181,6 +181,14 @@ window.HELPERS = [
     }
     return '<p class="referred-by"><span class="referred-by-dot" aria-hidden="true"></span>' + h.referredBy + '</p>';
   }
+  // Browse-card trust badge (top of the card) — same component as the home cards
+  function browseBadge(h) {
+    return '<div class="preview-sig">' +
+      (signalOf(h) === "retention"
+        ? '<span class="tsig tsig--ret">\uD83D\uDD04 ' + retentionText(h) + '</span>'
+        : '<span class="tsig tsig--rec">\u2B50 Employer Recommended</span>') +
+      '</div>';
+  }
 
   /* ── Home page: compact cards into #avail-grid (available only, max 3) ──
      When at least one helper is available, show the grid section and hide the
@@ -311,6 +319,7 @@ window.HELPERS = [
 '              <img src="' + h.photo + '" alt="" class="preview-photo-img"/>\n' +
 '            </div>\n' +
 '            <div class="preview-meta">\n' +
+'              ' + browseBadge(h) + '\n' +
 '              <div class="preview-status">\n' +
 '                <span class="preview-status-dot" aria-hidden="true"></span>\n' +
 '                <span>' + h.statusLabel + '</span>\n' +

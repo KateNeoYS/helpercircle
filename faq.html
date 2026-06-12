@@ -297,117 +297,6 @@
     }
     .faq-a p + p { margin-top: 14px; }
 
-    /* Links inside FAQ answers — read clearly as clickable */
-    .faq-a a {
-      color: var(--clr-primary, #2C8A6E);
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
-      text-decoration-color: rgba(44, 138, 110, 0.45);
-      transition: text-decoration-color 0.15s ease, color 0.15s ease;
-    }
-    .faq-a a:hover {
-      text-decoration-color: var(--clr-primary, #2C8A6E);
-      color: #236E58;
-    }
-
-    /* Peach em-dash list inside answers */
-    .faq-a .faq-list {
-      list-style: none;
-      margin: 14px 0 0;
-      padding: 0;
-      display: grid;
-      gap: 9px;
-      max-width: 68ch;
-    }
-    .faq-a .faq-list li {
-      position: relative;
-      padding-left: 22px;
-      font-size: 0.97rem;
-      line-height: 1.6;
-      color: var(--clr-text-muted, #5A6661);
-      text-wrap: pretty;
-    }
-    .faq-a .faq-list li::before {
-      content: '\2014';
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: #C66740;
-      font-weight: 500;
-    }
-
-    /* Small muted in-answer note */
-    .faq-note {
-      margin-top: 16px;
-      padding: 14px 16px;
-      background: rgba(232, 130, 92, 0.06);
-      border: 1px solid rgba(232, 130, 92, 0.18);
-      border-radius: 12px;
-      display: flex;
-      gap: 11px;
-      align-items: flex-start;
-      max-width: 68ch;
-    }
-    .faq-note .faq-note-icon {
-      flex-shrink: 0;
-      margin-top: 1px;
-      color: #C66740;
-    }
-    .faq-note p {
-      margin: 0 !important;
-      font-size: 0.9rem;
-      line-height: 1.6;
-      color: var(--clr-text, #2A2926);
-      max-width: none;
-    }
-    .faq-note p strong { color: var(--clr-ink, #1F2A24); font-weight: 600; }
-
-    /* Cost breakdown — editorial rows, not a spreadsheet */
-    .faq-cost {
-      margin-top: 16px;
-      border: 1px solid rgba(31, 42, 36, 0.09);
-      border-radius: 14px;
-      overflow: hidden;
-      max-width: 68ch;
-    }
-    .faq-cost-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 16px;
-      padding: 14px 18px;
-      border-bottom: 1px solid rgba(31, 42, 36, 0.06);
-    }
-    .faq-cost-row:last-child { border-bottom: none; }
-    .faq-cost-row.is-head { background: rgba(44, 138, 110, 0.05); }
-    .faq-cost-row.is-own { background: rgba(44, 138, 110, 0.04); }
-    .faq-cost-item {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--clr-text, #2A2926);
-      line-height: 1.45;
-    }
-    .faq-cost-meta {
-      font-size: 0.9rem;
-      color: var(--clr-text-muted, #5A6661);
-      text-align: right;
-      line-height: 1.45;
-      flex-shrink: 0;
-      max-width: 54%;
-    }
-    .faq-cost-row.is-head .faq-cost-item,
-    .faq-cost-row.is-head .faq-cost-meta {
-      font-size: 0.74rem;
-      font-weight: 600;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--clr-primary, #2C8A6E);
-    }
-
-    /* Taller open state for long answers (insurance, cost table) */
-    .faq-item.is-open.faq-item--tall .faq-a { max-height: 1900px; }
-
     /* ── EDITORIAL TRUST CALLOUTS ─────────────── */
     .faq-callout {
       max-width: 820px;
@@ -506,9 +395,6 @@
       .faq-callout-inner { padding: 24px 22px; }
       .faq-callout-text { font-size: 1rem; }
       .faq-cta-actions .btn { width: 100%; max-width: 280px; }
-      .faq-cost-row:not(.is-head) { flex-direction: column; gap: 3px; align-items: flex-start; padding: 12px 15px; }
-      .faq-cost-row:not(.is-head) .faq-cost-meta { text-align: left; max-width: 100%; }
-      .faq-note { padding: 13px 14px; }
     }
   </style>
   <!-- Vercel Web Analytics -->
@@ -554,7 +440,7 @@
   <div class="wrap">
     <nav class="faq-nav" aria-label="FAQ sections" id="faq-nav">
       <a href="#about">About Helper Circle</a>
-      <a href="#transfers">Direct Hire &amp; Referrals</a>
+      <a href="#transfers">Direct Hire &amp; Transfers</a>
       <a href="#pricing">Pricing &amp; Fees</a>
       <a href="#verification">Verification &amp; Safety</a>
       <a href="#process">Process &amp; Logistics</a>
@@ -627,14 +513,14 @@
             <span class="faq-q-hint">A guided referral platform, not an agency.</span>
           </button>
           <div class="faq-a">
-            <p>Helper Circle is a guided referral platform where families meet helpers referred by a previous employer &mdash; most already working in Singapore. We are not a maid agency. Instead of charging placement fees, we support direct hiring through structured introductions, verification, and administrative coordination.</p>
+            <p>Helper Circle is a guided referral platform where families can meet employer-referred helpers already in Singapore. We are not a maid agency. Instead of charging placement fees, we support direct hiring through structured introductions, verification, and administrative coordination.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">Are you a maid agency?</button>
           <div class="faq-a">
-            <p>No. Helper Circle is not a maid agency. We don&rsquo;t source or recruit helpers ourselves &mdash; every helper comes to us through a previous employer who knows her work, and we charge no placement fees. Families browse profiles, request introductions, and decide directly if there is mutual interest.</p>
+            <p>No. Helper Circle is not a maid agency. We do not recruit overseas helpers or charge placement fees. Families browse profiles, request introductions, and decide directly if there is mutual interest.</p>
           </div>
         </div>
 
@@ -651,7 +537,7 @@
             <span class="faq-q-hint">Curated and verified, not a public listing.</span>
           </button>
           <div class="faq-a">
-            <p>Facebook helper groups can be helpful but are unmoderated. Anyone can post and verifying who you are speaking with is hard. Helper Circle only lists helpers who come through trusted referrals, and we personally review each profile before it goes live.</p>
+            <p>Facebook helper groups can be helpful but are unmoderated. Anyone can post and verifying who you are speaking with is hard. Every helper on Helper Circle carries a verified trust signal &mdash; either an employer recommendation or independently verified long-term employment &mdash; and we personally review each profile before it goes live.</p>
             <p>We also coordinate introductions privately, so contact details are never publicly exposed.</p>
           </div>
         </div>
@@ -659,7 +545,7 @@
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">Why are there only a few helper profiles currently?</button>
           <div class="faq-a">
-            <p>Helper Circle is intentionally curated. We only list helpers who come through trusted referrals and verification rather than operating as a high-volume marketplace.</p>
+            <p>Helper Circle is intentionally curated. We only list helpers who carry a verified trust signal &mdash; an employer recommendation, or verified long-term employment &mdash; rather than operating as a high-volume marketplace.</p>
           </div>
         </div>
       </div>
@@ -667,7 +553,7 @@
       <!-- TRUST CALLOUT 1 -->
       <div class="faq-callout">
         <div class="faq-callout-inner">
-          <p class="faq-callout-text"><span class="faq-callout-qm">&ldquo;</span>Every helper here was vouched for by a family who knew her work. That is the entire&nbsp;point.<span class="faq-callout-qm">&rdquo;</span></p>
+          <p class="faq-callout-text"><span class="faq-callout-qm">&ldquo;</span>Every helper here carries a trust signal we’ve verified &mdash; a family’s recommendation, or years of proven, checkable employment. That is the entire&nbsp;point.<span class="faq-callout-qm">&rdquo;</span></p>
         </div>
       </div>
 
@@ -677,17 +563,7 @@
           <div class="faq-section-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M16 6l4 6-4 6M8 18l-4-6 4-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <h2 class="faq-section-title">Direct Hire &amp; Referrals</h2>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false">
-            Are all helpers currently in Singapore?
-            <span class="faq-q-hint">Most are &mdash; but the referral matters more than the location.</span>
-          </button>
-          <div class="faq-a">
-            <p>Most helpers are transferring within Singapore. Some are returning to Singapore, or are referred by a former Singapore employer while between roles. In every case, the previous-employer referral is what we verify first &mdash; the helper&rsquo;s current location is secondary.</p>
-          </div>
+          <h2 class="faq-section-title">Direct Hire &amp; Transfers</h2>
         </div>
 
         <div class="faq-item">
@@ -714,7 +590,7 @@
           </button>
           <div class="faq-a">
             <p>The most common reasons: the previous family is relocating overseas, their children have grown up and no longer need a helper, or an elderly family member they cared for has passed away or moved into a care facility.</p>
-            <p>Each profile on Helper Circle includes the reason for transfer, reviewed with the referring employer. We do not list helpers who left a previous role under dispute.</p>
+            <p>Each profile on Helper Circle includes the reason for transfer &mdash; reviewed with the referring employer where there is one. We do not list helpers who left a previous role under dispute.</p>
           </div>
         </div>
 
@@ -731,7 +607,7 @@
         <div class="faq-item" id="q-interview">
           <button class="faq-q" type="button" aria-expanded="false">Can I interview the helper first?</button>
           <div class="faq-a">
-            <p>Yes. Introductions happen over a Zoom video call that we set up and coordinate, so the conversation stays relaxed and private for both sides. There is no obligation to proceed.</p>
+            <p>Yes. Families can request introductions before making any decision. There is no obligation to proceed.</p>
           </div>
         </div>
 
@@ -769,7 +645,7 @@
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">What does the admin fee include?</button>
           <div class="faq-a">
-            <p>The admin fee covers transfer guidance and documentation support such as paperwork coordination, guidance on required documents, and administrative support throughout the transfer process.</p>
+            <p>The admin fee covers transfer coordination and documentation support such as paperwork coordination, guidance on required documents, and administrative support throughout the transfer process.</p>
           </div>
         </div>
 
@@ -779,15 +655,7 @@
             <span class="faq-q-hint">Government and insurance costs are billed at cost, not marked up.</span>
           </button>
           <div class="faq-a">
-            <p>The Helper Circle admin support fee covers our guidance and documentation support only. A few costs are paid directly to third parties and are not part of our fee:</p>
-            <ul class="faq-list">
-              <li>MOM Work Permit application fee</li>
-              <li>MOM Work Permit issuance fee</li>
-              <li>FDW insurance</li>
-              <li>Security bond (if applicable)</li>
-              <li>Helper&rsquo;s salary and monthly levy</li>
-            </ul>
-            <p>These are billed at cost &mdash; we never mark them up.</p>
+            <p>External government or third-party costs such as MOM permit fees, insurance premiums, medical exams, and security bond requirements are charged separately.</p>
           </div>
         </div>
 
@@ -795,65 +663,6 @@
           <button class="faq-q" type="button" aria-expanded="false">Why are insurance and MOM fees charged separately?</button>
           <div class="faq-a">
             <p>These costs vary depending on permit requirements and insurance providers. Separating them keeps pricing transparent and avoids hidden markups.</p>
-          </div>
-        </div>
-
-        <div class="faq-item faq-item--tall">
-          <button class="faq-q" type="button" aria-expanded="false">
-            How do I purchase FDW insurance and a security bond?
-            <span class="faq-q-hint">Usually one package &mdash; and the bond is often already included.</span>
-          </button>
-          <div class="faq-a">
-            <p>Before a Work Permit can be issued, employers are required to put three things in place:</p>
-            <ul class="faq-list">
-              <li>Medical insurance</li>
-              <li>Personal accident insurance</li>
-              <li>A security bond (for non-Malaysian helpers)</li>
-            </ul>
-            <p>In practice you don&rsquo;t buy these one by one. Most insurers offer a single foreign domestic worker (FDW) insurance package that already includes the security bond &mdash; so it&rsquo;s one purchase, not three.</p>
-            <p>You&rsquo;re free to use any MOM-compliant insurer. Commonly used providers in Singapore include Income, AIA, Great Eastern, HL Assurance and MSIG. Helper Circle doesn&rsquo;t receive commissions from any insurer, so the choice is entirely yours.</p>
-            <p>Once your insurance is in place, we can guide you through the MOM transfer application and Work Permit issuance, step by step.</p>
-            <div class="faq-note">
-              <svg class="faq-note-icon" width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 11v5M12 8h.01" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-              <p><strong>Good to know:</strong> Malaysian helpers don&rsquo;t require a security bond. For helpers of other nationalities, the bond is usually arranged by the insurer as part of the FDW insurance package &mdash; not something you arrange on your&nbsp;own.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item faq-item--tall">
-          <button class="faq-q" type="button" aria-expanded="false">
-            What costs should I expect when hiring a transfer helper?
-            <span class="faq-q-hint">A quick view of every cost &mdash; and who you pay.</span>
-          </button>
-          <div class="faq-a">
-            <p>Here&rsquo;s the full picture, so there are no surprises later. Only the first line is paid to Helper Circle &mdash; everything else goes directly to MOM, your insurer, or your helper.</p>
-            <div class="faq-cost">
-              <div class="faq-cost-row is-head">
-                <span class="faq-cost-item">Cost</span>
-                <span class="faq-cost-meta">Paid to / notes</span>
-              </div>
-              <div class="faq-cost-row is-own">
-                <span class="faq-cost-item">Helper Circle admin support</span>
-                <span class="faq-cost-meta">S$499 once &middot; only if both sides agree to proceed</span>
-              </div>
-              <div class="faq-cost-row">
-                <span class="faq-cost-item">MOM Work Permit fees (application + issuance)</span>
-                <span class="faq-cost-meta">Paid to MOM &middot; set by MOM</span>
-              </div>
-              <div class="faq-cost-row">
-                <span class="faq-cost-item">FDW insurance (security bond included where applicable)</span>
-                <span class="faq-cost-meta">Paid to your insurer &middot; varies</span>
-              </div>
-              <div class="faq-cost-row">
-                <span class="faq-cost-item">Monthly salary</span>
-                <span class="faq-cost-meta">Paid to your helper &middot; agreed directly</span>
-              </div>
-              <div class="faq-cost-row">
-                <span class="faq-cost-item">Monthly FDW levy</span>
-                <span class="faq-cost-meta">Paid to MOM &middot; concessionary rates for eligible households</span>
-              </div>
-            </div>
-            <p>We don&rsquo;t mark up any of these. The only fee we charge is our flat admin support&nbsp;fee.</p>
           </div>
         </div>
 
@@ -893,9 +702,21 @@
         </div>
 
         <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            What do &ldquo;Employer Recommended&rdquo; and &ldquo;Long-Term Employment Verified&rdquo; mean?
+            <span class="faq-q-hint">Two ways we establish trust.</span>
+          </button>
+          <div class="faq-a">
+            <p><strong>Employer Recommended</strong> means a current or former employer has personally vouched for her, and we’ve confirmed that recommendation with them directly. This is our strongest signal.</p>
+            <p><strong>Long-Term Employment Verified</strong> means she has stayed with one family for many years &mdash; something we’ve checked against official MOM employment records. There is no personal recommendation attached, but her record speaks for itself.</p>
+            <p>Every profile carries one of these, shown clearly as a badge.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">How are helpers verified?</button>
           <div class="faq-a">
-            <p>We review referrals before profiles go live. Verification may include confirming referral sources, employment history consistency, and transfer circumstances.</p>
+            <p>Every helper carries one of two verified trust signals. For an <strong>Employer Recommended</strong> helper, we confirm the recommendation directly with the referring employer. For a <strong>Long-Term Employment Verified</strong> helper, we confirm the length of her employment against official MOM records. Either way, we review the profile, employment history, and transfer circumstances before it goes&nbsp;live.</p>
           </div>
         </div>
 
@@ -975,7 +796,7 @@
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">What if I need help understanding the process?</button>
           <div class="faq-a">
-            <p>We are happy to guide first-time employers through the process in plain language. Once both sides agree to proceed, we'll walk you through the MOM transfer step by step &mdash; here's <a href="transfer-guide.html">the transfer, step by step</a>.</p>
+            <p>We are happy to guide first-time employers through the process in plain language.</p>
           </div>
         </div>
       </div>
@@ -1019,8 +840,6 @@
         <a href="faq.html">FAQ</a>
         <span class="footer-nav-sep">·</span>
         <a href="mailto:hello@helpercircle.sg">Contact</a>
-        <span class="footer-nav-sep">·</span>
-        <a href="feedback.html">Share Feedback</a>
       </nav>
 
             <p class="footer-aside">

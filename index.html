@@ -27,6 +27,20 @@
     .stories         { background: var(--clr-cream) !important; }
     .pricing-section { background: var(--clr-white) !important; }
     .meet-pointer    { background: var(--clr-cream) !important; }
+
+    /* Compact icon for the slim benefit cards (visual relief, no bulk) */
+    .benefit-ico { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+    .benefit-ico--green { background: #EAF5EF; color: #2C8A6E; }
+    .benefit-ico--peach { background: #FFF3EE; color: #C66740; }
+    .benefit-ico--sand  { background: #F0EAE0; color: #8A5F2E; }
+
+    /* "How it works" — tap-to-expand details (works on mobile, unlike hover) */
+    .how-more { margin-top: 10px; }
+    .how-more > summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; font-weight: 600; color: var(--clr-primary, #2C8A6E); }
+    .how-more > summary::-webkit-details-marker { display: none; }
+    .how-more > summary::after { content: ""; width: 6px; height: 6px; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor; transform: rotate(45deg); transition: transform .2s; }
+    .how-more[open] > summary::after { transform: rotate(-135deg); }
+    .how-more[open] .how-step-detail { max-height: none; opacity: 1; margin-top: 10px; }
   </style>
   <!-- Vercel Web Analytics -->
   <script>
@@ -138,18 +152,21 @@
     <div class="benefit-grid">
 
       <div class="benefit-card benefit-card--green rev">
+        <div class="benefit-ico benefit-ico--green" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
         <div class="benefit-label benefit-label--green">New employer</div>
         <h3 class="benefit-title">Find a trusted helper&nbsp;faster</h3>
         <p class="benefit-description">Most come recommended by a previous family &mdash; context a resume can&rsquo;t show. You hire directly while we guide the&nbsp;paperwork.</p>
       </div>
 
       <div class="benefit-card benefit-card--peach rev">
+        <div class="benefit-ico benefit-ico--peach" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3.5 12h14M13 7l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="benefit-label benefit-label--peach">Previous employer</div>
         <h3 class="benefit-title">Help her transition&nbsp;smoothly</h3>
         <p class="benefit-description">Pass your helper on to a family you&rsquo;d vouch for &mdash; your honest words travel with&nbsp;her.</p>
       </div>
 
       <div class="benefit-card benefit-card--sand rev">
+        <div class="benefit-ico benefit-ico--sand" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 20.5C6.5 16.5 3.5 13.5 3.5 9.7 3.5 7.1 5.4 5.2 7.8 5.2c1.6 0 3.1.8 4.2 2.2 1.1-1.4 2.6-2.2 4.2-2.2 2.4 0 4.3 1.9 4.3 4.5 0 3.8-3 6.8-8.5 10.8z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
         <div class="benefit-label benefit-label--sand">For helpers</div>
         <h3 class="benefit-title">Continuity, not a&nbsp;restart</h3>
         <p class="benefit-description">A direct move means no agency debt and a respectful handover &mdash; not starting over from&nbsp;scratch.</p>
@@ -186,6 +203,14 @@
         </div>
         <h3 class="h3">Browse verified&nbsp;profiles</h3>
         <p class="how-step-sub">Each one checked before it&rsquo;s&nbsp;listed</p>
+        <details class="how-more">
+          <summary>Details</summary>
+          <ul class="how-step-detail">
+            <li>Trust signals shown upfront</li>
+            <li>Recommended where available</li>
+            <li>Work history verified</li>
+          </ul>
+        </details>
       </div>
 
       <!-- Step 2 -->
@@ -199,6 +224,14 @@
         </div>
         <h3 class="h3">Request an&nbsp;intro</h3>
         <p class="how-step-sub">We confirm availability with the&nbsp;referrer</p>
+        <details class="how-more">
+          <summary>Details</summary>
+          <ul class="how-step-detail">
+            <li>You choose who to meet</li>
+            <li>We check current availability</li>
+            <li>No contact details shared upfront</li>
+          </ul>
+        </details>
       </div>
 
       <!-- Step 3 -->
@@ -213,6 +246,14 @@
         </div>
         <h3 class="h3">Meet &amp;&nbsp;decide</h3>
         <p class="how-step-sub">Video call first, no&nbsp;pressure</p>
+        <details class="how-more">
+          <summary>Details</summary>
+          <ul class="how-step-detail">
+            <li>A Zoom video call — we set it up so it's easy for&nbsp;everyone</li>
+            <li>Ask questions before deciding</li>
+            <li>We guide paperwork if you proceed</li>
+          </ul>
+        </details>
       </div>
 
     </div>

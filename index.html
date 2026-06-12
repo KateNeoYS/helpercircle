@@ -21,10 +21,12 @@
        backgrounds are set by several conflicting rules in styles.css; this
        keeps the white/cream rhythm deterministic for this page. -->
   <style>
-    .trust-ex        { background: var(--clr-white) !important; }
-    .how             { background: var(--clr-cream) !important; }
-    .stories         { background: var(--clr-white) !important; }
-    .pricing-section { background: var(--clr-white) !important; }
+    .why-exist       { background: var(--clr-white) !important; }
+    .trust-ex        { background: var(--clr-cream) !important; }
+    .avail           { background: var(--clr-white) !important; }
+    .stories         { background: var(--clr-cream) !important; }
+    .how             { background: var(--clr-white) !important; }
+    .pricing-section { background: var(--clr-cream) !important; }
     .meet-pointer    { background: var(--clr-cream) !important; }
 
     /* Compact icon for the slim benefit cards (visual relief, no bulk) */
@@ -92,7 +94,6 @@
     .trust-ex-foot{text-align:center;font-size:.95rem;color:var(--clr-text-muted,#5A6661);margin:22px 0 0;display:flex;align-items:center;gap:8px;justify-content:center}
     .tx-check{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:#EAF3EE;color:#2C8A6E;font-size:.78rem;font-weight:700;flex:0 0 20px}
     /* ── Available helpers prominence ── */
-    .avail{background:var(--clr-cream,#FBF6EE)}
     .avail-grid{gap:18px}
     .avail .hc-media img{width:100%;aspect-ratio:4/5;height:auto;object-fit:cover;object-position:center top}
     /* ── Referring family: joint-call visual ── */
@@ -133,18 +134,26 @@
       .hero .wrap.hero-v2{grid-template-columns:1fr;gap:28px;max-width:560px;text-align:center}
       .hero-v2-copy{align-items:center}
       .hero-v2 .hero-sub{text-align:center}
-      .hero-preview{order:-1}
       .hp-card{max-width:300px}
     }
+    /* hero recommendation note */
+    .hero-note{position:relative;background:var(--clr-white,#fff);border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:16px;padding:26px 24px 22px;margin:0;width:100%;max-width:360px;box-shadow:0 22px 56px -34px rgba(31,42,36,.30)}
+    .hero-note-tape{position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(-2deg);width:104px;height:18px;background:#E8825C;opacity:.9;border-radius:3px}
+    .hero-note-badge{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:#fff;background:#2C8A6E;padding:5px 12px;border-radius:999px;margin-bottom:14px}
+    .hero-note-badge svg{flex:0 0 auto}
+    .hero-note-q{font-family:var(--fd,'Cormorant Garamond',serif);font-size:1.15rem;font-style:italic;line-height:1.5;color:var(--clr-ink,#1F2A24);margin:0 0 14px}
+    .hero-note-attr{display:flex;align-items:center;gap:9px;font-size:.85rem;color:var(--clr-text-muted,#5A6661);margin:0}
+    .hero-note-dash{width:20px;height:2px;background:#E8825C;border-radius:2px;flex:0 0 20px}
     /* ── Why Helper Circle exists ── */
     .why-exist{background:var(--clr-white,#fff)}
+    .why-exist,.trust-ex{padding:clamp(54px,8vw,86px) 0}
     .why-exist-inner{max-width:680px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center}
     .why-h{margin:8px 0 14px}
     .why-body{font-size:1.02rem;line-height:1.7;color:var(--clr-text-muted,#5A6661);max-width:560px;margin:0 0 26px}
     .why-flow{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap}
     .why-bubbles{display:flex;flex-direction:column;gap:7px;opacity:.9}
     .why-bub{font-size:.82rem;color:#8f887a;background:#F4EFE5;border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:12px;padding:8px 14px}
-    .why-arrow{color:#C7B79D;font-size:1.5rem;line-height:1}
+    .why-arrow{color:#E8825C;font-size:1.5rem;line-height:1}
     .why-circle{font-size:.95rem;font-weight:600;color:#fff;background:#2C8A6E;padding:12px 22px;border-radius:999px}
     @media(max-width:560px){.why-flow{gap:12px}.why-arrow{transform:rotate(90deg)}}
   </style>
@@ -190,10 +199,10 @@
     <div class="hero-v2-copy">
       <div class="hero-badge">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="#2F8F73"/><path d="M3.5 6l1.8 1.8 3.2-3.2" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        A trusted referral circle for&nbsp;helpers
+        Trusted helpers, hired&nbsp;directly
       </div>
       <h1 class="h1 hero-hl">Find a helper another family already&nbsp;trusts.</h1>
-      <p class="hero-sub">Every helper here comes recommended by an employer she worked&nbsp;for, or has years of proven service with one family. You meet her, then hire her directly. Not an agency, not a classifieds&nbsp;group.</p>
+      <p class="hero-sub">Each helper is recommended by an employer she worked&nbsp;for, or has years with one family. You hire her directly, not through an&nbsp;agency.</p>
       <div class="hero-ctas">
         <a href="browse.html" class="btn btn-green btn-lg">Meet helpers</a>
         <a href="refer.html" class="btn btn-outline btn-lg">Refer a helper</a>
@@ -202,16 +211,12 @@
     </div>
 
     <aside class="hero-preview">
-      <a class="hp-card" href="profile-amie.html" aria-label="View Amie&rsquo;s profile">
-        <div class="hp-photo"><img src="images/amie.jpg" alt="Amie" loading="eager"/></div>
-        <div class="hp-body">
-          <p class="hp-name">Amie</p>
-          <p class="hp-nat">44 &middot; Filipino</p>
-          <span class="hp-attr"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 1 2.3 2.6v3.9c0 2.6 1.8 4.8 4.7 5.4 2.9-.6 4.7-2.8 4.7-5.4V2.6L7 1Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/><path d="M4.9 6.8 6.4 8.3 9.2 5.4" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg> Recommended by her employer of 8&nbsp;years</span>
-          <p class="hp-quote">&ldquo;We have entrusted her with the care of our children for many years, including periods when she was in sole&nbsp;charge&hellip;&rdquo;</p>
-          <span class="hp-link">View her profile &rarr;</span>
-        </div>
-      </a>
+      <figure class="hero-note">
+        <span class="hero-note-tape" aria-hidden="true"></span>
+        <span class="hero-note-badge"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 1 2.3 2.6v3.9c0 2.6 1.8 4.8 4.7 5.4 2.9-.6 4.7-2.8 4.7-5.4V2.6L7 1Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/><path d="M4.9 6.8 6.4 8.3 9.2 5.4" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg> Employer recommended</span>
+        <blockquote class="hero-note-q">&ldquo;We have entrusted her with the care of our children for many&nbsp;years&hellip;&rdquo;</blockquote>
+        <figcaption class="hero-note-attr"><span class="hero-note-dash" aria-hidden="true"></span> Her employer of 8&nbsp;years</figcaption>
+      </figure>
     </aside>
 
   </div>
@@ -223,7 +228,7 @@
   <div class="wrap why-exist-inner">
     <div class="kicker">Why Helper Circle exists</div>
     <h2 class="h2 why-h">Good helpers shouldn&rsquo;t be hard to&nbsp;find.</h2>
-    <p class="why-body">When a wonderful helper needs a new family, word spreads through Facebook groups and WhatsApp chats, then disappears within days. The families who would have loved her never see her in time. Helper Circle keeps those recommendations in one trusted place, so good helpers and good families can actually find each&nbsp;other.</p>
+    <p class="why-body">When a good helper needs a new family, word spreads through Facebook groups and WhatsApp chats, then disappears within days. Helper Circle gives trusted helpers one place to be found, so the right families see them in&nbsp;time.</p>
     <div class="why-flow rev">
       <div class="why-bubbles">
         <span class="why-bub">&ldquo;anyone know a good helper?&rdquo;</span>
@@ -243,7 +248,7 @@
     <div class="stories-hdr rev">
       <div class="kicker">How trust is built</div>
       <h2 class="h2">Two signals, shown on every&nbsp;profile.</h2>
-      <p class="stories-sub">No one lists themselves here. Every helper carries one of these, and you see it the moment you open her&nbsp;profile.</p>
+      <p class="stories-sub">However a helper reaches us, her profile only goes live once it carries one of these two signals, and we&rsquo;ve reviewed&nbsp;it.</p>
     </div>
     <div class="trust-ex-grid rev">
       <article class="trust-ex-card">

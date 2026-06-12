@@ -7867,6 +7867,7 @@ em { font-style: italic; color: var(--clr-primary); }
   border-top: 1px solid var(--clr-border-warm, #E8DFD0);
 }
 .mcard-salary { font-size: .84rem; font-weight: 600; color: var(--clr-text, #1E1E1E); }
+.mcard-salary-x { font-weight: 500; font-size: .76rem; color: var(--clr-text-muted, #64696E); }
 .mcard-cta { font-size: .82rem; font-weight: 600; color: var(--clr-primary, #2C8A6E); white-space: nowrap; }
 .mcard--ver .mcard-cta { color: #2E6F95; }
 .mcard:hover .mcard-cta { text-decoration: underline; }

@@ -87,6 +87,7 @@ window.HELPERS = [
     bestFit: "Childcare &amp; all-round household",
     strengths: ["Childcare (3 to teens)", "Western cooking", "17 years in SG"],
     skills: ["Childcare", "Cooking", "Housekeeping"],
+    salary: "S$950&ndash;1,000",
     photo: "images/amie.jpg",
     profile: "profile-amie.html"
   },
@@ -106,6 +107,7 @@ window.HELPERS = [
     bestFit: "Childcare (ages 5+) &amp; cooking",
     strengths: ["Childcare (ages 5+)", "Adaptable cooking", "17 years in SG"],
     skills: ["Childcare", "Cooking", "Pets"],
+    salary: "S$1,000",
     photo: "images/evelyn.jpeg",
     profile: "profile-evelyn.html"
   },
@@ -125,6 +127,7 @@ window.HELPERS = [
     bestFit: "Cooking, household &amp; caregiving",
     strengths: ["Cooking (wide variety)", "Housekeeping &amp; cleaning", "10 years in SG"],
     skills: ["Cooking", "Housekeeping", "Elderly Care"],
+    salary: "S$950",
     photo: "images/mariafe.jpeg",
     profile: "profile-mariafe.html"
   },
@@ -168,7 +171,7 @@ window.HELPERS = [
     strengths: ["Childcare (newborns to teens)", "Crafts &amp; creative play", "Nearly 30 years\u2019 experience"],
     skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping"],
     age: 54,
-    salary: "",
+    salary: "S$1,000",
     availability: "transfer",
     photo: "images/liza.jpeg",
     profile: "profile-liza.html"
@@ -375,7 +378,9 @@ window.HELPERS = [
     }).join("");
     var age = ageOf(h);
     var ageNat = (age ? age + ' &middot; ' : '') + h.nationality;
-    var salary = h.salary ? h.salary : 'Salary on enquiry';
+    var salary = h.salary
+      ? '<span class="mcard-salary-x">Expected</span> ' + h.salary
+      : 'Salary on enquiry';
     var dataSkills = skills.map(function (s) { return s.toLowerCase(); }).join(" ");
     var placed = (h.status === "placed");
     var v = (key === "verified");

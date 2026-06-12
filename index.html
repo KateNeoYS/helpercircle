@@ -50,6 +50,8 @@
     .trust-chip--rec { background: #EAF5EF; color: #1B5E48; }
     .trust-chip--ret { background: #E9F0F5; color: #2E6F95; }
     .trust-chip--ver { background: transparent; color: #5A6661; border: 1px solid var(--clr-border-warm, #E5DDCF); }
+    .trust-chip--check { background: #F4F1EA; color: #3A4540; }
+    .trust-chip--check .trust-chip-i { color: var(--clr-primary, #2C8A6E); font-weight: 700; }
 
     /* Featured recommendation card — photo-anchored proof, not a testimonial */
     .rec-feature { display: grid; grid-template-columns: minmax(240px, 340px) 1fr; background: var(--clr-white); border: 1px solid var(--clr-border-warm, #E5DDCF); border-radius: 20px; overflow: hidden; max-width: 900px; margin: 0 auto; box-shadow: 0 12px 44px -26px rgba(31, 42, 36, .24); }
@@ -247,15 +249,12 @@
           </svg>
         </div>
         <h3 class="h3">Request an&nbsp;intro</h3>
-        <p class="how-step-sub">We confirm availability with the&nbsp;referrer</p>
-        <details class="how-more">
-          <summary>Details</summary>
-          <ul class="how-step-detail">
-            <li>You choose who to meet</li>
-            <li>We check current availability</li>
-            <li>No contact details shared upfront</li>
-          </ul>
-        </details>
+        <p class="how-step-sub">We&rsquo;ll help coordinate the first&nbsp;connection.</p>
+        <ul class="trust-chips" aria-label="What the introduction includes">
+          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> You choose who to meet</li>
+          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> Availability confirmed</li>
+          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> Privacy protected</li>
+        </ul>
       </div>
 
       <!-- Step 3 -->
@@ -269,15 +268,12 @@
           </svg>
         </div>
         <h3 class="h3">Meet &amp;&nbsp;decide</h3>
-        <p class="how-step-sub">Video call first, no&nbsp;pressure</p>
-        <details class="how-more">
-          <summary>Details</summary>
-          <ul class="how-step-detail">
-            <li>A Zoom video call — we set it up so it's easy for&nbsp;everyone</li>
-            <li>Ask questions before deciding</li>
-            <li>We guide paperwork if you proceed</li>
-          </ul>
-        </details>
+        <p class="how-step-sub">Speak with the helper before you&nbsp;decide.</p>
+        <ul class="trust-chips" aria-label="What happens when you meet">
+          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> Video call first</li>
+          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> No obligation to proceed</li>
+          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> Paperwork support if you hire</li>
+        </ul>
       </div>
 
     </div>
@@ -338,21 +334,21 @@
 
     <div class="stories-hdr rev">
       <div class="kicker">A real recommendation</div>
-      <h2 class="h2">Recommended by the family<br>who knows her&nbsp;best.</h2>
-      <p class="stories-sub">Kartika&rsquo;s employer is helping her find her next home, and shared why she&rsquo;d vouch for&nbsp;her.</p>
+      <h2 class="h2">Recommended by the family she works&nbsp;for.</h2>
+      <p class="stories-sub">Kartika&rsquo;s employer, Sheila, shared why she would recommend her to another&nbsp;family.</p>
     </div>
 
     <article class="rec-feature rev">
       <div class="rec-feature-photo">
-        <img src="images/kartika.jpg" alt="Kartika, recommended by her employer" loading="lazy"/>
+        <img src="images/kartika.jpg" alt="Kartika, recommended by her employer Sheila" loading="lazy"/>
       </div>
       <div class="rec-feature-body">
         <div class="rec-feature-badges">
           <span class="rec-badge rec-badge--rec"><span aria-hidden="true">⭐</span> Employer Recommended</span>
         </div>
-        <blockquote class="rec-feature-quote">&ldquo;She follows the schedule and asks when she doesn&rsquo;t understand &mdash; she never guesses her way&nbsp;through.&rdquo;</blockquote>
-        <p class="rec-feature-attr">&mdash; Sheila, the family Kartika works&nbsp;for</p>
-        <a href="browse.html" class="btn btn-green rec-feature-cta">Meet our helpers &rarr;</a>
+        <blockquote class="rec-feature-quote">&ldquo;She&rsquo;s warm, easy to talk to, and quietly very good at her work. She follows the schedule and asks when she doesn&rsquo;t understand &mdash; she never guesses her way through. She&rsquo;s built a lovely rapport with my mother, and the house is often running before I&rsquo;m even&nbsp;awake.&rdquo;</blockquote>
+        <p class="rec-feature-attr">&mdash; Sheila, Kartika&rsquo;s current&nbsp;employer</p>
+        <a href="profile-kartika.html" class="btn btn-green rec-feature-cta">Read Kartika&rsquo;s recommendation &rarr;</a>
       </div>
     </article>
 

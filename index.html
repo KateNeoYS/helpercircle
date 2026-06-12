@@ -111,6 +111,42 @@
     .jc-quote{font-family:var(--fd,'Cormorant Garamond',serif);font-size:clamp(1.3rem,2.5vw,1.6rem);line-height:1.45;color:var(--clr-ink,#1F2A24);text-align:center;max-width:620px;margin:26px auto 8px;font-weight:500}
     .jc-attr{font-size:.92rem;color:var(--clr-text-muted,#5A6661);text-align:center;margin:0}
     @media(max-width:560px){.jc-tile{padding:13px 4px}.jc-tn{font-size:.76rem}.jc-tr{display:none}.jc-av{width:42px;height:42px}}
+    /* ── Hero v2 (trust shown via a real helper preview) ── */
+    .hero .wrap.hero-v2{position:relative;z-index:2;display:grid;grid-template-columns:1.08fr .92fr;gap:42px;align-items:center;max-width:1060px;margin:0 auto}
+    .hero-v2-copy{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+    .hero-v2 .hero-hl{margin:0}
+    .hero-v2 .hero-sub{margin:0;max-width:520px}
+    .hero-proof{display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--clr-text-muted,#5A6661);margin:2px 0 0}
+    .hero-proof svg{flex:0 0 auto}
+    .hero-preview{display:flex;justify-content:center}
+    .hp-card{display:block;width:100%;max-width:320px;background:var(--clr-white,#fff);border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 24px 60px -34px rgba(31,42,36,.32);transition:transform .18s ease, box-shadow .18s ease}
+    .hp-card:hover{transform:translateY(-3px);box-shadow:0 30px 70px -32px rgba(31,42,36,.38)}
+    .hp-photo{aspect-ratio:4/3;background:#EDE5D6;overflow:hidden}
+    .hp-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+    .hp-body{padding:15px 17px;display:flex;flex-direction:column;gap:9px}
+    .hp-name{font-size:1.15rem;font-weight:600;color:var(--clr-ink,#1F2A24);margin:0;font-family:var(--fd,'Cormorant Garamond',serif)}
+    .hp-nat{font-size:.82rem;color:var(--clr-text-muted,#5A6661);margin:-7px 0 0}
+    .hp-attr{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:600;color:#fff;background:#2C8A6E;padding:6px 12px;border-radius:999px;align-self:flex-start;line-height:1.3}
+    .hp-quote{font-family:var(--fd,'Cormorant Garamond',serif);font-size:1rem;line-height:1.45;color:var(--clr-ink,#1F2A24);margin:2px 0 0;font-style:italic}
+    .hp-link{font-size:.82rem;font-weight:600;color:#1B5E48;margin-top:2px}
+    @media(max-width:860px){
+      .hero .wrap.hero-v2{grid-template-columns:1fr;gap:28px;max-width:560px;text-align:center}
+      .hero-v2-copy{align-items:center}
+      .hero-v2 .hero-sub{text-align:center}
+      .hero-preview{order:-1}
+      .hp-card{max-width:300px}
+    }
+    /* ── Why Helper Circle exists ── */
+    .why-exist{background:var(--clr-white,#fff)}
+    .why-exist-inner{max-width:680px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center}
+    .why-h{margin:8px 0 14px}
+    .why-body{font-size:1.02rem;line-height:1.7;color:var(--clr-text-muted,#5A6661);max-width:560px;margin:0 0 26px}
+    .why-flow{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap}
+    .why-bubbles{display:flex;flex-direction:column;gap:7px;opacity:.9}
+    .why-bub{font-size:.82rem;color:#8f887a;background:#F4EFE5;border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:12px;padding:8px 14px}
+    .why-arrow{color:#C7B79D;font-size:1.5rem;line-height:1}
+    .why-circle{font-size:.95rem;font-weight:600;color:#fff;background:#2C8A6E;padding:12px 22px;border-radius:999px}
+    @media(max-width:560px){.why-flow{gap:12px}.why-arrow{transform:rotate(90deg)}}
   </style>
   <!-- Vercel Web Analytics -->
   <script>
@@ -149,26 +185,54 @@
 <section class="hero">
   <div class="blob blob-a"></div>
   <div class="blob blob-b"></div>
-  <div class="wrap hero-center">
+  <div class="wrap hero-v2">
 
-    <div class="hero-left">
+    <div class="hero-v2-copy">
       <div class="hero-badge">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="#2F8F73"/><path d="M3.5 6l1.8 1.8 3.2-3.2" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Currently introducing trusted&nbsp;helpers
+        A trusted referral circle for&nbsp;helpers
       </div>
-      <h1 class="h1 hero-hl">Helpers you can trust, <br><em>and the reasons&nbsp;why</em></h1>
-      <p class="hero-sub hero-sub-center">Find a helper personally recommended by a family she has worked&nbsp;for, or with a verified long-term record. You hire her directly &mdash; not an agency, not a classifieds&nbsp;group.</p>
-      <div class="hero-chips">
-        <span class="hero-chip hero-chip--rec"><span aria-hidden="true">🏆</span> Employer Recommended</span>
-        <span class="hero-chip hero-chip--ret"><span aria-hidden="true">📅</span> Long-Term Family Retention</span>
-        <span class="hero-chip hero-chip--rev"><span aria-hidden="true">✓</span> Reviewed Before Listing</span>
-      </div>
+      <h1 class="h1 hero-hl">Find a helper another family already&nbsp;trusts.</h1>
+      <p class="hero-sub">Every helper here comes recommended by an employer she worked&nbsp;for, or has years of proven service with one family. You meet her, then hire her directly. Not an agency, not a classifieds&nbsp;group.</p>
       <div class="hero-ctas">
-        <a href="browse.html" class="btn btn-green btn-lg">Meet Helpers</a>
-        <a href="refer.html" class="btn btn-outline btn-lg">Refer a Helper</a>
+        <a href="browse.html" class="btn btn-green btn-lg">Meet helpers</a>
+        <a href="refer.html" class="btn btn-outline btn-lg">Refer a helper</a>
       </div>
+      <p class="hero-proof"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.2 2.4 3v4.1c0 2.7 1.9 5 5.1 5.7 3.2-.7 5.1-3 5.1-5.7V3L7.5 1.2Z" stroke="#2C8A6E" stroke-width="1.1" stroke-linejoin="round"/><path d="M5.3 7.4 6.9 9l3-3.2" stroke="#2C8A6E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg> Reviewed before listing. No fees ever charged to&nbsp;helpers.</p>
     </div>
 
+    <aside class="hero-preview">
+      <a class="hp-card" href="profile-amie.html" aria-label="View Amie&rsquo;s profile">
+        <div class="hp-photo"><img src="images/amie.jpg" alt="Amie" loading="eager"/></div>
+        <div class="hp-body">
+          <p class="hp-name">Amie</p>
+          <p class="hp-nat">44 &middot; Filipino</p>
+          <span class="hp-attr"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 1 2.3 2.6v3.9c0 2.6 1.8 4.8 4.7 5.4 2.9-.6 4.7-2.8 4.7-5.4V2.6L7 1Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/><path d="M4.9 6.8 6.4 8.3 9.2 5.4" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg> Recommended by her employer of 8&nbsp;years</span>
+          <p class="hp-quote">&ldquo;We have entrusted her with the care of our children for many years, including periods when she was in sole&nbsp;charge&hellip;&rdquo;</p>
+          <span class="hp-link">View her profile &rarr;</span>
+        </div>
+      </a>
+    </aside>
+
+  </div>
+</section>
+
+
+<!-- ═══ WHY HELPER CIRCLE EXISTS ═══ -->
+<section class="why-exist">
+  <div class="wrap why-exist-inner">
+    <div class="kicker">Why Helper Circle exists</div>
+    <h2 class="h2 why-h">Good helpers shouldn&rsquo;t be hard to&nbsp;find.</h2>
+    <p class="why-body">When a wonderful helper needs a new family, word spreads through Facebook groups and WhatsApp chats, then disappears within days. The families who would have loved her never see her in time. Helper Circle keeps those recommendations in one trusted place, so good helpers and good families can actually find each&nbsp;other.</p>
+    <div class="why-flow rev">
+      <div class="why-bubbles">
+        <span class="why-bub">&ldquo;anyone know a good helper?&rdquo;</span>
+        <span class="why-bub">forwarded, then lost</span>
+        <span class="why-bub">gone in days</span>
+      </div>
+      <span class="why-arrow" aria-hidden="true">&rarr;</span>
+      <span class="why-circle">One trusted circle</span>
+    </div>
   </div>
 </section>
 

@@ -137,12 +137,15 @@
       .hp-card{max-width:300px}
     }
     /* hero recommendation note */
-    .hero-note{position:relative;background:var(--clr-white,#fff);border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:16px;padding:26px 24px 22px;margin:0;width:100%;max-width:360px;box-shadow:0 22px 56px -34px rgba(31,42,36,.30)}
+    .hero-note{position:relative;background:var(--clr-white,#fff);border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:16px;padding:24px 24px 20px;margin:0;width:100%;max-width:336px;box-shadow:0 16px 42px -30px rgba(31,42,36,.26)}
     .hero-note-tape{position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(-2deg);width:104px;height:18px;background:#E8825C;opacity:.9;border-radius:3px}
     .hero-note-badge{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:#fff;background:#2C8A6E;padding:5px 12px;border-radius:999px;margin-bottom:14px}
     .hero-note-badge svg{flex:0 0 auto}
     .hero-note-q{font-family:var(--fd,'Cormorant Garamond',serif);font-size:1.15rem;font-style:italic;line-height:1.5;color:var(--clr-ink,#1F2A24);margin:0 0 14px}
-    .hero-note-attr{display:flex;align-items:center;gap:9px;font-size:.85rem;color:var(--clr-text-muted,#5A6661);margin:0}
+    .hero-note-attr{font-size:.78rem;color:var(--clr-text-muted,#5A6661);margin:0}
+    .hero-note-eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.71rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--clr-text-muted,#5A6661);margin-bottom:13px}
+    .hero-note-eyebrow svg{width:15px;height:15px;color:#2C8A6E;flex:0 0 15px}
+    .hero-note-sep{color:#C9BFA8;margin:0 3px}
     .hero-note-dash{width:20px;height:2px;background:#E8825C;border-radius:2px;flex:0 0 20px}
     /* ── Why Helper Circle exists ── */
     .why-exist{background:var(--clr-white,#fff)}
@@ -260,7 +263,7 @@
         Trusted helpers, hired&nbsp;directly
       </div>
       <h1 class="h1 hero-hl">Find a helper another family already&nbsp;trusts.</h1>
-      <p class="hero-sub">Each helper is recommended by an employer she worked&nbsp;for, or has years with one family. You hire her directly, not through an&nbsp;agency.</p>
+      <p class="hero-sub">Employer-recommended helpers and proven long-term work&nbsp;histories. Hire directly, not through an&nbsp;agency.</p>
       <div class="hero-ctas">
         <a href="browse.html" class="btn btn-green btn-lg">Meet helpers</a>
         <a href="refer.html" class="btn btn-outline btn-lg">Refer a helper</a>
@@ -272,9 +275,9 @@
     <aside class="hero-preview">
       <figure class="hero-note">
         <span class="hero-note-tape" aria-hidden="true"></span>
-        <span class="hero-note-badge"><span aria-hidden="true">🏆</span> Employer Recommended</span>
-        <blockquote class="hero-note-q">&ldquo;We have entrusted her with the care of our children for many&nbsp;years&hellip;&rdquo;</blockquote>
-        <figcaption class="hero-note-attr"><span class="hero-note-dash" aria-hidden="true"></span> Her employer of 8&nbsp;years</figcaption>
+        <span class="hero-note-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8.5 12 14l9-5.5M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z" stroke-linejoin="round"/></svg> A note from her employer</span>
+        <blockquote class="hero-note-q">&ldquo;One of Maria&rsquo;s greatest strengths is her&nbsp;cooking.&rdquo;</blockquote>
+        <figcaption class="hero-note-attr">Current employer recommendation <span class="hero-note-sep" aria-hidden="true">&middot;</span> Shared with permission</figcaption>
       </figure>
     </aside>
 

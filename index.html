@@ -53,22 +53,21 @@
     .trust-chip--check { background: #F4F1EA; color: #3A4540; }
     .trust-chip--check .trust-chip-i { color: var(--clr-primary, #2C8A6E); font-weight: 700; }
 
-    /* Featured recommendation card — photo-anchored proof, not a testimonial */
-    .rec-feature { display: grid; grid-template-columns: minmax(240px, 340px) 1fr; background: var(--clr-white); border: 1px solid var(--clr-border-warm, #E5DDCF); border-radius: 20px; overflow: hidden; max-width: 900px; margin: 0 auto; box-shadow: 0 12px 44px -26px rgba(31, 42, 36, .24); }
-    .rec-feature-photo img { width: 100%; height: 100%; min-height: 340px; object-fit: cover; object-position: center center; display: block; }
-    .rec-feature-body { padding: 34px 38px; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
-    .rec-feature-badges { display: flex; flex-wrap: wrap; gap: 8px; }
-    .rec-badge { display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; font-weight: 600; padding: 6px 13px; border-radius: 999px; }
-    .rec-badge--rec { background: var(--clr-primary, #2C8A6E); color: #fff; }
-    .rec-badge--ret { background: #2E6F95; color: #fff; }
-    .rec-feature-quote { font-family: var(--fd, 'Cormorant Garamond', serif); font-size: clamp(1.4rem, 2.4vw, 1.75rem); line-height: 1.4; font-weight: 500; color: var(--clr-ink, #1F2A24); margin: 0; }
-    .rec-feature-attr { font-size: .95rem; color: var(--clr-text-muted, #5A6661); margin: 0; }
-    .rec-feature-cta { margin-top: 8px; }
+    /* Referring-family story card — editorial pull-quote + process chips,
+       no photo (this is Sheila's experience of the process, not a helper). */
+    .story-feature { max-width: 760px; margin: 0 auto; background: var(--clr-white); border: 1px solid var(--clr-border-warm, #E5DDCF); border-radius: 20px; padding: 38px 42px; box-shadow: 0 12px 44px -26px rgba(31, 42, 36, .24); display: flex; flex-direction: column; gap: 22px; }
+    .story-feature-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .story-chip { display: inline-flex; align-items: center; gap: 6px; font-size: .8rem; font-weight: 600; color: #3A4540; background: #F4F1EA; border-radius: 999px; padding: 6px 13px; }
+    .story-chip span { color: var(--clr-primary, #2C8A6E); font-weight: 700; }
+    .story-feature-quote { font-family: var(--fd, 'Cormorant Garamond', serif); font-size: clamp(1.45rem, 2.6vw, 1.9rem); line-height: 1.4; font-weight: 500; color: var(--clr-ink, #1F2A24); margin: 0; }
+    .story-feature-foot { display: flex; align-items: center; gap: 13px; margin: 0; border-top: 1px solid var(--clr-border-warm, #E5DDCF); padding-top: 20px; }
+    .story-feature-av { width: 44px; height: 44px; border-radius: 50%; background: var(--clr-primary, #2C8A6E); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--fd, 'Cormorant Garamond', serif); font-size: 1.25rem; font-weight: 600; flex: 0 0 44px; }
+    .story-feature-id { display: flex; flex-direction: column; line-height: 1.3; }
+    .story-feature-name { font-weight: 700; color: var(--clr-ink, #1F2A24); }
+    .story-feature-role { font-size: .85rem; color: var(--clr-text-muted, #5A6661); }
     @media (max-width: 720px) {
-      .rec-feature { grid-template-columns: 1fr; max-width: 430px; }
-      .rec-feature-photo img { min-height: 0; aspect-ratio: 4 / 3; }
-      .rec-feature-body { padding: 24px 22px; gap: 14px; }
-      .rec-feature-quote { font-size: 1.3rem; }
+      .story-feature { padding: 26px 22px; gap: 18px; }
+      .story-feature-quote { font-size: 1.3rem; }
     }
   </style>
   <!-- Vercel Web Analytics -->
@@ -325,35 +324,39 @@
 
 
 <!-- ═══ A RECOMMENDATION (Kartika) ═══ -->
-<!-- Real recommendation from Kartika's CURRENT employer (Sheila), reframed as
-     proof, not a process testimonial. Photo-anchored. Quote is Sheila's
-     verified direct words from Kartika's profile. To add a tenure stat,
-     insert a second .rec-badge.rec-badge--ret with the real figure. -->
+<!-- Real referring-family story from Sheila about the Helper Circle PROCESS
+     (transparency, Zoom introductions, no hidden fees). This is her experience
+     of referring her helper, NOT a character recommendation of any helper.
+     Editorial pull-quote + process chips; no photo, since it's about the
+     process, not a person. Words are Sheila's, lightly condensed. -->
 <section class="stories" id="stories">
   <div class="wrap">
 
     <div class="stories-hdr rev">
-      <div class="kicker">A real recommendation</div>
-      <h2 class="h2">Recommended by the family she works&nbsp;for.</h2>
-      <p class="stories-sub">Kartika&rsquo;s employer, Sheila, shared why she would recommend her to another&nbsp;family.</p>
+      <div class="kicker">From a referring family</div>
+      <h2 class="h2">What it&rsquo;s like to refer someone you&nbsp;trust.</h2>
+      <p class="stories-sub">Sheila passed her helper on to a new family through Helper Circle. Here&rsquo;s what the process was like for&nbsp;her.</p>
     </div>
 
-    <article class="rec-feature rev">
-      <div class="rec-feature-photo">
-        <img src="images/kartika.jpg" alt="Kartika, recommended by her employer Sheila" loading="lazy"/>
+    <article class="story-feature rev">
+      <div class="story-feature-chips">
+        <span class="story-chip"><span aria-hidden="true">✓</span> No hidden costs</span>
+        <span class="story-chip"><span aria-hidden="true">✓</span> Everyone met over Zoom</span>
+        <span class="story-chip"><span aria-hidden="true">✓</span> Open, honest discussion</span>
       </div>
-      <div class="rec-feature-body">
-        <div class="rec-feature-badges">
-          <span class="rec-badge rec-badge--rec"><span aria-hidden="true">⭐</span> Employer Recommended</span>
-        </div>
-        <blockquote class="rec-feature-quote">&ldquo;She&rsquo;s warm, easy to talk to, and quietly very good at her work. She follows the schedule and asks when she doesn&rsquo;t understand &mdash; she never guesses her way through. She&rsquo;s built a lovely rapport with my mother, and the house is often running before I&rsquo;m even&nbsp;awake.&rdquo;</blockquote>
-        <p class="rec-feature-attr">&mdash; Sheila, Kartika&rsquo;s current&nbsp;employer</p>
-        <a href="profile-kartika.html" class="btn btn-green rec-feature-cta">Read Kartika&rsquo;s recommendation &rarr;</a>
-      </div>
+      <blockquote class="story-feature-quote">&ldquo;What stood out was the transparency. Questions were openly discussed, and there were no hidden costs or hidden agendas. The Zoom meeting was especially useful &mdash; the helper, her current family and the new family could all meet together and feel comfortable before&nbsp;committing.&rdquo;</blockquote>
+      <footer class="story-feature-foot">
+        <span class="story-feature-av" aria-hidden="true">S</span>
+        <span class="story-feature-id">
+          <span class="story-feature-name">Sheila</span>
+          <span class="story-feature-role">Referring employer &middot; shared with permission</span>
+        </span>
+      </footer>
     </article>
 
   </div>
 </section>
+
 
 
 <!-- ═══ PRICING ═══ -->

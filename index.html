@@ -41,6 +41,15 @@
     .how-more > summary::after { content: ""; width: 6px; height: 6px; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor; transform: rotate(45deg); transition: transform .2s; }
     .how-more[open] > summary::after { transform: rotate(-135deg); }
     .how-more[open] .how-step-detail { max-height: none; opacity: 1; margin-top: 10px; }
+
+    /* Trust chips inside step 1 — visible trust model, no accordion.
+       Two soft tier pills + one quiet "always" promise chip. */
+    .trust-chips { list-style: none; margin: 13px 0 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+    .trust-chip { display: inline-flex; align-items: center; gap: 7px; width: fit-content; font-size: .8rem; font-weight: 600; line-height: 1.2; padding: 6px 12px; border-radius: 999px; }
+    .trust-chip-i { font-size: .78rem; line-height: 1; }
+    .trust-chip--rec { background: #EAF5EF; color: #1B5E48; }
+    .trust-chip--ret { background: #E9F0F5; color: #2E6F95; }
+    .trust-chip--ver { background: transparent; color: #5A6661; border: 1px solid var(--clr-border-warm, #E5DDCF); }
   </style>
   <!-- Vercel Web Analytics -->
   <script>
@@ -202,15 +211,12 @@
           </svg>
         </div>
         <h3 class="h3">Browse verified&nbsp;profiles</h3>
-        <p class="how-step-sub">Each one checked before it&rsquo;s&nbsp;listed</p>
-        <details class="how-more">
-          <summary>Details</summary>
-          <ul class="how-step-detail">
-            <li>Trust signals shown upfront</li>
-            <li>Recommended where available</li>
-            <li>Work history verified</li>
-          </ul>
-        </details>
+        <p class="how-step-sub">See why each one is trusted, before you&nbsp;enquire.</p>
+        <ul class="trust-chips" aria-label="Trust signals shown on every profile">
+          <li class="trust-chip trust-chip--rec"><span class="trust-chip-i" aria-hidden="true">⭐</span> Employer Recommended</li>
+          <li class="trust-chip trust-chip--ret"><span class="trust-chip-i" aria-hidden="true">🔄</span> Long-Term Employment Verified</li>
+          <li class="trust-chip trust-chip--ver"><span class="trust-chip-i" aria-hidden="true">✓</span> Verified Before Listing</li>
+        </ul>
       </div>
 
       <!-- Step 2 -->

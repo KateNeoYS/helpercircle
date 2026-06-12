@@ -21,10 +21,9 @@
        backgrounds are set by several conflicting rules in styles.css; this
        keeps the white/cream rhythm deterministic for this page. -->
   <style>
-    .benefits-new    { background: var(--clr-white) !important; }
+    .trust-ex        { background: var(--clr-white) !important; }
     .how             { background: var(--clr-cream) !important; }
-    .trust-ways      { background: var(--clr-white) !important; }
-    .stories         { background: var(--clr-cream) !important; }
+    .stories         { background: var(--clr-white) !important; }
     .pricing-section { background: var(--clr-white) !important; }
     .meet-pointer    { background: var(--clr-cream) !important; }
 
@@ -69,6 +68,49 @@
       .story-feature { padding: 26px 22px; gap: 18px; }
       .story-feature-quote { font-size: 1.3rem; }
     }
+  
+    /* ── Hero (centered, trust chips) ── */
+    .hero .wrap.hero-center{position:relative;z-index:2;max-width:780px;margin:0 auto}
+    .hero-center .hero-left{text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px;width:100%}
+    .hero-sub-center{max-width:600px;margin:0}
+    .hero-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+    .hero-chip{display:inline-flex;align-items:center;gap:7px;font-size:.9rem;font-weight:600;padding:8px 16px;border-radius:999px}
+    .hero-chip--rec{background:#2C8A6E;color:#fff}
+    .hero-chip--ret{background:#2E6F95;color:#fff}
+    .hero-chip--rev{background:transparent;color:#5A6661;border:1px solid #E5DDCF}
+    .hero-center .hero-ctas{justify-content:center}
+    /* ── Trust signals (badge-led example cards) ── */
+    .trust-ex-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;max-width:820px;margin:0 auto}
+    .trust-ex-card{background:var(--clr-white,#fff);border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:18px;overflow:hidden}
+    .tx-top{padding:20px 22px 0}
+    .tx-badge{display:inline-flex;align-items:center;gap:7px;font-size:.92rem;font-weight:600;padding:8px 15px;border-radius:999px}
+    .tx-badge--rec{background:#2C8A6E;color:#fff}
+    .tx-badge--ret{background:#2E6F95;color:#fff}
+    .tx-body{padding:15px 22px 22px}
+    .tx-h{font-family:var(--fd,'Cormorant Garamond',serif);font-size:1.35rem;line-height:1.3;color:var(--clr-ink,#1F2A24);margin:0 0 8px;font-weight:500}
+    .tx-p{font-size:.95rem;line-height:1.6;color:var(--clr-text-muted,#5A6661);margin:0}
+    .trust-ex-foot{text-align:center;font-size:.95rem;color:var(--clr-text-muted,#5A6661);margin:22px 0 0;display:flex;align-items:center;gap:8px;justify-content:center}
+    .tx-check{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:#EAF3EE;color:#2C8A6E;font-size:.78rem;font-weight:700;flex:0 0 20px}
+    /* ── Available helpers prominence ── */
+    .avail{background:var(--clr-cream,#FBF6EE)}
+    .avail-grid{gap:18px}
+    .avail .hc-media img{width:100%;aspect-ratio:4/5;height:auto;object-fit:cover;object-position:center top}
+    /* ── Referring family: joint-call visual ── */
+    .jc-frame{max-width:620px;margin:0 auto;background:var(--clr-white,#fff);border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:18px;padding:18px;box-shadow:0 12px 44px -28px rgba(31,42,36,.22)}
+    .jc-hd{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--clr-text-muted,#5A6661);margin-bottom:13px;font-weight:600}
+    .jc-dot{width:8px;height:8px;border-radius:50%;background:#2C8A6E;flex:0 0 8px}
+    .jc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .jc-tile{background:#FBF6EE;border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:12px;padding:16px 8px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+    .jc-tile--mid{border:2px solid #2C8A6E;background:#fff}
+    .jc-av{width:48px;height:48px;border-radius:50%;background:#EAF3EE;color:#2C8A6E;display:flex;align-items:center;justify-content:center}
+    .jc-av svg{width:24px;height:24px}
+    .jc-tn{font-size:.85rem;font-weight:600;color:var(--clr-ink,#1F2A24)}
+    .jc-tr{font-size:.72rem;color:var(--clr-text-muted,#5A6661);line-height:1.3}
+    .jc-cap{font-size:.85rem;color:var(--clr-text-muted,#5A6661);text-align:center;margin:13px 0 0;display:flex;align-items:center;justify-content:center;gap:7px;line-height:1.5}
+    .jc-cap svg{width:16px;height:16px;flex:0 0 auto;color:#2C8A6E}
+    .jc-quote{font-family:var(--fd,'Cormorant Garamond',serif);font-size:clamp(1.3rem,2.5vw,1.6rem);line-height:1.45;color:var(--clr-ink,#1F2A24);text-align:center;max-width:620px;margin:26px auto 8px;font-weight:500}
+    .jc-attr{font-size:.92rem;color:var(--clr-text-muted,#5A6661);text-align:center;margin:0}
+    @media(max-width:560px){.jc-tile{padding:13px 4px}.jc-tn{font-size:.76rem}.jc-tr{display:none}.jc-av{width:42px;height:42px}}
   </style>
   <!-- Vercel Web Analytics -->
   <script>
@@ -107,7 +149,7 @@
 <section class="hero">
   <div class="blob blob-a"></div>
   <div class="blob blob-b"></div>
-  <div class="wrap hero-grid">
+  <div class="wrap hero-center">
 
     <div class="hero-left">
       <div class="hero-badge">
@@ -115,100 +157,124 @@
         Currently introducing trusted&nbsp;helpers
       </div>
       <h1 class="h1 hero-hl">Helpers you can trust, <br><em>and the reasons&nbsp;why</em></h1>
-      <p class="hero-sub">Most come recommended by a previous family. We support the introduction, guide the paperwork, and ease the&nbsp;transition.</p>
+      <p class="hero-sub hero-sub-center">Find a helper personally recommended by a family she has worked&nbsp;for, or with a verified long-term record. You hire her directly &mdash; not an agency, not a classifieds&nbsp;group.</p>
+      <div class="hero-chips">
+        <span class="hero-chip hero-chip--rec"><span aria-hidden="true">🏆</span> Employer Recommended</span>
+        <span class="hero-chip hero-chip--ret"><span aria-hidden="true">📅</span> Long-Term Family Retention</span>
+        <span class="hero-chip hero-chip--rev"><span aria-hidden="true">✓</span> Reviewed Before Listing</span>
+      </div>
       <div class="hero-ctas">
         <a href="browse.html" class="btn btn-green btn-lg">Meet Helpers</a>
         <a href="refer.html" class="btn btn-outline btn-lg">Refer a Helper</a>
       </div>
-      <div class="hero-micro-trust">
-        <span class="micro-trust-item">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="6" stroke="#2C8A6E" stroke-width="1.2"/><path d="M4 6.5l1.8 1.8 3.2-3.2" stroke="#2C8A6E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Free to browse
-        </span>
-        <span class="micro-trust-sep">·</span>
-        <span class="micro-trust-item">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="6" stroke="#2C8A6E" stroke-width="1.2"/><path d="M4 6.5l1.8 1.8 3.2-3.2" stroke="#2C8A6E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Verified trust signals
-        </span>
-        <span class="micro-trust-sep">·</span>
-        <span class="micro-trust-item">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="6" stroke="#2C8A6E" stroke-width="1.2"/><path d="M4 6.5l1.8 1.8 3.2-3.2" stroke="#2C8A6E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Intros in 2–3 days
-        </span>
-        <span class="micro-trust-sep">·</span>
-        <span class="micro-trust-item">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="6" stroke="#2C8A6E" stroke-width="1.2"/><path d="M4 6.5l1.8 1.8 3.2-3.2" stroke="#2C8A6E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          One transparent fee
-        </span>
-      </div>
     </div>
-
-    <!-- Hero visual — single portrait + handwritten referral note.
-         One face, told well. Pairs a single (warm, direct gaze) portrait
-         with a small handwritten-style note from the previous family,
-         and one quiet "Referral verified" badge. Editorial storytelling
-         instead of marketplace inventory. The .figure-portrait wrapper
-         can later swap to a different image without restructuring. -->
-    <figure class="hero-figure" aria-hidden="true">
-      <div class="figure-portrait">
-        <img src="images/siti.jpg" alt=""/>
-        <span class="figure-badge">
-          <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
-            <path d="M6 1 2 2.5v3.7c0 2.4 1.7 4.5 4 5 2.3-.5 4-2.6 4-5V2.5L6 1z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
-            <path d="M4 6.2l1.5 1.5L8 5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Referral verified
-        </span>
-      </div>
-      <aside class="figure-note">
-        <p class="figure-note-body">"She's been part of our family for four years. I'd love to find her a good next&nbsp;home."</p>
-        <p class="figure-note-by">&mdash; A previous family</p>
-      </aside>
-    </figure>
 
   </div>
 </section>
 
 
-<!-- ═══ BETTER FOR EVERYONE ═══ -->
-<section class="benefits-new" id="benefits">
+<!-- ═══ HOW TRUST IS BUILT ═══ -->
+<section class="trust-ex" id="trust-signals">
   <div class="wrap">
-    <div class="benefits-new-hdr rev">
-      <div class="kicker">Why referrals work better</div>
-      <h2 class="h2">Better for everyone<br>in the&nbsp;circle.</h2>
+    <div class="stories-hdr rev">
+      <div class="kicker">How trust is built</div>
+      <h2 class="h2">Two signals, shown on every&nbsp;profile.</h2>
+      <p class="stories-sub">No one lists themselves here. Every helper carries one of these, and you see it the moment you open her&nbsp;profile.</p>
     </div>
-    <div class="benefit-grid">
-
-      <div class="benefit-card benefit-card--green rev">
-        <div class="benefit-ico benefit-ico--green" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
-        <div class="benefit-label benefit-label--green">New employer</div>
-        <h3 class="benefit-title">Find a trusted helper&nbsp;faster</h3>
-        <p class="benefit-description">Most come recommended by a previous family &mdash; context a resume can&rsquo;t show. You hire directly while we guide the&nbsp;paperwork.</p>
-      </div>
-
-      <div class="benefit-card benefit-card--peach rev">
-        <div class="benefit-ico benefit-ico--peach" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3.5 12h14M13 7l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="benefit-label benefit-label--peach">Previous employer</div>
-        <h3 class="benefit-title">Help her transition&nbsp;smoothly</h3>
-        <p class="benefit-description">Pass your helper on to a family you&rsquo;d vouch for &mdash; your honest words travel with&nbsp;her.</p>
-      </div>
-
-      <div class="benefit-card benefit-card--sand rev">
-        <div class="benefit-ico benefit-ico--sand" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 20.5C6.5 16.5 3.5 13.5 3.5 9.7 3.5 7.1 5.4 5.2 7.8 5.2c1.6 0 3.1.8 4.2 2.2 1.1-1.4 2.6-2.2 4.2-2.2 2.4 0 4.3 1.9 4.3 4.5 0 3.8-3 6.8-8.5 10.8z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
-        <div class="benefit-label benefit-label--sand">For helpers</div>
-        <h3 class="benefit-title">Continuity, not a&nbsp;restart</h3>
-        <p class="benefit-description">A direct move means no agency debt and a respectful handover &mdash; not starting over from&nbsp;scratch.</p>
-      </div>
-
+    <div class="trust-ex-grid rev">
+      <article class="trust-ex-card">
+        <div class="tx-top"><span class="tx-badge tx-badge--rec"><span aria-hidden="true">🏆</span> Employer Recommended</span></div>
+        <div class="tx-body">
+          <p class="tx-h">A family she worked for vouches for&nbsp;her.</p>
+          <p class="tx-p">A current or former employer recommends her directly, and we confirm it with them. Our strongest&nbsp;signal.</p>
+        </div>
+      </article>
+      <article class="trust-ex-card">
+        <div class="tx-top"><span class="tx-badge tx-badge--ret"><span aria-hidden="true">📅</span> Long-Term Family Retention</span></div>
+        <div class="tx-body">
+          <p class="tx-h">She stayed with one family for&nbsp;years.</p>
+          <p class="tx-p">Several years with a single family, checked against official MOM records. Her record speaks for&nbsp;itself.</p>
+        </div>
+      </article>
     </div>
-    <div class="swipe-hint" aria-hidden="true">
-      <div class="swipe-hint-dot active"></div>
-      <div class="swipe-hint-dot"></div>
-      <div class="swipe-hint-dot"></div>
-      <span style="margin-left:4px">Swipe to see more</span>
+    <p class="trust-ex-foot rev"><span class="tx-check" aria-hidden="true">✓</span> Every profile is reviewed before it&rsquo;s&nbsp;listed.</p>
+  </div>
+</section>
+
+
+<!-- ═══ CURRENTLY AVAILABLE REFERRED HELPERS ═══ -->
+<!-- Shows open-to-transfer profiles. If none are available this section
+     hides and the "Introduced one at a time" pointer below appears instead.
+     Visibility is toggled by helpers-data.js based on the data file. -->
+<section class="avail" id="helpers" style="display:none">
+  <div class="wrap">
+    <div class="avail-hdr rev">
+      <div class="kicker">Open to a new family</div>
+      <h2 class="h2 h2-sm">Currently available&nbsp;helpers</h2>
+      <p class="avail-sub">Helpers ready to meet a new family &mdash; each shown with the trust signals we&rsquo;ve&nbsp;verified.</p>
+    </div>
+
+    <!-- Cards render from helpers-data.js (available helpers, max 3) -->
+    <div class="avail-grid" id="avail-grid"></div>
+
+    <div class="avail-foot rev">
+      <a href="browse.html" class="btn btn-outline">See all available helpers &rarr;</a>
     </div>
   </div>
 </section>
+
+
+<!-- ═══ MEET HELPERS POINTER  (empty state — shown only when no helpers available) ═══ -->
+<!-- TODO: when real helper profiles exist and inventory is healthy, this
+     section can be replaced with a real .hcard-grid showcase (markup pattern
+     preserved in styles.css). The .meet-pointer styling can then be reused
+     as a calmer "view all" footer below the grid. -->
+<section class="meet-pointer" id="meet-circle">
+  <div class="wrap">
+    <div class="meet-pointer-inner">
+      <div class="kicker">Meet helpers</div>
+      <h2 class="h2 meet-pointer-h">Introduced one at a&nbsp;time.</h2>
+      <p class="meet-pointer-sub">Most profiles begin as a conversation with a previous family. A few come from helpers with long, verified work&nbsp;histories.</p>
+      <a href="browse.html" class="btn btn-green btn-lg meet-pointer-cta">Meet our circle &rarr;</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ WHAT REFERRING FAMILIES SAY ═══ -->
+<section class="stories" id="stories">
+  <div class="wrap">
+    <div class="stories-hdr rev">
+      <div class="kicker">What referring families say</div>
+      <h2 class="h2">A family&rsquo;s experience referring their&nbsp;helper.</h2>
+      <p class="stories-sub">When Sheila passed her helper on, all three sides met on one call first. Here&rsquo;s what that was like for&nbsp;her.</p>
+    </div>
+    <div class="jc-frame rev">
+      <div class="jc-hd"><span class="jc-dot"></span> Joint introduction &middot; one video call</div>
+      <div class="jc-grid">
+        <div class="jc-tile">
+          <span class="jc-av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11l8-6 8 6M6 10v9h12v-9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="jc-tn">Current employer</span>
+          <span class="jc-tr">Passing her on</span>
+        </div>
+        <div class="jc-tile jc-tile--mid">
+          <span class="jc-av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.5"/><path d="M5.5 19a6.5 6.5 0 0 1 13 0" stroke-linecap="round"/></svg></span>
+          <span class="jc-tn">The helper</span>
+          <span class="jc-tr">Chooses too</span>
+        </div>
+        <div class="jc-tile">
+          <span class="jc-av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3.5 18a5.5 5.5 0 0 1 11 0" stroke-linecap="round"/><path d="M16 6.6a3 3 0 0 1 0 5.8M16.5 18a5.5 5.5 0 0 0-2-4.2" stroke-linecap="round"/></svg></span>
+          <span class="jc-tn">Prospective employer</span>
+          <span class="jc-tr">Meeting her</span>
+        </div>
+      </div>
+      <p class="jc-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="M15 10l6-3v10l-6-3" stroke-linecap="round" stroke-linejoin="round"/></svg> Everyone meets together and talks through questions openly, before anyone&nbsp;commits</p>
+    </div>
+    <blockquote class="jc-quote rev">&ldquo;We could all meet together, ask our questions and feel comfortable before&nbsp;deciding.&rdquo;</blockquote>
+    <p class="jc-attr rev">&mdash; Sheila, referring employer &middot; shared with permission</p>
+  </div>
+</section>
+
 
 
 <!-- ═══ HOW IT WORKS ═══ -->
@@ -231,10 +297,10 @@
         </div>
         <h3 class="h3">Browse verified&nbsp;profiles</h3>
         <p class="how-step-sub">See why each one is trusted, before you&nbsp;enquire.</p>
-        <ul class="trust-chips" aria-label="Trust signals shown on every profile">
-          <li class="trust-chip trust-chip--rec"><span class="trust-chip-i" aria-hidden="true">⭐</span> Employer Recommended</li>
-          <li class="trust-chip trust-chip--ret"><span class="trust-chip-i" aria-hidden="true">🔄</span> Long-Term Employment Verified</li>
-          <li class="trust-chip trust-chip--ver"><span class="trust-chip-i" aria-hidden="true">✓</span> Verified Before Listing</li>
+        <ul class="trust-chips" aria-label="What browsing is like">
+          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> Every signal shown upfront</li>
+          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> Filter by skills and availability</li>
+          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> Free to look</li>
         </ul>
       </div>
 
@@ -289,74 +355,6 @@
     </div>
   </div>
 </section>
-
-
-<!-- ═══ DIFFERENT WAYS TRUST IS EARNED ═══ -->
-<section class="trust-ways" id="trust-signals">
-  <div class="wrap">
-    <div class="trust-ways-hdr rev">
-      <div class="kicker">How trust is built</div>
-      <h2 class="h2">How trust is&nbsp;built.</h2>
-      <p class="trust-ways-sub">The strongest signal is a previous family who vouches for her. Where that isn&rsquo;t possible, years of staying with one family tell their own&nbsp;story.</p>
-    </div>
-
-    <div class="trust-ways-grid rev">
-
-      <!-- Strongest signal — Employer Recommended -->
-      <article class="tw-card tw-card--rec">
-        <span class="tsig tsig--rec"><span class="tsig-mark" aria-hidden="true">⭐</span> Employer Recommended</span>
-        <h3 class="tw-card-h">A previous family vouches for&nbsp;her.</h3>
-        <p class="tw-card-p">A previous employer recommends her directly. We verify the reference with them, and they may be open to your questions.</p>
-        <p class="tw-card-flag">Our strongest signal &mdash; and the reason Helper Circle&nbsp;exists.</p>
-      </article>
-
-      <!-- Secondary signal — Long-Term Employment Verified -->
-      <article class="tw-card tw-card--ret">
-        <span class="tsig tsig--ret"><span class="tsig-mark" aria-hidden="true">🔄</span> Long-Term Employment Verified</span>
-        <h3 class="tw-card-h">She stayed for&nbsp;years.</h3>
-        <p class="tw-card-p">She stayed with one family across multiple contract renewals. We verify the employment duration. No recommendation is available.</p>
-        <p class="tw-card-flag tw-card-flag--muted">A meaningful signal &mdash; but a step below a personal&nbsp;recommendation.</p>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══ A RECOMMENDATION (Kartika) ═══ -->
-<!-- Real referring-family story from Sheila about the Helper Circle PROCESS
-     (transparency, Zoom introductions, no hidden fees). This is her experience
-     of referring her helper, NOT a character recommendation of any helper.
-     Editorial pull-quote + process chips; no photo, since it's about the
-     process, not a person. Words are Sheila's, lightly condensed. -->
-<section class="stories" id="stories">
-  <div class="wrap">
-
-    <div class="stories-hdr rev">
-      <div class="kicker">From a referring family</div>
-      <h2 class="h2">What it&rsquo;s like to refer someone you&nbsp;trust.</h2>
-      <p class="stories-sub">Sheila passed her helper on to a new family through Helper Circle. Here&rsquo;s what the process was like for&nbsp;her.</p>
-    </div>
-
-    <article class="story-feature rev">
-      <div class="story-feature-chips">
-        <span class="story-chip"><span aria-hidden="true">✓</span> No hidden costs</span>
-        <span class="story-chip"><span aria-hidden="true">✓</span> Everyone met over Zoom</span>
-        <span class="story-chip"><span aria-hidden="true">✓</span> Open, honest discussion</span>
-      </div>
-      <blockquote class="story-feature-quote">&ldquo;What stood out was the transparency. Questions were openly discussed, and there were no hidden costs or hidden agendas. The Zoom meeting was especially useful &mdash; the helper, her current family and the new family could all meet together and feel comfortable before&nbsp;committing.&rdquo;</blockquote>
-      <footer class="story-feature-foot">
-        <span class="story-feature-av" aria-hidden="true">S</span>
-        <span class="story-feature-id">
-          <span class="story-feature-name">Sheila</span>
-          <span class="story-feature-role">Referring employer &middot; shared with permission</span>
-        </span>
-      </footer>
-    </article>
-
-  </div>
-</section>
-
 
 
 <!-- ═══ PRICING ═══ -->
@@ -443,45 +441,6 @@
       <a href="browse.html" class="btn btn-green btn-lg">Meet Helpers &mdash; Free</a>
     </div>
 
-  </div>
-</section>
-
-
-<!-- ═══ CURRENTLY AVAILABLE REFERRED HELPERS ═══ -->
-<!-- Shows open-to-transfer profiles. If none are available this section
-     hides and the "Introduced one at a time" pointer below appears instead.
-     Visibility is toggled by helpers-data.js based on the data file. -->
-<section class="avail" id="helpers" style="display:none">
-  <div class="wrap">
-    <div class="avail-hdr rev">
-      <div class="kicker">Open to a new family</div>
-      <h2 class="h2 h2-sm">Currently available&nbsp;helpers</h2>
-      <p class="avail-sub">Helpers ready to meet a new family &mdash; each shown with the trust signals we&rsquo;ve&nbsp;verified.</p>
-    </div>
-
-    <!-- Cards render from helpers-data.js (available helpers, max 3) -->
-    <div class="avail-grid" id="avail-grid"></div>
-
-    <div class="avail-foot rev">
-      <a href="browse.html" class="btn btn-outline">See all available helpers &rarr;</a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══ MEET HELPERS POINTER  (empty state — shown only when no helpers available) ═══ -->
-<!-- TODO: when real helper profiles exist and inventory is healthy, this
-     section can be replaced with a real .hcard-grid showcase (markup pattern
-     preserved in styles.css). The .meet-pointer styling can then be reused
-     as a calmer "view all" footer below the grid. -->
-<section class="meet-pointer" id="meet-circle">
-  <div class="wrap">
-    <div class="meet-pointer-inner">
-      <div class="kicker">Meet helpers</div>
-      <h2 class="h2 meet-pointer-h">Introduced one at a&nbsp;time.</h2>
-      <p class="meet-pointer-sub">Most profiles begin as a conversation with a previous family. A few come from helpers with long, verified work&nbsp;histories.</p>
-      <a href="browse.html" class="btn btn-green btn-lg meet-pointer-cta">Meet our circle &rarr;</a>
-    </div>
   </div>
 </section>
 

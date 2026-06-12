@@ -7849,7 +7849,6 @@ em { font-style: italic; color: var(--clr-primary); }
 .mcard-dot { width: 6px; height: 6px; border-radius: 50%; flex: 0 0 auto; }
 .mcard-badge--ref { background: var(--clr-primary, #2C8A6E); color: #fff; }
 .mcard-badge--ver { background: #2E6F95; color: #fff; }
-.tb-ico { width: 13px; height: 13px; flex: 0 0 auto; }
 
 .mcard-head { display: block; }
 .mcard-name { font-family: var(--fd, 'Cormorant Garamond', serif); font-weight: 500; font-size: 1.28rem; line-height: 1.1; margin: 0; color: var(--clr-text, #1E1E1E); }
@@ -7912,3 +7911,7 @@ em { font-style: italic; color: var(--clr-primary); }
    Previously the fixed header overlapped the top of the hero (and clipped
    draft banners). One global offset fixes every profile page at once. */
 body.profile-page { padding-top: 68px; }
+
+/* Card trust badges: match the "how trust is built" tsig badge (title case, not uppercase) */
+.hc-card .hc-badge--ref, .hc-card .hc-badge--ver,
+.mcard-badge--ref, .mcard-badge--ver { text-transform: none; letter-spacing: .01em; }

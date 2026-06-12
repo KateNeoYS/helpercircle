@@ -95,7 +95,7 @@
     .tx-check{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:#EAF3EE;color:#2C8A6E;font-size:.78rem;font-weight:700;flex:0 0 20px}
     /* ── Available helpers prominence ── */
     .avail-grid{gap:18px}
-    .avail .hc-media img{width:100%;aspect-ratio:4/5;height:auto;object-fit:cover;object-position:center top}
+    .avail .hc-media img{width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;object-position:center center}
     /* ── Referring family: joint-call visual ── */
     .jc-frame{max-width:620px;margin:0 auto;background:var(--clr-white,#fff);border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:18px;padding:18px;box-shadow:0 12px 44px -28px rgba(31,42,36,.22)}
     .jc-hd{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--clr-text-muted,#5A6661);margin-bottom:13px;font-weight:600}
@@ -156,6 +156,23 @@
     .why-arrow{color:#E8825C;font-size:1.5rem;line-height:1}
     .why-circle{font-size:.95rem;font-weight:600;color:#fff;background:#2C8A6E;padding:12px 22px;border-radius:999px}
     @media(max-width:560px){.why-flow{gap:12px}.why-arrow{transform:rotate(90deg)}}
+    /* Sheila beats + expandable */
+    .sheila-beats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:760px;margin:0 auto 20px}
+    .sb{background:var(--clr-cream,#FBF6EE);border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:14px;padding:14px 15px}
+    .sb-h{display:flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:#B0562F;margin:0 0 7px}
+    .sb-h svg{flex:0 0 auto;color:#E8825C}
+    .sb-p{font-size:.85rem;line-height:1.55;color:var(--clr-text-muted,#5A6661);margin:0;text-wrap:pretty}
+    .sheila-more{max-width:620px;margin:20px auto 0;border-top:1px solid var(--clr-border-warm,#E5DDCF);padding-top:16px;text-align:center}
+    .sheila-summary{cursor:pointer;font-size:.92rem;font-weight:600;color:#1B5E48;list-style:none;display:inline-flex;align-items:center;gap:9px}
+    .sheila-summary::-webkit-details-marker{display:none}
+    .sheila-summary::before{content:"+";display:inline-flex;width:20px;height:20px;align-items:center;justify-content:center;border-radius:50%;background:#E8825C;color:#fff;font-size:.95rem;line-height:1;flex:0 0 20px}
+    .sheila-more[open] .sheila-summary::before{content:"\2013"}
+    .sheila-full{margin-top:14px;text-align:left}
+    .sheila-full p{font-size:.95rem;line-height:1.7;color:var(--clr-text-muted,#5A6661);margin:0 0 12px;text-wrap:pretty}
+    /* peach heading accent + orphan control */
+    .why-h::after,.stories-hdr h2::after{content:"";display:block;width:44px;height:3px;background:#E8825C;border-radius:2px;margin:14px auto 0}
+    .hero-hl,.why-h,.stories-hdr h2,.avail-hdr h2,.pricing-heading{text-wrap:balance}
+    .hero-sub,.why-body,.stories-sub,.avail-sub{text-wrap:pretty}
   </style>
   <!-- Vercel Web Analytics -->
   <script>
@@ -318,6 +335,20 @@
       <h2 class="h2">A family&rsquo;s experience referring their&nbsp;helper.</h2>
       <p class="stories-sub">When Sheila passed her helper on, all three sides met on one call first. Here&rsquo;s what that was like for&nbsp;her.</p>
     </div>
+    <div class="sheila-beats rev">
+      <div class="sb">
+        <span class="sb-h"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15"><circle cx="10" cy="10" r="7.5"/><path d="M7.7 7.6a2.4 2.4 0 0 1 4.6.8c0 1.6-2.3 1.9-2.3 3.2M10 14.3v.05" stroke-linecap="round"/></svg> Why she came</span>
+        <p class="sb-p">A concerned employer who wanted her helper to go to a good&nbsp;family.</p>
+      </div>
+      <div class="sb">
+        <span class="sb-h"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15"><rect x="2.5" y="5" width="10" height="10" rx="2"/><path d="M12.5 8.3 17.5 5.8v8.4l-5-2.5" stroke-linejoin="round"/></svg> What stood out</span>
+        <p class="sb-p">Transparent, no hidden agenda. Everyone met on one call before&nbsp;committing.</p>
+      </div>
+      <div class="sb">
+        <span class="sb-h"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15"><path d="M10 16.5S3 12.5 3 7.8a3.3 3.3 0 0 1 7-1.4 3.3 3.3 0 0 1 7 1.4c0 4.7-7 8.7-7 8.7Z" stroke-linejoin="round"/></svg> The value</span>
+        <p class="sb-p">No heavy agent fees. Nothing charged to her, or taken from her&nbsp;helper.</p>
+      </div>
+    </div>
     <div class="jc-frame rev">
       <div class="jc-hd"><span class="jc-dot"></span> Joint introduction &middot; one video call</div>
       <div class="jc-grid">
@@ -341,6 +372,13 @@
     </div>
     <blockquote class="jc-quote rev">&ldquo;We could all meet together, ask our questions and feel comfortable before&nbsp;deciding.&rdquo;</blockquote>
     <p class="jc-attr rev">&mdash; Sheila, referring employer &middot; shared with permission</p>
+    <details class="sheila-more rev">
+      <summary class="sheila-summary">Read her full experience</summary>
+      <div class="sheila-full">
+        <p>Everything is transparent. No hidden agenda, and all questions are properly handled. As an employer concerned about transferring out my helper, I really wished for her to go to a good family to provide her&nbsp;service. I found the Zoom meeting organised by Helper Circle very useful: the helper, the current employer and the future employer all get to meet and chat on one call, speak out our concerns, and check that all the criteria and areas of concern are met before both parties commit to each&nbsp;other.</p>
+        <p>I&rsquo;m happy to highly recommend this service to anyone wanting to transfer, or looking for, a transfer&nbsp;helper. What you can&rsquo;t find from other agents, who charge heftily and leave employers paying through the&nbsp;nose: at Helper Circle the new employer taking in the transfer helper pays a platform fee only after the deal is&nbsp;done. No hidden costs. For me, transferring my good helper away, there was no cost to me, and no cut from my helper&rsquo;s salary&nbsp;either. Do check out their service. It&rsquo;s totally worth it, and peace of mind&nbsp;too.</p>
+      </div>
+    </details>
   </div>
 </section>
 

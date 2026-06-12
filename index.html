@@ -17,6 +17,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
   <link rel="stylesheet" href="styles.css"/>
+  <!-- Homepage section background alternation. Pinned here because the same
+       backgrounds are set by several conflicting rules in styles.css; this
+       keeps the white/cream rhythm deterministic for this page. -->
+  <style>
+    .benefits-new    { background: var(--clr-white) !important; }
+    .how             { background: var(--clr-cream) !important; }
+    .trust-ways      { background: var(--clr-white) !important; }
+    .pricing-section { background: var(--clr-cream) !important; }
+    .meet-pointer    { background: var(--clr-white) !important; }
+    .stories         { background: var(--clr-cream) !important; }
+  </style>
   <!-- Vercel Web Analytics -->
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };

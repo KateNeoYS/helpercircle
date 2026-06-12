@@ -50,6 +50,24 @@
     .trust-chip--rec { background: #EAF5EF; color: #1B5E48; }
     .trust-chip--ret { background: #E9F0F5; color: #2E6F95; }
     .trust-chip--ver { background: transparent; color: #5A6661; border: 1px solid var(--clr-border-warm, #E5DDCF); }
+
+    /* Featured recommendation card — photo-anchored proof, not a testimonial */
+    .rec-feature { display: grid; grid-template-columns: minmax(240px, 340px) 1fr; background: var(--clr-white); border: 1px solid var(--clr-border-warm, #E5DDCF); border-radius: 20px; overflow: hidden; max-width: 900px; margin: 0 auto; box-shadow: 0 12px 44px -26px rgba(31, 42, 36, .24); }
+    .rec-feature-photo img { width: 100%; height: 100%; min-height: 340px; object-fit: cover; object-position: center center; display: block; }
+    .rec-feature-body { padding: 34px 38px; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+    .rec-feature-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .rec-badge { display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; font-weight: 600; padding: 6px 13px; border-radius: 999px; }
+    .rec-badge--rec { background: var(--clr-primary, #2C8A6E); color: #fff; }
+    .rec-badge--ret { background: #2E6F95; color: #fff; }
+    .rec-feature-quote { font-family: var(--fd, 'Cormorant Garamond', serif); font-size: clamp(1.4rem, 2.4vw, 1.75rem); line-height: 1.4; font-weight: 500; color: var(--clr-ink, #1F2A24); margin: 0; }
+    .rec-feature-attr { font-size: .95rem; color: var(--clr-text-muted, #5A6661); margin: 0; }
+    .rec-feature-cta { margin-top: 8px; }
+    @media (max-width: 720px) {
+      .rec-feature { grid-template-columns: 1fr; max-width: 430px; }
+      .rec-feature-photo img { min-height: 0; aspect-ratio: 4 / 3; }
+      .rec-feature-body { padding: 24px 22px; gap: 14px; }
+      .rec-feature-quote { font-size: 1.3rem; }
+    }
   </style>
   <!-- Vercel Web Analytics -->
   <script>
@@ -310,58 +328,33 @@
 </section>
 
 
-<!-- ═══ STORIES FROM FAMILIES ═══ -->
-<!-- Replaces the old hidden families-say placeholder. Scoped .stories /
-     .story-card classes (CSS appended at end of styles.css). Expansion uses
-     a native details element, no JS. Add more story-card articles to grow
-     the grid; layout handles 1–3 cards. Badge modifier:
-     story-badge--referring (sage) / story-badge--hiring (peach). -->
+<!-- ═══ A RECOMMENDATION (Kartika) ═══ -->
+<!-- Real recommendation from Kartika's CURRENT employer (Sheila), reframed as
+     proof, not a process testimonial. Photo-anchored. Quote is Sheila's
+     verified direct words from Kartika's profile. To add a tenure stat,
+     insert a second .rec-badge.rec-badge--ret with the real figure. -->
 <section class="stories" id="stories">
   <div class="wrap">
 
     <div class="stories-hdr rev">
-      <div class="kicker">In their words</div>
-      <h2 class="h2">Stories from&nbsp;families.</h2>
-      <p class="stories-sub">Experiences shared by families who have used Helper Circle to help trusted helpers move on to their next&nbsp;home.</p>
+      <div class="kicker">A real recommendation</div>
+      <h2 class="h2">Recommended by the family<br>who knows her&nbsp;best.</h2>
+      <p class="stories-sub">Kartika&rsquo;s employer is helping her find her next home, and shared why she&rsquo;d vouch for&nbsp;her.</p>
     </div>
 
-    <div class="stories-grid">
-
-      <!-- Story 1 — Sheila -->
-      <article class="story-card rev">
-        <header class="story-person">
-          <span class="story-avatar" aria-hidden="true">S</span>
-          <span class="story-person-id">
-            <span class="story-person-name">Sheila</span>
-            <span class="story-person-role">Referring Employer</span>
-          </span>
-        </header>
-        <p class="story-context">Sheila wanted to help her helper find a good next family, and shared her experience using Helper&nbsp;Circle.</p>
-        <blockquote class="story-quote">&ldquo;We wanted our helper to move to a good&nbsp;family.&rdquo;</blockquote>
-        <ul class="story-tags">
-          <li>No hidden costs</li>
-          <li>Everyone met together</li>
-          <li>Open discussion</li>
-        </ul>
-
-        <details class="story-more">
-          <summary>
-            <span class="story-more-label">Read the full story</span>
-            <svg class="story-more-chev" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 5.5L7 9l3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </summary>
-          <div class="story-body">
-            <p>&ldquo;When it was time for our helper to move on, we wanted her to join a good family where she could continue providing her service and&nbsp;experience.</p>
-            <p>What stood out to me was the transparency throughout the process. Questions were openly discussed, expectations were clarified, and there were no hidden costs or hidden&nbsp;agendas.</p>
-            <p>The Zoom meeting organised by Helper Circle was especially useful because the helper, current employer and prospective employer could all meet together, discuss concerns openly, and make sure everyone was comfortable before&nbsp;committing.</p>
-            <p>I would happily recommend Helper Circle to families passing on a helper they trust, and to families hoping to welcome a referred helper into their&nbsp;home.&rdquo;</p>
-            <p class="story-by">&mdash; Sheila</p>
-          </div>
-        </details>
-
-        <p class="story-permission">Shared with permission.</p>
-      </article>
-
-    </div>
+    <article class="rec-feature rev">
+      <div class="rec-feature-photo">
+        <img src="images/kartika.jpg" alt="Kartika, recommended by her employer" loading="lazy"/>
+      </div>
+      <div class="rec-feature-body">
+        <div class="rec-feature-badges">
+          <span class="rec-badge rec-badge--rec"><span aria-hidden="true">⭐</span> Employer Recommended</span>
+        </div>
+        <blockquote class="rec-feature-quote">&ldquo;She follows the schedule and asks when she doesn&rsquo;t understand &mdash; she never guesses her way&nbsp;through.&rdquo;</blockquote>
+        <p class="rec-feature-attr">&mdash; Sheila, the family Kartika works&nbsp;for</p>
+        <a href="browse.html" class="btn btn-green rec-feature-cta">Meet our helpers &rarr;</a>
+      </div>
+    </article>
 
   </div>
 </section>

@@ -142,7 +142,12 @@
     .hero-note-badge{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:#fff;background:#2C8A6E;padding:5px 12px;border-radius:999px;margin-bottom:14px}
     .hero-note-badge svg{flex:0 0 auto}
     .hero-note-q{font-family:var(--fd,'Cormorant Garamond',serif);font-size:1.15rem;font-style:italic;line-height:1.5;color:var(--clr-ink,#1F2A24);margin:0 0 14px}
-    .hero-note-attr{font-size:.78rem;color:var(--clr-text-muted,#5A6661);margin:0}
+    .hero-note-attr{display:flex;align-items:center;gap:10px;margin:0}
+    .hero-note-av{width:30px;height:30px;border-radius:50%;background:#2C8A6E;color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd,'Cormorant Garamond',serif);font-size:.98rem;flex:0 0 30px}
+    .hero-note-attr-txt{display:flex;flex-direction:column;gap:1px}
+    .hero-note-line1{font-size:.82rem;color:var(--clr-text-muted,#5A6661)}
+    .hero-note-name{font-weight:600;color:var(--clr-ink,#1F2A24)}
+    .hero-note-perm{font-size:.72rem;color:#9a9384}
     .hero-note-eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.71rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--clr-text-muted,#5A6661);margin-bottom:13px}
     .hero-note-eyebrow svg{width:15px;height:15px;color:#2C8A6E;flex:0 0 15px}
     .hero-note-sep{color:#C9BFA8;margin:0 3px}
@@ -217,6 +222,50 @@
     .wm-circle{width:74px;height:74px;border-radius:50%;background:#2C8A6E;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px -16px rgba(44,138,110,.6)}
     .wm-circle svg{width:34px;height:34px}
     @media(max-width:560px){.why-metaphor{gap:14px}.wm-arrow{transform:rotate(90deg)}}
+    /* Combined journey (how it works + pricing) */
+    .journey{background:#fff;padding:clamp(54px,8vw,88px) 0}
+    .journey-hdr{text-align:center;margin-bottom:34px}
+    .journey-h{margin-top:10px}
+    .jr-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:920px;margin:0 auto 16px}
+    .jr-step{background:#fff;border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:16px;padding:22px 20px}
+    .jr-num{font-family:var(--fd,'Cormorant Garamond',serif);font-size:1.15rem;color:#9DBFB1;margin-bottom:10px}
+    .jr-ico{width:42px;height:42px;border-radius:50%;background:#E3F0EA;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+    .jr-ico--peach{background:#FBE7DD}
+    .jr-ico--amber{background:#F4EAD6}
+    .jr-st-t{margin:0 0 5px}
+    .jr-st-s{font-size:.9rem;line-height:1.55;color:var(--clr-text-muted,#5A6661);margin:0}
+    .jr-step4{max-width:920px;margin:0 auto;background:var(--clr-cream,#FCF7EE);border:1px solid var(--clr-border-warm,#E5DDCF);border-left:4px solid #2C8A6E;border-radius:18px;padding:26px 28px}
+    .jr-s4-head{display:flex;align-items:center;gap:13px;margin-bottom:4px}
+    .jr-s4-num{width:34px;height:34px;border-radius:50%;background:#2C8A6E;color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd,'Cormorant Garamond',serif);font-size:1rem;flex:0 0 34px}
+    .jr-s4-t{margin:0}
+    .jr-s4-sub{font-size:.92rem;color:var(--clr-text-muted,#5A6661);margin:3px 0 22px 47px}
+    .jr-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .jr-lab{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#1B5E48;margin-bottom:11px}
+    .jr-amount-row{display:flex;align-items:baseline;gap:8px}
+    .jr-amount{font-family:var(--fd,'Cormorant Garamond',serif);font-size:2.3rem;color:var(--clr-ink,#1F2A24);line-height:1}
+    .jr-amount-after{font-family:var(--fd,'Cormorant Garamond',serif);font-style:italic;font-size:1rem;color:var(--clr-text-muted,#5A6661)}
+    .jr-fee-note{font-family:var(--fd,'Cormorant Garamond',serif);font-style:italic;font-size:.95rem;color:#2C8A6E;margin:10px 0 14px}
+    .jr-fee-list{list-style:none;margin:0;padding:0}
+    .jr-fee-list li{font-size:.9rem;color:var(--clr-text-muted,#5A6661);padding:3px 0 3px 18px;position:relative}
+    .jr-fee-list li::before{content:"\2014";position:absolute;left:0;color:#C9BFA8}
+    .jr-inc{list-style:none;margin:0;padding:0}
+    .jr-inc li{display:flex;gap:9px;align-items:flex-start;font-size:.92rem;color:var(--clr-ink,#1F2A24);padding:6px 0}
+    .jr-inc li svg{flex:0 0 16px;color:#2C8A6E;margin-top:3px}
+    .jr-tp{margin-top:22px;background:#FBF1EA;border:1px solid #EAD9CC;border-radius:14px;padding:18px 20px}
+    .jr-tp-head{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-bottom:15px}
+    .jr-tp-tag{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:#B0562F;border:1px solid #E3B79E;border-radius:999px;padding:4px 12px}
+    .jr-tp-h{font-family:var(--fd,'Cormorant Garamond',serif);font-size:1.2rem;color:var(--clr-ink,#1F2A24);margin:0}
+    .jr-tp-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+    .jr-tp-list li{display:flex;flex-direction:column}
+    .jr-tp-name{font-size:.92rem;font-weight:500;color:var(--clr-ink,#1F2A24)}
+    .jr-tp-desc{font-size:.78rem;color:#8A7B6E;margin-top:2px}
+    .jr-tp-foot{border-top:1px solid #EAD9CC;margin-top:15px;padding-top:12px;font-size:.84rem;color:var(--clr-text-muted,#5A6661)}
+    .jr-tp-link{color:#2C8A6E;text-decoration:none;font-weight:500}
+    .jr-footer{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;max-width:920px;margin:24px auto 0;padding-top:4px}
+    .jr-foot-item{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--clr-text-muted,#5A6661)}
+    .jr-foot-item:first-child{color:#1B5E48;font-weight:500}
+    .jr-cta-wrap{text-align:center;margin-top:28px}
+    @media(max-width:760px){.jr-steps{grid-template-columns:1fr}.jr-grid{grid-template-columns:1fr;gap:22px}.jr-tp-list{grid-template-columns:1fr;gap:12px}.jr-s4-sub{margin-left:0}.jr-footer{gap:16px}}
   </style>
   <!-- Vercel Web Analytics -->
   <script>
@@ -277,7 +326,13 @@
         <span class="hero-note-tape" aria-hidden="true"></span>
         <span class="hero-note-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8.5 12 14l9-5.5M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z" stroke-linejoin="round"/></svg> A note from her employer</span>
         <blockquote class="hero-note-q">&ldquo;One of Maria&rsquo;s greatest strengths is her&nbsp;cooking.&rdquo;</blockquote>
-        <figcaption class="hero-note-attr">Current employer recommendation <span class="hero-note-sep" aria-hidden="true">&middot;</span> Shared with permission</figcaption>
+        <figcaption class="hero-note-attr">
+          <span class="hero-note-av" aria-hidden="true">A</span>
+          <span class="hero-note-attr-txt">
+            <span class="hero-note-line1"><span class="hero-note-name">Anna</span> <span class="hero-note-sep" aria-hidden="true">&middot;</span> Employer for 3.5&nbsp;years</span>
+            <span class="hero-note-perm">Shared with permission</span>
+          </span>
+        </figcaption>
       </figure>
     </aside>
 
@@ -435,168 +490,85 @@
 
 
 
-<!-- ═══ HOW IT WORKS ═══ -->
-<section class="how" id="how">
+<!-- ═══ HOW IT WORKS + PRICING (combined journey) ═══ -->
+<section class="journey" id="how">
   <div class="wrap">
-    <div class="how-hdr rev">
+    <div class="journey-hdr rev">
       <div class="kicker">How it works</div>
-      <h2 class="h2">Clear at every step. <br> No pressure, no surprises.</h2>
+      <h2 class="h2 journey-h">Four steps, one honest&nbsp;fee.</h2>
     </div>
-    <div class="how-steps">
 
-      <!-- Step 1 -->
-      <div class="how-step rev">
-        <div class="how-step-n" aria-hidden="true">01</div>
-        <div class="how-ico">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-            <circle cx="11.5" cy="11.5" r="7.5" stroke="#2F8F73" stroke-width="1.8"/>
-            <path d="M17.5 17.5l4 4" stroke="#2F8F73" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
+    <div class="jr-steps rev">
+      <div class="jr-step">
+        <div class="jr-num" aria-hidden="true">01</div>
+        <div class="jr-ico"><svg width="22" height="22" viewBox="0 0 26 26" fill="none"><circle cx="11.5" cy="11.5" r="7.5" stroke="#2F8F73" stroke-width="1.8"/><path d="M17.5 17.5l4 4" stroke="#2F8F73" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h3 class="h3 jr-st-t">Browse trusted&nbsp;helpers</h3>
+        <p class="jr-st-s">See why each one is trusted, before you&nbsp;enquire.</p>
+      </div>
+      <div class="jr-step">
+        <div class="jr-num" aria-hidden="true">02</div>
+        <div class="jr-ico jr-ico--peach"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 7.5 12 13l9-5.5M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z" stroke="#C66740" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+        <h3 class="h3 jr-st-t">Request an&nbsp;introduction</h3>
+        <p class="jr-st-s">We coordinate the first connection. You choose who to&nbsp;meet.</p>
+      </div>
+      <div class="jr-step">
+        <div class="jr-num" aria-hidden="true">03</div>
+        <div class="jr-ico jr-ico--amber"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="12" height="12" rx="2" stroke="#8A5F2E" stroke-width="1.7"/><path d="M15 10l6-3v10l-6-3" stroke="#8A5F2E" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+        <h3 class="h3 jr-st-t">Meet &amp;&nbsp;decide</h3>
+        <p class="jr-st-s">Speak with the helper on a video call. No&nbsp;obligation.</p>
+      </div>
+    </div>
+
+    <div class="jr-step4 rev" id="pricing">
+      <div class="jr-s4-head">
+        <span class="jr-s4-num" aria-hidden="true">04</span>
+        <h3 class="h3 jr-s4-t">Proceed only if both&nbsp;agree.</h3>
+      </div>
+      <p class="jr-s4-sub">Nothing is charged until you and the helper both decide to go&nbsp;ahead.</p>
+
+      <div class="jr-grid">
+        <div class="jr-fee-col">
+          <div class="jr-lab">Our fee</div>
+          <div class="jr-amount-row"><span class="jr-amount">S$499</span> <span class="jr-amount-after">once</span></div>
+          <p class="jr-fee-note"><em>Charged only after both sides agree to&nbsp;proceed.</em></p>
+          <ul class="jr-fee-list">
+            <li>No placement commissions</li>
+            <li>No salary deductions</li>
+            <li>No hidden charges</li>
+          </ul>
         </div>
-        <h3 class="h3">Browse verified&nbsp;profiles</h3>
-        <p class="how-step-sub">See why each one is trusted, before you&nbsp;enquire.</p>
-        <ul class="trust-chips" aria-label="What browsing is like">
-          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> Every signal shown upfront</li>
-          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> Filter by skills and availability</li>
-          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> Free to look</li>
-        </ul>
-      </div>
-
-      <!-- Step 2 -->
-      <div class="how-step rev">
-        <div class="how-step-n" aria-hidden="true">02</div>
-        <div class="how-ico how-ico--peach">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-            <path d="M9.5 13l2.5 2.5 5-5" stroke="#C66740" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="13" cy="13" r="9.5" stroke="#C66740" stroke-width="1.8"/>
-          </svg>
+        <div class="jr-inc-col">
+          <div class="jr-lab">What&rsquo;s included</div>
+          <ul class="jr-inc">
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.2l3.6 3.6L14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Introductions &amp; coordination</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.2l3.6 3.6L14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> MOM transfer paperwork guidance</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.2l3.6 3.6L14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Insurance guidance</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.2l3.6 3.6L14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Guided transfer support</li>
+          </ul>
         </div>
-        <h3 class="h3">Request an&nbsp;intro</h3>
-        <p class="how-step-sub">We&rsquo;ll help coordinate the first&nbsp;connection.</p>
-        <ul class="trust-chips" aria-label="What the introduction includes">
-          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> You choose who to meet</li>
-          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> Availability confirmed</li>
-          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> Privacy protected</li>
-        </ul>
       </div>
 
-      <!-- Step 3 -->
-      <div class="how-step rev">
-        <div class="how-step-n" aria-hidden="true">03</div>
-        <div class="how-ico how-ico--amber">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-            <rect x="2" y="5" width="22" height="16" rx="2.5" stroke="#8A5F2E" stroke-width="1.8"/>
-            <path d="M17 13l5 3V9l-5 3z" fill="#8A5F2E" opacity=".7"/>
-            <rect x="2" y="5" width="13" height="16" rx="2.5" stroke="#8A5F2E" stroke-width="1.8"/>
-          </svg>
+      <div class="jr-tp">
+        <div class="jr-tp-head">
+          <span class="jr-tp-tag">Paid directly to providers</span>
+          <p class="jr-tp-h">Separate third-party costs</p>
         </div>
-        <h3 class="h3">Meet &amp;&nbsp;decide</h3>
-        <p class="how-step-sub">Speak with the helper before you&nbsp;decide.</p>
-        <ul class="trust-chips" aria-label="What happens when you meet">
-          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> Video call first</li>
-          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> No obligation to proceed</li>
-          <li class="trust-chip trust-chip--check"><span class="trust-chip-i" aria-hidden="true">✓</span> Paperwork support if you hire</li>
+        <ul class="jr-tp-list">
+          <li><span class="jr-tp-name">MOM permit fee</span><span class="jr-tp-desc">paid to Ministry of Manpower</span></li>
+          <li><span class="jr-tp-name">Insurance premium</span><span class="jr-tp-desc">paid to your chosen insurer</span></li>
+          <li><span class="jr-tp-name">Medical check</span><span class="jr-tp-desc">if required by MOM</span></li>
         </ul>
-      </div>
-
-    </div>
-
-    <div class="how-footer">
-      <div class="how-timeline">
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6.5" stroke="#2F8F73" stroke-width="1.3"/><path d="M7.5 4.5v3.5l2 2" stroke="#2F8F73" stroke-width="1.3" stroke-linecap="round"/></svg>
-        Most introductions arranged within 2–3 days
-      </div>
-      <div class="how-trust">
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.5L13 4v4.5c0 3.3-2.5 5.8-5.5 6.5C4.5 14.3 2 11.8 2 8.5V4l5.5-2.5z" stroke="#61666B" stroke-width="1.2" stroke-linejoin="round"/></svg>
-        We coordinate every introduction — so both sides stay protected
+        <p class="jr-tp-foot">These costs are set by external providers, not&nbsp;us. <a href="faq.html" class="jr-tp-link">See FAQ &rarr;</a></p>
       </div>
     </div>
-  </div>
-</section>
 
-
-<!-- ═══ PRICING ═══ -->
-<!-- Structure: split panel separates Helper Circle's fee from third-party
-     costs. Three blocks: (1) header, (2) two-card grid "Our fee" + "What's
-     included", (3) below it a clearly-labeled "Separate third-party costs"
-     strip. When real testimonials about transparency exist, they could be
-     added below as quiet reinforcement. -->
-<section class="pricing-section" id="pricing">
-  <div class="wrap">
-
-    <div class="pricing-hdr rev">
-      <div class="kicker">How we work</div>
-      <h2 class="h2 pricing-heading">One fee. Nothing&nbsp;hidden.</h2>
-      <p class="pricing-sub">Meeting helpers is free. We only ask for a fee after both sides agree to&nbsp;proceed.</p>
+    <div class="jr-footer rev">
+      <div class="jr-foot-item"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6.5" stroke="#2F8F73" stroke-width="1.3"/><path d="M7.5 4.5v3.5l2 2" stroke="#2F8F73" stroke-width="1.3" stroke-linecap="round"/></svg> Most introductions arranged within 2&ndash;3&nbsp;days</div>
+      <div class="jr-foot-item"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.5L13 4v4.5c0 3.3-2.5 5.8-5.5 6.5C4.5 14.3 2 11.8 2 8.5V4l5.5-2.5z" stroke="#61666B" stroke-width="1.2" stroke-linejoin="round"/></svg> We coordinate every introduction, so both sides stay&nbsp;protected</div>
     </div>
 
-    <div class="pricing-split rev">
-
-      <!-- LEFT: Our fee -->
-      <article class="pricing-panel pricing-panel-fee">
-        <div class="pricing-panel-eyebrow">Our admin fee</div>
-        <div class="pricing-amount-row">
-          <span class="pricing-amount">S$499</span>
-          <span class="pricing-amount-after">once</span>
-        </div>
-        <p class="pricing-panel-note"><em>Charged only after both sides agree to&nbsp;proceed.</em></p>
-        <ul class="pricing-panel-list">
-          <li>No placement commissions</li>
-          <li>No salary deductions</li>
-          <li>No hidden charges</li>
-        </ul>
-      </article>
-
-      <!-- RIGHT: What's included -->
-      <article class="pricing-panel pricing-panel-includes">
-        <div class="pricing-panel-eyebrow">What's included</div>
-        <ul class="pricing-includes">
-          <li>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.2l3.6 3.6L14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>Introductions &amp; coordination</span>
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.2l3.6 3.6L14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>MOM transfer paperwork guidance</span>
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.2l3.6 3.6L14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>Insurance guidance</span>
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.2l3.6 3.6L14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>Guided transfer support</span>
-          </li>
-        </ul>
-      </article>
-
-    </div>
-
-    <!-- Third-party costs — clearly separated, calmly framed -->
-    <div class="pricing-thirdparty rev">
-      <div class="pricing-thirdparty-label">
-        <span class="pricing-thirdparty-tag">Paid directly to providers</span>
-        <p class="pricing-thirdparty-h">Separate third-party costs</p>
-      </div>
-      <ul class="pricing-thirdparty-list">
-        <li>
-          <span class="pricing-tp-name">MOM permit fee</span>
-          <span class="pricing-tp-desc">paid to Ministry of Manpower</span>
-        </li>
-        <li>
-          <span class="pricing-tp-name">Insurance premium</span>
-          <span class="pricing-tp-desc">paid to your chosen insurer</span>
-        </li>
-        <li>
-          <span class="pricing-tp-name">Medical check</span>
-          <span class="pricing-tp-desc">if required by MOM</span>
-        </li>
-      </ul>
-      <p class="pricing-thirdparty-foot">These costs are set by external providers, not&nbsp;us. <a href="faq.html" class="pricing-thirdparty-link">See FAQ &rarr;</a></p>
-    </div>
-
-    <div class="pricing-cta-wrap rev">
-      <a href="browse.html" class="btn btn-green btn-lg">Meet Helpers &mdash; Free</a>
+    <div class="jr-cta-wrap rev">
+      <a href="browse.html" class="btn btn-green btn-lg">Meet helpers &mdash; free</a>
     </div>
 
   </div>

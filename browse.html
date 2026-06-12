@@ -4,11 +4,11 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Meet Helpers — Helper Circle</title>
-  <meta name="description" content="Meet domestic helpers in Singapore — most recommended by a previous employer, all personally verified. Not an agency."/>
+  <meta name="description" content="Meet domestic helpers in Singapore personally referred by a previous employer."/>
   <meta property="og:url" content="https://helpercircle.vercel.app/browse.html"/>
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="Meet Helpers — Helper Circle"/>
-  <meta property="og:description" content="Meet domestic helpers in Singapore — most recommended by a previous employer, all personally verified. Not an agency."/>
+  <meta property="og:description" content="Meet domestic helpers in Singapore personally referred by a previous employer."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
@@ -129,7 +129,7 @@
        Three qualitative trust pillars instead of vanity metrics. */
     .bhero {
       background: var(--clr-cream);
-      padding: 104px 0 64px;
+      padding: 104px 0 52px;
       border-bottom: 1px solid var(--clr-border-warm);
       text-align: center;
     }
@@ -137,29 +137,20 @@
     .bhero-hl {
       font-family: var(--fd, 'Cormorant Garamond', serif);
       font-weight: 500;
-      font-size: clamp(2.3rem, 5.2vw, 3.4rem);
-      letter-spacing: -0.014em;
-      line-height: 1.04;
+      font-size: clamp(2.2rem, 5vw, 3.1rem);
+      letter-spacing: -0.012em;
+      line-height: 1.05;
       color: var(--clr-ink, #1F2A24);
-      margin: 0 0 16px;
+      margin: 0 0 14px;
       text-wrap: balance;
     }
     .bhero-sub {
       font-size: 1.08rem;
-      line-height: 1.62;
+      line-height: 1.6;
       color: var(--clr-text-muted);
-      max-width: 560px;
-      margin: 0 auto 22px;
+      max-width: 520px;
+      margin: 0 auto 26px;
       text-wrap: balance;
-    }
-    /* Editorial sage rule — brand hero motif; separates the statement
-       from the trust row and lifts the section toward "members' club". */
-    .bhero-rule {
-      display: block;
-      width: 48px; height: 1.5px;
-      margin: 0 auto 22px;
-      background: var(--clr-primary);
-      border-radius: 2px;
     }
     .bhero-pillars {
       display: flex;
@@ -172,7 +163,6 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      white-space: nowrap;
       font-size: .9rem;
       font-weight: 600;
       color: var(--clr-text-2, #2A2926);
@@ -180,7 +170,6 @@
       border: 1px solid var(--clr-border-warm);
       border-radius: 999px;
       padding: 9px 16px;
-      box-shadow: 0 1px 2px rgba(31, 42, 36, 0.03);
     }
     .bhero-pillar-dot {
       width: 7px; height: 7px; border-radius: 50%;
@@ -263,8 +252,7 @@
     #looking { scroll-margin-top: 100px; }
 
     @media (max-width: 640px) {
-      .bhero { padding: 84px 0 48px; }
-      .bhero-rule { margin-bottom: 18px; }
+      .bhero { padding: 84px 0 40px; }
       .bhero-pillars { gap: 8px; }
       .bhero-pillar { font-size: .84rem; padding: 8px 13px; }
       .section-tight { padding: 44px 0 44px; }
@@ -285,12 +273,6 @@
       flex: 1 1 340px !important;
       max-width: 440px !important;
       width: auto !important;
-    }
-    /* Exactly 4 cards → balanced 2×2 (otherwise it wraps to a lonely 3 + 1) */
-    .circle-row:has(.preview-card-wrap:nth-child(4):last-child) {
-      max-width: 920px;
-      margin-left: auto;
-      margin-right: auto;
     }
     .circle-row .preview-card-link { display: block; height: 100%; }
     .circle-row .preview-card { height: 100%; display: flex; flex-direction: column; }
@@ -336,28 +318,6 @@
         transform: scale(1.3);
       }
     }
-
-    /* ── Self-balancing card rows (desktop) ───────────────────────────
-       Center the cards and cap their width instead of stretching them
-       across fixed grid tracks. Looks composed at any count:
-       1 → centered · 2 → centered pair · 3 → two + a centered third ·
-       4 → balanced. Mobile (≤760px) keeps the existing stack/carousel. */
-    @media (min-width: 761px) {
-      .mcard-grid:not(.is-list) {
-        display: flex !important;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: stretch;
-        gap: 24px;
-      }
-      .mcard-grid:not(.is-list) .mcard-wrap {
-        flex: 1 1 440px !important;
-        max-width: 560px !important;
-        width: auto !important;
-        margin: 0 !important;
-      }
-      .mcard-grid:not(.is-list) .mcard { height: 100%; }
-    }
   </style>
   <!-- Vercel Web Analytics -->
   <script>
@@ -393,13 +353,12 @@
      for vanity metrics; the success card below carries the proof it works. -->
 <section class="bhero">
   <div class="bhero-inner">
-    <h1 class="bhero-hl">A small circle of trusted&nbsp;helpers</h1>
-    <p class="bhero-sub">Each helper is either recommended by an employer who knows her&nbsp;work, or has years of verified history with a single&nbsp;family. We review each profile ourselves &mdash; one at a time, never bulk&nbsp;recruitment.</p>
-    <span class="bhero-rule" aria-hidden="true"></span>
+    <h1 class="bhero-hl">A small circle of trusted&nbsp;referrals</h1>
+    <p class="bhero-sub">Every helper here comes through a family recommendation &mdash; never bulk&nbsp;recruitment.</p>
     <div class="bhero-pillars">
-      <span class="bhero-pillar"><span class="bhero-pillar-dot" aria-hidden="true"></span>Recommendation-led</span>
+      <span class="bhero-pillar"><span class="bhero-pillar-dot" aria-hidden="true"></span>Family-referred</span>
       <span class="bhero-pillar"><span class="bhero-pillar-dot" aria-hidden="true"></span>Personally verified</span>
-      <span class="bhero-pillar"><span class="bhero-pillar-dot" aria-hidden="true"></span>Long-term retention</span>
+      <span class="bhero-pillar"><span class="bhero-pillar-dot" aria-hidden="true"></span>No agency fees</span>
     </div>
   </div>
 </section>
@@ -410,69 +369,253 @@
      never opens the page. When more helpers exist, each section becomes a grid. -->
 
 
-<!-- ─── Available helpers — the marketplace grid (filterable) ─── -->
+<!-- ─── Success: helpers who've found their next family (proof, shown first) ─── -->
 <section class="format-section section-tight">
   <div class="wrap">
 
     <div class="format-hdr format-hdr-tight">
-      <div class="kicker">In the circle right now</div>
-      <h2 class="h2">Helpers looking for their next&nbsp;family</h2>
-      <p class="format-sub">Compare at a glance &mdash; every helper carries a verified trust&nbsp;signal.</p>
+      <div class="kicker">The circle, continued</div>
+      <h2 class="h2">Helpers who've found their next&nbsp;family</h2>
+      <p class="format-sub">A quiet record of helpers introduced to their next family through Helper&nbsp;Circle.</p>
     </div>
 
-    <div class="browse-filters" id="browse-filters">
-      <div class="bf-row">
-        <span class="bf-group-label">Trust</span>
-        <button type="button" class="bf-chip" data-group="signal" data-val="referred"><span class="tsig-mark" aria-hidden="true">⭐</span> Employer Recommended</button>
-        <button type="button" class="bf-chip bf-chip--ver" data-group="signal" data-val="verified"><span class="tsig-mark" aria-hidden="true">🔄</span> Long-Term Verified</button>
-      </div>
-      <div class="bf-row">
-        <span class="bf-group-label">Experience</span>
-        <button type="button" class="bf-chip" data-group="skill" data-val="childcare">Childcare</button>
-        <button type="button" class="bf-chip" data-group="skill" data-val="infant care">Infant care</button>
-        <button type="button" class="bf-chip" data-group="skill" data-val="housekeeping">Housekeeping</button>
-        <button type="button" class="bf-chip" data-group="skill" data-val="cooking">Cooking</button>
-        <button type="button" class="bf-chip" data-group="skill" data-val="elderly care">Elderly care</button>
-        <button type="button" class="bf-chip" data-group="skill" data-val="pets">Pets</button>
-      </div>
-      <div class="bf-row">
-        <span class="bf-group-label">Nationality</span>
-        <button type="button" class="bf-chip" data-group="nat" data-val="indonesia">Indonesia</button>
-        <button type="button" class="bf-chip" data-group="nat" data-val="philippines">Philippines</button>
-        <button type="button" class="bf-chip" data-group="nat" data-val="myanmar">Myanmar</button>
-      </div>
-      <div class="bf-row">
-        <span class="bf-group-label">Availability</span>
-        <button type="button" class="bf-chip" data-group="avail" data-val="transfer">Transfer (in SG)</button>
-        <button type="button" class="bf-chip" data-group="avail" data-val="overseas">Overseas</button>
-      </div>
-      <div class="bf-bar">
-        <span class="bf-count" id="bf-count"></span>
-        <div class="bf-actions">
-          <button type="button" class="bf-clear" id="bf-clear">Clear filters</button>
-          <span class="bf-view" role="group" aria-label="View">
-            <button type="button" id="bf-grid" class="is-on">Grid</button>
-            <button type="button" id="bf-list">List</button>
-          </span>
-        </div>
-      </div>
-    </div>
+    <!-- Kartika — the first referral introduced to a new family. Links to her profile.
+         Featured treatment: narrower card, the employer recommendation emphasized. -->
+    <div class="circle-row">
+    <div class="preview-card-wrap success-card-wrap">
+      <a href="profile-kartika.html" class="preview-card-link" aria-label="Read Kartika's profile">
+        <article class="preview-card preview-card--live preview-card--feature" aria-label="Kartika S. — joining a new family">
 
-    <div class="mcard-grid" id="available-row"></div>
+          <div class="preview-top">
+            <div class="preview-photo-slot preview-photo-slot--live" aria-hidden="true">
+              <img src="images/kartika.jpg" alt="" class="preview-photo-img"/>
+            </div>
+
+            <div class="preview-meta">
+              <div class="preview-status">
+                <span class="preview-status-dot" aria-hidden="true"></span>
+                <span>Joining a new family &middot; 1 July&nbsp;2026</span>
+              </div>
+              <h3 class="preview-name">Kartika <span class="preview-initial">S.</span></h3>
+              <p class="preview-line">Indonesian &middot; Elderly care &amp;&nbsp;household</p>
+            </div>
+          </div>
+
+          <div class="preview-section">
+            <p class="preview-summary">Sincere, calm, and quietly very good at her&nbsp;work.</p>
+            <p class="referred-by"><span class="referred-by-dot" aria-hidden="true"></span>Referred by Sheila, her previous&nbsp;employer</p>
+            <blockquote class="preview-quote">
+              "She follows the schedule and asks when she doesn't understand &mdash; she never guesses her way through."
+              <cite>&mdash; Sheila</cite>
+            </blockquote>
+          </div>
+
+          <div class="preview-chips">
+            <span class="preview-chip">Elderly care</span>
+            <span class="preview-chip">Household</span>
+            <span class="preview-chip">Bahasa Melayu</span>
+          </div>
+
+          <div class="preview-cta-row">
+            <span class="preview-cta">Read her profile &rarr;</span>
+          </div>
+
+        </article>
+      </a>
+    </div>
+    </div>
 
   </div>
 </section>
 
 
-<!-- ─── Recently joined a family — proof ─── -->
+<!-- ─── In the circle right now — current availability (empty state) ─── -->
+<!-- Optimistic, community-framed empty state instead of dead whitespace.
+     Primary CTA refers (supply-side priority); a quiet secondary link sends
+     families looking to hire to the notify form below. -->
 <section class="format-section section-tight">
   <div class="wrap">
+
     <div class="format-hdr format-hdr-tight">
-      <div class="kicker">The circle, continued</div>
-      <h2 class="h2">Recently joined a new&nbsp;family</h2>
-      <p class="format-sub">A quiet record of helpers introduced to their next family through Helper&nbsp;Circle.</p>
+      <div class="kicker">In the circle right now</div>
+      <h2 class="h2">Looking for their next&nbsp;family</h2>
     </div>
-    <div class="mcard-grid" id="success-row"></div>
+
+    <!-- Jessie Ann — currently looking for her next family. Available from 30 June. -->
+    <div class="circle-row">
+    <div class="preview-card-wrap available-card-wrap">
+      <a href="profile-jessie.html" class="preview-card-link" aria-label="Read Jessie Ann's profile">
+        <article class="preview-card preview-card--live preview-card--feature" aria-label="Jessie Ann — looking for her next family">
+
+          <div class="preview-top">
+            <div class="preview-photo-slot preview-photo-slot--live" aria-hidden="true">
+              <img src="images/jessie.jpg" alt="" class="preview-photo-img"/>
+            </div>
+
+            <div class="preview-meta">
+              <div class="preview-status">
+                <span class="preview-status-dot" aria-hidden="true"></span>
+                <span>Available from 30 June&nbsp;2026</span>
+              </div>
+              <h3 class="preview-name">Jessie <span class="preview-initial">Ann</span></h3>
+              <p class="preview-line">Filipino &middot; 49 &middot; Housekeeping focus &amp;&nbsp;cooking</p>
+            </div>
+          </div>
+
+          <div class="preview-section">
+            <p class="preview-summary">Independent, proactive, and quietly takes ownership of what needs&nbsp;doing.</p>
+            <p class="referred-by"><span class="referred-by-dot" aria-hidden="true"></span>Referred by Annie, her current employer of 2&nbsp;years</p>
+            <blockquote class="preview-quote">
+              "It's simply not in her nature to walk past something that needs&nbsp;doing."
+              <cite>&mdash; Annie</cite>
+            </blockquote>
+          </div>
+
+          <div class="preview-chips">
+            <span class="preview-chip">Children (primary &amp; teen)</span>
+            <span class="preview-chip">Multi-cuisine cooking</span>
+            <span class="preview-chip">16 years in SG</span>
+          </div>
+
+          <div class="preview-cta-row">
+            <span class="preview-cta">Read her profile &rarr;</span>
+          </div>
+
+        </article>
+      </a>
+    </div>
+
+    <!-- Amie — currently looking for her next family. Mirrors Kartika's card pattern,
+         with availability status in place of the "joining a new family" status. -->
+    <div class="preview-card-wrap available-card-wrap">
+      <a href="profile-amie.html" class="preview-card-link" aria-label="Read Amie's profile">
+        <article class="preview-card preview-card--live preview-card--feature" aria-label="Amie — looking for her next family">
+
+          <div class="preview-top">
+            <div class="preview-photo-slot preview-photo-slot--live" aria-hidden="true">
+              <img src="images/amie.jpg" alt="" class="preview-photo-img"/>
+            </div>
+
+            <div class="preview-meta">
+              <div class="preview-status">
+                <span class="preview-status-dot" aria-hidden="true"></span>
+                <span>Available from end July&nbsp;2026</span>
+              </div>
+              <h3 class="preview-name">Amie</h3>
+              <p class="preview-line">Filipino &middot; 44 &middot; Childcare, household &amp;&nbsp;cooking</p>
+            </div>
+          </div>
+
+          <div class="preview-section">
+            <p class="preview-summary">Trustworthy, capable, and quietly steady across 8 years with her current&nbsp;family.</p>
+            <p class="referred-by"><span class="referred-by-dot" aria-hidden="true"></span>Referred by Anne, her current employer of 8&nbsp;years</p>
+            <blockquote class="preview-quote">
+              "While not naturally demonstrative, Amie is genuinely caring and dependable &mdash; she shows her concern through practical&nbsp;actions."
+              <cite>&mdash; Anne</cite>
+            </blockquote>
+          </div>
+
+          <div class="preview-chips">
+            <span class="preview-chip">Childcare (3 to teens)</span>
+            <span class="preview-chip">Western cooking</span>
+            <span class="preview-chip">17 years in SG</span>
+          </div>
+
+          <div class="preview-cta-row">
+            <span class="preview-cta">Read her profile &rarr;</span>
+          </div>
+
+        </article>
+      </a>
+    </div>
+
+    <!-- Evelyn — currently looking for her next family. Referred by Marianne (current employer of 1 year). -->
+    <div class="preview-card-wrap available-card-wrap">
+      <a href="profile-evelyn.html" class="preview-card-link" aria-label="Read Evelyn's profile">
+        <article class="preview-card preview-card--live preview-card--feature" aria-label="Evelyn — looking for her next family">
+
+          <div class="preview-top">
+            <div class="preview-photo-slot preview-photo-slot--live" aria-hidden="true">
+              <img src="images/evelyn.jpeg" alt="" class="preview-photo-img"/>
+            </div>
+
+            <div class="preview-meta">
+              <div class="preview-status">
+                <span class="preview-status-dot" aria-hidden="true"></span>
+                <span>Available from July / August&nbsp;2026</span>
+              </div>
+              <h3 class="preview-name">Evelyn</h3>
+              <p class="preview-line">Filipino &middot; 50 &middot; Childcare, household &amp;&nbsp;cooking</p>
+            </div>
+          </div>
+
+          <div class="preview-section">
+            <p class="preview-summary">Reliable and independent, with 17 years caring for international families in&nbsp;Singapore.</p>
+            <p class="referred-by"><span class="referred-by-dot" aria-hidden="true"></span>Referred by Marianne, her current employer of 1&nbsp;year</p>
+            <blockquote class="preview-quote">
+              "Reliable, honest, independent, energetic &mdash; and always in a good&nbsp;mood."
+              <cite>&mdash; Marianne</cite>
+            </blockquote>
+          </div>
+
+          <div class="preview-chips">
+            <span class="preview-chip">Childcare (ages 5+)</span>
+            <span class="preview-chip">Adaptable cooking</span>
+            <span class="preview-chip">17 years in SG</span>
+          </div>
+
+          <div class="preview-cta-row">
+            <span class="preview-cta">Read her profile &rarr;</span>
+          </div>
+
+        </article>
+      </a>
+    </div>
+
+    <!-- Maria Fe — currently looking for her next family. Referred by Anna (current employer of 3.5 years). -->
+    <div class="preview-card-wrap available-card-wrap">
+      <a href="profile-mariafe.html" class="preview-card-link" aria-label="Read Maria Fe's profile">
+        <article class="preview-card preview-card--live preview-card--feature" aria-label="Maria Fe — looking for her next family">
+
+          <div class="preview-top">
+            <div class="preview-photo-slot preview-photo-slot--live" aria-hidden="true">
+              <img src="images/mariafe.jpeg" alt="" class="preview-photo-img"/>
+            </div>
+
+            <div class="preview-meta">
+              <div class="preview-status">
+                <span class="preview-status-dot" aria-hidden="true"></span>
+                <span>Available from 22 July&nbsp;2026</span>
+              </div>
+              <h3 class="preview-name">Maria Fe</h3>
+              <p class="preview-line">Filipino &middot; 49 &middot; Cooking, household &amp;&nbsp;caregiving</p>
+            </div>
+          </div>
+
+          <div class="preview-section">
+            <p class="preview-summary">Known for her cooking, with around 10 years in Singapore and experience caring for both young children and elderly family&nbsp;members.</p>
+            <p class="referred-by"><span class="referred-by-dot" aria-hidden="true"></span>Referred by Anna, her current employer of 3.5&nbsp;years</p>
+            <blockquote class="preview-quote">
+              "One of her greatest strengths is her cooking &mdash; a wide variety of tasty, well-presented&nbsp;dishes."
+              <cite>&mdash; Anna</cite>
+            </blockquote>
+          </div>
+
+          <div class="preview-chips">
+            <span class="preview-chip">Cooking (wide variety)</span>
+            <span class="preview-chip">Childcare (incl. young children)</span>
+            <span class="preview-chip">~10 years in SG</span>
+          </div>
+
+          <div class="preview-cta-row">
+            <span class="preview-cta">Read her profile &rarr;</span>
+          </div>
+
+        </article>
+      </a>
+    </div>
+    </div>
+
   </div>
 </section>
 
@@ -577,11 +720,6 @@
             <input type="email" id="looking-email" name="email" required placeholder="you@email.com" autocomplete="email"/>
           </div>
           <div class="pathway-field">
-            <label for="looking-whatsapp" class="pathway-field-label">WhatsApp number <span class="pathway-field-opt">(optional)</span></label>
-            <input type="tel" id="looking-whatsapp" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="+65 9123 4567" pattern="[\d\s()+\-]{6,20}" title="Enter a valid phone number (digits, spaces, +, -, and parentheses are fine)."/>
-            <p class="pathway-field-hint">If you'd rather hear from us on WhatsApp.</p>
-          </div>
-          <div class="pathway-field">
             <label for="looking-details" class="pathway-field-label">Briefly, what are you looking for? <span class="pathway-field-opt">(optional)</span></label>
             <textarea id="looking-details" name="details" rows="3" placeholder="Household size, care needed, hoping to start by&hellip;"></textarea>
           </div>
@@ -617,7 +755,7 @@
         <div class="ref-circle" aria-hidden="true"></div>
         <div class="ref-circle" aria-hidden="true"></div>
         <div class="ref-circle" aria-hidden="true"></div>
-        <span class="ref-av-ct">A curated circle of trusted helpers</span>
+        <span class="ref-av-ct">A curated circle of trusted referrals</span>
       </div>
       <h2 class="ref-hl">Know a good helper?</h2>
       <p class="ref-sub" style="max-width:420px">Refer someone you trust.<br>We'll handle the follow-up.</p>
@@ -686,93 +824,6 @@
 
 <script src="script.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-
-<!-- Shared helper data — renders the card rows above (single source of truth) -->
-<script src="helpers-data.js"></script>
-
-<!-- Marketplace filters + grid/list view -->
-<script>
-(function () {
-  var root = document.getElementById('browse-filters');
-  var grid = document.getElementById('available-row');
-  if (!root || !grid) return;
-  var chips = root.querySelectorAll('.bf-chip');
-  var countEl = document.getElementById('bf-count');
-
-  function activeBy(group) {
-    var vals = [];
-    root.querySelectorAll('.bf-chip.is-on[data-group="' + group + '"]').forEach(function (c) {
-      vals.push(c.getAttribute('data-val'));
-    });
-    return vals;
-  }
-  function matches(card, vals, attr, multi) {
-    if (!vals.length) return true;
-    var v = (card.getAttribute(attr) || '').toLowerCase();
-    if (!multi) return vals.indexOf(v) > -1;
-    // substring match so two-word skills ("elderly care", "infant care") work
-    for (var i = 0; i < vals.length; i++) { if (v.indexOf(vals[i]) > -1) return true; }
-    return false;
-  }
-  function apply() {
-    var sig = activeBy('signal'), sk = activeBy('skill'), nat = activeBy('nat'), av = activeBy('avail');
-    var cards = grid.querySelectorAll('.mcard-wrap'), shown = 0;
-    cards.forEach(function (card) {
-      var ok = matches(card, sig, 'data-signal', false) &&
-               matches(card, sk, 'data-skills', true) &&
-               matches(card, nat, 'data-nat', false) &&
-               matches(card, av, 'data-avail', false);
-      card.style.display = ok ? '' : 'none';
-      if (ok) shown++;
-    });
-    if (countEl) countEl.textContent = shown + (shown === 1 ? ' helper' : ' helpers');
-    var empty = grid.querySelector('.mcard-empty');
-    if (shown === 0) {
-      if (!empty) {
-        empty = document.createElement('p');
-        empty.className = 'mcard-empty';
-        empty.textContent = 'No helpers match these filters yet. Try clearing one.';
-        grid.appendChild(empty);
-      }
-      empty.style.display = '';
-    } else if (empty) { empty.style.display = 'none'; }
-  }
-  chips.forEach(function (c) { c.addEventListener('click', function () { c.classList.toggle('is-on'); apply(); }); });
-  var clearBtn = document.getElementById('bf-clear');
-  if (clearBtn) clearBtn.addEventListener('click', function () { chips.forEach(function (c) { c.classList.remove('is-on'); }); apply(); });
-  var gridBtn = document.getElementById('bf-grid'), listBtn = document.getElementById('bf-list');
-  if (gridBtn && listBtn) {
-    gridBtn.addEventListener('click', function () { grid.classList.remove('is-list'); gridBtn.classList.add('is-on'); listBtn.classList.remove('is-on'); });
-    listBtn.addEventListener('click', function () { grid.classList.add('is-list'); listBtn.classList.add('is-on'); gridBtn.classList.remove('is-on'); });
-  }
-
-  /* Keep the filter bar honest at small scale. Below FILTER_MIN helpers the
-     whole bar is hidden (it's just chrome over a glanceable handful). At or
-     above it, any chip that can't currently match anyone — and any row left
-     with no live chips — is hidden. Both self-correct as the roster grows;
-     no per-helper upkeep. Set FILTER_MIN to 0 to always show the bar. */
-  var FILTER_MIN = 5;
-  var allCards = grid.querySelectorAll('.mcard-wrap');
-  if (allCards.length < FILTER_MIN) {
-    root.style.display = 'none';
-  } else {
-    var ATTR = { signal: ['data-signal', false], skill: ['data-skills', true], nat: ['data-nat', false], avail: ['data-avail', false] };
-    chips.forEach(function (c) {
-      var m = ATTR[c.getAttribute('data-group')];
-      if (!m) return;
-      var hit = false;
-      allCards.forEach(function (card) { if (matches(card, [c.getAttribute('data-val')], m[0], m[1])) hit = true; });
-      if (!hit) c.style.display = 'none';
-    });
-    root.querySelectorAll('.bf-row').forEach(function (rw) {
-      var any = Array.prototype.some.call(rw.querySelectorAll('.bf-chip'), function (c) { return c.style.display !== 'none'; });
-      if (!any) rw.style.display = 'none';
-    });
-  }
-
-  apply();
-})();
-</script>
 
 <!-- Tap-to-reveal for compact .hcard overlays on touch devices -->
 <script>

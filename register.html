@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Register as a Helper in Singapore — Helper Circle</title>
+  <meta name="description" content="If an employer is happy to recommend you, or you've worked many years with the same family, register your interest with Helper Circle. We are not an agency. No fees and no loans for helpers."/>
+  <link rel="canonical" href="https://helpercircle.sg/register.html"/>
+  <meta property="og:url" content="https://helpercircle.sg/register.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Register as a Helper in Singapore — Helper Circle"/>
+  <meta property="og:description" content="If an employer is happy to recommend you, or you've worked many years with the same family, we'd love to learn more about you. Not an agency. No fees for helpers."/>
+  <meta property="og:image" content="https://helpercircle.sg/heroillustrative.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
+  <link rel="stylesheet" href="styles.css"/>
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    /* ═══ REGISTER HERO ═══ */
+    .reg-hero {
+      padding: clamp(96px, 11vw, 120px) 0 clamp(28px, 4vw, 40px);
+      background: var(--clr-cream, #FBF6EE);
+      position: relative;
+      overflow: hidden;
+    }
+    .reg-hero-inner { max-width: 640px; }
+    .reg-hero .kicker { margin-bottom: 14px; }
+    .reg-hl {
+      font-size: clamp(2.2rem, 4.3vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.012em;
+      margin: 0 0 14px;
+      font-weight: 500;
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      color: var(--clr-ink, #1F2A24);
+      text-wrap: balance;
+    }
+    .reg-hl em { font-style: italic; color: var(--clr-primary, #2C8A6E); }
+    .reg-sub {
+      font-size: 1.06rem; line-height: 1.6;
+      color: var(--clr-text-muted, #5A6661);
+      margin: 0 0 22px; max-width: 540px;
+      text-wrap: pretty;
+    }
+    .reg-pills {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 0;
+    }
+    .reg-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 13px; font-size: 0.82rem; font-weight: 500;
+      color: var(--clr-text, #1F2A24); background: #fff;
+      border: 1px solid rgba(44, 95, 79, 0.14);
+      border-radius: 999px;
+    }
+    .reg-pill svg { color: var(--clr-primary, #2C8A6E); flex-shrink: 0; }
+
+    /* ═══ HOW IT WORKS (reuses .trust-ways / .tw-card / .tsig from styles.css) ═══ */
+    .reg-how { padding: clamp(40px, 5vw, 60px) 0; background: #fff; }
+    .reg-how-hdr { text-align: center; max-width: 600px; margin: 0 auto clamp(26px, 4vw, 40px); }
+    .reg-how-hdr .kicker { margin-bottom: 12px; }
+    .reg-how-hdr h2 {
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-size: clamp(1.85rem, 2.8vw, 2.3rem); font-weight: 500;
+      letter-spacing: -0.008em; margin: 0 0 12px;
+      color: var(--clr-ink, #1F2A24); text-wrap: balance;
+    }
+    .reg-how-hdr p {
+      font-size: 1rem; color: var(--clr-text-muted, #5A6661);
+      line-height: 1.6; margin: 0; text-wrap: pretty;
+    }
+    .reg-how .trust-ways-grid { margin-top: 0; }
+    .tw-eg { margin: 10px 0 0; padding: 0; list-style: none; }
+    .tw-eg li {
+      position: relative; padding-left: 16px; margin: 0 0 5px;
+      font-size: 0.92rem; line-height: 1.5;
+      color: var(--clr-text-2, #383838);
+    }
+    .tw-eg li::before {
+      content: "·"; position: absolute; left: 3px;
+      color: var(--clr-primary, #2C8A6E); font-weight: 700;
+    }
+    .reg-how-note {
+      text-align: center; max-width: 520px;
+      margin: clamp(22px, 3vw, 30px) auto 0;
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-style: italic; font-size: 1.02rem; line-height: 1.55;
+      color: var(--clr-text-muted, #5A6661);
+    }
+
+    /* ═══ FORM SECTION ═══ */
+    .reg-form-section {
+      padding: clamp(40px, 5vw, 64px) 0 clamp(48px, 6vw, 80px);
+      background: var(--clr-cream, #FBF6EE);
+    }
+    .reg-form-shell { max-width: 580px; margin: 0 auto; }
+    .reg-form-intro { text-align: center; margin: 0 auto 24px; max-width: 480px; }
+    .reg-form-intro .kicker { margin-bottom: 10px; }
+    .reg-form-intro h2 {
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-size: clamp(1.7rem, 2.6vw, 2.1rem); font-weight: 500;
+      letter-spacing: -0.008em; margin: 0 0 8px; color: var(--clr-ink, #1F2A24);
+    }
+    .reg-form-intro p {
+      font-size: 0.95rem; color: var(--clr-text-muted, #5A6661);
+      line-height: 1.55; margin: 0;
+    }
+
+    /* Form card */
+    .form-card-v2 {
+      background: #fff; border-radius: 16px;
+      padding: clamp(24px, 3vw, 36px);
+      border: 1px solid rgba(31, 42, 36, 0.06);
+      box-shadow: 0 1px 0 rgba(31, 42, 36, 0.02), 0 6px 24px -14px rgba(31, 42, 36, 0.06);
+    }
+
+    /* Field group label sub-headings */
+    .reg-group-h {
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-size: 1.18rem; font-weight: 500;
+      color: var(--clr-ink, #1F2A24);
+      letter-spacing: -0.005em;
+      margin: 0 0 4px;
+    }
+    .reg-group-sub {
+      font-size: 0.85rem; color: var(--clr-text-muted, #5A6661);
+      line-height: 1.5; margin: 0 0 16px;
+    }
+    .reg-group { margin-bottom: 30px; }
+    .reg-group:last-of-type { margin-bottom: 22px; }
+    .reg-divider {
+      border: none; height: 1px;
+      background: rgba(31, 42, 36, 0.07);
+      margin: 26px 0;
+    }
+
+    .fg-v2 { margin-bottom: 14px; }
+    .fg-v2:last-child { margin-bottom: 0; }
+    .fg-v2 label {
+      display: block; font-size: 0.82rem; font-weight: 500;
+      color: var(--clr-text, #1F2A24); margin-bottom: 7px;
+      letter-spacing: 0.003em;
+    }
+    .fg-v2 .opt-tag {
+      font-size: 0.72rem; color: var(--clr-text-muted, #5A6661);
+      font-weight: 400; margin-left: 4px;
+    }
+    .form-card-v2 input, .form-card-v2 select, .form-card-v2 textarea {
+      width: 100%; padding: 11px 14px;
+      border: 1px solid rgba(31, 42, 36, 0.1);
+      border-radius: 10px; background: #fff;
+      font-size: 0.93rem; font-family: inherit;
+      color: var(--clr-text, #1F2A24);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      box-sizing: border-box;
+    }
+    .form-card-v2 input::placeholder, .form-card-v2 textarea::placeholder {
+      color: rgba(90, 102, 97, 0.5);
+    }
+    .form-card-v2 input:focus, .form-card-v2 select:focus, .form-card-v2 textarea:focus {
+      outline: none;
+      border-color: var(--clr-primary, #2C8A6E);
+      box-shadow: 0 0 0 3px rgba(44, 138, 110, 0.1);
+    }
+    .form-card-v2 textarea { min-height: 90px; resize: vertical; line-height: 1.55; }
+
+    .form-row-v2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 520px) { .form-row-v2 { grid-template-columns: 1fr; gap: 0; } }
+
+    .field-help-hint {
+      font-size: 0.78rem; color: var(--clr-text-muted, #5A6661);
+      margin: 6px 0 0; line-height: 1.55; font-style: italic;
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+    }
+    .field-examples {
+      margin-top: 8px; padding: 12px 14px 12px 16px;
+      background: rgba(44, 138, 110, 0.035);
+      border-radius: 10px; border: 1px solid rgba(44, 138, 110, 0.08);
+    }
+    .field-examples-label {
+      font-size: 0.74rem; font-weight: 500;
+      color: var(--clr-text-muted, #5A6661);
+      margin: 0 0 4px; letter-spacing: 0.02em;
+    }
+    .field-examples-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 2px; }
+    .field-examples-list li {
+      font-size: 0.82rem; color: var(--clr-text-muted, #5A6661);
+      line-height: 1.55; padding-left: 12px; position: relative;
+    }
+    .field-examples-list li::before {
+      content: '·'; position: absolute; left: 2px;
+      color: rgba(44, 138, 110, 0.55); font-weight: 700;
+    }
+
+    /* Skills / option pills (checkbox + radio) */
+    .skill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    @media (max-width: 520px) { .skill-grid { grid-template-columns: 1fr; } }
+    .skill-pill {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 13px; background: #fff;
+      border: 1px solid rgba(31, 42, 36, 0.08);
+      border-radius: 999px; cursor: pointer;
+      font-size: 0.85rem; transition: all 0.15s ease;
+      user-select: none; color: var(--clr-text-muted, #5A6661);
+    }
+    .skill-pill:hover { border-color: rgba(44, 138, 110, 0.3); background: rgba(44, 138, 110, 0.02); }
+    .skill-pill input {
+      width: 14px !important; height: 14px; margin: 0; padding: 0;
+      accent-color: var(--clr-primary, #2C8A6E); cursor: pointer; flex-shrink: 0;
+    }
+    .skill-pill.is-checked {
+      background: rgba(44, 138, 110, 0.05);
+      border-color: rgba(44, 138, 110, 0.4);
+      color: var(--clr-primary, #2C8A6E); font-weight: 500;
+    }
+
+    /* "How we can learn more" — full-width option rows */
+    .learn-grid { display: flex; flex-direction: column; gap: 8px; }
+    .learn-pill {
+      display: flex; align-items: flex-start; gap: 11px;
+      padding: 13px 15px; background: #fff;
+      border: 1px solid rgba(31, 42, 36, 0.08);
+      border-radius: 12px; cursor: pointer;
+      transition: all 0.15s ease; user-select: none;
+    }
+    .learn-pill:hover { border-color: rgba(44, 138, 110, 0.3); background: rgba(44, 138, 110, 0.015); }
+    .learn-pill input {
+      width: 16px !important; height: 16px; margin: 2px 0 0; padding: 0;
+      accent-color: var(--clr-primary, #2C8A6E); cursor: pointer; flex-shrink: 0;
+    }
+    .learn-pill.is-checked { background: rgba(44, 138, 110, 0.05); border-color: rgba(44, 138, 110, 0.4); }
+    .learn-pill-body { display: flex; flex-direction: column; gap: 2px; }
+    .learn-pill-title { font-size: 0.9rem; font-weight: 500; color: var(--clr-text, #1F2A24); line-height: 1.4; }
+    .learn-pill-desc { font-size: 0.8rem; color: var(--clr-text-muted, #5A6661); line-height: 1.45; }
+    .learn-note {
+      margin: 12px 0 0; padding: 11px 14px;
+      background: rgba(44, 138, 110, 0.04);
+      border-radius: 10px; font-size: 0.8rem; line-height: 1.55;
+      color: var(--clr-text-muted, #5A6661);
+    }
+
+    /* Reassurance strip above submit */
+    .reg-reassure {
+      display: flex; flex-wrap: wrap; gap: 6px 14px;
+      justify-content: center; align-items: center;
+      margin: 26px 0 18px; padding: 13px 16px;
+      background: rgba(44, 138, 110, 0.05);
+      border: 1px solid rgba(44, 138, 110, 0.16);
+      border-radius: 12px;
+      font-size: 0.82rem; font-weight: 500;
+      color: var(--clr-primary-dk, #1B5E48);
+      text-align: center;
+    }
+    .reg-reassure-sep { color: rgba(44, 138, 110, 0.4); }
+
+    .submit-btn-v2 { width: 100%; margin-top: 2px; }
+    .submit-note-v2 {
+      font-size: 0.78rem; color: var(--clr-text-muted, #5A6661);
+      text-align: center; margin: 12px 0 0; line-height: 1.55;
+    }
+
+    /* Success state */
+    .form-success {
+      display: none; padding: 48px 24px; text-align: center;
+      min-height: 360px; flex-direction: column; justify-content: center; align-items: center;
+    }
+    .form-success.is-active { display: flex; }
+    .success-check {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(44, 138, 110, 0.08);
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 22px;
+    }
+    .success-title {
+      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+      font-size: 1.6rem; font-weight: 500; margin: 0 0 14px;
+      color: var(--clr-ink, #1F2A24); letter-spacing: -0.005em;
+    }
+    .success-body {
+      font-size: 0.96rem; color: var(--clr-text-muted, #5A6661);
+      line-height: 1.6; margin: 0 auto 8px; max-width: 380px;
+    }
+    .success-meta {
+      font-size: 0.8rem; color: rgba(90, 102, 97, 0.7);
+      line-height: 1.55; margin: 16px auto 28px; font-style: italic; max-width: 340px;
+    }
+    .success-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 520px) {
+      .form-card-v2 { padding: 22px; }
+      .form-success { padding: 36px 16px; min-height: auto; }
+      .success-actions .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark" aria-hidden="true">
+        <span class="logo-hc">hc</span>
+      </div>
+      <span class="logo-text">Helper<strong>Circle</strong></span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="browse.html" class="nav-a">Meet Helpers</a>
+      <a href="refer.html" class="nav-a">Refer a Helper</a>
+      <a href="register.html" class="nav-a on">Register as a Helper</a>
+      <a href="index.html#how" class="nav-a">How It Works</a>
+      <a href="faq.html" class="nav-a">FAQ</a>
+      <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
+    </nav>
+    <a href="browse.html" class="btn btn-green btn-sm hdr-cta">Meet Helpers</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+
+<!-- ═══ HERO ═══ -->
+<section class="reg-hero">
+  <div class="wrap">
+    <div class="reg-hero-inner">
+      <div class="kicker">For helpers</div>
+      <h1 class="reg-hl">Register as a&nbsp;Helper.</h1>
+      <p class="reg-sub">If an employer is happy to recommend you, or you&rsquo;ve worked many years with the same family, we&rsquo;d love to learn more about&nbsp;you.</p>
+      <div class="reg-pills">
+        <span class="reg-pill">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M4 6.5l1.8 1.8 3.2-3.2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          We are not an agency
+        </span>
+        <span class="reg-pill">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M4 6.5l1.8 1.8 3.2-3.2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          No fees or loans for helpers
+        </span>
+        <span class="reg-pill">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M4 6.5l1.8 1.8 3.2-3.2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Free to register
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ HOW HELPER CIRCLE WORKS ═══ -->
+<section class="reg-how">
+  <div class="wrap">
+    <div class="reg-how-hdr">
+      <div class="kicker">How Helper Circle works</div>
+      <h2>Two ways families come to trust&nbsp;you.</h2>
+      <p>Helper Circle introduces helpers to families through one of two things. You only need&nbsp;one.</p>
+    </div>
+
+    <div class="trust-ways-grid">
+
+      <!-- Strongest signal — Employer Recommended -->
+      <article class="tw-card tw-card--rec">
+        <span class="tsig tsig--rec"><span class="tsig-mark" aria-hidden="true">⭐</span> Employer Recommended</span>
+        <h3 class="tw-card-h">An employer recommends&nbsp;you.</h3>
+        <p class="tw-card-p">A past or current employer is happy to recommend you, and is willing to speak with Helper Circle. This is our strongest&nbsp;signal.</p>
+      </article>
+
+      <!-- Secondary signal — Long-Term Employment Verified -->
+      <article class="tw-card tw-card--ret">
+        <span class="tsig tsig--ret"><span class="tsig-mark" aria-hidden="true">🔄</span> Long-Term Employment Verified</span>
+        <h3 class="tw-card-h">You stayed for&nbsp;years.</h3>
+        <p class="tw-card-p">You worked many years with the same family. For example:</p>
+        <ul class="tw-eg">
+          <li>4 years or more with one employer</li>
+          <li>One or more completed contracts with the same employer</li>
+        </ul>
+      </article>
+
+    </div>
+
+    <p class="reg-how-note">Registering is free. It is not a job application, and it does not guarantee a profile or an introduction to a&nbsp;family.</p>
+  </div>
+</section>
+
+
+<!-- ═══ REGISTRATION FORM ═══ -->
+<section class="reg-form-section">
+  <div class="wrap">
+    <div class="reg-form-shell">
+
+      <div class="reg-form-intro">
+        <div class="kicker">Register your interest</div>
+        <h2>Tell us a little about&nbsp;you.</h2>
+        <p>Only your name, nationality and WhatsApp number are needed. Everything else is optional &mdash; share what you&nbsp;can.</p>
+      </div>
+
+      <div class="form-card-v2" id="form-wrap">
+
+        <!--
+          ┌─────────────────────────────────────────────────────────────┐
+          │  ACTION NEEDED: create a new Formspree endpoint for helper    │
+          │  registrations and paste its ID below (replace the           │
+          │  placeholder). Then submit one test and click the            │
+          │  confirmation email Formspree sends to hello@helpercircle.sg.│
+          └─────────────────────────────────────────────────────────────┘
+        -->
+        <form id="register-form" action="https://formspree.io/f/YOUR_NEW_ENDPOINT_ID" method="POST" novalidate>
+          <input type="hidden" name="form-type" value="helper-register">
+          <input type="hidden" name="_subject" value="Helper Circle — Helper registration">
+
+          <!-- ── About you ── -->
+          <div class="reg-group">
+            <p class="reg-group-h">About you</p>
+
+            <div class="fg-v2">
+              <label for="reg-name">Full name</label>
+              <input type="text" id="reg-name" name="full-name" placeholder="Maria Santos" required/>
+            </div>
+
+            <div class="form-row-v2">
+              <div class="fg-v2">
+                <label for="reg-nationality">Nationality</label>
+                <select id="reg-nationality" name="nationality" required>
+                  <option value="">Select</option>
+                  <option>Filipino</option>
+                  <option>Indonesian</option>
+                  <option>Myanmar</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="fg-v2">
+                <label for="reg-age">Age <span class="opt-tag">(optional)</span></label>
+                <input type="number" id="reg-age" name="age" min="18" max="70" placeholder="e.g. 34"/>
+              </div>
+            </div>
+
+            <div class="fg-v2">
+              <label for="reg-location">Where are you now?</label>
+              <select id="reg-location" name="current-location">
+                <option value="">Select</option>
+                <option>Singapore</option>
+                <option>Indonesia</option>
+                <option>Myanmar</option>
+                <option>Philippines</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="fg-v2">
+              <label for="reg-whatsapp">WhatsApp number</label>
+              <input type="tel" id="reg-whatsapp" name="whatsapp" placeholder="+65 9XXX XXXX" required/>
+              <p class="field-help-hint">This is how we&rsquo;ll reach you. We message first &mdash; no calls out of the&nbsp;blue.</p>
+            </div>
+
+            <div class="fg-v2">
+              <label for="reg-email">Email <span class="opt-tag">(optional)</span></label>
+              <input type="email" id="reg-email" name="email" placeholder="you@email.com"/>
+            </div>
+          </div>
+
+          <hr class="reg-divider"/>
+
+          <!-- ── Your employment ── -->
+          <div class="reg-group">
+            <p class="reg-group-h">Your employment</p>
+            <p class="reg-group-sub">A picture of your work history. Share what you can &mdash; nothing here is&nbsp;required.</p>
+
+            <div class="fg-v2">
+              <label for="reg-employed">Are you currently employed?</label>
+              <select id="reg-employed" name="currently-employed">
+                <option value="">Select</option>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+            </div>
+
+            <div class="form-row-v2">
+              <div class="fg-v2">
+                <label for="reg-years-current">Years with current employer <span class="opt-tag">(optional)</span></label>
+                <select id="reg-years-current" name="years-current">
+                  <option value="">Select</option>
+                  <option>Less than 1 year</option>
+                  <option>1–2 years</option>
+                  <option>3–4 years</option>
+                  <option>5–7 years</option>
+                  <option>8 years or more</option>
+                </select>
+              </div>
+              <div class="fg-v2">
+                <label for="reg-renewals-current">Contract renewals <span class="opt-tag">(optional)</span></label>
+                <select id="reg-renewals-current" name="renewals-current">
+                  <option value="">Select</option>
+                  <option>None yet</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3 or more</option>
+                </select>
+              </div>
+            </div>
+            <p class="field-help-hint">A renewal is when you signed a new contract with the same&nbsp;employer.</p>
+
+            <div class="form-row-v2" style="margin-top:14px;">
+              <div class="fg-v2">
+                <label for="reg-years-previous">Years with a previous employer <span class="opt-tag">(optional)</span></label>
+                <select id="reg-years-previous" name="years-previous">
+                  <option value="">Select</option>
+                  <option>Less than 1 year</option>
+                  <option>1–2 years</option>
+                  <option>3–4 years</option>
+                  <option>5–7 years</option>
+                  <option>8 years or more</option>
+                </select>
+              </div>
+              <div class="fg-v2">
+                <label for="reg-renewals-previous">Contract renewals <span class="opt-tag">(optional)</span></label>
+                <select id="reg-renewals-previous" name="renewals-previous">
+                  <option value="">Select</option>
+                  <option>None</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3 or more</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <hr class="reg-divider"/>
+
+          <!-- ── What you can do ── -->
+          <div class="reg-group">
+            <p class="reg-group-h">What you can do</p>
+            <p class="reg-group-sub">Select all that apply.</p>
+            <div class="skill-grid" id="skill-grid">
+              <label class="skill-pill"><input type="checkbox" name="skills[]" value="Infant care"/> <span>Infant care</span></label>
+              <label class="skill-pill"><input type="checkbox" name="skills[]" value="Childcare"/> <span>Childcare</span></label>
+              <label class="skill-pill"><input type="checkbox" name="skills[]" value="Eldercare"/> <span>Eldercare</span></label>
+              <label class="skill-pill"><input type="checkbox" name="skills[]" value="Cooking"/> <span>Cooking</span></label>
+              <label class="skill-pill"><input type="checkbox" name="skills[]" value="Housekeeping"/> <span>Housekeeping</span></label>
+              <label class="skill-pill"><input type="checkbox" name="skills[]" value="Pet care"/> <span>Pet care</span></label>
+            </div>
+          </div>
+
+          <hr class="reg-divider"/>
+
+          <!-- ── When you're available ── -->
+          <div class="reg-group">
+            <p class="reg-group-h">When you&rsquo;re available</p>
+            <div class="fg-v2">
+              <label for="reg-availability">Your situation</label>
+              <select id="reg-availability" name="availability">
+                <option value="">Select</option>
+                <option>Available now</option>
+                <option>I have a transfer date</option>
+                <option>I&rsquo;m currently overseas</option>
+              </select>
+            </div>
+            <div class="fg-v2">
+              <label for="reg-transfer-date">Transfer date <span class="opt-tag">(if you have one)</span></label>
+              <input type="date" id="reg-transfer-date" name="transfer-date"/>
+            </div>
+          </div>
+
+          <hr class="reg-divider"/>
+
+          <!-- ── How we can learn more ── -->
+          <div class="reg-group">
+            <p class="reg-group-h">How we can learn more about you</p>
+            <p class="reg-group-sub">Either one helps us understand your experience. Pick whichever is&nbsp;true.</p>
+            <div class="learn-grid">
+              <label class="learn-pill">
+                <input type="checkbox" name="how-verify[]" value="Employer can speak with us"/>
+                <span class="learn-pill-body">
+                  <span class="learn-pill-title">My employer is happy to speak with Helper Circle</span>
+                  <span class="learn-pill-desc">A past or current employer can recommend you directly.</span>
+                </span>
+              </label>
+              <label class="learn-pill">
+                <input type="checkbox" name="how-verify[]" value="Can show employment history later"/>
+                <span class="learn-pill-body">
+                  <span class="learn-pill-title">I can show my employment history later</span>
+                  <span class="learn-pill-desc">For example, your work history with the same family over the years.</span>
+                </span>
+              </label>
+            </div>
+            <p class="learn-note">Nothing to upload now. If your experience looks like a fit, we&rsquo;ll help you gather any documents later over&nbsp;WhatsApp.</p>
+          </div>
+
+          <hr class="reg-divider"/>
+
+          <!-- ── Anything else ── -->
+          <div class="reg-group">
+            <p class="reg-group-h">Anything else <span class="opt-tag" style="font-size:0.78rem;">(optional)</span></p>
+            <div class="fg-v2">
+              <textarea id="reg-about" name="about" aria-label="Tell us a little about your experience and the kind of family you hope to join" placeholder="Tell us a little about your experience and the kind of family you hope to join."></textarea>
+            </div>
+          </div>
+
+          <div class="reg-reassure">
+            <span>Free to register</span>
+            <span class="reg-reassure-sep">·</span>
+            <span>No fees</span>
+            <span class="reg-reassure-sep">·</span>
+            <span>No loans</span>
+            <span class="reg-reassure-sep">·</span>
+            <span>We are not an agency</span>
+          </div>
+
+          <button type="submit" class="btn btn-green btn-lg submit-btn-v2">Register my interest</button>
+          <p class="submit-note-v2">We read every submission ourselves and reply within a few&nbsp;days.</p>
+        </form>
+      </div>
+
+      <!-- Success state -->
+      <div class="form-success" id="form-success">
+        <div class="success-check">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="#2C8A6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="success-title">Thank you for registering.</h3>
+        <p class="success-body">We read every submission ourselves. If your experience fits the kind of helpers featured on Helper Circle, we&rsquo;ll contact you to learn&nbsp;more.</p>
+        <p class="success-meta">Registering does not guarantee a profile or an introduction to a&nbsp;family.</p>
+        <div class="success-actions">
+          <a href="index.html" class="btn btn-green">Back to home</a>
+          <a href="faq.html" class="btn btn-outline">Read the FAQ</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+
+      <p class="footer-heart">
+        Started by a Singapore family<br>
+        who knew there had to be a better&nbsp;way.
+      </p>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="browse.html">Meet Helpers</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="refer.html">Refer a Helper</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="register.html">Register as a Helper</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="index.html#how">How It Works</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="faq.html">FAQ</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">Contact</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="feedback.html">Share Feedback</a>
+      </nav>
+
+      <p class="footer-aside">
+        <a href="for-families.html">For families saying goodbye to a helper &rarr;</a>
+      </p>
+
+      <div class="footer-legal-strip">
+        <span>© <span id="year"></span> Helper Circle · Singapore</span>
+        <span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Pill checked state (skills + learn-more)
+  (function() {
+    document.querySelectorAll('.skill-pill input, .learn-pill input').forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        var pill = cb.closest('.skill-pill, .learn-pill');
+        if (!pill) return;
+        if (cb.checked) { pill.classList.add('is-checked'); }
+        else { pill.classList.remove('is-checked'); }
+      });
+    });
+  })();
+
+  // Form submit → Formspree (AJAX) with inline success + error handling
+  (function() {
+    var form = document.getElementById('register-form');
+    var formWrap = document.getElementById('form-wrap');
+    var success = document.getElementById('form-success');
+    var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Validate required fields
+      var requiredFields = form.querySelectorAll('[required]');
+      var valid = true;
+      var firstInvalid = null;
+      requiredFields.forEach(function(field) {
+        if (!field.value.trim()) {
+          field.style.borderColor = '#D85959'; valid = false;
+          if (!firstInvalid) firstInvalid = field;
+        } else { field.style.borderColor = ''; }
+      });
+      if (!valid) {
+        if (firstInvalid) {
+          window.scrollTo({ top: firstInvalid.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
+          firstInvalid.focus({ preventScroll: true });
+        }
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.dataset.originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending\u2026';
+      }
+
+      var data = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(function(res) {
+          if (res.ok) {
+            formWrap.style.display = 'none';
+            success.classList.add('is-active');
+            window.scrollTo({ top: success.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+          } else {
+            throw new Error('Form submission failed');
+          }
+        })
+        .catch(function() {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = submitBtn.dataset.originalText || 'Register my interest';
+          }
+          var existingError = form.querySelector('.reg-form-error');
+          if (existingError) existingError.remove();
+          var errorEl = document.createElement('p');
+          errorEl.className = 'reg-form-error';
+          errorEl.style.cssText = 'margin: 12px 0; padding: 12px 14px; background: rgba(232, 130, 92, 0.08); border: 1px solid rgba(232, 130, 92, 0.32); border-radius: 8px; color: #9B5B3A; font-size: 0.88rem; line-height: 1.5; text-align: center;';
+          errorEl.innerHTML = 'Something didn\u2019t go through. Please try again, or message us on WhatsApp / email <a href="mailto:hello@helpercircle.sg" style="color: #9B5B3A; text-decoration: underline;">hello@helpercircle.sg</a>.';
+          submitBtn.parentNode.insertBefore(errorEl, submitBtn);
+        });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -126,7 +126,7 @@ window.HELPERS = [
     yearsSG: "10 years",
     bestFit: "Cooking, household &amp; caregiving",
     strengths: ["Cooking (wide variety)", "Housekeeping &amp; cleaning", "10 years in SG"],
-    skills: ["Cooking", "Housekeeping", "Elderly Care"],
+    skills: ["Cooking", "Childcare (incl. young children)", "Elderly Care", "Housekeeping"],
     salary: "S$950",
     photo: "images/mariafe.jpeg",
     profile: "profile-mariafe.html"

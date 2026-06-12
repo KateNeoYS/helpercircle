@@ -372,40 +372,52 @@ window.HELPERS = [
   /* ── Browse marketplace card (compact, scannable) into a .mcard-grid ── */
   function fullCard(h, wrapClass, statusPhrase) {
     var key = signalKey(h);
+    var v = (key === "verified");
     var skills = skillList(h);
     var ticks = skills.slice(0, 3).map(function (s) {
       return '<li><svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7.4l3 3 6-6.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' + s + '</li>';
     }).join("");
-    var age = ageOf(h);
-    var ageNat = (age ? age + ' &middot; ' : '') + h.nationality;
-    var salary = h.salary
-      ? '<span class="mcard-salary-x">Expected</span> ' + h.salary
-      : 'Salary on enquiry';
     var dataSkills = skills.map(function (s) { return s.toLowerCase(); }).join(" ");
     var placed = (h.status === "placed");
-    var v = (key === "verified");
     var nameHtml = h.initial ? (h.name + ' <span class="mcard-init">' + h.initial + '</span>') : h.name;
+
+    // Trust subline — for BOTH signals. Referred uses the specific referral
+    // (who + how long); verified uses the duration with one employer.
+    var trustLine = v ? signalSub(h) : (h.referredBy || signalSub(h));
+
+    // The recommendation itself: an employer's own words (referred), or the
+    // quiet MOM record (verified). This sits above skills by design.
+    var recBlock = "";
+    if (!v && h.quote) {
+      recBlock = '          <blockquote class="mcard-quote">' + h.quote +
+                 (h.quoteCite ? '<cite>' + h.quoteCite + '</cite>' : '') + '</blockquote>\n';
+    } else if (v) {
+      recBlock = '          <p class="mcard-verifyline">Confirmed against official MOM employment&nbsp;records.</p>\n';
+    }
+
+    // Availability pill on the photo (kept, per the marketplace cards).
+    var availPill = placed
+      ? '          <span class="mcard-avail mcard-avail--placed">' + (h.statusLabel || 'Joined a new family') + '</span>\n'
+      : (h.statusLabel ? '          <span class="mcard-avail">' + h.statusLabel + '</span>\n' : '');
 
     return (
 '    <div class="mcard-wrap ' + wrapClass + '" data-signal="' + key + '" data-skills="' + dataSkills + '" data-nat="' + natCountry(h) + '" data-avail="' + availOf(h) + '">\n' +
 '      <a href="' + h.profile + '" class="mcard mcard--' + (v ? 'ver' : 'ref') + '" aria-label="View ' + plain(fullName(h)) + '\u2019s profile">\n' +
 '        <div class="mcard-media">\n' +
 '          <img src="' + h.photo + '" alt="" loading="lazy"/>\n' +
-(placed ? '          <span class="mcard-placed">Joined a family</span>\n' : '') +
+availPill +
 '        </div>\n' +
 '        <div class="mcard-body">\n' +
-'          <span class="mcard-badge mcard-badge--' + (v ? 'ver' : 'ref') + '"><span class="tsig-mark" aria-hidden="true">' + (v ? '\uD83D\uDD04' : '\u2B50') + '</span> ' + signalLabel(h) + '</span>\n' +
 '          <div class="mcard-head">\n' +
 '            <h3 class="mcard-name">' + nameHtml + '</h3>\n' +
-'            <p class="mcard-sub">' + ageNat + '</p>\n' +
+'            <p class="mcard-nat">' + h.nationality + '</p>\n' +
 '          </div>\n' +
-(v ? '          <p class="mcard-trust">' + signalSub(h) + '</p>\n' : '') +
-'          <ul class="mcard-skills">' + ticks + '</ul>\n' +
+'          <span class="mcard-badge mcard-badge--' + (v ? 'ver' : 'ref') + '"><span class="tsig-mark" aria-hidden="true">' + (v ? '\uD83D\uDD04' : '\u2B50') + '</span> ' + signalLabel(h) + '</span>\n' +
+'          <p class="mcard-trust">' + trustLine + '</p>\n' +
 '          <p class="mcard-summary">' + h.summary + '</p>\n' +
-'          <div class="mcard-foot">\n' +
-'            <span class="mcard-salary">' + salary + '</span>\n' +
-'            <span class="mcard-cta">View profile &rarr;</span>\n' +
-'          </div>\n' +
+recBlock +
+'          <ul class="mcard-skills">' + ticks + '</ul>\n' +
+'          <span class="mcard-cta">View profile &rarr;</span>\n' +
 '        </div>\n' +
 '      </a>\n' +
 '    </div>'

@@ -173,6 +173,47 @@
     .why-h::after,.stories-hdr h2::after{content:"";display:block;width:44px;height:3px;background:#E8825C;border-radius:2px;margin:14px auto 0}
     .hero-hl,.why-h,.stories-hdr h2,.avail-hdr h2,.pricing-heading{text-wrap:balance}
     .hero-sub,.why-body,.stories-sub,.avail-sub{text-wrap:pretty}
+    /* Sheila prominent quote */
+    .sheila-quote-block{max-width:680px;margin:0 auto;text-align:center;padding:8px 0 4px}
+    .sheila-qmark{display:block;font-family:var(--fd,'Cormorant Garamond',serif);font-size:3.2rem;line-height:.45;color:#E8825C;margin:0 0 4px}
+    .sheila-quote{font-family:var(--fd,'Cormorant Garamond',serif);font-size:clamp(1.55rem,3.4vw,2.05rem);line-height:1.4;color:var(--clr-ink,#1F2A24);margin:0 0 22px;font-weight:500;text-wrap:balance}
+    .sheila-cap{display:flex;align-items:center;justify-content:center;gap:11px}
+    .sheila-av{width:42px;height:42px;border-radius:50%;background:#2C8A6E;color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd,'Cormorant Garamond',serif);font-size:1.1rem;flex:0 0 42px}
+    .sheila-id{display:flex;flex-direction:column;text-align:left}
+    .sheila-name{font-size:.98rem;font-weight:600;color:var(--clr-ink,#1F2A24)}
+    .sheila-meta{font-size:.8rem;color:var(--clr-text-muted,#5A6661)}
+    /* Sheila expandable structured story */
+    .sheila-story{max-width:620px;margin:26px auto 0;text-align:center}
+    .sheila-story[open] .sheila-summary::before{content:"\2013"}
+    .sheila-timeline{margin-top:26px;text-align:left}
+    .st-step{display:grid;grid-template-columns:36px 1fr;gap:15px}
+    .st-marker{display:flex;flex-direction:column;align-items:center}
+    .st-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 36px;color:#fff}
+    .st-dot svg{width:18px;height:18px}
+    .st-dot--1{background:#E8825C}.st-dot--2{background:#2C8A6E}.st-dot--3{background:#1B5E48}
+    .st-line{flex:1;width:2px;background:var(--clr-border-warm,#E5DDCF);margin:7px 0}
+    .st-body{padding-bottom:26px}
+    .st-step--last .st-body{padding-bottom:0}
+    .st-label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin:7px 0 8px}
+    .st-label--1{color:#B0562F}.st-label--2,.st-label--3{color:#1B5E48}
+    .st-text{font-size:.96rem;line-height:1.65;color:var(--clr-text-muted,#5A6661);margin:0;text-wrap:pretty}
+    .st-call{display:flex;gap:7px;margin-top:13px;flex-wrap:wrap}
+    .st-call-tile{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:500;color:var(--clr-ink,#1F2A24);background:var(--clr-cream,#FBF6EE);border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:999px;padding:6px 12px}
+    .st-call-tile svg{width:14px;height:14px;color:#2C8A6E;flex:0 0 14px}
+    .st-call-tile--mid{border-color:#2C8A6E}
+    .st-callout{margin-top:14px;background:#FBF1EA;border-left:3px solid #E8825C;border-radius:0 10px 10px 0;padding:13px 16px;font-family:var(--fd,'Cormorant Garamond',serif);font-size:1.06rem;font-style:italic;line-height:1.5;color:var(--clr-ink,#1F2A24);display:flex;gap:10px}
+    .st-callout svg{width:18px;height:18px;flex:0 0 18px;color:#E8825C;margin-top:3px}
+    /* Why we exist: minimal metaphor */
+    .why-lead{font-size:1.06rem;line-height:1.6;color:var(--clr-text-muted,#5A6661);max-width:430px;margin:0 0 32px;text-wrap:balance}
+    .why-metaphor{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
+    .wm-lost,.wm-kept{display:flex;flex-direction:column;align-items:center;gap:11px}
+    .wm-bubble{font-size:.88rem;color:#9a9384;background:#F1ECE2;border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:14px 14px 14px 3px;padding:12px 17px;opacity:.6}
+    .wm-cap{font-size:.8rem;color:var(--clr-text-muted,#5A6661)}
+    .wm-cap--kept{color:#1B5E48;font-weight:600}
+    .wm-arrow{color:#E8825C;font-size:1.8rem;line-height:1}
+    .wm-circle{width:74px;height:74px;border-radius:50%;background:#2C8A6E;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px -16px rgba(44,138,110,.6)}
+    .wm-circle svg{width:34px;height:34px}
+    @media(max-width:560px){.why-metaphor{gap:14px}.wm-arrow{transform:rotate(90deg)}}
   </style>
   <!-- Vercel Web Analytics -->
   <script>
@@ -246,15 +287,17 @@
   <div class="wrap why-exist-inner">
     <div class="kicker">Why Helper Circle exists</div>
     <h2 class="h2 why-h">Good helpers shouldn&rsquo;t be hard to&nbsp;find.</h2>
-    <p class="why-body">When a good helper needs a new family, word spreads through Facebook groups and WhatsApp chats, then disappears within days. Helper Circle gives trusted helpers one place to be found, so the right families see them in&nbsp;time.</p>
-    <div class="why-flow rev">
-      <div class="why-bubbles">
-        <span class="why-bub">&ldquo;anyone know a good helper?&rdquo;</span>
-        <span class="why-bub">forwarded, then lost</span>
-        <span class="why-bub">gone in days</span>
+    <p class="why-lead">Great recommendations vanish in group chats within days. We keep them, and pass them&nbsp;on.</p>
+    <div class="why-metaphor rev">
+      <div class="wm-lost">
+        <span class="wm-bubble">&ldquo;anyone know a good&nbsp;helper?&rdquo;</span>
+        <span class="wm-cap">Lost in the chat</span>
       </div>
-      <span class="why-arrow" aria-hidden="true">&rarr;</span>
-      <span class="why-circle">One trusted circle</span>
+      <span class="wm-arrow" aria-hidden="true">&rarr;</span>
+      <div class="wm-kept">
+        <span class="wm-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20S4 14.5 4 8.8A4 4 0 0 1 12 6a4 4 0 0 1 8 2.8C20 14.5 12 20 12 20Z" stroke-linejoin="round"/></svg></span>
+        <span class="wm-cap wm-cap--kept">Kept in one circle</span>
+      </div>
     </div>
   </div>
 </section>
@@ -332,52 +375,56 @@
 <section class="stories" id="stories">
   <div class="wrap">
     <div class="stories-hdr rev">
-      <div class="kicker">What referring families say</div>
-      <h2 class="h2">A family&rsquo;s experience referring their&nbsp;helper.</h2>
-      <p class="stories-sub">When Sheila passed her helper on, all three sides met on one call first. Here&rsquo;s what that was like for&nbsp;her.</p>
+      <div class="kicker">A real employer story</div>
+      <h2 class="h2">A family&rsquo;s experience, in her own&nbsp;words.</h2>
     </div>
-    <div class="sheila-beats rev">
-      <div class="sb">
-        <span class="sb-h"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15"><circle cx="10" cy="10" r="7.5"/><path d="M7.7 7.6a2.4 2.4 0 0 1 4.6.8c0 1.6-2.3 1.9-2.3 3.2M10 14.3v.05" stroke-linecap="round"/></svg> Why she came</span>
-        <p class="sb-p">A concerned employer who wanted her helper to go to a good&nbsp;family.</p>
-      </div>
-      <div class="sb">
-        <span class="sb-h"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15"><rect x="2.5" y="5" width="10" height="10" rx="2"/><path d="M12.5 8.3 17.5 5.8v8.4l-5-2.5" stroke-linejoin="round"/></svg> What stood out</span>
-        <p class="sb-p">Transparent, no hidden agenda. Everyone met on one call before&nbsp;committing.</p>
-      </div>
-      <div class="sb">
-        <span class="sb-h"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15"><path d="M10 16.5S3 12.5 3 7.8a3.3 3.3 0 0 1 7-1.4 3.3 3.3 0 0 1 7 1.4c0 4.7-7 8.7-7 8.7Z" stroke-linejoin="round"/></svg> The value</span>
-        <p class="sb-p">No heavy agent fees. Nothing charged to her, or taken from her&nbsp;helper.</p>
-      </div>
-    </div>
-    <div class="jc-frame rev">
-      <div class="jc-hd"><span class="jc-dot"></span> Joint introduction &middot; one video call</div>
-      <div class="jc-grid">
-        <div class="jc-tile">
-          <span class="jc-av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11l8-6 8 6M6 10v9h12v-9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span class="jc-tn">Current employer</span>
-          <span class="jc-tr">Passing her on</span>
-        </div>
-        <div class="jc-tile jc-tile--mid">
-          <span class="jc-av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.5"/><path d="M5.5 19a6.5 6.5 0 0 1 13 0" stroke-linecap="round"/></svg></span>
-          <span class="jc-tn">The helper</span>
-          <span class="jc-tr">Chooses too</span>
-        </div>
-        <div class="jc-tile">
-          <span class="jc-av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3.5 18a5.5 5.5 0 0 1 11 0" stroke-linecap="round"/><path d="M16 6.6a3 3 0 0 1 0 5.8M16.5 18a5.5 5.5 0 0 0-2-4.2" stroke-linecap="round"/></svg></span>
-          <span class="jc-tn">Prospective employer</span>
-          <span class="jc-tr">Meeting her</span>
-        </div>
-      </div>
-      <p class="jc-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="M15 10l6-3v10l-6-3" stroke-linecap="round" stroke-linejoin="round"/></svg> Everyone meets together and talks through questions openly, before anyone&nbsp;commits</p>
-    </div>
-    <blockquote class="jc-quote rev">&ldquo;We could all meet together, ask our questions and feel comfortable before&nbsp;deciding.&rdquo;</blockquote>
-    <p class="jc-attr rev">&mdash; Sheila, referring employer &middot; shared with permission</p>
-    <details class="sheila-more rev">
+
+    <figure class="sheila-quote-block rev">
+      <span class="sheila-qmark" aria-hidden="true">&ldquo;</span>
+      <blockquote class="sheila-quote">We could all meet together, ask our questions and feel comfortable before&nbsp;deciding.</blockquote>
+      <figcaption class="sheila-cap">
+        <span class="sheila-av" aria-hidden="true">S</span>
+        <span class="sheila-id">
+          <span class="sheila-name">Sheila</span>
+          <span class="sheila-meta">Referring employer &middot; June 2026 &middot; Shared with permission</span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <details class="sheila-story rev">
       <summary class="sheila-summary">Read her full experience</summary>
-      <div class="sheila-full">
-        <p>Everything is transparent. No hidden agenda, and all questions are properly handled. As an employer concerned about transferring out my helper, I really wished for her to go to a good family to provide her&nbsp;service. I found the Zoom meeting organised by Helper Circle very useful: the helper, the current employer and the future employer all get to meet and chat on one call, speak out our concerns, and check that all the criteria and areas of concern are met before both parties commit to each&nbsp;other.</p>
-        <p>I&rsquo;m happy to highly recommend this service to anyone wanting to transfer, or looking for, a transfer&nbsp;helper. What you can&rsquo;t find from other agents, who charge heftily and leave employers paying through the&nbsp;nose: at Helper Circle the new employer taking in the transfer helper pays a platform fee only after the deal is&nbsp;done. No hidden costs. For me, transferring my good helper away, there was no cost to me, and no cut from my helper&rsquo;s salary&nbsp;either. Do check out their service. It&rsquo;s totally worth it, and peace of mind&nbsp;too.</p>
+      <div class="sheila-timeline">
+
+        <div class="st-step">
+          <div class="st-marker"><span class="st-dot st-dot--1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20S4 14.5 4 8.8A4 4 0 0 1 12 6a4 4 0 0 1 8 2.8C20 14.5 12 20 12 20Z" stroke-linejoin="round"/></svg></span><span class="st-line"></span></div>
+          <div class="st-body">
+            <span class="st-label st-label--1">The challenge</span>
+            <p class="st-text">&ldquo;As an employer concerned about transferring out my helper, I really wished for her to go to a good family to provide her&nbsp;service.&rdquo;</p>
+          </div>
+        </div>
+
+        <div class="st-step">
+          <div class="st-marker"><span class="st-dot st-dot--2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="M15 10l6-3v10l-6-3" stroke-linejoin="round"/></svg></span><span class="st-line"></span></div>
+          <div class="st-body">
+            <span class="st-label st-label--2">The process</span>
+            <p class="st-text">&ldquo;I found the Zoom meeting organised by Helper Circle very useful: the helper, the current employer and the future employer all get to meet and chat on one call, speak out our concerns, and check that all the criteria and areas of concern are met before both parties&nbsp;commit.&rdquo; Everything was transparent, with no hidden agenda and every question properly&nbsp;handled.</p>
+            <div class="st-call">
+              <span class="st-call-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11l8-6 8 6M6 10v9h12v-9" stroke-linecap="round" stroke-linejoin="round"/></svg> Current employer</span>
+              <span class="st-call-tile st-call-tile--mid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.5"/><path d="M5.5 19a6.5 6.5 0 0 1 13 0" stroke-linecap="round"/></svg> The helper</span>
+              <span class="st-call-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3.5 18a5.5 5.5 0 0 1 11 0" stroke-linecap="round"/><path d="M16 6.6a3 3 0 0 1 0 5.8M16.5 18a5.5 5.5 0 0 0-2-4.2" stroke-linecap="round"/></svg> New employer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="st-step st-step--last">
+          <div class="st-marker"><span class="st-dot st-dot--3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12.5l4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <div class="st-body">
+            <span class="st-label st-label--3">The outcome</span>
+            <p class="st-text">&ldquo;For me, transferring my good helper away, there was no cost to me, and no cut from my helper&rsquo;s salary&nbsp;either. The new employer pays a platform fee only after the deal is&nbsp;done, with no hidden&nbsp;costs.&rdquo;</p>
+            <div class="st-callout"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h4v4c0 2.2-1.3 3.8-3.5 4.4l-.5-1.3C8.3 13.6 9 12.8 9 11.5H7V7Zm7 0h4v4c0 2.2-1.3 3.8-3.5 4.4l-.5-1.3c1.3-.5 2-1.3 2-2.6h-2V7Z"/></svg> &ldquo;I&rsquo;m happy to highly recommend this service. It&rsquo;s totally worth it, and peace of mind&nbsp;too.&rdquo;</div>
+          </div>
+        </div>
+
       </div>
     </details>
   </div>

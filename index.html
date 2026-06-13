@@ -134,6 +134,7 @@
       .hero .wrap.hero-v2{grid-template-columns:1fr;gap:28px;max-width:560px;text-align:center}
       .hero-v2-copy{align-items:center}
       .hero-v2 .hero-sub{text-align:center}
+      .hero-v2 .hero-proof{justify-content:center;align-items:flex-start;text-align:left}
       .hp-card{max-width:300px}
     }
     /* hero recommendation note */
@@ -221,7 +222,7 @@
     .wm-arrow{color:#E8825C;font-size:1.8rem;line-height:1}
     .wm-circle{width:74px;height:74px;border-radius:50%;background:#2C8A6E;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px -16px rgba(44,138,110,.6)}
     .wm-circle svg{width:34px;height:34px}
-    @media(max-width:560px){.why-metaphor{gap:14px}.wm-arrow{transform:rotate(90deg)}}
+    @media(max-width:560px){.why-metaphor{flex-direction:column;gap:16px}.wm-arrow{transform:rotate(90deg)}}
     /* Combined journey (how it works + pricing) */
     .journey{background:#fff;padding:clamp(54px,8vw,88px) 0}
     .journey-hdr{text-align:center;margin-bottom:34px}
@@ -265,7 +266,7 @@
     .jr-foot-item{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--clr-text-muted,#5A6661)}
     .jr-foot-item:first-child{color:#1B5E48;font-weight:500}
     .jr-cta-wrap{text-align:center;margin-top:28px}
-    @media(max-width:760px){.jr-steps{grid-template-columns:1fr}.jr-grid{grid-template-columns:1fr;gap:22px}.jr-tp-list{grid-template-columns:1fr;gap:12px}.jr-s4-sub{margin-left:0}.jr-footer{gap:16px}}
+    @media(max-width:760px){.jr-steps{grid-template-columns:1fr}.jr-grid{grid-template-columns:1fr;gap:22px}.jr-tp-list{grid-template-columns:1fr;gap:12px}.jr-s4-sub{margin-left:0}.jr-footer{flex-direction:column;align-items:center;gap:14px}.jr-foot-item{align-items:flex-start;text-align:left}}
   </style>
   <!-- Vercel Web Analytics -->
   <script>
@@ -444,7 +445,7 @@
         <span class="sheila-av" aria-hidden="true">S</span>
         <span class="sheila-id">
           <span class="sheila-name">Sheila</span>
-          <span class="sheila-meta">Referring employer &middot; June 2026 &middot; Shared with permission</span>
+          <span class="sheila-meta">Referring employer &middot; June 2026 &middot; Shared with&nbsp;permission</span>
         </span>
       </figcaption>
     </figure>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Siti — Helper Circle</title>
+  <meta name="description" content="Siti — Long-Term Employment Verified. Fifteen years of continuous caregiving with one Singapore family."/>
+
+  <!-- Strict no-index: this is an unpublished draft -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
+  <link rel="stylesheet" href="styles.css"/>
+
+  <style>
+    /* Clear the fixed 68px site-header so nothing hides beneath it */
+    body.profile-page { background: var(--clr-white); padding-top: 68px; }
+    .profile-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── Draft banner (static — sits below the header, never clipped) ─── */
+    .draft-banner {
+      background: #FFF0EB;
+      border-bottom: 1px solid var(--clr-coral, #E8825C);
+      padding: 12px 24px; text-align: center;
+    }
+    .draft-banner-inner {
+      max-width: 720px; margin: 0 auto;
+      font-size: .9rem; color: #9B5B3A; line-height: 1.5;
+    }
+    .draft-banner-inner strong { color: #C66740; font-weight: 700; letter-spacing: .02em; }
+
+    /* ─── TBC marker (draft-only; remove at go-live) ─── */
+    .tbc {
+      background: #FCEBDF; color: #B5612F; font-style: normal;
+      padding: 0 5px; border-radius: 4px; font-size: .9em; font-weight: 600;
+      box-shadow: inset 0 0 0 1px #E8B894;
+    }
+
+    /* ─── HERO ─── */
+    .profile-hero { padding: 40px 0 32px; background: var(--clr-white); }
+    .profile-hero-inner { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
+    .profile-photo {
+      flex: 0 0 190px; width: 190px; height: 190px;
+      border-radius: 20px; object-fit: cover; object-position: center top;
+      background: var(--clr-cream); box-shadow: 0 2px 10px rgba(31,42,36,.10);
+    }
+    .profile-hero-text { flex: 1 1 320px; min-width: 0; }
+    .profile-name {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500; font-size: clamp(2.3rem, 5vw, 3rem);
+      letter-spacing: -0.012em; color: var(--clr-text);
+      margin: 0 0 4px; line-height: 1.05;
+    }
+    .profile-descriptor {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic; font-size: 1.12rem; color: var(--clr-text-muted); margin: 0 0 14px;
+    }
+    .profile-meta {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px;
+      font-size: .92rem; color: var(--clr-text-2); margin: 0 0 18px;
+    }
+    .profile-meta .sep { color: var(--clr-text-faint, #9AA0A6); }
+
+    /* ─── Prominent verification card (the page's signature element) ─── */
+    .verify-card {
+      display: flex; align-items: center; gap: 16px;
+      background: #EAF2F7; border: 1px solid #CBDDE9; border-left: 4px solid #2E6F95;
+      border-radius: 14px; padding: 16px 18px; margin: 0 0 20px;
+    }
+    .verify-card-ico {
+      flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%;
+      background: #2E6F95; display: flex; align-items: center; justify-content: center;
+    }
+    .verify-card-title {
+      font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      color: #1F4E6B; margin: 0 0 3px;
+    }
+    .verify-card-fact { font-size: 1.02rem; font-weight: 600; color: var(--clr-text); margin: 0; line-height: 1.35; }
+    .verify-card-fact span { font-weight: 400; color: var(--clr-text-muted); font-size: .92rem; }
+
+    /* CTA */
+    .profile-hero-cta { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .profile-hero-cta-meta { font-size: .86rem; color: var(--clr-text-muted); font-style: italic; }
+
+    /* ─── Content blocks ─── */
+    .profile-block { padding: 26px 0; border-top: 1px solid var(--clr-border-warm); }
+    .profile-section-label {
+      font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--clr-primary); margin: 0 0 16px;
+    }
+    .block-line { font-size: 1rem; line-height: 1.6; color: var(--clr-text-2); margin: 0 0 14px; }
+
+    /* Highlights */
+    .hl { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .hl li {
+      position: relative; padding-left: 30px;
+      font-size: 1.02rem; line-height: 1.5; color: var(--clr-text-2);
+    }
+    .hl li strong { color: var(--clr-text); font-weight: 600; }
+    .hl li::before {
+      content: ""; position: absolute; left: 0; top: 2px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--clr-primary-bg, #EAF5EF);
+      box-shadow: inset 0 0 0 1.5px var(--clr-primary, #2C8A6E);
+    }
+    .hl li::after {
+      content: ""; position: absolute; left: 6px; top: 8px;
+      width: 6px; height: 3px; border-left: 1.5px solid var(--clr-primary, #2C8A6E);
+      border-bottom: 1.5px solid var(--clr-primary, #2C8A6E); transform: rotate(-45deg);
+    }
+
+    /* Chips */
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      font-size: .88rem; color: var(--clr-text-2); background: var(--clr-cream);
+      border: 1px solid var(--clr-border-warm); padding: 7px 13px; border-radius: 999px; white-space: nowrap;
+    }
+
+    /* Mini fact grid */
+    .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px 24px; margin-top: 4px; }
+    .fact-k { font-size: .7rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--clr-text-muted); margin: 0 0 4px; }
+    .fact-v { font-size: .98rem; line-height: 1.5; color: var(--clr-text); margin: 0; }
+
+    .muted-note { font-size: .9rem; font-style: italic; color: var(--clr-text-muted); margin: 14px 0 0; line-height: 1.6; }
+
+    /* Training / credentials list */
+    .cred { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+    .cred li { display: flex; justify-content: space-between; gap: 16px; align-items: baseline;
+      border-bottom: 1px dashed var(--clr-border-warm); padding-bottom: 12px; }
+    .cred li:last-child { border-bottom: none; padding-bottom: 0; }
+    .cred-main { font-size: .98rem; color: var(--clr-text); line-height: 1.45; }
+    .cred-main span { display: block; font-size: .88rem; color: var(--clr-text-muted); margin-top: 2px; }
+    .cred-date { flex: 0 0 auto; font-size: .85rem; font-style: italic; color: var(--clr-text-muted); white-space: nowrap; }
+
+    /* Verification details — reuse the blue card, full width */
+    .verify-detail { background: #EAF2F7; border: 1px solid #CBDDE9; border-left: 4px solid #2E6F95; border-radius: 12px; padding: 18px 20px; }
+    .verify-detail ul { list-style: none; margin: 10px 0 0; padding: 0; }
+    .verify-detail li { position: relative; padding-left: 22px; margin: 0 0 8px; font-size: .96rem; line-height: 1.5; color: var(--clr-text-2); }
+    .verify-detail li:last-child { margin-bottom: 0; }
+    .verify-detail li::before { content: ""; position: absolute; left: 4px; top: .5em; width: 7px; height: 7px; border-radius: 50%; background: #2E6F95; }
+    .verify-detail strong { color: #1F4E6B; }
+
+    @media (max-width: 640px) {
+      .profile-hero { padding: 28px 0 24px; }
+      .profile-hero-inner { gap: 22px; justify-content: center; }
+      .profile-photo { flex: 0 0 150px; width: 150px; height: 150px; margin: 0 auto; }
+      .profile-hero-text { text-align: center; }
+      .profile-meta { justify-content: center; }
+      .verify-card, .profile-hero-cta { text-align: left; }
+      .profile-hero-cta { justify-content: center; }
+      .cred li { flex-direction: column; gap: 2px; }
+    }
+
+    /* ─── ASK ABOUT FORM ─── */
+    .profile-ask { background: var(--clr-white, #FFFFFF); padding: 56px 0 72px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
+    .profile-ask-inner { max-width: 560px; margin: 0 auto; padding: 0 24px; }
+    .profile-ask-kicker { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--clr-primary); background: var(--clr-primary-bg); padding: 4px 10px; border-radius: 4px; margin-bottom: 12px; }
+    .profile-ask-h { font-family: var(--fd, 'Cormorant Garamond', serif); font-weight: 500; font-size: clamp(1.7rem, 3.5vw, 2.1rem); letter-spacing: -0.008em; color: var(--clr-text); margin: 0 0 12px; text-wrap: balance; }
+    .profile-ask-sub { font-size: 1rem; color: var(--clr-text-muted); line-height: 1.65; margin: 0 0 28px; }
+    .ask-field { margin-bottom: 16px; }
+    .ask-field label { display: block; font-size: .85rem; font-weight: 600; color: var(--clr-text); margin-bottom: 6px; }
+    .ask-field-opt { font-weight: 400; color: var(--clr-text-muted); font-size: .8rem; }
+    .ask-field input, .ask-field textarea { width: 100%; padding: 11px 13px; font-size: .98rem; font-family: inherit; color: var(--clr-text); background: var(--clr-white, #FFFFFF); border: 1px solid var(--clr-border, #E8E2D4); border-radius: 6px; transition: border-color .15s; }
+    .ask-field input:focus, .ask-field textarea:focus { outline: none; border-color: var(--clr-primary); }
+    .ask-field textarea { resize: vertical; min-height: 80px; }
+    .ask-submit { width: 100%; margin-top: 4px; }
+    .ask-foot-note { font-size: .82rem; color: var(--clr-text-muted); margin: 14px 0 0; line-height: 1.55; }
+    .ask-success, .ask-error { background: var(--clr-primary-bg); border-left: 3px solid var(--clr-primary); padding: 16px 18px; border-radius: 0 8px 8px 0; margin-top: 12px; }
+    .ask-error { background: #FFF0EB; border-left-color: #E8825C; }
+    .ask-success p, .ask-error p { margin: 0; color: var(--clr-text-2); line-height: 1.6; }
+  </style>
+</head>
+<body class="profile-page">
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark" aria-hidden="true"><span class="logo-hc">hc</span></div>
+      <span class="logo-text">Helper<strong>Circle</strong></span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="browse.html" class="nav-a">Meet Helpers</a>
+      <a href="refer.html" class="nav-a">Refer a Helper</a>
+      <a href="register.html" class="nav-a">Register as a Helper</a>
+      <a href="index.html#how" class="nav-a">How It Works</a>
+      <a href="faq.html" class="nav-a">FAQ</a>
+      <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
+    </nav>
+    <a href="refer.html" class="btn btn-green btn-sm hdr-cta">Refer a Helper</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ═══ DRAFT BANNER (remove at go-live) ═══ -->
+<div class="draft-banner">
+  <div class="draft-banner-inner">
+    <strong>DRAFT</strong> — not yet published. Verified-only listing (no referrer) — flag before go-live. Items marked <span class="tbc">TBC</span> still need confirming.
+  </div>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="profile-hero">
+  <div class="profile-wrap">
+    <div class="profile-hero-inner">
+
+      <img src="images/siti.jpeg" alt="Siti" class="profile-photo">
+
+      <div class="profile-hero-text">
+        <h1 class="profile-name">Siti</h1>
+        <p class="profile-descriptor">Experienced caregiver &middot; Indonesian <span class="tbc">confirm nationality</span></p>
+
+        <div class="profile-meta">
+          <span><span class="tbc">Age TBC</span></span><span class="sep">·</span>
+          <span><span class="tbc">Availability TBC</span></span><span class="sep">·</span>
+          <span><span class="tbc">Salary TBC</span></span><span class="sep">·</span>
+          <span><span class="tbc">Rest day TBC</span></span>
+        </div>
+
+        <div class="verify-card">
+          <span class="verify-card-ico" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2.5l7.5 3v5.2c0 4.6-3.2 7.9-7.5 9-4.3-1.1-7.5-4.4-7.5-9V5.5l7.5-3z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M8.3 12.1l2.6 2.6 4.8-5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div>
+            <p class="verify-card-title">Long-Term Employment Verified</p>
+            <p class="verify-card-fact">15 years of continuous caregiving in Singapore <span>· 2011&ndash;2026</span></p>
+          </div>
+        </div>
+
+        <div class="profile-hero-cta">
+          <a href="#ask" class="btn btn-green">Ask about Siti</a>
+          <span class="profile-hero-cta-meta">We respond within 1&ndash;2 business&nbsp;days</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="profile-wrap">
+
+  <!-- ═══ WHY FAMILIES CONSIDER SITI ═══ -->
+  <section class="profile-block" style="border-top:none">
+    <p class="profile-section-label">Why families consider Siti</p>
+    <ul class="hl">
+      <li><strong>Fifteen years of continuous caregiving</strong> &mdash; her employment length is independently verified against MOM records.</li>
+      <li><strong>Deep elderly &amp; medical experience</strong> &mdash; stroke, dementia, cancer, diabetes and bedridden care.</li>
+      <li><strong>Fluent English</strong> &mdash; communicates clearly with family members and medical staff.</li>
+      <li><strong>Formally trained</strong> &mdash; caregiver and nursing-assistant courses, plus years of hospice volunteering.</li>
+    </ul>
+  </section>
+
+  <!-- ═══ CAREGIVING EXPERIENCE ═══ -->
+  <section class="profile-block">
+    <p class="profile-section-label">Caregiving experience</p>
+    <p class="block-line">Across her years in Singapore, Siti cared for the same family through changing needs &mdash; staying on as care recipients passed on or conditions advanced, and adapting from mobility support through to full bedridden&nbsp;care.</p>
+    <p class="block-line" style="font-size:.92rem;color:var(--clr-text-muted)"><em>Note for Kate: this is the &ldquo;same family across changing employers&rdquo; framing. The continuous <strong>length</strong> is MOM-verifiable; the &ldquo;same family throughout&rdquo; part is her own account &mdash; confirm how firmly to state it.</em></p>
+    <div class="chips" style="margin-bottom:18px">
+      <span class="chip">Stroke &amp; paralysis care</span>
+      <span class="chip">Dementia care</span>
+      <span class="chip">Cancer / palliative</span>
+      <span class="chip">Diabetes management</span>
+      <span class="chip">Bedridden &amp; full-assist</span>
+      <span class="chip">Mobility support</span>
+      <span class="chip">Medication routines</span>
+    </div>
+    <div class="facts">
+      <div><p class="fact-k">Stroke &amp; paralysis</p><p class="fact-v">4 years of dedicated care</p></div>
+      <div><p class="fact-k">Diabetes</p><p class="fact-v">5 years of day-to-day management</p></div>
+      <div><p class="fact-k">Dementia &amp; cancer</p><p class="fact-v">Cared for a patient living with both</p></div>
+      <div><p class="fact-k">Bedridden care</p><p class="fact-v">Full-assist care, 2020&ndash;present</p></div>
+      <div><p class="fact-k">Languages</p><p class="fact-v">Fluent English; Bahasa Indonesia <span class="tbc">+ Malay? TBC</span></p></div>
+      <div><p class="fact-k">Housekeeping scope</p><p class="fact-v"><span class="tbc">TBC &mdash; cooking &amp; general housekeeping alongside care?</span></p></div>
+    </div>
+  </section>
+
+  <!-- ═══ TRAINING & VOLUNTEERING ═══ -->
+  <section class="profile-block">
+    <p class="profile-section-label">Training &amp; volunteering</p>
+    <p class="block-line">Beyond her family work, Siti has trained formally in caregiving and given her time to seniors and hospice patients over many&nbsp;years.</p>
+    <ul class="cred">
+      <li>
+        <span class="cred-main">Caregiver Training Course<span>Metta Welfare Association</span></span>
+        <span class="cred-date">Jan 2013</span>
+      </li>
+      <li>
+        <span class="cred-main">Nursing Assistant Course<span>Goforth Training Services</span></span>
+        <span class="cred-date">Aug 2015</span>
+      </li>
+      <li>
+        <span class="cred-main">Nursing Assistant Programme<span>Peacehaven Nursing Home (Goforth)</span></span>
+        <span class="cred-date">Jan&ndash;Apr 2016</span>
+      </li>
+      <li>
+        <span class="cred-main">Volunteer, Nursing Assistant<span>Metta Welfare Association &mdash; seniors&rsquo; exercise, activities &amp; meals</span></span>
+        <span class="cred-date">from 2011</span>
+      </li>
+      <li>
+        <span class="cred-main">Volunteer<span>HCA Hospice Care &mdash; patient transport, befriending &amp; end-of-life support</span></span>
+        <span class="cred-date">from 2014</span>
+      </li>
+    </ul>
+    <p class="muted-note">Training and volunteering details are self-reported from her own records. We can note that the certificates were sighted, if you&rsquo;d like &mdash; <span class="tbc">confirm</span>.</p>
+  </section>
+
+  <!-- ═══ COOKING ═══ -->
+  <section class="profile-block">
+    <p class="profile-section-label">Cooking</p>
+    <p class="block-line"><span class="tbc">TBC &mdash; what she cooks, any dietary notes (she is likely Muslim; confirm whether she handles pork). Add chips once known.</span></p>
+  </section>
+
+  <!-- ═══ FAMILY SHE MAY SUIT ═══ -->
+  <section class="profile-block">
+    <p class="profile-section-label">Family she may suit</p>
+    <p class="block-line">Siti&rsquo;s experience centres on caring for an elderly or unwell family member. She would suit a household that values steady, experienced care and clear communication in&nbsp;English.</p>
+    <ul class="hl">
+      <li>Families caring for an elderly parent or grandparent at&nbsp;home.</li>
+      <li>Households needing experienced medical or mobility support &mdash; stroke, dementia, diabetes or bedridden&nbsp;care.</li>
+      <li>Families who value clear, fluent English in day-to-day care and with medical&nbsp;staff.</li>
+      <li><span class="tbc">Stance on young children / infant care &mdash; TBC.</span></li>
+    </ul>
+    <p class="muted-note">Her background is in elderly and medical caregiving rather than infant care or general housekeeping. <span class="tbc">Confirm before stating this as a limit.</span></p>
+  </section>
+
+  <!-- ═══ VERIFICATION DETAILS ═══ -->
+  <section class="profile-block">
+    <p class="profile-section-label">Verification details</p>
+    <div class="verify-detail">
+      <p style="margin:0;font-size:1rem;color:var(--clr-text)"><strong>Around fifteen years of continuous employment in Singapore</strong> &mdash; 2011 to 2026, confirmed against her <strong>MOM employment records</strong>. Over this time she cared for the same family as their needs changed; the named employer changed accordingly.</p>
+    </div>
+    <p class="muted-note">This confirms her employment and its length from official records &mdash; it is not a personal recommendation, and no reference has been collected from a former employer. The &ldquo;same family throughout&rdquo; account and her training history are self-reported. <span class="tbc">Decide final wording with Kate &mdash; see note above.</span></p>
+  </section>
+
+</div>
+
+<!-- ═══ ASK ═══ -->
+<section class="profile-ask" id="ask">
+  <div class="profile-ask-inner">
+    <span class="profile-ask-kicker">Interested?</span>
+    <h2 class="profile-ask-h">Ask about Siti</h2>
+    <p class="profile-ask-sub">Tell us a little about your household and we'll be in touch within 1&ndash;2 business&nbsp;days. We'll only move forward if it feels like a genuine&nbsp;fit.</p>
+    <form id="form-ask" action="https://formspree.io/f/mredjvwg" method="POST">
+      <input type="hidden" name="helper-name" value="Siti"/>
+      <input type="hidden" name="_subject" value="Helper Circle — Interest in Siti"/>
+      <div class="ask-field">
+        <label for="ask-name">Your name</label>
+        <input type="text" id="ask-name" name="name" required placeholder="Jane Tan" autocomplete="name"/>
+      </div>
+      <div class="ask-field">
+        <label for="ask-email">Email</label>
+        <input type="email" id="ask-email" name="email" required placeholder="you@email.com" autocomplete="email"/>
+      </div>
+      <div class="ask-field">
+        <label for="ask-phone">Phone <span class="ask-field-opt">(optional, but helps)</span></label>
+        <input type="tel" id="ask-phone" name="phone" placeholder="+65 9123 4567" autocomplete="tel"/>
+      </div>
+      <div class="ask-field">
+        <label for="ask-household">Briefly, your household</label>
+        <textarea id="ask-household" name="household" rows="3" required placeholder="Who lives at home, ages, any care needs, what your typical day looks like&hellip;"></textarea>
+      </div>
+      <div class="ask-field">
+        <label for="ask-why">Why Siti? <span class="ask-field-opt">(optional)</span></label>
+        <textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you're hoping for&hellip;"></textarea>
+      </div>
+      <button type="submit" class="btn btn-green ask-submit">Send to Helper Circle</button>
+      <p class="ask-foot-note">We read every message personally. If Siti seems like a fit for your household, we'll set up a short call to talk through the next&nbsp;step.</p>
+      <div class="ask-success" hidden>
+        <p>Thank you. We've received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p>
+      </div>
+      <div class="ask-error" hidden>
+        <p>Something didn't go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <p class="footer-heart">Started by a Singapore family who knew there had to be a better way.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="browse.html">Meet Helpers</a><span class="footer-nav-sep">·</span>
+        <a href="refer.html">Refer a Helper</a><span class="footer-nav-sep">·</span>
+        <a href="register.html">Register as a Helper</a><span class="footer-nav-sep">·</span>
+        <a href="index.html#how">How It Works</a><span class="footer-nav-sep">·</span>
+        <a href="faq.html">FAQ</a><span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">Contact</a>
+      </nav>
+      <p class="footer-aside"><a href="for-families.html">For families saying goodbye to a helper &rarr;</a></p>
+      <div class="footer-legal-strip">
+        <span>© <span id="year"></span> Helper Circle · Singapore</span>
+        <span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('form-ask');
+  if (!form) return;
+  var submitBtn = form.querySelector('button[type="submit"]');
+  var successEl = form.querySelector('.ask-success');
+  var errorEl = form.querySelector('.ask-error');
+  var fields = form.querySelectorAll('.ask-field');
+  var noteEl = form.querySelector('.ask-foot-note');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.dataset.originalText = submitBtn.textContent; submitBtn.textContent = 'Sending\u2026'; }
+    if (errorEl) errorEl.hidden = true;
+    var data = new FormData(form);
+    fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+      .then(function (res) {
+        if (res.ok) {
+          fields.forEach(function (f) { f.style.display = 'none'; });
+          if (submitBtn) submitBtn.style.display = 'none';
+          if (noteEl) noteEl.style.display = 'none';
+          if (successEl) successEl.hidden = false;
+        } else { throw new Error('Form submission failed'); }
+      })
+      .catch(function () {
+        if (errorEl) errorEl.hidden = false;
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.originalText || 'Send to Helper Circle'; }
+      });
+  });
+})();
+</script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

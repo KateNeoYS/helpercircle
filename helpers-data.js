@@ -197,6 +197,30 @@ window.HELPERS = [
     availability: "transfer",
     photo: "images/liza.jpeg",
     profile: "profile-liza.html"
+  },
+  {
+    id: "siti",
+    name: "Siti",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available from end August&nbsp;2026",
+    line: "Indonesian &middot; 49 &middot; Elderly &amp; medical&nbsp;care",
+    summary: "Fifteen years of continuous caregiving in Singapore, confirmed against MOM records &mdash; deep stroke, dementia, diabetes and bedridden-care experience, with fluent&nbsp;English.",
+    referredBy: "",
+    signal: "verified",
+    verifiedYears: 15,
+    quote: "",
+    quoteCite: "",
+    nationality: "Indonesian",
+    yearsSG: "15 years",
+    bestFit: "Elderly &amp; medical&nbsp;care",
+    strengths: ["Elderly &amp; medical care", "15 years caregiving", "Fluent English"],
+    skills: ["Elderly Care", "Caregiving", "Dementia Care"],
+    age: 49,
+    salary: "From&nbsp;S$950",
+    availability: "transfer",
+    photo: "images/siti.jpeg",
+    profile: "profile-siti.html"
   }
 
   // ─── TEMPLATE — copy this, remove the //'s, add a comma after the

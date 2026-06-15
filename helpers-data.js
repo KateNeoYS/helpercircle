@@ -202,7 +202,7 @@ window.HELPERS = [
     id: "siti",
     name: "Siti",
     initial: "",
-    status: "hidden",
+    status: "available",
     statusLabel: "Available from end August&nbsp;2026",
     line: "Indonesian &middot; 49 &middot; Elderly &amp; medical&nbsp;care",
     summary: "Fifteen years of continuous caregiving in Singapore, confirmed against MOM records &mdash; deep stroke, dementia, diabetes and bedridden-care experience, with fluent&nbsp;English.",

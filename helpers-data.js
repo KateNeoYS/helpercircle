@@ -157,7 +157,7 @@ window.HELPERS = [
   {
     name: "Liza",
     initial: "",
-    status: "available",
+    status: "hidden",
     statusLabel: "Available from 26 June&nbsp;2026",
     line: "Filipino &middot; 54 &middot; Childcare, household &amp;&nbsp;cooking",
     summary: "Warm and endlessly creative with children of every age, referred by the family she's been with for the past&nbsp;year.",
@@ -175,6 +175,28 @@ window.HELPERS = [
     availability: "transfer",
     photo: "images/liza.jpeg",
     profile: "profile-liza.html"
+  },
+  {
+    id: "timunah",
+    name: "Timunah",
+    initial: "",
+    status: "available",
+    statusLabel: "Available from July&nbsp;2026",
+    line: "Indonesian &middot; 53 &middot; Cooking, household &amp;&nbsp;childcare",
+    summary: "Seventeen years with one family, and adored by the children she helped&nbsp;raise.",
+    referredBy: "Referred by Vera, her current employer of 17&nbsp;years",
+    signal: "referred",
+    quote: "\u201cShe does her housework well and efficiently, and is hardworking and&nbsp;independent.\u201d",
+    quoteCite: "&mdash; Vera",
+    nationality: "Indonesian",
+    yearsSG: "28 years in SG",
+    bestFit: "Cooking, household &amp; childcare",
+    strengths: ["Cooking &mdash; 3 cuisines", "Warm with young children", "17 years with one&nbsp;family"],
+    skills: ["Cooking", "Childcare (incl. young children)", "Housekeeping"],
+    age: 53,
+    availability: "transfer",
+    photo: "images/timunah.jpeg",
+    profile: "profile-timunah.html"
   }
 
   // ─── TEMPLATE — copy this, remove the //'s, add a comma after the

@@ -334,6 +334,16 @@
     }
 
     /* ─── ASK ABOUT FORM ─── */
+    .profile-cooking { background: var(--clr-cream, #FCF7EE); padding: 56px 0 60px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
+    .profile-cooking-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .profile-cooking-hdr { font-family: var(--fd, 'Cormorant Garamond', serif); font-weight: 500; font-size: clamp(1.7rem, 3.5vw, 2.1rem); letter-spacing: -0.008em; color: var(--clr-text, #1F2A24); margin: 0 0 12px; }
+    .profile-cooking-sub { font-size: 1rem; color: var(--clr-text-muted, #5A6661); line-height: 1.65; margin: 0 0 28px; max-width: 60ch; }
+    .profile-cooking-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .profile-cooking-tile { margin: 0; border-radius: 10px; overflow: hidden; background: #EFE7D8; box-shadow: 0 1px 3px rgba(31,42,36,.08); }
+    .profile-cooking-tile img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+    @media (max-width: 560px) {
+      .profile-cooking-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
     .profile-ask { background: var(--clr-white, #FFFFFF); padding: 56px 0 72px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
     .profile-ask-inner { max-width: 560px; margin: 0 auto; padding: 0 24px; }
     .profile-ask-kicker { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--clr-primary); background: var(--clr-primary-bg); padding: 4px 10px; border-radius: 4px; margin-bottom: 12px; }
@@ -437,8 +447,10 @@
   <div class="profile-wrap">
     <p class="profile-section-label">At a glance</p>
     <div class="profile-chips">
-      <span class="profile-chip">Cooking (western, Malay &amp; Chinese)</span>
+      <span class="profile-chip">Cooking (Chinese, Indonesian &amp; western)</span>
       <span class="profile-chip">Housework, done efficiently</span>
+      <span class="profile-chip">Laundry &amp; ironing</span>
+      <span class="profile-chip">Groceries &amp; errands</span>
       <span class="profile-chip">Childcare (older children)</span>
       <span class="profile-chip">Hardworking &amp; independent</span>
       <span class="profile-chip">Pleasant</span>
@@ -468,7 +480,7 @@
 
       <div class="profile-fact">
         <p class="profile-fact-label">Why she&rsquo;s moving on</p>
-        <p class="profile-fact-value"><span class="tbc">Reason for the change to confirm with&nbsp;Vera.</span></p>
+        <p class="profile-fact-value">Vera&rsquo;s children have grown up (now 18 and 21) and are often away from home, so the family no longer needs live-in help. Not related to her&nbsp;work.</p>
       </div>
 
       <div class="profile-fact">
@@ -478,7 +490,7 @@
 
       <div class="profile-fact">
         <p class="profile-fact-label">Strengths (per her employer)</p>
-        <p class="profile-fact-value">Housework done well and efficiently, cooking across western, Malay and Chinese, childcare, and a hardworking, independent&nbsp;manner.</p>
+        <p class="profile-fact-value">Cleaning, washing and ironing, cooking across Chinese, Indonesian and western, childcare, plus groceries and errands such as parcel&nbsp;pickups.</p>
       </div>
 
       <div class="profile-fact">
@@ -488,7 +500,7 @@
 
       <div class="profile-fact">
         <p class="profile-fact-label">Cooking</p>
-        <p class="profile-fact-value">Western, Malay and Chinese&nbsp;food.</p>
+        <p class="profile-fact-value">Chinese, Indonesian and western food. She is vegetarian herself, but cooks meat and pork with no&nbsp;problem.</p>
       </div>
 
       <div class="profile-fact">
@@ -499,6 +511,11 @@
       <div class="profile-fact">
         <p class="profile-fact-label">Faith</p>
         <p class="profile-fact-value">Muslim, and comfortable handling&nbsp;pork.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Pets</p>
+        <p class="profile-fact-value">Comfortable in most homes, but not able to care for&nbsp;dogs.</p>
       </div>
 
       <div class="profile-fact">
@@ -519,7 +536,7 @@
     <div class="profile-notes-prose">
       <p>Vera has shared a warm referral for Timunah, who has been with her family for 17 years, and has worked in Singapore for 28&nbsp;years.</p>
 
-      <p>Vera describes someone who does the housework well and efficiently, cooks western, Malay and Chinese food, and is hardworking and independent. She is experienced with childcare as&nbsp;well.</p>
+      <p>Vera describes someone who does the housework well and efficiently, cooks Chinese, Indonesian and western food, and is hardworking and independent. She also handles laundry and ironing, runs errands such as groceries and parcel pickups, and is experienced with childcare.</p>
 
       <p>Vera feels that now, Timunah is especially well suited to households with older children and a focus on cooking, where her years in the kitchen are a real&nbsp;asset.</p>
 
@@ -538,6 +555,21 @@
 </section>
 
 <!-- ASK -->
+<section class="profile-cooking">
+  <div class="profile-cooking-inner">
+    <h2 class="profile-cooking-hdr">Some of her&nbsp;cooking</h2>
+    <p class="profile-cooking-sub">A few dishes from Timunah&rsquo;s own kitchen, shared with her permission. She is vegetarian herself, and cooks meat and pork with no&nbsp;problem.</p>
+    <div class="profile-cooking-grid">
+      <figure class="profile-cooking-tile"><img src="images/muna-cook-paella.jpeg" alt="Seafood paella" loading="lazy"></figure>
+      <figure class="profile-cooking-tile"><img src="images/muna-cook-steamed-fish.jpeg" alt="Steamed fish with garlic and coriander" loading="lazy"></figure>
+      <figure class="profile-cooking-tile"><img src="images/muna-cook-braised-pork.jpeg" alt="Braised pork with soy eggs" loading="lazy"></figure>
+      <figure class="profile-cooking-tile"><img src="images/muna-cook-ramen.jpeg" alt="Chashu ramen with soft egg" loading="lazy"></figure>
+      <figure class="profile-cooking-tile"><img src="images/muna-cook-broccolini.jpeg" alt="Broccolini in garlic sauce" loading="lazy"></figure>
+      <figure class="profile-cooking-tile"><img src="images/muna-cook-steak.jpeg" alt="Pan-seared steak with brussels sprouts" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
 <section class="profile-ask" id="ask">
   <div class="profile-ask-inner">
     <span class="profile-ask-kicker">Interested?</span>

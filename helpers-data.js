@@ -202,19 +202,19 @@ window.HELPERS = [
     id: "siti",
     name: "Siti",
     initial: "",
-    status: "hidden",
+    status: "available",
     statusLabel: "Available from end August&nbsp;2026",
     line: "Indonesian &middot; 49 &middot; Elderly &amp; medical&nbsp;care",
-    summary: "Fifteen years of continuous caregiving in Singapore, confirmed against MOM records &mdash; deep stroke, dementia, diabetes and bedridden-care experience, with fluent&nbsp;English.",
+    summary: "Fifteen years across two Singapore families, confirmed against MOM records &mdash; deep stroke, dementia, diabetes and bedridden-care experience, with fluent&nbsp;English.",
     referredBy: "",
     signal: "verified",
-    verifiedYears: 15,
+    verifiedSub: "15 years across two employers",
     quote: "",
     quoteCite: "",
     nationality: "Indonesian",
     yearsSG: "15 years",
     bestFit: "Elderly &amp; medical&nbsp;care",
-    strengths: ["Elderly &amp; medical care", "15 years caregiving", "Fluent English"],
+    strengths: ["Elderly &amp; medical care", "15 years, two employers", "Fluent English"],
     skills: ["Elderly Care", "Caregiving", "Dementia Care"],
     age: 49,
     salary: "From&nbsp;S$950",
@@ -270,6 +270,7 @@ window.HELPERS = [
   function signalLabel(h) { return signalKey(h) === "verified" ? "Long-Term Employment Verified" : "Employer Recommended"; }
   function signalSub(h) {
     if (signalKey(h) !== "verified") return "Recommended by current or former employer";
+    if (h.verifiedSub) return h.verifiedSub;
     if (h.verifiedYears || h.retentionYears) return (h.verifiedYears || h.retentionYears) + " years with same employer";
     if (h.renewals) return h.renewals + " contract renewals, same employer";
     return "Employment duration verified";

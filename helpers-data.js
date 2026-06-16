@@ -304,12 +304,12 @@ window.HELPERS = [
   function plain(s) { return String(s).replace(/&[a-z]+;/gi, " ").replace(/"/g, ""); }
 
   /* ── Trust signals ──
-       "referred" (default) → 🟢 Employer Referred  (current/former employer recommendation)
-       "verified"           → 🔵 Long-Term Employment Verified  (4+ yrs, same employer)
+       "referred" (default) → 🏆 Employer Recommended       (current/former employer recommendation)
+       "verified"           → 📅 Long-Term Family Retention  (4+ yrs, same employer)
      For a verified helper: signal:"verified" + verifiedYears (e.g. 10) OR renewals (e.g. 3).
      (Legacy "recommended"/"retention" still map correctly.) */
   function signalKey(h) { return (h.signal === "verified" || h.signal === "retention") ? "verified" : "referred"; }
-  function signalLabel(h) { return signalKey(h) === "verified" ? "Long-Term Employment Verified" : "Employer Recommended"; }
+  function signalLabel(h) { return signalKey(h) === "verified" ? "Long-Term Family Retention" : "Employer Recommended"; }
   function signalSub(h) {
     if (signalKey(h) !== "verified") return "Recommended by current or former employer";
     if (h.verifiedSub) return h.verifiedSub;
@@ -343,8 +343,8 @@ window.HELPERS = [
   // Home-page photo badge: green pill (referred) · blue pill (verified) — colour is the signal
   function homeBadge(h) {
     return signalKey(h) === "verified"
-      ? '<span class="hc-badge hc-badge--ver"><span class="tsig-mark" aria-hidden="true">\uD83D\uDD04</span> Long-Term Employment Verified</span>'
-      : '<span class="hc-badge hc-badge--ref"><span class="tsig-mark" aria-hidden="true">\u2B50</span> Employer Recommended</span>';
+      ? '<span class="hc-badge hc-badge--ver"><span class="tsig-mark" aria-hidden="true">\uD83D\uDCC5</span> Long-Term Family Retention</span>'
+      : '<span class="hc-badge hc-badge--ref"><span class="tsig-mark" aria-hidden="true">\uD83C\uDFC6</span> Employer Recommended</span>';
   }
 
   /* ── Home page: compact cards into #avail-grid (available only, max 3) ──
@@ -501,7 +501,7 @@ availPill +
 '            <h3 class="mcard-name">' + nameHtml + '</h3>\n' +
 '            <p class="mcard-nat">' + h.nationality + '</p>\n' +
 '          </div>\n' +
-'          <span class="mcard-badge mcard-badge--' + (v ? 'ver' : 'ref') + '"><span class="tsig-mark" aria-hidden="true">' + (v ? '\uD83D\uDD04' : '\u2B50') + '</span> ' + signalLabel(h) + '</span>\n' +
+'          <span class="mcard-badge mcard-badge--' + (v ? 'ver' : 'ref') + '"><span class="tsig-mark" aria-hidden="true">' + (v ? '\uD83D\uDCC5' : '\uD83C\uDFC6') + '</span> ' + signalLabel(h) + '</span>\n' +
 '          <p class="mcard-trust">' + trustLine + '</p>\n' +
 '          <p class="mcard-summary">' + h.summary + '</p>\n' +
 recBlock +

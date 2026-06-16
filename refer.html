@@ -762,6 +762,12 @@
       color: var(--clr-primary, #2C8A6E);
       margin-top: 6px; font-weight: 500;
     }
+    .erec-pill {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: #2C8A6E; color: #fff; font-weight: 600;
+      font-size: 0.7rem; padding: 2px 9px; border-radius: 999px;
+      white-space: nowrap; vertical-align: middle;
+    }
 
     /* Mobile refinements */
     @media (max-width: 880px) {
@@ -977,7 +983,7 @@
 
             <div class="verified-callout">
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1.5L13 4v4c0 3-2.2 5.5-5 6-2.8-.5-5-3-5-6V4l5-2.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M5.5 8l2 2 3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>Sharing your contact earns a <strong>Referral verified</strong> badge after a quick verification call. Your contact is never shared publicly.</span>
+              <span>Sharing your contact earns an <strong>Employer Recommended</strong> badge after a quick verification call. Your contact is never shared publicly.</span>
             </div>
 
             <button type="button" class="form-expand-toggle" id="expand-toggle" aria-expanded="false">
@@ -1154,7 +1160,7 @@
         <div class="next-body">
           <h3 class="next-title">We verify details</h3>
           <p class="next-detail">A short call helps us maintain trust on the&nbsp;platform.</p>
-          <p class="next-meta">→ Earns the "Referral verified" badge on her profile.</p>
+          <p class="next-meta">→ Earns the <span class="erec-pill"><span aria-hidden="true">🏆</span> Employer Recommended</span> badge on her&nbsp;profile.</p>
         </div>
       </div>
 

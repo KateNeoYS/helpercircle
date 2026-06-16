@@ -79,6 +79,27 @@ window.HELPERS = [
     profile: "profile-timunah.html"
   },
   {
+    id: "ayethidar",
+    name: "Aye Thi Dar",
+    initial: "",
+    status: "available",
+    statusLabel: "Available from 10 July&nbsp;2026",
+    line: "Myanmar &middot; Childcare, household &amp; Indian&nbsp;cooking",
+    summary: "Three and a half years with one family, exceptional with young children and quietly&nbsp;dependable.",
+    referredBy: "Referred by Yash, her current employer of 3.5&nbsp;years",
+    signal: "referred",
+    quote: "\u201cWith a young child at home, what matters most is dependability, and she has never let us&nbsp;down.\u201d",
+    quoteCite: "&mdash; Yash",
+    nationality: "Myanmar",
+    yearsSG: "3.5 years in SG",
+    bestFit: "Smaller household, at home with Indian routines",
+    strengths: ["Exceptional with young children", "Indian cooking (veg &amp; non-veg)", "Quietly dependable"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
+    availability: "transfer",
+    photo: "images/ayethidar.jpeg",
+    profile: "profile-ayethidar.html"
+  },
+  {
     id: "mariafe",
     name: "Maria Fe",
     initial: "T.",

@@ -360,6 +360,18 @@
     .ask-success, .ask-error { background: var(--clr-primary-bg); border-left: 3px solid var(--clr-primary); padding: 16px 18px; border-radius: 0 8px 8px 0; margin-top: 12px; }
     .ask-error { background: #FFF0EB; border-left-color: #E8825C; }
     .ask-success p, .ask-error p { margin: 0; color: var(--clr-text-2); line-height: 1.6; }
+  
+    /* ─── COOKING GALLERY ─── */
+    .profile-cooking { background: var(--clr-cream, #FCF7EE); padding: 56px 0 60px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
+    .profile-cooking-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .profile-cooking-hdr { font-family: var(--fd, 'Cormorant Garamond', serif); font-weight: 500; font-size: clamp(1.7rem, 3.5vw, 2.1rem); letter-spacing: -0.008em; color: var(--clr-text, #1F2A24); margin: 0 0 12px; }
+    .profile-cooking-sub { font-size: 1rem; color: var(--clr-text-muted, #5A6661); line-height: 1.65; margin: 0 0 28px; max-width: 60ch; }
+    .profile-cooking-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .profile-cooking-tile { margin: 0; border-radius: 10px; overflow: hidden; background: #EFE7D8; box-shadow: 0 1px 3px rgba(31,42,36,.08); }
+    .profile-cooking-tile img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+    @media (max-width: 560px) {
+      .profile-cooking-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
   </style>
   <style>
     .draft-banner{background:#FFF3DC;border-bottom:1px solid #EAD3A0;color:#7A5712;
@@ -405,7 +417,7 @@
   <div class="profile-wrap">
     <div class="profile-hero-inner">
 
-      <div class="profile-photo" style="display:flex;align-items:center;justify-content:center;background:#EFE7D8;color:#8A8475;font-family:'DM Sans',system-ui,sans-serif;font-size:.8rem;text-align:center;line-height:1.4;">Photo to&nbsp;follow</div>
+      <img class="profile-photo" src="images/ayuni.jpeg" alt="Ayuni" />
 
       <div class="profile-hero-text">
         <h1 class="profile-name">Ayuni</h1>
@@ -516,12 +528,12 @@
 
       <div class="profile-fact">
         <p class="profile-fact-label">Languages</p>
-        <p class="profile-fact-value"><span class="tbc">To&nbsp;confirm.</span></p>
+        <p class="profile-fact-value">English and&nbsp;Malay.</p>
       </div>
 
       <div class="profile-fact">
         <p class="profile-fact-label">Age</p>
-        <p class="profile-fact-value"><span class="tbc">To&nbsp;confirm.</span></p>
+        <p class="profile-fact-value">43.</p>
       </div>
 
       <div class="profile-fact">
@@ -562,6 +574,22 @@
 
     <p class="profile-foot">Full employment history available to interested families, with Ayuni&rsquo;s&nbsp;consent.</p>
 
+  </div>
+</section>
+
+<!-- COOKING GALLERY -->
+<section class="profile-cooking">
+  <div class="profile-cooking-inner">
+    <h2 class="profile-cooking-hdr">Some of her&nbsp;cooking</h2>
+    <p class="profile-cooking-sub">A few dishes from Ayuni&rsquo;s own kitchen, shared with her permission. Her range runs from Western roasts and bakes to Chinese, French and Southeast Asian&nbsp;cooking.</p>
+    <div class="profile-cooking-grid">
+      <figure class="profile-cooking-tile"><img src="images/ayuni-cook-roast-chicken.jpeg" alt="Roast chicken with baby potatoes" loading="lazy"></figure>
+      <figure class="profile-cooking-tile"><img src="images/ayuni-cook-charsiu.jpeg" alt="Char siu and glazed chicken" loading="lazy"></figure>
+      <figure class="profile-cooking-tile"><img src="images/ayuni-cook-yorkshire.jpeg" alt="Yorkshire puddings" loading="lazy"></figure>
+      <figure class="profile-cooking-tile"><img src="images/ayuni-cook-salmon-pastry.jpeg" alt="Salmon baked in pastry" loading="lazy"></figure>
+      <figure class="profile-cooking-tile"><img src="images/ayuni-cook-satay.jpeg" alt="Chicken satay skewers" loading="lazy"></figure>
+      <figure class="profile-cooking-tile"><img src="images/ayuni-cook-dumplings.jpeg" alt="Steamed dumplings" loading="lazy"></figure>
+    </div>
   </div>
 </section>
 

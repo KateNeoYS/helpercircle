@@ -164,7 +164,7 @@ window.HELPERS = [
     id: "evelyn",
     name: "Evelyn",
     initial: "",
-    status: "available",
+    status: "hidden",
     statusLabel: "Available from July / August&nbsp;2026",
     line: "Filipino &middot; 50 &middot; Childcare, household &amp;&nbsp;cooking",
     summary: "Reliable and independent, with 17 years caring for international families in&nbsp;Singapore.",
@@ -318,6 +318,8 @@ window.HELPERS = [
   //   initial: "",                                      // surname initial e.g. "T." — or ""
   //   status: "available",                              // "available" or "placed"
   //   statusLabel: "Available from 1 Aug&nbsp;2026",    // her availability line
+  //   // Sorting is automatic — soonest-available first — read from statusLabel.
+  //   // If the label is vague, set the exact sort date:  availFrom: "2026-08-01"
   //   line: "Filipino &middot; 40 &middot; Cooking &amp;&nbsp;childcare",
   //   summary: "One honest sentence about her — shows as the one-line on the card.",
   //   referredBy: "Referred by [Name], her current employer of X&nbsp;years",
@@ -385,6 +387,49 @@ window.HELPERS = [
     return "other";
   }
   function availOf(h) { return h.availability === "overseas" ? "overseas" : "transfer"; }
+
+  /* ── Sort by availability date (soonest first) ──
+       Reads the date out of statusLabel automatically, so new helpers
+       fall into the right spot with no manual reordering. Handles:
+         "Available from 19 July 2026"      → 19 Jul 2026
+         "Available early/mid/end July 2026" → 1 / 15 / 28 Jul 2026
+         "Available from July / August 2026" → 1 Aug 2026 (uses the LATER month)
+         "Available now"                     → sorts to the front
+       Optional override: add  availFrom: "2026-08-01"  to a helper to set the
+       exact sort date precisely (wins over the statusLabel guess). */
+  var HC_MONTHS = { jan:0, feb:1, mar:2, apr:3, may:4, jun:5, jul:6, aug:7, sep:8, oct:9, nov:10, dec:11 };
+  function availSortKey(h) {
+    if (h.availFrom) {
+      var iso = Date.parse(h.availFrom);
+      if (!isNaN(iso)) return iso;
+    }
+    var s = String(h.statusLabel || "")
+      .replace(/&nbsp;|&middot;|&mdash;|&amp;/g, " ")
+      .toLowerCase();
+    var ym = s.match(/20\d{2}/);
+    var year = ym ? +ym[0] : null;
+    var month = null, bestIdx = -1;
+    for (var key in HC_MONTHS) {
+      var idx = s.lastIndexOf(key);            // LAST month wins ("July / August" → August)
+      if (idx > bestIdx) { bestIdx = idx; month = HC_MONTHS[key]; }
+    }
+    if (month === null) {
+      return /\bnow\b/.test(s) ? 0 : Number.MAX_SAFE_INTEGER;  // undated sinks to the bottom
+    }
+    if (year === null) year = new Date().getFullYear();
+    var dayStr = s.replace(/20\d{2}/g, " ");   // drop the year so it isn't read as a day
+    var dm = dayStr.match(/\b([0-3]?\d)\b/);
+    var day;
+    if (dm) day = +dm[1];
+    else if (/\bearly\b/.test(s)) day = 1;
+    else if (/\bmid\b/.test(s)) day = 15;
+    else if (/\b(end|late)\b/.test(s)) day = 28;
+    else day = 1;
+    return new Date(year, month, day).getTime();
+  }
+  function sortByAvail(list) {
+    return list.slice().sort(function (a, b) { return availSortKey(a) - availSortKey(b); });
+  }
   // Home-page photo badge: green pill (referred) · blue pill (verified) — colour is the signal
   function homeBadge(h) {
     return signalKey(h) === "verified"
@@ -400,7 +445,7 @@ window.HELPERS = [
     var section = document.getElementById("helpers");   // the .avail section
     var pointer = document.getElementById("meet-circle"); // the empty-state pointer
     var accents = ["sage", "peach", "amber"];
-    var list = H.filter(function (h) { return h.status === "available"; }).slice(0, 3);
+    var list = sortByAvail(H.filter(function (h) { return h.status === "available"; })).slice(0, 3);
 
     if (!list.length) {
       if (section) section.style.display = "none";
@@ -560,6 +605,7 @@ recBlock +
 
   function renderBrowseRow(row, status, wrapClass, statusPhrase) {
     var list = H.filter(function (h) { return h.status === status; });
+    if (status === "available") list = sortByAvail(list);
     row.innerHTML = list.map(function (h) {
       return fullCard(h, wrapClass, statusPhrase);
     }).join("\n");

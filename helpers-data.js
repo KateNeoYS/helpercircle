@@ -308,6 +308,28 @@ window.HELPERS = [
     availability: "transfer",
     photo: "images/susana.jpg",
     profile: "profile-susana.html"
+  },
+  {
+    id: "katrine",
+    name: "Katrine",
+    initial: "",
+    status: "available",
+    statusLabel: "Available 1 July&nbsp;2026",
+    line: "Filipino &middot; Childcare specialist, cooking &amp;&nbsp;household",
+    summary: "16 years in Singapore with an education degree and a teaching background &mdash; a warm childcare specialist from newborn onwards, recommended by her current&nbsp;employer.",
+    referredBy: "Referred by Tanielle, her current employer, who recommends her&nbsp;directly",
+    signal: "referred",
+    quote: "\u201cOur children adore her, and we have always felt complete trust and confidence in her&nbsp;care.\u201d",
+    quoteCite: "&mdash; Tanielle",
+    nationality: "Filipino",
+    yearsSG: "16 years in SG",
+    bestFit: "A family with young children",
+    strengths: ["Childcare specialist", "Former teacher", "Newborn to preschool"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
+    age: 42,
+    availability: "transfer",
+    photo: "images/katrine.jpeg",
+    profile: "profile-katrine.html"
   }
 
   // ─── TEMPLATE — copy this, remove the //'s, add a comma after the

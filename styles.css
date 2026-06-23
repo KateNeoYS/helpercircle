@@ -7916,3 +7916,54 @@ body.profile-page { padding-top: 68px; }
 /* Card trust badges: match the "how trust is built" tsig badge (title case, not uppercase) */
 .hc-card .hc-badge--ref, .hc-card .hc-badge--ver,
 .mcard-badge--ref, .mcard-badge--ver { text-transform: none; letter-spacing: .01em; }
+
+
+/* ─────────────────────────────────────────────────────────────
+   Recently-joined ("placed") row → swipe carousel ON MOBILE ONLY,
+   mirroring the home-page .avail-grid behaviour (normal row on
+   desktop, horizontal swipe + dots on narrow screens).
+   Scoped to #success-row so the available grid is untouched.
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 760px) {
+  #success-row {
+    display: flex;
+    grid-template-columns: none;
+    gap: 14px;
+    margin: 0 calc(-1 * var(--space-7));
+    padding: 4px var(--space-7) 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-left: var(--space-7);
+    scrollbar-width: none;
+  }
+  #success-row::-webkit-scrollbar { display: none; }
+  #success-row .mcard-wrap {
+    flex: 0 0 86%;
+    max-width: 360px;
+    scroll-snap-align: start;
+  }
+  #success-row .mcard { height: 100%; }
+
+  #success-row + .avail-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  #success-row + .avail-dots .avail-dot {
+    width: 7px; height: 7px; padding: 0;
+    border: none; border-radius: 50%;
+    background: var(--clr-border, #D8D2C8);
+    cursor: pointer;
+    transition: background .2s ease, transform .2s ease;
+  }
+  #success-row + .avail-dots .avail-dot.is-active {
+    background: var(--clr-primary, #2C8A6E);
+    transform: scale(1.25);
+  }
+}
+/* Desktop: no dots (row is a normal grid, nothing to swipe) */
+@media (min-width: 761px) {
+  #success-row + .avail-dots { display: none; }
+}

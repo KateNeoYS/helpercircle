@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>{{NAME}} — Helper Circle</title>
-  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
-  <meta name="description" content="{{META DESCRIPTION — one sentence: name, nationality, years in SG, who referred her, availability}}"/>
+  <title>Jenny — experienced helper, referred by her employer | Helper Circle</title>
+  <meta name="description" content="Jenny is a Filipino helper with 8 years caring for one family in Singapore, referred directly by her employer Stephen. Available from mid-July 2026."/>
 
-  <!-- Strict no-index: this is an unpublished draft -->
+  <!-- Profiles kept noindex by convention -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,13 +15,34 @@
   <link rel="stylesheet" href="styles.css"/>
 
   <style>
+    /* ─── Draft banner ─── */
+    .draft-banner {
+      background: #FFF0EB;
+      border-bottom: 2px solid var(--clr-coral, #E8825C);
+      padding: 14px 24px;
+      text-align: center;
+      position: static;
+    }
+    .draft-banner-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: .92rem;
+      color: #9B5B3A;
+      line-height: 1.5;
+    }
+    .draft-banner-inner strong {
+      color: #C66740;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
     /* ─── Page container ─── */
     .profile-page { background: var(--clr-white); }
     .profile-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 
     /* ─── HERO ─── */
     .profile-hero {
-      padding: 104px 0 48px;
+      padding: 56px 0 48px;
       background: var(--clr-white);
     }
     .profile-hero-inner {
@@ -57,7 +77,7 @@
       padding: 0 14px;
     }
 
-    /* Real photo (when supplied) */
+    /* Real photo */
     .profile-photo {
       flex: 0 0 180px;
       width: 180px;
@@ -243,6 +263,21 @@
     }
     .profile-notes-prose p:last-child { margin-bottom: 0; }
 
+    /* TBC placeholder block — visually distinct so referrer/helper know what's needed */
+    .profile-notes-prose p.profile-tbc-block {
+      background: #FFFBF5;
+      border-left: 3px solid #E8825C;
+      padding: 16px 18px;
+      color: #9B5B3A;
+      font-size: 1rem;
+      line-height: 1.6;
+      border-radius: 0 4px 4px 0;
+    }
+    .profile-notes-prose p.profile-tbc-block em {
+      font-style: italic;
+      color: #9B5B3A;
+    }
+
     .profile-foot {
       font-style: italic;
       color: var(--clr-text-muted);
@@ -250,112 +285,35 @@
       margin: 32px 0 0;
     }
 
-    /* ─── ASK ABOUT FORM ─── */
-    .profile-ask {
-      background: var(--clr-white, #FFFFFF);
-      padding: 64px 0 80px;
+    /* ─── DRAFT-ONLY: NOTES FROM KATE ─── */
+    .draft-notes {
+      background: #FFFBF5;
+      border: 2px dashed #E8825C;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin: 48px auto;
+      max-width: 720px;
     }
-    .profile-ask-inner { max-width: 560px; margin: 0 auto; padding: 0 24px; }
-    .profile-ask-kicker {
-      display: inline-block;
-      font-size: .72rem;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--clr-primary);
-      background: var(--clr-primary-bg);
-      padding: 4px 10px;
-      border-radius: 4px;
-      margin-bottom: 12px;
-    }
-    .profile-ask-h {
+    .draft-notes h3 {
       font-family: var(--fd, 'Cormorant Garamond', serif);
-      font-weight: 500;
-      font-size: clamp(1.7rem, 3.5vw, 2.1rem);
-      letter-spacing: -0.008em;
-      color: var(--clr-text);
-      margin: 0 0 12px;
-      text-wrap: balance;
+      font-size: 1.4rem;
+      color: #9B5B3A;
+      margin: 0 0 14px;
     }
-    .profile-ask-sub {
-      font-size: 1rem;
-      color: var(--clr-text-muted);
-      line-height: 1.65;
-      margin: 0 0 28px;
-    }
-
-    .ask-field { margin-bottom: 16px; }
-    .ask-field label {
-      display: block;
-      font-size: .85rem;
-      font-weight: 600;
-      color: var(--clr-text);
-      margin-bottom: 6px;
-    }
-    .ask-field-opt {
-      font-weight: 400;
-      color: var(--clr-text-muted);
-      font-size: .8rem;
-    }
-    .ask-field input,
-    .ask-field textarea {
-      width: 100%;
-      padding: 11px 13px;
-      font-size: .98rem;
-      font-family: inherit;
-      color: var(--clr-text);
-      background: var(--clr-white, #FFFFFF);
-      border: 1px solid var(--clr-border, #E8E2D4);
-      border-radius: 6px;
-      transition: border-color .15s;
-    }
-    .ask-field input:focus,
-    .ask-field textarea:focus {
-      outline: none;
-      border-color: var(--clr-primary);
-    }
-    .ask-field textarea { resize: vertical; min-height: 80px; }
-    .ask-submit { width: 100%; margin-top: 4px; }
-    .ask-foot-note {
-      font-size: .82rem;
-      color: var(--clr-text-muted);
-      margin: 14px 0 0;
-      line-height: 1.55;
-    }
-    .ask-direct {
-      font-size: .82rem;
-      color: var(--clr-text-muted);
-      margin: 16px 0 0;
-      padding-top: 14px;
-      border-top: 1px solid var(--clr-border-warm);
-      line-height: 1.55;
-    }
-    .ask-direct a {
-      color: var(--clr-primary);
-      font-weight: 600;
-      text-decoration: none;
-      border-bottom: 1px solid var(--clr-primary);
-    }
-    .ask-success, .ask-error {
-      background: var(--clr-primary-bg);
-      border-left: 3px solid var(--clr-primary);
-      padding: 16px 18px;
-      border-radius: 0 8px 8px 0;
-      margin-top: 12px;
-    }
-    .ask-error {
-      background: #FFF0EB;
-      border-left-color: #E8825C;
-    }
-    .ask-success p, .ask-error p {
+    .draft-notes ul {
       margin: 0;
+      padding-left: 22px;
       color: var(--clr-text-2);
-      line-height: 1.6;
+      line-height: 1.7;
     }
+    .draft-notes li {
+      margin-bottom: 10px;
+    }
+    .draft-notes li strong { color: #C66740; }
 
     /* ─── MOBILE ADJUSTMENTS ─── */
     @media (max-width: 640px) {
-      .profile-hero { padding: 96px 0 36px; }
+      .profile-hero { padding: 40px 0 36px; }
       .profile-hero-inner {
         gap: 24px;
         justify-content: center;
@@ -374,32 +332,44 @@
       .profile-facts-grid { grid-template-columns: 1fr; }
       .profile-fact { padding: 20px 18px; }
     }
+
+    /* ─── ASK ABOUT FORM ─── */
+    .profile-cooking { background: var(--clr-cream, #FCF7EE); padding: 56px 0 60px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
+    .profile-cooking-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .profile-cooking-hdr { font-family: var(--fd, 'Cormorant Garamond', serif); font-weight: 500; font-size: clamp(1.7rem, 3.5vw, 2.1rem); letter-spacing: -0.008em; color: var(--clr-text, #1F2A24); margin: 0 0 12px; }
+    .profile-cooking-sub { font-size: 1rem; color: var(--clr-text-muted, #5A6661); line-height: 1.65; margin: 0 0 28px; max-width: 60ch; }
+    .profile-cooking-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .profile-cooking-tile { margin: 0; border-radius: 10px; overflow: hidden; background: #EFE7D8; box-shadow: 0 1px 3px rgba(31,42,36,.08); }
+    .profile-cooking-tile img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+    @media (max-width: 560px) {
+      .profile-cooking-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
+    .profile-ask { background: var(--clr-white, #FFFFFF); padding: 56px 0 72px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
+    .profile-ask-inner { max-width: 560px; margin: 0 auto; padding: 0 24px; }
+    .profile-ask-kicker { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--clr-primary); background: var(--clr-primary-bg); padding: 4px 10px; border-radius: 4px; margin-bottom: 12px; }
+    .profile-ask-h { font-family: var(--fd, 'Cormorant Garamond', serif); font-weight: 500; font-size: clamp(1.7rem, 3.5vw, 2.1rem); letter-spacing: -0.008em; color: var(--clr-text); margin: 0 0 12px; text-wrap: balance; }
+    .profile-ask-sub { font-size: 1rem; color: var(--clr-text-muted); line-height: 1.65; margin: 0 0 28px; }
+    .ask-field { margin-bottom: 16px; }
+    .ask-field label { display: block; font-size: .85rem; font-weight: 600; color: var(--clr-text); margin-bottom: 6px; }
+    .ask-field-opt { font-weight: 400; color: var(--clr-text-muted); font-size: .8rem; }
+    .ask-field input, .ask-field textarea { width: 100%; padding: 11px 13px; font-size: .98rem; font-family: inherit; color: var(--clr-text); background: var(--clr-white, #FFFFFF); border: 1px solid var(--clr-border, #E8E2D4); border-radius: 6px; transition: border-color .15s; }
+    .ask-field input:focus, .ask-field textarea:focus { outline: none; border-color: var(--clr-primary); }
+    .ask-field textarea { resize: vertical; min-height: 80px; }
+    .ask-submit { width: 100%; margin-top: 4px; }
+    .ask-foot-note { font-size: .82rem; color: var(--clr-text-muted); margin: 14px 0 0; line-height: 1.55; }
+    .ask-success, .ask-error { background: var(--clr-primary-bg); border-left: 3px solid var(--clr-primary); padding: 16px 18px; border-radius: 0 8px 8px 0; margin-top: 12px; }
+    .ask-error { background: #FFF0EB; border-left-color: #E8825C; }
+    .ask-success p, .ask-error p { margin: 0; color: var(--clr-text-2); line-height: 1.6; }
+  </style>
+  <style>
+    .draft-banner{background:#FFF3DC;border-bottom:1px solid #EAD3A0;color:#7A5712;
+      font-family:'DM Sans',system-ui,sans-serif;font-size:.9rem;line-height:1.55;padding:14px 0}
+    .draft-banner strong{color:#5E440D}
+    .tbc{color:#A8741A;font-style:italic}
+    .profile-chip.tbc{background:#FFF3DC;border:1px dashed #E2BE73;color:#8A6314;font-style:normal}
   </style>
 </head>
 <body class="profile-page">
-<!--
-  ══════════════════════════════════════════════════════════════
-  HELPER CIRCLE — PROFILE TEMPLATE
-  Built from the live Amie profile. To create a new profile:
-
-  1. Save as profile-<firstname>.html (lowercase).
-  2. Find-and-replace {{NAME}} with the helper's display name (e.g. Jennifer).
-  3. Replace {{SLUG}} with the image filename (e.g. jennifer → images/jennifer.jpg,
-     a 480×480 crop, object-position: center center).
-  4. Replace {{REFERRER}} with the referring employer's first name.
-  5. Fill every {{...}} and {{TBC}} block. TBC blocks are safe to share with
-     the referrer as-is to collect their input before publishing.
-  6. Leave intact (do NOT delete): the <header> nav, <script src="script.js">,
-     the .ask-direct fallback line, and the noindex meta tag.
-
-  Notes carried over from build:
-  • Hero top padding is 104px desktop / 96px mobile — clears the 68px fixed
-    header. Do not reduce.
-  • Form posts to Formspree mredjvwg and uses the ask-foot-note pattern.
-  • noindex is intentional (helper privacy) — keep it.
-  ══════════════════════════════════════════════════════════════
--->
-
 <!-- ═══ HEADER ═══ -->
 <header class="site-header" id="site-header">
   <div class="wrap header-inner">
@@ -410,7 +380,6 @@
     <nav class="site-nav" id="site-nav">
       <a href="browse.html" class="nav-a">Meet Helpers</a>
       <a href="refer.html" class="nav-a">Refer a Helper</a>
-      <a href="register.html" class="nav-a">Register as a Helper</a>
       <a href="index.html#how" class="nav-a">How It Works</a>
       <a href="faq.html" class="nav-a">FAQ</a>
       <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
@@ -423,25 +392,26 @@
 </header>
 
 <!-- ═══ HERO ═══ -->
+
 <section class="profile-hero">
   <div class="profile-wrap">
     <div class="profile-hero-inner">
 
-      <img src="images/{{SLUG}}.jpg" alt="{{NAME}}" class="profile-photo">
+      <img class="profile-photo" src="images/jenny.jpeg" alt="Jenny" />
 
       <div class="profile-hero-text">
-        <h1 class="profile-name">{{NAME}}</h1>
-        <p class="profile-descriptor">{{DESCRIPTOR — e.g. Filipino &middot; 42 &middot; Childcare, household &amp; cooking}}</p>
+        <h1 class="profile-name">Jenny</h1>
+        <p class="profile-descriptor">Filipino &middot; Household management &amp;&nbsp;childcare</p>
 
         <p class="profile-verified-line">
-          <strong>Referred by {{REFERRER}}</strong>, {{RELATIONSHIP — e.g. her current employer of N years}}. {{ONE SENTENCE — what the referrer has shared, or reference-letter availability}}
+          <strong>Referred by Stephen, her employer of eight years</strong>, who recommends her&nbsp;directly.
         </p>
 
-        <p class="profile-quote">"{{HERO QUOTE — one short, specific observation from the referrer, in her own words}}"</p>
-        <p class="profile-quote-attr">&mdash; {{REFERRER}}, her current employer</p>
+        <p class="profile-quote">"A trusted and dependable part of our home for eight&nbsp;years."</p>
+        <p class="profile-quote-attr">&mdash; Stephen, her&nbsp;employer</p>
 
         <div class="profile-hero-cta">
-          <a href="#ask" class="btn btn-green">Ask about {{NAME}}</a>
+          <a href="#ask" class="btn btn-green">Ask about Jenny</a>
           <span class="profile-hero-cta-meta">We respond within 1&ndash;2 business&nbsp;days</span>
         </div>
       </div>
@@ -450,41 +420,39 @@
   </div>
 </section>
 
-<!-- ═══ TRUST SIGNALS ═══ -->
+<!-- TRUST SIGNALS -->
 <section class="profile-trust">
   <div class="profile-wrap">
     <p class="profile-section-label">Trust signals</p>
     <div class="psig psig--rec">
       <span class="tsig tsig--rec"><span class="tsig-mark" aria-hidden="true">&#11088;</span> Employer Recommended</span>
       <ul class="psig-list">
-        <li>{{Recommendation from REFERRER, who vouches for her directly}}</li>
-        <li>{{REFERRER is happy for an interested family to speak with them as part of the introduction}}</li>
+        <li>Recommendation from Stephen, her employer of eight years, who vouches for her&nbsp;directly</li>
+        <li>Stephen is happy for an interested family to speak with him as part of the&nbsp;introduction</li>
       </ul>
-      <p class="psig-note">Our strongest trust signal &mdash; a family who knows her, recommending her&nbsp;directly.</p>
+      <p class="psig-note">Our strongest trust signal &mdash; a family she works for now, recommending her&nbsp;directly.</p>
     </div>
-    <!-- For a verified-only helper, swap the block above for:
-    <div class="psig psig--ver">
-      <span class="tsig tsig--ver"><span class="tsig-mark" aria-hidden="true">&#128197;</span> Long-Term Employment Verified</span>
-      <ul class="psig-list"><li>{{4+ years with one family, confirmed against official MOM records}}</li></ul>
-      <p class="psig-note">No personal recommendation attached &mdash; her record speaks for&nbsp;itself.</p>
-    </div> -->
   </div>
 </section>
 
-<!-- ═══ AT A GLANCE ═══ -->
+<!-- AT A GLANCE -->
 <section class="profile-glance">
   <div class="profile-wrap">
     <p class="profile-section-label">At a glance</p>
     <div class="profile-chips">
-      <span class="profile-chip">{{Trait / skill 1}}</span>
-      <span class="profile-chip">{{Trait / skill 2}}</span>
-      <span class="profile-chip">{{Trait / skill 3}}</span>
-      <span class="profile-chip">{{Add 4–8 short, concrete chips — use &amp;nbsp; between the last two words}}</span>
+      <span class="profile-chip">Household management</span>
+      <span class="profile-chip">Cleaning &amp; organisation</span>
+      <span class="profile-chip">Cooking family meals</span>
+      <span class="profile-chip">Grocery shopping &amp; errands</span>
+      <span class="profile-chip">Childcare, young to teens</span>
+      <span class="profile-chip">Reliable &amp; dependable</span>
+      <span class="profile-chip">Kind &amp; familiar with routines</span>
+      <span class="profile-chip">8 years with one family</span>
     </div>
   </div>
 </section>
 
-<!-- ═══ KEY FACTS GRID ═══ -->
+<!-- KEY FACTS GRID -->
 <section class="profile-facts">
   <div class="profile-wrap">
     <p class="profile-section-label">The essentials</p>
@@ -492,132 +460,132 @@
 
       <div class="profile-fact">
         <p class="profile-fact-label">Currently</p>
-        <p class="profile-fact-value">{{TBC}}</p>
+        <p class="profile-fact-value">With Stephen&rsquo;s family for eight years, a trusted and dependable part of their home throughout that&nbsp;time.</p>
       </div>
 
       <div class="profile-fact">
         <p class="profile-fact-label">Available from</p>
-        <p class="profile-fact-value"><strong>{{TBC}}</strong></p>
+        <p class="profile-fact-value"><strong>Mid-July 2026</strong></p>
       </div>
 
       <div class="profile-fact">
-        <p class="profile-fact-label">Why she's moving on</p>
-        <p class="profile-fact-value">{{TBC — frame as changing family needs, not related to her work}}</p>
+        <p class="profile-fact-label">Why she&rsquo;s moving on</p>
+        <p class="profile-fact-value">Stephen&rsquo;s family no longer needs full-time help. Not related to her&nbsp;work.</p>
       </div>
 
       <div class="profile-fact">
-        <p class="profile-fact-label">Singapore experience</p>
-        <p class="profile-fact-value">{{TBC}}</p>
+        <p class="profile-fact-label">Experience</p>
+        <p class="profile-fact-value">Eight years with one family in Singapore, caring for their two children from young right through to their early teens, while managing the&nbsp;household.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Strengths (per her employer)</p>
+        <p class="profile-fact-value">Highly experienced in managing a household, reliable and dependable, kind, and familiar with the rhythms of family life and&nbsp;routines.</p>
       </div>
 
       <div class="profile-fact">
         <p class="profile-fact-label">Children</p>
-        <p class="profile-fact-value">{{TBC}}</p>
+        <p class="profile-fact-value">Cared for the same two children across eight years, from young children through to their early&nbsp;teens.</p>
       </div>
 
       <div class="profile-fact">
         <p class="profile-fact-label">Cooking</p>
-        <p class="profile-fact-value">{{TBC}}</p>
+        <p class="profile-fact-value">Cooks family meals as part of running the&nbsp;household.</p>
       </div>
 
       <div class="profile-fact">
         <p class="profile-fact-label">Languages</p>
-        <p class="profile-fact-value">{{TBC}}</p>
+        <p class="profile-fact-value">English and Tagalog&nbsp;(Filipino).</p>
       </div>
 
       <div class="profile-fact">
-        <p class="profile-fact-label">Rest days</p>
-        <p class="profile-fact-value">{{TBC}}</p>
+        <p class="profile-fact-label">Best fit</p>
+        <p class="profile-fact-value">A family who&rsquo;d value an experienced, dependable helper to manage the household and care for children, long&nbsp;term.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Pets</p>
+        <p class="profile-fact-value"><em>To be confirmed with&nbsp;Jenny.</em></p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Age</p>
+        <p class="profile-fact-value">Late&nbsp;40s</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Nationality</p>
+        <p class="profile-fact-value">Filipino</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ═══ EMPLOYER NOTES ═══ -->
+<!-- EMPLOYER NOTES -->
 <section class="profile-notes">
   <div class="profile-wrap">
     <h2 class="profile-notes-hdr">Notes from her&nbsp;employer</h2>
-    <p class="profile-notes-sub">{{TBC — where these notes are drawn from, e.g. a written reference and earlier conversations}}</p>
+    <p class="profile-notes-sub">Drawn from Stephen&rsquo;s referral. We&rsquo;ll add a few words from Jenny&nbsp;herself.</p>
 
     <div class="profile-notes-prose">
-      <p>{{Background — years in SG, family history, languages}}</p>
+      <p>Stephen has shared a warm referral for Jenny, who has been a trusted and dependable part of his family&rsquo;s home for eight&nbsp;years.</p>
 
-      <p>{{Character &amp; trust — ideally a short quote from the referrer, in <em>"italics"</em>}}</p>
+      <p>Over those eight years she helped care for their two children, who are now in their early teens, while managing the household with calm&nbsp;confidence.</p>
 
-      <p>{{Household &amp; daily responsibilities}}</p>
+      <p>Stephen describes her as highly experienced in running a home, general household management, cleaning and organisation, grocery shopping and errands, and cooking family&nbsp;meals.</p>
 
-      <p>{{Cooking}}</p>
+      <p>He writes that she is responsible, kind, and familiar with the rhythms of family life and routines, the kind of steady, reliable presence a family settles into&nbsp;easily.</p>
 
-      <p>{{One honest note the referrer wanted to share, in her words}}</p>
-
-      <p>{{Work style}}</p>
-
-      <p>{{Pets / any specifics}}</p>
-
-      <p>{{What the helper is hoping for next, in her own words}}</p>
+      <p>Stephen&rsquo;s family no longer needs full-time help, which is the only reason they are saying goodbye. He hopes to see Jenny find a caring new family who will value&nbsp;her.</p>
     </div>
 
-    <p class="profile-foot">{{TBC — reference-letter availability line, with the helper's consent}}</p>
+    <p class="profile-foot">More from Stephen available to interested families, with Jenny&rsquo;s&nbsp;consent.</p>
 
   </div>
 </section>
 
-<!-- ═══ ASK ABOUT {{NAME}} FORM ═══ -->
+<!-- ASK -->
 <section class="profile-ask" id="ask">
   <div class="profile-ask-inner">
-
     <span class="profile-ask-kicker">Interested?</span>
-    <h2 class="profile-ask-h">Ask about&nbsp;{{NAME}}</h2>
-    <p class="profile-ask-sub">Tell us a little about your household and we'll be in touch within 1&ndash;2 business&nbsp;days. We'll only move forward if it feels like a genuine&nbsp;fit.</p>
-
+    <h2 class="profile-ask-h">Ask about Jenny</h2>
+    <p class="profile-ask-sub">Tell us a little about your household and we&rsquo;ll be in touch within 1&ndash;2 business&nbsp;days. We&rsquo;ll only move forward if it feels like a genuine&nbsp;fit.</p>
     <form id="form-ask" action="https://formspree.io/f/mredjvwg" method="POST">
-      <input type="hidden" name="helper-name" value="{{NAME}}"/>
-      <input type="hidden" name="_subject" value="Helper Circle — Interest in {{NAME}}"/>
-
+      <input type="hidden" name="helper-name" value="Jenny"/>
+      <input type="hidden" name="_subject" value="Helper Circle — Interest in Jenny"/>
       <div class="ask-field">
         <label for="ask-name">Your name</label>
         <input type="text" id="ask-name" name="name" required placeholder="Jane Tan" autocomplete="name"/>
       </div>
-
       <div class="ask-field">
         <label for="ask-email">Email</label>
         <input type="email" id="ask-email" name="email" required placeholder="you@email.com" autocomplete="email"/>
       </div>
-
       <div class="ask-field">
         <label for="ask-phone">Phone <span class="ask-field-opt">(optional, but helps)</span></label>
         <input type="tel" id="ask-phone" name="phone" placeholder="+65 9123 4567" autocomplete="tel"/>
       </div>
-
       <div class="ask-field">
         <label for="ask-household">Briefly, your household</label>
         <textarea id="ask-household" name="household" rows="3" required placeholder="Who lives at home, ages, any pets, what your typical day looks like&hellip;"></textarea>
       </div>
-
       <div class="ask-field">
-        <label for="ask-why">Why {{NAME}}? <span class="ask-field-opt">(optional)</span></label>
-        <textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you're hoping for&hellip;"></textarea>
+        <label for="ask-why">Why Jenny? <span class="ask-field-opt">(optional)</span></label>
+        <textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you&rsquo;re hoping for&hellip;"></textarea>
       </div>
-
       <button type="submit" class="btn btn-green ask-submit">Send to Helper Circle</button>
-
-      <p class="ask-foot-note">We read every message personally. If {{NAME}} seems like a fit for your household, we'll set up a short call to talk through the next&nbsp;step.</p>
-
-      <p class="ask-direct">Prefer to email instead? Reach us directly at <a href="mailto:hello@helpercircle.sg?subject=Interest%20in%20{{NAME}}">hello@helpercircle.sg</a>.</p>
-
+      <p class="ask-foot-note">We read every message personally. If Jenny seems like a fit for your household, we&rsquo;ll set up a short call to talk through the next&nbsp;step.</p>
       <div class="ask-success" hidden>
-        <p>Thank you. We've received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p>
+        <p>Thank you. We&rsquo;ve received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p>
       </div>
       <div class="ask-error" hidden>
-        <p>Something didn't go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p>
+        <p>Something didn&rsquo;t go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p>
       </div>
     </form>
-
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-inner">
@@ -630,8 +598,6 @@
         <a href="browse.html">Meet Helpers</a>
         <span class="footer-nav-sep">·</span>
         <a href="refer.html">Refer a Helper</a>
-        <span class="footer-nav-sep">·</span>
-        <a href="register.html">Register as a Helper</a>
         <span class="footer-nav-sep">·</span>
         <a href="index.html#how">How It Works</a>
         <span class="footer-nav-sep">·</span>
@@ -654,7 +620,7 @@
   </div>
 </footer>
 
-<!-- Formspree AJAX submission -->
+<script src="script.js"></script>
 <script>
 (function () {
   var form = document.getElementById('form-ask');
@@ -664,46 +630,27 @@
   var errorEl = form.querySelector('.ask-error');
   var fields = form.querySelectorAll('.ask-field');
   var noteEl = form.querySelector('.ask-foot-note');
-  var directEl = form.querySelector('.ask-direct');
-
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.dataset.originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Sending\u2026';
-    }
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.dataset.originalText = submitBtn.textContent; submitBtn.textContent = 'Sending\u2026'; }
     if (errorEl) errorEl.hidden = true;
-
     var data = new FormData(form);
-    fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    })
+    fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
       .then(function (res) {
         if (res.ok) {
           fields.forEach(function (f) { f.style.display = 'none'; });
           if (submitBtn) submitBtn.style.display = 'none';
           if (noteEl) noteEl.style.display = 'none';
-          if (directEl) directEl.style.display = 'none';
           if (successEl) successEl.hidden = false;
-        } else {
-          throw new Error('Form submission failed');
-        }
+        } else { throw new Error('Form submission failed'); }
       })
       .catch(function () {
         if (errorEl) errorEl.hidden = false;
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = submitBtn.dataset.originalText || 'Send to Helper Circle';
-        }
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.originalText || 'Send to Helper Circle'; }
       });
   });
 })();
 </script>
-
-<script src="script.js"></script>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>var y=document.getElementById('year');if(y){y.textContent=new Date().getFullYear();}</script>
 </body>
 </html>

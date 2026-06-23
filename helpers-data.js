@@ -502,12 +502,12 @@ window.HELPERS = [
   }
 
   /* ── Swipe tracker dots for the mobile carousel ── */
-  function buildDots(grid) {
+  function buildDots(grid, cardSelector) {
     // remove any previously injected dots (idempotent)
     var existing = grid.parentNode.querySelector(".avail-dots");
     if (existing) existing.parentNode.removeChild(existing);
 
-    var cards = grid.querySelectorAll(".hc-card");
+    var cards = grid.querySelectorAll(cardSelector || ".hc-card");
     if (cards.length < 2) return;
 
     var dots = document.createElement("div");
@@ -609,6 +609,8 @@ recBlock +
     row.innerHTML = list.map(function (h) {
       return fullCard(h, wrapClass, statusPhrase);
     }).join("\n");
+    // Swipe dots for the placed/"recently joined" row only (mobile carousel).
+    if (status === "placed") buildDots(row, ".mcard-wrap");
   }
 
   function render() {

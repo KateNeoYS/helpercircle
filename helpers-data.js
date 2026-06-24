@@ -79,6 +79,28 @@ window.HELPERS = [
     profile: "profile-timunah.html"
   },
   {
+    id: "jenny",
+    name: "Jenny",
+    initial: "",
+    status: "available",
+    statusLabel: "Available mid-July&nbsp;2026",
+    line: "Filipino &middot; 48 &middot; Household management &amp;&nbsp;childcare",
+    summary: "Eight years with one family in Singapore, trusted across the whole household, warmly recommended by her current&nbsp;employer.",
+    referredBy: "Referred by Stephen, her employer of eight&nbsp;years",
+    signal: "referred",
+    quote: "\u201cA trusted and dependable part of our home for eight&nbsp;years.\u201d",
+    quoteCite: "&mdash; Stephen",
+    nationality: "Filipino",
+    yearsSG: "8 years with one family",
+    bestFit: "Household management &amp; childcare, long&nbsp;term",
+    strengths: ["8 years with one family", "Full household &amp; cooking", "Comfortable with cats &amp; dogs"],
+    skills: ["Housekeeping", "Cooking", "Childcare"],
+    age: 48,
+    availability: "transfer",
+    photo: "images/jenny.jpeg",
+    profile: "profile-jenny.html"
+  },
+  {
     id: "belinda",
     name: "Belinda",
     initial: "",

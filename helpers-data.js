@@ -675,8 +675,51 @@ recBlock +
     row.innerHTML = list.map(function (h) {
       return fullCard(h, wrapClass, statusPhrase);
     }).join("\n");
-    // Swipe dots for the placed/"recently joined" row only (mobile carousel).
-    if (status === "placed") buildDots(row, ".mcard-wrap");
+    // Placed/"recently joined" row: swipe dots on mobile, prev/next arrows on desktop.
+    if (status === "placed") {
+      buildDots(row, ".mcard-wrap");
+      buildArrows(row);
+    }
+  }
+
+  /* Desktop prev/next arrows for the placed rail. Visible only when the row
+     overflows; mobile uses swipe + dots instead. */
+  function buildArrows(row) {
+    var rail = row.closest ? row.closest(".success-rail") : row.parentNode;
+    if (!rail) return;
+    Array.prototype.forEach.call(rail.querySelectorAll(".success-arrow"), function (a) { a.parentNode.removeChild(a); });
+
+    function arrow(dir) {
+      var b = document.createElement("button");
+      b.className = "success-arrow success-arrow--" + dir;
+      b.type = "button";
+      b.setAttribute("aria-label", dir === "prev" ? "Previous" : "Next");
+      b.innerHTML = dir === "prev"
+        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>';
+      return b;
+    }
+    var prev = arrow("prev"), next = arrow("next");
+    rail.appendChild(prev); rail.appendChild(next);
+
+    function step() {
+      var card = row.querySelector(".mcard-wrap");
+      return card ? card.getBoundingClientRect().width + 24 : row.clientWidth * 0.8;
+    }
+    prev.addEventListener("click", function () { row.scrollBy({ left: -step(), behavior: "smooth" }); });
+    next.addEventListener("click", function () { row.scrollBy({ left: step(), behavior: "smooth" }); });
+
+    function update() {
+      var overflow = row.scrollWidth - row.clientWidth > 4;
+      if (!overflow) { prev.classList.remove("is-visible"); next.classList.remove("is-visible"); return; }
+      prev.classList.toggle("is-visible", row.scrollLeft > 2);
+      next.classList.toggle("is-visible", row.scrollLeft < (row.scrollWidth - row.clientWidth - 2));
+    }
+    row.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    var raf = window.requestAnimationFrame || function (cb) { return setTimeout(cb, 16); };
+    raf(update);
+    setTimeout(update, 60);
   }
 
   function render() {

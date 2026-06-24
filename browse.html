@@ -358,6 +358,55 @@
         margin: 0 !important;
       }
       .mcard-grid:not(.is-list) .mcard { height: 100%; }
+
+      /* ── Placed/"recently joined" row → single no-wrap row + arrows (desktop) ──
+         Overrides the wrapping grid above for #success-row ONLY, so placed
+         helpers sit on ONE line that scrolls sideways instead of wrapping. ── */
+      .success-rail { position: relative; }
+      #success-row {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        gap: 24px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: x proximity;
+        padding-bottom: 6px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      #success-row::-webkit-scrollbar { display: none; }
+      #success-row .mcard-wrap {
+        flex: 0 0 440px !important;
+        max-width: 440px !important;
+        width: 440px !important;
+        margin: 0 !important;
+        scroll-snap-align: start;
+      }
+      #success-row .mcard { height: 100%; }
+
+      .success-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+        width: 44px; height: 44px;
+        border-radius: 50%;
+        border: 1px solid var(--clr-border-warm, #E8DFD0);
+        background: #fff;
+        box-shadow: 0 4px 16px rgba(0,0,0,.10);
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        color: var(--clr-primary, #2C8A6E);
+        transition: background .2s ease;
+      }
+      .success-arrow:hover { background: var(--clr-primary-bg, #EAF5F0); }
+      .success-arrow.is-visible { display: flex; }
+      .success-arrow--prev { left: -10px; }
+      .success-arrow--next { right: -10px; }
+      .success-arrow svg { width: 18px; height: 18px; }
     }
 
     /* ════════════════════════════════════════════════════════════════
@@ -673,7 +722,9 @@
       <h2 class="h2">Recently joined a new&nbsp;family</h2>
       <p class="format-sub">A quiet record of helpers introduced to their next family through Helper&nbsp;Circle.</p>
     </div>
-    <div class="mcard-grid" id="success-row"></div>
+    <div class="success-rail">
+      <div class="mcard-grid" id="success-row"></div>
+    </div>
   </div>
 </section>
 

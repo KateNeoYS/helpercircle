@@ -126,7 +126,7 @@ window.HELPERS = [
     id: "belinda",
     name: "Belinda",
     initial: "",
-    status: "available",
+    status: "hidden",
     statusLabel: "Available early July&nbsp;2026",
     line: "Filipino &middot; Cooking, household &amp;&nbsp;childcare",
     summary: "Over 16 years with families in Singapore, hospitality-trained, and warmly recommended by her current&nbsp;employer.",

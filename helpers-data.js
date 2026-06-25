@@ -312,7 +312,7 @@ window.HELPERS = [
     id: "ayuni",
     name: "Ayuni",
     initial: "",
-    status: "available",
+    status: "hidden",
     statusLabel: "Available from 19 July&nbsp;2026",
     line: "Indonesian &middot; 43 &middot; Cooking, household &amp;&nbsp;childcare",
     summary: "More than 18 years in Singapore, an experienced all-rounder warmly recommended by her former&nbsp;employer.",

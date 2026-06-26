@@ -336,7 +336,7 @@ window.HELPERS = [
     name: "Susana",
     initial: "",
     status: "available",
-    statusLabel: "Available from 13 July&nbsp;2026",
+    statusLabel: "Available now",
     line: "Filipino &middot; Cooking, household &amp;&nbsp;childcare",
     summary: "Around 20 years in Singapore, a capable cook and carer, recommended by her current&nbsp;employer.",
     referredBy: "Referred by Renata, her current employer since&nbsp;2024",

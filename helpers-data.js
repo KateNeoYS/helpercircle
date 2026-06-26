@@ -358,7 +358,7 @@ window.HELPERS = [
     name: "Katrine",
     initial: "",
     status: "available",
-    statusLabel: "Available 1 July&nbsp;2026",
+    statusLabel: "Available now",
     line: "Filipino &middot; Childcare specialist, cooking &amp;&nbsp;household",
     summary: "16 years in Singapore with an education degree and a teaching background &mdash; a warm childcare specialist from newborn onwards, recommended by her current&nbsp;employer.",
     referredBy: "Referred by Tanielle, her current employer, who recommends her&nbsp;directly",
@@ -374,6 +374,30 @@ window.HELPERS = [
     availability: "transfer",
     photo: "images/katrine.jpeg",
     profile: "profile-katrine.html"
+  },
+  {
+    id: "kim",
+    name: "Kim",
+    initial: "",
+    status: "available",
+    statusLabel: "Available mid-July&nbsp;2026",
+    line: "Myanmar &middot; 32 &middot; Housekeeping, cooking &amp;&nbsp;childcare",
+    summary: "Nine years in Singapore with long, stable employment &mdash; now focused on housekeeping, cooking and childcare (ages&nbsp;5+).",
+    referredBy: "",
+    signal: "verified",
+    verifiedSub: "Over 6 years with one employer",
+    verifiedYears: 6,
+    quote: "",
+    quoteCite: "",
+    nationality: "Myanmar",
+    yearsSG: "9 years",
+    bestFit: "Housekeeping &amp; cooking; childcare 5+",
+    strengths: ["6+ years, one employer", "Housekeeping &amp; cooking", "Childcare (ages 5+)"],
+    skills: ["Housekeeping", "Cooking", "Childcare"],
+    age: 32,
+    availability: "transfer",
+    photo: "images/kim.jpg",
+    profile: "profile-kim.html"
   }
 
   // ─── TEMPLATE — copy this, remove the //'s, add a comma after the

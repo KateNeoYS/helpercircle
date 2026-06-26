@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Kim — Helper Circle</title>
+  <meta name="description" content="Kim — Long-Term Employment Verified. Myanmar helper, nine years in Singapore including nearly eight in one home, verified against MOM employment records. Childcare, elderly care, cooking and household."/>
+
+  <!-- noindex by convention — all live profiles carry this -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
+  <link rel="stylesheet" href="styles.css"/>
+
+  <style>
+    /* Clear the fixed 68px site-header so nothing hides beneath it */
+    body.profile-page { background: var(--clr-white); padding-top: 68px; }
+    .profile-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── Draft banner (static — sits below the header, never clipped) ─── */
+    .draft-banner {
+      background: #FFF0EB;
+      border-bottom: 1px solid var(--clr-coral, #E8825C);
+      padding: 12px 24px; text-align: center;
+    }
+    .draft-banner-inner {
+      max-width: 720px; margin: 0 auto;
+      font-size: .9rem; color: #9B5B3A; line-height: 1.5;
+    }
+    .draft-banner-inner strong { color: #C66740; font-weight: 700; letter-spacing: .02em; }
+
+    /* ─── TBC marker (draft-only; remove at go-live) ─── */
+    .tbc {
+      background: #FCEBDF; color: #B5612F; font-style: normal;
+      padding: 0 5px; border-radius: 4px; font-size: .9em; font-weight: 600;
+      box-shadow: inset 0 0 0 1px #E8B894;
+    }
+
+    /* ─── HERO ─── */
+    .profile-hero { padding: 40px 0 32px; background: var(--clr-white); }
+    .profile-hero-inner { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
+    .profile-photo {
+      flex: 0 0 190px; width: 190px; height: 190px;
+      border-radius: 20px; object-fit: cover; object-position: center top;
+      background: var(--clr-cream); box-shadow: 0 2px 10px rgba(31,42,36,.10);
+    }
+    .profile-hero-text { flex: 1 1 320px; min-width: 0; }
+    .profile-name {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500; font-size: clamp(2.3rem, 5vw, 3rem);
+      letter-spacing: -0.012em; color: var(--clr-text);
+      margin: 0 0 4px; line-height: 1.05;
+    }
+    .profile-descriptor {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic; font-size: 1.12rem; color: var(--clr-text-muted); margin: 0 0 14px;
+    }
+    .profile-meta {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px;
+      font-size: .92rem; color: var(--clr-text-2); margin: 0 0 18px;
+    }
+    .profile-meta .sep { color: var(--clr-text-faint, #9AA0A6); }
+
+    /* ─── Prominent verification card (the page's signature element) ─── */
+    .verify-card {
+      display: flex; align-items: center; gap: 16px;
+      background: #EAF2F7; border: 1px solid #CBDDE9; border-left: 4px solid #2E6F95;
+      border-radius: 14px; padding: 16px 18px; margin: 0 0 20px;
+    }
+    .verify-card-ico {
+      flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%;
+      background: #2E6F95; display: flex; align-items: center; justify-content: center;
+    }
+    .verify-card-title {
+      font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      color: #1F4E6B; margin: 0 0 3px;
+    }
+    .verify-card-fact { font-size: 1.02rem; font-weight: 600; color: var(--clr-text); margin: 0; line-height: 1.35; }
+    .verify-card-fact span { font-weight: 400; color: var(--clr-text-muted); font-size: .92rem; }
+
+    /* CTA */
+    .profile-hero-cta { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .profile-hero-cta-meta { font-size: .86rem; color: var(--clr-text-muted); font-style: italic; }
+
+    /* ─── Content blocks ─── */
+    .profile-block { padding: 26px 0; border-top: 1px solid var(--clr-border-warm); }
+    .profile-section-label {
+      font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--clr-primary); margin: 0 0 16px;
+    }
+    .block-line { font-size: 1rem; line-height: 1.6; color: var(--clr-text-2); margin: 0 0 14px; }
+
+    /* Highlights */
+    .hl { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .hl li {
+      position: relative; padding-left: 30px;
+      font-size: 1.02rem; line-height: 1.5; color: var(--clr-text-2);
+    }
+    .hl li strong { color: var(--clr-text); font-weight: 600; }
+    .hl li::before {
+      content: ""; position: absolute; left: 0; top: 2px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--clr-primary-bg, #EAF5EF);
+      box-shadow: inset 0 0 0 1.5px var(--clr-primary, #2C8A6E);
+    }
+    .hl li::after {
+      content: ""; position: absolute; left: 6px; top: 8px;
+      width: 6px; height: 3px; border-left: 1.5px solid var(--clr-primary, #2C8A6E);
+      border-bottom: 1.5px solid var(--clr-primary, #2C8A6E); transform: rotate(-45deg);
+    }
+
+    /* Chips */
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      font-size: .88rem; color: var(--clr-text-2); background: var(--clr-cream);
+      border: 1px solid var(--clr-border-warm); padding: 7px 13px; border-radius: 999px; white-space: nowrap;
+    }
+
+    /* Mini fact grid */
+    .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px 24px; margin-top: 4px; }
+    .fact-k { font-size: .7rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--clr-text-muted); margin: 0 0 4px; }
+    .fact-v { font-size: .98rem; line-height: 1.5; color: var(--clr-text); margin: 0; }
+
+    .muted-note { font-size: .9rem; font-style: italic; color: var(--clr-text-muted); margin: 14px 0 0; line-height: 1.6; }
+
+    /* Training / credentials list */
+    .cred { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+    .cred li { display: flex; justify-content: space-between; gap: 16px; align-items: baseline;
+      border-bottom: 1px dashed var(--clr-border-warm); padding-bottom: 12px; }
+    .cred li:last-child { border-bottom: none; padding-bottom: 0; }
+    .cred-main { font-size: .98rem; color: var(--clr-text); line-height: 1.45; }
+    .cred-main span { display: block; font-size: .88rem; color: var(--clr-text-muted); margin-top: 2px; }
+    .cred-date { flex: 0 0 auto; font-size: .85rem; font-style: italic; color: var(--clr-text-muted); white-space: nowrap; }
+
+    /* Verification details — reuse the blue card, full width */
+    .verify-detail { background: #EAF2F7; border: 1px solid #CBDDE9; border-left: 4px solid #2E6F95; border-radius: 12px; padding: 18px 20px; }
+    .verify-detail ul { list-style: none; margin: 10px 0 0; padding: 0; }
+    .verify-detail li { position: relative; padding-left: 22px; margin: 0 0 8px; font-size: .96rem; line-height: 1.5; color: var(--clr-text-2); }
+    .verify-detail li:last-child { margin-bottom: 0; }
+    .verify-detail li::before { content: ""; position: absolute; left: 4px; top: .5em; width: 7px; height: 7px; border-radius: 50%; background: #2E6F95; }
+    .verify-detail strong { color: #1F4E6B; }
+
+    @media (max-width: 640px) {
+      .profile-hero { padding: 28px 0 24px; }
+      .profile-hero-inner { gap: 22px; justify-content: center; }
+      .profile-photo { flex: 0 0 150px; width: 150px; height: 150px; margin: 0 auto; }
+      .profile-hero-text { text-align: center; }
+      .profile-meta { justify-content: center; }
+      .verify-card, .profile-hero-cta { text-align: left; }
+      .profile-hero-cta { justify-content: center; }
+      .cred li { flex-direction: column; gap: 2px; }
+    }
+
+    /* ─── ASK ABOUT FORM ─── */
+    .profile-ask { background: var(--clr-white, #FFFFFF); padding: 56px 0 72px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
+    .profile-ask-inner { max-width: 560px; margin: 0 auto; padding: 0 24px; }
+    .profile-ask-kicker { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--clr-primary); background: var(--clr-primary-bg); padding: 4px 10px; border-radius: 4px; margin-bottom: 12px; }
+    .profile-ask-h { font-family: var(--fd, 'Cormorant Garamond', serif); font-weight: 500; font-size: clamp(1.7rem, 3.5vw, 2.1rem); letter-spacing: -0.008em; color: var(--clr-text); margin: 0 0 12px; text-wrap: balance; }
+    .profile-ask-sub { font-size: 1rem; color: var(--clr-text-muted); line-height: 1.65; margin: 0 0 28px; }
+    .ask-field { margin-bottom: 16px; }
+    .ask-field label { display: block; font-size: .85rem; font-weight: 600; color: var(--clr-text); margin-bottom: 6px; }
+    .ask-field-opt { font-weight: 400; color: var(--clr-text-muted); font-size: .8rem; }
+    .ask-field input, .ask-field textarea { width: 100%; padding: 11px 13px; font-size: .98rem; font-family: inherit; color: var(--clr-text); background: var(--clr-white, #FFFFFF); border: 1px solid var(--clr-border, #E8E2D4); border-radius: 6px; transition: border-color .15s; }
+    .ask-field input:focus, .ask-field textarea:focus { outline: none; border-color: var(--clr-primary); }
+    .ask-field textarea { resize: vertical; min-height: 80px; }
+    .ask-submit { width: 100%; margin-top: 4px; }
+    .ask-foot-note { font-size: .82rem; color: var(--clr-text-muted); margin: 14px 0 0; line-height: 1.55; }
+    .ask-success, .ask-error { background: var(--clr-primary-bg); border-left: 3px solid var(--clr-primary); padding: 16px 18px; border-radius: 0 8px 8px 0; margin-top: 12px; }
+    .ask-error { background: #FFF0EB; border-left-color: #E8825C; }
+    .ask-success p, .ask-error p { margin: 0; color: var(--clr-text-2); line-height: 1.6; }
+
+    /* ─── Draft-only: disabled CTA + Kate notes (remove/enable at go-live) ─── */
+    .btn-disabled {
+      background: var(--clr-cream-dk, #EFE7D8); color: var(--clr-text-muted, #5A6661);
+      cursor: not-allowed; padding: 12px 24px; border-radius: 999px;
+      font-weight: 600; font-size: .95rem; border: 1px solid var(--clr-border-warm, #E8DFD0);
+    }
+    .draft-notes {
+      background: #FFFBF5; border: 2px dashed #E8825C; border-radius: 12px;
+      padding: 26px 30px; margin: 40px auto; max-width: 720px;
+    }
+    .draft-notes h3 { font-family: var(--fd, 'Cormorant Garamond', serif); font-size: 1.35rem; color: #9B5B3A; margin: 0 0 12px; }
+    .draft-notes ul { margin: 0; padding-left: 22px; color: var(--clr-text-2); line-height: 1.7; }
+    .draft-notes li { margin-bottom: 10px; }
+    .draft-notes li strong { color: #C66740; }
+    .draft-notes code { background: #F3E7D6; padding: 1px 5px; border-radius: 4px; font-size: .9em; }
+  </style>
+</head>
+<body class="profile-page">
+
+<!-- ═══ DRAFT BANNER ═══ -->
+<div class="draft-banner">
+  <div class="draft-banner-inner">
+    <strong>DRAFT &mdash; not live.</strong> Long-Term Employment Verified (no personal referrer). Confirm consent and photo before publishing. Verified-only go-live is reversible.
+  </div>
+</div>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark" aria-hidden="true"><span class="logo-hc">hc</span></div>
+      <span class="logo-text">Helper<strong>Circle</strong></span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="browse.html" class="nav-a">Meet Helpers</a>
+      <a href="refer.html" class="nav-a">Refer a Helper</a>
+      <a href="register.html" class="nav-a">Register as a Helper</a>
+      <a href="index.html#how" class="nav-a">How It Works</a>
+      <a href="faq.html" class="nav-a">FAQ</a>
+      <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
+    </nav>
+    <a href="refer.html" class="btn btn-green btn-sm hdr-cta">Refer a Helper</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="profile-hero">
+  <div class="profile-wrap">
+    <div class="profile-hero-inner">
+
+      <img src="images/kim.jpg" alt="Kim" class="profile-photo">
+
+      <div class="profile-hero-text">
+        <h1 class="profile-name">Kim</h1>
+        <p class="profile-descriptor">Experienced helper &middot; Myanmar, Christian</p>
+
+        <div class="profile-meta">
+          <span>32 years old</span><span class="sep">·</span>
+          <span>Available from mid-July&nbsp;2026</span><span class="sep">·</span>
+          <span>9 years in&nbsp;Singapore</span>
+        </div>
+
+        <div class="verify-card">
+          <span class="verify-card-ico" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2.5l7.5 3v5.2c0 4.6-3.2 7.9-7.5 9-4.3-1.1-7.5-4.4-7.5-9V5.5l7.5-3z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M8.3 12.1l2.6 2.6 4.8-5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div>
+            <p class="verify-card-title">Long-Term Employment Verified</p>
+            <p class="verify-card-fact">Nearly eight years in one home <span>· 2017&ndash;2025</span></p>
+          </div>
+        </div>
+
+        <div class="profile-hero-cta">
+          <span class="btn-disabled">Ask about Kim</span>
+          <span class="profile-hero-cta-meta">Profile in progress &mdash; not yet&nbsp;live</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="profile-wrap">
+
+  <!-- ═══ WHY FAMILIES CONSIDER KIM ═══ -->
+  <section class="profile-block" style="border-top:none">
+    <p class="profile-section-label">Why families consider Kim</p>
+    <ul class="hl">
+      <li><strong>Long, stable employment</strong> &mdash; nearly eight years in one home (2017&ndash;2025), with her employment length verified against MOM&nbsp;records.</li>
+      <li><strong>A versatile all-rounder</strong> &mdash; elderly care, childcare, dog care, cooking and housekeeping under one&nbsp;roof.</li>
+      <li><strong>Speaks English, Mandarin and Hokkien</strong> &mdash; easy communication across many Singaporean&nbsp;households.</li>
+      <li><strong>Experienced in homes of every size</strong> &mdash; from HDB flats to a multi-storey landed&nbsp;house.</li>
+    </ul>
+  </section>
+
+  <!-- ═══ EXPERIENCE ═══ -->
+  <section class="profile-block">
+    <p class="profile-section-label">Experience</p>
+    <p class="block-line">Across nine years in Singapore, Kim has cared for elderly family members, looked after children, cooked, and kept homes clean and organised &mdash; in HDB flats and, more recently, a large landed&nbsp;home.</p>
+    <div class="chips" style="margin-bottom:18px">
+      <span class="chip">Elderly care</span>
+      <span class="chip">Childcare</span>
+      <span class="chip">Dog care</span>
+      <span class="chip">Cooking</span>
+      <span class="chip">Housekeeping</span>
+      <span class="chip">Landed-house experience</span>
+    </div>
+    <div class="facts">
+      <div><p class="fact-k">Longest stay</p><p class="fact-v">Nearly 8 years in one home (2017&ndash;2025)</p></div>
+      <div><p class="fact-k">Elderly care</p><p class="fact-v">Cared for two elderly family members in the same home, through changing needs</p></div>
+      <div><p class="fact-k">Children</p><p class="fact-v">Experienced with school-age children</p></div>
+      <div><p class="fact-k">Homes</p><p class="fact-v">HDB flats and a 4-storey landed house</p></div>
+      <div><p class="fact-k">Languages</p><p class="fact-v">English &middot; Mandarin &middot; Hokkien</p></div>
+      <div><p class="fact-k">Pets</p><p class="fact-v">Comfortable with dogs</p></div>
+      <div><p class="fact-k">Nationality</p><p class="fact-v">Myanmar</p></div>
+      <div><p class="fact-k">Religion</p><p class="fact-v">Christian</p></div>
+    </div>
+  </section>
+
+  <!-- ═══ IN HER OWN WORDS ═══ -->
+  <section class="profile-block">
+    <p class="profile-section-label">In her own words</p>
+    <p class="block-line">&ldquo;I am a hardworking, independent, friendly and responsible helper with nine years of working experience in Singapore. I enjoy maintaining a clean and organised home, and take pride in my&nbsp;work.</p>
+    <p class="block-line">I love children, elderly people and dogs, and I always care for them with patience, kindness and dedication. I prefer a warm and respectful relationship with my employer, built on good communication and mutual&nbsp;respect.&rdquo;</p>
+    <p class="muted-note">Written by Kim&nbsp;herself.</p>
+  </section>
+
+  <!-- ═══ COOKING ═══ -->
+  <section class="profile-block">
+    <p class="profile-section-label">Cooking</p>
+    <p class="block-line">Kim is most at home with Chinese cooking, can also prepare some Western dishes, and is happy to learn a family&rsquo;s preferred recipes and&nbsp;cuisines.</p>
+    <div class="chips">
+      <span class="chip">Chinese home cooking</span>
+      <span class="chip">Some Western dishes</span>
+      <span class="chip">Open to new recipes</span>
+    </div>
+  </section>
+
+  <!-- ═══ FAMILY SHE MAY SUIT ═══ -->
+  <section class="profile-block">
+    <p class="profile-section-label">Family she may suit</p>
+    <p class="block-line">Kim suits a household that wants a capable all-rounder, comfortable moving between children, elderly family members, a dog and the running of the&nbsp;home.</p>
+    <ul class="hl">
+      <li>Families wanting one helper across childcare, elderly care and the&nbsp;household.</li>
+      <li>Homes with a dog, or elderly family members who need steady, patient&nbsp;care.</li>
+      <li>Larger or multi-storey homes, including landed&nbsp;houses.</li>
+      <li>Families who value long, stable service and clear&nbsp;communication.</li>
+    </ul>
+  </section>
+
+  <!-- ═══ VERIFICATION DETAILS ═══ -->
+  <section class="profile-block">
+    <p class="profile-section-label">Verification details</p>
+    <div class="verify-detail">
+      <p style="margin:0;font-size:1rem;color:var(--clr-text)"><strong>Employment in Singapore from 2017 to the present</strong> &mdash; each period&rsquo;s length confirmed against her <strong>MOM employment records</strong>.</p>
+      <ul>
+        <li>Her 2017&ndash;2025 service was spent in <strong>one household</strong>: the employer of record changed partway through, when she moved from caring for one elderly family member to another in the same&nbsp;home.</li>
+        <li>She has since been with a further family from&nbsp;2025.</li>
+      </ul>
+    </div>
+    <p class="muted-note">MOM records confirm her employment and its length, rather than offering a personal recommendation. The same-household continuity, her languages, faith and cooking are&nbsp;self-reported.</p>
+  </section>
+
+</div>
+
+<!-- DRAFT NOTES (Kate only — remove before go-live) -->
+<div class="draft-notes">
+  <h3>Notes for Kate &mdash; before this goes live</h3>
+  <ul>
+    <li><strong>Verified-only = regulatory.</strong> No referrer. This is the activity the EA licence covers. Reversible; go live consciously.</li>
+    <li><strong>Built on Siti&rsquo;s pattern</strong> (the live verified layout: <code>verify-card</code> + shield SVG), not the template&rsquo;s <code>psig--ver</code>/&#128197; swap &mdash; those two have diverged. Worth reconciling the template later.</li>
+    <li><strong>Same-household continuity is her account, not MOM&rsquo;s.</strong> MOM records the 2017&ndash;2024 / 2024&ndash;2025 boundary as &ldquo;transferred to a new employer.&rdquo; The hero card says &ldquo;nearly eight years in one home&rdquo; and the Verification block explains the nuance honestly. To be strictly MOM-only, change the card to &ldquo;Over six years with one employer · 2017&ndash;2024.&rdquo;</li>
+    <li><strong>Landed house</strong> now included (you confirmed the employer shifted residence). MOM still lists HDB at registration; the profile frames it as her experience, not as an MOM-recorded housing type.</li>
+    <li><strong>Salary &amp; rest day left OUT of the hero meta.</strong> Siti&rsquo;s live profile shows &ldquo;From S$950 / month · Sunday off&rdquo; there, but your standing rule is salary/off-days stay internal. Held them out (salary $850, Sunday + PH off internal). If you want Kim to match Siti, it&rsquo;s a one-line add &mdash; but the two need to agree.</li>
+    <li><strong>Kept internal:</strong> salary $850, Sunday + PH off, own-room preference, FIN (G8526282W), transfer reason (scolded by co-helper / heavy workload).</li>
+    <li><strong>Consent chain:</strong> listing, photo, name &mdash; confirm directly with Kim (she supplied photo + bio, which points to consent).</li>
+    <li><strong>Children softened</strong> from her stated ages 5/10/12 to &ldquo;school-age children&rdquo; (MOM current role shows one child).</li>
+    <li><strong>Photo</strong> un-mirrored + cropped to 480&times;480 (<code>images/kim.jpg</code>).</li>
+  </ul>
+</div>
+
+<!-- ═══ ASK ═══ -->
+<section class="profile-ask" id="ask">
+  <div class="profile-ask-inner">
+    <span class="profile-ask-kicker">Interested?</span>
+    <h2 class="profile-ask-h">Ask about Kim</h2>
+    <p class="profile-ask-sub">Tell us a little about your household and we'll be in touch within 1&ndash;2 business&nbsp;days. We'll only move forward if it feels like a genuine&nbsp;fit.</p>
+    <form id="form-ask" action="https://formspree.io/f/mredjvwg" method="POST">
+      <input type="hidden" name="helper-name" value="Kim"/>
+      <input type="hidden" name="_subject" value="Helper Circle — Interest in Kim"/>
+      <div class="ask-field">
+        <label for="ask-name">Your name</label>
+        <input type="text" id="ask-name" name="name" required placeholder="Jane Tan" autocomplete="name"/>
+      </div>
+      <div class="ask-field">
+        <label for="ask-email">Email</label>
+        <input type="email" id="ask-email" name="email" required placeholder="you@email.com" autocomplete="email"/>
+      </div>
+      <div class="ask-field">
+        <label for="ask-phone">Phone <span class="ask-field-opt">(optional, but helps)</span></label>
+        <input type="tel" id="ask-phone" name="phone" placeholder="+65 9123 4567" autocomplete="tel"/>
+      </div>
+      <div class="ask-field">
+        <label for="ask-household">Briefly, your household</label>
+        <textarea id="ask-household" name="household" rows="3" required placeholder="Who lives at home, ages, any care needs, what your typical day looks like&hellip;"></textarea>
+      </div>
+      <div class="ask-field">
+        <label for="ask-why">Why Kim? <span class="ask-field-opt">(optional)</span></label>
+        <textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you're hoping for&hellip;"></textarea>
+      </div>
+      <button type="submit" class="btn btn-green ask-submit">Send to Helper Circle</button>
+      <p class="ask-foot-note">We read every message personally. If Kim seems like a fit for your household, we'll set up a short call to talk through the next&nbsp;step.</p>
+      <div class="ask-success" hidden>
+        <p>Thank you. We've received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p>
+      </div>
+      <div class="ask-error" hidden>
+        <p>Something didn't go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <p class="footer-heart">Started by a Singapore family who knew there had to be a better way.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="browse.html">Meet Helpers</a><span class="footer-nav-sep">·</span>
+        <a href="refer.html">Refer a Helper</a><span class="footer-nav-sep">·</span>
+        <a href="register.html">Register as a Helper</a><span class="footer-nav-sep">·</span>
+        <a href="index.html#how">How It Works</a><span class="footer-nav-sep">·</span>
+        <a href="faq.html">FAQ</a><span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">Contact</a>
+      </nav>
+      <p class="footer-aside"><a href="for-families.html">For families saying goodbye to a helper &rarr;</a></p>
+      <div class="footer-legal-strip">
+        <span>© <span id="year"></span> Helper Circle · Singapore</span>
+        <span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('form-ask');
+  if (!form) return;
+  var submitBtn = form.querySelector('button[type="submit"]');
+  var successEl = form.querySelector('.ask-success');
+  var errorEl = form.querySelector('.ask-error');
+  var fields = form.querySelectorAll('.ask-field');
+  var noteEl = form.querySelector('.ask-foot-note');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.dataset.originalText = submitBtn.textContent; submitBtn.textContent = 'Sending\u2026'; }
+    if (errorEl) errorEl.hidden = true;
+    var data = new FormData(form);
+    fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+      .then(function (res) {
+        if (res.ok) {
+          fields.forEach(function (f) { f.style.display = 'none'; });
+          if (submitBtn) submitBtn.style.display = 'none';
+          if (noteEl) noteEl.style.display = 'none';
+          if (successEl) successEl.hidden = false;
+        } else { throw new Error('Form submission failed'); }
+      })
+      .catch(function () {
+        if (errorEl) errorEl.hidden = false;
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.originalText || 'Send to Helper Circle'; }
+      });
+  });
+})();
+</script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -418,7 +418,7 @@ window.HELPERS = [
     skills: ["Childcare", "Cooking", "Housekeeping"],
     age: 45,
     availability: "transfer",
-    photo: "images/annafel.jpg",
+    photo: "images/annafel.jpeg",
     profile: "profile-annafel.html"
   }
 

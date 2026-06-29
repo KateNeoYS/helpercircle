@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Yi Yi — Helper Circle (DRAFT)</title>
+  <meta name="description" content="Yi Yi — Long-Term Employment Verified (pending). Myanmar helper, thirteen years in Singapore including six in one home. Elderly care, cooking and housekeeping."/>
+
+  <!-- noindex by convention — all live profiles carry this -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
+  <link rel="stylesheet" href="styles.css"/>
+
+  <style>
+    /* Clear the fixed 68px site-header so nothing hides beneath it */
+    body.profile-page { background: var(--clr-white); padding-top: 68px; }
+    .profile-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── Draft banner (static — sits below the header, never clipped) ─── */
+    .draft-banner {
+      background: #FFF0EB;
+      border-bottom: 1px solid var(--clr-coral, #E8825C);
+      padding: 12px 24px; text-align: center;
+    }
+    .draft-banner-inner {
+      max-width: 720px; margin: 0 auto;
+      font-size: .9rem; color: #9B5B3A; line-height: 1.5;
+    }
+    .draft-banner-inner strong { color: #C66740; font-weight: 700; letter-spacing: .02em; }
+
+    /* ─── TBC marker (draft-only; remove at go-live) ─── */
+    .tbc {
+      background: #FCEBDF; color: #B5612F; font-style: normal;
+      padding: 0 5px; border-radius: 4px; font-size: .9em; font-weight: 600;
+      box-shadow: inset 0 0 0 1px #E8B894;
+    }
+
+    /* ─── HERO ─── */
+    .profile-hero { padding: 40px 0 32px; background: var(--clr-white); }
+    .profile-hero-inner { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
+    .profile-photo {
+      flex: 0 0 190px; width: 190px; height: 190px;
+      border-radius: 20px; object-fit: cover; object-position: center top;
+      background: var(--clr-cream); box-shadow: 0 2px 10px rgba(31,42,36,.10);
+    }
+    .profile-hero-text { flex: 1 1 320px; min-width: 0; }
+    .profile-name {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500; font-size: clamp(2.3rem, 5vw, 3rem);
+      letter-spacing: -0.012em; color: var(--clr-text);
+      margin: 0 0 4px; line-height: 1.05;
+    }
+    .profile-descriptor {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic; font-size: 1.12rem; color: var(--clr-text-muted); margin: 0 0 14px;
+    }
+    .profile-meta {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px;
+      font-size: .92rem; color: var(--clr-text-2); margin: 0 0 18px;
+    }
+    .profile-meta .sep { color: var(--clr-text-faint, #9AA0A6); }
+
+    /* ─── Prominent verification card (the page's signature element) ─── */
+    .verify-card {
+      display: flex; align-items: center; gap: 16px;
+      background: #EAF2F7; border: 1px solid #CBDDE9; border-left: 4px solid #2E6F95;
+      border-radius: 14px; padding: 16px 18px; margin: 0 0 20px;
+    }
+    .verify-card-ico {
+      flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%;
+      background: #2E6F95; display: flex; align-items: center; justify-content: center;
+    }
+    .verify-card-title {
+      font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      color: #1F4E6B; margin: 0 0 3px;
+    }
+    .verify-card-fact { font-size: 1.02rem; font-weight: 600; color: var(--clr-text); margin: 0; line-height: 1.35; }
+    .verify-card-fact span { font-weight: 400; color: var(--clr-text-muted); font-size: .92rem; }
+
+    /* CTA */
+    .profile-hero-cta { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .profile-hero-cta-meta { font-size: .86rem; color: var(--clr-text-muted); font-style: italic; }
+
+    /* ─── Content blocks ─── */
+    .profile-block { padding: 26px 0; border-top: 1px solid var(--clr-border-warm); }
+    .profile-section-label {
+      font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--clr-primary); margin: 0 0 16px;
+    }
+    .block-line { font-size: 1rem; line-height: 1.6; color: var(--clr-text-2); margin: 0 0 14px; }
+
+    /* Highlights */
+    .hl { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .hl li {
+      position: relative; padding-left: 30px;
+      font-size: 1.02rem; line-height: 1.5; color: var(--clr-text-2);
+    }
+    .hl li strong { color: var(--clr-text); font-weight: 600; }
+    .hl li::before {
+      content: ""; position: absolute; left: 0; top: 2px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--clr-primary-bg, #EAF5EF);
+      box-shadow: inset 0 0 0 1.5px var(--clr-primary, #2C8A6E);
+    }
+    .hl li::after {
+      content: ""; position: absolute; left: 6px; top: 8px;
+      width: 6px; height: 3px; border-left: 1.5px solid var(--clr-primary, #2C8A6E);
+      border-bottom: 1.5px solid var(--clr-primary, #2C8A6E); transform: rotate(-45deg);
+    }
+
+    /* Chips */
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      font-size: .88rem; color: var(--clr-text-2); background: var(--clr-cream);
+      border: 1px solid var(--clr-border-warm); padding: 7px 13px; border-radius: 999px; white-space: nowrap;
+    }
+
+    /* Mini fact grid */
+    .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px 24px; margin-top: 4px; }
+    .fact-k { font-size: .7rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--clr-text-muted); margin: 0 0 4px; }
+    .fact-v { font-size: .98rem; line-height: 1.5; color: var(--clr-text); margin: 0; }
+
+    .muted-note { font-size: .9rem; font-style: italic; color: var(--clr-text-muted); margin: 14px 0 0; line-height: 1.6; }
+
+    /* Training / credentials list */
+    .cred { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+    .cred li { display: flex; justify-content: space-between; gap: 16px; align-items: baseline;
+      border-bottom: 1px dashed var(--clr-border-warm); padding-bottom: 12px; }
+    .cred li:last-child { border-bottom: none; padding-bottom: 0; }
+    .cred-main { font-size: .98rem; color: var(--clr-text); line-height: 1.45; }
+    .cred-main span { display: block; font-size: .88rem; color: var(--clr-text-muted); margin-top: 2px; }
+    .cred-date { flex: 0 0 auto; font-size: .85rem; font-style: italic; color: var(--clr-text-muted); white-space: nowrap; }
+
+    /* Verification details — reuse the blue card, full width */
+    .verify-detail { background: #EAF2F7; border: 1px solid #CBDDE9; border-left: 4px solid #2E6F95; border-radius: 12px; padding: 18px 20px; }
+    .verify-detail ul { list-style: none; margin: 10px 0 0; padding: 0; }
+    .verify-detail li { position: relative; padding-left: 22px; margin: 0 0 8px; font-size: .96rem; line-height: 1.5; color: var(--clr-text-2); }
+    .verify-detail li:last-child { margin-bottom: 0; }
+    .verify-detail li::before { content: ""; position: absolute; left: 4px; top: .5em; width: 7px; height: 7px; border-radius: 50%; background: #2E6F95; }
+    .verify-detail strong { color: #1F4E6B; }
+
+    @media (max-width: 640px) {
+      .profile-hero { padding: 28px 0 24px; }
+      .profile-hero-inner { gap: 22px; justify-content: center; }
+      .profile-photo { flex: 0 0 150px; width: 150px; height: 150px; margin: 0 auto; }
+      .profile-hero-text { text-align: center; }
+      .profile-meta { justify-content: center; }
+      .verify-card, .profile-hero-cta { text-align: left; }
+      .profile-hero-cta { justify-content: center; }
+      .cred li { flex-direction: column; gap: 2px; }
+    }
+
+    /* ─── ASK ABOUT FORM ─── */
+    .profile-ask { background: var(--clr-white, #FFFFFF); padding: 56px 0 72px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
+    .profile-ask-inner { max-width: 560px; margin: 0 auto; padding: 0 24px; }
+    .profile-ask-kicker { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--clr-primary); background: var(--clr-primary-bg); padding: 4px 10px; border-radius: 4px; margin-bottom: 12px; }
+    .profile-ask-h { font-family: var(--fd, 'Cormorant Garamond', serif); font-weight: 500; font-size: clamp(1.7rem, 3.5vw, 2.1rem); letter-spacing: -0.008em; color: var(--clr-text); margin: 0 0 12px; text-wrap: balance; }
+    .profile-ask-sub { font-size: 1rem; color: var(--clr-text-muted); line-height: 1.65; margin: 0 0 28px; }
+    .ask-field { margin-bottom: 16px; }
+    .ask-field label { display: block; font-size: .85rem; font-weight: 600; color: var(--clr-text); margin-bottom: 6px; }
+    .ask-field-opt { font-weight: 400; color: var(--clr-text-muted); font-size: .8rem; }
+    .ask-field input, .ask-field textarea { width: 100%; padding: 11px 13px; font-size: .98rem; font-family: inherit; color: var(--clr-text); background: var(--clr-white, #FFFFFF); border: 1px solid var(--clr-border, #E8E2D4); border-radius: 6px; transition: border-color .15s; }
+    .ask-field input:focus, .ask-field textarea:focus { outline: none; border-color: var(--clr-primary); }
+    .ask-field textarea { resize: vertical; min-height: 80px; }
+    .ask-submit { width: 100%; margin-top: 4px; }
+    .ask-foot-note { font-size: .82rem; color: var(--clr-text-muted); margin: 14px 0 0; line-height: 1.55; }
+    .ask-success, .ask-error { background: var(--clr-primary-bg); border-left: 3px solid var(--clr-primary); padding: 16px 18px; border-radius: 0 8px 8px 0; margin-top: 12px; }
+    .ask-error { background: #FFF0EB; border-left-color: #E8825C; }
+    .ask-success p, .ask-error p { margin: 0; color: var(--clr-text-2); line-height: 1.6; }
+
+    /* ─── Draft-only: disabled CTA + Kate notes (remove/enable at go-live) ─── */
+    .btn-disabled {
+      background: var(--clr-cream-dk, #EFE7D8); color: var(--clr-text-muted, #5A6661);
+      cursor: not-allowed; padding: 12px 24px; border-radius: 999px;
+      font-weight: 600; font-size: .95rem; border: 1px solid var(--clr-border-warm, #E8DFD0);
+    }
+    .draft-notes {
+      background: #FFFBF5; border: 2px dashed #E8825C; border-radius: 12px;
+      padding: 26px 30px; margin: 40px auto; max-width: 720px;
+    }
+    .draft-notes h3 { font-family: var(--fd, 'Cormorant Garamond', serif); font-size: 1.35rem; color: #9B5B3A; margin: 0 0 12px; }
+    .draft-notes ul { margin: 0; padding-left: 22px; color: var(--clr-text-2); line-height: 1.7; }
+    .draft-notes li { margin-bottom: 10px; }
+    .draft-notes li strong { color: #C66740; }
+    .draft-notes code { background: #F3E7D6; padding: 1px 5px; border-radius: 4px; font-size: .9em; }
+  </style>
+</head>
+<body class="profile-page">
+<div class="draft-banner"><div class="draft-banner-inner"><strong>DRAFT &mdash; NOT LIVE.</strong> Pending MOM-records verification, Yi Yi&rsquo;s consent, and photo. Do not publish.</div></div>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark" aria-hidden="true"><span class="logo-hc">hc</span></div>
+      <span class="logo-text">Helper<strong>Circle</strong></span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="browse.html" class="nav-a">Meet Helpers</a>
+      <a href="refer.html" class="nav-a">Refer a Helper</a>
+      <a href="register.html" class="nav-a">Register as a Helper</a>
+      <a href="index.html#how" class="nav-a">How It Works</a>
+      <a href="faq.html" class="nav-a">FAQ</a>
+      <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
+    </nav>
+    <a href="refer.html" class="btn btn-green btn-sm hdr-cta">Refer a Helper</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="profile-hero">
+  <div class="profile-wrap">
+    <div class="profile-hero-inner">
+
+      <img src="images/yiyi.jpg" alt="Yi Yi" class="profile-photo">
+
+      <div class="profile-hero-text">
+        <h1 class="profile-name">Yi Yi</h1>
+        <p class="profile-descriptor">Experienced helper &middot; Myanmar</p>
+
+        <div class="profile-meta">
+          <span>41 years old</span><span class="sep">·</span>
+          <span>Availability TBC</span><span class="sep">·</span>
+          <span>13 years in&nbsp;Singapore</span>
+        </div>
+
+        <div class="verify-card">
+          <span class="verify-card-ico" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2.5l7.5 3v5.2c0 4.6-3.2 7.9-7.5 9-4.3-1.1-7.5-4.4-7.5-9V5.5l7.5-3z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M8.3 12.1l2.6 2.6 4.8-5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div>
+            <p class="verify-card-title">Long-Term Employment Verified</p>
+            <p class="verify-card-fact">Six years in one home <span>· 2017&ndash;2023</span> &middot; pending&nbsp;verification</p>
+          </div>
+        </div>
+
+        <div class="profile-hero-cta">
+          <span class="btn btn-disabled">Ask about Yi Yi</span>
+          <span class="profile-hero-cta-meta">Draft &mdash; not yet live</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="profile-wrap">
+
+  <!-- ═══ WHY FAMILIES CONSIDER KIM ═══ -->
+  <section class="profile-block" style="border-top:none">
+    <p class="profile-section-label">Why families consider Yi Yi</p>
+    <ul class="hl">
+      <li><strong>Long, stable employment</strong> &mdash; six years in one home (2017&ndash;2023), to be confirmed against MOM&nbsp;records.</li>
+      <li><strong>Thirteen years of experience</strong> &mdash; elderly care, cooking and housekeeping across four Singapore&nbsp;households.</li>
+      <li><strong>Experienced in elderly care</strong> &mdash; including extended daily care for an elderly family member with high daily&nbsp;needs.</li>
+      <li><strong>Independent and well-organised</strong> &mdash; cooks Asian and basic Western food, and runs a household on her&nbsp;own.</li>
+    </ul>
+  </section>
+
+  <!-- ═══ EXPERIENCE ═══ -->
+  <section class="profile-block">
+    <p class="profile-section-label">Experience</p>
+    <p class="block-line">Across thirteen years in Singapore, Yi Yi has cooked, kept homes clean and organised, and cared for elderly family members &mdash; including several years of close daily care for an elderly person with high&nbsp;needs.</p>
+    <div class="chips" style="margin-bottom:18px">
+      <span class="chip">Elderly care</span>
+      <span class="chip">Cooking</span>
+      <span class="chip">Housekeeping</span>
+      <span class="chip">Works independently</span>
+    </div>
+    <div class="facts">
+      <div><p class="fact-k">Longest stay</p><p class="fact-v">Six years in one home (2017&ndash;2023) &middot; to be MOM-verified</p></div>
+      <div><p class="fact-k">Experience</p><p class="fact-v">13 years across four Singapore households (2013&ndash;2026)</p></div>
+      <div><p class="fact-k">Elderly care</p><p class="fact-v">Extended daily care for a less-mobile elderly person &mdash; mobility, feeding, hygiene and health monitoring, working under the guidance of nurses and&nbsp;doctors</p></div>
+      <div><p class="fact-k">Cooking</p><p class="fact-v">Asian dishes and basic Western</p></div>
+      <div><p class="fact-k">Languages</p><p class="fact-v">English &middot; Burmese</p></div>
+      <div><p class="fact-k">Nationality</p><p class="fact-v">Myanmar</p></div>
+    </div>
+  </section>
+
+  <!-- ═══ IN HER OWN WORDS ═══ -->
+  <section class="profile-block">
+    <p class="profile-section-label">In her own words</p>
+    <p class="block-line">&ldquo;I am a responsible, patient and hardworking helper. I enjoy taking care of elderly people and helping with daily activities. I hope to join a kind and respectful family where we can communicate well and work together for a long&nbsp;time.&rdquo;</p>
+    <p class="muted-note">Written by Yi Yi&nbsp;herself.</p>
+  </section>
+
+  <!-- ═══ COOKING ═══ -->
+  <section class="profile-block">
+    <p class="profile-section-label">Cooking</p>
+    <p class="block-line">Yi Yi cooks Asian dishes and some basic Western food, and is willing to learn a family&rsquo;s preferred recipes and&nbsp;cuisines.</p>
+    <div class="chips">
+      <span class="chip">Asian home cooking</span>
+      <span class="chip">Some Western dishes</span>
+      <span class="chip">Open to new recipes</span>
+    </div>
+  </section>
+
+  <!-- ═══ FAMILY SHE MAY SUIT ═══ -->
+  <section class="profile-block">
+    <p class="profile-section-label">Family she may suit</p>
+    <p class="block-line">Yi Yi is most experienced in housekeeping, cooking and elderly care, and is used to running a home independently. She is well suited to a household that values steady, reliable help over the long&nbsp;term.</p>
+    <ul class="hl">
+      <li>Households wanting an experienced helper focused on housekeeping, cooking and elderly&nbsp;care.</li>
+      <li>Families needing patient, experienced daily care for an elderly or less-mobile family&nbsp;member.</li>
+      <li>Families who value someone independent and well-organised, able to manage a home on her&nbsp;own.</li>
+      <li>Families who value long, stable&nbsp;service.</li>
+    </ul>
+    <p class="muted-note">Yi Yi&rsquo;s recent experience is in close elderly care; she is equally comfortable with general housekeeping and&nbsp;cooking.</p>
+  </section>
+
+  <!-- ═══ VERIFICATION DETAILS ═══ -->
+  <section class="profile-block">
+    <p class="profile-section-label">Verification details</p>
+    <div class="verify-detail">
+      <p style="margin:0;font-size:1rem;color:var(--clr-text)"><strong>Pending verification.</strong> Yi Yi&rsquo;s employment lengths are <strong>to be confirmed against her MOM employment records</strong> before this profile goes&nbsp;live.</p>
+      <ul>
+        <li>Her resume shows four Singapore placements between 2013 and 2026, with a <strong>six-year period in one home (2017&ndash;2023)</strong> as her longest&nbsp;stay.</li>
+        <li>Her most recent role (2023&ndash;2026) was close daily care for an elderly family&nbsp;member.</li>
+      </ul>
+    </div>
+    <p class="muted-note">Once confirmed, MOM records verify her employment and its length, rather than offering a personal recommendation. Her cooking, languages and other details are&nbsp;self-reported.</p>
+  </section>
+
+</div>
+
+<!-- ═══ ASK ═══ -->
+<section class="profile-ask" id="ask">
+  <div class="profile-ask-inner">
+    <span class="profile-ask-kicker">Interested?</span>
+    <h2 class="profile-ask-h">Ask about Yi Yi</h2>
+    <p class="profile-ask-sub">Tell us a little about your household and we'll be in touch within 1&ndash;2 business&nbsp;days. We'll only move forward if it feels like a genuine&nbsp;fit.</p>
+    <form id="form-ask" action="https://formspree.io/f/mredjvwg" method="POST">
+      <input type="hidden" name="helper-name" value="Yi Yi Aye"/>
+      <input type="hidden" name="_subject" value="Helper Circle — Interest in Yi Yi"/>
+      <div class="ask-field">
+        <label for="ask-name">Your name</label>
+        <input type="text" id="ask-name" name="name" required placeholder="Jane Tan" autocomplete="name"/>
+      </div>
+      <div class="ask-field">
+        <label for="ask-email">Email</label>
+        <input type="email" id="ask-email" name="email" required placeholder="you@email.com" autocomplete="email"/>
+      </div>
+      <div class="ask-field">
+        <label for="ask-phone">Phone <span class="ask-field-opt">(optional, but helps)</span></label>
+        <input type="tel" id="ask-phone" name="phone" placeholder="+65 9123 4567" autocomplete="tel"/>
+      </div>
+      <div class="ask-field">
+        <label for="ask-household">Briefly, your household</label>
+        <textarea id="ask-household" name="household" rows="3" required placeholder="Who lives at home, ages, any care needs, what your typical day looks like&hellip;"></textarea>
+      </div>
+      <div class="ask-field">
+        <label for="ask-why">Why Yi Yi? <span class="ask-field-opt">(optional)</span></label>
+        <textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you're hoping for&hellip;"></textarea>
+      </div>
+      <button type="submit" class="btn btn-green ask-submit">Send to Helper Circle</button>
+      <p class="ask-foot-note">We read every message personally. If Yi Yi seems like a fit for your household, we'll set up a short call to talk through the next&nbsp;step.</p>
+      <div class="ask-success" hidden>
+        <p>Thank you. We've received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p>
+      </div>
+      <div class="ask-error" hidden>
+        <p>Something didn't go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <p class="footer-heart">Started by a Singapore family who knew there had to be a better way.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="browse.html">Meet Helpers</a><span class="footer-nav-sep">·</span>
+        <a href="refer.html">Refer a Helper</a><span class="footer-nav-sep">·</span>
+        <a href="register.html">Register as a Helper</a><span class="footer-nav-sep">·</span>
+        <a href="index.html#how">How It Works</a><span class="footer-nav-sep">·</span>
+        <a href="faq.html">FAQ</a><span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">Contact</a>
+      </nav>
+      <p class="footer-aside"><a href="for-families.html">For families saying goodbye to a helper &rarr;</a></p>
+      <div class="footer-legal-strip">
+        <span>© <span id="year"></span> Helper Circle · Singapore</span>
+        <span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('form-ask');
+  if (!form) return;
+  var submitBtn = form.querySelector('button[type="submit"]');
+  var successEl = form.querySelector('.ask-success');
+  var errorEl = form.querySelector('.ask-error');
+  var fields = form.querySelectorAll('.ask-field');
+  var noteEl = form.querySelector('.ask-foot-note');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.dataset.originalText = submitBtn.textContent; submitBtn.textContent = 'Sending\u2026'; }
+    if (errorEl) errorEl.hidden = true;
+    var data = new FormData(form);
+    fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+      .then(function (res) {
+        if (res.ok) {
+          fields.forEach(function (f) { f.style.display = 'none'; });
+          if (submitBtn) submitBtn.style.display = 'none';
+          if (noteEl) noteEl.style.display = 'none';
+          if (successEl) successEl.hidden = false;
+        } else { throw new Error('Form submission failed'); }
+      })
+      .catch(function () {
+        if (errorEl) errorEl.hidden = false;
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.originalText || 'Send to Helper Circle'; }
+      });
+  });
+})();
+</script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -34,6 +34,28 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "angie",
+    name: "Angie",
+    initial: "",
+    status: "available",
+    statusLabel: "Available now",
+    line: "Filipino &middot; Housekeeping, cooking &amp; pet&nbsp;care",
+    summary: "21 years with one family, deeply experienced and adaptable &mdash; loves to cook, and has cared for cats and dogs at&nbsp;home.",
+    referredBy: "Referred by Monica, her employer of 21&nbsp;years",
+    signal: "referred",
+    quote: "\u201cShe has adapted really well to the changing needs of our&nbsp;household.\u201d",
+    quoteCite: "&mdash; Monica",
+    nationality: "Filipino",
+    yearsSG: "21 years, one family",
+    bestFit: "Housekeeping &amp; cooking; pet-friendly homes; children&nbsp;10+",
+    strengths: ["21 years, one family", "Loves to cook", "Pet care (dogs &amp; cats)"],
+    skills: ["Housekeeping", "Cooking", "Pet care"],
+    age: 54,
+    availability: "transfer",
+    photo: "images/angie.jpeg",
+    profile: "profile-angie.html"
+  },
+  {
     name: "Eni",
     initial: "T.",
     status: "hidden",
@@ -55,6 +77,28 @@ window.HELPERS = [
     availability: "overseas",
     photo: "images/eni.jpeg",
     profile: "profile-eni.html"
+  },
+  {
+    name: "Yi Yi",
+    initial: "",
+    status: "available",
+    statusLabel: "Available mid-July&nbsp;2026",
+    line: "Myanmar &middot; 41 &middot; Elderly care, cooking &amp; housekeeping",
+    summary: "Six years with one Singapore family within thirteen years here, confirmed against MOM records &mdash; experienced in elderly care and running a home&nbsp;independently.",
+    referredBy: "",
+    signal: "verified",
+    verifiedYears: 6,
+    quote: "",
+    quoteCite: "",
+    nationality: "Myanmar",
+    yearsSG: "13 years",
+    bestFit: "Elderly care, cooking &amp; housekeeping",
+    strengths: ["Elderly care", "13 years in Singapore", "Works independently"],
+    skills: ["Elderly Care", "Cooking", "Housekeeping"],
+    age: 41,
+    availability: "transfer",
+    photo: "images/yiyi.jpeg",
+    profile: "profile-yiyi.html"
   },
   {
     id: "timunah",

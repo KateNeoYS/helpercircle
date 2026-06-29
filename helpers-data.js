@@ -56,6 +56,28 @@ window.HELPERS = [
     profile: "profile-angie.html"
   },
   {
+    id: "analyn",
+    name: "Analyn",
+    initial: "",
+    status: "available",
+    statusLabel: "Available 7 July&nbsp;2026",
+    line: "Filipino &middot; 46 &middot; Cleaning, caregiving &amp; pet&nbsp;care",
+    summary: "Two years with one family, recommended by her current employer &mdash; warm with young children, devoted to pets, and keeps a spotless&nbsp;home.",
+    referredBy: "Referred by Ashley, her employer of two&nbsp;years",
+    signal: "referred",
+    quote: "\u201cShe is great at cleaning, and our home is sparkling&nbsp;clean.\u201d",
+    quoteCite: "&mdash; Ashley",
+    nationality: "Filipino",
+    yearsSG: "16 years\u2019 experience",
+    bestFit: "Families with children &mdash; caregiving &amp; cleaning",
+    strengths: ["Experienced with babies &amp; children", "Spotless cleaning", "Devoted pet care"],
+    skills: ["Childcare", "Housekeeping", "Pet care"],
+    age: 46,
+    availability: "transfer",
+    photo: "images/analyn.jpeg",
+    profile: "profile-analyn.html"
+  },
+  {
     name: "Eni",
     initial: "T.",
     status: "hidden",

@@ -78,6 +78,28 @@ window.HELPERS = [
     profile: "profile-analyn.html"
   },
   {
+    id: "stephanie",
+    name: "Stephanie",
+    initial: "",
+    status: "available",
+    statusLabel: "Available from mid-July&nbsp;2026",
+    line: "Filipino &middot; 39 &middot; Cooking, childcare, household &amp; pet&nbsp;care",
+    summary: "Two and a half years with one family, recommended by her current employer &mdash; a keen, creative cook, devoted to the home and the family&rsquo;s&nbsp;dog.",
+    referredBy: "Referred by Jessica, her employer of two and a half&nbsp;years",
+    signal: "referred",
+    quote: "\u201cStephanie always tries her best at the tasks that she\u2019s&nbsp;doing.\u201d",
+    quoteCite: "&mdash; Jessica",
+    nationality: "Filipino",
+    yearsSG: "Almost 4 years\u2019 experience",
+    bestFit: "A warm family who loves home-cooked&nbsp;meals",
+    strengths: ["Keen, creative cook", "Devoted dog care", "Household, laundry &amp; ironing"],
+    skills: ["Cooking", "Childcare", "Housekeeping", "Pet care"],
+    age: 39,
+    availability: "transfer",
+    photo: "images/stephanie.jpeg",
+    profile: "profile-stephanie.html"
+  },
+  {
     name: "Eni",
     initial: "T.",
     status: "hidden",

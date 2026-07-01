@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Stephanie — Filipino helper, referred by her employer of 2.5 years | Helper Circle (DRAFT)</title>
-  <meta name="description" content="Stephanie is a Filipino helper referred directly by her employer of two and a half years. A keen, creative cook, with household, dog-care and gardening experience. Available now to mid-July 2026."/>
+  <title>Stephanie — Filipino helper, referred by her employer of 2.5 years | Helper Circle</title>
+  <meta name="description" content="Stephanie is a Filipino helper referred directly by her employer of two and a half years. A keen, creative cook, with household, dog-care and gardening experience. Available from mid-July 2026."/>
 
   <!-- Profiles kept noindex by convention -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
@@ -360,6 +360,22 @@
     .ask-success, .ask-error { background: var(--clr-primary-bg); border-left: 3px solid var(--clr-primary); padding: 16px 18px; border-radius: 0 8px 8px 0; margin-top: 12px; }
     .ask-error { background: #FFF0EB; border-left-color: #E8825C; }
     .ask-success p, .ask-error p { margin: 0; color: var(--clr-text-2); line-height: 1.6; }
+    /* ─── COOKING GALLERY ─── */
+    .profile-cooking { padding: 44px 0 8px; }
+    .cook-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+    .cook-gallery-grid img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+      box-shadow: 0 4px 14px rgba(31,42,36,0.08);
+    }
   </style>
   <style>
     .draft-banner{background:#FFF3DC;border-bottom:1px solid #EAD3A0;color:#7A5712;
@@ -393,7 +409,7 @@
 
 <!-- ═══ HERO ═══ -->
 
-<div style="background:#FCEEE6;border-bottom:2px solid #E8825C;padding:14px 20px;text-align:center;font-family:'DM Sans',sans-serif;color:#9B5B3A;font-size:.95rem;line-height:1.5"><strong style="color:#C66740">DRAFT &mdash; NOT LIVE.</strong> Pending photo, Stephanie&rsquo;s consent, and a few details to confirm. Do not publish.</div>
+
 
 <section class="profile-hero">
   <div class="profile-wrap">
@@ -413,8 +429,8 @@
         <p class="profile-quote-attr">&mdash; Jessica, her employer of 2.5&nbsp;years</p>
 
         <div class="profile-hero-cta">
-          <span class="btn" style="opacity:.5;pointer-events:none">Ask about Stephanie</span>
-          <span class="profile-hero-cta-meta">Draft &mdash; not yet live</span>
+          <a href="#ask" class="btn">Ask about Stephanie</a>
+          
         </div>
       </div>
 
@@ -430,7 +446,7 @@
       <span class="tsig tsig--rec"><span class="tsig-mark" aria-hidden="true">&#11088;</span> Employer Recommended</span>
       <ul class="psig-list">
         <li>Recommendation from Jessica, her employer of two and a half years, who vouches for her&nbsp;directly</li>
-        <li>Jessica is happy for an interested family to speak with her as part of the introduction [consent to&nbsp;confirm]</li>
+        <li>Jessica is happy for an interested family to speak with her as part of the introduction</li>
       </ul>
       <p class="psig-note">Our strongest trust signal &mdash; a family she works for now, recommending her&nbsp;directly.</p>
     </div>
@@ -468,7 +484,7 @@
 
       <div class="profile-fact">
         <p class="profile-fact-label">Available from</p>
-        <p class="profile-fact-value"><strong>Available now, to 15 July&nbsp;2026</strong></p>
+        <p class="profile-fact-value"><strong>Mid-July&nbsp;2026</strong></p>
       </div>
 
       <div class="profile-fact">
@@ -493,7 +509,7 @@
 
       <div class="profile-fact">
         <p class="profile-fact-label">Cooking</p>
-        <p class="profile-fact-value">A genuine strength. She follows the recipes her family shares and also creates her own dishes and new ways of cooking. [cuisines to&nbsp;confirm]</p>
+        <p class="profile-fact-value">A genuine strength. She follows the recipes her family shares and also creates her own dishes and new ways of cooking. She cooks both Asian and Western&nbsp;food.</p>
       </div>
 
       <div class="profile-fact">
@@ -508,12 +524,12 @@
 
       <div class="profile-fact">
         <p class="profile-fact-label">Languages</p>
-        <p class="profile-fact-value">Speaks English and Filipino [to&nbsp;confirm].</p>
+        <p class="profile-fact-value">Speaks English and Filipino.</p>
       </div>
 
       <div class="profile-fact">
         <p class="profile-fact-label">Diet</p>
-        <p class="profile-fact-value">To confirm with&nbsp;Stephanie.</p>
+        <p class="profile-fact-value">No dietary restrictions &mdash; happy with most meals, and simply likes some greens&nbsp;included.</p>
       </div>
 
       <div class="profile-fact">
@@ -526,6 +542,21 @@
         <p class="profile-fact-value">Filipino</p>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- COOKING GALLERY -->
+<section class="profile-cooking">
+  <div class="profile-wrap">
+    <h2 class="profile-notes-hdr">Some of Stephanie&rsquo;s&nbsp;cooking</h2>
+    <p class="profile-notes-sub">A few dishes she has cooked for her family &mdash; Asian and&nbsp;Western.</p>
+    <div class="cook-gallery-grid">
+      <img src="images/stephanie-cooking-1.jpeg" alt="A dish cooked by Stephanie" loading="lazy"/>
+      <img src="images/stephanie-cooking-2.jpeg" alt="A dish cooked by Stephanie" loading="lazy"/>
+      <img src="images/stephanie-cooking-3.jpeg" alt="A dish cooked by Stephanie" loading="lazy"/>
+      <img src="images/stephanie-cooking-4.jpeg" alt="A dish cooked by Stephanie" loading="lazy"/>
+      <img src="images/stephanie-cooking-5.jpeg" alt="A dish cooked by Stephanie" loading="lazy"/>
     </div>
   </div>
 </section>

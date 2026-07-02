@@ -100,6 +100,28 @@ window.HELPERS = [
     profile: "profile-stephanie.html"
   },
   {
+    id: "mariacristine",
+    name: "Maria Cristine",
+    initial: "",
+    status: "available",
+    statusLabel: "Available now",
+    line: "Filipino &middot; 39 &middot; Childcare, elderly care, household &amp; cooking",
+    summary: "Around 16 years in Singapore, recommended by her employer &mdash; experienced from young children to elderly care, runs large households, and enjoys&nbsp;cooking.",
+    referredBy: "Referred by her employer, who recommends her&nbsp;directly",
+    signal: "referred",
+    quote: "\u201cTrusted, kind and lively\u2026 excellent with young children (and&nbsp;pets).\u201d",
+    quoteCite: "&mdash; her employer",
+    nationality: "Filipino",
+    yearsSG: "Around 16 years\u2019 experience",
+    bestFit: "A family with young children (and&nbsp;pets)",
+    strengths: ["Childcare to elderly care", "Cooking &amp; household", "Pet care (dogs)"],
+    skills: ["Childcare", "Elderly care", "Cooking", "Housekeeping"],
+    age: 39,
+    availability: "transfer",
+    photo: "images/mariacristine.jpeg",
+    profile: "profile-mariacristine.html"
+  },
+  {
     name: "Eni",
     initial: "T.",
     status: "hidden",

@@ -38,7 +38,7 @@ window.HELPERS = [
     name: "Angie",
     initial: "",
     status: "available",
-    statusLabel: "Available now",
+    statusLabel: "Available from 23 July&nbsp;2026",
     line: "Filipino &middot; Housekeeping, cooking &amp; pet&nbsp;care",
     summary: "21 years with one family, deeply experienced and adaptable &mdash; loves to cook, and has cared for cats and dogs at&nbsp;home.",
     referredBy: "Referred by Monica, her employer of 21&nbsp;years",

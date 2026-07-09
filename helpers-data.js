@@ -630,7 +630,7 @@ window.HELPERS = [
     id: "susana",
     name: "Susana",
     initial: "",
-    status: "available",
+    status: "hidden",
     statusLabel: "Available now",
     line: "Filipino &middot; Cooking, household &amp;&nbsp;childcare",
     summary: "Around 20 years in Singapore, a capable cook and carer, recommended by her current&nbsp;employer.",

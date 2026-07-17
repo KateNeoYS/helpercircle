@@ -173,9 +173,8 @@ window.HELPERS = [
     initial: "S.",
     status: "available",
     statusLabel: "Available now (until 31&nbsp;Jul)",
-    availFrom: "2026-07-16",
     line: "Filipino &middot; 44 &middot; Childcare, cooking &amp; household",
-    summary: "Twenty-four years with one family, raising all four of their children from babies to teenagers &mdash; recommended in writing by the employer she is still&nbsp;with.",
+    summary: "Twenty-four years with one family, raising all four of their children through to teenagers &mdash; recommended in writing by the employer she is still&nbsp;with.",
     referredBy: "Referred by Irene, her employer of twenty-four years, happy to be&nbsp;contacted",
     signal: "referred",
     quote: "\u201cMore than an employee, she has become part of our&nbsp;family.\u201d",
@@ -183,7 +182,7 @@ window.HELPERS = [
     nationality: "Filipino",
     yearsSG: "Twenty-four years",
     bestFit: "A family with children of any age who want their home run without being&nbsp;managed",
-    strengths: ["Twenty-four years, one family", "Raised four children from babies", "Runs a home independently"],
+    strengths: ["Twenty-four years, one family", "Raised all four of their children", "Runs a home independently"],
     skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping", "Pets"],
     age: 44,
     salary: "",
@@ -953,6 +952,7 @@ window.HELPERS = [
     var s = String(h.statusLabel || "")
       .replace(/&nbsp;|&middot;|&mdash;|&amp;/g, " ")
       .toLowerCase();
+    if (/\bnow\b/.test(s)) return 0;          // "Available now (until 18 Aug)" is available NOW
     var ym = s.match(/20\d{2}/);
     var year = ym ? +ym[0] : null;
     var month = null, bestIdx = -1;

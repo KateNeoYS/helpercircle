@@ -15,26 +15,6 @@
   <link rel="stylesheet" href="styles.css"/>
 
   <style>
-    /* ─── Draft banner ─── */
-    .draft-banner {
-      background: #FFF0EB;
-      border-bottom: 2px solid var(--clr-coral, #E8825C);
-      padding: 14px 24px;
-      text-align: center;
-      position: static;
-    }
-    .draft-banner-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      font-size: .92rem;
-      color: #9B5B3A;
-      line-height: 1.5;
-    }
-    .draft-banner-inner strong {
-      color: #C66740;
-      font-weight: 700;
-      letter-spacing: .02em;
-    }
 
     /* ─── Page container ─── */
     .profile-page { background: var(--clr-white); }
@@ -53,29 +33,6 @@
     }
 
     /* Placeholder photo (no real photo yet) */
-    .profile-photo-placeholder {
-      flex: 0 0 180px;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: var(--clr-cream);
-      border: 2px dashed var(--clr-border-warm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 6px;
-      color: var(--clr-text-muted);
-    }
-    .profile-photo-placeholder svg { opacity: 0.4; }
-    .profile-photo-placeholder span {
-      font-size: .7rem;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      text-align: center;
-      padding: 0 14px;
-    }
 
     /* Real photo */
     .profile-photo {
@@ -140,23 +97,6 @@
       margin: 0 0 28px;
     }
 
-    /* CTA disabled in draft */
-    .profile-hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    .btn-disabled {
-      background: var(--clr-cream-dk);
-      color: var(--clr-text-muted);
-      cursor: not-allowed;
-      padding: 12px 24px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: .95rem;
-      border: 1px solid var(--clr-border-warm);
-    }
     .profile-hero-cta-meta {
       font-size: .87rem;
       color: var(--clr-text-muted);
@@ -187,11 +127,6 @@
       padding: 7px 14px;
       border-radius: 999px;
       white-space: nowrap;
-    }
-    .profile-chip-tbc {
-      border-style: dashed;
-      color: var(--clr-text-muted);
-      font-style: italic;
     }
 
     /* ─── KEY FACTS GRID ─── */
@@ -263,20 +198,6 @@
     }
     .profile-notes-prose p:last-child { margin-bottom: 0; }
 
-    /* TBC placeholder block — visually distinct so referrer/helper know what's needed */
-    .profile-notes-prose p.profile-tbc-block {
-      background: #FFFBF5;
-      border-left: 3px solid #E8825C;
-      padding: 16px 18px;
-      color: #9B5B3A;
-      font-size: 1rem;
-      line-height: 1.6;
-      border-radius: 0 4px 4px 0;
-    }
-    .profile-notes-prose p.profile-tbc-block em {
-      font-style: italic;
-      color: #9B5B3A;
-    }
 
     .profile-foot {
       font-style: italic;
@@ -292,7 +213,6 @@
         gap: 24px;
         justify-content: center;
       }
-      .profile-photo-placeholder,
       .profile-photo {
         flex: 0 0 140px;
         width: 140px;
@@ -355,13 +275,6 @@
     .tsig--verified { background: #2E6F95; }
     .psig--verified .tsig-mark { filter: none; }
   </style>
-  <style>
-    .draft-banner{background:#FFF3DC;border-bottom:1px solid #EAD3A0;color:#7A5712;
-      font-family:'DM Sans',system-ui,sans-serif;font-size:.9rem;line-height:1.55;padding:14px 0}
-    .draft-banner strong{color:#5E440D}
-    .tbc{color:#A8741A;font-style:italic}
-    .profile-chip.tbc{background:#FFF3DC;border:1px dashed #E2BE73;color:#8A6314;font-style:normal}
-  </style>
 </head>
 <body class="profile-page">
 
@@ -387,10 +300,7 @@
   <div class="profile-wrap">
     <div class="profile-hero-inner">
 
-      <div class="profile-photo-placeholder">
-        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        <span>Photo to come</span>
-      </div>
+      <img class="profile-photo" src="images/cres.jpeg" alt="Cres" width="180" height="180" loading="eager"/>
 
       <div class="profile-hero-text">
         <h1 class="profile-name">Cres</h1>
@@ -492,6 +402,20 @@
         <p class="profile-fact-value">34</p>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<section class="profile-cooking">
+  <div class="profile-cooking-inner">
+    <h2 class="profile-cooking-hdr">From her culinary&nbsp;class</h2>
+    <p class="profile-cooking-sub">Cres trained through a culinary course in Singapore. These are dishes she made there, well beyond the vegetarian cooking she does day to day, and a sense of the range she enjoys&nbsp;building.</p>
+    <div class="profile-cooking-grid">
+      <figure class="profile-cooking-tile"><img src="images/cres-cook-1.jpeg" alt="Linguine alle vongole with cherry tomatoes" loading="lazy"/></figure>
+      <figure class="profile-cooking-tile"><img src="images/cres-cook-2.jpeg" alt="Fried rice with a fresh spring roll" loading="lazy"/></figure>
+      <figure class="profile-cooking-tile"><img src="images/cres-cook-3.jpeg" alt="Korean fried chicken" loading="lazy"/></figure>
+      <figure class="profile-cooking-tile"><img src="images/cres-cook-4.jpeg" alt="Macarons" loading="lazy"/></figure>
+      <figure class="profile-cooking-tile"><img src="images/cres-cook-5.jpeg" alt="Churros" loading="lazy"/></figure>
     </div>
   </div>
 </section>

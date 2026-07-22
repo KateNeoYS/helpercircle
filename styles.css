@@ -7992,3 +7992,10 @@ body.profile-page { padding-top: 68px; }
    it rendered unstyled. Alias all three to the solid blue so every
    Long-Term Family Retention badge renders consistently. */
 .tsig--ver, .tsig--verified { background:#2E6F95; color:#fff; }
+
+/* Solid trust pills must always render white text, even where a profile's own
+   inline <style> block sets only the background (the pattern in the verified
+   profiles). Specificity here beats a bare .tsig--verified inline rule.
+   NOTE: .tsig--cc is deliberately excluded — the Completed Contract pill is
+   dark green on white by design. */
+.tsig.tsig--rec, .tsig.tsig--ret, .tsig.tsig--ver, .tsig.tsig--verified { color: #fff; }

@@ -7975,17 +7975,22 @@ body.profile-page { padding-top: 68px; }
    Retention): credible and positive, but clearly the lower-emphasis
    signal. Shown only on helpers with no referrer.
    ═══════════════════════════════════════════════════════════ */
-.hc-card .hc-badge--cc { background:#fff; color:var(--clr-primary-dk,#1B5E48); border:1.5px solid var(--clr-primary,#2C8A6E); box-shadow:0 1px 6px rgba(31,42,36,.14); }
+/* Third signal reads terracotta, not sage or blue, so it is distinct from both
+   solid pills at a glance. Outline (not fill) keeps it below them in emphasis.
+   --cc-line = border/rule, --cc-ink = text (darkened for AA contrast on white). */
+:root { --cc-line:#C66740; --cc-ink:#9C4A22; }
+
+.hc-card .hc-badge--cc { background:#fff; color:var(--cc-ink,#9C4A22); border:1.5px solid var(--cc-line,#C66740); box-shadow:0 1px 6px rgba(31,42,36,.14); }
 .hc-card .hc-badge--cc::before { display:none; }
 
-.mcard-badge--cc { background:#fff; color:var(--clr-primary-dk,#1B5E48); border:1.5px solid var(--clr-primary,#2C8A6E); }
+.mcard-badge--cc { background:#fff; color:var(--cc-ink,#9C4A22); border:1.5px solid var(--cc-line,#C66740); }
 .mcard-badge--ref, .mcard-badge--ver, .mcard-badge--cc { text-transform:none; letter-spacing:.01em; }
-.mcard--cc { border-left-color:var(--clr-primary,#2C8A6E); }
-.mcard--cc .mcard-cta { color:var(--clr-primary-dk,#1B5E48); }
+.mcard--cc { border-left-color:var(--cc-line,#C66740); }
+.mcard--cc .mcard-cta { color:var(--cc-ink,#9C4A22); }
 
-.tsig--cc { background:#fff; color:var(--clr-primary-dk,#1B5E48); border:1.5px solid var(--clr-primary,#2C8A6E); }
+.tsig--cc { background:#fff; color:var(--cc-ink,#9C4A22); border:1.5px solid var(--cc-line,#C66740); }
 
-.bf-chip.is-on.bf-chip--cc { background:#fff; color:var(--clr-primary-dk,#1B5E48); border-color:var(--clr-primary,#2C8A6E); }
+.bf-chip.is-on.bf-chip--cc { background:#fff; color:var(--cc-ink,#9C4A22); border-color:var(--cc-line,#C66740); }
 
 /* Fix (pre-existing): the retention badge on profile pages referenced
    .tsig--verified / .tsig--ver, but only .tsig--ret was ever styled — so

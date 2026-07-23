@@ -82,7 +82,7 @@ window.HELPERS = [
     name: "Stephanie",
     initial: "",
     status: "placed",
-    statusLabel: "Joined a new family &middot; end July&nbsp;2026",
+    statusLabel: "Joined a new family &middot; 24 July&nbsp;2026",
     line: "Filipino &middot; 39 &middot; Cooking, childcare, household &amp; pet&nbsp;care",
     summary: "Two and a half years with one family, recommended by her current employer &mdash; a keen, creative cook, devoted to the home and the family&rsquo;s&nbsp;dog.",
     referredBy: "Referred by Jessica, her employer of two and a half&nbsp;years",
@@ -950,41 +950,10 @@ window.HELPERS = [
        "verified"           → 📅 Long-Term Family Retention  (4+ yrs, same employer)
      For a verified helper: signal:"verified" + verifiedYears (e.g. 10) OR renewals (e.g. 3).
      (Legacy "recommended"/"retention" still map correctly.) */
-  /* ── Trust signals ──
-       "referred" (default) → 🏆 Employer Recommended       (current/former employer recommendation)
-       "verified"           → 📅 Long-Term Family Retention  (long stay, one family, MOM-checked)
-       "completed"          → ✅ Completed Contract           (completed SG employment, HC-reviewed; NO referrer)
-
-     ONE badge shows per helper. If a helper could qualify for more than one,
-     the strongest wins in this fixed order:  referred > verified > completed.
-     (So Completed Contract only ever appears on a helper with no referrer —
-     the reversible, flag-at-go-live case.)
-
-     For a verified helper:  signal:"verified" + verifiedYears (e.g. 10) OR renewals (e.g. 3).
-     For a completed helper: signal:"completed".  Optional INTERNAL-ONLY notes may
-     accompany her to justify the badge — these never render on the site:
-       completedEmploymentCount, momHistoryReviewed,
-       validatedCompletedEmployment (true/false), validatedCompletedReason.
-     (Legacy "recommended"/"retention" still map correctly.) */
-  function signalKey(h) {
-    var s = h.signal;
-    if (s === "verified" || s === "retention") return "verified";
-    if (s === "completed") return "completed";
-    return "referred";
-  }
-  function signalLabel(h) {
-    var k = signalKey(h);
-    if (k === "verified") return "Long-Term Family Retention";
-    if (k === "completed") return "Completed Contract";
-    return "Employer Recommended";
-  }
-  // Shared badge mark/class maps (keyed by signalKey) — used by home + browse cards
-  var SIG_MARK = { referred: "\uD83C\uDFC6", verified: "\uD83D\uDCC5", completed: "\u2705" };
-  var SIG_CLS  = { referred: "ref", verified: "ver", completed: "cc" };
+  function signalKey(h) { return (h.signal === "verified" || h.signal === "retention") ? "verified" : "referred"; }
+  function signalLabel(h) { return signalKey(h) === "verified" ? "Long-Term Family Retention" : "Employer Recommended"; }
   function signalSub(h) {
-    var k = signalKey(h);
-    if (k === "referred") return "Recommended by current or former employer";
-    if (k === "completed") return "Completed employment in Singapore, reviewed by Helper Circle";
+    if (signalKey(h) !== "verified") return "Recommended by current or former employer";
     if (h.verifiedSub) return h.verifiedSub;
     if (h.verifiedYears || h.retentionYears) return (h.verifiedYears || h.retentionYears) + " years with same employer";
     if (h.renewals) return h.renewals + " contract renewals, same employer";
@@ -1057,10 +1026,11 @@ window.HELPERS = [
   function sortByAvail(list) {
     return list.slice().sort(function (a, b) { return availSortKey(a) - availSortKey(b); });
   }
-  // Home-page photo badge: green pill (referred) · blue pill (verified) · outlined pill (completed)
+  // Home-page photo badge: green pill (referred) · blue pill (verified) — colour is the signal
   function homeBadge(h) {
-    var k = signalKey(h);
-    return '<span class="hc-badge hc-badge--' + SIG_CLS[k] + '"><span class="tsig-mark" aria-hidden="true">' + SIG_MARK[k] + '</span> ' + signalLabel(h) + '</span>';
+    return signalKey(h) === "verified"
+      ? '<span class="hc-badge hc-badge--ver"><span class="tsig-mark" aria-hidden="true">\uD83D\uDCC5</span> Long-Term Family Retention</span>'
+      : '<span class="hc-badge hc-badge--ref"><span class="tsig-mark" aria-hidden="true">\uD83C\uDFC6</span> Employer Recommended</span>';
   }
 
   /* ── Home page: compact cards into #avail-grid (available only, max 3) ──
@@ -1207,7 +1177,7 @@ window.HELPERS = [
 
     return (
 '    <div class="mcard-wrap ' + wrapClass + '" data-signal="' + key + '" data-skills="' + dataSkills + '" data-nat="' + natCountry(h) + '" data-avail="' + availOf(h) + '">\n' +
-'      <a href="' + h.profile + '" class="mcard mcard--' + SIG_CLS[key] + '" aria-label="View ' + plain(fullName(h)) + '\u2019s profile">\n' +
+'      <a href="' + h.profile + '" class="mcard mcard--' + (v ? 'ver' : 'ref') + '" aria-label="View ' + plain(fullName(h)) + '\u2019s profile">\n' +
 '        <div class="mcard-media">\n' +
 '          <img src="' + h.photo + '" alt="" loading="lazy"/>\n' +
 availPill +
@@ -1217,7 +1187,7 @@ availPill +
 '            <h3 class="mcard-name">' + nameHtml + '</h3>\n' +
 '            <p class="mcard-nat">' + h.nationality + '</p>\n' +
 '          </div>\n' +
-'          <span class="mcard-badge mcard-badge--' + SIG_CLS[key] + '"><span class="tsig-mark" aria-hidden="true">' + SIG_MARK[key] + '</span> ' + signalLabel(h) + '</span>\n' +
+'          <span class="mcard-badge mcard-badge--' + (v ? 'ver' : 'ref') + '"><span class="tsig-mark" aria-hidden="true">' + (v ? '\uD83D\uDCC5' : '\uD83C\uDFC6') + '</span> ' + signalLabel(h) + '</span>\n' +
 '          <p class="mcard-trust">' + trustLine + '</p>\n' +
 '          <p class="mcard-summary">' + h.summary + '</p>\n' +
 recBlock +

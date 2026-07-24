@@ -254,7 +254,7 @@ window.HELPERS = [
     quoteCite: "&mdash; Pearlyn",
     nationality: "Myanmar",
     yearsSG: "Since 2023",
-    bestFit: "A household needing elderly care, or a family with school-age children and a busy activity week",
+    bestFit: "A household needing elderly care, or a family with children aged four and up",
     strengths: ["Referred by her employer", "Elderly care &amp; childcare", "Street smart &amp; reliable"],
     skills: ["Elderly Care", "Childcare", "Infant Care", "Cooking", "Housekeeping", "Pets"],
     age: 30,

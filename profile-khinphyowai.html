@@ -6,7 +6,7 @@
   <title>Khin Phyo Wai — Helper Circle</title>
   <meta name="description" content="Khin Phyo Wai — Employer Recommended. Referred by her own employer, who has employed her since 2023. Elderly care, four children from a baby to ten, cooking, dogs, and some Chinese."/>
 
-  <!-- noindex by convention — all live profiles carry this -->
+  <!-- Profiles kept noindex by convention -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,145 +15,255 @@
   <link rel="stylesheet" href="styles.css"/>
 
   <style>
-    /* Clear the fixed 68px site-header so nothing hides beneath it */
-    body.profile-page { background: var(--clr-white); padding-top: 68px; }
+
+    /* ─── Page container ─── */
+    .profile-page { background: var(--clr-white); }
     .profile-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 
-    /* ─── Draft banner (static — sits below the header, never clipped) ─── */
-    .draft-banner {
-      background: #FFF0EB;
-      border-bottom: 1px solid var(--clr-coral, #E8825C);
-      padding: 12px 24px; text-align: center;
-    }
-    .draft-banner-inner {
-      max-width: 720px; margin: 0 auto;
-      font-size: .9rem; color: #9B5B3A; line-height: 1.5;
-    }
-    .draft-banner-inner strong { color: #C66740; font-weight: 700; letter-spacing: .02em; }
-
-    /* ─── TBC marker (draft-only; remove at go-live) ─── */
-    .tbc {
-      background: #FCEBDF; color: #B5612F; font-style: normal;
-      padding: 0 5px; border-radius: 4px; font-size: .9em; font-weight: 600;
-      box-shadow: inset 0 0 0 1px #E8B894;
-    }
-
     /* ─── HERO ─── */
-    .profile-hero { padding: 40px 0 32px; background: var(--clr-white); }
-    .profile-hero-inner { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
-    .profile-photo {
-      flex: 0 0 190px; width: 190px; height: 190px;
-      border-radius: 20px; object-fit: cover; object-position: center top;
-      background: var(--clr-cream); box-shadow: 0 2px 10px rgba(31,42,36,.10);
+    .profile-hero {
+      padding: 56px 0 48px;
+      background: var(--clr-white);
     }
-    .profile-hero-text { flex: 1 1 320px; min-width: 0; }
+    .profile-hero-inner {
+      display: flex;
+      gap: 36px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+
+    /* Real photo */
+    .profile-photo {
+      flex: 0 0 180px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .profile-hero-text {
+      flex: 1 1 320px;
+      min-width: 0;
+    }
     .profile-name {
       font-family: var(--fd, 'Cormorant Garamond', serif);
-      font-weight: 500; font-size: clamp(2.3rem, 5vw, 3rem);
-      letter-spacing: -0.012em; color: var(--clr-text);
-      margin: 0 0 4px; line-height: 1.05;
+      font-weight: 500;
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      letter-spacing: -0.012em;
+      color: var(--clr-text);
+      margin: 0 0 6px;
+      text-wrap: balance;
+      line-height: 1.05;
     }
     .profile-descriptor {
       font-family: var(--fd, 'Cormorant Garamond', serif);
-      font-style: italic; font-size: 1.12rem; color: var(--clr-text-muted); margin: 0 0 14px;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--clr-text-muted);
+      margin: 0 0 18px;
     }
-    .profile-meta {
-      display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px;
-      font-size: .92rem; color: var(--clr-text-2); margin: 0 0 18px;
-    }
-    .profile-meta .sep { color: var(--clr-text-faint, #9AA0A6); }
 
-    /* ─── Prominent verification card (the page's signature element) ─── */
-    .verify-card {
-      display: flex; align-items: center; gap: 16px;
-      background: #EAF2F7; border: 1px solid #CBDDE9; border-left: 4px solid #2E6F95;
-      border-radius: 14px; padding: 16px 18px; margin: 0 0 20px;
+    .profile-verified-line {
+      font-size: .95rem;
+      color: var(--clr-text-2);
+      line-height: 1.6;
+      margin: 0 0 16px;
+      padding: 14px 0 14px 18px;
+      border-left: 2px solid var(--clr-primary);
+      background: linear-gradient(to right, var(--clr-primary-bg) 0%, transparent 70%);
+      border-radius: 0 4px 4px 0;
     }
-    .verify-card-ico {
-      flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%;
-      background: #2E6F95; display: flex; align-items: center; justify-content: center;
+    .profile-verified-line strong {
+      color: var(--clr-primary);
+      font-weight: 600;
     }
-    .verify-card-title {
-      font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-      color: #1F4E6B; margin: 0 0 3px;
-    }
-    .verify-card-fact { font-size: 1.02rem; font-weight: 600; color: var(--clr-text); margin: 0; line-height: 1.35; }
-    .verify-card-fact span { font-weight: 400; color: var(--clr-text-muted); font-size: .92rem; }
 
-    /* CTA */
-    .profile-hero-cta { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-    .profile-hero-cta-meta { font-size: .86rem; color: var(--clr-text-muted); font-style: italic; }
+    .profile-quote {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic;
+      font-size: 1.18rem;
+      line-height: 1.55;
+      color: var(--clr-text-2);
+      margin: 24px 0 12px;
+      text-wrap: balance;
+    }
+    .profile-quote-attr {
+      font-size: .85rem;
+      color: var(--clr-text-muted);
+      margin: 0 0 28px;
+    }
 
-    /* ─── Content blocks ─── */
-    .profile-block { padding: 26px 0; border-top: 1px solid var(--clr-border-warm); }
+    /* CTA disabled in draft */
+    .profile-hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .profile-hero-cta-meta {
+      font-size: .87rem;
+      color: var(--clr-text-muted);
+      font-style: italic;
+    }
+
+    /* ─── AT A GLANCE ─── */
+    .profile-glance {
+      padding: 36px 0 12px;
+      background: var(--clr-white);
+    }
     .profile-section-label {
-      font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
-      color: var(--clr-primary); margin: 0 0 16px;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--clr-primary);
+      margin: 0 0 14px;
     }
-    .block-line { font-size: 1rem; line-height: 1.6; color: var(--clr-text-2); margin: 0 0 14px; }
-
-    /* Highlights */
-    .hl { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-    .hl li {
-      position: relative; padding-left: 30px;
-      font-size: 1.02rem; line-height: 1.5; color: var(--clr-text-2);
+    .profile-chips {
+      display: flex; flex-wrap: wrap; gap: 8px;
     }
-    .hl li strong { color: var(--clr-text); font-weight: 600; }
-    .hl li::before {
-      content: ""; position: absolute; left: 0; top: 2px;
-      width: 18px; height: 18px; border-radius: 50%;
-      background: var(--clr-primary-bg, #EAF5EF);
-      box-shadow: inset 0 0 0 1.5px var(--clr-primary, #2C8A6E);
+    .profile-chip {
+      font-size: .88rem;
+      color: var(--clr-text-2);
+      background: var(--clr-cream);
+      border: 1px solid var(--clr-border-warm);
+      padding: 7px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
     }
-    .hl li::after {
-      content: ""; position: absolute; left: 6px; top: 8px;
-      width: 6px; height: 3px; border-left: 1.5px solid var(--clr-primary, #2C8A6E);
-      border-bottom: 1.5px solid var(--clr-primary, #2C8A6E); transform: rotate(-45deg);
-    }
-
-    /* Chips */
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip {
-      font-size: .88rem; color: var(--clr-text-2); background: var(--clr-cream);
-      border: 1px solid var(--clr-border-warm); padding: 7px 13px; border-radius: 999px; white-space: nowrap;
+    .profile-chip-tbc {
+      border-style: dashed;
+      color: var(--clr-text-muted);
+      font-style: italic;
     }
 
-    /* Mini fact grid */
-    .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px 24px; margin-top: 4px; }
-    .fact-k { font-size: .7rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--clr-text-muted); margin: 0 0 4px; }
-    .fact-v { font-size: .98rem; line-height: 1.5; color: var(--clr-text); margin: 0; }
+    /* ─── KEY FACTS GRID ─── */
+    .profile-facts {
+      padding: 36px 0;
+      background: var(--clr-white);
+    }
+    .profile-facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0;
+      border-top: 1px solid var(--clr-border-warm);
+      border-left: 1px solid var(--clr-border-warm);
+    }
+    .profile-fact {
+      padding: 22px 22px;
+      border-right: 1px solid var(--clr-border-warm);
+      border-bottom: 1px solid var(--clr-border-warm);
+      background: var(--clr-white);
+    }
+    .profile-fact-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--clr-text-muted);
+      margin: 0 0 8px;
+    }
+    .profile-fact-value {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--clr-text);
+      margin: 0;
+    }
+    .profile-fact-value strong { font-weight: 600; }
+    .profile-fact-value em {
+      color: var(--clr-text-muted);
+      font-style: italic;
+      font-size: .9rem;
+    }
 
-    .muted-note { font-size: .9rem; font-style: italic; color: var(--clr-text-muted); margin: 14px 0 0; line-height: 1.6; }
+    /* ─── EMPLOYER NOTES ─── */
+    .profile-notes {
+      padding: 56px 0;
+      background: var(--clr-cream);
+      border-top: 1px solid var(--clr-border-warm);
+    }
+    .profile-notes-hdr {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: clamp(1.7rem, 3.5vw, 2.1rem);
+      letter-spacing: -0.008em;
+      color: var(--clr-text);
+      margin: 0 0 8px;
+      text-wrap: balance;
+    }
+    .profile-notes-sub {
+      font-size: .95rem;
+      color: var(--clr-text-muted);
+      margin: 0 0 32px;
+      font-style: italic;
+    }
+    .profile-notes-prose p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--clr-text-2);
+      margin: 0 0 1.1em;
+      text-wrap: pretty;
+    }
+    .profile-notes-prose p:last-child { margin-bottom: 0; }
 
-    /* Training / credentials list */
-    .cred { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
-    .cred li { display: flex; justify-content: space-between; gap: 16px; align-items: baseline;
-      border-bottom: 1px dashed var(--clr-border-warm); padding-bottom: 12px; }
-    .cred li:last-child { border-bottom: none; padding-bottom: 0; }
-    .cred-main { font-size: .98rem; color: var(--clr-text); line-height: 1.45; }
-    .cred-main span { display: block; font-size: .88rem; color: var(--clr-text-muted); margin-top: 2px; }
-    .cred-date { flex: 0 0 auto; font-size: .85rem; font-style: italic; color: var(--clr-text-muted); white-space: nowrap; }
+    /* TBC placeholder block — visually distinct so referrer/helper know what's needed */
+    .profile-notes-prose p.profile-tbc-block {
+      background: #FFFBF5;
+      border-left: 3px solid #E8825C;
+      padding: 16px 18px;
+      color: #9B5B3A;
+      font-size: 1rem;
+      line-height: 1.6;
+      border-radius: 0 4px 4px 0;
+    }
+    .profile-notes-prose p.profile-tbc-block em {
+      font-style: italic;
+      color: #9B5B3A;
+    }
 
-    /* Verification details — reuse the blue card, full width */
-    .verify-detail { background: #EAF2F7; border: 1px solid #CBDDE9; border-left: 4px solid #2E6F95; border-radius: 12px; padding: 18px 20px; }
-    .verify-detail ul { list-style: none; margin: 10px 0 0; padding: 0; }
-    .verify-detail li { position: relative; padding-left: 22px; margin: 0 0 8px; font-size: .96rem; line-height: 1.5; color: var(--clr-text-2); }
-    .verify-detail li:last-child { margin-bottom: 0; }
-    .verify-detail li::before { content: ""; position: absolute; left: 4px; top: .5em; width: 7px; height: 7px; border-radius: 50%; background: #2E6F95; }
-    .verify-detail strong { color: #1F4E6B; }
+    .profile-foot {
+      font-style: italic;
+      color: var(--clr-text-muted);
+      font-size: .92rem;
+      margin: 32px 0 0;
+    }
 
+    /* ─── MOBILE ADJUSTMENTS ─── */
     @media (max-width: 640px) {
-      .profile-hero { padding: 28px 0 24px; }
-      .profile-hero-inner { gap: 22px; justify-content: center; }
-      .profile-photo { flex: 0 0 150px; width: 150px; height: 150px; margin: 0 auto; }
+      .profile-hero { padding: 40px 0 36px; }
+      .profile-hero-inner {
+        gap: 24px;
+        justify-content: center;
+      }
+      .profile-photo-placeholder,
+      .profile-photo {
+        flex: 0 0 140px;
+        width: 140px;
+        height: 140px;
+        margin: 0 auto;
+        align-self: center;
+      }
       .profile-hero-text { text-align: center; }
-      .profile-meta { justify-content: center; }
-      .verify-card, .profile-hero-cta { text-align: left; }
-      .profile-hero-cta { justify-content: center; }
-      .cred li { flex-direction: column; gap: 2px; }
+      .profile-verified-line { text-align: left; }
+      .profile-hero-cta { display: flex; justify-content: center; }
+      .profile-facts-grid { grid-template-columns: 1fr; }
+      .profile-fact { padding: 20px 18px; }
     }
 
     /* ─── ASK ABOUT FORM ─── */
+    .profile-cooking { background: var(--clr-cream, #FCF7EE); padding: 56px 0 60px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
+    .profile-cooking-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .profile-cooking-hdr { font-family: var(--fd, 'Cormorant Garamond', serif); font-weight: 500; font-size: clamp(1.7rem, 3.5vw, 2.1rem); letter-spacing: -0.008em; color: var(--clr-text, #1F2A24); margin: 0 0 12px; }
+    .profile-cooking-sub { font-size: 1rem; color: var(--clr-text-muted, #5A6661); line-height: 1.65; margin: 0 0 28px; max-width: 60ch; }
+    .profile-cooking-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .profile-cooking-tile { margin: 0; border-radius: 10px; overflow: hidden; background: #EFE7D8; box-shadow: 0 1px 3px rgba(31,42,36,.08); }
+    .profile-cooking-tile img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+    @media (max-width: 560px) {
+      .profile-cooking-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
     .profile-ask { background: var(--clr-white, #FFFFFF); padding: 56px 0 72px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
     .profile-ask-inner { max-width: 560px; margin: 0 auto; padding: 0 24px; }
     .profile-ask-kicker { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--clr-primary); background: var(--clr-primary-bg); padding: 4px 10px; border-radius: 4px; margin-bottom: 12px; }
@@ -170,11 +280,26 @@
     .ask-success, .ask-error { background: var(--clr-primary-bg); border-left: 3px solid var(--clr-primary); padding: 16px 18px; border-radius: 0 8px 8px 0; margin-top: 12px; }
     .ask-error { background: #FFF0EB; border-left-color: #E8825C; }
     .ask-success p, .ask-error p { margin: 0; color: var(--clr-text-2); line-height: 1.6; }
+    /* ─── COOKING GALLERY ─── */
+    .profile-cooking { padding: 44px 0 8px; }
+    .cook-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+    .cook-gallery-grid img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+      box-shadow: 0 4px 14px rgba(31,42,36,0.08);
+    }
   </style>
 </head>
 <body class="profile-page">
 
-<!-- ═══ HEADER ═══ -->
 <header class="site-header" id="site-header">
   <div class="wrap header-inner">
     <a href="index.html" class="logo">
@@ -184,7 +309,6 @@
     <nav class="site-nav" id="site-nav">
       <a href="browse.html" class="nav-a">Meet Helpers</a>
       <a href="refer.html" class="nav-a">Refer a Helper</a>
-      <a href="register.html" class="nav-a">Register as a Helper</a>
       <a href="index.html#how" class="nav-a">How It Works</a>
       <a href="faq.html" class="nav-a">FAQ</a>
       <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
@@ -194,189 +318,173 @@
   </div>
 </header>
 
-<!-- ═══ HERO ═══ -->
 <section class="profile-hero">
   <div class="profile-wrap">
     <div class="profile-hero-inner">
 
-      <img src="images/khinphyowai.jpeg" alt="Khin Phyo Wai" class="profile-photo">
+      <img class="profile-photo" src="images/khinphyowai.jpeg" alt="Khin Phyo Wai" width="180" height="180" loading="eager"/>
 
       <div class="profile-hero-text">
         <h1 class="profile-name">Khin Phyo Wai</h1>
-        <p class="profile-descriptor">Elderly care &amp; childcare &middot; Myanmar</p>
+        <p class="profile-descriptor">Myanmar national &middot; Elderly care, childcare &amp; cooking</p>
 
-        <div class="profile-meta">
-          <span>30 years old</span><span class="sep">·</span>
-          <span>Available from 20 August&nbsp;2026</span><span class="sep">·</span>
-          <span>Transfer within Singapore</span>
-        </div>
+        <p class="profile-verified-line">
+          <strong>Referred by Pearlyn, her employer since 2023</strong>, who recommends her&nbsp;directly.
+        </p>
 
-        <div class="verify-card" style="background:var(--clr-primary,#2C8A6E)">
-          <span class="verify-card-ico" aria-hidden="true">&#127942;</span>
-          <div>
-            <p class="verify-card-title">Employer Recommended</p>
-            <p class="verify-card-fact">Referred by Pearlyn, her employer <span>· since 2023</span></p>
-          </div>
-        </div>
-
-        <p class="profile-quote" style="margin:14px 0 2px;font-size:1.02rem;line-height:1.5">&ldquo;Very kind hearted. No matter how naughty the kids are, she can forgive and&nbsp;forget.&rdquo;</p>
-        <p class="profile-quote-attr" style="margin:0 0 4px;font-size:.86rem;color:var(--clr-text-muted)">&mdash; Pearlyn, her employer</p>
+        <p class="profile-quote">&ldquo;Very kind hearted. No matter how naughty the kids are, she can forgive and&nbsp;forget.&rdquo;</p>
+        <p class="profile-quote-attr">&mdash; Pearlyn, her&nbsp;employer</p>
 
         <div class="profile-hero-cta">
-          <a href="#ask" class="btn btn-green">Ask about Khin Phyo Wai</a>
-          <span class="profile-hero-cta-meta">We respond within 1&ndash;2 business&nbsp;days</span>
+          <a href="#ask" class="btn">Ask about Khin Phyo Wai</a>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="profile-trust">
+  <div class="profile-wrap">
+    <p class="profile-section-label">Trust signals</p>
+    <div class="psig psig--rec">
+      <span class="tsig tsig--rec"><span class="tsig-mark" aria-hidden="true">&#127942;</span> Employer Recommended</span>
+      <ul class="psig-list">
+        <li>Referred directly by Pearlyn, who has employed her since&nbsp;2023</li>
+        <li>Pearlyn is happy to speak with families considering&nbsp;her</li>
+        <li>Two roles inside the same family, first the grandfather&rsquo;s household, then their&nbsp;own</li>
+      </ul>
+      <p class="psig-note">Our strongest trust signal &mdash; a family she works for now, recommending her&nbsp;directly.</p>
+    </div>
+  </div>
+</section>
+
+<section class="profile-glance">
+  <div class="profile-wrap">
+    <p class="profile-section-label">At a glance</p>
+    <div class="profile-chips">
+      <span class="profile-chip">One family since 2023</span>
+      <span class="profile-chip">Elderly care &amp; childcare</span>
+      <span class="profile-chip">Took a baby at one week old</span>
+      <span class="profile-chip">School runs &amp; activities</span>
+      <span class="profile-chip">Some Chinese</span>
+      <span class="profile-chip">Comfortable with dogs</span>
+    </div>
+  </div>
+</section>
+
+<section class="profile-facts">
+  <div class="profile-wrap">
+    <p class="profile-section-label">The essentials</p>
+    <div class="profile-facts-grid">
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Elderly care</p>
+        <p class="profile-fact-value">Her first household was the family&rsquo;s&nbsp;grandfather. She gave him his medicines, cooked his dinner and went with him wherever he&nbsp;went. He managed daily life independently, so her role was to be alongside him and there if he felt&nbsp;faint.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Childcare</p>
+        <p class="profile-fact-value">Four children in her current&nbsp;household: a girl of ten, a girl of six, a boy of five, and the youngest at one year three&nbsp;months. She took the youngest at one week old and has had him&nbsp;since.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">The daily run</p>
+        <p class="profile-fact-value">School drop-offs and pick-ups for the three older children, plus taekwondo, badminton and&nbsp;swimming.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Cooking</p>
+        <p class="profile-fact-value">Daily family meals, cooking for children, and cooking for an elderly&nbsp;member. She also does the&nbsp;marketing.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Languages</p>
+        <p class="profile-fact-value">Burmese &middot; some English &middot; understands and speaks some&nbsp;Chinese</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Pets</p>
+        <p class="profile-fact-value">Cared for the family&rsquo;s Shiba Inu in her first&nbsp;household</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Available from</p>
+        <p class="profile-fact-value">20 August&nbsp;2026</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Age</p>
+        <p class="profile-fact-value">30</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<div class="profile-wrap">
+<section class="profile-notes">
+  <div class="profile-wrap">
+    <h2 class="profile-notes-hdr">Her employer&rsquo;s&nbsp;recommendation</h2>
+    <p class="profile-notes-sub">In Pearlyn&rsquo;s words, and&nbsp;ours.</p>
 
-  <!-- ═══ WHY FAMILIES CONSIDER HER ═══ -->
-  <section class="profile-block" style="border-top:none">
-    <p class="profile-section-label">Why families consider her</p>
-    <ul class="hl">
-      <li><strong>Referred by her own employer</strong>, who has employed her since 2023 and is happy to speak with families&nbsp;directly.</li>
-      <li><strong>Elderly care and childcare, both properly done</strong> &mdash; she has cared for a grandfather day to day, and for four children, the youngest from babyhood to fifteen months&nbsp;now.</li>
-      <li><strong>She runs the school and activity week</strong> &mdash; drop-offs, pick-ups, taekwondo, badminton and&nbsp;swimming.</li>
-      <li><strong>Comfortable with dogs</strong>, having cared for one in her first&nbsp;household.</li>
-    </ul>
-  </section>
+    <div class="profile-notes-prose">
+      <p>Pearlyn has employed Khin since 2023, first in her father-in-law&rsquo;s household and then in her&nbsp;own. She referred Khin to us herself and is happy to speak with families considering&nbsp;her.</p>
 
-  <!-- ═══ ELDERLY CARE ═══ -->
-  <section class="profile-block">
-    <p class="profile-section-label">Elderly care</p>
-    <p class="block-line">Her first household was the family&rsquo;s&nbsp;grandfather. She gave him his medicines, cooked his dinner, and went with him wherever he&nbsp;went. He managed daily life independently, so her role was to be alongside him, keep the household running, and be there if he felt&nbsp;faint. She also cared for the family&rsquo;s Shiba&nbsp;Inu.</p>
-    <div class="chips">
-      <span class="chip">Medication reminders</span>
-      <span class="chip">Cooking for one</span>
-      <span class="chip">Accompanying outings</span>
-      <span class="chip">Companionship</span>
+      <p>&ldquo;Very kind hearted. No matter how naughty the kids are, she can forgive and&nbsp;forget.&rdquo;</p>
+
+      <p>&ldquo;Very street&nbsp;smart.&rdquo; Give her an address and a task, Pearlyn says, and she will get there and get it done, even if she loses her way on the&nbsp;route.</p>
+
+      <p>Pearlyn describes her as optimistic and easy to work&nbsp;with. She does not argue, she takes feedback, and she stays&nbsp;positive. When the youngest was waking every three to four hours, Khin offered to keep him with her at night so the family could&nbsp;rest.</p>
+
+      <p><strong>Where she&rsquo;d suit&nbsp;next:</strong> a household with an elderly member, or a family with older or school-age children, where she can run the home, cook well and give attentive&nbsp;care.</p>
     </div>
-  </section>
 
-  <!-- ═══ CHILDCARE ═══ -->
-  <section class="profile-block">
-    <p class="profile-section-label">Childcare</p>
-    <p class="block-line">In her current household there are four&nbsp;children. A girl of ten, a girl of six, a boy of five, and the youngest, who is now one year and three months&nbsp;old. She has had the youngest since he was a&nbsp;baby. She does the school runs for the three older children, takes the younger two to taekwondo, badminton and swimming, and cares for the little one at&nbsp;home.</p>
-    <div class="chips">
-      <span class="chip">Baby &amp; toddler care</span>
-      <span class="chip">School drop-off &amp; pick-up</span>
-      <span class="chip">Activities &amp; classes</span>
-      <span class="chip">Cooking for children</span>
-      <span class="chip">Ages 0 to 10</span>
-    </div>
-  </section>
+    <p class="profile-foot">Pearlyn is happy to be contacted directly by families considering&nbsp;Khin.</p>
 
-  <!-- ═══ WHY SHE IS MOVING ON ═══ -->
-  <section class="profile-block">
+  </div>
+</section>
+
+<section class="profile-glance">
+  <div class="profile-wrap">
     <p class="profile-section-label">Why she is moving&nbsp;on</p>
-    <p class="block-line">There are two helpers in the household at&nbsp;the moment. Khin&rsquo;s own role is the youngest child, whom she took at one week old and slept beside every&nbsp;night, while she and the other helper share the cooking, housekeeping and school routines for the three older&nbsp;children.</p>
-    <p class="block-line">The other helper leaves in February, and the family are not replacing&nbsp;her. From then, all of it would be Khin&rsquo;s alone: the youngest, the three older children, the cooking, cleaning, laundry and the whole&nbsp;household. She would rather do fewer things properly than everything at&nbsp;once.</p>
-    <p class="block-line">She is available from 20&nbsp;August.</p>
-  </section>
+    <p class="profile-foot" style="margin-top:0">There are two helpers in the household at&nbsp;the moment. Khin&rsquo;s own role is the youngest child, while she and the other helper share the cooking, housekeeping and school routines for the three older&nbsp;children. The other helper leaves in February and the family are not replacing&nbsp;her, which would leave all of it to Khin&nbsp;alone. She would rather do fewer things properly than everything at&nbsp;once. She is available from 20&nbsp;August.</p>
+    <p class="profile-foot">Her strengths are care, warmth and reliability rather than exacting&nbsp;housekeeping. A household that wants an immaculate home above all else would not be the right&nbsp;fit, and she is not looking for sole charge of an infant alongside a full&nbsp;household.</p>
+  </div>
+</section>
 
-  <!-- ═══ THE ESSENTIALS ═══ -->
-  <section class="profile-block">
-    <p class="profile-section-label">The essentials</p>
-    <div class="facts">
-      <div><p class="fact-k">In Singapore since</p><p class="fact-v">2023, with one family&nbsp;throughout</p></div>
-      <div><p class="fact-k">Languages</p><p class="fact-v">Burmese &middot; some English &middot; understands and speaks some&nbsp;Chinese</p></div>
-      <div><p class="fact-k">Pets</p><p class="fact-v">Cared for the family&rsquo;s Shiba Inu in her first&nbsp;household</p></div>
-      <div><p class="fact-k">Cooking</p><p class="fact-v">Daily family meals, and cooking for an elderly&nbsp;member</p></div>
-    </div>
-  </section>
-
-  <!-- ═══ FAMILY SHE MAY SUIT ═══ -->
-  <section class="profile-block">
-    <p class="profile-section-label">Family she may suit</p>
-    <p class="block-line">Khin Phyo Wai has done two quite different jobs well inside the same&nbsp;family. What she is asking for now is a role she can do&nbsp;thoroughly.</p>
-    <ul class="hl">
-      <li><strong>A household with an elderly member</strong> who would value daily company, medication and cooking. This is the work she did in her first&nbsp;household.</li>
-      <li><strong>A family with older or school-age children</strong>, including the daily run to school and&nbsp;activities.</li>
-      <li>Households with a&nbsp;dog.</li>
-      <li>Her English is limited, so a household where that is workable, or where some Burmese is&nbsp;spoken.</li>
-    </ul>
-    <p class="muted-note">She has real experience with babies, including one she cared for from a week&nbsp;old. What she is not looking for is sole charge of an infant alongside a full household, which is the situation she is leaving&nbsp;now. Her strengths are care, warmth and reliability rather than exacting housekeeping, and a household that wants an immaculate home above all else would not be the right&nbsp;fit.</p>
-  </section>
-
-  <!-- ═══ HER EMPLOYER'S RECOMMENDATION ═══ -->
-  <section class="profile-block">
-    <p class="profile-section-label">Her employer&rsquo;s&nbsp;recommendation</p>
-    <p class="block-line">Pearlyn has employed Khin since&nbsp;2023, first in her father-in-law&rsquo;s household and then in her&nbsp;own. She referred Khin to us herself, and is happy to speak with families considering&nbsp;her.</p>
-    <ul class="hl">
-      <li><strong>&ldquo;Very kind hearted.&rdquo;</strong> However naughty the children are, Pearlyn says she forgives and forgets, and is never harsh with&nbsp;them.</li>
-      <li><strong>&ldquo;Very street smart.&rdquo;</strong> Give her an address and a task, says Pearlyn, and she will get there and get it done, even if she loses her way on the&nbsp;route.</li>
-      <li><strong>Optimistic and easy to work with.</strong> She does not argue, takes feedback well, and stays positive.</li>
-      <li><strong>Proactive with the baby.</strong> When the youngest was waking every three to four hours, Khin offered to keep him with her at night so the family could&nbsp;rest.</li>
-      <li><strong>Trusted with the whole household.</strong> Pearlyn says Khin can manage all four children on her&nbsp;own, and the family take her with them on&nbsp;holidays.</li>
-    </ul>
-  </section>
-
-</div>
-
-<!-- ═══ ASK ═══ -->
 <section class="profile-ask" id="ask">
   <div class="profile-ask-inner">
     <span class="profile-ask-kicker">Interested?</span>
     <h2 class="profile-ask-h">Ask about Khin Phyo Wai</h2>
-    <p class="profile-ask-sub">Tell us a little about your household and we'll be in touch within 1&ndash;2 business&nbsp;days. We'll only move forward if it feels like a genuine&nbsp;fit.</p>
+    <p class="profile-ask-sub">Tell us a little about your household and we&rsquo;ll be in touch within 1&ndash;2 business&nbsp;days. We&rsquo;ll only move forward if it feels like a genuine&nbsp;fit.</p>
     <form id="form-ask" action="https://formspree.io/f/mredjvwg" method="POST">
       <input type="hidden" name="helper-name" value="Khin Phyo Wai"/>
       <input type="hidden" name="_subject" value="Helper Circle — Interest in Khin Phyo Wai"/>
-      <div class="ask-field">
-        <label for="ask-name">Your name</label>
-        <input type="text" id="ask-name" name="name" required placeholder="Jane Tan" autocomplete="name"/>
-      </div>
-      <div class="ask-field">
-        <label for="ask-email">Email</label>
-        <input type="email" id="ask-email" name="email" required placeholder="you@email.com" autocomplete="email"/>
-      </div>
-      <div class="ask-field">
-        <label for="ask-phone">Phone <span class="ask-field-opt">(optional, but helps)</span></label>
-        <input type="tel" id="ask-phone" name="phone" placeholder="+65 9123 4567" autocomplete="tel"/>
-      </div>
-      <div class="ask-field">
-        <label for="ask-household">Briefly, your household</label>
-        <textarea id="ask-household" name="household" rows="3" required placeholder="Who lives at home, ages, any care needs, what your typical day looks like&hellip;"></textarea>
-      </div>
-      <div class="ask-field">
-        <label for="ask-why">Why Khin Phyo Wai? <span class="ask-field-opt">(optional)</span></label>
-        <textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you're hoping for&hellip;"></textarea>
-      </div>
+      <div class="ask-field"><label for="ask-name">Your name</label><input type="text" id="ask-name" name="name" required placeholder="Jane Tan" autocomplete="name"/></div>
+      <div class="ask-field"><label for="ask-email">Email</label><input type="email" id="ask-email" name="email" required placeholder="you@email.com" autocomplete="email"/></div>
+      <div class="ask-field"><label for="ask-phone">Phone <span class="ask-field-opt">(optional, but helps)</span></label><input type="tel" id="ask-phone" name="phone" placeholder="+65 9123 4567" autocomplete="tel"/></div>
+      <div class="ask-field"><label for="ask-household">Briefly, your household</label><textarea id="ask-household" name="household" rows="3" required placeholder="Who lives at home, ages, any pets, what your typical day looks like&hellip;"></textarea></div>
+      <div class="ask-field"><label for="ask-why">Why Khin Phyo Wai? <span class="ask-field-opt">(optional)</span></label><textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you&rsquo;re hoping for&hellip;"></textarea></div>
       <button type="submit" class="btn btn-green ask-submit">Send to Helper Circle</button>
-      <p class="ask-foot-note">We read every message personally. If Khin Phyo Wai seems like a fit for your household, we'll set up a short call to talk through the next&nbsp;step.</p>
-      <div class="ask-success" hidden>
-        <p>Thank you. We've received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p>
-      </div>
-      <div class="ask-error" hidden>
-        <p>Something didn't go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p>
-      </div>
+      <p class="ask-foot-note">We read every message personally. If Khin Phyo Wai seems like a fit for your household, we&rsquo;ll set up a short call to talk through the next&nbsp;step.</p>
+      <div class="ask-success" hidden><p>Thank you. We&rsquo;ve received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p></div>
+      <div class="ask-error" hidden><p>Something didn&rsquo;t go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p></div>
     </form>
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-inner">
-      <p class="footer-heart">Started by a Singapore family who knew there had to be a better way.</p>
+      <p class="footer-heart">Started by a Singapore family who knew there had to be a better&nbsp;way.</p>
       <nav class="footer-nav" aria-label="Footer">
         <a href="browse.html">Meet Helpers</a><span class="footer-nav-sep">·</span>
         <a href="refer.html">Refer a Helper</a><span class="footer-nav-sep">·</span>
-        <a href="register.html">Register as a Helper</a><span class="footer-nav-sep">·</span>
         <a href="index.html#how">How It Works</a><span class="footer-nav-sep">·</span>
         <a href="faq.html">FAQ</a><span class="footer-nav-sep">·</span>
         <a href="mailto:hello@helpercircle.sg">Contact</a>
       </nav>
       <p class="footer-aside"><a href="for-families.html">For families saying goodbye to a helper &rarr;</a></p>
-      <div class="footer-legal-strip">
-        <span>© <span id="year"></span> Helper Circle · Singapore</span>
-        <span class="footer-nav-sep">·</span>
-        <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>
-      </div>
+      <div class="footer-legal-strip"><span>© <span id="year"></span> Helper Circle · Singapore</span><span class="footer-nav-sep">·</span><a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a></div>
     </div>
   </div>
 </footer>
@@ -384,34 +492,19 @@
 <script src="script.js"></script>
 <script>
 (function () {
-  var form = document.getElementById('form-ask');
-  if (!form) return;
-  var submitBtn = form.querySelector('button[type="submit"]');
-  var successEl = form.querySelector('.ask-success');
-  var errorEl = form.querySelector('.ask-error');
-  var fields = form.querySelectorAll('.ask-field');
-  var noteEl = form.querySelector('.ask-foot-note');
+  var form = document.getElementById('form-ask'); if (!form) return;
+  var submitBtn = form.querySelector('button[type="submit"]'), successEl = form.querySelector('.ask-success'),
+      errorEl = form.querySelector('.ask-error'), fields = form.querySelectorAll('.ask-field'), noteEl = form.querySelector('.ask-foot-note');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (submitBtn) { submitBtn.disabled = true; submitBtn.dataset.originalText = submitBtn.textContent; submitBtn.textContent = 'Sending\u2026'; }
     if (errorEl) errorEl.hidden = true;
-    var data = new FormData(form);
-    fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
-      .then(function (res) {
-        if (res.ok) {
-          fields.forEach(function (f) { f.style.display = 'none'; });
-          if (submitBtn) submitBtn.style.display = 'none';
-          if (noteEl) noteEl.style.display = 'none';
-          if (successEl) successEl.hidden = false;
-        } else { throw new Error('Form submission failed'); }
-      })
-      .catch(function () {
-        if (errorEl) errorEl.hidden = false;
-        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.originalText || 'Send to Helper Circle'; }
-      });
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(function (res) { if (res.ok) { fields.forEach(function (f){f.style.display='none';}); if(submitBtn)submitBtn.style.display='none'; if(noteEl)noteEl.style.display='none'; if(successEl)successEl.hidden=false; } else { throw new Error('fail'); } })
+      .catch(function () { if(errorEl)errorEl.hidden=false; if(submitBtn){submitBtn.disabled=false;submitBtn.textContent=submitBtn.dataset.originalText||'Send to Helper Circle';} });
   });
 })();
 </script>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>var y=document.getElementById('year');if(y){y.textContent=new Date().getFullYear();}</script>
 </body>
 </html>

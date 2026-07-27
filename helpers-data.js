@@ -83,6 +83,7 @@ window.HELPERS = [
     initial: "",
     status: "placed",
     statusLabel: "Joined a new family &middot; 24 July&nbsp;2026",
+    matchedSeq: 6,    // match order, higher = more recent (shows leftmost)
     line: "Filipino &middot; 39 &middot; Cooking, childcare, household &amp; pet&nbsp;care",
     summary: "Two and a half years with one family, recommended by her current employer &mdash; a keen, creative cook, devoted to the home and the family&rsquo;s&nbsp;dog.",
     referredBy: "Referred by Jessica, her employer of two and a half&nbsp;years",
@@ -173,6 +174,7 @@ window.HELPERS = [
     initial: "S.",
     status: "placed",
     statusLabel: "Joined a new family &middot; 1 Aug&nbsp;2026",
+    matchedSeq: 7,    // match order, higher = more recent (shows leftmost)
     line: "Filipino &middot; 44 &middot; Childcare, cooking &amp; household",
     summary: "Twenty-four years with one family, raising all four of their children through to teenagers &mdash; recommended in writing by the employer she is still&nbsp;with.",
     referredBy: "Referred by Irene, her employer of twenty-four years, happy to be&nbsp;contacted",
@@ -196,6 +198,7 @@ window.HELPERS = [
     initial: "",
     status: "placed",
     statusLabel: "Joined a new family &middot; Aug&nbsp;2026",
+    matchedSeq: 8,    // match order, higher = more recent (shows leftmost)
     availFrom: "2026-07-16",
     line: "Myanmar &middot; 30 &middot; Childcare, cooking &amp; household",
     summary: "Recommended in writing by her most recent employer &mdash; six years of Singapore experience across three families, an excellent cook, and loving with young children.",
@@ -245,6 +248,7 @@ window.HELPERS = [
     initial: "",
     status: "placed",
     statusLabel: "Joined a new family &middot; early Aug&nbsp;2026",
+    matchedSeq: 9,    // match order, higher = more recent (shows leftmost)
     line: "Myanmar &middot; 30 &middot; Elderly care, childcare &amp; cooking",
     summary: "Referred by her own employer, who has employed her since 2023 &mdash; elderly care, four children including one she took at a week old, some Chinese, and comfortable with dogs.",
     referredBy: "Referred by Pearline, her employer since 2023, who recommends her&nbsp;directly",
@@ -386,6 +390,7 @@ window.HELPERS = [
     initial: "M.",
     status: "placed",
     statusLabel: "Joined a new family &middot; 18 July&nbsp;2026",
+    matchedSeq: 4,    // match order, higher = more recent (shows leftmost)
     line: "Filipino &middot; 40 &middot; Household, cooking &amp; childcare",
     summary: "Recommended by two employers, both contactable &mdash; in Singapore since 2013, a confident cook, experienced across childcare from newborn to teens, elderly care and&nbsp;household.",
     referredBy: "Recommended by two employers, both happy to be&nbsp;contacted",
@@ -524,6 +529,7 @@ window.HELPERS = [
     initial: "",
     status: "placed",
     statusLabel: "Joined a new family &middot; 1 Aug&nbsp;2026",
+    matchedSeq: 5,    // match order, higher = more recent (shows leftmost)
     line: "Myanmar &middot; 40 &middot; Elderly care, housekeeping &amp; cooking",
     summary: "Recommended by her employer &mdash; hands-on elderly-care experience, an exceptional housekeeper, drawn to elderly care and running a&nbsp;home.",
     referredBy: "Referred by her employer, who recommends her&nbsp;directly",
@@ -592,6 +598,7 @@ window.HELPERS = [
     initial: "",
     status: "placed",
     statusLabel: "Joined a new family &middot; 1 Aug&nbsp;2026",
+    matchedSeq: 2,    // match order, higher = more recent (shows leftmost)
     line: "Indonesian &middot; 53 &middot; Cooking, household &amp;&nbsp;childcare",
     summary: "Seventeen years with one family, and adored by the children she helped&nbsp;raise.",
     referredBy: "Referred by Vera, her current employer of 17&nbsp;years",
@@ -700,6 +707,7 @@ window.HELPERS = [
     initial: "T.",
     status: "placed",
     statusLabel: "Joined a new family &middot; 15 July&nbsp;2026",
+    matchedSeq: 3,    // match order, higher = more recent (shows leftmost)
     line: "Filipino &middot; 49 &middot; Cooking, household &amp;&nbsp;caregiving",
     summary: "Trustworthy and adaptable, with cooking a particular strength across her years in&nbsp;Singapore.",
     referredBy: "Referred by Anna, her current employer of 3.5&nbsp;years",
@@ -760,6 +768,7 @@ window.HELPERS = [
     initial: "S.",
     status: "placed",
     statusLabel: "Joined a new family &middot; 1 July&nbsp;2026",
+    matchedSeq: 1,    // match order, higher = more recent (shows leftmost)
     line: "Indonesian &middot; Elderly care &amp;&nbsp;household",
     summary: "Sincere, calm, and quietly very good at her&nbsp;work.",
     referredBy: "Referred by Sheila, her previous&nbsp;employer",
@@ -1249,6 +1258,16 @@ recBlock +
   function renderBrowseRow(row, status, wrapClass, statusPhrase) {
     var list = H.filter(function (h) { return h.status === status; });
     if (status === "available") list = sortByAvail(list);
+    // Placed/"recently joined" row: order by match sequence, most recent first
+    // (leftmost). Helpers with a matchedSeq sort ahead of any without; ties and
+    // missing values fall back to file order so nothing ever disappears.
+    if (status === "placed") {
+      list = list.slice().sort(function (a, b) {
+        var sa = (typeof a.matchedSeq === "number") ? a.matchedSeq : -Infinity;
+        var sb = (typeof b.matchedSeq === "number") ? b.matchedSeq : -Infinity;
+        return sb - sa;
+      });
+    }
     row.innerHTML = list.map(function (h) {
       return fullCard(h, wrapClass, statusPhrase);
     }).join("\n");

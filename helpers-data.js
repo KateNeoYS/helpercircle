@@ -150,7 +150,7 @@ window.HELPERS = [
     id: "ilmiyah",
     name: "Ilmiyah",
     initial: "",
-    status: "available",
+    status: "hidden",
     statusLabel: "Available 5 Aug 2026",
     line: "Indonesian &middot; 44 &middot; Chinese-speaking, childcare &amp; cooking",
     summary: "Chinese-speaking and an exceptional cook, recommended by her employer &mdash; experienced in childcare, elderly care and household&nbsp;cooking.",

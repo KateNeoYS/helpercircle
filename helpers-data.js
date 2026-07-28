@@ -197,7 +197,7 @@ window.HELPERS = [
     name: "Lin Mon",
     initial: "",
     status: "placed",
-    statusLabel: "Joined a new family &middot; Aug&nbsp;2026",
+    statusLabel: "Joined a new family &middot; 11 Aug&nbsp;2026",
     matchedSeq: 8,    // match order, higher = more recent (shows leftmost)
     availFrom: "2026-07-16",
     line: "Myanmar &middot; 30 &middot; Childcare, cooking &amp; household",
@@ -247,7 +247,7 @@ window.HELPERS = [
     name: "Khin Phyo Wai",
     initial: "",
     status: "placed",
-    statusLabel: "Joined a new family &middot; early Aug&nbsp;2026",
+    statusLabel: "Joined a new family &middot; 31 July&nbsp;2026",
     matchedSeq: 9,    // match order, higher = more recent (shows leftmost)
     line: "Myanmar &middot; 30 &middot; Elderly care, childcare &amp; cooking",
     summary: "Referred by her own employer, who has employed her since 2023 &mdash; elderly care, four children including one she took at a week old, some Chinese, and comfortable with dogs.",

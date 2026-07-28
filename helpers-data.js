@@ -318,7 +318,7 @@ window.HELPERS = [
     id: "warsanti",
     name: "Warsanti",
     initial: "",
-    status: "hidden",
+    status: "available",
     statusLabel: "Available now",
     availFrom: "2026-07-27",
     line: "Indonesian &middot; 32 &middot; Elderly care, cooking &amp; household",

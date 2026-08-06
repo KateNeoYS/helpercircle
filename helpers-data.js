@@ -544,7 +544,7 @@ window.HELPERS = [
     quoteCite: "&mdash; Elizabeth",
     nationality: "Filipino",
     yearsSG: "Many years",
-    bestFit: "A family needing warm, experienced elderly care, with cooking and household alongside",
+    bestFit: "A family wanting a warm, capable all-rounder &mdash; elderly care, childcare, or both, with cooking and household",
     strengths: ["Elderly care specialist", "Infant &amp; young childcare", "Cares for dogs &amp; cats"],
     skills: ["Elderly Care", "Childcare", "Infant Care", "Cooking", "Housekeeping", "Pets"],
     age: 42,

@@ -38,7 +38,7 @@ window.HELPERS = [
     name: "Angie",
     initial: "",
     status: "placed",
-    statusLabel: "Joined a new family &middot; 17 Aug&nbsp;2026",
+    statusLabel: "Joined a new family &middot; 1 Sep&nbsp;2026",
     matchedSeq: 10,    // match order, higher = more recent (shows leftmost)
     line: "Filipino &middot; Housekeeping, cooking &amp; pet&nbsp;care",
     summary: "21 years with one family, deeply experienced and adaptable &mdash; loves to cook, and has cared for cats and dogs at&nbsp;home.",
@@ -557,8 +557,9 @@ window.HELPERS = [
     id: "khinmyatthu",
     name: "Khin M. T.",
     initial: "",
-    status: "available",
-    statusLabel: "Available now",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; mid Aug&nbsp;2026",
+    matchedSeq: 11,    // newest match, shows leftmost
     availFrom: "2026-08-06",
     line: "Myanmar &middot; 38 &middot; Trained caregiver &amp; elderly care",
     summary: "A professionally trained caregiver with over eleven years&rsquo; experience, recommended in writing by her employer &mdash; skilled in dementia, stroke and one-to-one elderly care, with above-average English.",

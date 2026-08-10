@@ -444,6 +444,7 @@ window.HELPERS = [
     summary: "Sixteen years with one Singapore family, confirmed against MOM records &mdash; she joined when the three sons were teenagers and stayed until the last of them moved into his own&nbsp;home.",
     referredBy: "",
     signal: "verified",
+    verifiedYears: 16,
     renewals: 0,
     quote: "",
     quoteCite: "",

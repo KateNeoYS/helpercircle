@@ -436,7 +436,7 @@ window.HELPERS = [
   },
   {
     id: "elizabeth",
-    name: "Elizabeth Gallego",
+    name: "Elizabeth",
     initial: "",
     status: "available",
     statusLabel: "Available from late September&nbsp;2026",

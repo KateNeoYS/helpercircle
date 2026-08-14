@@ -15,26 +15,6 @@
   <link rel="stylesheet" href="styles.css"/>
 
   <style>
-    /* ─── Draft banner ─── */
-    .draft-banner {
-      background: #FFF0EB;
-      border-bottom: 2px solid var(--clr-coral, #E8825C);
-      padding: 14px 24px;
-      text-align: center;
-      position: static;
-    }
-    .draft-banner-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      font-size: .92rem;
-      color: #9B5B3A;
-      line-height: 1.5;
-    }
-    .draft-banner-inner strong {
-      color: #C66740;
-      font-weight: 700;
-      letter-spacing: .02em;
-    }
 
     /* ─── Page container ─── */
     .profile-page { background: var(--clr-white); }
@@ -140,7 +120,6 @@
       margin: 0 0 28px;
     }
 
-    /* CTA disabled in draft */
     .profile-hero-cta {
       display: inline-flex;
       align-items: center;
@@ -187,11 +166,6 @@
       padding: 7px 14px;
       border-radius: 999px;
       white-space: nowrap;
-    }
-    .profile-chip-tbc {
-      border-style: dashed;
-      color: var(--clr-text-muted);
-      font-style: italic;
     }
 
     /* ─── KEY FACTS GRID ─── */
@@ -263,20 +237,6 @@
     }
     .profile-notes-prose p:last-child { margin-bottom: 0; }
 
-    /* TBC placeholder block — visually distinct so referrer/helper know what's needed */
-    .profile-notes-prose p.profile-tbc-block {
-      background: #FFFBF5;
-      border-left: 3px solid #E8825C;
-      padding: 16px 18px;
-      color: #9B5B3A;
-      font-size: 1rem;
-      line-height: 1.6;
-      border-radius: 0 4px 4px 0;
-    }
-    .profile-notes-prose p.profile-tbc-block em {
-      font-style: italic;
-      color: #9B5B3A;
-    }
 
     .profile-foot {
       font-style: italic;
@@ -350,13 +310,6 @@
       display: block;
       box-shadow: 0 4px 14px rgba(31,42,36,0.08);
     }
-  </style>
-  <style>
-    .draft-banner{background:#FFF3DC;border-bottom:1px solid #EAD3A0;color:#7A5712;
-      font-family:'DM Sans',system-ui,sans-serif;font-size:.9rem;line-height:1.55;padding:14px 0}
-    .draft-banner strong{color:#5E440D}
-    .tbc{color:#A8741A;font-style:italic}
-    .profile-chip.tbc{background:#FFF3DC;border:1px dashed #E2BE73;color:#8A6314;font-style:normal}
   </style>
 </head>
 <body class="profile-page">

@@ -61,6 +61,22 @@
     .verify-card-fact { font-size: 1.02rem; font-weight: 600; color: var(--clr-text); margin: 0; line-height: 1.35; }
     .verify-card-fact span { font-weight: 400; color: var(--clr-text-muted); font-size: .92rem; }
 
+    /* Employer Recommended — sage variant */
+    .verify-card--rec { background: #ECF5F1; border-color: #C9E2D7; border-left-color: #2C8A6E; }
+    .verify-card--rec .verify-card-ico { background: #2C8A6E; font-size: 1rem; }
+    .rec-detail { background: #ECF5F1; border: 1px solid #C9E2D7; border-left: 4px solid #2C8A6E; border-radius: 12px; padding: 18px 20px; }
+    .rec-detail li::before { background: #2C8A6E !important; }
+    .profile-quote { font-family: var(--fd, 'Lora', serif); font-style: italic; font-size: 1.18rem;
+      line-height: 1.55; color: var(--clr-text-2); margin: 20px 0 8px; text-wrap: balance; }
+    .profile-quote-attr { font-size: .85rem; color: var(--clr-text-muted); margin: 0; }
+    .profile-notes { padding: 56px 0; background: var(--clr-cream); border-top: 1px solid var(--clr-border-warm); }
+    .profile-notes-hdr { font-family: var(--fd, 'Lora', serif); font-weight: 500;
+      font-size: clamp(1.7rem, 3.5vw, 2.1rem); letter-spacing: -0.008em; color: var(--clr-text); margin: 0 0 8px; text-wrap: balance; }
+    .profile-notes-sub { font-size: .95rem; color: var(--clr-text-muted); margin: 0 0 32px; font-style: italic; }
+    .profile-notes-prose p { font-size: 1.05rem; line-height: 1.75; color: var(--clr-text-2); margin: 0 0 1.1em; text-wrap: pretty; }
+    .profile-notes-prose p:last-child { margin-bottom: 0; }
+    .profile-foot { font-size: .88rem; color: var(--clr-text-muted); margin: 28px 0 0; font-style: italic; }
+
     /* CTA */
     .profile-hero-cta { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; }
     .profile-hero-cta-meta { font-size: .86rem; color: var(--clr-text-muted); font-style: italic; }
@@ -172,18 +188,16 @@
           <span>Transfer within Singapore</span>
         </div>
 
-        <div class="verify-card">
-          <span class="verify-card-ico" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2.5l7.5 3v5.2c0 4.6-3.2 7.9-7.5 9-4.3-1.1-7.5-4.4-7.5-9V5.5l7.5-3z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
-              <path d="M8.3 12.1l2.6 2.6 4.8-5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
+        <div class="verify-card verify-card--rec">
+          <span class="verify-card-ico" aria-hidden="true">🏆</span>
           <div>
-            <p class="verify-card-title">Long-Term Employment Verified</p>
-            <p class="verify-card-fact">One family, sixteen years <span>· Sep 2010 &ndash; Sep&nbsp;2026</span></p>
+            <p class="verify-card-title">Employer Recommended</p>
+            <p class="verify-card-fact">Recommended by her employer of sixteen years <span>&middot; Sep 2010 &ndash; Sep&nbsp;2026</span></p>
           </div>
         </div>
+
+        <p class="profile-quote">&ldquo;She is strong, can do housework well. She has a good personality, cheerful, honest and can be&nbsp;trusted.&rdquo;</p>
+        <p class="profile-quote-attr">&mdash; her employer of sixteen&nbsp;years</p>
 
         <div class="profile-hero-cta">
           <a href="#ask" class="btn btn-green">Ask about Elizabeth</a>
@@ -201,6 +215,7 @@
   <section class="profile-block" style="border-top:none">
     <p class="profile-section-label">Why families consider Elizabeth</p>
     <ul class="hl">
+      <li><strong>Recommended by the family she has worked for since 2010</strong>, who wrote to us for her in August&nbsp;2026.</li>
       <li><strong>Sixteen years with one Singapore family</strong> &mdash; one household, from 2010 until her contract ends in September&nbsp;2026.</li>
       <li><strong>Two employers in sixteen years.</strong> Seven months with her first family, then sixteen years with her&nbsp;second.</li>
       <li><strong>She stayed as the family grew up.</strong> She arrived when the eldest son was sixteen and the twins were fourteen, and was still there when the last of them moved into his own&nbsp;home.</li>
@@ -256,12 +271,12 @@
   <!-- ═══ VERIFICATION DETAILS ═══ -->
   <section class="profile-block">
     <p class="profile-section-label">Verification details</p>
-    <div class="verify-detail">
+    <div class="rec-detail verify-detail">
       <p style="margin:0;font-size:1rem;color:var(--clr-text)"><strong>Confirmed against MOM employment records.</strong> Elizabeth has had two employers since arriving in Singapore in February 2010, and has been with her present family since 22 September 2010. There are no gaps and no cancellations on her&nbsp;record.</p>
       <ul>
         <li><strong>MOM records:</strong> sighted 10 August 2026. Sixteen years with one family&nbsp;confirmed.</li>
         <li><strong>Declared job scope:</strong> cooking and general household</li>
-        <li><strong>Personal recommendation:</strong> none attached. This signal rests on her employment record, not on an employer&rsquo;s&nbsp;vouch.</li>
+        <li><strong>Employer recommendation:</strong> written and signed by her employer, August&nbsp;2026.</li>
       </ul>
     </div>
   </section>
@@ -269,6 +284,28 @@
 </div>
 
 <!-- ═══ ASK ═══ -->
+<section class="profile-notes">
+  <div class="profile-wrap">
+    <h2 class="profile-notes-hdr">Her employer&rsquo;s&nbsp;recommendation</h2>
+    <p class="profile-notes-sub">In her employer&rsquo;s words, and&nbsp;ours.</p>
+
+    <div class="profile-notes-prose">
+      <p>Elizabeth has been with the same family since September 2010. She is moving on only because the household no longer needs a helper &mdash; her employer retired in March, the three sons have homes of their own, and it is now a home of&nbsp;two.</p>
+
+      <p>Her employer wrote us a note for her in August&nbsp;2026.</p>
+
+      <p><strong>In her employer&rsquo;s own&nbsp;words:</strong></p>
+
+      <p>&ldquo;My helper Liza has been with me for more than ten years. She is strong, can do housework well. She has a good personality, cheerful, honest and can be&nbsp;trusted.&rdquo;</p>
+
+      <p><strong>Where she&rsquo;d thrive&nbsp;next:</strong> a household that wants a home run steadily and without supervision. Sixteen years in one family, and the same family writing to help her find the next one, says most of what there is to&nbsp;say.</p>
+    </div>
+
+    <p class="profile-foot">Her employer&rsquo;s note is available to interested families, with her&nbsp;consent.</p>
+
+  </div>
+</section>
+
 <section class="profile-ask" id="ask">
   <div class="profile-ask-inner">
     <span class="profile-ask-kicker">Interested?</span>

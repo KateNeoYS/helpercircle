@@ -629,7 +629,7 @@ window.HELPERS = [
     id: "annie",
     name: "Annie",
     initial: "",
-    status: "available",
+    status: "hidden",
     statusLabel: "Available from 28 August&nbsp;2026",
     availFrom: "2026-08-28",
     line: "Filipino &middot; 42 &middot; Elderly care, childcare &amp; household",

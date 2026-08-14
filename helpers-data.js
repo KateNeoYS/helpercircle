@@ -487,7 +487,7 @@ window.HELPERS = [
     name: "Luz",
     initial: "",
     status: "available",
-    statusLabel: "Available on transfer",
+    statusLabel: "Available now",
     line: "Filipino &middot; 57 &middot; Childcare, cooking &amp; household",
     summary: "Recommended in writing by the family she works for now, who call her an essential and trusted member of their household &mdash; twenty-two years in Singapore, and children of every age from newborn&nbsp;up.",
     referredBy: "Referred by her current employer, who recommends her&nbsp;directly",
@@ -502,7 +502,7 @@ window.HELPERS = [
     skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping", "Pets"],
     age: 57,
     salary: "",
-    availability: "transfer",
+    availability: "now",
     photo: "images/luz.jpeg",
     profile: "profile-luz.html"
   },

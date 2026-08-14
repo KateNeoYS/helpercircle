@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Dewi — long-term elderly &amp; dementia carer | Helper Circle</title>
-  <meta name="description" content="Dewi is an experienced Indonesian elderly-care helper with a four-year record with one family, confirmed against MOM records, and dementia and stroke experience. Currently in Indonesia, available to return."/>
+  <title>Dewi — Indonesian helper, recommended by her current employer | Helper Circle</title>
+  <meta name="description" content="Dewi is an Indonesian helper recommended in writing by her current employer. Childcare, cooking, housekeeping and gardening. Available for transfer from September 2026."/>
 
   <!-- Profiles kept noindex by convention -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
@@ -15,26 +15,6 @@
   <link rel="stylesheet" href="styles.css"/>
 
   <style>
-    /* ─── Draft banner ─── */
-    .draft-banner {
-      background: #FFF0EB;
-      border-bottom: 2px solid var(--clr-coral, #E8825C);
-      padding: 14px 24px;
-      text-align: center;
-      position: static;
-    }
-    .draft-banner-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      font-size: .92rem;
-      color: #9B5B3A;
-      line-height: 1.5;
-    }
-    .draft-banner-inner strong {
-      color: #C66740;
-      font-weight: 700;
-      letter-spacing: .02em;
-    }
 
     /* ─── Page container ─── */
     .profile-page { background: var(--clr-white); }
@@ -52,30 +32,6 @@
       flex-wrap: wrap;
     }
 
-    /* Placeholder photo (no real photo yet) */
-    .profile-photo-placeholder {
-      flex: 0 0 180px;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: var(--clr-cream);
-      border: 2px dashed var(--clr-border-warm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 6px;
-      color: var(--clr-text-muted);
-    }
-    .profile-photo-placeholder svg { opacity: 0.4; }
-    .profile-photo-placeholder span {
-      font-size: .7rem;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      text-align: center;
-      padding: 0 14px;
-    }
 
     /* Real photo */
     .profile-photo {
@@ -140,22 +96,11 @@
       margin: 0 0 28px;
     }
 
-    /* CTA disabled in draft */
     .profile-hero-cta {
       display: inline-flex;
       align-items: center;
       gap: 14px;
       flex-wrap: wrap;
-    }
-    .btn-disabled {
-      background: var(--clr-cream-dk);
-      color: var(--clr-text-muted);
-      cursor: not-allowed;
-      padding: 12px 24px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: .95rem;
-      border: 1px solid var(--clr-border-warm);
     }
     .profile-hero-cta-meta {
       font-size: .87rem;
@@ -187,11 +132,6 @@
       padding: 7px 14px;
       border-radius: 999px;
       white-space: nowrap;
-    }
-    .profile-chip-tbc {
-      border-style: dashed;
-      color: var(--clr-text-muted);
-      font-style: italic;
     }
 
     /* ─── KEY FACTS GRID ─── */
@@ -263,20 +203,13 @@
     }
     .profile-notes-prose p:last-child { margin-bottom: 0; }
 
-    /* TBC placeholder block — visually distinct so referrer/helper know what's needed */
-    .profile-notes-prose p.profile-tbc-block {
-      background: #FFFBF5;
-      border-left: 3px solid #E8825C;
-      padding: 16px 18px;
-      color: #9B5B3A;
-      font-size: 1rem;
-      line-height: 1.6;
-      border-radius: 0 4px 4px 0;
-    }
-    .profile-notes-prose p.profile-tbc-block em {
-      font-style: italic;
-      color: #9B5B3A;
-    }
+    /* Cooking gallery */
+    .profile-food { padding: 48px 0; border-top: 1px solid var(--clr-border-warm); }
+    .profile-food-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 20px; }
+    .profile-food-grid figure { margin: 0; }
+    .profile-food-grid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 14px; display: block; background: var(--clr-cream); }
+    .profile-food-grid figcaption { font-size: .88rem; color: var(--clr-text-muted); margin-top: 8px; }
+
 
     .profile-foot {
       font-style: italic;
@@ -350,22 +283,10 @@
       display: block;
       box-shadow: 0 4px 14px rgba(31,42,36,0.08);
     }
-  
-    /* verified-tier badge colour safeguard (reconcile with profile-eni.html) */
-    .tsig--verified { background: #2E6F95; }
-    .psig--verified .tsig-mark { filter: none; }
-  </style>
-  <style>
-    .draft-banner{background:#FFF3DC;border-bottom:1px solid #EAD3A0;color:#7A5712;
-      font-family:'DM Sans',system-ui,sans-serif;font-size:.9rem;line-height:1.55;padding:14px 0}
-    .draft-banner strong{color:#5E440D}
-    .tbc{color:#A8741A;font-style:italic}
-    .profile-chip.tbc{background:#FFF3DC;border:1px dashed #E2BE73;color:#8A6314;font-style:normal}
   </style>
 </head>
 <body class="profile-page">
 
-<!-- ═══ HEADER ═══ -->
 <header class="site-header" id="site-header">
   <div class="wrap header-inner">
     <a href="index.html" class="logo">
@@ -380,69 +301,64 @@
       <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
     </nav>
     <a href="refer.html" class="btn btn-green btn-sm hdr-cta">Refer a Helper</a>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- ═══ HERO ═══ -->
 <section class="profile-hero">
   <div class="profile-wrap">
     <div class="profile-hero-inner">
 
-      <img class="profile-photo" src="images/dewi.jpeg" alt="Dewi" />
+      <img class="profile-photo" src="images/dewi.jpeg" alt="Dewi" width="180" height="180" loading="eager"/>
 
       <div class="profile-hero-text">
-        <h1 class="profile-name">Dewi S.</h1>
-        <p class="profile-descriptor">Indonesian national &middot; Elderly care, dementia &amp; stroke support</p>
+        <h1 class="profile-name">Dewi</h1>
+        <p class="profile-descriptor">Indonesian national &middot; Childcare, cooking &amp; household &middot; Available from 9&nbsp;September</p>
 
         <p class="profile-verified-line">
-          <strong>Four years with one family</strong>, confirmed against official MOM employment&nbsp;records.
+          <strong>Recommended in writing by her current&nbsp;employer</strong>, who is parting with her only because their daughter is starting after-school&nbsp;care.
         </p>
+
+        <p class="profile-quote">&ldquo;Dewi is dedicated and always put in effort into task she is told to&nbsp;do.&rdquo;</p>
+        <p class="profile-quote-attr">&mdash; her current employer</p>
 
         <div class="profile-hero-cta">
           <a href="#ask" class="btn">Ask about Dewi</a>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- TRUST SIGNALS (verified tier) -->
 <section class="profile-trust">
   <div class="profile-wrap">
     <p class="profile-section-label">Trust signals</p>
-    <div class="psig psig--verified">
-      <span class="tsig tsig--verified"><span class="tsig-mark" aria-hidden="true">&#128197;</span> Long-Term Family Retention</span>
+    <div class="psig psig--rec">
+      <span class="tsig tsig--rec"><span class="tsig-mark" aria-hidden="true">&#127942;</span> Employer Recommended</span>
       <ul class="psig-list">
-        <li>Four years with one family, from 2021 to 2025, caring for elderly members with dementia and after a&nbsp;stroke</li>
-        <li>Confirmed against official MOM employment&nbsp;records</li>
+        <li>A written reference from the family she works for now, dated 6 August&nbsp;2026</li>
+        <li>They are parting with her for a reason unconnected to her&nbsp;work</li>
       </ul>
-      <p class="psig-note">This signal reflects a long, stable record with one family, confirmed against official MOM records. It carries no personal&nbsp;recommendation.</p>
+      <p class="psig-note">Our strongest trust signal &mdash; a family she works for now, recommending her&nbsp;directly.</p>
     </div>
   </div>
 </section>
 
-<!-- AT A GLANCE -->
 <section class="profile-glance">
   <div class="profile-wrap">
     <p class="profile-section-label">At a glance</p>
     <div class="profile-chips">
-      <span class="profile-chip">4 years with one family</span>
-      <span class="profile-chip">Elderly care &mdash; long-term</span>
-      <span class="profile-chip">Dementia &amp; stroke experience</span>
-      <span class="profile-chip">Daily-living &amp; special-needs support</span>
-      <span class="profile-chip">Cooking &amp; general household</span>
-      <span class="profile-chip">Comfortable with cats</span>
-      <span class="profile-chip">Around 5 years in Singapore</span>
-      <span class="profile-chip">English-speaking</span>
+      <span class="profile-chip">School runs on foot</span>
+      <span class="profile-chip">Cooking</span>
+      <span class="profile-chip">Follows recipes online</span>
+      <span class="profile-chip">General housekeeping</span>
+      <span class="profile-chip">Gardening</span>
+      <span class="profile-chip">Large multi-storey homes</span>
+      <span class="profile-chip">English &amp; Bahasa</span>
     </div>
   </div>
 </section>
 
-<!-- KEY FACTS GRID -->
 <section class="profile-facts">
   <div class="profile-wrap">
     <p class="profile-section-label">The essentials</p>
@@ -450,42 +366,42 @@
 
       <div class="profile-fact">
         <p class="profile-fact-label">Currently</p>
-        <p class="profile-fact-value">Between roles and currently in Indonesia, available to return to Singapore for the right&nbsp;family.</p>
+        <p class="profile-fact-value">Five months with a Singaporean Malay family, caring for their six-year-old daughter. She gets her ready for school and walks her there and back, and handles the cooking and general&nbsp;cleaning.</p>
       </div>
 
       <div class="profile-fact">
-        <p class="profile-fact-label">Available from</p>
-        <p class="profile-fact-value"><strong>Now</strong> (currently in&nbsp;Indonesia)</p>
+        <p class="profile-fact-label">Why she is moving on</p>
+        <p class="profile-fact-value">The family have secured a place for their daughter in an after-school care programme, and no longer need the same help. Their letter says they are parting ways with her solely for that&nbsp;reason.</p>
       </div>
 
       <div class="profile-fact">
-        <p class="profile-fact-label">Long-term record</p>
-        <p class="profile-fact-value">Four years with one family (2021 to 2025), caring for a grandmother living with dementia and a grandfather after a&nbsp;stroke.</p>
+        <p class="profile-fact-label">Before that</p>
+        <p class="profile-fact-value">A three-generation Chinese household in a three-storey home, four bedrooms and four bathrooms, with two independent children of ten and twelve. She did the cleaning, the cooking and the&nbsp;gardening.</p>
       </div>
 
       <div class="profile-fact">
-        <p class="profile-fact-label">Elderly care</p>
-        <p class="profile-fact-value">Her specialty. Experienced with dementia, stroke recovery, and help with the activities of daily&nbsp;living.</p>
+        <p class="profile-fact-label">Earlier</p>
+        <p class="profile-fact-value">A Singaporean family with children of twelve and sixteen. That role ended when the father moved the family&rsquo;s business to the United&nbsp;States.</p>
       </div>
 
       <div class="profile-fact">
-        <p class="profile-fact-label">Cooking &amp; household</p>
-        <p class="profile-fact-value">Cooking and general household work as part of her elderly-care&nbsp;roles.</p>
+        <p class="profile-fact-label">Children</p>
+        <p class="profile-fact-value">School-age rather than infants. Her three households have had children of six, ten, twelve and sixteen, and her current employer describes the school run as her daily&nbsp;work.</p>
       </div>
 
       <div class="profile-fact">
-        <p class="profile-fact-label">Pets</p>
-        <p class="profile-fact-value">Comfortable with&nbsp;cats.</p>
-      </div>
-
-      <div class="profile-fact">
-        <p class="profile-fact-label">Experience</p>
-        <p class="profile-fact-value">Around five years in Singapore, across a few families, all in elderly&nbsp;care.</p>
+        <p class="profile-fact-label">Cooking</p>
+        <p class="profile-fact-value">Everyday family cooking. Her employer notes that she cooks capably and will follow a recipe found online, so a family with their own dishes could teach her&nbsp;theirs.</p>
       </div>
 
       <div class="profile-fact">
         <p class="profile-fact-label">Languages</p>
-        <p class="profile-fact-value">Speaks&nbsp;English.</p>
+        <p class="profile-fact-value">English and&nbsp;Bahasa</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Available from</p>
+        <p class="profile-fact-value">9 September&nbsp;2026</p>
       </div>
 
       <div class="profile-fact">
@@ -493,33 +409,53 @@
         <p class="profile-fact-value">Indonesian</p>
       </div>
 
-      <div class="profile-fact">
-        <p class="profile-fact-label">Age</p>
-        <p class="profile-fact-value">42</p>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- HER RECORD (verified tier: no personal recommendation) -->
 <section class="profile-notes">
   <div class="profile-wrap">
-    <h2 class="profile-notes-hdr">Her long-term&nbsp;record</h2>
-    <p class="profile-notes-sub">A verified tenure rather than a personal&nbsp;recommendation.</p>
+    <h2 class="profile-notes-hdr">Her employer&rsquo;s&nbsp;recommendation</h2>
+    <p class="profile-notes-sub">In her employer&rsquo;s words, and&nbsp;ours.</p>
 
     <div class="profile-notes-prose">
-      <p>Dewi&rsquo;s record is one of steady, dedicated elderly care. For four years she stayed with one family, caring for a grandmother living with dementia and a grandfather recovering from a stroke. Her later roles continued in the same vein, supporting elderly employers through illness and&nbsp;recovery.</p>
+      <p>Dewi has spent the past five months with a family in Singapore, caring for their young daughter. Her employer wrote us a reference for her in August, and was clear that the parting has nothing to do with how Dewi has&nbsp;worked.</p>
 
-      <p>She has completed her contracts with a clean and steady record. Two came to a natural close, and her most recent role ended when her elderly employer passed away. She is comfortable with the daily realities of dementia and stroke care, and at ease running a home&nbsp;alongside.</p>
+      <p><strong>In her employer&rsquo;s own&nbsp;words:</strong></p>
+
+      <p>&ldquo;Dewi&rsquo;s primary responsibility was caring for our child. Her daily job scope includes prepping our child for school, as well as both sending off and picking up from school. She is also responsible for general house cleaning and&nbsp;cooking.&rdquo;</p>
+
+      <p>&ldquo;Dewi is capable of cooking and also following recipe&nbsp;online.&rdquo;</p>
+
+      <p>&ldquo;In term of character, Dewi is dedicated and always put in effort into task she is told to&nbsp;do.&rdquo;</p>
+
+      <p>&ldquo;We are parting ways with Dewi solely because we have secured a placement for our daughter in after school care program which we feel will benefit our daughter more from an academic environment as our child is growing&nbsp;older.&rdquo;</p>
+
+      <p><strong>Where she&rsquo;d thrive&nbsp;next:</strong> a family who are happy to show her how they like things done, and who will say what they need. Her employer&rsquo;s description is of someone dependable and willing who works well to direction, rather than someone who sets her own agenda. In a household with clear routines, that is a real&nbsp;strength.</p>
     </div>
 
-    <p class="profile-foot">Full employment history available to interested families, with her&nbsp;consent.</p>
+    <p class="profile-foot">Her employer&rsquo;s full reference letter is available to interested families, with her&nbsp;consent.</p>
 
   </div>
 </section>
 
-<!-- ASK (kept for go-live; hero CTA stays disabled until live) -->
+<section class="profile-food">
+  <div class="profile-wrap">
+    <p class="profile-section-label">From her kitchen</p>
+    <p style="font-size:1.05rem;line-height:1.7;color:var(--clr-text-2);margin:0;max-width:60ch">Photographs Dewi took of her own cooking, in the kitchen she works&nbsp;in.</p>
+    <div class="profile-food-grid">
+      <figure>
+        <img src="images/dewi-food-wings.jpeg" alt="Braised chicken wings cooked by Dewi" loading="lazy" width="720" height="720"/>
+        <figcaption>Braised chicken&nbsp;wings</figcaption>
+      </figure>
+      <figure>
+        <img src="images/dewi-food-fish.jpeg" alt="Steamed fish with tofu, tomato and black fungus cooked by Dewi" loading="lazy" width="720" height="720"/>
+        <figcaption>Steamed whole fish with tofu, tomato and black&nbsp;fungus</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <section class="profile-ask" id="ask">
   <div class="profile-ask-inner">
     <span class="profile-ask-kicker">Interested?</span>
@@ -528,34 +464,15 @@
     <form id="form-ask" action="https://formspree.io/f/mredjvwg" method="POST">
       <input type="hidden" name="helper-name" value="Dewi"/>
       <input type="hidden" name="_subject" value="Helper Circle — Interest in Dewi"/>
-      <div class="ask-field">
-        <label for="ask-name">Your name</label>
-        <input type="text" id="ask-name" name="name" required placeholder="Jane Tan" autocomplete="name"/>
-      </div>
-      <div class="ask-field">
-        <label for="ask-email">Email</label>
-        <input type="email" id="ask-email" name="email" required placeholder="you@email.com" autocomplete="email"/>
-      </div>
-      <div class="ask-field">
-        <label for="ask-phone">Phone <span class="ask-field-opt">(optional, but helps)</span></label>
-        <input type="tel" id="ask-phone" name="phone" placeholder="+65 9123 4567" autocomplete="tel"/>
-      </div>
-      <div class="ask-field">
-        <label for="ask-household">Briefly, your household</label>
-        <textarea id="ask-household" name="household" rows="3" required placeholder="Who lives at home, ages, any care needs, what your typical day looks like&hellip;"></textarea>
-      </div>
-      <div class="ask-field">
-        <label for="ask-why">Why Dewi? <span class="ask-field-opt">(optional)</span></label>
-        <textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you&rsquo;re hoping for&hellip;"></textarea>
-      </div>
+      <div class="ask-field"><label for="ask-name">Your name</label><input type="text" id="ask-name" name="name" required placeholder="Jane Tan" autocomplete="name"/></div>
+      <div class="ask-field"><label for="ask-email">Email</label><input type="email" id="ask-email" name="email" required placeholder="you@email.com" autocomplete="email"/></div>
+      <div class="ask-field"><label for="ask-phone">Phone <span class="ask-field-opt">(optional, but helps)</span></label><input type="tel" id="ask-phone" name="phone" placeholder="+65 9123 4567" autocomplete="tel"/></div>
+      <div class="ask-field"><label for="ask-household">Briefly, your household</label><textarea id="ask-household" name="household" rows="3" required placeholder="Who lives at home, ages, any pets, what your typical day looks like&hellip;"></textarea></div>
+      <div class="ask-field"><label for="ask-why">Why Dewi? <span class="ask-field-opt">(optional)</span></label><textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you&rsquo;re hoping for&hellip;"></textarea></div>
       <button type="submit" class="btn btn-green ask-submit">Send to Helper Circle</button>
       <p class="ask-foot-note">We read every message personally. If Dewi seems like a fit for your household, we&rsquo;ll set up a short call to talk through the next&nbsp;step.</p>
-      <div class="ask-success" hidden>
-        <p>Thank you. We&rsquo;ve received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p>
-      </div>
-      <div class="ask-error" hidden>
-        <p>Something didn&rsquo;t go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p>
-      </div>
+      <div class="ask-success" hidden><p>Thank you. We&rsquo;ve received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p></div>
+      <div class="ask-error" hidden><p>Something didn&rsquo;t go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p></div>
     </form>
   </div>
 </section>
@@ -565,22 +482,14 @@
     <div class="footer-inner">
       <p class="footer-heart">Started by a Singapore family who knew there had to be a better&nbsp;way.</p>
       <nav class="footer-nav" aria-label="Footer">
-        <a href="browse.html">Meet Helpers</a>
-        <span class="footer-nav-sep">·</span>
-        <a href="refer.html">Refer a Helper</a>
-        <span class="footer-nav-sep">·</span>
-        <a href="index.html#how">How It Works</a>
-        <span class="footer-nav-sep">·</span>
-        <a href="faq.html">FAQ</a>
-        <span class="footer-nav-sep">·</span>
+        <a href="browse.html">Meet Helpers</a><span class="footer-nav-sep">·</span>
+        <a href="refer.html">Refer a Helper</a><span class="footer-nav-sep">·</span>
+        <a href="index.html#how">How It Works</a><span class="footer-nav-sep">·</span>
+        <a href="faq.html">FAQ</a><span class="footer-nav-sep">·</span>
         <a href="mailto:hello@helpercircle.sg">Contact</a>
       </nav>
       <p class="footer-aside"><a href="for-families.html">For families saying goodbye to a helper &rarr;</a></p>
-      <div class="footer-legal-strip">
-        <span>© <span id="year"></span> Helper Circle · Singapore</span>
-        <span class="footer-nav-sep">·</span>
-        <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>
-      </div>
+      <div class="footer-legal-strip"><span>© <span id="year"></span> Helper Circle · Singapore</span><span class="footer-nav-sep">·</span><a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a></div>
     </div>
   </div>
 </footer>
@@ -588,31 +497,16 @@
 <script src="script.js"></script>
 <script>
 (function () {
-  var form = document.getElementById('form-ask');
-  if (!form) return;
-  var submitBtn = form.querySelector('button[type="submit"]');
-  var successEl = form.querySelector('.ask-success');
-  var errorEl = form.querySelector('.ask-error');
-  var fields = form.querySelectorAll('.ask-field');
-  var noteEl = form.querySelector('.ask-foot-note');
+  var form = document.getElementById('form-ask'); if (!form) return;
+  var submitBtn = form.querySelector('button[type="submit"]'), successEl = form.querySelector('.ask-success'),
+      errorEl = form.querySelector('.ask-error'), fields = form.querySelectorAll('.ask-field'), noteEl = form.querySelector('.ask-foot-note');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (submitBtn) { submitBtn.disabled = true; submitBtn.dataset.originalText = submitBtn.textContent; submitBtn.textContent = 'Sending\u2026'; }
     if (errorEl) errorEl.hidden = true;
-    var data = new FormData(form);
-    fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
-      .then(function (res) {
-        if (res.ok) {
-          fields.forEach(function (f) { f.style.display = 'none'; });
-          if (submitBtn) submitBtn.style.display = 'none';
-          if (noteEl) noteEl.style.display = 'none';
-          if (successEl) successEl.hidden = false;
-        } else { throw new Error('Form submission failed'); }
-      })
-      .catch(function () {
-        if (errorEl) errorEl.hidden = false;
-        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.originalText || 'Send to Helper Circle'; }
-      });
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(function (res) { if (res.ok) { fields.forEach(function (f){f.style.display='none';}); if(submitBtn)submitBtn.style.display='none'; if(noteEl)noteEl.style.display='none'; if(successEl)successEl.hidden=false; } else { throw new Error('fail'); } })
+      .catch(function () { if(errorEl)errorEl.hidden=false; if(submitBtn){submitBtn.disabled=false;submitBtn.textContent=submitBtn.dataset.originalText||'Send to Helper Circle';} });
   });
 })();
 </script>

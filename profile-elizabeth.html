@@ -64,8 +64,6 @@
     /* Employer Recommended — sage variant */
     .verify-card--rec { background: #ECF5F1; border-color: #C9E2D7; border-left-color: #2C8A6E; }
     .verify-card--rec .verify-card-ico { background: #2C8A6E; font-size: 1rem; }
-    .rec-detail { background: #ECF5F1; border: 1px solid #C9E2D7; border-left: 4px solid #2C8A6E; border-radius: 12px; padding: 18px 20px; }
-    .rec-detail li::before { background: #2C8A6E !important; }
     .profile-quote { font-family: var(--fd, 'Lora', serif); font-style: italic; font-size: 1.18rem;
       line-height: 1.55; color: var(--clr-text-2); margin: 20px 0 8px; text-wrap: balance; }
     .profile-quote-attr { font-size: .85rem; color: var(--clr-text-muted); margin: 0; }
@@ -131,13 +129,6 @@
     .cred-main span { display: block; font-size: .88rem; color: var(--clr-text-muted); margin-top: 2px; }
     .cred-date { flex: 0 0 auto; font-size: .85rem; font-style: italic; color: var(--clr-text-muted); white-space: nowrap; }
 
-    /* Verification details — reuse the blue card, full width */
-    .verify-detail { background: #EAF2F7; border: 1px solid #CBDDE9; border-left: 4px solid #2E6F95; border-radius: 12px; padding: 18px 20px; }
-    .verify-detail ul { list-style: none; margin: 10px 0 0; padding: 0; }
-    .verify-detail li { position: relative; padding-left: 22px; margin: 0 0 8px; font-size: .96rem; line-height: 1.5; color: var(--clr-text-2); }
-    .verify-detail li:last-child { margin-bottom: 0; }
-    .verify-detail li::before { content: ""; position: absolute; left: 4px; top: .5em; width: 7px; height: 7px; border-radius: 50%; background: #2E6F95; }
-    .verify-detail strong { color: #1F4E6B; }
 
     @media (max-width: 640px) {
       .profile-hero { padding: 28px 0 24px; }
@@ -268,18 +259,6 @@
     </ul>
   </section>
 
-  <!-- ═══ VERIFICATION DETAILS ═══ -->
-  <section class="profile-block">
-    <p class="profile-section-label">Verification details</p>
-    <div class="rec-detail verify-detail">
-      <p style="margin:0;font-size:1rem;color:var(--clr-text)"><strong>Confirmed against MOM employment records.</strong> Elizabeth has had two employers since arriving in Singapore in February 2010, and has been with her present family since 22 September 2010. There are no gaps and no cancellations on her&nbsp;record.</p>
-      <ul>
-        <li><strong>MOM records:</strong> sighted 10 August 2026. Sixteen years with one family&nbsp;confirmed.</li>
-        <li><strong>Declared job scope:</strong> cooking and general household</li>
-        <li><strong>Employer recommendation:</strong> written and signed by her employer, August&nbsp;2026.</li>
-      </ul>
-    </div>
-  </section>
 
 </div>
 

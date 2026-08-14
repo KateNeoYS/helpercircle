@@ -435,7 +435,7 @@ window.HELPERS = [
     profile: "profile-aiza.html"
   },
   {
-    id: "dewi-new",
+    id: "dewi",
     name: "Dewi",
     initial: "",
     status: "hidden",
@@ -455,8 +455,8 @@ window.HELPERS = [
     age: 0,
     salary: "",
     availability: "transfer",
-    photo: "images/dewi-new.jpeg",
-    profile: "profile-dewi-new.html"
+    photo: "images/dewi.jpeg",
+    profile: "profile-dewi.html"
   },
   {
     id: "annamarie",
@@ -556,7 +556,7 @@ window.HELPERS = [
     profile: "profile-divina.html"
   },
   {
-    id: "dewi",
+    id: "dewis",
     name: "Dewi",
     initial: "S.",
     status: "hidden",
@@ -576,8 +576,8 @@ window.HELPERS = [
     age: 42,
     salary: "",
     availability: "overseas",
-    photo: "images/dewi.jpeg",
-    profile: "profile-dewi.html"
+    photo: "images/dewi-s.jpeg",
+    profile: "profile-dewi-s.html"
   },
   {
     id: "ngatini",

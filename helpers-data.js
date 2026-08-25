@@ -37,11 +37,12 @@ window.HELPERS = [
     id: "angie",
     name: "Angie",
     initial: "",
-    status: "available",
-    statusLabel: "Available now",    // match order, higher = more recent (shows leftmost)
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 20 Sep&nbsp;2026",
     line: "Filipino &middot; Housekeeping, cooking &amp; pet&nbsp;care",
     summary: "21 years with one family, deeply experienced and adaptable &mdash; loves to cook, and has cared for cats and dogs at&nbsp;home.",
     referredBy: "Referred by Monica, her employer of 21&nbsp;years",
+    matchedSeq: 14,    // match order, higher = more recent (shows leftmost)
     signal: "referred",
     quote: "\u201cShe has adapted really well to the changing needs of our&nbsp;household.\u201d",
     quoteCite: "&mdash; Monica",
@@ -51,7 +52,7 @@ window.HELPERS = [
     strengths: ["21 years, one family", "Loves to cook", "Pet care (dogs &amp; cats)"],
     skills: ["Housekeeping", "Cooking", "Pet care"],
     age: 54,
-    availability: "now",
+    availability: "transfer",
     photo: "images/angie.jpeg",
     profile: "profile-angie.html"
   },
@@ -433,6 +434,29 @@ window.HELPERS = [
     availability: "transfer",
     photo: "images/aiza.jpeg",
     profile: "profile-aiza.html"
+  },
+  {
+    id: "edith",
+    name: "Edith",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available end September&nbsp;2026",
+    line: "Filipino &middot; 47 &middot; Newborns, children &amp; household",
+    summary: "Recommended in writing by two former employers, both of whom offered to speak to families directly &mdash; nineteen years in Singapore, mostly with international&nbsp;households.",
+    referredBy: "Recommended in writing by two former&nbsp;employers",
+    signal: "referred",
+    quote: "&ldquo;She very quickly became a part of our family. We miss her very&nbsp;much.&rdquo;",
+    quoteCite: "&mdash; a former employer of three years",
+    nationality: "Filipino",
+    yearsSG: "About 19 years",
+    bestFit: "A family who want a home run without close supervision, and someone who will&nbsp;stay",
+    strengths: ["Two written references", "Newborns upward", "Runs a household independently"],
+    skills: ["Infant Care", "Childcare", "Elderly Care", "Cooking", "Housekeeping", "Pets"],
+    age: 47,
+    salary: "",
+    availability: "transfer",
+    photo: "images/edith.jpeg",
+    profile: "profile-edith.html"
   },
   {
     id: "srihartati",

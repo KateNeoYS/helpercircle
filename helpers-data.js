@@ -440,7 +440,7 @@ window.HELPERS = [
     name: "Ei Phyo",
     initial: "",
     status: "available",
-    statusLabel: "Available on transfer",
+    statusLabel: "Available now",
     line: "Myanmar &middot; 33 &middot; Children, elderly care &amp; Chinese cooking",
     summary: "Recommended by the family she works for now and by a previous employer of five years in writing &mdash; fluent Chinese, and trusted with the marketing and the school run on her&nbsp;own.",
     referredBy: "Referred by her current&nbsp;employer",
@@ -454,7 +454,7 @@ window.HELPERS = [
     skills: ["Childcare", "Elderly Care", "Cooking", "Housekeeping", "Marketing"],
     age: 33,
     salary: "",
-    availability: "transfer",
+    availability: "now",
     photo: "images/eiphyo.jpeg",
     profile: "profile-eiphyo.html"
   },

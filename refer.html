@@ -98,39 +98,6 @@
       margin: 0; line-height: 1.5;
     }
 
-    /* Appreciation card — very soft, gentle thank-you */
-    .incentive-box {
-      margin-top: 0; padding: 14px 16px;
-      background: rgba(255, 255, 255, 0.4);
-      border-radius: 10px;
-      border: 1px solid rgba(31, 42, 36, 0.05);
-      max-width: 420px;
-    }
-    .incentive-title {
-      display: flex; align-items: center; gap: 6px;
-      font-size: 0.78rem; font-weight: 500;
-      color: var(--clr-text-muted, #5A6661);
-      margin: 0 0 8px;
-      letter-spacing: 0.003em;
-    }
-    .incentive-title svg { color: rgba(184, 136, 74, 0.55); }
-    .incentive-options {
-      list-style: none; padding: 0; margin: 0;
-      display: flex; flex-direction: column; gap: 4px;
-      font-size: 0.78rem; color: rgba(90, 102, 97, 0.85);
-      line-height: 1.5;
-    }
-    .incentive-options li { display: flex; gap: 7px; align-items: flex-start; }
-    .incentive-options li::before {
-      content: "·"; color: rgba(184, 136, 74, 0.55);
-      font-weight: 700; flex-shrink: 0;
-    }
-    .incentive-note {
-      font-size: 0.68rem; color: rgba(90, 102, 97, 0.6);
-      margin: 8px 0 0; font-style: italic;
-      line-height: 1.45;
-    }
-
     /* ═══ TAB SWITCHER — Quick Note vs Full Referral ═══ */
     .form-tabs {
       display: grid;
@@ -772,7 +739,6 @@
     /* Mobile refinements */
     @media (max-width: 880px) {
       .refer-benefits { max-width: 100%; }
-      .incentive-box { max-width: 100%; }
       .refer-warm { max-width: 100%; }
     }
     @media (max-width: 520px) {
@@ -862,32 +828,8 @@
               <p class="refer-benefit-sub">Avoid unnecessary agency loans and restarting.</p>
             </div>
           </li>
-          <li class="refer-benefit">
-            <div class="refer-benefit-icon is-cream" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M12 21s-7-4.5-9-9.5C2 8 4 5 7 5c2 0 3 1 5 3 2-2 3-3 5-3 3 0 5 3 4 6.5-2 5-9 9.5-9 9.5z" stroke="#B8884A" stroke-width="1.5" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div class="refer-benefit-text">
-              <p class="refer-benefit-title">Optional appreciation</p>
-              <p class="refer-benefit-sub">As a small thank-you after successful placement.</p>
-            </div>
-          </li>
         </ul>
 
-        <!-- Softer appreciation card -->
-        <div class="incentive-box">
-          <div class="incentive-title">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.7 4.8 5.1.5-3.8 3.4 1.2 5L8 12l-4.2 2.7 1.2-5-3.8-3.4 5.1-.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
-            A small thank-you when she's placed
-          </div>
-          <ul class="incentive-options">
-            <li>S$30 FairPrice voucher</li>
-            <li>S$30 donation in your name</li>
-            <li>Pass it forward to her</li>
-          </ul>
-          <p class="incentive-note">Shared only after successful placement verification.</p>
-        </div>
       </div>
 
       <!-- Right: form -->
@@ -1125,7 +1067,6 @@
           <h3 class="success-title">Referral received</h3>
           <p class="success-body">Thank you for helping a trusted helper find a good next home.</p>
           <p class="success-body" style="margin-top:4px;">We'll review the referral and reach out within 1–2 business days.</p>
-          <p class="success-meta">If successfully placed, we'll share details about our optional appreciation gesture.</p>
           <div class="success-actions">
             <button type="button" id="refer-another" class="btn btn-green">Refer another helper</button>
             <a href="browse.html" class="btn btn-outline">Meet Helpers</a>

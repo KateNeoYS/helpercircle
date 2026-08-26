@@ -436,8 +436,8 @@ window.HELPERS = [
     profile: "profile-aiza.html"
   },
   {
-    id: "roithein",
-    name: "Roi Thein",
+    id: "roi",
+    name: "Roi",
     initial: "",
     status: "available",
     statusLabel: "Available now",
@@ -445,7 +445,7 @@ window.HELPERS = [
     summary: "Recommended in writing by her current employer, whose mother she cared for until she passed away &mdash; seventeen years in Singapore, and close to five of them with one grandmother in her&nbsp;care.",
     referredBy: "Recommended in writing by her current&nbsp;employer",
     signal: "referred",
-    quote: "&ldquo;Roi Thein has been a wonderful helper and has done a good job in taking care of my mum all these&nbsp;while.&rdquo;",
+    quote: "&ldquo;Roi has been a wonderful helper and has done a good job in taking care of my mum all these&nbsp;while.&rdquo;",
     quoteCite: "&mdash; her current employer",
     nationality: "Myanmar",
     yearsSG: "About 17 years",
@@ -455,8 +455,8 @@ window.HELPERS = [
     age: 42,
     salary: "",
     availability: "now",
-    photo: "images/roithein.jpeg",
-    profile: "profile-roithein.html"
+    photo: "images/roi.jpeg",
+    profile: "profile-roi.html"
   },
   {
     id: "eiphyo",
@@ -652,7 +652,7 @@ window.HELPERS = [
     id: "luz",
     name: "Luz",
     initial: "",
-    status: "available",
+    status: "hidden",
     statusLabel: "Available now",
     line: "Filipino &middot; 57 &middot; Childcare, cooking &amp; household",
     summary: "Recommended in writing by the family she works for now, who call her an essential and trusted member of their household &mdash; twenty-two years in Singapore, and children of every age from newborn&nbsp;up.",

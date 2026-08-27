@@ -440,7 +440,7 @@ window.HELPERS = [
     name: "Reena",
     initial: "",
     status: "available",
-    statusLabel: "Available &middot; transfer by 10&nbsp;Sep",
+    statusLabel: "Available now",
     line: "Indian &middot; Punjabi &amp; Asian cooking",
     summary: "Recommended by the employer who hired her twice &mdash; she moved to another family in between, and was asked back, chiefly for her&nbsp;cooking.",
     referredBy: "Referred by Deepti, who hired her&nbsp;twice",
@@ -454,7 +454,7 @@ window.HELPERS = [
     skills: ["Cooking", "Housekeeping", "Childcare"],
     age: 0,
     salary: "",
-    availability: "transfer",
+    availability: "now",
     photo: "images/reena.jpeg",
     profile: "profile-reena.html"
   },

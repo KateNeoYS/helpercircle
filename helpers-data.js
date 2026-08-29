@@ -1224,7 +1224,7 @@ window.HELPERS = [
     yearsSG: "7 years in SG",
     bestFit: "Smaller, settled home; school-age&nbsp;children",
     strengths: ["Calm &amp; independent", "Trusted with children", "Proactive cook"],
-    skills: ["Childcare", "Cooking", "Housekeeping"],
+    skills: ["Infant Care", "Childcare", "Cooking", "Housekeeping"],
     age: 47,
     availability: "transfer",
     photo: "images/mary.jpeg",

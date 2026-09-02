@@ -840,8 +840,9 @@ window.HELPERS = [
     id: "divina",
     name: "Divina",
     initial: "L.",
-    status: "available",
-    statusLabel: "Available 20 September&nbsp;2026",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 21 Sep&nbsp;2026",
+    matchedSeq: 18,    // match order, higher = more recent (shows leftmost)
     line: "Filipino &middot; 36 &middot; Childcare, elderly care &amp; cooking",
     summary: "Three years with one Singapore family across two contracts, confirmed against MOM records &mdash; and top of her nursing aide class, studied on her days off while working full&nbsp;time.",
     referredBy: "Referred by her employer of 3&nbsp;years",

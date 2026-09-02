@@ -1247,7 +1247,7 @@ window.HELPERS = [
     quoteCite: "&mdash; Mahima",
     nationality: "Filipino",
     yearsSG: "Seventeen years",
-    bestFit: "A family where the children and the home are the heart of the role, and the kitchen is simple or&nbsp;shared",
+    bestFit: "A family where the children and the home are the heart of the&nbsp;role",
     strengths: ["Nearly ten years, one family", "Trusted with a child alone", "Cleaning &amp; organising"],
     skills: ["Childcare", "Cooking", "Housekeeping"],
     age: 53,

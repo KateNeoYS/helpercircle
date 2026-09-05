@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Menchie — newborn and infant specialist, recommended by her employer | Helper Circle</title>
+  <meta name="description" content="Menchie is a Filipino helper recommended in writing by Léna, whose twin girls she cared for from birth over four years. Twelve years in Singapore, and every family she has joined has started with a baby. Available by end September 2026."/>
+
+  <!-- Profiles kept noindex by convention -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
+  <link rel="stylesheet" href="styles.css"/>
+
+  <style>
+
+    /* ─── Page container ─── */
+    .profile-page { background: var(--clr-white); }
+    .profile-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── HERO ─── */
+    .profile-hero {
+      padding: 56px 0 48px;
+      background: var(--clr-white);
+    }
+    .profile-hero-inner {
+      display: flex;
+      gap: 36px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    /* Real photo */
+    .profile-photo {
+      flex: 0 0 180px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .profile-hero-text {
+      flex: 1 1 320px;
+      min-width: 0;
+    }
+    .profile-name {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      letter-spacing: -0.012em;
+      color: var(--clr-text);
+      margin: 0 0 6px;
+      text-wrap: balance;
+      line-height: 1.05;
+    }
+    .profile-descriptor {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--clr-text-muted);
+      margin: 0 0 18px;
+    }
+
+    .profile-verified-line {
+      font-size: .95rem;
+      color: var(--clr-text-2);
+      line-height: 1.6;
+      margin: 0 0 16px;
+      padding: 14px 0 14px 18px;
+      border-left: 2px solid var(--clr-primary);
+      background: linear-gradient(to right, var(--clr-primary-bg) 0%, transparent 70%);
+      border-radius: 0 4px 4px 0;
+    }
+    .profile-verified-line strong {
+      color: var(--clr-primary);
+      font-weight: 600;
+    }
+
+    .profile-quote {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic;
+      font-size: 1.18rem;
+      line-height: 1.55;
+      color: var(--clr-text-2);
+      margin: 24px 0 12px;
+      text-wrap: balance;
+    }
+    .profile-quote-attr {
+      font-size: .85rem;
+      color: var(--clr-text-muted);
+      margin: 0 0 28px;
+    }
+
+    .profile-hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .profile-hero-cta-meta {
+      font-size: .87rem;
+      color: var(--clr-text-muted);
+      font-style: italic;
+    }
+
+    /* ─── AT A GLANCE ─── */
+    .profile-glance {
+      padding: 36px 0 12px;
+      background: var(--clr-white);
+    }
+    .profile-section-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--clr-primary);
+      margin: 0 0 14px;
+    }
+    .profile-chips {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .profile-chip {
+      font-size: .88rem;
+      color: var(--clr-text-2);
+      background: var(--clr-cream);
+      border: 1px solid var(--clr-border-warm);
+      padding: 7px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    /* ─── KEY FACTS GRID ─── */
+    .profile-facts {
+      padding: 36px 0;
+      background: var(--clr-white);
+    }
+    .profile-facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0;
+      border-top: 1px solid var(--clr-border-warm);
+      border-left: 1px solid var(--clr-border-warm);
+    }
+    .profile-fact {
+      padding: 22px 22px;
+      border-right: 1px solid var(--clr-border-warm);
+      border-bottom: 1px solid var(--clr-border-warm);
+      background: var(--clr-white);
+    }
+    .profile-fact-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--clr-text-muted);
+      margin: 0 0 8px;
+    }
+    .profile-fact-value {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--clr-text);
+      margin: 0;
+    }
+    .profile-fact-value strong { font-weight: 600; }
+    .profile-fact-value em {
+      color: var(--clr-text-muted);
+      font-style: italic;
+      font-size: .9rem;
+    }
+
+    /* ─── EMPLOYER NOTES ─── */
+    .profile-notes {
+      padding: 56px 0;
+      background: var(--clr-cream);
+      border-top: 1px solid var(--clr-border-warm);
+    }
+    .profile-notes-hdr {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: clamp(1.7rem, 3.5vw, 2.1rem);
+      letter-spacing: -0.008em;
+      color: var(--clr-text);
+      margin: 0 0 8px;
+      text-wrap: balance;
+    }
+    .profile-notes-sub {
+      font-size: .95rem;
+      color: var(--clr-text-muted);
+      margin: 0 0 32px;
+      font-style: italic;
+    }
+    .profile-notes-prose p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--clr-text-2);
+      margin: 0 0 1.1em;
+      text-wrap: pretty;
+    }
+    .profile-notes-prose p:last-child { margin-bottom: 0; }
+
+    .profile-foot {
+      font-style: italic;
+      color: var(--clr-text-muted);
+      font-size: .92rem;
+      margin: 32px 0 0;
+    }
+
+    /* ─── MOBILE ADJUSTMENTS ─── */
+    @media (max-width: 640px) {
+      .profile-hero { padding: 40px 0 36px; }
+      .profile-hero-inner {
+        gap: 24px;
+        justify-content: center;
+      }
+      .profile-photo {
+        flex: 0 0 140px;
+        width: 140px;
+        height: 140px;
+        margin: 0 auto;
+        align-self: center;
+      }
+      .profile-hero-text { text-align: center; }
+      .profile-verified-line { text-align: left; }
+      .profile-hero-cta { display: flex; justify-content: center; }
+      .profile-facts-grid { grid-template-columns: 1fr; }
+      .profile-fact { padding: 20px 18px; }
+    }
+
+    /* ─── ASK ABOUT FORM ─── */
+    .profile-ask { background: var(--clr-white, #FFFFFF); padding: 56px 0 72px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
+    .profile-ask-inner { max-width: 560px; margin: 0 auto; padding: 0 24px; }
+    .profile-ask-kicker { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--clr-primary); background: var(--clr-primary-bg); padding: 4px 10px; border-radius: 4px; margin-bottom: 12px; }
+    .profile-ask-h { font-family: var(--fd, 'Cormorant Garamond', serif); font-weight: 500; font-size: clamp(1.7rem, 3.5vw, 2.1rem); letter-spacing: -0.008em; color: var(--clr-text); margin: 0 0 12px; text-wrap: balance; }
+    .profile-ask-sub { font-size: 1rem; color: var(--clr-text-muted); line-height: 1.65; margin: 0 0 28px; }
+    .ask-field { margin-bottom: 16px; }
+    .ask-field label { display: block; font-size: .85rem; font-weight: 600; color: var(--clr-text); margin-bottom: 6px; }
+    .ask-field-opt { font-weight: 400; color: var(--clr-text-muted); font-size: .8rem; }
+    .ask-field input, .ask-field textarea { width: 100%; padding: 11px 13px; font-size: .98rem; font-family: inherit; color: var(--clr-text); background: var(--clr-white, #FFFFFF); border: 1px solid var(--clr-border, #E8E2D4); border-radius: 6px; transition: border-color .15s; }
+    .ask-field input:focus, .ask-field textarea:focus { outline: none; border-color: var(--clr-primary); }
+    .ask-field textarea { resize: vertical; min-height: 80px; }
+    .ask-submit { width: 100%; margin-top: 4px; }
+    .ask-foot-note { font-size: .82rem; color: var(--clr-text-muted); margin: 14px 0 0; line-height: 1.55; }
+    .ask-success, .ask-error { background: var(--clr-primary-bg); border-left: 3px solid var(--clr-primary); padding: 16px 18px; border-radius: 0 8px 8px 0; margin-top: 12px; }
+    .ask-error { background: #FFF0EB; border-left-color: #E8825C; }
+    .ask-success p, .ask-error p { margin: 0; color: var(--clr-text-2); line-height: 1.6; }
+  </style>
+</head>
+<body class="profile-page">
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark" aria-hidden="true"><span class="logo-hc">hc</span></div>
+      <span class="logo-text">Helper<strong>Circle</strong></span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="browse.html" class="nav-a">Meet Helpers</a>
+      <a href="refer.html" class="nav-a">Refer a Helper</a>
+      <a href="index.html#how" class="nav-a">How It Works</a>
+      <a href="faq.html" class="nav-a">FAQ</a>
+      <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
+    </nav>
+    <a href="refer.html" class="btn btn-green btn-sm hdr-cta">Refer a Helper</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="profile-hero">
+  <div class="profile-wrap">
+    <div class="profile-hero-inner">
+
+      <img class="profile-photo" src="images/menchie.jpeg" alt="Menchie" width="180" height="180" loading="eager"/>
+
+      <div class="profile-hero-text">
+        <h1 class="profile-name">Menchie</h1>
+        <p class="profile-descriptor">Filipino national &middot; Newborns, twins &amp; young children &middot; Twelve years in&nbsp;Singapore</p>
+
+        <p class="profile-verified-line">
+          <strong>Recommended in writing by L&eacute;na</strong>, whose twin girls she cared for from birth, and who invites families to contact her&nbsp;directly.
+        </p>
+
+        <p class="profile-quote">&ldquo;Our daughters always felt safe, happy, and cared for in her hands, and they adore her to this&nbsp;day.&rdquo;</p>
+        <p class="profile-quote-attr">&mdash; L&eacute;na, whose twins she raised from&nbsp;newborn</p>
+
+        <div class="profile-hero-cta">
+          <a href="#ask" class="btn btn-green">Ask about Menchie</a>
+          <span class="profile-hero-cta-meta">We respond within 1&ndash;2 business&nbsp;days</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRUST SIGNALS ═══ -->
+<section class="profile-trust">
+  <div class="profile-wrap">
+    <p class="profile-section-label">Trust signals</p>
+    <div class="psig psig--rec">
+      <span class="tsig tsig--rec"><span class="tsig-mark" aria-hidden="true">&#127942;</span> Employer Recommended</span>
+      <ul class="psig-list">
+        <li>A signed written recommendation from L&eacute;na, whose twin girls she cared for from newborn across four&nbsp;years</li>
+        <li>L&eacute;na closes her letter by inviting interested families to contact her with&nbsp;questions</li>
+        <li>Four years with that family, and twelve years in Singapore, confirmed against official MOM employment&nbsp;records</li>
+      </ul>
+      <p class="psig-note">Our strongest trust signal &mdash; a family she has worked for, recommending her&nbsp;directly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AT A GLANCE ═══ -->
+<section class="profile-glance">
+  <div class="profile-wrap">
+    <p class="profile-section-label">At a glance</p>
+    <div class="profile-chips">
+      <span class="profile-chip">Newborns &amp; infants</span>
+      <span class="profile-chip">Four years with twins, from birth</span>
+      <span class="profile-chip">Every family started with a baby</span>
+      <span class="profile-chip">Calm &amp; well organised</span>
+      <span class="profile-chip">Keeps routines</span>
+      <span class="profile-chip">Home-cooked meals</span>
+      <span class="profile-chip">Punctual</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KEY FACTS GRID ═══ -->
+<section class="profile-facts">
+  <div class="profile-wrap">
+    <p class="profile-section-label">The essentials</p>
+    <div class="profile-facts-grid">
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Available from</p>
+        <p class="profile-fact-value"><strong>By the end of September&nbsp;2026.</strong></p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Currently</p>
+        <p class="profile-fact-value">With an Indian and British family, whose child she has looked after from eighteen months to two and a&nbsp;half.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Why she&rsquo;s moving on</p>
+        <p class="profile-fact-value">Her present family cook Indian food daily, and after years in European and Singaporean kitchens that style has not come naturally to&nbsp;her. It is a question of cuisine, not of care, and they are parting on good&nbsp;terms.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">She starts where it is hardest</p>
+        <p class="profile-fact-value">Every household she has joined has begun with a baby &mdash; twin girls from birth, a Dutch family&rsquo;s newborn, a four-month-old, and an eighteen-month-old&nbsp;boy. That is an unusually consistent&nbsp;record.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Four years with twins</p>
+        <p class="profile-fact-value">She joined L&eacute;na&rsquo;s family when their twin girls were newborns and stayed four years, through the whole of the early&nbsp;stage. The girls, their mother writes, adore her&nbsp;still.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Routines</p>
+        <p class="profile-fact-value">&ldquo;She always showed up on time, managed the children&rsquo;s routines with ease.&rdquo; Her employer describes her as very well organised, and as a calm presence in a busy&nbsp;house.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Cooking</p>
+        <p class="profile-fact-value">She cooked home meals for L&eacute;na&rsquo;s family through their busiest weeks, and is at ease in European and Singaporean home&nbsp;cooking. Indian cuisine is not her&nbsp;strength.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Best fit</p>
+        <p class="profile-fact-value">A family with a baby on the way or a very young child, who want someone who has done the newborn stage properly and more than&nbsp;once.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Nationality</p>
+        <p class="profile-fact-value">Filipino</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Age</p>
+        <p class="profile-fact-value">45</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Twelve years here</p>
+        <p class="profile-fact-value">In Singapore since June&nbsp;2014, across five households &mdash; French, Dutch, two Singaporean families, and her present Indian and British&nbsp;family. Every one recorded her job scope as infant or toddler&nbsp;care. Confirmed against official MOM employment&nbsp;records.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EMPLOYER NOTES ═══ -->
+<section class="profile-notes">
+  <div class="profile-wrap">
+    <h2 class="profile-notes-hdr">Notes from her&nbsp;employer</h2>
+    <p class="profile-notes-sub">From L&eacute;na&rsquo;s letter, written in Singapore on 25 August&nbsp;2025.</p>
+
+    <div class="profile-notes-prose">
+      <p>&ldquo;We were lucky to have Menchie with our family for the past four years, caring for our twin girls from the time they were newborns. She has given them love, patience, and attention, and truly became part of our&nbsp;family.&rdquo;</p>
+
+      <p>Newborn twins are the hardest version of the job, and she did it for four years to the day, from their first weeks until they were&nbsp;four.</p>
+
+      <p>&ldquo;She always showed up on time, managed the children&rsquo;s routines with ease, and helped us during our busy weeks by preparing delicious home-cooked meals. Her calm and caring presence brought much comfort to our home, and she supported us through the most important early years of parenting&nbsp;twins.&rdquo;</p>
+
+      <p>What stands out across her whole record is how often she has been trusted with a child at the very beginning. Twin girls from birth, a Dutch family&rsquo;s newborn, a four-month-old, an eighteen-month-old. Families who have been through that stage tend to keep the person who got them through&nbsp;it.</p>
+
+      <p>&ldquo;We will always be grateful for her kindness and dedication. Any family would be lucky to welcome Menchie into their&nbsp;lives.&rdquo;</p>
+
+      <p><strong>Where she&rsquo;d thrive&nbsp;next:</strong> a family expecting a baby, or with a very small one already, who would value calm hands and a person who keeps the routine steady when no one has&nbsp;slept.</p>
+    </div>
+
+    <p class="profile-foot">L&eacute;na&rsquo;s letter is available to interested families, and she is happy to be contacted, with Menchie&rsquo;s&nbsp;consent.</p>
+
+  </div>
+</section>
+
+<!-- ═══ ASK ═══ -->
+<section class="profile-ask" id="ask">
+  <div class="profile-ask-inner">
+    <span class="profile-ask-kicker">Interested?</span>
+    <h2 class="profile-ask-h">Ask about Menchie</h2>
+    <p class="profile-ask-sub">Tell us a little about your household and we&rsquo;ll be in touch within 1&ndash;2 business&nbsp;days. We&rsquo;ll only move forward if it feels like a genuine&nbsp;fit.</p>
+    <form id="form-ask" action="https://formspree.io/f/mredjvwg" method="POST">
+      <input type="hidden" name="helper-name" value="Menchie"/>
+      <input type="hidden" name="_subject" value="Helper Circle — Interest in Menchie"/>
+      <div class="ask-field"><label for="ask-name">Your name</label><input type="text" id="ask-name" name="name" required placeholder="Jane Tan" autocomplete="name"/></div>
+      <div class="ask-field"><label for="ask-email">Email</label><input type="email" id="ask-email" name="email" required placeholder="you@email.com" autocomplete="email"/></div>
+      <div class="ask-field"><label for="ask-phone">Phone <span class="ask-field-opt">(optional, but helps)</span></label><input type="tel" id="ask-phone" name="phone" placeholder="+65 9123 4567" autocomplete="tel"/></div>
+      <div class="ask-field"><label for="ask-household">Briefly, your household</label><textarea id="ask-household" name="household" rows="3" required placeholder="Who lives at home, ages, any pets, what your typical day looks like&hellip;"></textarea></div>
+      <div class="ask-field"><label for="ask-why">Why Menchie? <span class="ask-field-opt">(optional)</span></label><textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you&rsquo;re hoping for&hellip;"></textarea></div>
+      <button type="submit" class="btn btn-green ask-submit">Send to Helper Circle</button>
+      <p class="ask-foot-note">We read every message personally. If Menchie seems like a fit for your household, we&rsquo;ll set up a short call to talk through the next&nbsp;step.</p>
+      <div class="ask-success" hidden><p>Thank you. We&rsquo;ve received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p></div>
+      <div class="ask-error" hidden><p>Something didn&rsquo;t go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p></div>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <p class="footer-heart">Started by a Singapore family who knew there had to be a better&nbsp;way.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="browse.html">Meet Helpers</a><span class="footer-nav-sep">·</span>
+        <a href="refer.html">Refer a Helper</a><span class="footer-nav-sep">·</span>
+        <a href="index.html#how">How It Works</a><span class="footer-nav-sep">·</span>
+        <a href="faq.html">FAQ</a><span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">Contact</a>
+      </nav>
+      <p class="footer-aside"><a href="for-families.html">For families saying goodbye to a helper &rarr;</a></p>
+      <div class="footer-legal-strip"><span>© <span id="year"></span> Helper Circle · Singapore</span><span class="footer-nav-sep">·</span><a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('form-ask'); if (!form) return;
+  var submitBtn = form.querySelector('button[type="submit"]'), successEl = form.querySelector('.ask-success'),
+      errorEl = form.querySelector('.ask-error'), fields = form.querySelectorAll('.ask-field'), noteEl = form.querySelector('.ask-foot-note');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.dataset.originalText = submitBtn.textContent; submitBtn.textContent = 'Sending…'; }
+    if (errorEl) errorEl.hidden = true;
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(function (res) { if (res.ok) { fields.forEach(function (f){f.style.display='none';}); if(submitBtn)submitBtn.style.display='none'; if(noteEl)noteEl.style.display='none'; if(successEl)successEl.hidden=false; } else { throw new Error('fail'); } })
+      .catch(function () { if(errorEl)errorEl.hidden=false; if(submitBtn){submitBtn.disabled=false;submitBtn.textContent=submitBtn.dataset.originalText||'Send to Helper Circle';} });
+  });
+})();
+</script>
+<script>var y=document.getElementById('year');if(y){y.textContent=new Date().getFullYear();}</script>
+</body>
+</html>

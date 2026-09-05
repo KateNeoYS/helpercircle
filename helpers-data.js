@@ -1284,9 +1284,9 @@ window.HELPERS = [
     id: "ann",
     name: "Ann",
     initial: "",
-    status: "hidden",                                  // → "available" once her transfer date is known
-    statusLabel: "Available date to be confirmed",      // → e.g. "Available &middot; transfer by end&nbsp;Oct"
-    // availFrom: "2026-__-__",
+    status: "available",
+    statusLabel: "Available &middot; transfer 24&nbsp;Sep",
+    availFrom: "2026-09-24",
     line: "Filipino &middot; 35 &middot; Household, cooking &amp; family&nbsp;support",
     summary: "Five years with one family in Singapore &mdash; her only employer here &mdash; who recommend her in writing. Runs a household on her own, and learned Indian cooking during her time with&nbsp;them.",
     referredBy: "Recommended in writing by Rana, her employer of five&nbsp;years",

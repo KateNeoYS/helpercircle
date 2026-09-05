@@ -1281,6 +1281,30 @@ window.HELPERS = [
     profile: "profile-menchie.html"
   },
   {
+    id: "ann",
+    name: "Ann",
+    initial: "",
+    status: "hidden",                                  // → "available" once her transfer date is known
+    statusLabel: "Available date to be confirmed",      // → e.g. "Available &middot; transfer by end&nbsp;Oct"
+    // availFrom: "2026-__-__",
+    line: "Filipino &middot; 35 &middot; Household, cooking &amp; family&nbsp;support",
+    summary: "Five years with one family in Singapore &mdash; her only employer here &mdash; who recommend her in writing. Runs a household on her own, and learned Indian cooking during her time with&nbsp;them.",
+    referredBy: "Recommended in writing by Rana, her employer of five&nbsp;years",
+    signal: "referred",
+    quote: "&ldquo;Five years is a meaningful period for someone to remain part of a household, and I appreciate the continuity, experience and support Ann has&nbsp;provided.&rdquo;",
+    quoteCite: "&mdash; Rana",
+    nationality: "Filipino",
+    yearsSG: "5 years with one family",
+    bestFit: "A household with a settled routine that can be clear about what it wants &mdash; especially one that would value Indian&nbsp;cooking",
+    strengths: ["Five years, one family", "Learned Indian cooking", "Runs a household alone"],
+    skills: ["Housekeeping", "Cooking", "Childcare", "Elderly Care"],
+    age: 35,
+    salary: "",
+    availability: "transfer",
+    photo: "images/ann.jpeg",
+    profile: "profile-ann.html"
+  },
+  {
     id: "belinda",
     name: "Belinda",
     initial: "",

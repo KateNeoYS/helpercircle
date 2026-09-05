@@ -1308,7 +1308,7 @@ window.HELPERS = [
     id: "judy",
     name: "Judy",
     initial: "",
-    status: "hidden",                                  // VERIFIED-ONLY — see regulatory note before going live
+    status: "available",
     statusLabel: "Available end October&nbsp;2026",
     availFrom: "2026-10-31",
     line: "Filipino &middot; 41 &middot; Chinese home cooking &amp;&nbsp;household",

@@ -1377,7 +1377,7 @@ window.HELPERS = [
     id: "mai",
     name: "Mai",
     initial: "",
-    status: "hidden",                                  // 4 yrs complete 14 Sep; no photo; verified-only
+    status: "available",
     statusLabel: "Available 8 October&nbsp;2026",
     availFrom: "2026-10-08",
     line: "Myanmar &middot; 27 &middot; Childcare &amp; Chinese home&nbsp;cooking",

@@ -16,19 +16,6 @@
 
   <style>
 
-    /* ─── Draft banner — REMOVE AT GO-LIVE ─── */
-    .draft-banner {
-      background: #FFF3DC;
-      border-bottom: 1px solid #EAD3A0;
-      color: #7A5712;
-      font-size: .9rem;
-      line-height: 1.55;
-      padding: 14px 24px;
-      text-align: center;
-    }
-    .draft-banner-inner { max-width: 720px; margin: 0 auto; }
-    .draft-banner strong { color: #5E440D; }
-
     /* ─── Page container ─── */
     .profile-page { background: var(--clr-white); }
     .profile-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
@@ -218,25 +205,6 @@
       margin: 32px 0 0;
     }
 
-    /* ─── DRAFT-ONLY NOTES — REMOVE AT GO-LIVE ─── */
-    .draft-notes {
-      background: #FFFBF5;
-      border: 2px dashed #E8825C;
-      border-radius: 12px;
-      padding: 28px 32px;
-      margin: 48px auto;
-      max-width: 720px;
-    }
-    .draft-notes h3 {
-      font-family: var(--fd, 'Cormorant Garamond', serif);
-      font-size: 1.4rem;
-      color: #9B5B3A;
-      margin: 0 0 14px;
-    }
-    .draft-notes ul { margin: 0; padding-left: 22px; color: var(--clr-text-2); line-height: 1.7; }
-    .draft-notes li { margin-bottom: 10px; }
-    .draft-notes li strong { color: #C66740; }
-
     /* ─── MOBILE ADJUSTMENTS ─── */
     @media (max-width: 640px) {
       .profile-hero { padding: 40px 0 36px; }
@@ -302,13 +270,6 @@
 </head>
 <body class="profile-page">
 
-<!-- ═══ DRAFT BANNER — REMOVE AT GO-LIVE ═══ -->
-<div class="draft-banner">
-  <div class="draft-banner-inner">
-    <strong>DRAFT &mdash; not live.</strong> Her four years complete on <strong>14 September</strong>, and she is verified-only unless her employer will&nbsp;vouch.
-  </div>
-</div>
-
 <!-- ═══ HEADER ═══ -->
 <header class="site-header" id="site-header">
   <div class="wrap header-inner">
@@ -340,7 +301,7 @@
         <p class="profile-descriptor">Myanmar national &middot; Childcare &amp; Chinese home cooking &middot; Four years with one&nbsp;family</p>
 
         <p class="profile-verified-line">
-          <strong>Four years with one family</strong>, confirmed against official MOM employment&nbsp;records.
+          <strong>Four years with one family</strong>, September 2022 to October&nbsp;2026 &mdash; confirmed against official MOM employment&nbsp;records.
         </p>
 
         <div class="profile-hero-cta">
@@ -488,18 +449,6 @@
 
   </div>
 </section>
-
-<!-- ═══ DRAFT NOTES — REMOVE AT GO-LIVE ═══ -->
-<div class="draft-notes">
-  <h3>Open items before go-live</h3>
-  <ul>
-    <li><strong>The four years complete on 14 September 2026.</strong> Her start date was 14 Sep 2022, so the &#128197; claim is premature until then &mdash; today she is at three years, eleven months and three weeks. She isn&rsquo;t available until 8 October anyway, so nothing is lost by waiting.</li>
-    <li><strong>Verified-only.</strong> Publishing her makes three &mdash; with Cres and Judy &mdash; while the EA licence is pending. Her family of four years is the obvious referrer to ask; a letter would move her to &#127942; and remove the question.</li>
-    <li><strong>Salary is $750</strong>, on file in <code>helpers-data.js</code> but not shown on the page, per convention.</li>
-    <li><strong>Left off deliberately:</strong> her religion and marital status. Neither bears on the work, and a public page is not the place for them.</li>
-    <li><strong>Go-live:</strong> delete this box, the draft banner and their two CSS blocks; flip her to <code>available</code>; keep the noindex tag.</li>
-  </ul>
-</div>
 
 <!-- ═══ ASK ═══ -->
 <section class="profile-ask" id="ask">

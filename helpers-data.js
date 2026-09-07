@@ -1,172 +1,2108 @@
-/* ===================================================================
-   Helper Circle — profile availability gate  (shared, data-driven)
+/* ════════════════════════════════════════════════════════════
+   Helper Circle — shared helper data (single source of truth)
+   ────────────────────────────────────────────────────────────
+   Edit ONLY this file to add / update / retire a helper.
+   Both the home page and the browse page read from it.
 
-   WHAT IT DOES
-   On any profile page, this reads the helper's `status` from
-   helpers-data.js and, for anyone who is NOT "available", it removes
-   the "Ask about ___" enquiry section and the hero CTA button and
-   replaces them with a short status panel ("joined a new family" /
-   "no longer available") plus a Browse link.
+   status:  "available" → open to a transfer
+              · home page: shown in the compact grid (max 3)
+              · browse:    shown under "Looking for their next family"
+            "placed"    → has joined / is joining a new family
+              · home page: not shown
+              · browse:    shown under "Helpers who've found their
+                           next family" (proof)
 
-   THE ONLY CONTROL is the helper's `status` in helpers-data.js:
-       status: "available"  -> enquiry stays on
-       status: "placed"     -> enquiry turns off  (joined a new family)
-       status: "hidden"     -> enquiry turns off  (no longer available)
-   Flip the status and the profile follows. No per-profile edits.
+   To retire someone from public view entirely, set status to
+   "hidden" (or just delete her block).
 
-   HOW TO WIRE IT (pick one)
-   A) Paste this whole file into script.js (every profile already loads
-      script.js) -> zero new includes, done everywhere at once.
-   B) Save as helper-status-gate.js and add ONE line to each profile,
-      after script.js:
-          <script src="helper-status-gate.js"></script>
+   ─── TO ADD A NEW HELPER ─────────────────────────────────────
+   1. Scroll to the TEMPLATE block at the bottom of this list.
+   2. Copy it, remove the "//" at the start of each line.
+   3. Add a comma after the previous helper's closing  }  so the
+      list stays comma-separated.
+   4. Fill in the values (you type these yourself — do NOT copy
+      from the profile page's HTML).
+   5. Upload her photo to images/ and create her profile-*.html.
+   Commit, and she appears on both pages automatically.
 
-   It self-loads helpers-data.js when needed, so profiles do NOT have to
-   include helpers-data.js separately. Safe to load on browse/index too
-   (it no-ops when there's no enquiry section). Fails open: if the data
-   can't load, the enquiry is left exactly as it is.
-   =================================================================== */
+   Special characters used in the text (type them exactly):
+     &nbsp;   = a space that won't line-break (use before last word)
+     &amp;    = the "&" symbol
+     &middot; = the "·" dot separator
+     &mdash;  = a long dash "—"
+     \u201c \u201d = curly quotes  “ ”      \u2019 = curly apostrophe ’
+   ════════════════════════════════════════════════════════════ */
+window.HELPERS = [
+  {
+    id: "angie",
+    name: "Angie",
+    initial: "",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 20 Sep&nbsp;2026",
+    line: "Filipino &middot; Housekeeping, cooking &amp; pet&nbsp;care",
+    summary: "21 years with one family, deeply experienced and adaptable &mdash; loves to cook, and has cared for cats and dogs at&nbsp;home.",
+    referredBy: "Referred by Monica, her employer of 21&nbsp;years",
+    matchedSeq: 14,    // match order, higher = more recent (shows leftmost)
+    signal: "referred",
+    quote: "\u201cShe has adapted really well to the changing needs of our&nbsp;household.\u201d",
+    quoteCite: "&mdash; Monica",
+    nationality: "Filipino",
+    yearsSG: "21 years, one family",
+    bestFit: "Housekeeping &amp; cooking; pet-friendly homes; children&nbsp;10+",
+    strengths: ["21 years, one family", "Loves to cook", "Pet care (dogs &amp; cats)"],
+    skills: ["Housekeeping", "Cooking", "Pet care"],
+    age: 54,
+    availability: "transfer",
+    photo: "images/angie.jpeg",
+    profile: "profile-angie.html"
+  },
+  {
+    id: "analyn",
+    name: "Analyn",
+    initial: "",
+    status: "hidden",
+    statusLabel: "No longer available",
+    line: "Filipino &middot; 46 &middot; Cleaning, caregiving &amp; pet&nbsp;care",
+    summary: "Two years with one family, recommended by her current employer &mdash; warm with young children, devoted to pets, and keeps a spotless&nbsp;home.",
+    referredBy: "Referred by Ashley, her employer of two&nbsp;years",
+    signal: "referred",
+    quote: "\u201cShe is great at cleaning, and our home is sparkling&nbsp;clean.\u201d",
+    quoteCite: "&mdash; Ashley",
+    nationality: "Filipino",
+    yearsSG: "16 years\u2019 experience",
+    bestFit: "Families with children &mdash; caregiving &amp; cleaning",
+    strengths: ["Experienced with babies &amp; children", "Spotless cleaning", "Devoted pet care"],
+    skills: ["Childcare", "Housekeeping", "Pet care"],
+    age: 46,
+    availability: "transfer",
+    photo: "images/analyn.jpeg",
+    profile: "profile-analyn.html"
+  },
+  {
+    id: "stephanie",
+    name: "Stephanie",
+    initial: "",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 24 July&nbsp;2026",
+    matchedSeq: 6,    // match order, higher = more recent (shows leftmost)
+    line: "Filipino &middot; 39 &middot; Cooking, childcare, household &amp; pet&nbsp;care",
+    summary: "Two and a half years with one family, recommended by her current employer &mdash; a keen, creative cook, devoted to the home and the family&rsquo;s&nbsp;dog.",
+    referredBy: "Referred by Jessica, her employer of two and a half&nbsp;years",
+    signal: "referred",
+    quote: "\u201cStephanie always tries her best at the tasks that she\u2019s&nbsp;doing.\u201d",
+    quoteCite: "&mdash; Jessica",
+    nationality: "Filipino",
+    yearsSG: "Almost 4 years\u2019 experience",
+    bestFit: "A warm family who loves home-cooked&nbsp;meals",
+    strengths: ["Keen, creative cook", "Devoted dog care", "Household, laundry &amp; ironing"],
+    skills: ["Cooking", "Childcare", "Housekeeping", "Pet care"],
+    age: 39,
+    availability: "transfer",
+    photo: "images/stephanie.jpeg",
+    profile: "profile-stephanie.html"
+  },
+  {
+    id: "mariacristine",
+    name: "Maria Cristine",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available now",
+    line: "Filipino &middot; 39 &middot; Childcare, elderly care, household &amp; cooking",
+    summary: "Around 16 years in Singapore, recommended by her employer &mdash; experienced from young children to elderly care, runs large households, and enjoys&nbsp;cooking.",
+    referredBy: "Referred by her employer, who recommends her&nbsp;directly",
+    signal: "referred",
+    quote: "\u201cTrusted, kind and lively\u2026 excellent with young children (and&nbsp;pets).\u201d",
+    quoteCite: "&mdash; her employer",
+    nationality: "Filipino",
+    yearsSG: "Around 16 years\u2019 experience",
+    bestFit: "A family with young children (and&nbsp;pets)",
+    strengths: ["Childcare to elderly care", "Cooking &amp; household", "Pet care (dogs)"],
+    skills: ["Childcare", "Elderly care", "Cooking", "Housekeeping"],
+    age: 39,
+    availability: "transfer",
+    photo: "images/mariacristine.jpeg",
+    profile: "profile-mariacristine.html"
+  },
+  {
+    id: "ami",
+    name: "Ami",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available soon",
+    line: "Long-term carer &middot; Elderly care, childcare &amp; cooking",
+    summary: "Ten years with one Singapore family, confirmed against MOM records &mdash; a warm, versatile carer, strong in elderly care, childcare and&nbsp;cooking.",
+    referredBy: "",
+    signal: "verified",
+    verifiedYears: 10,
+    quote: "",
+    quoteCite: "",
+    nationality: "",
+    yearsSG: "About 15 years",
+    bestFit: "Elderly care, childcare &amp; running a warm&nbsp;home",
+    strengths: ["10 years, one family", "Elderly care", "Childcare &amp; cooking"],
+    skills: ["Elderly Care", "Childcare", "Cooking", "Housekeeping"],
+    age: 43,
+    salary: "",
+    availability: "transfer",
+    photo: "images/ami.jpeg",
+    profile: "profile-ami.html"
+  },
+  {
+    id: "ilmiyah",
+    name: "Ilmiyah",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available 5 Aug 2026",
+    line: "Indonesian &middot; 44 &middot; Chinese-speaking, childcare &amp; cooking",
+    summary: "Chinese-speaking and an exceptional cook, recommended by her employer &mdash; experienced in childcare, elderly care and household&nbsp;cooking.",
+    referredBy: "Referred by her employer, who recommends her&nbsp;directly",
+    signal: "referred",
+    quote: "\u201cAn exceptional cook, very likely the best we have had in the past five&nbsp;years.\u201d",
+    quoteCite: "&mdash; her employer",
+    nationality: "Indonesian",
+    yearsSG: "In Singapore since 2022",
+    bestFit: "A Chinese-speaking home that loves good&nbsp;cooking",
+    strengths: ["Speaks Chinese", "Exceptional cook", "Childcare &amp; elderly care"],
+    skills: ["Cooking", "Childcare", "Elderly Care", "Housekeeping"],
+    age: 44,
+    availability: "transfer",
+    photo: "images/ilmiyah.jpeg",
+    profile: "profile-ilmiyah.html"
+  },
+  {
+    id: "juliana",
+    name: "Juliana",
+    initial: "S.",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 1 Aug&nbsp;2026",
+    matchedSeq: 7,    // match order, higher = more recent (shows leftmost)
+    line: "Filipino &middot; 44 &middot; Childcare, cooking &amp; household",
+    summary: "Twenty-four years with one family, raising all four of their children through to teenagers &mdash; recommended in writing by the employer she is still&nbsp;with.",
+    referredBy: "Referred by Irene, her employer of twenty-four years, happy to be&nbsp;contacted",
+    signal: "referred",
+    quote: "\u201cMore than an employee, she has become part of our&nbsp;family.\u201d",
+    quoteCite: "&mdash; Irene",
+    nationality: "Filipino",
+    yearsSG: "Twenty-four years",
+    bestFit: "A family with children of any age who want their home run without being&nbsp;managed",
+    strengths: ["Twenty-four years, one family", "Raised all four of their children", "Runs a home independently"],
+    skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping", "Pets"],
+    age: 44,
+    salary: "",
+    availability: "transfer",
+    photo: "images/juliana.jpeg",
+    profile: "profile-juliana.html"
+  },
+  {
+    id: "linmon",
+    name: "Lin Mon",
+    initial: "",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 11 Aug&nbsp;2026",
+    matchedSeq: 8,    // match order, higher = more recent (shows leftmost)
+    availFrom: "2026-07-16",
+    line: "Myanmar &middot; 30 &middot; Childcare, cooking &amp; household",
+    summary: "Recommended in writing by her most recent employer &mdash; six years of Singapore experience across three families, an excellent cook, and loving with young children.",
+    referredBy: "Referred by Sue, her employer from 2024 to 2026, who recommends her&nbsp;directly",
+    signal: "referred",
+    quote: "\u201cHer love for children, her level of cleanliness, proactiveness and attention to&nbsp;detail.\u201d",
+    quoteCite: "&mdash; Sue",
+    nationality: "Myanmar",
+    yearsSG: "Six years",
+    bestFit: "A family wanting an experienced helper for children, cooking and the household",
+    strengths: ["Recommended by her employer", "Six years in Singapore", "Excellent cook"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
+    age: 30,
+    salary: "",
+    availability: "overseas",
+    photo: "images/linmon.jpeg",
+    profile: "profile-linmon.html"
+  },
+  {
+    id: "cres",
+    name: "Cres",
+    initial: "",
+    status: "available",
+    statusLabel: "Available from late November&nbsp;2026",
+    availFrom: "2026-11-24",
+    line: "Filipino &middot; 34 &middot; Household, cooking &amp; childcare",
+    summary: "Ten years with one Singapore family, confirmed against MOM records &mdash; raised their two children from infancy, culinary-trained, and wonderful with dogs.",
+    referredBy: "",
+    signal: "verified",
+    verifiedYears: 10,
+    quote: "",
+    quoteCite: "",
+    nationality: "Filipino",
+    yearsSG: "Ten years",
+    bestFit: "A family wanting a loyal all-rounder for the home, cooking and children, especially one with a dog",
+    strengths: ["Ten years, one family", "Culinary-trained", "Wonderful with dogs"],
+    skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping", "Pets"],
+    age: 34,
+    salary: "",
+    availability: "transfer",
+    photo: "images/cres.jpeg",
+    profile: "profile-cres.html"
+  },
+  {
+    id: "khinphyowai",
+    name: "Khin Phyo Wai",
+    initial: "",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 31 July&nbsp;2026",
+    matchedSeq: 9,    // match order, higher = more recent (shows leftmost)
+    line: "Myanmar &middot; 30 &middot; Elderly care, childcare &amp; cooking",
+    summary: "Referred by her own employer, who has employed her since 2023 &mdash; elderly care, four children including one she took at a week old, some Chinese, and comfortable with dogs.",
+    referredBy: "Referred by Pearline, her employer since 2023, who recommends her&nbsp;directly",
+    signal: "referred",
+    quote: "\u201cVery kind hearted. No matter how naughty the kids are, she can forgive and&nbsp;forget.\u201d",
+    quoteCite: "&mdash; Pearline",
+    nationality: "Myanmar",
+    yearsSG: "Since 2023",
+    bestFit: "A household needing elderly care, or a family with children aged four and up",
+    strengths: ["Referred by her employer", "Elderly care &amp; childcare", "Street smart &amp; reliable"],
+    skills: ["Elderly Care", "Childcare", "Infant Care", "Cooking", "Housekeeping", "Pets"],
+    age: 30,
+    salary: "",
+    availability: "transfer",
+    photo: "images/khinphyowai.jpeg",
+    profile: "profile-khinphyowai.html"
+  },
+  {
+    id: "beth",
+    name: "Beth",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available from mid-February&nbsp;2027",
+    availFrom: "2027-02-15",
+    line: "Filipino &middot; 45 &middot; Childcare, cooking &amp; household",
+    summary: "Thirteen years in Singapore, referred in writing by her current employer of almost three years &mdash; wonderful with newborns and children, cooks Chinese, Western and Filipino. Available for transfer from February 2027.",
+    referredBy: "Referred by Lynn, her employer of almost three years, who recommends her&nbsp;directly",
+    signal: "referred",
+    quote: "\u201cShe genuinely cares for our children and has treated them as if they were her&nbsp;own.\u201d",
+    quoteCite: "&mdash; Lynn",
+    nationality: "Filipino",
+    yearsSG: "Thirteen years",
+    bestFit: "A small family who would value her care with young children and her cooking",
+    strengths: ["Thirteen years in Singapore", "Wonderful with newborns", "Chinese, Western &amp; Filipino cooking"],
+    skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping", "Pets"],
+    age: 45,
+    salary: "",
+    availability: "transfer",
+    photo: "images/beth.jpeg",
+    profile: "profile-beth.html"
+  },
+  {
+    id: "janeta",
+    name: "Janeta",
+    initial: "",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 7 Oct&nbsp;2026",
+    availFrom: "2026-08-29",
+    line: "Filipino &middot; 50 &middot; Nanny, newborn care &amp; household",
+    summary: "Thirteen years in Singapore across six families, referred in writing by her current employer &mdash; a newborn and childcare specialist, warm, experienced and deeply trusted.",
+    referredBy: "Referred by her current employer of over two years, who recommends her&nbsp;directly",
+    matchedSeq: 13,
+    signal: "referred",
+    quote: "\u201cShe has truly been there for everything our children needed. Both we and our children will miss her&nbsp;immensely.\u201d",
+    quoteCite: "&mdash; her employer",
+    nationality: "Filipino",
+    yearsSG: "Thirteen years",
+    bestFit: "A family with a baby or young children who would value an experienced, warm nanny",
+    strengths: ["Thirteen years in Singapore", "Newborn &amp; infant specialist", "Six families, warmly recommended"],
+    skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping", "Pets"],
+    age: 50,
+    salary: "",
+    availability: "transfer",
+    photo: "images/janeta.jpeg",
+    profile: "profile-janeta.html"
+  },
+  {
+    id: "warsanti",
+    name: "Warsanti",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available now",
+    availFrom: "2026-07-27",
+    line: "Indonesian &middot; 32 &middot; Elderly care, cooking &amp; household",
+    summary: "Within one Singapore family throughout &mdash; an elderly-care specialist who cared for their wheelchair-bound grandmother to the end, then their school-age children. Her employer can speak with serious employers.",
+    referredBy: "",
+    signal: "verified",
+    quote: "",
+    quoteCite: "",
+    nationality: "Indonesian",
+    yearsSG: "Since 2024",
+    bestFit: "A family needing warm, patient elderly care from someone experienced through the hardest moments",
+    strengths: ["Elderly care specialist", "One family, recontracted", "Employer will vouch"],
+    skills: ["Elderly Care", "Childcare", "Cooking", "Housekeeping", "Marketing"],
+    age: 32,
+    salary: "",
+    availability: "transfer",
+    photo: "images/warsanti.jpeg",
+    profile: "profile-warsanti.html"
+  },
+  {
+    id: "vera",
+    name: "Vera",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available now",
+    availFrom: "2026-07-30",
+    line: "Filipino &middot; Cooking, childcare &amp; household",
+    summary: "Referred in writing by two former expat employers &mdash; a confident independent cook across many cuisines, warm with children, and good with the home. A fresh hire, currently in Singapore.",
+    referredBy: "Referred by two former employers, both expat families, who recommend her&nbsp;directly",
+    signal: "referred",
+    quote: "\u201cA hard worker, very capable and independent. She enjoys cooking and baking, and is adept at trying new&nbsp;recipes.\u201d",
+    quoteCite: "&mdash; Patricia",
+    nationality: "Filipino",
+    yearsSG: "Since 2017",
+    bestFit: "An expat family wanting a confident independent cook who also keeps a home and is warm with children",
+    strengths: ["Confident independent cook", "Expat families only", "Two written references"],
+    skills: ["Cooking", "Childcare", "Housekeeping", "Pets"],
+    age: 0,
+    salary: "",
+    availability: "fresh",
+    photo: "images/vera.jpeg",
+    profile: "profile-vera.html"
+  },
+  {
+    id: "jona",
+    name: "Jona",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available from end August&nbsp;2026",
+    availFrom: "2026-08-29",
+    line: "Filipino &middot; 49 &middot; Cooking, childcare &amp; household",
+    summary: "Recommended by her current employer &mdash; hardworking, warm and playful with children, comfortable with dogs and pets, and cooks Chinese, Western and Indian. Best with older children or a pet family.",
+    referredBy: "Recommended by her employer, who is happy to speak with&nbsp;families",
+    signal: "referred",
+    quote: "\u201cShe is very hardworking, and loves kids and&nbsp;pets. She often entertains the children with her goofy&nbsp;act.\u201d",
+    quoteCite: "&mdash; her employer",
+    nationality: "Filipino",
+    yearsSG: "Since 2014",
+    bestFit: "A family with pets, or with older independent children, who would value warmth and hard work",
+    strengths: ["Warm &amp; playful with children", "Comfortable with dogs &amp; pets", "Hardworking, rarely on phone"],
+    skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping", "Pets"],
+    age: 49,
+    salary: "",
+    availability: "transfer",
+    photo: "images/jona.jpeg",
+    profile: "profile-jona.html"
+  },
+  {
+    id: "violeta",
+    name: "Violeta",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available now",
+    availFrom: "2026-07-30",
+    line: "Filipino &middot; 51 &middot; Babies, toddlers &amp; household",
+    summary: "Warmly recommended in writing by a previous family she cared for over nearly three years &mdash; a gentle, experienced carer of babies and toddlers, independent, trusted, and comfortable with pets.",
+    referredBy: "Recommended in writing by a previous family, who cared for her&nbsp;reference",
+    signal: "referred",
+    quote: "\u201cVioleta really stood out in the care she gave our daughter. We trusted her fully to look after her on her&nbsp;own.\u201d",
+    quoteCite: "&mdash; Avesh &amp; Mairead",
+    nationality: "Filipino",
+    yearsSG: "Ten-plus years",
+    bestFit: "A family with a baby or toddler, or with older independent children",
+    strengths: ["Recommended by a previous family", "Gentle with babies &amp; toddlers", "Independent &amp; trusted"],
+    skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping", "Pets"],
+    age: 51,
+    salary: "",
+    availability: "transfer",
+    photo: "images/violeta.jpeg",
+    profile: "profile-violeta.html"
+  },
+  {
+    id: "aiza",
+    name: "Aiza",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available from end September&nbsp;2026",
+    line: "Filipino &middot; 37 &middot; Childcare, baking &amp; household",
+    summary: "Ten years in Singapore with expat families, passed on by her employer as they relocate &mdash; loving with children from infancy, and runs a home with real&nbsp;initiative.",
+    referredBy: "Referred by her current employer, contactable by seriously interested&nbsp;families",
+    signal: "referred",
+    quote: "\u201cShe has helped us not just with childcare, but with running our whole home, and honestly, with our sanity&nbsp;too!\u201d",
+    quoteCite: "&mdash; her employer",
+    nationality: "Filipino",
+    yearsSG: "Ten years",
+    bestFit: "A family who would value a capable helper for their children and their&nbsp;home",
+    strengths: ["Ten years in Singapore", "Childcare from infancy", "Bakes fresh bread"],
+    skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping"],
+    age: 37,
+    salary: "",
+    availability: "transfer",
+    photo: "images/aiza.jpeg",
+    profile: "profile-aiza.html"
+  },
+  {
+    id: "omas",
+    name: "Omas",
+    initial: "",
+    status: "hidden",
+    statusLabel: "No longer available",
+    line: "Filipino &middot; 53 &middot; Cooking, household &amp; dogs",
+    summary: "Thirteen years and five months with one Singapore family, recommended by them in writing &mdash; and her own photographs show a cook well beyond what the letter&nbsp;claims.",
+    referredBy: "Recommended in writing by her employer of 13&nbsp;years",
+    signal: "referred",
+    quote: "&ldquo;Fe is always polite and courteous and was consistently diligent in her daily&nbsp;routine.&rdquo;",
+    quoteCite: "&mdash; her employer of thirteen years",
+    nationality: "Filipino",
+    yearsSG: "13 years, one family",
+    bestFit: "An adult household who eat across cuisines, or a family with a&nbsp;dog",
+    strengths: ["Thirteen years, one family", "Indian, Western, Thai &amp; Chinese", "Walked their dog daily"],
+    skills: ["Cooking", "Housekeeping", "Laundry", "Pets"],
+    age: 53,
+    salary: "",
+    availability: "transfer",
+    photo: "images/omas.jpeg",
+    profile: "profile-omas.html"
+  },
+  {
+    id: "arliya",
+    name: "Arliya",
+    initial: "",
+    status: "hidden",
+    statusLabel: "No longer available",
+    line: "Filipino &middot; 45 &middot; Cooking, household &amp; children",
+    summary: "Nine years with one Singapore family, recommended by them in writing &mdash; she joined when their younger child was a newborn, and cooks Indian, Mexican, Chinese and&nbsp;Western.",
+    referredBy: "Recommended in writing by her employer of 9&nbsp;years",
+    signal: "referred",
+    quote: "&ldquo;Arliya has been very good with childcare, showing patience, care, and responsibility when looking after our&nbsp;children.&rdquo;",
+    quoteCite: "&mdash; her employer of nine years",
+    nationality: "Filipino",
+    yearsSG: "Since 2008",
+    bestFit: "A family who want the cooking taken seriously and the children looked after&nbsp;properly",
+    strengths: ["Nine years, one family", "Indian &amp; Mexican cooking", "Reads with the children"],
+    skills: ["Cooking", "Childcare", "Infant Care", "Housekeeping"],
+    age: 45,
+    salary: "",
+    availability: "now",
+    photo: "images/arliya.jpeg",
+    profile: "profile-arliya.html"
+  },
+  {
+    id: "rica",
+    name: "Rica",
+    initial: "",
+    status: "hidden",
+    statusLabel: "No longer available",
+    line: "Filipino &middot; 55 &middot; Dementia care, babies &amp; household",
+    summary: "Four years caring for a lady with dementia, from the early confusion through to bed-bound care &mdash; recommended in writing by that family, in unusual&nbsp;detail.",
+    referredBy: "Recommended in writing by her employer of 4&nbsp;years",
+    signal: "referred",
+    quote: "&ldquo;Rica intuitively could figure out what mom wanted &mdash; often even better than&nbsp;me.&rdquo;",
+    quoteCite: "&mdash; her employer of four years",
+    nationality: "Filipino",
+    yearsSG: "10 years SG, 10 years HK",
+    bestFit: "A family with an elderly parent, particularly one living with&nbsp;dementia",
+    strengths: ["Four years of dementia care", "Detailed written reference", "Calm when it is hardest"],
+    skills: ["Elderly Care", "Infant Care", "Childcare", "Cooking", "Housekeeping"],
+    age: 55,
+    salary: "",
+    availability: "now",
+    photo: "images/rica.jpeg",
+    profile: "profile-rica.html"
+  },
+  {
+    id: "leny",
+    name: "Leny",
+    initial: "",
+    status: "available",
+    statusLabel: "Available 27 September&nbsp;2026",
+    line: "Filipino &middot; 39 &middot; Children &amp; cooking across five cuisines",
+    summary: "Recommended in writing by the family she spent four years with, who trusted her to take their children out alone &mdash; and whose children still ask after&nbsp;her.",
+    referredBy: "Recommended in writing by her employer of 4&nbsp;years",
+    signal: "referred",
+    quote: "&ldquo;She would play games with them, keep them entertained, and actively engage with them rather than simply supervise&nbsp;them.&rdquo;",
+    quoteCite: "&mdash; her employer of four years",
+    nationality: "Filipino",
+    yearsSG: "Nearly 7 years",
+    bestFit: "A family with school-age children who want the cooking and the household in one pair of&nbsp;hands",
+    strengths: ["Recommended by her employer of 4 years", "Turkish, Dutch, Indian &amp; more", "Trusted with the children alone"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
+    age: 39,
+    salary: "",
+    availability: "transfer",
+    photo: "images/leny.jpeg",
+    profile: "profile-leny.html"
+  },
+  {
+    id: "jennyl",
+    name: "Jenny",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available September&nbsp;2026",
+    line: "Filipino &middot; 39 &middot; Cooking, household &amp; children",
+    summary: "Nearly nine years with one family, and then hired back by them &mdash; about twelve years in the same household, with a written reference from that&nbsp;family.",
+    referredBy: "Recommended in writing by the family who hired her&nbsp;twice",
+    signal: "referred",
+    quote: "&ldquo;She handles her responsibilities without needing constant supervision. We trust her completely with our home and&nbsp;belongings.&rdquo;",
+    quoteCite: "&mdash; her employer, in writing",
+    nationality: "Filipino",
+    yearsSG: "About 15 years",
+    bestFit: "A family who want the home run without close supervision, and someone likely to&nbsp;stay",
+    strengths: ["Twelve years with one family", "Written reference", "Trusted with the household budget"],
+    skills: ["Cooking", "Housekeeping", "Childcare", "Elderly Care", "Marketing"],
+    age: 39,
+    salary: "",
+    availability: "transfer",
+    photo: "images/jennyl.jpeg",
+    profile: "profile-jennyl.html"
+  },
+  {
+    id: "reena",
+    name: "Reena",
+    initial: "",
+    status: "available",
+    statusLabel: "Available now",
+    line: "Indian &middot; 39 &middot; Punjabi &amp; Asian cooking",
+    summary: "Recommended by the employer who hired her twice &mdash; she moved to another family in between, and was asked back, chiefly for her&nbsp;cooking.",
+    referredBy: "Referred by Deepti, who hired her&nbsp;twice",
+    signal: "referred",
+    quote: "",
+    quoteCite: "",
+    nationality: "Indian",
+    yearsSG: "Since 2017",
+    bestFit: "A family who want Indian home cooking done properly, with the household&nbsp;alongside",
+    strengths: ["Hired twice by the same family", "Punjabi cooking &amp; roti prata", "Trained Indian helper"],
+    skills: ["Cooking", "Housekeeping", "Childcare"],
+    age: 39,
+    salary: "",
+    availability: "now",
+    photo: "images/reena.jpeg",
+    profile: "profile-reena.html"
+  },
+  {
+    id: "roi",
+    name: "Roi",
+    initial: "",
+    status: "hidden",
+    statusLabel: "No longer available",
+    line: "Myanmar &middot; 42 &middot; Elderly care &amp; household",
+    summary: "Recommended in writing by her current employer, whose mother she cared for until she passed away &mdash; seventeen years in Singapore, and close to five of them with one grandmother in her&nbsp;care.",
+    referredBy: "Recommended in writing by her current&nbsp;employer",
+    signal: "referred",
+    quote: "&ldquo;Roi has been a wonderful helper and has done a good job in taking care of my mum all these&nbsp;while.&rdquo;",
+    quoteCite: "&mdash; her current employer",
+    nationality: "Myanmar",
+    yearsSG: "About 17 years",
+    bestFit: "A family with an elderly parent or grandparent at&nbsp;home",
+    strengths: ["Recommended by her current employer", "Elderly care specialist", "Nearly 5 years with one lady"],
+    skills: ["Elderly Care", "Cooking", "Housekeeping", "Pets", "Childcare"],
+    age: 42,
+    salary: "",
+    availability: "now",
+    photo: "images/roi.jpeg",
+    profile: "profile-roi.html"
+  },
+  {
+    id: "eiphyo",
+    name: "Ei Phyo",
+    initial: "",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 8 Sep&nbsp;2026",
+    line: "Myanmar &middot; 33 &middot; Children, elderly care &amp; cooking",
+    summary: "Recommended by the family she works for now and by a previous employer of five years in writing &mdash; fluent Chinese, three children in her care, and trusted to do the marketing on her&nbsp;own.",
+    referredBy: "Referred by Ayumi, her current employer &middot; also recommended in writing by her previous employer of 5&nbsp;years",
+    matchedSeq: 17,
+    signal: "referred",
+    quote: "&ldquo;She is independent, she brings the kids out on her own, even taking public transport. She can cook pretty&nbsp;well.&rdquo;",
+    quoteCite: "&mdash; Ayumi",
+    nationality: "Myanmar",
+    yearsSG: "9.5 years, continuous",
+    bestFit: "A Chinese-speaking family with children, who will set out how they like the house&nbsp;kept",
+    strengths: ["Recommended by two employers", "Fluent Chinese", "Chinese home cooking"],
+    skills: ["Childcare", "Elderly Care", "Cooking", "Housekeeping", "Marketing", "Pets"],
+    age: 33,
+    salary: "",
+    availability: "transfer",
+    photo: "images/eiphyo.jpeg",
+    profile: "profile-eiphyo.html"
+  },
+  {
+    id: "edith",
+    name: "Edith",
+    initial: "",
+    status: "available",
+    statusLabel: "Available end September&nbsp;2026",
+    line: "Filipino &middot; 47 &middot; Newborns, children &amp; household",
+    summary: "Recommended in writing by two former employers, both of whom offered to speak to families directly &mdash; nineteen years in Singapore, mostly with international&nbsp;households.",
+    referredBy: "Recommended in writing by two former&nbsp;employers",
+    signal: "referred",
+    quote: "&ldquo;She very quickly became a part of our family. We miss her very&nbsp;much.&rdquo;",
+    quoteCite: "&mdash; a former employer of three years",
+    nationality: "Filipino",
+    yearsSG: "About 19 years",
+    bestFit: "A family who want a home run without close supervision, and someone who will&nbsp;stay",
+    strengths: ["Two written references", "Newborns upward", "Runs a household independently"],
+    skills: ["Infant Care", "Childcare", "Elderly Care", "Cooking", "Housekeeping", "Pets"],
+    age: 47,
+    salary: "",
+    availability: "transfer",
+    photo: "images/edith.jpeg",
+    profile: "profile-edith.html"
+  },
+  {
+    id: "srihartati",
+    name: "Sri Hartati",
+    initial: "",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 11 Sep&nbsp;2026",
+    line: "Indonesian &middot; 41 &middot; Infants, children &amp; elderly care",
+    summary: "Seven years with one Singapore family, confirmed against MOM records &mdash; she took over their children at seven and eighteen months old and was still there when they reached&nbsp;school.",
+    referredBy: "",
+    matchedSeq: 16,
+    signal: "verified",
+    verifiedYears: 7,
+    quote: "",
+    quoteCite: "",
+    nationality: "Indonesian",
+    yearsSG: "About 11 years",
+    bestFit: "A family with young children who want someone likely to stay for the whole of&nbsp;it",
+    strengths: ["Seven years, one family", "Infants from seven months", "Eleven years, three households"],
+    skills: ["Infant Care", "Childcare", "Elderly Care", "Housekeeping", "Cooking"],
+    age: 41,
+    salary: "",
+    availability: "transfer",
+    photo: "images/srihartati.jpeg",
+    profile: "profile-srihartati.html"
+  },
+  {
+    id: "thaesu",
+    name: "Thae Su",
+    initial: "",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 1 Sep&nbsp;2026",
+    line: "Myanmar &middot; 26 &middot; Elderly care &amp; household",
+    summary: "Recommended by the family she works for now, who are passing her on because the grandmother she cared for has passed away &mdash; a trained nursing aide who notices what needs doing and does&nbsp;it.",
+    referredBy: "Referred by her current&nbsp;employer",
+    matchedSeq: 15,
+    signal: "referred",
+    quote: "&ldquo;She is very diligent in housekeeping and picks up every single visible dirt she sees on the floor throughout the&nbsp;day.&rdquo;",
+    quoteCite: "&mdash; her current employer",
+    nationality: "Myanmar",
+    yearsSG: "Since 2025",
+    bestFit: "A grandmother who is still mobile, or a family with one child of seven or&nbsp;older",
+    strengths: ["Recommended by her current employer", "Trained nursing aide", "Takes initiative"],
+    skills: ["Elderly Care", "Housekeeping", "Cooking", "Marketing"],
+    age: 26,
+    salary: "",
+    availability: "transfer",
+    photo: "images/thaesu.jpeg",
+    profile: "profile-thaesu.html"
+  },
+  {
+    id: "hijrah",
+    name: "Hijrah",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available from September&nbsp;2026",
+    line: "Indonesian &middot; 40 &middot; Infants, toddlers, cooking &amp; baking",
+    summary: "Recommended in writing by a former employer as trustworthy and independent &mdash; a confident cook and baker who has started with children at six and eight months&nbsp;old.",
+    referredBy: "Recommended in writing by a former&nbsp;employer",
+    signal: "referred",
+    quote: "&ldquo;She enjoys cooking and has demonstrated creativity and confidence in the&nbsp;kitchen.&rdquo;",
+    quoteCite: "&mdash; a former employer",
+    nationality: "Indonesian",
+    yearsSG: "Since 2021",
+    bestFit: "A family with a baby or toddler who want someone who has done that stage&nbsp;before",
+    strengths: ["Recommended by a former employer", "Babies from six months", "Cooking &amp; baking"],
+    skills: ["Infant Care", "Childcare", "Cooking", "Baking", "Housekeeping"],
+    age: 40,
+    salary: "",
+    availability: "transfer",
+    photo: "images/hijrah.jpeg",
+    profile: "profile-hijrah.html"
+  },
+  {
+    id: "devi",
+    name: "Devi",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available from end September&nbsp;2026",
+    line: "Indonesian &middot; 37 &middot; Childcare, elderly care &amp; cooking",
+    summary: "Five years with one Singapore family, confirmed against MOM records &mdash; thirteen years here in all, with newborns at one end of the house and an elderly grandparent at the&nbsp;other.",
+    referredBy: "",
+    signal: "verified",
+    verifiedYears: 5,
+    quote: "",
+    quoteCite: "",
+    nationality: "Indonesian",
+    yearsSG: "About 13 years",
+    bestFit: "A family with young children, or with an elderly parent alongside&nbsp;them",
+    strengths: ["Five years, one family", "Newborns &amp; babies", "Elderly &amp; dialysis escort"],
+    skills: ["Childcare", "Infant Care", "Elderly Care", "Cooking", "Housekeeping", "Pets"],
+    age: 37,
+    salary: "",
+    availability: "transfer",
+    photo: "images/devi.jpeg",
+    profile: "profile-devi.html"
+  },
+  {
+    id: "dewi",
+    name: "Dewi",
+    initial: "",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 7 Sep&nbsp;2026",
+    availFrom: "2026-09-09",
+    line: "Indonesian &middot; 35 &middot; Childcare, cooking &amp; household",
+    summary: "Recommended in writing by the family she works for now, who are parting with her only because their daughter is starting after-school care &mdash; school runs, cooking and the household.",
+    referredBy: "Recommended in writing by her current&nbsp;employer",
+    matchedSeq: 12,
+    signal: "referred",
+    quote: "&ldquo;Dewi is dedicated and always put in effort into task she is told to&nbsp;do.&rdquo;",
+    quoteCite: "&mdash; her current employer",
+    nationality: "Indonesian",
+    yearsSG: "Three families",
+    bestFit: "A family with school-age children who are happy to show her how they like things&nbsp;done",
+    strengths: ["Recommended by her current employer", "School runs on foot", "Cooking &amp; gardening"],
+    skills: ["Childcare", "Cooking", "Housekeeping", "Gardening"],
+    age: 35,
+    salary: "",
+    availability: "transfer",
+    photo: "images/dewi.jpeg",
+    profile: "profile-dewi.html"
+  },
+  {
+    id: "annamarie",
+    name: "Anna Marie",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available now",
+    line: "Filipino &middot; 34 &middot; Cooking, household &amp; marketing",
+    summary: "Recommended by her employer of two years &mdash; a fast, independent cook who fed a household of four to four different diets, and writes her own marketing list without being&nbsp;asked.",
+    referredBy: "Referred by her employer of 2&nbsp;years",
+    signal: "referred",
+    renewals: 0,
+    quote: "&ldquo;She makes her own list. Don&rsquo;t need to tell her what to&nbsp;buy.&rdquo;",
+    quoteCite: "&mdash; her employer of two years",
+    nationality: "Filipino",
+    yearsSG: "About 5 years",
+    bestFit: "A family who want the cooking at the centre of the job, and who set the direction then leave her to&nbsp;it",
+    strengths: ["Recommended by her employer", "Cooks to each person&rsquo;s diet", "Fast and independent"],
+    skills: ["Cooking", "Housekeeping", "Marketing", "Childcare", "Pets"],
+    age: 34,
+    salary: "",
+    availability: "now",
+    photo: "images/annamarie.jpeg",
+    profile: "profile-annamarie.html"
+  },
+  {
+    id: "luz",
+    name: "Luz",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available now",
+    line: "Filipino &middot; 57 &middot; Childcare, cooking &amp; household",
+    summary: "Recommended in writing by the family she works for now, who call her an essential and trusted member of their household &mdash; twenty-two years in Singapore, and children of every age from newborn&nbsp;up.",
+    referredBy: "Referred by her current employer, who recommends her&nbsp;directly",
+    signal: "referred",
+    renewals: 0,
+    quote: "&ldquo;She runs our household independently, needing little oversight, and has a genuine gift for learning our family&rsquo;s routines and&nbsp;preferences.&rdquo;",
+    quoteCite: "&mdash; her current employer",
+    nationality: "Filipino",
+    yearsSG: "About 22 years",
+    bestFit: "A family with young children who want the school run and the kitchen in the same pair of&nbsp;hands",
+    strengths: ["Recommended by her current employer", "Three families since 2014", "Newborn to teenage"],
+    skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping", "Pets"],
+    age: 57,
+    salary: "",
+    availability: "now",
+    photo: "images/luz.jpeg",
+    profile: "profile-luz.html"
+  },
+  {
+    id: "elizabeth",
+    name: "Elizabeth",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available from late September&nbsp;2026",
+    line: "Filipino &middot; 54 &middot; Cooking &amp; household",
+    summary: "Recommended by the family she has worked for since 2010 &mdash; sixteen years in one household, joining when the three sons were teenagers and staying until the last of them moved into his own&nbsp;home.",
+    referredBy: "Referred by her employer of 16&nbsp;years",
+    signal: "referred",
+    renewals: 0,
+    quote: "&ldquo;She is strong, can do housework well. She has a good personality, cheerful, honest and can be&nbsp;trusted.&rdquo;",
+    quoteCite: "&mdash; her employer of sixteen years",
+    nationality: "Filipino",
+    yearsSG: "About 16 years",
+    bestFit: "A couple or adult household wanting a home run steadily, with everyday cooking at the&nbsp;centre",
+    strengths: ["Recommended by her employer of 16 years", "Everyday Chinese home cooking", "Trusted on her own"],
+    skills: ["Cooking", "Housekeeping", "Laundry", "Marketing"],
+    age: 54,
+    salary: "",
+    availability: "transfer",
+    photo: "images/elizabeth.jpeg",
+    profile: "profile-elizabeth.html"
+  },
+  {
+    id: "divina",
+    name: "Divina",
+    initial: "L.",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 21 Sep&nbsp;2026",
+    matchedSeq: 18,    // match order, higher = more recent (shows leftmost)
+    line: "Filipino &middot; 36 &middot; Childcare, elderly care &amp; cooking",
+    summary: "Three years with one Singapore family across two contracts, confirmed against MOM records &mdash; and top of her nursing aide class, studied on her days off while working full&nbsp;time.",
+    referredBy: "Referred by her employer of 3&nbsp;years",
+    signal: "referred",
+    renewals: 1,
+    quote: "&ldquo;She carried out her duties with patience and care and was able to work independently. She was respectful toward our family and always willing to learn and&nbsp;improve.&rdquo;",
+    quoteCite: "&mdash; her employer",
+    nationality: "Filipino",
+    yearsSG: "About 3 years",
+    bestFit: "A family with young children, or one needing certified caregiving&nbsp;support",
+    strengths: ["One family, two contracts", "Top of her nursing aide class", "Newborn &amp; infant care"],
+    skills: ["Childcare", "Infant Care", "Elderly Care", "Cooking", "Housekeeping", "Pets"],
+    age: 36,
+    salary: "",
+    availability: "transfer",
+    photo: "images/divina.jpeg",
+    profile: "profile-divina.html"
+  },
+  {
+    id: "dewis",
+    name: "Dewi",
+    initial: "S.",
+    status: "hidden",
+    statusLabel: "Available now (in Indonesia)",
+    line: "Indonesian &middot; 42 &middot; Elderly care, dementia &amp; stroke support",
+    summary: "Four years with one Singapore family, confirmed against MOM records &mdash; an experienced elderly-care specialist with dementia and stroke&nbsp;experience.",
+    referredBy: "",
+    signal: "verified",
+    verifiedYears: 4,
+    quote: "",
+    quoteCite: "",
+    nationality: "Indonesian",
+    yearsSG: "About 5 years",
+    bestFit: "A family needing experienced elderly or dementia&nbsp;care",
+    strengths: ["4 years, one family", "Dementia &amp; stroke care", "Elderly care specialist"],
+    skills: ["Elderly Care", "Cooking", "Housekeeping"],
+    age: 42,
+    salary: "",
+    availability: "overseas",
+    photo: "images/dewi-s.jpeg",
+    profile: "profile-dewi-s.html"
+  },
+  {
+    id: "ngatini",
+    name: "Ngatini",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available now",
+    line: "Indonesian &middot; 46 &middot; Housekeeping, cooking &amp; childcare",
+    summary: "Six years with one family, recommended by her employer &mdash; steady in housekeeping, home-style Chinese cooking, with earlier childcare&nbsp;experience.",
+    referredBy: "Referred by her employer of six years, who recommends her&nbsp;directly",
+    signal: "referred",
+    quote: "",
+    quoteCite: "",
+    nationality: "Indonesian",
+    yearsSG: "Over 6 years",
+    bestFit: "Housekeeping, cooking and light&nbsp;childcare",
+    strengths: ["6 years, one family", "Housekeeping &amp; cooking", "Childcare, ages 2 to 7"],
+    skills: ["Housekeeping", "Cooking", "Childcare"],
+    age: 46,
+    salary: "",
+    availability: "now",
+    photo: "images/ngatini.jpeg",
+    profile: "profile-ngatini.html"
+  },
+  {
+    id: "dynah",
+    name: "Dynah Fe",
+    initial: "M.",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 18 July&nbsp;2026",
+    matchedSeq: 4,    // match order, higher = more recent (shows leftmost)
+    line: "Filipino &middot; 40 &middot; Household, cooking &amp; childcare",
+    summary: "Recommended by two employers, both contactable &mdash; in Singapore since 2013, a confident cook, experienced across childcare from newborn to teens, elderly care and&nbsp;household.",
+    referredBy: "Recommended by two employers, both happy to be&nbsp;contacted",
+    signal: "referred",
+    quote: "\u201cShe is trustworthy and reliable and of cheerful&nbsp;disposition.\u201d",
+    quoteCite: "&mdash; her previous employer",
+    nationality: "Filipino",
+    yearsSG: "Since 2013",
+    bestFit: "A home that values a capable helper for household, cooking and&nbsp;children",
+    strengths: ["Two employer references", "Household &amp; cooking", "Good with children &amp; dogs"],
+    skills: ["Housekeeping", "Cooking", "Childcare", "Pet care"],
+    age: 40,
+    salary: "",
+    availability: "transfer",
+    photo: "images/dynah.jpeg",
+    profile: "profile-dynah.html"
+  },
+  {
+    id: "annie",
+    name: "Annie",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available from 28 August&nbsp;2026",
+    availFrom: "2026-08-28",
+    line: "Filipino &middot; 42 &middot; Elderly care, childcare &amp; household",
+    summary: "An experienced, dedicated elderly-care helper, recommended in writing by a previous employer &mdash; years of eldercare including dementia, Parkinson&rsquo;s and mobility support, plus infant and young-child experience.",
+    referredBy: "Recommended in writing by a previous employer, whose elderly uncle she cared&nbsp;for",
+    signal: "referred",
+    quote: "\u201cShe is very dedicated and hardworking, and was a good companion to him.\u201d",
+    quoteCite: "&mdash; Elizabeth",
+    nationality: "Filipino",
+    yearsSG: "Many years",
+    bestFit: "A family wanting a warm, capable all-rounder &mdash; elderly care, childcare, or both, with cooking and household",
+    strengths: ["Elderly care specialist", "Infant &amp; young childcare", "Cares for dogs &amp; cats"],
+    skills: ["Elderly Care", "Childcare", "Infant Care", "Cooking", "Housekeeping", "Pets"],
+    age: 42,
+    salary: "",
+    availability: "transfer",
+    photo: "images/annie.jpeg",
+    profile: "profile-annie.html"
+  },
+  {
+    id: "khinmyatthu",
+    name: "Khin M. T.",
+    initial: "",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; mid Aug&nbsp;2026",
+    matchedSeq: 11,    // newest match, shows leftmost
+    availFrom: "2026-08-06",
+    line: "Myanmar &middot; 38 &middot; Trained caregiver &amp; elderly care",
+    summary: "A professionally trained caregiver with over eleven years&rsquo; experience, recommended in writing by her employer &mdash; skilled in dementia, stroke and one-to-one elderly care, with above-average English.",
+    referredBy: "Recommended in writing by her employer, whose elderly father she cared for one-to-one for two and a half&nbsp;years",
+    signal: "referred",
+    quote: "\u201cShe looked after my father well when there was nobody else in the house. She worked without supervision and kept me updated on his&nbsp;health.\u201d",
+    quoteCite: "&mdash; Mr Koh",
+    nationality: "Myanmar",
+    yearsSG: "9 years",
+    bestFit: "A one-to-one elderly care role, or a household of one or two adults needing trained, independent care",
+    strengths: ["Professionally trained caregiver", "Dementia &amp; stroke experience", "Above-average English"],
+    skills: ["Elderly Care", "Cooking", "Housekeeping"],
+    age: 38,
+    salary: "",
+    availability: "transfer",
+    photo: "images/khinmyatthu.jpeg",
+    profile: "profile-khinmyatthu.html"
+  },
+  {
+    id: "nurhayati",
+    name: "Nurhayati",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available late Sep 2026",
+    line: "Indonesian &middot; 43 &middot; Chinese-speaking, childcare &amp; cooking",
+    summary: "Recommended by her current employer &mdash; Chinese-speaking, a wonderful cook, warm with children, with elder-care experience&nbsp;too.",
+    referredBy: "Referred by her current employer, who recommends her&nbsp;directly",
+    signal: "referred",
+    quote: "\u201cNur loves children, and it shows in how naturally they have all bonded with&nbsp;her.\u201d",
+    quoteCite: "&mdash; her current employer",
+    nationality: "Indonesian",
+    yearsSG: "~5 years",
+    bestFit: "A Chinese-speaking home that values warm childcare and good&nbsp;cooking",
+    strengths: ["Chinese-speaking", "Wonderful cook", "Warm with children"],
+    skills: ["Childcare", "Cooking", "Housekeeping", "Elderly Care"],
+    age: 43,
+    salary: "",
+    availability: "transfer",
+    photo: "images/nurhayati.jpeg",
+    profile: "profile-nurhayati.html"
+  },
+  {
+    id: "halinda",
+    name: "Halinda",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available now (until 18 Aug)",
+    line: "Indonesian &middot; 37 &middot; Childcare, cooking &amp; household",
+    summary: "Recommended by her employer of two years &mdash; warm and hardworking, experienced in childcare, cooking and household, with a heart for elderly&nbsp;care.",
+    referredBy: "Referred by her employer of two years, who recommends her&nbsp;directly",
+    signal: "referred",
+    quote: "\u201cShe cared for my critically ill mother like her&nbsp;own.\u201d",
+    quoteCite: "&mdash; her employer",
+    nationality: "Indonesian",
+    yearsSG: "Around 8 years",
+    bestFit: "A family wanting warm, companionship-level elderly care and a well-run&nbsp;home",
+    strengths: ["Warm &amp; hardworking", "Childcare &amp; cooking", "A heart for elderly care"],
+    skills: ["Childcare", "Cooking", "Housekeeping", "Pet care"],
+    age: 37,
+    salary: "",
+    availability: "transfer",
+    photo: "images/halinda.jpeg",
+    profile: "profile-halinda.html"
+  },
+  {
+    id: "kabyarmoe",
+    name: "Ka Byar Moe",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available now",
+    line: "Myanmar &middot; 28 &middot; Elderly care, Mandarin-speaking",
+    summary: "Recommended by her employer &mdash; Mandarin-speaking, experienced in elderly and bedridden care, patient and gentle with&nbsp;seniors.",
+    referredBy: "Referred by her employer, who recommends her&nbsp;directly",
+    signal: "referred",
+    quote: "\u201cWe are truly grateful for the care, patience and companionship she&nbsp;provided.\u201d",
+    quoteCite: "&mdash; her employer",
+    nationality: "Myanmar",
+    yearsSG: "Around 4 years",
+    bestFit: "Caring for an elderly family member, especially in a Mandarin-speaking&nbsp;home",
+    strengths: ["Elderly &amp; bedridden care", "Mandarin-speaking", "Patient &amp; gentle"],
+    skills: ["Elderly Care", "Cooking", "Housekeeping"],
+    age: 28,
+    salary: "",
+    availability: "transfer",
+    photo: "images/kabyarmoe.jpeg",
+    profile: "profile-kabyarmoe.html"
+  },
+  {
+    id: "leslee",
+    name: "Leslee",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available 20 Aug 2026",
+    line: "Filipino &middot; 44 &middot; Infant &amp; toddler specialist, cooking",
+    summary: "An infant-and-toddler specialist, recommended by past employers &mdash; a wonderful cook, thorough with a home, around seven years in&nbsp;Singapore.",
+    referredBy: "Recommended by past employers, current employer reachable on&nbsp;return",
+    signal: "referred",
+    quote: "\u201cOur kids both love her, and she has been kind with&nbsp;them.\u201d",
+    quoteCite: "&mdash; a previous employer",
+    nationality: "Filipino",
+    yearsSG: "Around 7 years",
+    bestFit: "A family with a baby or toddler wanting an experienced, trusted&nbsp;carer",
+    strengths: ["Infant &amp; toddler specialist", "Wonderful cook", "Clean, completed contracts"],
+    skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping"],
+    age: 44,
+    salary: "",
+    availability: "transfer",
+    photo: "images/leslee.jpeg",
+    profile: "profile-leslee.html"
+  },
+  {
+    id: "ana",
+    name: "Ana",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available now",
+    line: "Myanmar &middot; 31 &middot; Household, cooking &amp; elderly care",
+    summary: "Recommended by her employer &mdash; a warm, honest helper with over six years in Singapore in household work, cooking and elderly&nbsp;care.",
+    referredBy: "Referred by her employer, who recommends her&nbsp;directly",
+    signal: "referred",
+    quote: "\u201cI gave her $5 to buy food. She used $3 and returned me the&nbsp;$2.\u201d",
+    quoteCite: "&mdash; her employer",
+    nationality: "Myanmar",
+    yearsSG: "6+ years",
+    bestFit: "A small, simple family, with older children if&nbsp;any",
+    strengths: ["Honest &amp; hardworking", "Household &amp; cooking", "Elderly-care experience"],
+    skills: ["Housekeeping", "Cooking", "Elderly Care"],
+    age: 31,
+    salary: "",
+    availability: "transfer",
+    photo: "images/ana.jpeg",
+    profile: "profile-ana.html"
+  },
+  {
+    id: "sanday",
+    name: "San Day",
+    initial: "",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 1 Aug&nbsp;2026",
+    matchedSeq: 5,    // match order, higher = more recent (shows leftmost)
+    line: "Myanmar &middot; 40 &middot; Elderly care, housekeeping &amp; cooking",
+    summary: "Recommended by her employer &mdash; hands-on elderly-care experience, an exceptional housekeeper, drawn to elderly care and running a&nbsp;home.",
+    referredBy: "Referred by her employer, who recommends her&nbsp;directly",
+    signal: "referred",
+    quote: "\u201cA super fast learner, bubbly, and she cleans beautifully and independently. We love&nbsp;her.\u201d",
+    quoteCite: "&mdash; her employer",
+    nationality: "Myanmar",
+    yearsSG: "~5 years",
+    bestFit: "A home needing warm elderly care and a beautifully kept&nbsp;house",
+    strengths: ["Hands-on elderly care", "Cleans beautifully", "Hardworking &amp; a fast learner"],
+    skills: ["Elderly Care", "Housekeeping", "Cooking"],
+    age: 40,
+    salary: "",
+    availability: "transfer",
+    photo: "images/sanday.jpeg",
+    profile: "profile-sanday.html"
+  },
+  {
+    name: "Eni",
+    initial: "T.",
+    status: "hidden",
+    statusLabel: "Available now",
+    line: "Indonesian &middot; 38 &middot; Housekeeping &amp; elderly&nbsp;support",
+    summary: "Ten years with one Singapore family, confirmed against MOM records &mdash; a housekeeping-focused helper used to running a busy landed&nbsp;home.",
+    referredBy: "",
+    signal: "verified",
+    verifiedYears: 10,
+    quote: "",
+    quoteCite: "",
+    nationality: "Indonesian",
+    yearsSG: "10 years",
+    bestFit: "Housekeeping &amp; elderly&nbsp;support",
+    strengths: ["Housekeeping", "Elderly support", "10 years, one family"],
+    skills: ["Housekeeping", "Cooking", "Elderly Care"],
+    age: 38,
+    salary: "S$800&ndash;900",
+    availability: "overseas",
+    photo: "images/eni.jpeg",
+    profile: "profile-eni.html"
+  },
+  {
+    name: "Yi Yi",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available mid-July&nbsp;2026",
+    line: "Myanmar &middot; 41 &middot; Elderly care, cooking &amp; housekeeping",
+    summary: "Six years with one Singapore family within thirteen years here, confirmed against MOM records &mdash; experienced in elderly care and running a home&nbsp;independently.",
+    referredBy: "",
+    signal: "verified",
+    verifiedYears: 6,
+    quote: "",
+    quoteCite: "",
+    nationality: "Myanmar",
+    yearsSG: "13 years",
+    bestFit: "Elderly care, cooking &amp; housekeeping",
+    strengths: ["Elderly care", "13 years in Singapore", "Works independently"],
+    skills: ["Elderly Care", "Cooking", "Housekeeping"],
+    age: 41,
+    availability: "transfer",
+    photo: "images/yiyi.jpeg",
+    profile: "profile-yiyi.html"
+  },
+  {
+    id: "timunah",
+    name: "Timunah",
+    initial: "",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 1 Aug&nbsp;2026",
+    matchedSeq: 2,    // match order, higher = more recent (shows leftmost)
+    line: "Indonesian &middot; 53 &middot; Cooking, household &amp;&nbsp;childcare",
+    summary: "Seventeen years with one family, and adored by the children she helped&nbsp;raise.",
+    referredBy: "Referred by Vera, her current employer of 17&nbsp;years",
+    signal: "referred",
+    quote: "\u201cShe does her housework well and efficiently, and is hardworking and&nbsp;independent.\u201d",
+    quoteCite: "&mdash; Vera",
+    nationality: "Indonesian",
+    yearsSG: "28 years in SG",
+    bestFit: "Cooking, household &amp; childcare",
+    strengths: ["Cooking &mdash; 3 cuisines", "Warm with young children", "17 years with one&nbsp;family"],
+    skills: ["Cooking", "Childcare (incl. young children)", "Housekeeping"],
+    age: 53,
+    availability: "transfer",
+    photo: "images/timunah.jpeg",
+    profile: "profile-timunah.html"
+  },
+  {
+    id: "jenny",
+    name: "Jenny",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available mid-July&nbsp;2026",
+    line: "Filipino &middot; 48 &middot; Household management &amp;&nbsp;childcare",
+    summary: "Eight years with one family in Singapore, trusted across the whole household, warmly recommended by her current&nbsp;employer.",
+    referredBy: "Referred by Stephen, her employer of eight&nbsp;years",
+    signal: "referred",
+    quote: "\u201cA trusted and dependable part of our home for eight&nbsp;years.\u201d",
+    quoteCite: "&mdash; Stephen",
+    nationality: "Filipino",
+    yearsSG: "8 years with one family",
+    bestFit: "Household management &amp; childcare, long&nbsp;term",
+    strengths: ["8 years with one family", "Full household &amp; cooking", "Comfortable with cats &amp; dogs"],
+    skills: ["Housekeeping", "Cooking", "Childcare"],
+    age: 48,
+    availability: "transfer",
+    photo: "images/jenny.jpeg",
+    profile: "profile-jenny.html"
+  },
+  {
+    id: "mary",
+    name: "Mary",
+    initial: "",
+    status: "hidden",
+    statusLabel: "No longer available",
+    line: "Filipino &middot; 47 &middot; Childcare, cooking &amp;&nbsp;household",
+    summary: "Recommended by a previous employer of many years, who trusted her to take his children somewhere new on her own &mdash; released this October as her current family&nbsp;relocate.",
+    referredBy: "Recommended by Eugene, a previous employer of many&nbsp;years",
+    signal: "referred",
+    quote: "\u201cI can send her a map and trust her to take the children somewhere new, on her&nbsp;own.\u201d",
+    quoteCite: "&mdash; Eugene",
+    nationality: "Filipino",
+    yearsSG: "7 years in SG",
+    bestFit: "Smaller, settled home; school-age&nbsp;children",
+    strengths: ["Calm &amp; independent", "Trusted with children", "Proactive cook"],
+    skills: ["Infant Care", "Childcare", "Cooking", "Housekeeping"],
+    age: 47,
+    availability: "transfer",
+    photo: "images/mary.jpeg",
+    profile: "profile-mary.html"
+  },
+  {
+    id: "maryrose",
+    name: "Mary Rose",
+    initial: "",
+    status: "available",
+    statusLabel: "Available &middot; transfer by end&nbsp;Sep",
+    availFrom: "2026-09-30",
+    line: "Filipino &middot; 53 &middot; Children &amp; household",
+    summary: "Recommended in writing by the family she is with now, who have left their son in her sole care overnight &mdash; seventeen years in Singapore, nearly ten of them with one&nbsp;family.",
+    referredBy: "Recommended in writing by Mahima, her employer of three&nbsp;years",
+    signal: "referred",
+    quote: "&ldquo;Rose has been with us for three years and trust has never been an issue for&nbsp;us.&rdquo;",
+    quoteCite: "&mdash; Mahima",
+    nationality: "Filipino",
+    yearsSG: "Seventeen years",
+    bestFit: "A family where the children and the home are the heart of the&nbsp;role",
+    strengths: ["Nearly ten years, one family", "Trusted with a child alone", "Cleaning &amp; organising"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
+    age: 53,
+    salary: "",
+    availability: "transfer",
+    photo: "images/maryrose.jpeg",
+    profile: "profile-maryrose.html"
+  },
+  {
+    id: "menchie",
+    name: "Menchie",
+    initial: "",
+    status: "available",
+    statusLabel: "Available &middot; transfer by end&nbsp;Sep",
+    availFrom: "2026-09-30",
+    line: "Filipino &middot; 45 &middot; Newborns, infants &amp; young&nbsp;children",
+    summary: "Recommended in writing by the family whose twin girls she raised from newborn across four years &mdash; and every household she has joined has started with a&nbsp;baby.",
+    referredBy: "Recommended in writing by L&eacute;na, whose twins she cared for over four&nbsp;years",
+    signal: "referred",
+    quote: "&ldquo;Our daughters always felt safe, happy, and cared for in her hands, and they adore her to this&nbsp;day.&rdquo;",
+    quoteCite: "&mdash; L&eacute;na",
+    nationality: "Filipino",
+    yearsSG: "Twelve years",
+    bestFit: "A family expecting a baby, or with a very young child, who want someone who has done the newborn stage&nbsp;before",
+    strengths: ["Four years with twins, from birth", "Newborn &amp; infant specialist", "Calm, punctual, keeps routines"],
+    skills: ["Infant Care", "Childcare", "Cooking", "Housekeeping"],
+    age: 45,
+    salary: "",
+    availability: "transfer",
+    photo: "images/menchie.jpeg",
+    profile: "profile-menchie.html"
+  },
+  {
+    id: "ann",
+    name: "Ann",
+    initial: "",
+    status: "hidden",
+    statusLabel: "No longer available",
+    availFrom: "2026-09-24",
+    line: "Filipino &middot; 35 &middot; Children, household &amp;&nbsp;cooking",
+    summary: "Five years with one family in Singapore &mdash; her only employer here &mdash; who recommend her in writing. She raised their son from seven to twelve, runs a household on her own, and learned Indian cooking along the&nbsp;way.",
+    referredBy: "Recommended in writing by Rana, her employer of five&nbsp;years",
+    signal: "referred",
+    quote: "&ldquo;Five years is a meaningful period for someone to remain part of a household, and I appreciate the continuity, experience and support Ann has&nbsp;provided.&rdquo;",
+    quoteCite: "&mdash; Rana",
+    nationality: "Filipino",
+    yearsSG: "5 years with one family",
+    bestFit: "A family with children rather than elderly care, a settled routine, and a welcome for Indian or mixed Asian&nbsp;cooking",
+    strengths: ["Raised a child from 7 to 12", "Five years, one family", "Learned Indian cooking"],
+    skills: ["Childcare", "Cooking", "Housekeeping", "Pets"],
+    age: 35,
+    salary: "S$1,000",
+    availability: "transfer",
+    photo: "images/ann.jpeg",
+    profile: "profile-ann.html"
+  },
+  {
+    id: "judy",
+    name: "Judy",
+    initial: "",
+    status: "available",
+    statusLabel: "Available end October&nbsp;2026",
+    availFrom: "2026-10-31",
+    line: "Filipino &middot; 41 &middot; Chinese home cooking &amp;&nbsp;household",
+    summary: "Nearly six years with one family and eight years in Singapore, confirmed against MOM records &mdash; and everyday Chinese cooking she does properly, most&nbsp;nights.",
+    referredBy: "",
+    signal: "verified",
+    verifiedYears: 6,
+    nationality: "Filipino",
+    yearsSG: "8 years",
+    bestFit: "A settled household that wants the cooking and cleaning in steady hands, and proper Chinese home&nbsp;cooking",
+    strengths: ["Nearly six years, one family", "Everyday Chinese cooking", "Cooking &amp; cleaning"],
+    skills: ["Cooking", "Housekeeping", "Childcare", "Pets"],
+    age: 41,
+    salary: "",
+    availability: "transfer",
+    photo: "images/judy.jpeg",
+    profile: "profile-judy.html"
+  },
+  {
+    id: "nida",
+    name: "Nida",
+    initial: "",
+    status: "available",
+    statusLabel: "Available &middot; transfer by 25&nbsp;Oct",
+    availFrom: "2026-10-25",
+    line: "Filipino &middot; 55 &middot; Childcare, elderly care &amp;&nbsp;household",
+    summary: "Eleven years with one family &mdash; caring for an elderly member with dementia while getting two children to school and back, year after year. Recommended in writing by the family she is with&nbsp;now.",
+    referredBy: "Recommended in writing by Ms Gu, her employer of eleven&nbsp;years",
+    signal: "referred",
+    quote: "&ldquo;She has been an invaluable help to our family, and any future employer will benefit from her skills and&nbsp;commitment.&rdquo;",
+    quoteCite: "&mdash; Ms Gu",
+    nationality: "Filipino",
+    yearsSG: "18 years",
+    bestFit: "A household carrying both ends at once &mdash; an elderly parent who needs real care, and children who need getting to&nbsp;school",
+    strengths: ["Two children, school age to grown", "Dementia care", "Childcare &amp; eldercare at once"],
+    skills: ["Childcare", "Elderly Care", "Cooking", "Housekeeping"],
+    age: 55,
+    salary: "",
+    availability: "transfer",
+    photo: "images/nida.jpeg",
+    profile: "profile-nida.html"
+  },
+  {
+    id: "jane",
+    name: "Jane",
+    initial: "",
+    status: "hidden",                                  // photo missing; badge unconfirmed; record gaps unexplained
+    statusLabel: "Available March&nbsp;2027",
+    availFrom: "2027-03-01",
+    line: "Filipino &middot; 43 &middot; Childcare from newborn &amp;&nbsp;cooking",
+    summary: "Nearly twenty years of childcare across Taiwan, China, Turkey and Singapore &mdash; newborn twins, three babies from their first weeks, and seven cuisines she cooks&nbsp;properly.",
+    referredBy: "Her employers of seven years are open to speaking with families&nbsp;directly",
+    signal: "referred",
+    nationality: "Filipino",
+    yearsSG: "11 years",
+    bestFit: "A family expecting a baby or with a small child, who would value someone who has done the newborn stage three times&nbsp;over",
+    strengths: ["Newborns, including twins", "Seven years, one family", "Taiwan, China, Turkey, Singapore"],
+    skills: ["Infant Care", "Childcare", "Cooking", "Housekeeping"],
+    age: 43,
+    salary: "",
+    availability: "transfer",
+    photo: "images/jane.jpeg",
+    profile: "profile-jane.html"
+  },
+  {
+    id: "mai",
+    name: "Mai",
+    initial: "",
+    status: "available",
+    statusLabel: "Available 8 October&nbsp;2026",
+    availFrom: "2026-10-08",
+    line: "Myanmar &middot; 27 &middot; Childcare &amp; Chinese home&nbsp;cooking",
+    summary: "Four years with one Singapore family, her only employer here &mdash; two boys taken from newborn and five to four and nine, with the cooking and the housework&nbsp;besides.",
+    referredBy: "",
+    signal: "verified",
+    verifiedYears: 4,
+    nationality: "Myanmar",
+    yearsSG: "4 years",
+    bestFit: "A family with school-age children and no pets, who would value four uninterrupted years in one&nbsp;home",
+    strengths: ["Four years, one family", "Two boys, newborn to nine", "Simple Chinese cooking"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
+    age: 27,
+    salary: "S$750",
+    availability: "transfer",
+    photo: "images/mai.jpeg",
+    profile: "profile-mai.html"
+  },
+  {
+    id: "belinda",
+    name: "Belinda",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available early July&nbsp;2026",
+    line: "Filipino &middot; Cooking, household &amp;&nbsp;childcare",
+    summary: "Over 16 years with families in Singapore, hospitality-trained, and warmly recommended by her current&nbsp;employer.",
+    referredBy: "Referred by Warren, her current employer, who has known her three&nbsp;years",
+    signal: "referred",
+    quote: "\u201cMy children adore her, and we are deeply invested in helping her find the right long-term&nbsp;family.\u201d",
+    quoteCite: "&mdash; Warren",
+    nationality: "Filipino",
+    yearsSG: "16 years in SG",
+    bestFit: "Independent, international household",
+    strengths: ["Over 16 years experience", "Western &amp; Asian cooking", "All ages, newborn to teen"],
+    skills: ["Cooking", "Childcare", "Housekeeping"],
+    availability: "transfer",
+    photo: "images/belinda.jpeg",
+    profile: "profile-belinda.html"
+  },
+  {
+    id: "ayethidar",
+    name: "Aye Thi Dar",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Joined a family",
+    line: "Myanmar &middot; Childcare, household &amp; Indian&nbsp;cooking",
+    summary: "Three and a half years with one family, exceptional with young children and quietly&nbsp;dependable.",
+    referredBy: "Referred by Yash, her current employer of 3.5&nbsp;years",
+    signal: "referred",
+    quote: "\u201cWith a young child at home, what matters most is dependability, and she has never let us&nbsp;down.\u201d",
+    quoteCite: "&mdash; Yash",
+    nationality: "Myanmar",
+    yearsSG: "3.5 years in SG",
+    bestFit: "Smaller household, at home with Indian routines",
+    strengths: ["Exceptional with young children", "Indian cooking (veg &amp; non-veg)", "Quietly dependable"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
+    availability: "transfer",
+    photo: "images/ayethidar.jpeg",
+    profile: "profile-ayethidar.html"
+  },
+  {
+    id: "mariafe",
+    name: "Maria Fe",
+    initial: "T.",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 15 July&nbsp;2026",
+    matchedSeq: 3,    // match order, higher = more recent (shows leftmost)
+    line: "Filipino &middot; 49 &middot; Cooking, household &amp;&nbsp;caregiving",
+    summary: "Trustworthy and adaptable, with cooking a particular strength across her years in&nbsp;Singapore.",
+    referredBy: "Referred by Anna, her current employer of 3.5&nbsp;years",
+    quote: "\u201cOne of her greatest strengths is her cooking &mdash; she prepares a wide variety of meals, follows recipes well, and consistently produces tasty, well-presented&nbsp;dishes.\u201d",
+    quoteCite: "&mdash; Anna",
+    nationality: "Filipino",
+    yearsSG: "10 years",
+    bestFit: "Cooking, household &amp; caregiving",
+    strengths: ["Cooking (wide variety)", "Housekeeping &amp; cleaning", "10 years in SG"],
+    skills: ["Cooking", "Childcare (incl. young children)", "Elderly Care", "Housekeeping"],
+    salary: "S$950",
+    photo: "images/mariafe.jpeg",
+    profile: "profile-mariafe.html"
+  },
+  {
+    id: "amie",
+    name: "Amie",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Joined a family",
+    line: "Filipino &middot; 44 &middot; Childcare, household &amp;&nbsp;cooking",
+    summary: "Trustworthy, capable, and quietly steady across 8 years with her current&nbsp;family.",
+    referredBy: "Referred by Anne, her current employer of 8&nbsp;years",
+    quote: "\u201cWhile not naturally demonstrative, Amie is genuinely caring and dependable &mdash; she shows her concern through practical&nbsp;actions.\u201d",
+    quoteCite: "&mdash; Anne",
+    nationality: "Filipino",
+    yearsSG: "17 years",
+    bestFit: "Childcare &amp; all-round household",
+    strengths: ["Childcare (3 to teens)", "Western cooking", "17 years in SG"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
+    salary: "S$950&ndash;1,000",
+    photo: "images/amie.jpg",
+    profile: "profile-amie.html"
+  },
+  {
+    id: "evelyn",
+    name: "Evelyn",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available from July / August&nbsp;2026",
+    line: "Filipino &middot; 50 &middot; Childcare, household &amp;&nbsp;cooking",
+    summary: "Reliable and independent, with 17 years caring for international families in&nbsp;Singapore.",
+    referredBy: "Referred by Marianne, her current employer of 1&nbsp;year",
+    quote: "\u201cReliable, honest, independent, energetic &mdash; and always in a good&nbsp;mood.\u201d",
+    quoteCite: "&mdash; Marianne",
+    nationality: "Filipino",
+    yearsSG: "17 years",
+    bestFit: "Childcare (ages 5+) &amp; cooking",
+    strengths: ["Childcare (ages 5+)", "Adaptable cooking", "17 years in SG"],
+    skills: ["Childcare", "Cooking", "Pets"],
+    salary: "S$1,000",
+    photo: "images/evelyn.jpeg",
+    profile: "profile-evelyn.html"
+  },
+  {
+    id: "kartika",
+    name: "Kartika",
+    initial: "S.",
+    status: "placed",
+    statusLabel: "Joined a new family &middot; 1 July&nbsp;2026",
+    matchedSeq: 1,    // match order, higher = more recent (shows leftmost)
+    line: "Indonesian &middot; Elderly care &amp;&nbsp;household",
+    summary: "Sincere, calm, and quietly very good at her&nbsp;work.",
+    referredBy: "Referred by Sheila, her previous&nbsp;employer",
+    quote: "\u201cShe follows the schedule and asks when she doesn\u2019t understand &mdash; she never guesses her way through.\u201d",
+    quoteCite: "&mdash; Sheila",
+    nationality: "Indonesian",
+    yearsSG: "",
+    bestFit: "Elderly care &amp; household",
+    strengths: ["Elderly care", "Household", "Bahasa Melayu"],
+    skills: ["Elderly Care", "Housekeeping"],
+    photo: "images/kartika.jpg",
+    profile: "profile-kartika.html"
+  },
+  {
+    id: "jessie",
+    name: "Jessie Ann",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available from 30 June&nbsp;2026",
+    line: "Filipino &middot; 49 &middot; Housekeeping focus &amp;&nbsp;cooking",
+    summary: "Independent, proactive, and quietly takes ownership of what needs&nbsp;doing.",
+    referredBy: "Referred by Annie, her current employer of 2&nbsp;years",
+    quote: "\u201cIt\u2019s simply not in her nature to walk past something that needs&nbsp;doing.\u201d",
+    quoteCite: "&mdash; Annie",
+    nationality: "Filipino",
+    yearsSG: "16 years",
+    bestFit: "Housekeeping &amp; cooking, older children",
+    strengths: ["Children (primary &amp; teen)", "Multi-cuisine cooking", "16 years in SG"],
+    skills: ["Housekeeping", "Cooking", "Childcare"],
+    photo: "images/jessie.jpg",
+    profile: "profile-jessie.html"
+  },
+  {
+    name: "Liza",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available from 26 June&nbsp;2026",
+    line: "Filipino &middot; 54 &middot; Childcare, household &amp;&nbsp;cooking",
+    summary: "Warm and endlessly creative with children of every age, referred by the family she's been with for the past&nbsp;year.",
+    referredBy: "Referred by her current employer of one&nbsp;year",
+    signal: "referred",
+    quote: "\u201cShe's incredibly creative with crafts, games and keeping younger kids engaged without simply relying on&nbsp;screens.\u201d",
+    quoteCite: "&mdash; her current employer",
+    nationality: "Filipino",
+    yearsSG: "Since 2018 in SG",
+    bestFit: "Childcare &amp; household",
+    strengths: ["Childcare (newborns to teens)", "Crafts &amp; creative play", "Nearly 30 years\u2019 experience"],
+    skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping"],
+    age: 54,
+    salary: "S$1,000",
+    availability: "transfer",
+    photo: "images/liza.jpeg",
+    profile: "profile-liza.html"
+  },
+  {
+    id: "siti",
+    name: "Siti",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available &middot; fresh Work Permit (overseas)",
+    line: "Indonesian &middot; 49 &middot; Elderly &amp; medical&nbsp;care",
+    summary: "Fifteen years across two Singapore families, confirmed against MOM records &mdash; deep stroke, dementia, diabetes and bedridden-care experience, with fluent English and some&nbsp;Mandarin.",
+    referredBy: "",
+    signal: "verified",
+    verifiedSub: "15 years across two employers",
+    quote: "",
+    quoteCite: "",
+    nationality: "Indonesian",
+    yearsSG: "15 years",
+    bestFit: "Elderly &amp; medical&nbsp;care",
+    strengths: ["Elderly &amp; medical care", "15 years, two employers", "Fluent English"],
+    skills: ["Elderly Care", "Caregiving", "Dementia Care"],
+    age: 49,
+    salary: "From&nbsp;S$950",
+    availability: "fresh",
+    photo: "images/siti.jpeg",
+    profile: "profile-siti.html"
+  },
+  {
+    id: "ayuni",
+    name: "Ayuni",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available from 19 July&nbsp;2026",
+    line: "Indonesian &middot; 43 &middot; Cooking, household &amp;&nbsp;childcare",
+    summary: "More than 18 years in Singapore, an experienced all-rounder warmly recommended by her former&nbsp;employer.",
+    referredBy: "Referred by Rougeron, her former&nbsp;employer",
+    signal: "referred",
+    quote: "\u201cShe was extremely good to our family during our expat&nbsp;contract.\u201d",
+    quoteCite: "&mdash; Rougeron",
+    nationality: "Indonesian",
+    yearsSG: "18+ years",
+    bestFit: "Cooking, childcare &amp; large&nbsp;homes",
+    strengths: ["Cooking &amp; baking", "Newborn to teen", "18+ years in SG"],
+    skills: ["Cooking", "Childcare", "Infant Care", "Housekeeping", "Pets"],
+    age: 43,
+    salary: "S$1,000",
+    availability: "transfer",
+    photo: "images/ayuni.jpeg",
+    profile: "profile-ayuni.html"
+  },
+  {
+    id: "susana",
+    name: "Susana",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available now",
+    line: "Filipino &middot; Cooking, household &amp;&nbsp;childcare",
+    summary: "Around 20 years in Singapore, a capable cook and carer, recommended by her current&nbsp;employer.",
+    referredBy: "Referred by Renata, her current employer since&nbsp;2024",
+    signal: "referred",
+    quote: "\u201cWe have complete confidence in her&nbsp;integrity.\u201d",
+    quoteCite: "&mdash; Renata",
+    nationality: "Filipino",
+    yearsSG: "20 years",
+    bestFit: "Home cooking &amp; childcare",
+    strengths: ["Western &amp; Asian cooking", "Newborn to ~10 years", "20 years in SG"],
+    skills: ["Cooking", "Childcare", "Infant Care", "Housekeeping"],
+    salary: "S$900",
+    availability: "transfer",
+    photo: "images/susana.jpg",
+    profile: "profile-susana.html"
+  },
+  {
+    id: "katrine",
+    name: "Katrine",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available now",
+    line: "Filipino &middot; Childcare specialist, cooking &amp;&nbsp;household",
+    summary: "16 years in Singapore with an education degree and a teaching background &mdash; a warm childcare specialist from newborn onwards, recommended by her current&nbsp;employer.",
+    referredBy: "Referred by Tanielle, her current employer, who recommends her&nbsp;directly",
+    signal: "referred",
+    quote: "\u201cOur children adore her, and we have always felt complete trust and confidence in her&nbsp;care.\u201d",
+    quoteCite: "&mdash; Tanielle",
+    nationality: "Filipino",
+    yearsSG: "16 years in SG",
+    bestFit: "A family with young children",
+    strengths: ["Childcare specialist", "Former teacher", "Newborn to preschool"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
+    age: 42,
+    availability: "transfer",
+    photo: "images/katrine.jpeg",
+    profile: "profile-katrine.html"
+  },
+  {
+    id: "kim",
+    name: "Kim",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available mid-July&nbsp;2026",
+    line: "Myanmar &middot; 32 &middot; Housekeeping, cooking &amp;&nbsp;childcare",
+    summary: "Nine years in Singapore with long, stable employment &mdash; now focused on housekeeping, cooking and childcare (ages&nbsp;5+).",
+    referredBy: "",
+    signal: "verified",
+    verifiedSub: "Nearly 8 years in one home",
+    verifiedYears: 8,
+    quote: "",
+    quoteCite: "",
+    nationality: "Myanmar",
+    yearsSG: "9 years",
+    bestFit: "Housekeeping &amp; cooking; childcare 5+",
+    strengths: ["6+ years, one employer", "Housekeeping &amp; cooking", "Childcare (ages 5+)"],
+    skills: ["Housekeeping", "Cooking", "Childcare"],
+    age: 32,
+    availability: "transfer",
+    photo: "images/kim.jpg",
+    profile: "profile-kim.html"
+  },
+  {
+    id: "annafel",
+    name: "Annafel",
+    initial: "",
+    status: "hidden",
+    statusLabel: "Available 1 Sep&nbsp;2026",
+    line: "Filipino &middot; Childcare, cooking &amp;&nbsp;household",
+    summary: "A warm childcare and cooking specialist with more than a decade of experience &mdash; recommended directly by her current family as they relocate&nbsp;abroad.",
+    referredBy: "Referred by Trang, her current employer, who recommends her&nbsp;directly",
+    signal: "referred",
+    quote: "\u201cI have complete confidence in her ability to care for my young&nbsp;daughter.\u201d",
+    quoteCite: "&mdash; Trang",
+    nationality: "Filipino",
+    yearsSG: "6 years in SG",
+    bestFit: "A family with school-age children",
+    strengths: ["Childcare (school-age)", "Multi-cuisine cook", "Honest &amp; trusted"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
+    age: 45,
+    availability: "transfer",
+    photo: "images/annafel.jpeg",
+    profile: "profile-annafel.html"
+  }
+
+  // ─── TEMPLATE — copy this, remove the //'s, add a comma after the
+  //     helper above, and fill in the values. Then delete this note. ───
+  // ,{
+  //   id: "firstname",                                  // short lowercase tag, no spaces
+  //   name: "First name",                               // e.g. "Maria Fe"
+  //   initial: "",                                      // surname initial e.g. "T." — or ""
+  //   status: "available",                              // "available" or "placed"
+  //   statusLabel: "Available from 1 Aug&nbsp;2026",    // her availability line
+  //   // Sorting is automatic — soonest-available first — read from statusLabel.
+  //   // If the label is vague, set the exact sort date:  availFrom: "2026-08-01"
+  //   line: "Filipino &middot; 40 &middot; Cooking &amp;&nbsp;childcare",
+  //   summary: "One honest sentence about her — shows as the one-line on the card.",
+  //   referredBy: "Referred by [Name], her current employer of X&nbsp;years",
+  //   signal: "referred",                               // "referred" (default, 🟢) or "verified" (🔵)
+  //   // ↑ For a LONG-TERM EMPLOYMENT VERIFIED helper (no recommendation):
+  //   //   signal: "verified", leave referredBy "", and set ONE of:
+  //   //   verifiedYears: 10,   // → "10 years with same employer"
+  //   //   renewals: 3,         // → "3 contract renewals, same employer"
+  //   skills: ["Childcare", "Cooking", "Housekeeping"],  // first 3 show as ticks + power filters
+  //   //   (use the filter vocabulary: Childcare, Infant Care, Housekeeping, Cooking, Elderly Care, Pets)
+  //   age: 40,                                          // optional; else read from `line`
+  //   salary: "S$700&ndash;800",                        // optional; blank shows "Salary on enquiry"
+  //   availability: "transfer",                         // "transfer" (in SG, default) or "overseas"
+  //   quote: "\u201cA short line from the employer about her.\u201d",
+  //   quoteCite: "&mdash; [Referrer first name]",
+  //   nationality: "Filipino",
+  //   yearsSG: "10 years",                              // or "" if unknown
+  //   bestFit: "Cooking &amp; childcare",               // shows on the home-page card
+  //   strengths: ["Skill one", "Skill two", "10 years in SG"],  // home-page card chips
+  //   photo: "images/firstname.jpeg",                   // upload this file to images/
+  //   profile: "profile-firstname.html"                 // create this page
+  // }
+];
+
 (function () {
-  "use strict";
+  var H = window.HELPERS || [];
 
-  /* Set to true to hide the enquiry the instant the page paints and only
-     reveal it once the helper is confirmed available. This removes the
-     brief flash of the enquiry on a placed profile, at the cost of a short
-     blank gap on an available profile while helpers-data.js loads. Default
-     false (never hide an available enquiry; placed profiles flash briefly). */
-  var HIDE_UNTIL_READY = false;
+  function fullName(h) { return h.initial ? (h.name + " " + h.initial) : h.name; }
+  function plain(s) { return String(s).replace(/&[a-z]+;/gi, " ").replace(/"/g, ""); }
 
-  var ASK_SELECTOR = ".profile-ask, #ask";
-
-  function ready(fn) {
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", fn, { once: true });
-    } else {
-      fn();
+  /* ── Trust signals (single source of truth: label + colour key + icon) ──
+       Underlying signal strings are kept stable so existing helper data does
+       not need migrating:
+         "referred" / "recommended" → 🏆 Employer Recommended   (sage)
+         "verified" / "retention"   → 📅 Long-Term Employment    (blue)
+         "completed"                → ✅ Completed Contracts      (terracotta)
+         "assessed"                 → 🔍 Helper Circle Assessed   (muted gold/sand)
+     An unrecognised or missing signal is NOT silently treated as Employer
+     Recommended — it renders a neutral badge and warns, so the data issue is
+     visible. */
+  var SIGNAL_INFO = {
+    referred:    { key: "referred",  css: "ref",    emoji: "\uD83C\uDFC6", label: "Employer Recommended" },
+    recommended: { key: "referred",  css: "ref",    emoji: "\uD83C\uDFC6", label: "Employer Recommended" },
+    verified:    { key: "verified",  css: "ver",    emoji: "\uD83D\uDCC5", label: "Long-Term Employment" },
+    retention:   { key: "verified",  css: "ver",    emoji: "\uD83D\uDCC5", label: "Long-Term Employment" },
+    completed:   { key: "completed", css: "cc",     emoji: "\u2705",       label: "Completed Contracts" },
+    assessed:    { key: "assessed",  css: "assess", emoji: "\uD83D\uDD0D", label: "Helper Circle Assessed" }
+  };
+  var SIGNAL_NEUTRAL = { key: "neutral", css: "neutral", emoji: "", label: "Profile reviewed" };
+  function signalInfo(h) {
+    var s = (h && h.signal != null) ? String(h.signal).toLowerCase() : "";
+    if (Object.prototype.hasOwnProperty.call(SIGNAL_INFO, s)) return SIGNAL_INFO[s];
+    if (typeof console !== "undefined" && console.warn) {
+      console.warn('helpers-data: unrecognised signal "' + (h && h.signal) +
+        '" for helper "' + (h && (h.id || h.name)) + '" — rendering a neutral badge, not Employer Recommended.');
     }
+    return SIGNAL_NEUTRAL;
+  }
+  function signalKey(h)   { return signalInfo(h).key; }
+  function signalLabel(h) { return signalInfo(h).label; }
+  function signalSub(h) {
+    var key = signalKey(h);
+    if (key === "verified") {
+      if (h.verifiedSub) return h.verifiedSub;
+      if (h.verifiedYears || h.retentionYears) return (h.verifiedYears || h.retentionYears) + " years with same employer";
+      if (h.renewals) return h.renewals + " contract renewals, same employer";
+      return "Employment duration verified";
+    }
+    if (key === "completed") return "Completed employment in Singapore, reviewed before listing";
+    if (key === "assessed")  return "Work history and experience reviewed by Helper Circle";
+    if (key === "referred")  return "Recommended by current or former employer";
+    return "Reviewed by Helper Circle";
+  }
+  // Clean skill labels (prefer h.skills; else derive from strengths) — power ticks + filters
+  function skillList(h) {
+    if (h.skills && h.skills.length) return h.skills;
+    return (h.strengths || []).filter(function (s) { return !/year/i.test(s); })
+      .map(function (s) { return s.replace(/\s*\(.*?\)\s*/g, " ").replace(/\s+/g, " ").trim(); });
+  }
+  function ageOf(h) {
+    if (h.age) return h.age;
+    var parts = String(h.line || "").split("&middot;");
+    for (var i = 0; i < parts.length; i++) {
+      var n = parts[i].replace(/[^0-9]/g, "");
+      if (n && +n > 17 && +n < 75) return +n;
+    }
+    return "";
+  }
+  function natCountry(h) {
+    var n = (h.nationality || "").toLowerCase();
+    if (n.indexOf("filipin") > -1) return "philippines";
+    if (n.indexOf("indonesia") > -1) return "indonesia";
+    if (n.indexOf("myanmar") > -1 || n.indexOf("burm") > -1) return "myanmar";
+    return "other";
+  }
+  function availOf(h) { return h.availability === "overseas" ? "overseas" : "transfer"; }
+
+  /* ── Sort by availability date (soonest first) ──
+       Reads the date out of statusLabel automatically, so new helpers
+       fall into the right spot with no manual reordering. Handles:
+         "Available from 19 July 2026"      → 19 Jul 2026
+         "Available early/mid/end July 2026" → 1 / 15 / 28 Jul 2026
+         "Available from July / August 2026" → 1 Aug 2026 (uses the LATER month)
+         "Available now"                     → sorts to the front
+       Optional override: add  availFrom: "2026-08-01"  to a helper to set the
+       exact sort date precisely (wins over the statusLabel guess). */
+  var HC_MONTHS = { jan:0, feb:1, mar:2, apr:3, may:4, jun:5, jul:6, aug:7, sep:8, oct:9, nov:10, dec:11 };
+  function availSortKey(h) {
+    if (h.availFrom) {
+      var iso = Date.parse(h.availFrom);
+      if (!isNaN(iso)) return iso;
+    }
+    var s = String(h.statusLabel || "")
+      .replace(/&nbsp;|&middot;|&mdash;|&amp;/g, " ")
+      .toLowerCase();
+    if (/\bnow\b/.test(s)) return 0;          // "Available now (until 18 Aug)" is available NOW
+    var ym = s.match(/20\d{2}/);
+    var year = ym ? +ym[0] : null;
+    var month = null, bestIdx = -1;
+    for (var key in HC_MONTHS) {
+      var idx = s.lastIndexOf(key);            // LAST month wins ("July / August" → August)
+      if (idx > bestIdx) { bestIdx = idx; month = HC_MONTHS[key]; }
+    }
+    if (month === null) {
+      return /\bnow\b/.test(s) ? 0 : Number.MAX_SAFE_INTEGER;  // undated sinks to the bottom
+    }
+    if (year === null) year = new Date().getFullYear();
+    var dayStr = s.replace(/20\d{2}/g, " ");   // drop the year so it isn't read as a day
+    var dm = dayStr.match(/\b([0-3]?\d)\b/);
+    var day;
+    if (dm) day = +dm[1];
+    else if (/\bearly\b/.test(s)) day = 1;
+    else if (/\bmid\b/.test(s)) day = 15;
+    else if (/\b(end|late)\b/.test(s)) day = 28;
+    else day = 1;
+    return new Date(year, month, day).getTime();
+  }
+  function sortByAvail(list) {
+    return list.slice().sort(function (a, b) { return availSortKey(a) - availSortKey(b); });
+  }
+  // Home-page photo badge: colour encodes the trust signal (sage / blue / terracotta / gold).
+  function homeBadge(h) {
+    var info = signalInfo(h);
+    return '<span class="hc-badge hc-badge--' + info.css + '">' +
+           (info.emoji ? '<span class="tsig-mark" aria-hidden="true">' + info.emoji + '</span> ' : '') +
+           info.label + '</span>';
   }
 
-  /* Normalise a filename / profile value for comparison: lowercase, drop a
-     trailing slash and a trailing .html/.htm so clean URLs match too. */
-  function norm(x) {
-    return String(x == null ? "" : x).toLowerCase().replace(/\/+$/, "").replace(/\.html?$/, "");
+  /* ── Home page: compact cards into #avail-grid (available only, max 3) ──
+     When at least one helper is available, show the grid section and hide the
+     "Introduced one at a time" pointer. When none are available, hide the grid
+     section and reveal the pointer as the empty state. ── */
+  function renderHome(grid) {
+    var section = document.getElementById("helpers");   // the .avail section
+    var pointer = document.getElementById("meet-circle"); // the empty-state pointer
+    var accents = ["sage", "peach", "amber"];
+    var list = sortByAvail(H.filter(function (h) { return h.status === "available"; })).slice(0, 3);
+
+    if (!list.length) {
+      if (section) section.style.display = "none";
+      if (pointer) pointer.style.display = "";
+      return;
+    }
+
+    if (section) section.style.display = "";
+    if (pointer) pointer.style.display = "none";
+
+    grid.innerHTML = list.map(function (h, i) {
+      var accent = accents[i % accents.length];
+      // key strengths = skills only (drop the "X years in SG" chip), max 2
+      var keyStrengths = h.strengths.filter(function (s) {
+        return !/year/i.test(s);
+      }).slice(0, 2);
+      var chips = keyStrengths.map(function (s) {
+        return '<span class="hc-chip">' + s + "</span>";
+      }).join("");
+
+      var natline = h.nationality;
+      var expRow = h.yearsSG
+        ? '<div class="hc-row"><span class="hc-k">Experience</span>' +
+            '<span class="hc-v">' + h.yearsSG + ' in Singapore</span></div>'
+        : "";
+
+      return (
+        '<a class="hc-card hc-card--' + accent + '" href="' + h.profile +
+        '" aria-label="View ' + plain(h.name) + '\u2019s profile">' +
+          '<div class="hc-media">' +
+            '<img src="' + h.photo + '" alt="" loading="lazy"/>' +
+            homeBadge(h) +
+            '<div class="hc-namebar">' +
+              '<span class="hc-name">' + fullName(h) + '</span>' +
+              '<span class="hc-natline">' + natline + '</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="hc-body">' +
+            '<p class="hc-status"><span class="hc-dot" aria-hidden="true"></span>' + h.statusLabel + '</p>' +
+            '<div class="hc-snap">' +
+              '<div class="hc-row"><span class="hc-k">Best fit</span>' +
+                '<span class="hc-v">' + h.bestFit + '</span></div>' +
+              '<div class="hc-row"><span class="hc-k">Strengths</span>' +
+                '<span class="hc-v hc-chips">' + chips + '</span></div>' +
+              expRow +
+            '</div>' +
+            '<span class="hc-cta">View profile &rarr;</span>' +
+          '</div>' +
+        "</a>"
+      );
+    }).join("");
+
+    buildDots(grid);
   }
 
-  function currentSlug() {
-    var last = (location.pathname || "").split("/").filter(Boolean).pop() || "";
-    return norm(last);
-  }
+  /* ── Swipe tracker dots for the mobile carousel ── */
+  function buildDots(grid, cardSelector) {
+    // remove any previously injected dots (idempotent)
+    var existing = grid.parentNode.querySelector(".avail-dots");
+    if (existing) existing.parentNode.removeChild(existing);
 
-  function esc(s) {
-    return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    var cards = grid.querySelectorAll(cardSelector || ".hc-card");
+    if (cards.length < 2) return;
+
+    var dots = document.createElement("div");
+    dots.className = "avail-dots";
+    dots.setAttribute("aria-hidden", "true");
+
+    cards.forEach(function (card, i) {
+      var dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "avail-dot" + (i === 0 ? " is-active" : "");
+      dot.addEventListener("click", function () {
+        var cardRect = card.getBoundingClientRect();
+        var gridRect = grid.getBoundingClientRect();
+        grid.scrollBy({ left: cardRect.left - gridRect.left - 28, behavior: "smooth" });
+      });
+      dots.appendChild(dot);
     });
+    grid.parentNode.insertBefore(dots, grid.nextSibling);
+
+    var ticking = false;
+    grid.addEventListener("scroll", function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var gridRect = grid.getBoundingClientRect();
+        var center = gridRect.left + gridRect.width / 2;
+        var best = 0, bestDist = Infinity;
+        cards.forEach(function (card, i) {
+          var r = card.getBoundingClientRect();
+          var d = Math.abs((r.left + r.width / 2) - center);
+          if (d < bestDist) { bestDist = d; best = i; }
+        });
+        dots.querySelectorAll(".avail-dot").forEach(function (d, i) {
+          d.classList.toggle("is-active", i === best);
+        });
+        ticking = false;
+      });
+    }, { passive: true });
   }
 
-  /* Ensure window.HELPERS is available; load helpers-data.js on demand. */
-  function withHelpers(cb) {
-    if (Array.isArray(window.HELPERS) && window.HELPERS.length) {
-      cb(window.HELPERS);
-      return;
-    }
-    if (window.__hcHelpersQueue) {
-      window.__hcHelpersQueue.push(cb);
-      return;
-    }
-    window.__hcHelpersQueue = [cb];
-
-    var done = function (list) {
-      var q = window.__hcHelpersQueue || [];
-      window.__hcHelpersQueue = null;
-      q.forEach(function (f) { f(list || []); });
-    };
-
-    var s = document.createElement("script");
-    s.src = "helpers-data.js";
-    s.onload = function () { done(Array.isArray(window.HELPERS) ? window.HELPERS : []); };
-    s.onerror = function () { done([]); }; // fail open
-    (document.head || document.documentElement).appendChild(s);
-  }
-
-  function findHelper(list) {
-    var slug = currentSlug();
-
-    // Primary: match the page filename to h.profile.
-    if (slug) {
-      for (var i = 0; i < list.length; i++) {
-        if (list[i] && list[i].profile && norm(list[i].profile) === slug) return list[i];
-      }
-    }
-
-    // Fallback: match the hidden helper-name field to a helper's display name.
-    var input = document.querySelector('input[name="helper-name"]');
-    if (input && input.value) {
-      var want = input.value.trim().toLowerCase();
-      for (var j = 0; j < list.length; j++) {
-        var h = list[j];
-        if (!h) continue;
-        var full = ((h.name || "") + " " + (h.initial || "")).trim().toLowerCase();
-        if (want === full || want === (h.name || "").trim().toLowerCase()) return h;
-      }
-    }
-    return null;
-  }
-
-  function panelHtml(h) {
+  /* ── Browse marketplace card (compact, scannable) into a .mcard-grid ── */
+  function fullCard(h, wrapClass, statusPhrase) {
+    var info = signalInfo(h);
+    var key = info.key;
+    var v = (key === "verified");
+    var skills = skillList(h);
+    var ticks = skills.slice(0, 3).map(function (s) {
+      return '<li><svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7.4l3 3 6-6.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' + s + '</li>';
+    }).join("");
+    var dataSkills = skills.map(function (s) { return s.toLowerCase(); }).join(" ");
     var placed = (h.status === "placed");
-    var name = esc(h.name || "This helper");
-    var heading = placed ? (name + " has joined a new family.") : (name + " is no longer available.");
-    var sub = placed
-      ? "This profile is kept up as a record. She is no longer available to hire, but we introduce new helpers regularly."
-      : "This profile is no longer taking enquiries. We introduce new helpers regularly.";
-    if (h.statusLabel) sub = esc(h.statusLabel) + ". " + sub;
+    var nameHtml = h.initial ? (h.name + ' <span class="mcard-init">' + h.initial + '</span>') : h.name;
+
+    // Trust subline — referred uses the specific referral (who + how long);
+    // the other signals use their own descriptor sentence.
+    var trustLine = (key === "referred" && h.referredBy) ? h.referredBy : signalSub(h);
+
+    // Supporting proof line: an employer's own words (referred), or the quiet
+    // MOM record (verified). Completed / assessed make no such claim.
+    var recBlock = "";
+    if (key === "referred" && h.quote) {
+      recBlock = '          <blockquote class="mcard-quote">' + h.quote +
+                 (h.quoteCite ? '<cite>' + h.quoteCite + '</cite>' : '') + '</blockquote>\n';
+    } else if (key === "verified") {
+      recBlock = '          <p class="mcard-verifyline">Confirmed against official MOM employment&nbsp;records.</p>\n';
+    }
+
+    // Availability pill on the photo (kept, per the marketplace cards).
+    var availPill = placed
+      ? '          <span class="mcard-avail mcard-avail--placed">' + (h.statusLabel || 'Joined a new family') + '</span>\n'
+      : (h.statusLabel ? '          <span class="mcard-avail">' + h.statusLabel + '</span>\n' : '');
 
     return (
-      '<div class="profile-ask-inner">' +
-        '<span class="profile-ask-kicker">Update</span>' +
-        '<h2 class="profile-ask-h">' + heading + "</h2>" +
-        '<p class="profile-ask-sub">' + sub + "</p>" +
-        '<a href="browse.html" class="btn btn-green">Browse available helpers</a>' +
-      "</div>"
+'    <div class="mcard-wrap ' + wrapClass + '" data-signal="' + key + '" data-skills="' + dataSkills + '" data-nat="' + natCountry(h) + '" data-avail="' + availOf(h) + '">\n' +
+'      <a href="' + h.profile + '" class="mcard mcard--' + info.css + '" aria-label="View ' + plain(fullName(h)) + '\u2019s profile">\n' +
+'        <div class="mcard-media">\n' +
+'          <img src="' + h.photo + '" alt="" loading="lazy"/>\n' +
+availPill +
+'        </div>\n' +
+'        <div class="mcard-body">\n' +
+'          <div class="mcard-head">\n' +
+'            <h3 class="mcard-name">' + nameHtml + '</h3>\n' +
+'            <p class="mcard-nat">' + h.nationality + '</p>\n' +
+'          </div>\n' +
+'          <span class="mcard-badge mcard-badge--' + info.css + '">' + (info.emoji ? '<span class="tsig-mark" aria-hidden="true">' + info.emoji + '</span> ' : '') + info.label + '</span>\n' +
+'          <p class="mcard-trust">' + trustLine + '</p>\n' +
+'          <p class="mcard-summary">' + h.summary + '</p>\n' +
+recBlock +
+'          <ul class="mcard-skills">' + ticks + '</ul>\n' +
+'          <span class="mcard-cta">View profile &rarr;</span>\n' +
+'        </div>\n' +
+'      </a>\n' +
+'    </div>'
     );
   }
 
-  /* Inject the optional "hide until ready" style + a fail-open timeout. */
-  function armHideUntilReady() {
-    if (!HIDE_UNTIL_READY) return;
-    var st = document.createElement("style");
-    st.id = "hc-gate-hide";
-    st.textContent = ".hc-gating .profile-ask, .hc-gating .profile-hero-cta{visibility:hidden !important;}";
-    (document.head || document.documentElement).appendChild(st);
-    document.documentElement.classList.add("hc-gating");
-    // Fail open after 4s so a slow/failed data load never hides a live enquiry.
-    setTimeout(function () { document.documentElement.classList.remove("hc-gating"); }, 4000);
+  function renderBrowseRow(row, status, wrapClass, statusPhrase) {
+    var list = H.filter(function (h) { return h.status === status; });
+    if (status === "available") list = sortByAvail(list);
+    // Placed/"recently joined" row: order by match sequence, most recent first
+    // (leftmost). Helpers with a matchedSeq sort ahead of any without; ties and
+    // missing values fall back to file order so nothing ever disappears.
+    if (status === "placed") {
+      list = list.slice().sort(function (a, b) {
+        var sa = (typeof a.matchedSeq === "number") ? a.matchedSeq : -Infinity;
+        var sb = (typeof b.matchedSeq === "number") ? b.matchedSeq : -Infinity;
+        return sb - sa;
+      });
+    }
+    row.innerHTML = list.map(function (h) {
+      return fullCard(h, wrapClass, statusPhrase);
+    }).join("\n");
+    // Placed/"recently joined" row: swipe dots on mobile, prev/next arrows on desktop.
+    if (status === "placed") {
+      buildDots(row, ".mcard-wrap");
+      buildArrows(row);
+    }
   }
 
-  function applyGate(list) {
-    document.documentElement.classList.remove("hc-gating"); // reveal (decision made)
+  /* Desktop prev/next arrows for the placed rail. Visible only when the row
+     overflows; mobile uses swipe + dots instead. */
+  function buildArrows(row) {
+    var rail = row.closest ? row.closest(".success-rail") : row.parentNode;
+    if (!rail) return;
+    Array.prototype.forEach.call(rail.querySelectorAll(".success-arrow"), function (a) { a.parentNode.removeChild(a); });
 
-    var ask = document.querySelector(ASK_SELECTOR);
-    if (!ask) return;                       // not a profile page
-    if (window.__hcGateApplied) return;     // run once
-    var h = findHelper(list);
-    if (!h) return;                         // unknown profile — leave as-is
-    if (h.status == null || h.status === "available") return; // available — keep enquiry
+    function arrow(dir) {
+      var b = document.createElement("button");
+      b.className = "success-arrow success-arrow--" + dir;
+      b.type = "button";
+      b.setAttribute("aria-label", dir === "prev" ? "Previous" : "Next");
+      b.innerHTML = dir === "prev"
+        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>';
+      return b;
+    }
+    var prev = arrow("prev"), next = arrow("next");
+    rail.appendChild(prev); rail.appendChild(next);
 
-    window.__hcGateApplied = true;
+    function step() {
+      var card = row.querySelector(".mcard-wrap");
+      return card ? card.getBoundingClientRect().width + 24 : row.clientWidth * 0.8;
+    }
+    prev.addEventListener("click", function () { row.scrollBy({ left: -step(), behavior: "smooth" }); });
+    next.addEventListener("click", function () { row.scrollBy({ left: step(), behavior: "smooth" }); });
 
-    // Swap the enquiry for a status panel.
-    ask.innerHTML = panelHtml(h);
-    ask.setAttribute("data-gated", h.status);
-
-    // Remove the hero CTA button and neutralise any other in-page "#ask" jumps.
-    var cta = document.querySelector(".profile-hero-cta");
-    if (cta && cta.parentNode) cta.parentNode.removeChild(cta);
+    function update() {
+      var overflow = row.scrollWidth - row.clientWidth > 4;
+      if (!overflow) { prev.classList.remove("is-visible"); next.classList.remove("is-visible"); return; }
+      prev.classList.toggle("is-visible", row.scrollLeft > 2);
+      next.classList.toggle("is-visible", row.scrollLeft < (row.scrollWidth - row.clientWidth - 2));
+    }
+    row.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    var raf = window.requestAnimationFrame || function (cb) { return setTimeout(cb, 16); };
+    raf(update);
+    setTimeout(update, 60);
   }
 
-  ready(function () {
-    if (!document.querySelector(ASK_SELECTOR)) return; // nothing to gate here
-    armHideUntilReady();
-    withHelpers(applyGate);
-  });
+  function render() {
+    var grid = document.getElementById("avail-grid");
+    if (grid) renderHome(grid);
+
+    var successRow = document.getElementById("success-row");
+    if (successRow) renderBrowseRow(successRow, "placed", "success-card-wrap", "joining a new family");
+
+    var availRow = document.getElementById("available-row");
+    if (availRow) renderBrowseRow(availRow, "available", "available-card-wrap", "looking for her next family");
+
+    return !!(grid || successRow || availRow);
+  }
+
+  /* Render synchronously (the script tag sits after its containers on both
+     pages, so they already exist). Fall back to DOMContentLoaded only if no
+     container was found yet — and never double-render. */
+  if (!render()) {
+    document.addEventListener("DOMContentLoaded", render);
+  }
 })();

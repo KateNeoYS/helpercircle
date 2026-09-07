@@ -5,399 +5,265 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>FAQ — Helper Circle</title>
   <link rel="icon" href="/favicon.ico?v=2" sizes="any">
-  <meta name="description" content="Honest answers to the questions families ask most often about hiring a transfer helper in Singapore."/>
+  <meta name="description" content="Answers to the questions Singapore families ask most often — trust signals, the S$699 fee, transfers and helpers from overseas. Helper Circle is the customer-facing brand for services provided by Helper Talent, a licensed employment agency (EA Licence No. 26C3645)."/>
+  <link rel="canonical" href="https://helpercircle.sg/faq.html"/>
   <meta property="og:url" content="https://helpercircle.sg/faq.html"/>
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="FAQ — Helper Circle"/>
-  <meta property="og:description" content="Honest answers to the questions families ask most often about hiring a transfer helper in Singapore."/>
+  <meta property="og:description" content="Answers to the questions Singapore families ask most often — trust signals, the S$699 fee, transfers and helpers from overseas."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Same faces as the V19 homepage body. -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css"/>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       FAQ BODY — V19 visual language, matching index.html.
+
+       Everything is scoped under `main.v19` so it governs the page body
+       ONLY. The production header (.site-header) and footer
+       (.site-footer) sit outside that wrapper and keep their styles.css
+       styling. V19's values are literal, not mapped through the
+       production --clr-* / --font-* variables.
+
+       styles.css is not modified by this page.
+       ══════════════════════════════════════════════════════════════════ -->
   <style>
-    /* ═══════════════════════════════════════════
-       FAQ PAGE — editorial refinement
-       ═══════════════════════════════════════════ */
+  /* ── Tokens: V19's own values, identical to index.html ── */
+  main.v19{
+    --sage:#2C8A6E; --sage-dk:#1B5E48; --sage-lt:#E8F1ED; --sage-ltr:#F2F7F5;
+    --cream:#FBF6EE; --cream-2:#FCF7EE; --paper:#FFFDF8;
+    --peach:#E8825C; --peach-dk:#C66740; --peach-lt:#FBEDE6;
+    --ink:#1E1E1E; --ink-70:#4A4844; --ink-50:#77746D;
+    --blue:#2E6F95; --gold:#D9A441; --terra:#C66740; --sand:#F4EFE3; --sand-ink:#8A7440;
+    --line:rgba(30,30,30,.09); --line-2:rgba(30,30,30,.16);
+    --fd:'Lora',Georgia,serif;
+    --fb:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --wrapw:1140px; --gut:clamp(20px,5vw,40px); --sec:clamp(58px,7.5vw,104px);
+    --r:18px;
+    --shadow:0 1px 2px rgba(30,30,30,.04), 0 12px 34px -18px rgba(27,94,72,.22);
+    --shadow-lift:0 2px 4px rgba(30,30,30,.05), 0 28px 60px -22px rgba(27,94,72,.32);
+    --hdr:68px;          /* production .site-header is position:fixed, 68px */
+    --stickynav:64px;    /* the FAQ section nav sits under it */
+    display:block;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--fb);
+    font-size:17px;
+    line-height:1.6;
+  }
+  main.v19 *,main.v19 *::before,main.v19 *::after{box-sizing:border-box}
+  /* styles.css styles some of these class names for other pages. Reset the
+     properties it sets that V19 does not, so nothing leaks into the body. */
+  main.v19 .kicker,main.v19 .btn{letter-spacing:normal;text-transform:none;box-shadow:none}
+  main.v19 .kicker{background:none;border:0;border-radius:0;padding:0}
 
-    /* ── HERO ─────────────────────────────────── */
-    .faq-hero {
-      padding: clamp(72px, 9vw, 112px) 0 clamp(36px, 5vw, 56px);
-      background: var(--clr-cream, #FCF7EE);
-      text-align: center;
-    }
-    .faq-hero .kicker { margin-bottom: 14px; }
-    .faq-hero h1 {
-      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
-      line-height: 1.06;
-      letter-spacing: -0.012em;
-      margin: 0 auto 18px;
-      font-weight: 500;
-      color: var(--clr-ink, #1F2A24);
-      max-width: 18ch;
-      text-wrap: balance;
-    }
-    .faq-hero p {
-      font-size: 1.06rem;
-      line-height: 1.65;
-      color: var(--clr-text-muted, #5A6661);
-      max-width: 520px;
-      margin: 0 auto;
-      text-wrap: pretty;
-    }
+  /* ── Layout primitives ── */
+  main.v19 .wrap{width:100%;max-width:var(--wrapw);margin-inline:auto;padding-inline:var(--gut)}
+  main.v19 .sec{padding-block:var(--sec)}
+  main.v19 .bg-paper{background:var(--paper);border-block:1px solid var(--line)}
 
-    /* ── STICKY SECTION NAV ───────────────────── */
-    .faq-nav-wrap {
-      background: var(--clr-cream, #FCF7EE);
-      padding: clamp(20px, 3vw, 32px) 0;
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      border-bottom: 1px solid rgba(31, 42, 36, 0.06);
-      transition: box-shadow 0.2s ease, background 0.2s ease;
-    }
-    .faq-nav-wrap.is-stuck {
-      background: rgba(252, 247, 238, 0.94);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 1px 0 rgba(31, 42, 36, 0.06);
-    }
-    .faq-nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      max-width: 820px;
-      margin: 0 auto;
-    }
-    .faq-nav a {
-      padding: 8px 16px;
-      font-size: 0.84rem;
-      font-weight: 500;
-      color: var(--clr-text-muted, #5A6661);
-      background: #fff;
-      border: 1px solid rgba(31, 42, 36, 0.08);
-      border-radius: 999px;
-      text-decoration: none;
-      transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease;
-      white-space: nowrap;
-    }
-    .faq-nav a:hover {
-      border-color: rgba(44, 138, 110, 0.4);
-      color: var(--clr-primary, #2C8A6E);
-      background: rgba(44, 138, 110, 0.04);
-    }
-    .faq-nav a.is-active {
-      background: var(--clr-primary, #2C8A6E);
-      color: #fff;
-      border-color: var(--clr-primary, #2C8A6E);
-    }
+  /* ── Typography ── */
+  main.v19 h1,main.v19 h2,main.v19 h3,main.v19 h4{
+    font-family:var(--fd);font-weight:500;margin:0;line-height:1.12;
+    letter-spacing:-.014em;text-wrap:balance;color:var(--ink)}
+  main.v19 h1{font-size:clamp(2.35rem,5.6vw,4rem);line-height:1.05;letter-spacing:-.026em}
+  main.v19 h2{font-size:clamp(1.9rem,3.8vw,2.9rem)}
+  main.v19 h3{font-size:clamp(1.08rem,1.8vw,1.28rem);line-height:1.22}
+  main.v19 p{margin:0}
+  main.v19 p,main.v19 li,main.v19 blockquote,main.v19 figcaption{text-wrap:pretty}
+  main.v19 a{color:inherit}
+  main.v19 :focus-visible{outline:2.5px solid var(--sage);outline-offset:3px;border-radius:4px}
+  main.v19 .lede{font-size:clamp(1.02rem,1.5vw,1.16rem);color:var(--ink-70);line-height:1.62;max-width:58ch}
+  main.v19 .kicker{
+    font-family:var(--fb);font-size:.7rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;
+    color:var(--sage);display:flex;align-items:center;gap:11px;margin-bottom:18px}
+  main.v19 .kicker::after{content:"";flex:0 0 40px;height:1px;background:var(--sage);opacity:.4}
+  main.v19 .kicker.on-ink{color:#E7C9B8}
+  main.v19 .kicker.on-ink::after,main.v19 .kicker.on-ink::before{background:#E7C9B8}
+  main.v19 .kicker.center{justify-content:center}
+  main.v19 .kicker.center::before{content:"";flex:0 0 40px;height:1px;background:var(--sage);opacity:.4}
 
-    /* ── MOST ASKED HIGHLIGHTS ────────────────── */
-    .faq-spotlight {
-      background: var(--clr-cream, #FCF7EE);
-      padding: clamp(32px, 4vw, 48px) 0 clamp(48px, 6vw, 72px);
-    }
-    .faq-spotlight-inner {
-      max-width: 820px;
-      margin: 0 auto;
-    }
-    .faq-spotlight-hdr {
-      text-align: center;
-      margin-bottom: clamp(20px, 3vw, 28px);
-    }
-    .faq-spotlight-eyebrow {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--clr-primary, #2C8A6E);
-      margin: 0 0 8px;
-    }
-    .faq-spotlight-title {
-      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
-      font-size: clamp(1.5rem, 2.5vw, 1.85rem);
-      font-weight: 500;
-      color: var(--clr-ink, #1F2A24);
-      margin: 0;
-      letter-spacing: -0.005em;
-      text-wrap: balance;
-    }
-    .faq-spotlight-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-    .faq-spotlight-card {
-      background: #fff;
-      border: 1px solid rgba(31, 42, 36, 0.08);
-      border-radius: 16px;
-      padding: 20px 22px;
-      text-align: left;
-      cursor: pointer;
-      font-family: inherit;
-      width: 100%;
-      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .faq-spotlight-card:hover {
-      border-color: rgba(44, 138, 110, 0.4);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(31, 42, 36, 0.06);
-    }
-    .faq-spotlight-icon {
-      width: 36px; height: 36px;
-      border-radius: 12px;
-      background: rgba(44, 138, 110, 0.08);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      color: var(--clr-primary, #2C8A6E);
-    }
-    .faq-spotlight-text {
-      flex: 1;
-      font-size: 0.96rem;
-      font-weight: 500;
-      color: var(--clr-text, #1F2A24);
-      line-height: 1.45;
-      letter-spacing: -0.003em;
-      text-wrap: balance;
-    }
-    .faq-spotlight-arrow {
-      flex-shrink: 0;
-      color: var(--clr-text-muted, #5A6661);
-      transition: transform 0.2s ease, color 0.2s ease;
-    }
-    .faq-spotlight-card:hover .faq-spotlight-arrow {
-      transform: translateX(3px);
-      color: var(--clr-primary, #2C8A6E);
-    }
+  /* ── Buttons ── */
+  main.v19 .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--fb);
+    font-size:.96rem;font-weight:500;padding:14px 28px;border-radius:999px;border:1.5px solid transparent;
+    text-decoration:none;cursor:pointer;
+    transition:transform .22s ease,background .22s ease,box-shadow .22s ease,color .22s ease}
+  main.v19 .btn-primary,main.v19 .btn-green{
+    background:var(--sage);color:#fff;box-shadow:0 10px 26px -12px rgba(27,94,72,.62)}
+  main.v19 .btn-primary:hover,main.v19 .btn-green:hover{background:var(--sage-dk);transform:translateY(-2px)}
+  main.v19 .btn-ghost,main.v19 .btn-outline{
+    background:transparent;color:var(--sage-dk);border-color:rgba(44,138,110,.42)}
+  main.v19 .btn-ghost:hover,main.v19 .btn-outline:hover{
+    background:rgba(44,138,110,.07);border-color:var(--sage);transform:translateY(-2px)}
+  main.v19 .btn-lg{padding:16px 34px;font-size:1.02rem}
 
-    /* ── FAQ BODY ─────────────────────────────── */
-    .faq-body {
-      padding: clamp(56px, 6vw, 80px) 0 clamp(48px, 6vw, 72px);
-      background: #fff;
-    }
-    .faq-body-inner {
-      max-width: 820px;
-      margin: 0 auto;
-    }
-    .faq-section {
-      margin-bottom: clamp(48px, 6vw, 72px);
-      scroll-margin-top: 110px;
-    }
-    .faq-section:last-of-type { margin-bottom: 0; }
+  /* ══ HERO ══════════════════════════════════════════════════════════ */
+  main.v19 .faq-hero{
+    background:var(--cream);
+    padding:calc(var(--hdr) + clamp(34px,4.5vw,58px)) 0 clamp(28px,3.6vw,44px);
+    text-align:center}
+  main.v19 .faq-hero .kicker{justify-content:center}
+  main.v19 .faq-hero .kicker::before{content:"";flex:0 0 40px;height:1px;background:var(--sage);opacity:.4}
+  main.v19 .faq-hero h1{max-width:18ch;margin:0 auto 18px}
+  main.v19 .faq-hero .lede{max-width:52ch;margin:0 auto}
 
-    /* Section header */
-    .faq-section-header {
-      margin-bottom: 8px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid rgba(31, 42, 36, 0.08);
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .faq-section-icon {
-      width: 40px; height: 40px;
-      border-radius: 12px;
-      background: rgba(44, 138, 110, 0.08);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      color: var(--clr-primary, #2C8A6E);
-    }
-    .faq-section-title {
-      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
-      font-size: clamp(1.55rem, 2.4vw, 1.95rem);
-      font-weight: 500;
-      color: var(--clr-ink, #1F2A24);
-      margin: 0;
-      letter-spacing: -0.006em;
-      text-wrap: balance;
-    }
+  /* ══ STICKY SECTION NAV ════════════════════════════════════════════ */
+  main.v19 .faq-nav-wrap{
+    background:var(--cream);position:sticky;top:var(--hdr);z-index:30;
+    padding:clamp(14px,2vw,20px) 0;border-bottom:1px solid var(--line);
+    transition:box-shadow .2s ease,background .2s ease}
+  main.v19 .faq-nav-wrap.is-stuck{
+    background:rgba(251,246,238,.94);
+    backdrop-filter:saturate(1.5) blur(12px);-webkit-backdrop-filter:saturate(1.5) blur(12px);
+    box-shadow:0 1px 0 rgba(30,30,30,.06)}
+  main.v19 .faq-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:860px;margin:0 auto}
+  main.v19 .faq-nav a{
+    padding:8px 16px;font-size:.82rem;font-weight:500;color:var(--ink-70);
+    background:var(--paper);border:1px solid var(--line);border-radius:999px;
+    text-decoration:none;white-space:nowrap;
+    transition:color .18s ease,background .18s ease,border-color .18s ease}
+  main.v19 .faq-nav a:hover{border-color:rgba(44,138,110,.4);color:var(--sage-dk);background:rgba(44,138,110,.05)}
+  main.v19 .faq-nav a.is-active{background:var(--sage);color:#fff;border-color:var(--sage)}
 
-    /* Accordion items — refined */
-    .faq-item {
-      border-bottom: 1px solid rgba(31, 42, 36, 0.06);
-      border-radius: 12px;
-      padding: 0 14px;
-      margin: 0 -14px;
-      transition: background 0.2s ease;
-    }
-    .faq-item:hover {
-      background: rgba(44, 138, 110, 0.025);
-    }
-    .faq-item.is-open {
-      background: rgba(44, 138, 110, 0.04);
-    }
+  /* ══ START HERE (spotlight) ════════════════════════════════════════ */
+  main.v19 .faq-spotlight{background:var(--cream);padding:clamp(30px,4vw,46px) 0 clamp(44px,5.5vw,68px)}
+  main.v19 .faq-spotlight-inner{max-width:860px;margin:0 auto}
+  main.v19 .faq-spotlight-hdr{text-align:center;margin-bottom:clamp(18px,2.4vw,26px)}
+  main.v19 .faq-spotlight-hdr .kicker{justify-content:center;margin-bottom:12px}
+  main.v19 .faq-spotlight-hdr .kicker::before{content:"";flex:0 0 40px;height:1px;background:var(--sage);opacity:.4}
+  main.v19 .faq-spotlight-title{
+    font-family:var(--fd);font-size:clamp(1.5rem,2.5vw,1.85rem);font-weight:500;
+    color:var(--ink);margin:0;letter-spacing:-.008em;text-wrap:balance}
+  main.v19 .faq-spotlight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  main.v19 .faq-spotlight-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 22px;
+    text-align:left;cursor:pointer;font-family:var(--fb);width:100%;
+    display:flex;align-items:center;gap:14px;
+    transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+  main.v19 .faq-spotlight-card:hover{
+    border-color:rgba(44,138,110,.4);transform:translateY(-2px);box-shadow:var(--shadow)}
+  main.v19 .faq-spotlight-icon{
+    width:36px;height:36px;border-radius:12px;background:var(--sage-lt);
+    display:grid;place-items:center;flex:none;color:var(--sage)}
+  main.v19 .faq-spotlight-text{
+    flex:1;font-size:.95rem;font-weight:500;color:var(--ink);line-height:1.45;text-wrap:balance}
+  main.v19 .faq-spotlight-arrow{flex:none;color:var(--ink-50);transition:transform .2s ease,color .2s ease}
+  main.v19 .faq-spotlight-card:hover .faq-spotlight-arrow{transform:translateX(3px);color:var(--sage)}
 
-    .faq-q {
-      width: 100%;
-      text-align: left;
-      background: none;
-      border: none;
-      padding: 22px 40px 22px 0;
-      font-size: 1.02rem;
-      font-weight: 500;
-      color: var(--clr-text, #1F2A24);
-      cursor: pointer;
-      position: relative;
-      font-family: inherit;
-      line-height: 1.5;
-      letter-spacing: -0.003em;
-      transition: color 0.18s ease;
-      text-wrap: balance;
-    }
-    .faq-q:hover { color: var(--clr-primary, #2C8A6E); }
+  /* ══ FAQ SECTIONS ══════════════════════════════════════════════════ */
+  main.v19 .faq-band{padding-block:clamp(48px,6vw,80px)}
+  main.v19 .faq-inner{max-width:820px;margin:0 auto}
+  main.v19 .faq-section{scroll-margin-top:calc(var(--hdr) + var(--stickynav) + 16px)}
+  main.v19 .faq-section-header{
+    margin-bottom:6px;padding-bottom:16px;border-bottom:1px solid var(--line);
+    display:flex;align-items:center;gap:14px}
+  main.v19 .faq-section-icon{
+    width:40px;height:40px;border-radius:12px;background:var(--sage-lt);
+    display:grid;place-items:center;flex:none;color:var(--sage)}
+  main.v19 .faq-section-title{
+    font-family:var(--fd);font-size:clamp(1.55rem,2.4vw,1.95rem);font-weight:500;
+    color:var(--ink);margin:0;letter-spacing:-.01em;text-wrap:balance}
 
-    .faq-q::after {
-      content: '';
-      position: absolute;
-      right: 6px;
-      top: 50%;
-      width: 10px;
-      height: 10px;
-      border-right: 1.5px solid var(--clr-text-muted, #5A6661);
-      border-bottom: 1.5px solid var(--clr-text-muted, #5A6661);
-      transform: translateY(-65%) rotate(45deg);
-      transition: transform 0.28s ease, border-color 0.18s ease;
-    }
-    .faq-item.is-open .faq-q::after {
-      transform: translateY(-35%) rotate(-135deg);
-      border-color: var(--clr-primary, #2C8A6E);
-    }
-    .faq-item.is-open .faq-q { color: var(--clr-primary, #2C8A6E); }
+  /* Accordion — V19 frame (hairline + chevron, no tinted panels).
+     The italic hint lines are kept: they carry content, not decoration. */
+  main.v19 .faq-item{border-bottom:1px solid var(--line)}
+  main.v19 .faq-q{
+    width:100%;background:none;border:0;text-align:left;cursor:pointer;
+    padding:22px 44px 22px 0;position:relative;font-family:var(--fd);
+    font-size:clamp(1.02rem,1.7vw,1.16rem);color:var(--ink);line-height:1.35;
+    transition:color .18s ease}
+  main.v19 .faq-q:hover{color:var(--sage-dk)}
+  main.v19 .faq-q::after{
+    content:"";position:absolute;right:8px;top:50%;width:11px;height:11px;
+    border-right:1.8px solid var(--sage);border-bottom:1.8px solid var(--sage);
+    transform:translateY(-70%) rotate(45deg);transition:transform .28s ease}
+  main.v19 .faq-item.is-open .faq-q::after{transform:translateY(-30%) rotate(-135deg)}
+  main.v19 .faq-q-hint{
+    display:block;font-family:var(--fd);font-style:italic;font-size:.9rem;font-weight:400;
+    color:var(--ink-50);line-height:1.5;margin-top:5px;text-wrap:pretty}
+  main.v19 .faq-a{max-height:0;overflow:hidden;transition:max-height .34s ease}
+  main.v19 .faq-a > div{padding:0 30px 24px 0;color:var(--ink-70);font-size:.96rem;line-height:1.62}
+  main.v19 .faq-a p + p{margin-top:12px}
+  main.v19 .faq-a strong{color:var(--ink);font-weight:600}
 
-    /* Optional preview hint */
-    .faq-q-hint {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 400;
-      color: var(--clr-text-muted, #5A6661);
-      margin-top: 4px;
-      letter-spacing: 0;
-      line-height: 1.5;
-      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
-      font-style: italic;
-      text-wrap: pretty;
-    }
+  /* ══ PULL-QUOTE CALLOUTS ═══════════════════════════════════════════ */
+  main.v19 .faq-callout{max-width:820px;margin:clamp(38px,4.6vw,58px) auto 0;text-align:center}
+  main.v19 .faq-callout-inner{
+    padding:clamp(26px,3.4vw,38px) clamp(26px,4.4vw,52px);
+    background:var(--peach-lt);border:1px solid rgba(232,130,92,.22);border-radius:20px}
+  main.v19 .faq-callout-text{
+    font-family:var(--fd);font-style:italic;font-size:clamp(1.06rem,2vw,1.24rem);line-height:1.55;
+    color:var(--ink);margin:0 auto;max-width:48ch;text-wrap:balance}
+  main.v19 .faq-callout-qm{color:var(--peach-dk);opacity:.7;font-style:normal}
+  /* Sheila — an attributed quote, so it carries a citation the others don't. */
+  main.v19 .faq-quote{max-width:820px;margin:clamp(30px,3.6vw,44px) auto 0}
+  main.v19 .faq-quote-inner{
+    background:var(--sage-ltr);border:1px solid rgba(44,138,110,.24);border-radius:20px;
+    padding:clamp(24px,3.2vw,36px) clamp(24px,4vw,44px);position:relative;overflow:hidden}
+  main.v19 .faq-quote-inner::before{
+    content:"\201C";position:absolute;right:14px;top:-30px;font-family:var(--fd);font-size:9rem;
+    line-height:1;color:rgba(44,138,110,.11);pointer-events:none}
+  main.v19 .faq-quote blockquote{
+    position:relative;z-index:1;margin:0;font-family:var(--fd);
+    font-size:clamp(1.06rem,1.9vw,1.24rem);line-height:1.5;color:var(--ink);text-wrap:pretty}
+  main.v19 .faq-quote figcaption{
+    position:relative;z-index:1;margin-top:16px;display:flex;align-items:center;gap:11px;
+    font-size:.82rem;color:var(--ink-50)}
+  main.v19 .faq-quote figcaption b{display:block;color:var(--ink);font-weight:500;font-size:.9rem}
+  main.v19 .faq-quote-av{
+    width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;
+    background:var(--sage-lt);color:var(--sage-dk);font-family:var(--fd);font-size:1rem}
 
-    .faq-a {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.35s ease;
-    }
-    .faq-item.is-open .faq-a {
-      max-height: 800px;
-      padding: 0 0 26px;
-    }
-    .faq-a p {
-      font-size: 0.97rem;
-      line-height: 1.72;
-      color: var(--clr-text-muted, #5A6661);
-      margin: 0;
-      max-width: 68ch;
-      text-wrap: pretty;
-    }
-    .faq-a p + p { margin-top: 14px; }
+  /* ══ CLOSING CTA ═══════════════════════════════════════════════════ */
+  main.v19 .closing{background:var(--sage-dk);color:#F3EFE6;padding-block:clamp(52px,6.4vw,92px);text-align:center}
+  main.v19 .closing .kicker{justify-content:center}
+  main.v19 .closing .kicker::before{content:"";flex:0 0 40px;height:1px;background:#E7C9B8;opacity:.6}
+  main.v19 .closing h2{color:#fff;margin:0 auto 14px;max-width:15ch}
+  main.v19 .closing p{color:rgba(243,239,230,.86);font-size:1rem;line-height:1.62;max-width:46ch;margin:0 auto 26px}
+  main.v19 .closing-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+  main.v19 .closing .btn-primary{background:var(--peach);box-shadow:none;color:#26221F}
+  main.v19 .closing .btn-primary:hover{background:var(--peach-dk);color:#fff}
+  main.v19 .closing .btn-ghost{color:#F6D6C4;border-color:rgba(246,214,196,.44)}
+  main.v19 .closing .btn-ghost:hover{background:rgba(246,214,196,.1);border-color:#F6D6C4}
+  main.v19 .closing-trust{font-size:.84rem;color:rgba(243,239,230,.6);margin:0}
+  main.v19 .closing-trust span{opacity:.45;margin:0 8px}
 
-    /* ── EDITORIAL TRUST CALLOUTS ─────────────── */
-    .faq-callout {
-      max-width: 820px;
-      margin: clamp(40px, 5vw, 64px) auto;
-      padding: 0 clamp(16px, 3vw, 32px);
-      text-align: center;
-    }
-    .faq-callout-inner {
-      padding: clamp(28px, 4vw, 40px) clamp(28px, 5vw, 56px);
-      background: rgba(232, 130, 92, 0.06);
-      border-radius: 20px;
-      border: 1px solid rgba(232, 130, 92, 0.22);
-      position: relative;
-    }
-    .faq-callout-qm {
-      color: #C66740;
-      opacity: 0.65;
-      font-style: normal;
-    }
-    .faq-callout-text {
-      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
-      font-style: italic;
-      font-size: clamp(1.05rem, 2vw, 1.2rem);
-      line-height: 1.55;
-      color: var(--clr-ink, #1F2A24);
-      margin: 0 auto;
-      max-width: 48ch;
-      text-wrap: balance;
-    }
+  /* ══ RESPONSIVE ════════════════════════════════════════════════════ */
+  @media(max-width:860px){
+    main.v19 .faq-spotlight-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:640px){
+    main.v19 .faq-nav-wrap{padding:12px 0}
+    main.v19 .faq-nav{
+      gap:6px;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;
+      padding:0 4px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    main.v19 .faq-nav::-webkit-scrollbar{display:none}
+    main.v19 .faq-nav a{font-size:.78rem;padding:7px 13px;flex-shrink:0}
+    main.v19 .faq-section-header{gap:12px;padding-bottom:14px}
+    main.v19 .faq-section-icon{width:36px;height:36px;border-radius:10px}
+    main.v19 .faq-q{padding:18px 34px 18px 0}
+    main.v19 .faq-a > div{padding-right:0}
+    main.v19 .closing-actions .btn{width:100%;max-width:280px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    main.v19 *{animation:none !important;transition:none !important}
+  }
 
-    /* ── BOTTOM CTA ───────────────────────────── */
-    .faq-cta {
-      padding: clamp(64px, 8vw, 96px) 0;
-      background: var(--clr-cream, #FCF7EE);
-      text-align: center;
-      border-top: 1px solid rgba(31, 42, 36, 0.06);
-    }
-    .faq-cta-inner {
-      max-width: 560px;
-      margin: 0 auto;
-    }
-    .faq-cta .kicker { margin-bottom: 14px; }
-    .faq-cta h2 {
-      font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
-      font-size: clamp(1.85rem, 3vw, 2.4rem);
-      font-weight: 500;
-      letter-spacing: -0.008em;
-      margin: 0 auto 14px;
-      color: var(--clr-ink, #1F2A24);
-      max-width: 16ch;
-      text-wrap: balance;
-    }
-    .faq-cta p {
-      font-size: 1rem;
-      line-height: 1.65;
-      color: var(--clr-text-muted, #5A6661);
-      margin: 0 auto 28px;
-      max-width: 44ch;
-      text-wrap: pretty;
-    }
-    .faq-cta-actions {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-    .faq-cta-trust {
-      font-size: 0.84rem;
-      color: var(--clr-text-muted, #5A6661);
-      margin: 0;
-      letter-spacing: 0.01em;
-    }
-    .faq-cta-trust-dot {
-      opacity: 0.4;
-      margin: 0 6px;
-    }
-
-    /* ── MOBILE ───────────────────────────────── */
-    @media (max-width: 860px) {
-      .faq-spotlight-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 640px) {
-      .faq-nav-wrap { padding: 14px 0; }
-      .faq-nav { gap: 6px; justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding: 0 4px 4px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-      .faq-nav::-webkit-scrollbar { display: none; }
-      .faq-nav a { font-size: 0.8rem; padding: 7px 13px; flex-shrink: 0; }
-      .faq-section-header { gap: 12px; padding-bottom: 14px; margin-bottom: 4px; }
-      .faq-section-icon { width: 36px; height: 36px; border-radius: 10px; }
-      .faq-q { padding: 18px 34px 18px 0; font-size: 0.97rem; }
-      .faq-q-hint { font-size: 0.82rem; }
-      .faq-a p { font-size: 0.93rem; }
-      .faq-item { padding: 0 10px; margin: 0 -10px; }
-      .faq-spotlight-card { padding: 16px 18px; gap: 12px; }
-      .faq-spotlight-text { font-size: 0.92rem; }
-      .faq-callout-inner { padding: 24px 22px; }
-      .faq-callout-text { font-size: 1rem; }
-      .faq-cta-actions .btn { width: 100%; max-width: 280px; }
-    }
+  /* ══ FOOTER licence strip (V19 treatment on the production dark footer) ══ */
+  .site-footer .foot-licence{
+    margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+    gap:6px 26px;text-align:center;
+    font-size:.86rem;font-weight:500;color:rgba(255,255,255,.86)}
+  .site-footer .foot-legal{
+    margin-top:12px;font-size:.8rem;line-height:1.62;text-align:center;
+    color:rgba(255,255,255,.56);max-width:88ch;margin-inline:auto}
+  .site-footer .foot-legal strong{color:rgba(255,255,255,.8);font-weight:600}
   </style>
+
   <!-- Vercel Web Analytics -->
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -406,7 +272,7 @@
 </head>
 <body>
 
-<!-- ═══ HEADER ═══ -->
+<!-- ═══ HEADER (production — unchanged) ═══ -->
 <header class="site-header" id="site-header">
   <div class="wrap header-inner">
     <a href="index.html" class="logo">
@@ -428,21 +294,25 @@
   </div>
 </header>
 
+
+<main class="v19" id="top">
+
 <!-- ═══ HERO ═══ -->
 <section class="faq-hero">
   <div class="wrap">
     <div class="kicker">Common questions</div>
-    <h1>Hiring a&nbsp;helper,<br>made&nbsp;clearer.</h1>
-    <p>Honest answers to the questions families ask most often — written in plain language, not&nbsp;policy&nbsp;speak.</p>
+    <h1>Hiring a&nbsp;helper, made&nbsp;clearer.</h1>
+    <p class="lede">Honest answers to the questions families ask most often &mdash; written in plain language, not policy&nbsp;speak.</p>
   </div>
 </section>
+
 
 <!-- ═══ STICKY SECTION NAV ═══ -->
 <div class="faq-nav-wrap" id="faq-nav-wrap">
   <div class="wrap">
     <nav class="faq-nav" aria-label="FAQ sections" id="faq-nav">
       <a href="#about">About Helper Circle</a>
-      <a href="#transfers">Direct Hire &amp; Transfers</a>
+      <a href="#transfers">Transfers &amp; Hiring</a>
       <a href="#pricing">Pricing &amp; Fees</a>
       <a href="#verification">Verification &amp; Safety</a>
       <a href="#process">Process &amp; Logistics</a>
@@ -450,60 +320,62 @@
   </div>
 </div>
 
-<!-- ═══ MOST ASKED ═══ -->
+
+<!-- ═══ START HERE ═══ -->
 <section class="faq-spotlight">
   <div class="wrap">
     <div class="faq-spotlight-inner">
       <div class="faq-spotlight-hdr">
-        <p class="faq-spotlight-eyebrow">Most asked by first-time employers</p>
+        <div class="kicker">Most asked by first-time employers</div>
         <h2 class="faq-spotlight-title">Start here</h2>
       </div>
       <div class="faq-spotlight-grid">
+
         <button class="faq-spotlight-card" type="button" data-target="q-legal">
-          <span class="faq-spotlight-icon">
+          <span class="faq-spotlight-icon" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 5-3.5 8.5-8 9.5-4.5-1-8-4.5-8-9.5V7l8-4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
           </span>
-          <span class="faq-spotlight-text">Is direct hire legal in Singapore?</span>
-          <svg class="faq-spotlight-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="faq-spotlight-text">Is hiring a transfer helper&nbsp;legal?</span>
+          <svg class="faq-spotlight-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
 
         <button class="faq-spotlight-card" type="button" data-target="q-hidden-fees">
-          <span class="faq-spotlight-icon">
+          <span class="faq-spotlight-icon" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 7H9.5a3.5 3.5 0 100 7H14a3.5 3.5 0 110 7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
           <span class="faq-spotlight-text">Are there hidden fees?</span>
-          <svg class="faq-spotlight-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="faq-spotlight-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
 
         <button class="faq-spotlight-card" type="button" data-target="q-interview">
-          <span class="faq-spotlight-icon">
+          <span class="faq-spotlight-icon" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M17 8h2a2 2 0 012 2v8a2 2 0 01-2 2h-2M7 8H5a2 2 0 00-2 2v8a2 2 0 002 2h2M8 4h8M8 4v16M16 4v16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
           <span class="faq-spotlight-text">Can I interview the helper&nbsp;first?</span>
-          <svg class="faq-spotlight-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="faq-spotlight-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
 
         <button class="faq-spotlight-card" type="button" data-target="q-experience">
-          <span class="faq-spotlight-icon">
+          <span class="faq-spotlight-icon" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M9 11l2.5 2.5L15 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
           <span class="faq-spotlight-text">Do I need prior experience?</span>
-          <svg class="faq-spotlight-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="faq-spotlight-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
+
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ FAQ BODY ═══ -->
-<section class="faq-body">
-  <div class="wrap">
-    <div class="faq-body-inner">
 
-      <!-- ABOUT HELPER CIRCLE -->
+<!-- ═══ ABOUT HELPER CIRCLE ═══ -->
+<section class="faq-band bg-paper">
+  <div class="wrap">
+    <div class="faq-inner">
       <div class="faq-section" id="about">
         <div class="faq-section-header">
-          <div class="faq-section-icon">
+          <div class="faq-section-icon" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           </div>
           <h2 class="faq-section-title">About Helper Circle</h2>
@@ -512,77 +384,94 @@
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">
             What is Helper Circle?
-            <span class="faq-q-hint">A guided referral platform, not an agency.</span>
+            <span class="faq-q-hint">Browse helpers with a clear reason for being listed.</span>
           </button>
-          <div class="faq-a">
-            <p>Helper Circle is a guided referral platform where families can meet helpers already in Singapore, each carrying a verified trust signal. We are not a maid agency. Instead of charging placement fees, we support direct hiring through structured introductions, verification, and administrative coordination.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>Helper Circle is where Singapore families can browse helpers with a clear reason for being listed &mdash; an employer recommendation, a strong employment record, completed employment in Singapore, or experience assessed directly by Helper&nbsp;Circle.</p>
+            <p>Helper Circle is the customer-facing brand for services provided by Helper&nbsp;Talent, a licensed employment agency in Singapore (EA Licence No.&nbsp;26C3645). You browse the available profiles yourself and choose whom you want to meet. Helper Circle coordinates the experience for you, while Helper&nbsp;Talent handles the regulated employment and Work&nbsp;Permit&nbsp;process.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false">Are you a maid agency?</button>
-          <div class="faq-a">
-            <p>No. Helper Circle is not a maid agency. We do not recruit overseas helpers or charge placement fees. Families browse profiles, request introductions, and decide directly if there is mutual interest.</p>
-          </div>
+          <button class="faq-q" type="button" aria-expanded="false">Is Helper Circle an employment agency?</button>
+          <div class="faq-a"><div>
+            <p>Helper Circle is the customer-facing brand for services provided by Helper&nbsp;Talent, a licensed employment agency in Singapore (EA Licence No.&nbsp;26C3645). Introducing and matching helpers with employers, and handling the employment process, are regulated&nbsp;services.</p>
+            <p>The experience is designed to stay transparent. You browse the available helper profiles yourself and choose whom you want to meet, rather than receiving a selected shortlist. Helpers may be listed because a current or former employer recommends them, because they have a strong long-term or completed employment record, or because Helper Circle has assessed their experience and employment background&nbsp;directly.</p>
+            <p>You decide whom you wish to meet and hire. Helper Circle coordinates the experience for you, while Helper&nbsp;Talent handles the regulated employment and Work&nbsp;Permit&nbsp;process.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false">Why use employer referrals instead of traditional agencies?</button>
-          <div class="faq-a">
-            <p>Employer referrals often provide more context than standard agency biodatas. Families can better understand the helper's strengths, routines, and transfer circumstances through real previous employer experiences.</p>
-          </div>
+          <button class="faq-q" type="button" aria-expanded="false">
+            Why does a recommendation matter?
+            <span class="faq-q-hint">Context a profile cannot capture.</span>
+          </button>
+          <div class="faq-a"><div>
+            <p>A family who has lived with a helper knows things a profile cannot capture &mdash; how she is with a nervous toddler, whether she asks when she is unsure, what she is like on a difficult morning. When a previous employer recommends her, we confirm it with them directly and pass on that context, so you start the conversation already knowing something&nbsp;real.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">
             How is this different from Facebook helper groups?
-            <span class="faq-q-hint">Curated and verified, not a public listing.</span>
+            <span class="faq-q-hint">Reviewed before listing, and introductions stay private.</span>
           </button>
-          <div class="faq-a">
-            <p>Facebook helper groups can be helpful but are unmoderated. Anyone can post and verifying who you are speaking with is hard. Every helper on Helper Circle carries a verified trust signal &mdash; an employer recommendation, independently verified long-term employment, or a reviewed record of completed contracts &mdash; and we personally review each profile before it goes live.</p>
-            <p>We also coordinate introductions privately, so contact details are never publicly exposed.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false">Why are there only a few helper profiles currently?</button>
-          <div class="faq-a">
-            <p>Helper Circle is intentionally curated. We only list helpers who carry a verified trust signal &mdash; an employer recommendation, verified long-term employment, or a reviewed record of completed contracts &mdash; rather than operating as a high-volume marketplace.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>Facebook helper groups can be useful, but they are unmoderated &mdash; anyone can post, and it is hard to know who you are speaking with. Every helper here carries at least one clear trust signal: a recommendation from an employer we have spoken to, several years with one family, a record of completed employment in Singapore, or experience Helper Circle has assessed directly. We review every profile before it goes&nbsp;live.</p>
+            <p>Introductions are also coordinated privately, so contact details are never publicly&nbsp;exposed.</p>
+          </div></div>
         </div>
       </div>
 
-      <!-- TRUST CALLOUT 1 -->
       <div class="faq-callout">
         <div class="faq-callout-inner">
-          <p class="faq-callout-text"><span class="faq-callout-qm">&ldquo;</span>Every helper here carries a trust signal we’ve verified &mdash; a family’s recommendation, or a checkable record of real employment in Singapore. That is the entire&nbsp;point.<span class="faq-callout-qm">&rdquo;</span></p>
+          <p class="faq-callout-text"><span class="faq-callout-qm">&ldquo;</span>Every helper here carries a signal we can point to &mdash; a family&rsquo;s recommendation, an employment record we&rsquo;ve reviewed, or experience we&rsquo;ve assessed directly. That is the entire&nbsp;point.<span class="faq-callout-qm">&rdquo;</span></p>
         </div>
       </div>
 
-      <!-- DIRECT HIRE & TRANSFERS -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ TRANSFERS & HIRING ═══ -->
+<section class="faq-band">
+  <div class="wrap">
+    <div class="faq-inner">
       <div class="faq-section" id="transfers">
         <div class="faq-section-header">
-          <div class="faq-section-icon">
+          <div class="faq-section-icon" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M16 6l4 6-4 6M8 18l-4-6 4-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <h2 class="faq-section-title">Direct Hire &amp; Transfers</h2>
+          <h2 class="faq-section-title">Transfers &amp; Hiring</h2>
         </div>
 
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false">What is a direct hire helper transfer?</button>
-          <div class="faq-a">
-            <p>A direct hire transfer happens when a helper already working in Singapore transfers directly to a new employer instead of returning home and restarting through an agency.</p>
-          </div>
+          <button class="faq-q" type="button" aria-expanded="false">What is a helper transfer?</button>
+          <div class="faq-a"><div>
+            <p>A transfer is when a helper already working in Singapore moves from her current employer to a new employer without first returning home. The new employer applies for her Work&nbsp;Permit as a transfer, and once the new permit is issued, her existing Work&nbsp;Permit is automatically&nbsp;cancelled.</p>
+          </div></div>
         </div>
 
         <div class="faq-item" id="q-legal">
           <button class="faq-q" type="button" aria-expanded="false">
             Is hiring a transfer helper legal in Singapore?
-            <span class="faq-q-hint">Yes — and supported by MOM.</span>
+            <span class="faq-q-hint">Yes &mdash; it is a normal, MOM-recognised route.</span>
           </button>
-          <div class="faq-a">
-            <p>Yes. Transfer hiring is a common MOM-supported process provided all work permit requirements are properly completed.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>Yes. Transfers are a normal, MOM-recognised route, provided the Work&nbsp;Permit requirements are properly completed. Helper&nbsp;Talent handles that process as a licensed employment&nbsp;agency.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            Can I hire a helper who is currently overseas?
+            <span class="faq-q-hint">Yes &mdash; the introduction is the same, the paperwork differs.</span>
+          </button>
+          <div class="faq-a"><div>
+            <p>Yes. Most helpers listed here are currently in Singapore, but some may be overseas &mdash; including helpers between contracts or those applying from their home country. The introduction still starts with a video call so you can meet and decide before&nbsp;proceeding.</p>
+            <p>The paperwork differs. A new Work&nbsp;Permit is applied for rather than transferred, and depending on her home country there may be source-country or embassy requirements to meet as well. That usually makes the timeline longer than a local transfer. Helper&nbsp;Talent handles the employment and Work&nbsp;Permit process either&nbsp;way.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
@@ -590,48 +479,55 @@
             Why are some helpers transferring?
             <span class="faq-q-hint">Most reasons are routine and good for you to know.</span>
           </button>
-          <div class="faq-a">
-            <p>The most common reasons: the previous family is relocating overseas, their children have grown up and no longer need a helper, or an elderly family member they cared for has passed away or moved into a care facility.</p>
-            <p>Each profile on Helper Circle includes the reason for transfer &mdash; reviewed with the referring employer where there is one. We do not list helpers who left a previous role under dispute.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>The most common reasons: the previous family is relocating overseas, their children have grown up and no longer need a helper, or an elderly family member they cared for has passed away or moved into a care&nbsp;facility.</p>
+            <p>Each profile includes the reason for transfer &mdash; reviewed with the referring employer where there is&nbsp;one.</p>
+          </div></div>
         </div>
 
         <div class="faq-item" id="q-experience">
           <button class="faq-q" type="button" aria-expanded="false">
             Do I need prior experience hiring a helper?
-            <span class="faq-q-hint">No — many families using us are first-time employers.</span>
+            <span class="faq-q-hint">No &mdash; many families using us are first-time employers.</span>
           </button>
-          <div class="faq-a">
-            <p>No. Many families using Helper Circle are first-time employers. We guide families through the process step-by-step.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>No. Many families using Helper Circle are first-time employers. We guide families through the process&nbsp;step-by-step.</p>
+          </div></div>
         </div>
 
         <div class="faq-item" id="q-interview">
           <button class="faq-q" type="button" aria-expanded="false">Can I interview the helper first?</button>
-          <div class="faq-a">
-            <p>Yes. Families can request introductions before making any decision. There is no obligation to proceed.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>Yes. You can request an introduction and speak with her before making any decision &mdash; usually on a video call. There is no fee for this and no obligation to&nbsp;proceed.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">How long does the transfer process usually take?</button>
-          <div class="faq-a">
-            <p>Timelines vary depending on availability and documentation, but transfers are often faster than overseas hiring because helpers are already in Singapore.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>Timelines vary depending on availability and documentation, but transfers are often faster than overseas hiring because helpers are already in&nbsp;Singapore.</p>
+          </div></div>
         </div>
       </div>
 
-      <!-- TRUST CALLOUT 2 -->
       <div class="faq-callout">
         <div class="faq-callout-inner">
-          <p class="faq-callout-text"><span class="faq-callout-qm">&ldquo;</span>The best context about a helper comes from the family who lived with her — not a biodata&nbsp;sheet.<span class="faq-callout-qm">&rdquo;</span></p>
+          <p class="faq-callout-text"><span class="faq-callout-qm">&ldquo;</span>The best context about a helper comes from the family who lived with her &mdash; or from a record you can actually&nbsp;check.<span class="faq-callout-qm">&rdquo;</span></p>
         </div>
       </div>
 
-      <!-- PRICING & FEES -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ PRICING & FEES ═══ -->
+<section class="faq-band bg-paper">
+  <div class="wrap">
+    <div class="faq-inner">
       <div class="faq-section" id="pricing">
         <div class="faq-section-header">
-          <div class="faq-section-icon">
+          <div class="faq-section-icon" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 7H9.5a3.5 3.5 0 100 7H14a3.5 3.5 0 110 7H6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <h2 class="faq-section-title">Pricing &amp; Fees</h2>
@@ -639,77 +535,75 @@
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">Is browsing free?</button>
-          <div class="faq-a">
-            <p>Yes. Browsing profiles and requesting introductions are free. You only pay if both parties proceed with administrative support.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>Yes. Browsing profiles, requesting an introduction and interviewing are all free. The S$699 fee is payable only once both sides agree to&nbsp;proceed.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false">What does the admin fee include?</button>
-          <div class="faq-a">
-            <p>The admin fee covers transfer coordination and documentation support such as paperwork coordination, guidance on required documents, and administrative support throughout the transfer process.</p>
-          </div>
+          <button class="faq-q" type="button" aria-expanded="false">
+            What does the S$699 fee cover?
+            <span class="faq-q-hint">One fee, paid by the employer, only if you proceed.</span>
+          </button>
+          <div class="faq-a"><div>
+            <p>Everything from your first enquiry through to completion of the employment process: your requirement review, suitable introductions, interview and feedback coordination, expectation alignment, the service agreement and employment documents, and the Work&nbsp;Permit or transfer&nbsp;process.</p>
+            <p>No fee is charged for browsing or interviewing. It is payable by the hiring employer only, once both sides agree to proceed. Helpers never pay Helper Circle &mdash; no placement fees, no salary deductions, no agency loans. Government and third-party charges are set by those providers and paid directly to&nbsp;them.</p>
+          </div></div>
         </div>
 
         <div class="faq-item" id="q-hidden-fees">
           <button class="faq-q" type="button" aria-expanded="false">
-            What fees are NOT included in the admin fee?
-            <span class="faq-q-hint">Government and insurance costs are billed at cost, not marked up.</span>
+            What costs are not included?
+            <span class="faq-q-hint">Government and third-party costs, charged at cost.</span>
           </button>
-          <div class="faq-a">
-            <p>External government or third-party costs such as MOM permit fees, insurance premiums, medical exams, and security bond requirements are charged separately.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>Government and third-party costs sit outside the S$699 fee. These include MOM Work&nbsp;Permit fees, insurance and any required medical examination. For non-Malaysian helpers, MOM also requires a S$5,000 security bond, normally arranged through a bank or insurer and often packaged with the insurance. We do not mark up these external&nbsp;costs.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">Why are insurance and MOM fees charged separately?</button>
-          <div class="faq-a">
-            <p>These costs vary depending on permit requirements and insurance providers. Separating them keeps pricing transparent and avoids hidden markups.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>These costs vary depending on permit requirements and insurance providers. Separating them keeps pricing transparent and avoids hidden&nbsp;markups.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">Do you charge placement fees?</button>
-          <div class="faq-a">
-            <p>No. Helper Circle does not charge traditional placement fees.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>The S$699 is a one-time service fee paid by the hiring employer after both sides agree to proceed. There is no separate placement fee, and nothing is charged for browsing or&nbsp;interviewing.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">
             Do helpers pay placement loans?
-            <span class="faq-q-hint">No — direct hire removes most of that burden.</span>
+            <span class="faq-q-hint">No &mdash; she arrives owing us nothing.</span>
           </button>
-          <div class="faq-a">
-            <p>In the traditional agency model, helpers often repay several months of salary as a placement loan deducted directly from their pay. Direct hire transfers do not involve this kind of loan, because there is no recruitment agency in the middle.</p>
-            <p>We think this is one of the quietly important reasons direct hire works well for both families and helpers.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false">
-            Is there a token of appreciation for the referring family?
-            <span class="faq-q-hint">A small thank-you, once everything is settled.</span>
-          </button>
-          <div class="faq-a">
-            <p>Yes. As a thank-you to the family who took the time to refer their helper, we offer a modest token of appreciation. It is provided only after the helper has been successfully hired and her new work permit has been issued &mdash; never&nbsp;before.</p>
-            <p>The referring family chooses how it is given: passed forward to the helper, donated to a good cause, or kept as a small thank-you for&nbsp;themselves.</p>
-            <p>It is a gesture of thanks, not a payment for referring. We keep it modest on purpose &mdash; a referral should come from wanting a good helper to land well, not from any&nbsp;incentive.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>No. Helper Circle does not charge helpers placement fees, deduct their salary or put them into agency loans. The S$699 service fee is paid by the hiring employer. If a helper is coming from overseas, any recruitment and employment arrangements are handled through the appropriate licensed channels without charging her a Helper Circle placement fee or deducting our fee from her&nbsp;salary.</p>
+          </div></div>
         </div>
       </div>
 
-      <!-- TRUST CALLOUT 3 -->
       <div class="faq-callout">
         <div class="faq-callout-inner">
-          <p class="faq-callout-text"><span class="faq-callout-qm">&ldquo;</span>No placement fees. No salary deductions. Just a clearer path between a good helper and a good&nbsp;family.<span class="faq-callout-qm">&rdquo;</span></p>
+          <p class="faq-callout-text"><span class="faq-callout-qm">&ldquo;</span>Helpers never pay us. No salary deductions, no loans &mdash; just a clearer path between a good helper and a good&nbsp;family.<span class="faq-callout-qm">&rdquo;</span></p>
         </div>
       </div>
 
-      <!-- VERIFICATION & SAFETY -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ VERIFICATION & SAFETY ═══ -->
+<section class="faq-band">
+  <div class="wrap">
+    <div class="faq-inner">
       <div class="faq-section" id="verification">
         <div class="faq-section-header">
-          <div class="faq-section-icon">
+          <div class="faq-section-icon" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 5-3.5 8.5-8 9.5-4.5-1-8-4.5-8-9.5V7l8-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5L15.5 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <h2 class="faq-section-title">Verification &amp; Safety</h2>
@@ -717,101 +611,114 @@
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">
-            What do the trust signals mean?
-            <span class="faq-q-hint">Three ways we establish trust.</span>
+            How does Helper Circle decide which helpers to list?
+            <span class="faq-q-hint">Four signals, each with a different basis.</span>
           </button>
-          <div class="faq-a">
-            <p><strong>Employer Recommended</strong> means a current or former employer has personally vouched for her, and we’ve confirmed that recommendation with them directly. This is our strongest signal.</p>
-            <p><strong>Long-Term Employment</strong> means she has stayed with one family for many years &mdash; something we’ve checked against official MOM employment records. There is no personal recommendation attached, but her record speaks for itself.</p>
-            <p><strong>Completed Contract</strong> means she has completed employment in Singapore &mdash; a record we’ve reviewed before listing her. It is a factual signal of employment stability, and does not by itself mean a former employer has personally recommended her.</p>
-            <p>Every profile carries one of these, shown clearly as a badge.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>Every listed helper carries at least one clear trust&nbsp;signal:</p>
+            <p><strong>Employer Recommended</strong> &mdash; a current or former employer recommends her, and Helper Circle confirms this with&nbsp;them.<br>
+               <strong>Long-Term Employment</strong> &mdash; several years with one family, supported by employment records reviewed by Helper&nbsp;Circle.<br>
+               <strong>Completed Contracts</strong> &mdash; a record of completed employment in Singapore, reviewed before&nbsp;listing.<br>
+               <strong>Helper Circle Assessed</strong> &mdash; her work history and experience have been reviewed directly by Helper Circle before&nbsp;listing.</p>
+            <p>These signals come from different sources and are not meant to imply that every helper has been personally recommended by a previous&nbsp;employer.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            What do the trust signals mean?
+            <span class="faq-q-hint">And, just as usefully, what each one does not mean.</span>
+          </button>
+          <div class="faq-a"><div>
+            <p><strong>Employer Recommended</strong> is our strongest signal: a family who employed her has vouched for her, and we have confirmed that with them directly. You get their words, not&nbsp;ours.</p>
+            <p><strong>Long-Term Employment</strong> means she stayed with one family for several years, supported by employment records reviewed by Helper Circle. No one has personally recommended her &mdash; her record is the&nbsp;point.</p>
+            <p><strong>Completed Contracts</strong> means she has completed employment in Singapore and we reviewed that record before listing her. It shows stability, not&nbsp;endorsement.</p>
+            <p><strong>Helper Circle Assessed</strong> means we reviewed her work history and experience ourselves before listing her. There is no previous employer speaking for&nbsp;her.</p>
+            <p>Every profile shows exactly one badge, so you always know which of these you are looking&nbsp;at.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">How are helpers verified?</button>
-          <div class="faq-a">
-            <p>Every helper carries one of three verified trust signals. For an <strong>Employer Recommended</strong> helper, we confirm the recommendation directly with the referring employer. For a <strong>Long-Term Employment</strong> helper, we confirm the length of her employment against official MOM records. For a <strong>Completed Contract</strong> helper, we review her Singapore employment history and the circumstances of each completed contract. In every case, we review the profile, employment history, and transfer circumstances before it goes&nbsp;live.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>Before a profile goes live, we review the information and records relevant to the trust signal shown on her profile. Where there is a referring employer, we speak with them directly rather than relying only on a written reference. If we cannot sufficiently support the trust signal being shown, we do not publish that signal or list the profile on that&nbsp;basis.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">
-            What does &ldquo;Completed Contract&rdquo; mean?
+            What does &ldquo;Completed Contracts&rdquo; mean?
             <span class="faq-q-hint">A reviewed record of completed employment.</span>
           </button>
-          <div class="faq-a">
-            <p>It means we’ve reviewed her Singapore employment history and found a record of completed employment. It is a factual signal of stability. It does not by itself mean a former employer has personally recommended her.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>It means we&rsquo;ve reviewed her Singapore employment history and found a record of completed employment. It is a factual signal of stability. It does not by itself mean a former employer has personally recommended&nbsp;her.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">
-            Is a Completed Contract helper employer-recommended?
-            <span class="faq-q-hint">Not necessarily — they are separate signals.</span>
+            Does &ldquo;Completed Contracts&rdquo; mean the helper is employer-recommended?
+            <span class="faq-q-hint">Not necessarily &mdash; they are separate signals.</span>
           </button>
-          <div class="faq-a">
-            <p>Not always. Employer Recommended and Completed Contract are separate trust signals. Where a helper is both recommended and has completed contracts, her profile shows the stronger signal, Employer Recommended.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>Not always. Employer Recommended and Completed Contracts are separate trust signals. Where a helper is both recommended and has completed contracts, her profile shows the stronger signal, Employer&nbsp;Recommended.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">
             Does a badge guarantee the helper will be suitable?
-            <span class="faq-q-hint">No — please still interview carefully.</span>
+            <span class="faq-q-hint">No &mdash; please still interview carefully.</span>
           </button>
-          <div class="faq-a">
-            <p>No. The badges give you factual context about a helper’s employment history or the recommendation behind her. Every family should still interview the helper, discuss expectations openly, and decide whether she is the right fit for their&nbsp;home.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false">
-            What does &ldquo;Referral verified&rdquo; mean?
-            <span class="faq-q-hint">We spoke directly to the referrer.</span>
-          </button>
-          <div class="faq-a">
-            <p>It means we personally verified the referral source before listing the profile.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>No. The badges give you factual context about a helper&rsquo;s employment history or the recommendation behind her. Every family should still interview the helper, discuss expectations openly, and decide whether she is the right fit for their&nbsp;home.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">
             Can I speak to the previous employer?
-            <span class="faq-q-hint">Yes — if both sides agree.</span>
+            <span class="faq-q-hint">Where there is one, usually yes.</span>
           </button>
-          <div class="faq-a">
-            <p>In most cases, yes. After an introduction is arranged and both sides feel the helper may be a good match, we ask the referring employer if they are open to a brief conversation with you.</p>
-            <p>Some referrers prefer to remain private and respond in writing instead. We respect that. Either way, the goal is for you to have honest context before deciding.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>Where a helper is Employer Recommended, usually yes. Once an introduction is arranged and both sides feel it may be a good match, we ask the referring employer whether they are open to a short conversation with you. Some prefer to answer in writing instead, and we respect&nbsp;that.</p>
+            <p>The other trust signals do not necessarily come with a referring employer. Where there isn&rsquo;t one, the employment record or assessment behind the profile is what you are working from, and we&rsquo;ll tell you what we&nbsp;reviewed.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">Are helper contact details publicly shown?</button>
-          <div class="faq-a">
-            <p>No. Contact details are never publicly displayed.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>No. Contact details are never publicly&nbsp;displayed.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">Can previous employers remain private?</button>
-          <div class="faq-a">
-            <p>Yes. We never publicly display full employer identities or personal contact information.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>Yes. We never publicly display full employer identities or personal contact&nbsp;information.</p>
+          </div></div>
         </div>
       </div>
 
-      <!-- TRUST CALLOUT 4 -->
       <div class="faq-callout">
         <div class="faq-callout-inner">
           <p class="faq-callout-text"><span class="faq-callout-qm">&ldquo;</span>Privacy on both sides is the default. Curated does not mean&nbsp;exposed.<span class="faq-callout-qm">&rdquo;</span></p>
         </div>
       </div>
 
-      <!-- PROCESS & LOGISTICS -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ PROCESS & LOGISTICS ═══ -->
+<section class="faq-band bg-paper">
+  <div class="wrap">
+    <div class="faq-inner">
       <div class="faq-section" id="process">
         <div class="faq-section-header">
-          <div class="faq-section-icon">
+          <div class="faq-section-icon" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <h2 class="faq-section-title">Process &amp; Logistics</h2>
@@ -819,60 +726,81 @@
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">What happens after I request an introduction?</button>
-          <div class="faq-a">
-            <p>We coordinate the introduction and confirm mutual interest before further contact details are shared.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>We check she is still available and confirm interest on both sides, then arrange a video call. Contact details are only shared once both of you want to take it&nbsp;further.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            What happens once both sides agree?
+            <span class="faq-q-hint">Who does what, from agreement to permit.</span>
+          </button>
+          <div class="faq-a"><div>
+            <p>We confirm the terms both sides agreed to, then Helper&nbsp;Talent takes over the regulated part as your licensed employment agency: the service agreement and employment documents, the Work&nbsp;Permit application or transfer, and the MOM steps that go with it. You will know at each stage what has been submitted and what is&nbsp;outstanding.</p>
+            <p>Helper Circle stays alongside you throughout &mdash; Helper Circle coordinates the experience for you, while Helper&nbsp;Talent handles the regulated employment and Work&nbsp;Permit&nbsp;process.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">What if we decide not to proceed?</button>
-          <div class="faq-a">
-            <p>That's completely fine. There is no obligation after interviews or introductions.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>That&rsquo;s completely fine. There is no obligation after interviews or&nbsp;introductions.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false">Can helpers still be available while I'm deciding?</button>
-          <div class="faq-a">
-            <p>Yes. Availability may change if helpers are speaking with multiple interested families.</p>
-          </div>
+          <button class="faq-q" type="button" aria-expanded="false">Can helpers still be available while I&rsquo;m deciding?</button>
+          <div class="faq-a"><div>
+            <p>Yes. Availability may change if helpers are speaking with multiple interested&nbsp;families.</p>
+          </div></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">What if I need help understanding the process?</button>
-          <div class="faq-a">
-            <p>We are happy to guide first-time employers through the process in plain language.</p>
-          </div>
+          <div class="faq-a"><div>
+            <p>We are happy to guide first-time employers through the process in plain&nbsp;language.</p>
+          </div></div>
         </div>
       </div>
 
+      <figure class="faq-quote">
+        <div class="faq-quote-inner">
+          <blockquote>&ldquo;I found the Zoom meeting organised by Helper Circle very useful: the helper, the current employer and the future employer all get to meet and chat on one call, speak out our concerns, and check that all the criteria and areas of concern are met before both parties&nbsp;commit.&rdquo;</blockquote>
+          <figcaption><span class="faq-quote-av" aria-hidden="true">S</span><span><b>Sheila</b>Referring employer</span></figcaption>
+        </div>
+      </figure>
+
     </div>
   </div>
 </section>
 
-<!-- ═══ BOTTOM CTA ═══ -->
-<section class="faq-cta">
+
+<!-- ═══ CLOSING CTA ═══ -->
+<section class="closing">
   <div class="wrap">
-    <div class="faq-cta-inner">
-      <div class="kicker">Still have questions?</div>
-      <h2>Still unsure about direct&nbsp;hiring?</h2>
-      <p>We're happy to guide first-time employers through the&nbsp;process.</p>
-      <div class="faq-cta-actions">
-        <a href="browse.html" class="btn btn-green btn-lg">Meet Helpers</a>
-        <a href="mailto:hello@helpercircle.sg" class="btn btn-outline btn-lg">Contact Us</a>
-      </div>
-      <p class="faq-cta-trust">No placement fees<span class="faq-cta-trust-dot">·</span>No pressure</p>
+    <div class="kicker on-ink">Still have questions?</div>
+    <h2>Still deciding?</h2>
+    <p>We&rsquo;re happy to walk first-time employers through it, in plain&nbsp;language.</p>
+    <div class="closing-actions">
+      <a href="browse.html" class="btn btn-primary btn-lg">Meet helpers</a>
+      <a href="mailto:hello@helpercircle.sg" class="btn btn-ghost btn-lg">Contact us</a>
     </div>
+    <p class="closing-trust">Helpers never pay<span aria-hidden="true">&middot;</span>No obligation</p>
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
+</main>
+
+
+<!-- ═══ FOOTER (production content, V19 licence treatment) ═══ -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-inner">
 
       <p class="footer-heart">
-        Helper Circle helps Singapore families pass along helpers they trust.
+        Started by a Singapore family<br>
+        who knew there had to be a better&nbsp;way.
       </p>
 
       <nav class="footer-nav" aria-label="Footer">
@@ -887,9 +815,11 @@
         <a href="faq.html">FAQ</a>
         <span class="footer-nav-sep">·</span>
         <a href="mailto:hello@helpercircle.sg">Contact</a>
+        <span class="footer-nav-sep">·</span>
+        <a href="feedback.html">Share Feedback</a>
       </nav>
 
-            <p class="footer-aside">
+      <p class="footer-aside">
         <a href="for-families.html">For families saying goodbye to a helper &rarr;</a>
       </p>
 
@@ -899,99 +829,122 @@
         <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>
       </div>
 
+      <div class="foot-licence">
+        <span>Helper Talent · UEN 53518791B</span>
+        <span>Licensed Employment Agency</span>
+        <span>EA Licence No. 26C3645</span>
+      </div>
+
+      <p class="foot-legal">Helper Circle is the customer-facing brand. Regulated employment and Work&nbsp;Permit services are provided by <strong>Helper&nbsp;Talent</strong> (UEN&nbsp;53518791B), a licensed employment agency &mdash; EA&nbsp;Licence No.&nbsp;26C3645.</p>
+
     </div>
   </div>
 </footer>
 
 <script src="script.js"></script>
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('year').textContent = new Date().getFullYear();
 
-  // ── Accordion toggle ─────────────────────────
-  document.querySelectorAll('.faq-q').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var item = btn.closest('.faq-item');
-      var isOpen = item.classList.contains('is-open');
-      if (isOpen) {
-        item.classList.remove('is-open');
-        btn.setAttribute('aria-expanded', 'false');
-      } else {
-        item.classList.add('is-open');
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-
-  // ── Smooth scroll for section nav ────────────
-  document.querySelectorAll('.faq-nav a').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      var target = document.querySelector(link.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-      var offset = target.getBoundingClientRect().top + window.scrollY - 110;
-      window.scrollTo({ top: offset, behavior: 'smooth' });
-    });
-  });
-
-  // ── "Most asked" cards: scroll + open target ──
-  document.querySelectorAll('.faq-spotlight-card').forEach(function(card) {
-    card.addEventListener('click', function() {
-      var id = card.getAttribute('data-target');
-      var item = document.getElementById(id);
-      if (!item) return;
-      // Open the item
-      if (!item.classList.contains('is-open')) {
-        item.classList.add('is-open');
-        var btn = item.querySelector('.faq-q');
-        if (btn) btn.setAttribute('aria-expanded', 'true');
-      }
-      // Scroll to it
-      var offset = item.getBoundingClientRect().top + window.scrollY - 130;
-      window.scrollTo({ top: offset, behavior: 'smooth' });
-    });
-  });
-
-  // ── Open accordion item if URL has hash ──────
-  if (window.location.hash) {
-    var sec = document.querySelector(window.location.hash);
-    if (sec && sec.classList.contains('faq-section')) {
-      setTimeout(function() {
-        var offset = sec.getBoundingClientRect().top + window.scrollY - 110;
-        window.scrollTo({ top: offset, behavior: 'smooth' });
-      }, 100);
-    }
+// ── Accordion ─────────────────────────────────────────────
+// max-height is set from scrollHeight rather than a fixed cap, so long
+// answers (the four-signal one especially) can never be clipped.
+(function () {
+  function setOpen(item, open) {
+    var btn = item.querySelector('.faq-q');
+    var panel = item.querySelector('.faq-a');
+    item.classList.toggle('is-open', open);
+    if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (panel) panel.style.maxHeight = open ? (panel.scrollHeight + 'px') : '0px';
   }
+  document.querySelectorAll('.faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      setOpen(item, !item.classList.contains('is-open'));
+    });
+  });
+  // Keep open panels correctly sized if the text reflows on resize.
+  window.addEventListener('resize', function () {
+    document.querySelectorAll('.faq-item.is-open .faq-a').forEach(function (p) {
+      p.style.maxHeight = p.scrollHeight + 'px';
+    });
+  });
+  window.hcOpenFaq = function (item) { if (item) setOpen(item, true); };
+})();
 
-  // ── Sticky nav state + scroll-spy ────────────
-  (function() {
-    var navWrap = document.getElementById('faq-nav-wrap');
-    var navLinks = document.querySelectorAll('#faq-nav a');
-    var sections = Array.from(navLinks).map(function(link) {
-      var id = link.getAttribute('href').slice(1);
-      return { id: id, el: document.getElementById(id), link: link };
-    }).filter(function(s) { return s.el; });
+// ── Offset used by every programmatic scroll ───────────────
+function faqScrollOffset() {
+  var nav = document.getElementById('faq-nav-wrap');
+  return 68 + (nav ? nav.offsetHeight : 60) + 16;
+}
 
-    function onScroll() {
-      // Sticky shadow when scrolled past hero
-      if (window.scrollY > 60) {
-        navWrap.classList.add('is-stuck');
-      } else {
-        navWrap.classList.remove('is-stuck');
-      }
+// ── Section nav ───────────────────────────────────────────
+document.querySelectorAll('.faq-nav a').forEach(function (link) {
+  link.addEventListener('click', function (e) {
+    var target = document.querySelector(link.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    window.scrollTo({
+      top: target.getBoundingClientRect().top + window.scrollY - faqScrollOffset(),
+      behavior: 'smooth'
+    });
+  });
+});
 
-      // Active section — pick the section whose top is just above the nav line
-      var threshold = window.scrollY + 160;
-      var current = sections[0];
-      for (var i = 0; i < sections.length; i++) {
-        if (sections[i].el.offsetTop <= threshold) current = sections[i];
-      }
-      navLinks.forEach(function(l) { l.classList.remove('is-active'); });
-      if (current) current.link.classList.add('is-active');
-    }
+// ── "Start here" cards: open the target and scroll to it ───
+document.querySelectorAll('.faq-spotlight-card').forEach(function (card) {
+  card.addEventListener('click', function () {
+    var item = document.getElementById(card.getAttribute('data-target'));
+    if (!item) return;
+    window.hcOpenFaq(item);
+    window.scrollTo({
+      top: item.getBoundingClientRect().top + window.scrollY - faqScrollOffset(),
+      behavior: 'smooth'
+    });
+  });
+});
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  })();
+// ── Deep links: #section, or #q-… to open a single answer ──
+if (window.location.hash) {
+  var el = document.querySelector(window.location.hash);
+  if (el) {
+    if (el.classList.contains('faq-item')) window.hcOpenFaq(el);
+    setTimeout(function () {
+      window.scrollTo({
+        top: el.getBoundingClientRect().top + window.scrollY - faqScrollOffset(),
+        behavior: 'smooth'
+      });
+    }, 100);
+  }
+}
+
+// ── Sticky state + scroll-spy ─────────────────────────────
+(function () {
+  var navWrap = document.getElementById('faq-nav-wrap');
+  var navLinks = document.querySelectorAll('#faq-nav a');
+  var sections = Array.prototype.map.call(navLinks, function (link) {
+    return { el: document.getElementById(link.getAttribute('href').slice(1)), link: link };
+  }).filter(function (s) { return s.el; });
+  if (!navWrap || !sections.length) return;
+
+  var active = null;
+  function onScroll() {
+    navWrap.classList.toggle('is-stuck', window.scrollY > 60);
+    var threshold = window.scrollY + faqScrollOffset() + 40;
+    var current = sections[0];
+    sections.forEach(function (s) {
+      if (s.el.getBoundingClientRect().top + window.scrollY <= threshold) current = s;
+    });
+    // Only touch classes when the section actually changes — otherwise the
+    // pill's colour transition restarts on every scroll event and flickers.
+    if (current === active) return;
+    if (active) active.link.classList.remove('is-active');
+    if (current) current.link.classList.add('is-active');
+    active = current;
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
 </script>
 </body>
 </html>

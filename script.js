@@ -294,18 +294,13 @@ if (refBanner && refChips.length) {
 
   function panelHtml(h) {
     var placed = (h.status === "placed");
-    var name = esc(h.name || "This helper");
-    var heading = placed ? (name + " has joined a new family.") : (name + " is no longer available.");
-    var sub = placed
-      ? "This profile is kept up as a record. She is no longer available to hire, but we introduce new helpers regularly."
-      : "This profile is no longer taking enquiries. We introduce new helpers regularly.";
-    if (h.statusLabel) sub = h.statusLabel + ". " + sub;
+    var heading = placed ? "Recently joined a new family" : "Currently unavailable";
+    var sub = placed ? "She is no longer available for introductions." : "";
 
     return (
       '<div class="profile-ask-inner">' +
-        '<span class="profile-ask-kicker">Update</span>' +
         '<h2 class="profile-ask-h">' + heading + "</h2>" +
-        '<p class="profile-ask-sub">' + sub + "</p>" +
+        (sub ? '<p class="profile-ask-sub">' + sub + "</p>" : "") +
         '<a href="browse.html" class="btn btn-green">Browse available helpers</a>' +
       "</div>"
     );

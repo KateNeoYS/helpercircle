@@ -394,8 +394,9 @@
   7. Availability is automatic: the enquiry form + hero CTA show only while this
      helper's status is "available" in helpers-data.js. When you change her status
      to "placed" (joined) or "hidden", the page swaps to a status notice + a
-     "Browse available helpers" button on its own. Do NOT hand-edit the CTA here,
-     and keep the <script src="helpers-data.js"> availability-gate block at the end.
+     "Browse available helpers" button on its own. Do NOT hand-edit the CTA here.
+     The availability gate lives in script.js (loaded on every profile) — no gate
+     code is needed on this page.
 
   Notes carried over from build:
   • Hero top padding is 104px desktop / 96px mobile — clears the 68px fixed
@@ -671,41 +672,9 @@
   </div>
 </footer>
 
-<!-- Availability-state gate — data-driven from helpers-data.js (status field).
-     If this helper is not "available", the enquiry form and hero CTA are removed
-     and a non-interactive status panel + general Browse CTA is shown instead.
-     Works automatically for every profile; no per-page editing when status changes. -->
-<script src="helpers-data.js"></script>
-<script>
-(function () {
-  var file = (location.pathname.split('/').pop() || '').toLowerCase();
-  var list = window.HELPERS || [];
-  var helper = null;
-  for (var i = 0; i < list.length; i++) {
-    if (((list[i].profile || '').toLowerCase()) === file) { helper = list[i]; break; }
-  }
-  if (!helper || helper.status === 'available') return;  // available (or not in data) → leave enquiry as-is
-
-  var joined = helper.status === 'placed';
-  var title = joined ? 'Recently joined a new family' : 'No longer available';
-  var sub = joined
-    ? 'She is no longer available for introductions.'
-    : 'This helper is no longer available for introductions.';
-
-  var heroCta = document.querySelector('.profile-hero-cta');
-  if (heroCta) heroCta.innerHTML = '<a href="browse.html" class="btn btn-green">Browse available helpers</a>';
-
-  var ask = document.getElementById('ask');
-  if (ask) {
-    var inner = ask.querySelector('.profile-ask-inner') || ask;
-    inner.innerHTML =
-      '<span class="profile-ask-kicker">Update</span>' +
-      '<h2 class="profile-ask-h">' + title + '</h2>' +
-      '<p class="profile-ask-sub">' + sub + '</p>' +
-      '<a href="browse.html" class="btn btn-green">Browse available helpers</a>';
-  }
-})();
-</script>
+<!-- Availability gate is handled centrally in script.js (loaded below): it reads
+     each helper's status from helpers-data.js and swaps the enquiry for a status
+     panel when status is not "available". No per-page gate code needed. -->
 
 <!-- Formspree AJAX submission -->
 <script>

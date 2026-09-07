@@ -130,7 +130,7 @@ window.HELPERS = [
     status: "hidden",
     statusLabel: "Available soon",
     line: "Long-term carer &middot; Elderly care, childcare &amp; cooking",
-    summary: "Ten years with one Singapore family, confirmed against MOM records &mdash; a warm, versatile carer, strong in elderly care, childcare and&nbsp;cooking.",
+    summary: "Ten years with one Singapore family, supported by employment records we reviewed &mdash; a warm, versatile carer, strong in elderly care, childcare and&nbsp;cooking.",
     referredBy: "",
     signal: "verified",
     verifiedYears: 10,
@@ -226,7 +226,7 @@ window.HELPERS = [
     statusLabel: "Available from late November&nbsp;2026",
     availFrom: "2026-11-24",
     line: "Filipino &middot; 34 &middot; Household, cooking &amp; childcare",
-    summary: "Ten years with one Singapore family, confirmed against MOM records &mdash; raised their two children from infancy, culinary-trained, and wonderful with dogs.",
+    summary: "Ten years with one Singapore family, supported by employment records we reviewed &mdash; raised their two children from infancy, culinary-trained, and wonderful with dogs.",
     referredBy: "",
     signal: "verified",
     verifiedYears: 10,
@@ -650,7 +650,7 @@ window.HELPERS = [
     status: "placed",
     statusLabel: "Joined a new family &middot; 11 Sep&nbsp;2026",
     line: "Indonesian &middot; 41 &middot; Infants, children &amp; elderly care",
-    summary: "Seven years with one Singapore family, confirmed against MOM records &mdash; she took over their children at seven and eighteen months old and was still there when they reached&nbsp;school.",
+    summary: "Seven years with one Singapore family, supported by employment records we reviewed &mdash; she took over their children at seven and eighteen months old and was still there when they reached&nbsp;school.",
     referredBy: "",
     matchedSeq: 16,
     signal: "verified",
@@ -722,7 +722,7 @@ window.HELPERS = [
     status: "hidden",
     statusLabel: "Available from end September&nbsp;2026",
     line: "Indonesian &middot; 37 &middot; Childcare, elderly care &amp; cooking",
-    summary: "Five years with one Singapore family, confirmed against MOM records &mdash; thirteen years here in all, with newborns at one end of the house and an elderly grandparent at the&nbsp;other.",
+    summary: "Five years with one Singapore family, supported by employment records we reviewed &mdash; thirteen years here in all, with newborns at one end of the house and an elderly grandparent at the&nbsp;other.",
     referredBy: "",
     signal: "verified",
     verifiedYears: 5,
@@ -844,7 +844,7 @@ window.HELPERS = [
     statusLabel: "Joined a new family &middot; 21 Sep&nbsp;2026",
     matchedSeq: 18,    // match order, higher = more recent (shows leftmost)
     line: "Filipino &middot; 36 &middot; Childcare, elderly care &amp; cooking",
-    summary: "Three years with one Singapore family across two contracts, confirmed against MOM records &mdash; and top of her nursing aide class, studied on her days off while working full&nbsp;time.",
+    summary: "Three years with one Singapore family across two contracts, supported by employment records we reviewed &mdash; and top of her nursing aide class, studied on her days off while working full&nbsp;time.",
     referredBy: "Referred by her employer of 3&nbsp;years",
     signal: "referred",
     renewals: 1,
@@ -868,7 +868,7 @@ window.HELPERS = [
     status: "hidden",
     statusLabel: "Available now (in Indonesia)",
     line: "Indonesian &middot; 42 &middot; Elderly care, dementia &amp; stroke support",
-    summary: "Four years with one Singapore family, confirmed against MOM records &mdash; an experienced elderly-care specialist with dementia and stroke&nbsp;experience.",
+    summary: "Four years with one Singapore family, supported by employment records we reviewed &mdash; an experienced elderly-care specialist with dementia and stroke&nbsp;experience.",
     referredBy: "",
     signal: "verified",
     verifiedYears: 4,
@@ -1126,7 +1126,7 @@ window.HELPERS = [
     status: "hidden",
     statusLabel: "Available now",
     line: "Indonesian &middot; 38 &middot; Housekeeping &amp; elderly&nbsp;support",
-    summary: "Ten years with one Singapore family, confirmed against MOM records &mdash; a housekeeping-focused helper used to running a busy landed&nbsp;home.",
+    summary: "Ten years with one Singapore family, supported by employment records we reviewed &mdash; a housekeeping-focused helper used to running a busy landed&nbsp;home.",
     referredBy: "",
     signal: "verified",
     verifiedYears: 10,
@@ -1149,7 +1149,7 @@ window.HELPERS = [
     status: "hidden",
     statusLabel: "Available mid-July&nbsp;2026",
     line: "Myanmar &middot; 41 &middot; Elderly care, cooking &amp; housekeeping",
-    summary: "Six years with one Singapore family within thirteen years here, confirmed against MOM records &mdash; experienced in elderly care and running a home&nbsp;independently.",
+    summary: "Six years with one Singapore family within thirteen years here, supported by employment records we reviewed &mdash; experienced in elderly care and running a home&nbsp;independently.",
     referredBy: "",
     signal: "verified",
     verifiedYears: 6,
@@ -1312,7 +1312,7 @@ window.HELPERS = [
     statusLabel: "Available end October&nbsp;2026",
     availFrom: "2026-10-31",
     line: "Filipino &middot; 41 &middot; Chinese home cooking &amp;&nbsp;household",
-    summary: "Nearly six years with one family and eight years in Singapore, confirmed against MOM records &mdash; and everyday Chinese cooking she does properly, most&nbsp;nights.",
+    summary: "Nearly six years with one family and eight years in Singapore, supported by employment records we reviewed &mdash; and everyday Chinese cooking she does properly, most&nbsp;nights.",
     referredBy: "",
     signal: "verified",
     verifiedYears: 6,
@@ -1569,7 +1569,7 @@ window.HELPERS = [
     status: "hidden",
     statusLabel: "Available &middot; fresh Work Permit (overseas)",
     line: "Indonesian &middot; 49 &middot; Elderly &amp; medical&nbsp;care",
-    summary: "Fifteen years across two Singapore families, confirmed against MOM records &mdash; deep stroke, dementia, diabetes and bedridden-care experience, with fluent English and some&nbsp;Mandarin.",
+    summary: "Fifteen years across two Singapore families, supported by employment records we reviewed &mdash; deep stroke, dementia, diabetes and bedridden-care experience, with fluent English and some&nbsp;Mandarin.",
     referredBy: "",
     signal: "verified",
     verifiedSub: "15 years across two employers",
@@ -1850,10 +1850,21 @@ window.HELPERS = [
   function sortByAvail(list) {
     return list.slice().sort(function (a, b) { return availSortKey(a) - availSortKey(b); });
   }
-  // Home-page photo badge: colour encodes the trust signal (sage / blue / terracotta / gold).
+  /* Home-page photo badge (V19 .h-card treatment): a solid pill pinned to the
+     bottom-left of the photo. Colour encodes the trust signal; the emoji glyph
+     and the label are the SAME ones the browse cards and profile pages use, so
+     the badge reads identically everywhere.
+       signalInfo css key  →  V19 badge class
+       ref     (sage)      →  badge-rec
+       ver     (blue)      →  badge-ver
+       cc      (terracotta)→  badge-done
+       assess  (gold/sand) →  badge-assess
+       neutral (grey)      →  badge-neutral  (unrecognised/missing signal) */
+  var HOME_BADGE_CSS = { ref: "rec", ver: "ver", cc: "done", assess: "assess", neutral: "neutral" };
   function homeBadge(h) {
     var info = signalInfo(h);
-    return '<span class="hc-badge hc-badge--' + info.css + '">' +
+    var cls = HOME_BADGE_CSS[info.css] || "neutral";
+    return '<span class="badge badge-' + cls + '">' +
            (info.emoji ? '<span class="tsig-mark" aria-hidden="true">' + info.emoji + '</span> ' : '') +
            info.label + '</span>';
   }
@@ -1863,9 +1874,8 @@ window.HELPERS = [
      "Introduced one at a time" pointer. When none are available, hide the grid
      section and reveal the pointer as the empty state. ── */
   function renderHome(grid) {
-    var section = document.getElementById("helpers");   // the .avail section
+    var section = document.getElementById("helpers");   // the available-helpers section
     var pointer = document.getElementById("meet-circle"); // the empty-state pointer
-    var accents = ["sage", "peach", "amber"];
     var list = sortByAvail(H.filter(function (h) { return h.status === "available"; })).slice(0, 3);
 
     if (!list.length) {
@@ -1877,49 +1887,43 @@ window.HELPERS = [
     if (section) section.style.display = "";
     if (pointer) pointer.style.display = "none";
 
-    grid.innerHTML = list.map(function (h, i) {
-      var accent = accents[i % accents.length];
-      // key strengths = skills only (drop the "X years in SG" chip), max 2
-      var keyStrengths = h.strengths.filter(function (s) {
-        return !/year/i.test(s);
-      }).slice(0, 2);
-      var chips = keyStrengths.map(function (s) {
-        return '<span class="hc-chip">' + s + "</span>";
+    grid.innerHTML = list.map(function (h) {
+      // Up to three strength chips (V19 .h-facts row).
+      var facts = (h.strengths || []).slice(0, 3).map(function (s) {
+        return "<li>" + s + "</li>";
       }).join("");
 
-      var natline = h.nationality;
-      var expRow = h.yearsSG
-        ? '<div class="hc-row"><span class="hc-k">Experience</span>' +
-            '<span class="hc-v">' + h.yearsSG + ' in Singapore</span></div>'
-        : "";
+      // "Filipino &middot; Available now" \u2014 nationality is optional in the data.
+      var availLine = [h.nationality, h.statusLabel].filter(function (v) {
+        return v && String(v).trim();
+      }).join(" &middot; ");
+
+      // Monogram sits behind the photo and shows through if the image 404s.
+      var mono = plain(fullName(h)).trim().charAt(0).toUpperCase();
+      var name = fullName(h);
 
       return (
-        '<a class="hc-card hc-card--' + accent + '" href="' + h.profile +
-        '" aria-label="View ' + plain(h.name) + '\u2019s profile">' +
-          '<div class="hc-media">' +
-            '<img src="' + h.photo + '" alt="" loading="lazy"/>' +
+        '<article class="h-card">' +
+          '<div class="h-photo">' +
+            '<div class="h-mono" aria-hidden="true">' + mono + '</div>' +
+            '<img src="' + h.photo + '" alt="" loading="lazy" onerror="this.remove()"/>' +
             homeBadge(h) +
-            '<div class="hc-namebar">' +
-              '<span class="hc-name">' + fullName(h) + '</span>' +
-              '<span class="hc-natline">' + natline + '</span>' +
+          '</div>' +
+          '<div class="h-body">' +
+            '<div class="h-name">' + name + '</div>' +
+            '<p class="h-vp">' + h.summary + '</p>' +
+            (facts ? '<ul class="h-facts">' + facts + '</ul>' : '') +
+            '<div class="h-foot">' +
+              (availLine ? '<span class="h-avail">' + availLine + '</span>' : '') +
+              '<a class="txtlink" href="' + h.profile +
+                '" aria-label="View ' + plain(name) + '\u2019s profile">View <span aria-hidden="true">&rarr;</span></a>' +
             '</div>' +
           '</div>' +
-          '<div class="hc-body">' +
-            '<p class="hc-status"><span class="hc-dot" aria-hidden="true"></span>' + h.statusLabel + '</p>' +
-            '<div class="hc-snap">' +
-              '<div class="hc-row"><span class="hc-k">Best fit</span>' +
-                '<span class="hc-v">' + h.bestFit + '</span></div>' +
-              '<div class="hc-row"><span class="hc-k">Strengths</span>' +
-                '<span class="hc-v hc-chips">' + chips + '</span></div>' +
-              expRow +
-            '</div>' +
-            '<span class="hc-cta">View profile &rarr;</span>' +
-          '</div>' +
-        "</a>"
+        '</article>'
       );
     }).join("");
 
-    buildDots(grid);
+    buildDots(grid, ".h-card");
   }
 
   /* ── Swipe tracker dots for the mobile carousel ── */
@@ -1987,13 +1991,16 @@ window.HELPERS = [
     var trustLine = (key === "referred" && h.referredBy) ? h.referredBy : signalSub(h);
 
     // Supporting proof line: an employer's own words (referred), or the quiet
-    // MOM record (verified). Completed / assessed make no such claim.
+    // employment-record line (verified). Completed / assessed make no such claim.
+    // Wording note: we do not claim to obtain or validate the official MOM
+    // record ourselves, so this says "reviewed by Helper Circle". Keep this
+    // phrasing in step with the homepage trust card and the FAQ.
     var recBlock = "";
     if (key === "referred" && h.quote) {
       recBlock = '          <blockquote class="mcard-quote">' + h.quote +
                  (h.quoteCite ? '<cite>' + h.quoteCite + '</cite>' : '') + '</blockquote>\n';
     } else if (key === "verified") {
-      recBlock = '          <p class="mcard-verifyline">Confirmed against official MOM employment&nbsp;records.</p>\n';
+      recBlock = '          <p class="mcard-verifyline">Supported by employment records reviewed by Helper&nbsp;Circle.</p>\n';
     }
 
     // Availability pill on the photo (kept, per the marketplace cards).

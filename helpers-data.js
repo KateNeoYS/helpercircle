@@ -1440,7 +1440,6 @@ window.HELPERS = [
   },
   {
     id: "mariafe",
-    signal: "referred",
     name: "Maria Fe",
     initial: "T.",
     status: "placed",
@@ -1502,7 +1501,6 @@ window.HELPERS = [
   },
   {
     id: "kartika",
-    signal: "referred",
     name: "Kartika",
     initial: "S.",
     status: "placed",

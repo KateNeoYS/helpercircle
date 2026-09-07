@@ -3,275 +3,437 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Helper Circle — Employer-Referred Helpers in Singapore</title>
+  <title>Helper Circle — Trusted Domestic Helpers in Singapore</title>
   <link rel="icon" href="/favicon.ico?v=2" sizes="any">
-  <meta name="description" content="A Singapore referral platform for domestic helpers — most recommended by a previous employer, all with verified trust signals. Not an agency. No placement fees from her."/>
+  <meta name="description" content="Browse trusted domestic helpers in Singapore, each with a clear trust signal — employer recommended, long-term employment, completed contracts, or Helper Circle assessed. Recommendations-first hiring, with licensed support from Helper Talent (EA Licence No. 26C3645)."/>
   <link rel="canonical" href="https://helpercircle.sg/"/>
   <meta property="og:url" content="https://helpercircle.sg/"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Helper Circle — Employer-Referred Helpers in Singapore"/>
-  <meta property="og:description" content="A Singapore referral platform for domestic helpers passed on by previous employers. Not an agency. Every profile shows verified trust signals."/>
+  <meta property="og:title" content="Helper Circle — Trusted Domestic Helpers in Singapore"/>
+  <meta property="og:description" content="Browse trusted domestic helpers in Singapore, each with a clear trust signal. Recommendations-first hiring, with licensed support from Helper Talent."/>
   <meta property="og:image" content="https://helpercircle.sg/heroillustrative.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
+  <!-- V19 loads its own faces. Kept byte-identical to the prototype so the
+       body renders in exactly the weights V19 was designed against. -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css"/>
-  <!-- Homepage section background alternation. Pinned here because the same
-       backgrounds are set by several conflicting rules in styles.css; this
-       keeps the white/cream rhythm deterministic for this page. -->
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       HOMEPAGE BODY — ported from the V19 prototype.
+
+       Everything here is scoped under `main.v19` so it governs the page
+       body ONLY. The production header (.site-header) and footer
+       (.site-footer) sit outside that wrapper and keep their styles.css
+       styling untouched. V19's own variables are resolved to the
+       production design tokens at the top of the block.
+
+       styles.css is not modified by this page.
+       ══════════════════════════════════════════════════════════════════ -->
   <style>
-    .why-exist       { background: var(--clr-white) !important; }
-    .trust-ex        { background: var(--clr-cream) !important; }
-    .avail           { background: var(--clr-white) !important; }
-    .stories         { background: var(--clr-cream) !important; }
-    .how             { background: var(--clr-white) !important; }
-    .pricing-section { background: var(--clr-white) !important; }
-    .meet-pointer    { background: var(--clr-cream) !important; }
+  /* ── Tokens: V19's OWN values, copied literally from the prototype ──
+     Deliberately NOT mapped through the production colour or font variables.
+     Inside main.v19, V19 is the design system. ── */
+  main.v19{
+    --sage:#2C8A6E; --sage-dk:#1B5E48; --sage-lt:#E8F1ED; --sage-ltr:#F2F7F5;
+    --cream:#FBF6EE; --cream-2:#FCF7EE; --paper:#FFFDF8;
+    --peach:#E8825C; --peach-dk:#C66740; --peach-lt:#FBEDE6;
+    --ink:#1E1E1E; --ink-70:#4A4844; --ink-50:#77746D;
+    --blue:#2E6F95; --gold:#D9A441; --terra:#C66740; --sand:#F4EFE3; --sand-ink:#8A7440;
+    --line:rgba(30,30,30,.09); --line-2:rgba(30,30,30,.16);
+    --fd:'Lora',Georgia,serif;
+    --fb:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --wrapw:1140px; --gut:clamp(20px,5vw,40px); --sec:clamp(58px,7.5vw,104px);
+    --r:18px;
+    --shadow:0 1px 2px rgba(30,30,30,.04), 0 12px 34px -18px rgba(27,94,72,.22);
+    --shadow-lift:0 2px 4px rgba(30,30,30,.05), 0 28px 60px -22px rgba(27,94,72,.32);
+    display:block;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--fb);
+    font-size:17px;
+    line-height:1.6;
+  }
+  main.v19 *,main.v19 *::before,main.v19 *::after{box-sizing:border-box}
+  main.v19 [id]{scroll-margin-top:88px}
+  /* styles.css styles some of these class names for other pages. Reset the
+     properties it sets that V19 does not, so nothing leaks into the body. */
+  main.v19 .kicker,main.v19 .bpill,main.v19 .badge,main.v19 .chip-dk,main.v19 .btn{
+    letter-spacing:normal;text-transform:none;box-shadow:none}
+  main.v19 .kicker{background:none;border:0;border-radius:0;padding:0}
+  main.v19 .bpill,main.v19 .badge{border:0}
 
-    /* Compact icon for the slim benefit cards (visual relief, no bulk) */
-    .benefit-ico { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
-    .benefit-ico--green { background: #EAF5EF; color: #2C8A6E; }
-    .benefit-ico--peach { background: #FFF3EE; color: #C66740; }
-    .benefit-ico--sand  { background: #F0EAE0; color: #8A5F2E; }
+  /* ── Layout primitives ── */
+  main.v19 .wrap{width:100%;max-width:var(--wrapw);margin-inline:auto;padding-inline:var(--gut)}
+  main.v19 .sec{padding-block:var(--sec)}
+  main.v19 .bg-paper{background:var(--paper);border-block:1px solid var(--line)}
+  main.v19 .aligned-740{max-width:740px;margin-inline:auto}
+  main.v19 .aligned-740 .shead{max-width:none}
+  main.v19 .aligned-740 .faq-list{max-width:none}
 
-    /* "How it works" — tap-to-expand details (works on mobile, unlike hover) */
-    .how-more { margin-top: 10px; }
-    .how-more > summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; font-weight: 600; color: var(--clr-primary, #2C8A6E); }
-    .how-more > summary::-webkit-details-marker { display: none; }
-    .how-more > summary::after { content: ""; width: 6px; height: 6px; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor; transform: rotate(45deg); transition: transform .2s; }
-    .how-more[open] > summary::after { transform: rotate(-135deg); }
-    .how-more[open] .how-step-detail { max-height: none; opacity: 1; margin-top: 10px; }
+  /* ── Typography ── */
+  main.v19 h1,main.v19 h2,main.v19 h3,main.v19 h4,main.v19 .h2{
+    font-family:var(--fd);font-weight:500;margin:0;line-height:1.12;
+    letter-spacing:-.014em;text-wrap:balance;color:var(--ink)}
+  main.v19 h1{font-size:clamp(2.35rem,5.6vw,4rem);line-height:1.05;letter-spacing:-.026em}
+  main.v19 h2,main.v19 .h2{font-size:clamp(1.9rem,3.8vw,2.9rem)}
+  main.v19 h3{font-size:clamp(1.08rem,1.8vw,1.28rem);line-height:1.22}
+  main.v19 p{margin:0}
+  main.v19 p,main.v19 li,main.v19 blockquote,main.v19 figcaption{text-wrap:pretty}
+  main.v19 a{color:inherit}
+  main.v19 :focus-visible{outline:2.5px solid var(--sage);outline-offset:3px;border-radius:4px}
+  main.v19 .lede{font-size:clamp(1.02rem,1.5vw,1.16rem);color:var(--ink-70);line-height:1.62;max-width:58ch}
+  main.v19 .kicker{
+    font-family:var(--fb);font-size:.7rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;
+    color:var(--sage);display:flex;align-items:center;gap:11px;margin-bottom:18px}
+  main.v19 .kicker::after{content:"";flex:0 0 40px;height:1px;background:var(--sage);opacity:.4}
+  main.v19 .kicker.on-ink{color:#E7C9B8}
+  main.v19 .kicker.on-ink::after,main.v19 .kicker.on-ink::before{background:#E7C9B8}
+  main.v19 .shead{margin-bottom:clamp(26px,3.6vw,44px);max-width:640px}
+  main.v19 .shead .kicker{margin-bottom:14px}
+  main.v19 .shead h2{margin-bottom:10px}
+  main.v19 .shead .lede{max-width:52ch}
+  main.v19 .shead.center{text-align:center;margin-inline:auto;max-width:660px}
+  main.v19 .shead.center .kicker{justify-content:center}
+  main.v19 .shead.center .kicker::before{content:"";flex:0 0 40px;height:1px;background:var(--sage);opacity:.4}
+  main.v19 .shead.center .lede{margin-inline:auto}
 
-    /* Trust chips inside step 1 — visible trust model, no accordion.
-       Two soft tier pills + one quiet "always" promise chip. */
-    .trust-chips { list-style: none; margin: 13px 0 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
-    .trust-chip { display: inline-flex; align-items: center; gap: 7px; width: fit-content; font-size: .8rem; font-weight: 600; line-height: 1.2; padding: 6px 12px; border-radius: 999px; }
-    .trust-chip-i { font-size: .78rem; line-height: 1; }
-    .trust-chip--rec { background: #EAF5EF; color: #1B5E48; }
-    .trust-chip--ret { background: #E9F0F5; color: #2E6F95; }
-    .trust-chip--ver { background: transparent; color: #5A6661; border: 1px solid var(--clr-border-warm, #E5DDCF); }
-    .trust-chip--check { background: #F4F1EA; color: #3A4540; }
-    .trust-chip--check .trust-chip-i { color: var(--clr-primary, #2C8A6E); font-weight: 700; }
+  /* ── Buttons and links ── */
+  main.v19 .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--fb);
+    font-size:.96rem;font-weight:500;padding:14px 28px;border-radius:999px;border:1.5px solid transparent;
+    text-decoration:none;cursor:pointer;
+    transition:transform .22s ease,background .22s ease,box-shadow .22s ease,color .22s ease}
+  main.v19 .btn-primary,main.v19 .btn-green{
+    background:var(--sage);color:#fff;box-shadow:0 10px 26px -12px rgba(27,94,72,.62)}
+  main.v19 .btn-primary:hover,main.v19 .btn-green:hover{background:var(--sage-dk);transform:translateY(-2px)}
+  main.v19 .btn-ghost,main.v19 .btn-outline{
+    background:transparent;color:var(--sage-dk);border-color:rgba(44,138,110,.42)}
+  main.v19 .btn-ghost:hover,main.v19 .btn-outline:hover{
+    background:rgba(44,138,110,.07);border-color:var(--sage);transform:translateY(-2px)}
+  main.v19 .btn-lg{padding:16px 34px;font-size:1.02rem}
+  main.v19 .btn-sm{padding:11px 20px;font-size:.87rem}
+  main.v19 .txtlink{
+    color:var(--sage-dk);text-decoration:none;font-weight:500;font-size:.92rem;
+    display:inline-flex;align-items:center;gap:7px;transition:gap .2s}
+  main.v19 .txtlink:hover{gap:11px}
 
-    /* Referring-family story card — editorial pull-quote + process chips,
-       no photo (this is Sheila's experience of the process, not a helper). */
-    .story-feature { max-width: 760px; margin: 0 auto; background: var(--clr-white); border: 1px solid var(--clr-border-warm, #E5DDCF); border-radius: 20px; padding: 38px 42px; box-shadow: 0 12px 44px -26px rgba(31, 42, 36, .24); display: flex; flex-direction: column; gap: 22px; }
-    .story-feature-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .story-chip { display: inline-flex; align-items: center; gap: 6px; font-size: .8rem; font-weight: 600; color: #3A4540; background: #F4F1EA; border-radius: 999px; padding: 6px 13px; }
-    .story-chip span { color: var(--clr-primary, #2C8A6E); font-weight: 700; }
-    .story-feature-quote { font-family: var(--fd, 'Cormorant Garamond', serif); font-size: clamp(1.45rem, 2.6vw, 1.9rem); line-height: 1.4; font-weight: 500; color: var(--clr-ink, #1F2A24); margin: 0; }
-    .story-feature-foot { display: flex; align-items: center; gap: 13px; margin: 0; border-top: 1px solid var(--clr-border-warm, #E5DDCF); padding-top: 20px; }
-    .story-feature-av { width: 44px; height: 44px; border-radius: 50%; background: var(--clr-primary, #2C8A6E); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--fd, 'Cormorant Garamond', serif); font-size: 1.25rem; font-weight: 600; flex: 0 0 44px; }
-    .story-feature-id { display: flex; flex-direction: column; line-height: 1.3; }
-    .story-feature-name { font-weight: 700; color: var(--clr-ink, #1F2A24); }
-    .story-feature-role { font-size: .85rem; color: var(--clr-text-muted, #5A6661); }
-    @media (max-width: 720px) {
-      .story-feature { padding: 26px 22px; gap: 18px; }
-      .story-feature-quote { font-size: 1.3rem; }
-    }
-  
-    /* ── Hero (centered, trust chips) ── */
-    .hero .wrap.hero-center{position:relative;z-index:2;max-width:780px;margin:0 auto}
-    .hero-center .hero-left{text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px;width:100%}
-    .hero-sub-center{max-width:600px;margin:0}
-    .hero-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-    .hero-chip{display:inline-flex;align-items:center;gap:7px;font-size:.9rem;font-weight:600;padding:8px 16px;border-radius:999px}
-    .hero-chip--rec{background:#2C8A6E;color:#fff}
-    .hero-chip--ret{background:#2E6F95;color:#fff}
-    .hero-chip--rev{background:transparent;color:#5A6661;border:1px solid #E5DDCF}
-    .hero-center .hero-ctas{justify-content:center}
-    /* ── Trust signals (badge-led example cards) ── */
-    .trust-ex-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;max-width:820px;margin:0 auto}
-    .trust-ex-card{background:var(--clr-white,#fff);border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
-    .tx-top{padding:20px 22px 0;min-height:88px;display:flex;align-items:flex-start}
-    .tx-badge{display:inline-flex;align-items:center;gap:7px;font-size:.92rem;font-weight:600;padding:8px 15px;border-radius:999px;line-height:1.3;text-wrap:balance}
-    .tx-badge--rec{background:#2C8A6E;color:#fff}
-    .tx-badge--ret{background:#2E6F95;color:#fff}
-    .tx-badge--cc{background:#fff;color:#9C4A22;border:1.6px solid #C66740}
-    .tx-body{padding:15px 22px 22px;display:flex;flex-direction:column;flex:1}
-    .tx-h{font-family:var(--fd,'Cormorant Garamond',serif);font-size:1.35rem;line-height:1.3;color:var(--clr-ink,#1F2A24);margin:0 0 8px;font-weight:500;min-height:2.6em;text-wrap:balance}
-    .tx-p{font-size:.95rem;line-height:1.6;color:var(--clr-text-muted,#5A6661);margin:0}
-    .trust-ex-foot{text-align:center;font-size:.95rem;color:var(--clr-text-muted,#5A6661);margin:22px 0 0;display:flex;align-items:center;gap:8px;justify-content:center}
-    .tx-check{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:#EAF3EE;color:#2C8A6E;font-size:.78rem;font-weight:700;flex:0 0 20px}
-    /* ── Available helpers prominence ── */
-    .avail-grid{gap:18px}
-    .avail .hc-media img{width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;object-position:center center}
-    /* ── Referring family: joint-call visual ── */
-    .jc-frame{max-width:620px;margin:0 auto;background:var(--clr-white,#fff);border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:18px;padding:18px;box-shadow:0 12px 44px -28px rgba(31,42,36,.22)}
-    .jc-hd{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--clr-text-muted,#5A6661);margin-bottom:13px;font-weight:600}
-    .jc-dot{width:8px;height:8px;border-radius:50%;background:#2C8A6E;flex:0 0 8px}
-    .jc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-    .jc-tile{background:#FBF6EE;border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:12px;padding:16px 8px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
-    .jc-tile--mid{border:2px solid #2C8A6E;background:#fff}
-    .jc-av{width:48px;height:48px;border-radius:50%;background:#EAF3EE;color:#2C8A6E;display:flex;align-items:center;justify-content:center}
-    .jc-av svg{width:24px;height:24px}
-    .jc-tn{font-size:.85rem;font-weight:600;color:var(--clr-ink,#1F2A24)}
-    .jc-tr{font-size:.72rem;color:var(--clr-text-muted,#5A6661);line-height:1.3}
-    .jc-cap{font-size:.85rem;color:var(--clr-text-muted,#5A6661);text-align:center;margin:13px 0 0;display:flex;align-items:center;justify-content:center;gap:7px;line-height:1.5}
-    .jc-cap svg{width:16px;height:16px;flex:0 0 auto;color:#2C8A6E}
-    .jc-quote{font-family:var(--fd,'Cormorant Garamond',serif);font-size:clamp(1.3rem,2.5vw,1.6rem);line-height:1.45;color:var(--clr-ink,#1F2A24);text-align:center;max-width:620px;margin:26px auto 8px;font-weight:500}
-    .jc-attr{font-size:.92rem;color:var(--clr-text-muted,#5A6661);text-align:center;margin:0}
-    @media(max-width:560px){.jc-tile{padding:13px 4px}.jc-tn{font-size:.76rem}.jc-tr{display:none}.jc-av{width:42px;height:42px}}
-    /* ── Hero v2 (trust shown via a real helper preview) ── */
-    .hero .wrap.hero-v2{position:relative;z-index:2;display:grid;grid-template-columns:1.08fr .92fr;gap:42px;align-items:center;max-width:1060px;margin:0 auto}
-    .hero-v2-copy{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
-    .hero-v2 .hero-hl{margin:0}
-    .hero-v2 .hero-sub{margin:0;max-width:520px}
-    .hero-proof{display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--clr-text-muted,#5A6661);margin:2px 0 0}
-    .hero-proof svg{flex:0 0 auto}
-    .hero-preview{display:flex;justify-content:center}
-    .hp-card{display:block;width:100%;max-width:320px;background:var(--clr-white,#fff);border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 24px 60px -34px rgba(31,42,36,.32);transition:transform .18s ease, box-shadow .18s ease}
-    .hp-card:hover{transform:translateY(-3px);box-shadow:0 30px 70px -32px rgba(31,42,36,.38)}
-    .hp-photo{aspect-ratio:4/3;background:#EDE5D6;overflow:hidden}
-    .hp-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-    .hp-body{padding:15px 17px;display:flex;flex-direction:column;gap:9px}
-    .hp-name{font-size:1.15rem;font-weight:600;color:var(--clr-ink,#1F2A24);margin:0;font-family:var(--fd,'Cormorant Garamond',serif)}
-    .hp-nat{font-size:.82rem;color:var(--clr-text-muted,#5A6661);margin:-7px 0 0}
-    .hp-attr{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:600;color:#fff;background:#2C8A6E;padding:6px 12px;border-radius:999px;align-self:flex-start;line-height:1.3}
-    .hp-quote{font-family:var(--fd,'Cormorant Garamond',serif);font-size:1rem;line-height:1.45;color:var(--clr-ink,#1F2A24);margin:2px 0 0;font-style:italic}
-    .hp-link{font-size:.82rem;font-weight:600;color:#1B5E48;margin-top:2px}
-    @media(max-width:860px){
-      .hero .wrap.hero-v2{grid-template-columns:1fr;gap:28px;max-width:560px;text-align:center}
-      .hero-v2-copy{align-items:center}
-      .hero-v2 .hero-sub{text-align:center}
-      .hero-v2 .hero-proof{display:block;text-align:center}
-      .hero-v2 .hero-proof svg{display:inline-block;vertical-align:middle;margin:0 6px 2px 0}
-      .hp-card{max-width:300px}
-    }
-    /* hero recommendation note */
-    .hero-note{position:relative;background:var(--clr-white,#fff);border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:16px;padding:24px 24px 20px;margin:0;width:100%;max-width:336px;box-shadow:0 16px 42px -30px rgba(31,42,36,.26)}
-    .hero-note-tape{position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(-2deg);width:104px;height:18px;background:#E8825C;opacity:.9;border-radius:3px}
-    .hero-note-badge{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:#fff;background:#2C8A6E;padding:5px 12px;border-radius:999px;margin-bottom:14px}
-    .hero-note-badge svg{flex:0 0 auto}
-    .hero-note-q{font-family:var(--fd,'Cormorant Garamond',serif);font-size:1.15rem;font-style:italic;line-height:1.5;color:var(--clr-ink,#1F2A24);margin:0 0 14px}
-    .hero-note-attr{display:flex;align-items:center;gap:10px;margin:0}
-    .hero-note-av{width:30px;height:30px;border-radius:50%;background:#2C8A6E;color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd,'Cormorant Garamond',serif);font-size:.98rem;flex:0 0 30px}
-    .hero-note-attr-txt{display:flex;flex-direction:column;gap:1px}
-    .hero-note-line1{font-size:.82rem;color:var(--clr-text-muted,#5A6661)}
-    .hero-note-name{font-weight:600;color:var(--clr-ink,#1F2A24)}
-    .hero-note-perm{font-size:.72rem;color:#9a9384}
-    .hero-note-eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.71rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--clr-text-muted,#5A6661);margin-bottom:13px}
-    .hero-note-eyebrow svg{width:15px;height:15px;color:#2C8A6E;flex:0 0 15px}
-    .hero-note-sep{color:#C9BFA8;margin:0 3px}
-    .hero-note-dash{width:20px;height:2px;background:#E8825C;border-radius:2px;flex:0 0 20px}
-    /* ── Why Helper Circle exists ── */
-    .why-exist{background:var(--clr-white,#fff)}
-    .why-exist,.trust-ex{padding:clamp(54px,8vw,86px) 0}
-    .why-exist-inner{max-width:680px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center}
-    .why-h{margin:8px 0 14px}
-    .why-body{font-size:1.02rem;line-height:1.7;color:var(--clr-text-muted,#5A6661);max-width:560px;margin:0 0 26px}
-    .why-flow{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap}
-    .why-bubbles{display:flex;flex-direction:column;gap:7px;opacity:.9}
-    .why-bub{font-size:.82rem;color:#8f887a;background:#F4EFE5;border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:12px;padding:8px 14px}
-    .why-arrow{color:#E8825C;font-size:1.5rem;line-height:1}
-    .why-circle{font-size:.95rem;font-weight:600;color:#fff;background:#2C8A6E;padding:12px 22px;border-radius:999px}
-    @media(max-width:560px){.why-flow{gap:12px}.why-arrow{transform:rotate(90deg)}}
-    /* Sheila beats + expandable */
-    .sheila-beats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:760px;margin:0 auto 20px}
-    .sb{background:var(--clr-white,#fff);border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:14px;padding:14px 15px}
-    .sb-h{display:flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:#B0562F;margin:0 0 7px}
-    .sb-h svg{flex:0 0 auto;color:#E8825C}
-    .sb-p{font-size:.85rem;line-height:1.55;color:var(--clr-text-muted,#5A6661);margin:0;text-wrap:pretty}
-    .sheila-more{max-width:620px;margin:20px auto 0;border-top:1px solid var(--clr-border-warm,#E5DDCF);padding-top:16px;text-align:center}
-    .sheila-summary{cursor:pointer;font-size:.92rem;font-weight:600;color:#1B5E48;list-style:none;display:inline-flex;align-items:center;gap:9px}
-    .sheila-summary::-webkit-details-marker{display:none}
-    .sheila-summary::before{content:"+";display:inline-flex;width:20px;height:20px;align-items:center;justify-content:center;border-radius:50%;background:#E8825C;color:#fff;font-size:.95rem;line-height:1;flex:0 0 20px}
-    .sheila-more[open] .sheila-summary::before{content:"\2013"}
-    .sheila-full{margin-top:14px;text-align:left}
-    .sheila-full p{font-size:.95rem;line-height:1.7;color:var(--clr-text-muted,#5A6661);margin:0 0 12px;text-wrap:pretty}
-    /* peach heading accent + orphan control */
-    .why-h::after,.stories-hdr h2::after{content:"";display:block;width:44px;height:3px;background:#E8825C;border-radius:2px;margin:14px auto 0}
-    .hero-hl,.why-h,.stories-hdr h2,.avail-hdr h2,.pricing-heading{text-wrap:balance}
-    .hero-sub,.why-body,.stories-sub,.avail-sub{text-wrap:pretty}
-    /* Sheila prominent quote */
-    .sheila-quote-block{max-width:680px;margin:0 auto;text-align:center;padding:8px 0 4px}
-    .sheila-qmark{display:block;font-family:var(--fd,'Cormorant Garamond',serif);font-size:3.2rem;line-height:.45;color:#E8825C;margin:0 0 4px}
-    .sheila-quote{font-family:var(--fd,'Cormorant Garamond',serif);font-size:clamp(1.55rem,3.4vw,2.05rem);line-height:1.4;color:var(--clr-ink,#1F2A24);margin:0 0 22px;font-weight:500;text-wrap:balance}
-    .sheila-cap{display:flex;align-items:center;justify-content:center;gap:11px}
-    .sheila-av{width:42px;height:42px;border-radius:50%;background:#2C8A6E;color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd,'Cormorant Garamond',serif);font-size:1.1rem;flex:0 0 42px}
-    .sheila-id{display:flex;flex-direction:column;text-align:left}
-    .sheila-name{font-size:.98rem;font-weight:600;color:var(--clr-ink,#1F2A24)}
-    .sheila-meta{font-size:.8rem;color:var(--clr-text-muted,#5A6661)}
-    /* Sheila expandable structured story */
-    .sheila-story{max-width:620px;margin:26px auto 0;text-align:center}
-    .sheila-story[open] .sheila-summary::before{content:"\2013"}
-    .sheila-timeline{margin-top:26px;text-align:left}
-    .st-step{display:grid;grid-template-columns:36px 1fr;gap:15px}
-    .st-marker{display:flex;flex-direction:column;align-items:center}
-    .st-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 36px;color:#fff}
-    .st-dot svg{width:18px;height:18px}
-    .st-dot--1{background:#E8825C}.st-dot--2{background:#2C8A6E}.st-dot--3{background:#1B5E48}
-    .st-line{flex:1;width:2px;background:var(--clr-border-warm,#E5DDCF);margin:7px 0}
-    .st-body{padding-bottom:26px}
-    .st-step--last .st-body{padding-bottom:0}
-    .st-label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin:7px 0 8px}
-    .st-label--1{color:#B0562F}.st-label--2,.st-label--3{color:#1B5E48}
-    .st-text{font-size:.96rem;line-height:1.65;color:var(--clr-text-muted,#5A6661);margin:0;text-wrap:pretty}
-    .st-call{display:flex;gap:7px;margin-top:13px;flex-wrap:wrap}
-    .st-call-tile{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:500;color:var(--clr-ink,#1F2A24);background:var(--clr-cream,#FBF6EE);border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:999px;padding:6px 12px}
-    .st-call-tile svg{width:14px;height:14px;color:#2C8A6E;flex:0 0 14px}
-    .st-call-tile--mid{border-color:#2C8A6E}
-    .st-callout{margin-top:14px;background:#FBF1EA;border-left:3px solid #E8825C;border-radius:0 10px 10px 0;padding:13px 16px;font-family:var(--fd,'Cormorant Garamond',serif);font-size:1.06rem;font-style:italic;line-height:1.5;color:var(--clr-ink,#1F2A24);display:flex;gap:10px}
-    .st-callout svg{width:18px;height:18px;flex:0 0 18px;color:#E8825C;margin-top:3px}
-    /* Why we exist: minimal metaphor */
-    .why-lead{font-size:1.06rem;line-height:1.6;color:var(--clr-text-muted,#5A6661);max-width:430px;margin:0 0 32px;text-wrap:balance}
-    .why-metaphor{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
-    .wm-lost,.wm-kept{display:flex;flex-direction:column;align-items:center;gap:11px}
-    .wm-bubble{font-size:.88rem;color:#9a9384;background:#F1ECE2;border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:14px 14px 14px 3px;padding:12px 17px;opacity:.6}
-    .wm-cap{font-size:.8rem;color:var(--clr-text-muted,#5A6661)}
-    .wm-cap--kept{color:#1B5E48;font-weight:600}
-    .wm-arrow{color:#E8825C;font-size:1.8rem;line-height:1}
-    .wm-circle{width:74px;height:74px;border-radius:50%;background:#2C8A6E;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px -16px rgba(44,138,110,.6)}
-    .wm-circle svg{width:34px;height:34px}
-    @media(max-width:560px){.why-metaphor{flex-direction:column;gap:16px}.wm-arrow{transform:rotate(90deg)}}
-    /* Combined journey (how it works + pricing) */
-    .journey{background:#fff;padding:clamp(54px,8vw,88px) 0}
-    .journey-hdr{text-align:center;margin-bottom:34px}
-    .journey-h{margin-top:10px}
-    .jr-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:920px;margin:0 auto 16px}
-    .jr-step{background:#fff;border:1px solid var(--clr-border-warm,#E5DDCF);border-radius:16px;padding:22px 20px}
-    .jr-num{font-family:var(--fd,'Cormorant Garamond',serif);font-size:1.15rem;color:#9DBFB1;margin-bottom:10px}
-    .jr-ico{width:42px;height:42px;border-radius:50%;background:#E3F0EA;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-    .jr-ico--peach{background:#FBE7DD}
-    .jr-ico--amber{background:#F4EAD6}
-    .jr-st-t{margin:0 0 5px}
-    .jr-st-s{font-size:.9rem;line-height:1.55;color:var(--clr-text-muted,#5A6661);margin:0}
-    .jr-step4{max-width:920px;margin:0 auto;background:var(--clr-cream,#FCF7EE);border:1px solid var(--clr-border-warm,#E5DDCF);border-left:4px solid #2C8A6E;border-radius:18px;padding:26px 28px}
-    .jr-s4-head{display:flex;align-items:center;gap:13px;margin-bottom:4px}
-    .jr-s4-num{width:34px;height:34px;border-radius:50%;background:#2C8A6E;color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd,'Cormorant Garamond',serif);font-size:1rem;flex:0 0 34px}
-    .jr-s4-t{margin:0}
-    .jr-s4-sub{font-size:.92rem;color:var(--clr-text-muted,#5A6661);margin:3px 0 22px 47px}
-    .jr-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-    .jr-lab{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#1B5E48;margin-bottom:11px}
-    .jr-amount-row{display:flex;align-items:baseline;gap:8px}
-    .jr-amount{font-family:var(--fd,'Cormorant Garamond',serif);font-size:2.3rem;color:var(--clr-ink,#1F2A24);line-height:1}
-    .jr-amount-after{font-family:var(--fd,'Cormorant Garamond',serif);font-style:italic;font-size:1rem;color:var(--clr-text-muted,#5A6661)}
-    .jr-fee-sub{font-size:.8rem;color:var(--clr-text-muted,#5A6661);margin:6px 0 14px}
-    .jr-fee-list{list-style:none;margin:0;padding:0}
-    .jr-fee-list li{font-size:.9rem;color:var(--clr-text-muted,#5A6661);padding:3px 0 3px 18px;position:relative}
-    .jr-fee-list li::before{content:"\2014";position:absolute;left:0;color:#C9BFA8}
-    .jr-inc{list-style:none;margin:0;padding:0}
-    .jr-inc li{display:flex;gap:9px;align-items:flex-start;font-size:.92rem;color:var(--clr-ink,#1F2A24);padding:6px 0}
-    .jr-inc li svg{flex:0 0 16px;color:#2C8A6E;margin-top:3px}
-    .jr-tp{margin-top:18px;background:#FCF6EF;border:1px solid #EBDFD2;border-radius:12px;padding:13px 16px}
-    .jr-tp-head{margin-bottom:11px}
-    .jr-tp-tag{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:#B0562F;border:1px solid #E3B79E;border-radius:999px;padding:4px 12px}
-    .jr-tp-h{font-family:var(--fd,'Cormorant Garamond',serif);font-size:1rem;font-weight:500;color:#7A6F63;margin:0}
-    .jr-tp-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .jr-tp-list li{display:flex;flex-direction:column}
-    .jr-tp-name{font-size:.85rem;font-weight:500;color:var(--clr-ink,#1F2A24)}
-    .jr-tp-desc{font-size:.74rem;color:#8A7B6E;margin-top:2px}
-    .jr-tp-foot{border-top:1px solid #EBDFD2;margin-top:12px;padding-top:10px;font-size:.8rem;color:var(--clr-text-muted,#5A6661)}
-    .jr-tp-link{color:#2C8A6E;text-decoration:none;font-weight:500}
-    .jr-footer{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;max-width:920px;margin:24px auto 0;padding-top:4px}
-    .jr-foot-item{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--clr-text-muted,#5A6661)}
-    .jr-foot-item:first-child{color:#1B5E48;font-weight:500}
-    .jr-cta-wrap{text-align:center;margin-top:28px}
-    @media(max-width:760px){.jr-steps{grid-template-columns:1fr}.jr-grid{grid-template-columns:1fr;gap:22px}.jr-tp-list{grid-template-columns:1fr;gap:12px}.jr-s4-sub{margin-left:0}.jr-footer{flex-direction:column;align-items:center;gap:14px}.jr-foot-item{align-items:flex-start;text-align:left}}
-    .ref-card-quote p{text-wrap:pretty}
-    .ref-card-belief{text-wrap:balance}
+  /* ══ 1 · HERO ══════════════════════════════════════════════════════ */
+  /* V19's nav sits in the flow; the production .site-header is position:fixed
+     and 68px tall, so the hero adds that clearance on top of V19's padding. */
+  main.v19 .hero{
+    background:var(--cream);position:relative;overflow:visible;
+    padding:calc(68px + clamp(20px,2.4vw,34px)) 0 clamp(24px,3vw,42px)}
+  main.v19 .hero::after{content:none;display:none}   /* V19 has no scroll-hint arrow */
+  main.v19 .hero-grid{
+    display:grid;grid-template-columns:1.02fr 1.04fr;gap:clamp(26px,4vw,54px);
+    align-items:center;position:relative;z-index:2}
+  @media(max-width:960px){main.v19 .hero-grid{grid-template-columns:1fr;gap:34px;max-width:560px}}
+  @media(max-width:600px){main.v19 .hero-grid{gap:22px}main.v19 .hero{padding-bottom:22px}}
+  main.v19 .hero h1{margin-bottom:14px}
+  main.v19 .hero-model{margin:0;border-left:3px solid var(--sage);padding:5px 0 5px 18px}
+  main.v19 .hero-model p{
+    font-family:var(--fd);font-size:clamp(1.06rem,1.5vw,1.24rem);line-height:1.4;
+    color:var(--ink);max-width:34ch}
+  main.v19 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+  main.v19 .hero-points{
+    list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+  main.v19 .hero-points li{
+    display:flex;gap:10px;align-items:center;font-size:.88rem;line-height:1.55;color:var(--ink-70)}
+  main.v19 .hero-points li+li{padding-left:18px;border-left:1px solid var(--line-2)}
+  main.v19 .hero-points svg{flex:0 0 auto}
+  /* V19 drops the divider at 560px. The production hero column also narrows
+     between 960 and 1120 where the grid is still two-up, so the rule is
+     dropped there too — a hairline on a wrapped item reads as a stray mark. */
+  @media(max-width:1120px){
+    main.v19 .hero-points li+li{padding-left:0;border-left:0}
+  }
+  @media(max-width:960px){
+    main.v19 .hero-points li+li{padding-left:18px;border-left:1px solid var(--line-2)}
+  }
+  @media(max-width:560px){
+    main.v19 .hero-points li+li{padding-left:0;border-left:0}
+  }
+  main.v19 .hero-media{position:relative}
+  main.v19 .hero-illus{
+    border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lift);
+    background:var(--paper);border:1px solid var(--line)}
+  main.v19 .hero-illus svg{display:block;width:100%;height:auto}
+
+  /* ══ 2 · WHY + TRUST SIGNALS ═══════════════════════════════════════ */
+  main.v19 .why-top{
+    display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(26px,4vw,56px);
+    align-items:center;margin-bottom:clamp(20px,2.4vw,30px)}
+  @media(max-width:880px){main.v19 .why-top{grid-template-columns:1fr;gap:26px}}
+  main.v19 .why-illus{
+    background:var(--cream-2);border:1px solid var(--line);border-radius:18px;padding:clamp(16px,2vw,24px)}
+  main.v19 .why-illus svg{display:block;width:100%;height:auto}
+  main.v19 .why-copy h2{margin-bottom:12px}
+  main.v19 .why-copy .lede{max-width:42ch}
+  main.v19 .why-note{margin-top:12px;font-size:.95rem;font-weight:500;color:var(--sage-dk)}
+  main.v19 .tb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.9vw,20px)}
+  @media(max-width:820px){main.v19 .tb-grid{grid-template-columns:1fr}}
+  main.v19 .tb{
+    display:flex;flex-direction:column;gap:10px;background:var(--cream-2);
+    border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+  main.v19 .tb p{font-size:.9rem;line-height:1.5;color:var(--ink-70)}
+  /* V19 leaves .bpill stretched to the card width (no align-self), so the
+     trust pill reads as a full-width colour bar at the top of each card. */
+  main.v19 .bpill{
+    display:inline-flex;align-items:center;gap:6px;font-size:.72rem;
+    font-weight:500;padding:6px 12px;border-radius:999px;color:#fff}
+  main.v19 .bpill .tsig-mark{font-size:.76rem;line-height:1}
+  main.v19 .bpill.rec{background:var(--sage)}
+  main.v19 .bpill.ver{background:var(--blue)}
+  main.v19 .bpill.done{background:var(--terra)}
+  main.v19 .bpill.assess{background:var(--sand-ink)}
+
+  /* ══ 3 · AVAILABLE HELPERS (cards rendered by helpers-data.js) ══════ */
+  main.v19 .feat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,22px)}
+  @media(max-width:760px){
+    main.v19 .feat-row{
+      display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;
+      margin-inline:calc(-1 * var(--gut));padding:4px var(--gut) 12px;
+      scroll-padding-left:var(--gut);-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    main.v19 .feat-row::-webkit-scrollbar{display:none}
+    main.v19 .feat-row .h-card{flex:0 0 80%;max-width:330px;scroll-snap-align:center}
+  }
+  main.v19 .h-card{
+    position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .28s ease,box-shadow .28s ease}
+  main.v19 .h-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
+  main.v19 .h-photo{position:relative;aspect-ratio:4/5;background:var(--sage-ltr);overflow:hidden}
+  /* The monogram is a fallback that sits UNDER the photo and only shows when
+     the image is missing (helpers-data.js removes a broken img). It must be
+     z-index:0 and the photo z-index:1 — an absolutely positioned monogram
+     would otherwise paint on top of an in-flow img and hide every photo. */
+  main.v19 .h-photo img{
+    position:relative;z-index:1;width:100%;height:100%;
+    object-fit:cover;object-position:center center;display:block}
+  main.v19 .h-mono{
+    position:absolute;inset:0;z-index:0;display:grid;place-items:center;
+    font-family:var(--fd);font-size:3.4rem;
+    color:rgba(44,138,110,.34);background:radial-gradient(circle at 50% 40%,#EEF5F2,#E1EDE7)}
+  main.v19 .badge{
+    position:absolute;left:12px;bottom:12px;z-index:3;display:inline-flex;align-items:center;gap:6px;
+    font-size:.72rem;font-weight:500;padding:6px 12px;border-radius:999px;color:#fff;
+    box-shadow:0 4px 14px -6px rgba(0,0,0,.42)}
+  main.v19 .badge .tsig-mark{font-size:.76rem;line-height:1}
+  main.v19 .badge-rec{background:var(--sage)}
+  main.v19 .badge-ver{background:var(--blue)}
+  main.v19 .badge-done{background:var(--terra)}
+  main.v19 .badge-assess{background:var(--sand-ink)}
+  main.v19 .badge-neutral{background:#8C8C86}
+  main.v19 .h-body{padding:16px 20px 18px;display:flex;flex-direction:column;gap:11px;flex:1}
+  main.v19 .h-name{font-family:var(--fd);font-size:1.28rem;line-height:1.1}
+  main.v19 .h-vp{font-size:.94rem;color:var(--ink);line-height:1.5}
+  main.v19 .h-facts{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+  main.v19 .h-facts li{font-size:.75rem;color:var(--sage-dk);background:var(--sage-lt);padding:4px 9px;border-radius:6px}
+  /* Availability lines vary in length ("Available now" vs a full date), so the
+     text flexes and wraps inside the row while "View" stays pinned right —
+     otherwise the link drops to its own line on some cards and not others. */
+  main.v19 .h-foot{
+    margin-top:auto;padding-top:4px;border-top:1px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;gap:6px 14px}
+  main.v19 .h-avail{font-size:.8rem;color:var(--ink-50);flex:1 1 auto;min-width:0}
+  main.v19 .h-foot .txtlink{flex:0 0 auto;padding-block:9px;min-height:42px}
+  /* Whole card clickable, without nesting the card inside a link element. */
+  main.v19 .h-foot .txtlink::after{content:"";position:absolute;inset:0;z-index:4}
+  main.v19 .avail-foot{margin-top:clamp(22px,2.6vw,32px)}
+
+  /* Empty state — revealed by helpers-data.js when nothing is available. */
+  main.v19 .empty-pointer{
+    background:var(--cream-2);border:1px solid var(--line);border-radius:20px;
+    padding:clamp(28px,3.6vw,46px);text-align:center;max-width:740px;margin-inline:auto}
+  main.v19 .empty-pointer .kicker{justify-content:center}
+  main.v19 .empty-pointer .kicker::before{content:"";flex:0 0 40px;height:1px;background:var(--sage);opacity:.4}
+  main.v19 .empty-pointer h2{margin-bottom:12px}
+  main.v19 .empty-pointer p{
+    color:var(--ink-70);font-size:.98rem;line-height:1.62;max-width:56ch;margin:0 auto 22px}
+
+  /* ══ 4 · REAL EXPERIENCES ══════════════════════════════════════════ */
+  main.v19 #for-helpers{position:relative;overflow:hidden}
+  main.v19 #for-helpers::before{
+    content:"";position:absolute;right:-100px;top:-80px;width:340px;height:340px;border-radius:50%;
+    background:radial-gradient(circle,rgba(44,138,110,.10),rgba(44,138,110,0) 68%);pointer-events:none}
+  main.v19 #for-helpers::after{
+    content:"";position:absolute;left:-120px;bottom:-110px;width:300px;height:300px;border-radius:50%;
+    border:1px solid rgba(232,130,92,.16);pointer-events:none}
+  main.v19 #for-helpers .shead,
+  main.v19 #for-helpers .rx-grid,
+  main.v19 #for-helpers .rx-note{position:relative;z-index:1}
+  main.v19 #for-helpers .shead{margin-bottom:clamp(18px,2vw,24px)}
+  main.v19 .rx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.5vw,16px)}
+  main.v19 .rx{
+    margin:0;display:flex;flex-direction:column;gap:9px;background:var(--paper);
+    border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+  main.v19 .rx-feature{
+    grid-column:span 2;grid-row:span 2;justify-content:center;background:var(--sage-ltr);
+    border-color:rgba(44,138,110,.24);padding:clamp(24px,2.8vw,36px);position:relative;overflow:hidden}
+  main.v19 .rx-feature::before{
+    content:"\201C";position:absolute;right:10px;top:-34px;font-family:var(--fd);font-size:11rem;
+    line-height:1;color:rgba(44,138,110,.11);pointer-events:none}
+  main.v19 .rx-feature > *{position:relative;z-index:1}
+  @media(max-width:900px){
+    main.v19 .rx-grid{grid-template-columns:repeat(2,1fr)}
+    main.v19 .rx-feature{grid-column:span 2;grid-row:auto}
+  }
+  @media(max-width:620px){
+    main.v19 .rx-grid{grid-template-columns:1fr}
+    main.v19 .rx-feature{grid-column:auto}
+  }
+  main.v19 .rx-help{background:var(--cream-2)}
+  main.v19 .rx-tag{
+    align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font-size:.62rem;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+  main.v19 .rx-tag svg{flex:none}
+  main.v19 .rx-tag.fam{background:var(--sage-lt);color:var(--sage-dk)}
+  main.v19 .rx-tag.help{background:var(--peach-lt);color:var(--peach-dk)}
+  main.v19 .rx-q{font-family:var(--fd);font-size:.96rem;line-height:1.5;color:var(--ink)}
+  main.v19 .rx-feature .rx-q{font-size:clamp(1.24rem,2.2vw,1.72rem);line-height:1.34;letter-spacing:-.012em}
+  main.v19 .rx-by{margin-top:auto;display:flex;align-items:center;gap:10px;font-size:.79rem;color:var(--ink-50)}
+  main.v19 .rx-by b{display:block;color:var(--ink);font-weight:500;font-size:.89rem}
+  main.v19 .rx-av{
+    width:30px;height:30px;border-radius:50%;flex:none;display:grid;place-items:center;
+    background:var(--sage-lt);color:var(--sage-dk);font-family:var(--fd);font-size:.92rem}
+  main.v19 .rx-feature .rx-av{width:42px;height:42px;font-size:1.14rem}
+  main.v19 .rx-help .rx-av{background:var(--peach-lt);color:var(--peach-dk)}
+  main.v19 .rx-note{margin-top:16px;font-size:.82rem;color:var(--ink-50);line-height:1.6}
+
+  /* ══ 5 · HOW IT WORKS + PRICING ════════════════════════════════════ */
+  main.v19 #how > .shead{margin-bottom:clamp(20px,2.6vw,30px)}
+  main.v19 .jr-steps{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,18px);
+    margin-bottom:clamp(12px,1.6vw,18px)}
+  @media(max-width:820px){main.v19 .jr-steps{grid-template-columns:1fr}}
+  main.v19 .jr-step{
+    background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 22px;
+    display:flex;flex-direction:column;gap:10px}
+  main.v19 .jr-top{display:flex;align-items:center;gap:12px}
+  main.v19 .jr-ico{
+    width:40px;height:40px;border-radius:50%;display:grid;place-items:center;flex:none;background:var(--sage-lt)}
+  main.v19 .jr-ico.peach{background:var(--peach-lt)}
+  main.v19 .jr-ico.sand{background:var(--sand)}
+  main.v19 .jr-num{
+    margin:0;font-family:var(--fb);font-size:.72rem;font-weight:700;letter-spacing:.12em;color:var(--peach-dk)}
+  main.v19 .jr-step h3{margin:0;font-size:1.04rem;line-height:1.2}
+  main.v19 .jr-step p{font-size:.9rem;line-height:1.5;color:var(--ink-70)}
+  main.v19 .jr-step4{
+    max-width:920px;margin:0 auto;background:#FCF7EE;border:1px solid #E5DDCF;
+    border-left:4px solid #2C8A6E;border-radius:18px;padding:26px 28px}
+  main.v19 .jr-s4-head{display:flex;align-items:center;gap:13px;margin-bottom:4px}
+  main.v19 .jr-s4-num{
+    width:34px;height:34px;border-radius:50%;background:#2C8A6E;color:#fff;display:flex;
+    align-items:center;justify-content:center;font-family:var(--fd);font-size:1rem;flex:0 0 34px}
+  main.v19 .jr-s4-t{margin:0;font-family:var(--fd)}
+  main.v19 .jr-s4-sub{font-size:.92rem;color:#5A6661;margin:3px 0 22px 47px}
+  main.v19 .jr-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  main.v19 .jr-lab{
+    font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#1B5E48;margin-bottom:11px}
+  main.v19 .jr-amount-row{display:flex;align-items:baseline;gap:8px}
+  main.v19 .jr-amount{font-family:var(--fd);font-size:2.3rem;color:#1F2A24;line-height:1}
+  main.v19 .jr-fee-sub{font-size:.8rem;color:#5A6661;margin:6px 0 14px}
+  main.v19 .jr-fee-list{list-style:none;margin:0;padding:0}
+  main.v19 .jr-fee-list li{font-size:.9rem;color:#5A6661;padding:3px 0 3px 18px;position:relative}
+  main.v19 .jr-fee-list li::before{content:"\2014";position:absolute;left:0;color:#C9BFA8}
+  main.v19 .jr-inc{list-style:none;margin:0;padding:0}
+  main.v19 .jr-inc li{
+    display:flex;gap:9px;align-items:flex-start;font-size:.92rem;color:#1F2A24;padding:6px 0}
+  main.v19 .jr-inc li svg{flex:0 0 16px;color:#2C8A6E;margin-top:3px}
+  main.v19 .jr-tp{
+    margin-top:18px;background:#FCF6EF;border:1px solid #EBDFD2;border-radius:12px;padding:13px 16px}
+  main.v19 .jr-tp-head{margin-bottom:11px}
+  main.v19 .jr-tp-h{font-family:var(--fd);font-size:1rem;font-weight:500;color:#7A6F63;margin:0}
+  main.v19 .jr-tp-list{
+    list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  main.v19 .jr-tp-list li{display:flex;flex-direction:column}
+  main.v19 .jr-tp-name{font-size:.85rem;font-weight:500;color:#1F2A24}
+  main.v19 .jr-tp-desc{font-size:.74rem;color:#8A7B6E;margin-top:2px}
+  main.v19 .jr-tp-foot{
+    border-top:1px solid #EBDFD2;margin-top:12px;padding-top:10px;font-size:.8rem;color:#5A6661}
+  main.v19 .jr-tp-link{color:#2C8A6E;text-decoration:none;font-weight:500}
+  main.v19 .jr-footer{
+    display:flex;justify-content:center;gap:30px;flex-wrap:wrap;max-width:920px;margin:24px auto 0;padding-top:4px}
+  main.v19 .jr-foot-item{display:flex;align-items:center;gap:8px;font-size:.85rem;color:#5A6661}
+  main.v19 .jr-foot-item:first-child{color:#1B5E48;font-weight:500}
+  main.v19 .jr-cta-wrap{text-align:center;margin-top:28px}
+  @media(max-width:760px){
+    main.v19 .jr-grid{grid-template-columns:1fr;gap:22px}
+    main.v19 .jr-tp-list{grid-template-columns:1fr;gap:12px}
+    main.v19 .jr-s4-sub{margin-left:0}
+    main.v19 .jr-footer{flex-direction:column;align-items:center;gap:14px}
+    main.v19 .jr-foot-item{align-items:flex-start;text-align:left}
+  }
+
+  /* ══ 6 · FAQ PREVIEW ═══════════════════════════════════════════════ */
+  main.v19 .faq-list{max-width:740px;margin-inline:auto;border-top:1px solid var(--line)}
+  main.v19 .faq-item{border-bottom:1px solid var(--line)}
+  main.v19 .faq-q{
+    width:100%;background:none;border:0;text-align:left;cursor:pointer;padding:22px 44px 22px 0;
+    position:relative;font-family:var(--fd);font-size:clamp(1.02rem,1.7vw,1.16rem);
+    color:var(--ink);line-height:1.35}
+  main.v19 .faq-q::after{
+    content:"";position:absolute;right:8px;top:50%;width:11px;height:11px;
+    border-right:1.8px solid var(--sage);border-bottom:1.8px solid var(--sage);
+    transform:translateY(-70%) rotate(45deg);transition:transform .28s ease}
+  main.v19 .faq-item.open .faq-q::after{transform:translateY(-30%) rotate(-135deg)}
+  main.v19 .faq-a{max-height:0;overflow:hidden;transition:max-height .34s ease}
+  main.v19 .faq-a > div{padding:0 30px 24px 0;color:var(--ink-70);font-size:.96rem;line-height:1.62}
+  main.v19 .faq-a > div p + p{margin-top:12px}
+  main.v19 .faq-foot{text-align:left;margin-top:30px}
+
+  /* ══ 7 · CLOSING: founder + referral ═══════════════════════════════ */
+  main.v19 .closing{background:var(--sage-dk);color:#F3EFE6;padding-block:clamp(52px,6.4vw,92px)}
+  main.v19 .closing-grid{
+    display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(34px,5vw,74px);align-items:center}
+  @media(max-width:900px){main.v19 .closing-grid{grid-template-columns:1fr;gap:34px}}
+  main.v19 .closing h2{color:#fff;margin-bottom:14px;max-width:15ch}
+  main.v19 .closing p{color:rgba(243,239,230,.86);font-size:1rem;line-height:1.62;max-width:58ch}
+  main.v19 .closing .cite{margin-top:16px;font-size:.86rem;color:rgba(243,239,230,.58)}
+  main.v19 .founder-q{
+    margin-top:16px;font-family:var(--fd);font-style:italic;font-size:clamp(1.02rem,1.5vw,1.18rem);
+    line-height:1.62;color:rgba(243,239,230,.9);max-width:52ch}
+  main.v19 .ref-side{padding-left:clamp(0px,3vw,46px);border-left:1px solid rgba(255,255,255,.16)}
+  @media(max-width:900px){
+    main.v19 .ref-side{
+      padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.16);padding-top:32px}
+  }
+  main.v19 .ref-avs{display:flex;align-items:center;margin-bottom:14px}
+  main.v19 .ref-circle{
+    width:34px;height:34px;border-radius:50%;background:rgba(246,214,196,.2);
+    border:1px solid rgba(246,214,196,.46);margin-left:-11px}
+  main.v19 .ref-circle:first-child{margin-left:0}
+  main.v19 .ref-av-ct{margin-left:14px;font-size:.79rem;letter-spacing:.02em;color:rgba(243,239,230,.74)}
+  main.v19 .ref-side h3{color:#fff;font-size:clamp(1.42rem,2.4vw,1.86rem);line-height:1.14;margin-bottom:10px}
+  main.v19 .ref-side > p{font-size:.99rem;color:rgba(243,239,230,.86);max-width:36ch}
+  main.v19 .ref-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  main.v19 .chip-dk{
+    display:inline-flex;align-items:center;gap:7px;font-size:.78rem;padding:6px 13px;border-radius:999px;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:rgba(243,239,230,.88)}
+  main.v19 .ref-side .hero-cta{margin-top:20px}
+  main.v19 .ref-side .btn-primary{background:var(--peach);box-shadow:none;color:#26221F}
+  main.v19 .ref-side .btn-primary:hover{background:var(--peach-dk);color:#fff}
+  main.v19 .ref-side .btn-ghost{color:#F6D6C4;border-color:rgba(246,214,196,.44)}
+  main.v19 .ref-side .btn-ghost:hover{background:rgba(246,214,196,.1);border-color:#F6D6C4}
+
+  /* ══ FOOTER licence strip (V19 treatment on the production dark footer) ══
+     .site-footer is --clr-primary-dk with light text, so these are light. */
+  .site-footer .foot-licence{
+    margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+    gap:6px 26px;text-align:center;
+    font-size:.86rem;font-weight:500;color:rgba(255,255,255,.86)}
+  .site-footer .foot-legal{
+    margin-top:12px;font-size:.8rem;line-height:1.62;text-align:center;
+    color:rgba(255,255,255,.56);max-width:88ch;margin-inline:auto}
+  .site-footer .foot-legal strong{color:rgba(255,255,255,.8);font-weight:600}
+  @media(prefers-reduced-motion:reduce){
+    main.v19 *{animation:none !important;transition:none !important}
+  }
   </style>
+
   <!-- Vercel Web Analytics -->
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -280,7 +442,7 @@
 </head>
 <body>
 
-<!-- ═══ HEADER ═══ -->
+<!-- ═══ HEADER (production — unchanged) ═══ -->
 <header class="site-header" id="site-header">
   <div class="wrap header-inner">
     <a href="index.html" class="logo">
@@ -305,338 +467,394 @@
 </header>
 
 
-<!-- ═══ HERO ═══ -->
+<main class="v19" id="top">
+
+<!-- ═══ 1 · HERO (V19 recommendation network) ═══ -->
 <section class="hero">
-  <div class="blob blob-a"></div>
-  <div class="blob blob-b"></div>
-  <div class="wrap hero-v2">
-
-    <div class="hero-v2-copy">
-      <div class="hero-badge">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="#2F8F73"/><path d="M3.5 6l1.8 1.8 3.2-3.2" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Trusted helpers, hired&nbsp;directly
-      </div>
-      <h1 class="h1 hero-hl">Find a helper another family already&nbsp;trusts.</h1>
-      <p class="hero-sub">Employer-recommended helpers and proven long-term work&nbsp;histories. Hire directly, not through an&nbsp;agency.</p>
-      <div class="hero-ctas">
-        <a href="browse.html" class="btn btn-green btn-lg">Meet helpers</a>
-        <a href="refer.html" class="btn btn-outline btn-lg">Refer a helper</a>
-      </div>
-      <p class="hero-proof"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.2 2.4 3v4.1c0 2.7 1.9 5 5.1 5.7 3.2-.7 5.1-3 5.1-5.7V3L7.5 1.2Z" stroke="#2C8A6E" stroke-width="1.1" stroke-linejoin="round"/><path d="M5.3 7.4 6.9 9l3-3.2" stroke="#2C8A6E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg> No placement fees, just one coordination fee if you&nbsp;proceed.</p>
-      <p class="hero-proof"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6.3" stroke="#2C8A6E" stroke-width="1.1"/><path d="M4.8 7.6 6.7 9.5l3.6-3.8" stroke="#2C8A6E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg> Reviewed before listing. Helpers never&nbsp;pay.</p>
-    </div>
-
-    <aside class="hero-preview">
-      <figure class="hero-note">
-        <span class="hero-note-tape" aria-hidden="true"></span>
-        <span class="hero-note-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8.5 12 14l9-5.5M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z" stroke-linejoin="round"/></svg> A note from her employer</span>
-        <blockquote class="hero-note-q">&ldquo;One of Maria&rsquo;s greatest strengths is her&nbsp;cooking.&rdquo;</blockquote>
-        <figcaption class="hero-note-attr">
-          <span class="hero-note-av" aria-hidden="true">A</span>
-          <span class="hero-note-attr-txt">
-            <span class="hero-note-line1"><span class="hero-note-name">Anna</span> <span class="hero-note-sep" aria-hidden="true">&middot;</span> Employer for 3.5&nbsp;years</span>
-            <span class="hero-note-perm">Shared with permission</span>
-          </span>
-        </figcaption>
-      </figure>
-    </aside>
-
-  </div>
-</section>
-
-
-<!-- ═══ WHY HELPER CIRCLE EXISTS ═══ -->
-<section class="why-exist">
-  <div class="wrap why-exist-inner">
-    <div class="kicker">Why Helper Circle exists</div>
-    <h2 class="h2 why-h">Good helpers shouldn&rsquo;t be hard to&nbsp;find.</h2>
-    <p class="why-lead">Great recommendations vanish in group chats within days. We keep them, and pass them&nbsp;on.</p>
-    <div class="why-metaphor rev">
-      <div class="wm-lost">
-        <span class="wm-bubble">&ldquo;anyone know a good&nbsp;helper?&rdquo;</span>
-        <span class="wm-cap">Lost in the chat</span>
-      </div>
-      <span class="wm-arrow" aria-hidden="true">&rarr;</span>
-      <div class="wm-kept">
-        <span class="wm-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20S4 14.5 4 8.8A4 4 0 0 1 12 6a4 4 0 0 1 8 2.8C20 14.5 12 20 12 20Z" stroke-linejoin="round"/></svg></span>
-        <span class="wm-cap wm-cap--kept">Kept in one circle</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══ HOW TRUST IS BUILT ═══ -->
-<section class="trust-ex" id="trust-signals">
   <div class="wrap">
-    <div class="stories-hdr rev">
-      <div class="kicker">How trust is built</div>
-      <h2 class="h2">Three signals, shown on every&nbsp;profile.</h2>
-      <p class="stories-sub">However a helper reaches us, her profile only goes live once it carries one of these signals, and we&rsquo;ve reviewed&nbsp;it.</p>
-    </div>
-    <div class="trust-ex-grid rev">
-      <article class="trust-ex-card">
-        <div class="tx-top"><span class="tx-badge tx-badge--rec"><span aria-hidden="true">🏆</span> Employer Recommended</span></div>
-        <div class="tx-body">
-          <p class="tx-h">A family she worked for vouches for&nbsp;her.</p>
-          <p class="tx-p">A current or former employer recommends her directly, and we confirm it with them. Our strongest&nbsp;signal.</p>
+    <div class="hero-grid">
+
+      <div class="hero-copy">
+        <h1>Find a helper another family already&nbsp;trusts.</h1>
+        <div class="hero-model"><p>Choose through recommendations&mdash;not from an agency&nbsp;shortlist.</p></div>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="browse.html">Meet helpers</a>
+          <a class="btn btn-ghost" href="refer.html">Refer a helper</a>
         </div>
-      </article>
-      <article class="trust-ex-card">
-        <div class="tx-top"><span class="tx-badge tx-badge--ret"><span aria-hidden="true">📅</span> Long-Term Family Retention</span></div>
-        <div class="tx-body">
-          <p class="tx-h">She stayed with one family for&nbsp;years.</p>
-          <p class="tx-p">Several years with a single family, checked against official MOM records. Her record speaks for&nbsp;itself.</p>
-        </div>
-      </article>
-      <article class="trust-ex-card">
-        <div class="tx-top"><span class="tx-badge tx-badge--cc"><span aria-hidden="true">✅</span> Completed Contract</span></div>
-        <div class="tx-body">
-          <p class="tx-h">She has completed employment&nbsp;here.</p>
-          <p class="tx-p">A record of completed work in Singapore, reviewed by us before her profile goes live. No personal recommendation&nbsp;attached.</p>
-        </div>
-      </article>
-    </div>
-    <p class="trust-ex-foot rev"><span class="tx-check" aria-hidden="true">✓</span> Every profile is reviewed before it&rsquo;s&nbsp;listed.</p>
-  </div>
-</section>
-
-
-<!-- ═══ CURRENTLY AVAILABLE REFERRED HELPERS ═══ -->
-<!-- Shows open-to-transfer profiles. If none are available this section
-     hides and the "Introduced one at a time" pointer below appears instead.
-     Visibility is toggled by helpers-data.js based on the data file. -->
-<section class="avail" id="helpers" style="display:none">
-  <div class="wrap">
-    <div class="avail-hdr rev">
-      <div class="kicker">Open to a new family</div>
-      <h2 class="h2 h2-sm">Currently available&nbsp;helpers</h2>
-      <p class="avail-sub">Helpers ready to meet a new family &mdash; each shown with the trust signals we&rsquo;ve&nbsp;verified.</p>
-    </div>
-
-    <!-- Cards render from helpers-data.js (available helpers, max 3) -->
-    <div class="avail-grid" id="avail-grid"></div>
-
-    <div class="avail-foot rev">
-      <a href="browse.html" class="btn btn-outline">See all available helpers &rarr;</a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══ MEET HELPERS POINTER  (empty state — shown only when no helpers available) ═══ -->
-<!-- TODO: when real helper profiles exist and inventory is healthy, this
-     section can be replaced with a real .hcard-grid showcase (markup pattern
-     preserved in styles.css). The .meet-pointer styling can then be reused
-     as a calmer "view all" footer below the grid. -->
-<section class="meet-pointer" id="meet-circle">
-  <div class="wrap">
-    <div class="meet-pointer-inner">
-      <div class="kicker">Meet helpers</div>
-      <h2 class="h2 meet-pointer-h">Introduced one at a&nbsp;time.</h2>
-      <p class="meet-pointer-sub">Most profiles begin as a conversation with a previous family. A few come from helpers with long, verified work&nbsp;histories.</p>
-      <a href="browse.html" class="btn btn-green btn-lg meet-pointer-cta">Meet our circle &rarr;</a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══ WHAT REFERRING FAMILIES SAY ═══ -->
-<section class="stories" id="stories">
-  <div class="wrap">
-    <div class="stories-hdr rev">
-      <div class="kicker">A real employer story</div>
-      <h2 class="h2">A family&rsquo;s experience, in her own&nbsp;words.</h2>
-    </div>
-
-    <figure class="sheila-quote-block rev">
-      <span class="sheila-qmark" aria-hidden="true">&ldquo;</span>
-      <blockquote class="sheila-quote">We could all meet together, ask our questions and feel comfortable before&nbsp;deciding.</blockquote>
-      <figcaption class="sheila-cap">
-        <span class="sheila-av" aria-hidden="true">S</span>
-        <span class="sheila-id">
-          <span class="sheila-name">Sheila</span>
-          <span class="sheila-meta">Referring employer &middot; June 2026 &middot; Shared with&nbsp;permission</span>
-        </span>
-      </figcaption>
-    </figure>
-
-    <details class="sheila-story rev">
-      <summary class="sheila-summary">Read her full experience</summary>
-      <div class="sheila-timeline">
-
-        <div class="st-step">
-          <div class="st-marker"><span class="st-dot st-dot--1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20S4 14.5 4 8.8A4 4 0 0 1 12 6a4 4 0 0 1 8 2.8C20 14.5 12 20 12 20Z" stroke-linejoin="round"/></svg></span><span class="st-line"></span></div>
-          <div class="st-body">
-            <span class="st-label st-label--1">The challenge</span>
-            <p class="st-text">&ldquo;As an employer concerned about transferring out my helper, I really wished for her to go to a good family to provide her&nbsp;service.&rdquo;</p>
-          </div>
-        </div>
-
-        <div class="st-step">
-          <div class="st-marker"><span class="st-dot st-dot--2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="M15 10l6-3v10l-6-3" stroke-linejoin="round"/></svg></span><span class="st-line"></span></div>
-          <div class="st-body">
-            <span class="st-label st-label--2">The process</span>
-            <p class="st-text">&ldquo;I found the Zoom meeting organised by Helper Circle very useful: the helper, the current employer and the future employer all get to meet and chat on one call, speak out our concerns, and check that all the criteria and areas of concern are met before both parties&nbsp;commit.&rdquo; Everything was transparent, with no hidden agenda and every question properly&nbsp;handled.</p>
-            <div class="st-call">
-              <span class="st-call-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11l8-6 8 6M6 10v9h12v-9" stroke-linecap="round" stroke-linejoin="round"/></svg> Current employer</span>
-              <span class="st-call-tile st-call-tile--mid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.5"/><path d="M5.5 19a6.5 6.5 0 0 1 13 0" stroke-linecap="round"/></svg> The helper</span>
-              <span class="st-call-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3.5 18a5.5 5.5 0 0 1 11 0" stroke-linecap="round"/><path d="M16 6.6a3 3 0 0 1 0 5.8M16.5 18a5.5 5.5 0 0 0-2-4.2" stroke-linecap="round"/></svg> New employer</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="st-step st-step--last">
-          <div class="st-marker"><span class="st-dot st-dot--3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12.5l4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-          <div class="st-body">
-            <span class="st-label st-label--3">The outcome</span>
-            <p class="st-text">&ldquo;For me, transferring my good helper away, there was no cost to me, and no cut from my helper&rsquo;s salary&nbsp;either. The new employer pays a platform fee only after the deal is&nbsp;done, with no hidden&nbsp;costs.&rdquo;</p>
-            <div class="st-callout"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h4v4c0 2.2-1.3 3.8-3.5 4.4l-.5-1.3C8.3 13.6 9 12.8 9 11.5H7V7Zm7 0h4v4c0 2.2-1.3 3.8-3.5 4.4l-.5-1.3c1.3-.5 2-1.3 2-2.6h-2V7Z"/></svg> &ldquo;I&rsquo;m happy to highly recommend this service. It&rsquo;s totally worth it, and peace of mind&nbsp;too.&rdquo;</div>
-          </div>
-        </div>
-
-      </div>
-    </details>
-  </div>
-</section>
-
-
-
-<!-- ═══ HOW IT WORKS + PRICING (combined journey) ═══ -->
-<section class="journey" id="how">
-  <div class="wrap">
-    <div class="journey-hdr rev">
-      <div class="kicker">How it works</div>
-      <h2 class="h2 journey-h">Four steps, one honest&nbsp;fee.</h2>
-    </div>
-
-    <div class="jr-steps rev">
-      <div class="jr-step">
-        <div class="jr-num" aria-hidden="true">01</div>
-        <div class="jr-ico"><svg width="22" height="22" viewBox="0 0 26 26" fill="none"><circle cx="11.5" cy="11.5" r="7.5" stroke="#2F8F73" stroke-width="1.8"/><path d="M17.5 17.5l4 4" stroke="#2F8F73" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-        <h3 class="h3 jr-st-t">Browse trusted&nbsp;helpers</h3>
-        <p class="jr-st-s">See why each one is trusted, before you&nbsp;enquire.</p>
-      </div>
-      <div class="jr-step">
-        <div class="jr-num" aria-hidden="true">02</div>
-        <div class="jr-ico jr-ico--peach"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 7.5 12 13l9-5.5M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z" stroke="#C66740" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
-        <h3 class="h3 jr-st-t">Request an&nbsp;introduction</h3>
-        <p class="jr-st-s">We coordinate the first connection. You choose who to&nbsp;meet.</p>
-      </div>
-      <div class="jr-step">
-        <div class="jr-num" aria-hidden="true">03</div>
-        <div class="jr-ico jr-ico--amber"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="12" height="12" rx="2" stroke="#8A5F2E" stroke-width="1.7"/><path d="M15 10l6-3v10l-6-3" stroke="#8A5F2E" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
-        <h3 class="h3 jr-st-t">Meet &amp;&nbsp;decide</h3>
-        <p class="jr-st-s">Speak with the helper on a video call. No&nbsp;obligation.</p>
-      </div>
-    </div>
-
-    <div class="jr-step4 rev" id="pricing">
-      <div class="jr-s4-head">
-        <span class="jr-s4-num" aria-hidden="true">04</span>
-        <h3 class="h3 jr-s4-t">Proceed only if both&nbsp;agree.</h3>
-      </div>
-      <p class="jr-s4-sub">Paid by the hiring employer only, after both sides agree to&nbsp;proceed.</p>
-
-      <div class="jr-grid">
-        <div class="jr-fee-col">
-          <div class="jr-lab">Our fee</div>
-          <div class="jr-amount-row"><span class="jr-amount">S$499</span></div>
-          <p class="jr-fee-sub">One-time fee</p>
-          <ul class="jr-fee-list">
-            <li>Helpers never pay fees</li>
-            <li>No salary deductions</li>
-            <li>No hidden charges</li>
-          </ul>
-        </div>
-        <div class="jr-inc-col">
-          <div class="jr-lab">What&rsquo;s included</div>
-          <ul class="jr-inc">
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.2l3.6 3.6L14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Introductions &amp; coordination</li>
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.2l3.6 3.6L14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> MOM transfer paperwork guidance</li>
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.2l3.6 3.6L14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Insurance guidance</li>
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.2l3.6 3.6L14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Guided transfer support</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="jr-tp">
-        <div class="jr-tp-head">
-          <p class="jr-tp-h">Other costs, paid directly to providers</p>
-        </div>
-        <ul class="jr-tp-list">
-          <li><span class="jr-tp-name">MOM permit fee</span><span class="jr-tp-desc">paid to Ministry of Manpower</span></li>
-          <li><span class="jr-tp-name">Insurance premium</span><span class="jr-tp-desc">paid to your chosen insurer</span></li>
-          <li><span class="jr-tp-name">Medical check</span><span class="jr-tp-desc">if required by MOM</span></li>
+        <ul class="hero-points">
+          <li><svg width="16" height="16" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M7.5 1.2 2.4 3v4.1c0 2.7 1.9 5 5.1 5.7 3.2-.7 5.1-3 5.1-5.7V3L7.5 1.2Z" stroke="#2C8A6E" stroke-width="1.2" stroke-linejoin="round"/><path d="M5.3 7.4 6.9 9l3-3.2" stroke="#2C8A6E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg> No fee to browse or interview</li>
+          <li><svg width="16" height="16" viewBox="0 0 15 15" fill="none" aria-hidden="true"><circle cx="7.5" cy="7.5" r="6.3" stroke="#2C8A6E" stroke-width="1.2"/><path d="M4.8 7.6 6.7 9.5l3.6-3.8" stroke="#2C8A6E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Helpers never pay Helper Circle</li>
         </ul>
-        <p class="jr-tp-foot">These costs are set by external providers, not&nbsp;us. <a href="faq.html" class="jr-tp-link">See FAQ &rarr;</a></p>
+      </div>
+
+      <div class="hero-media">
+        <div class="hero-illus">
+          <svg viewBox="0 0 600 430" role="img" aria-label="Illustration of a recommendation network: a previous family recommends a helper, who is introduced to a new family.">
+            <rect width="600" height="430" fill="#F3EBE0"/>
+            <!-- recommendation note card -->
+            <rect x="205" y="24" width="190" height="84" rx="8" fill="#FFFDF8" stroke="#2C8A6E" stroke-width="2"/>
+            <line x1="225" y1="50" x2="360" y2="50" stroke="#2C8A6E" stroke-width="2.4" opacity=".35" stroke-linecap="round"/>
+            <line x1="225" y1="68" x2="345" y2="68" stroke="#2C8A6E" stroke-width="2.4" opacity=".35" stroke-linecap="round"/>
+            <line x1="225" y1="86" x2="315" y2="86" stroke="#E8825C" stroke-width="2.8" opacity=".75" stroke-linecap="round"/>
+            <path d="M395 16l5.4 11 12.2 1.8-8.8 8.6 2.1 12.1-10.9-5.7-10.9 5.7 2.1-12.1-8.8-8.6 12.2-1.8z" fill="#D9A441"/>
+            <!-- recommendation arcs -->
+            <path d="M133 214Q205 138 274 208" stroke="#E8825C" stroke-width="2.8" fill="none" stroke-dasharray="6 8" stroke-linecap="round"/>
+            <path d="M326 208Q397 138 469 214" stroke="#2E6F95" stroke-width="2.8" fill="none" stroke-dasharray="6 8" stroke-linecap="round" opacity=".85"/>
+            <!-- ground -->
+            <rect x="0" y="326" width="600" height="104" fill="#2C8A6E" opacity=".12"/>
+            <line x1="0" y1="326" x2="600" y2="326" stroke="#2C8A6E" stroke-width="2" opacity=".28"/>
+            <!-- previous family (peach) -->
+            <path d="M76 326v-58q0-24 22-24h14q22 0 22 24v58z" fill="#E8825C" opacity=".88"/>
+            <path d="M134 274q22 6 30 24" stroke="#E8825C" stroke-width="15" stroke-linecap="round" fill="none" opacity=".88"/>
+            <circle cx="167" cy="300" r="9" fill="#DBAE86"/>
+            <circle cx="105" cy="220" r="24" fill="#DBAE86"/>
+            <path d="M81 219a24 24 0 0 1 48 0q0-28.8-24-28.8-24 0-24 28.8z" fill="#33291F"/>
+            <path d="M94.9 220.5q3.84 3.84 7.68 0" stroke="#3B2F26" stroke-width="2.16" fill="none" stroke-linecap="round"/>
+            <path d="M107.4 220.5q3.84 3.84 7.68 0" stroke="#3B2F26" stroke-width="2.16" fill="none" stroke-linecap="round"/>
+            <path d="M100.2 230.1q4.8 5.28 9.6 0" stroke="#3B2F26" stroke-width="2.16" fill="none" stroke-linecap="round"/>
+            <!-- helper (sage) -->
+            <path d="M271 326v-58q0-24 22-24h14q22 0 22 24v58z" fill="#2C8A6E"/>
+            <path d="M271 276q-18 8-18 26" stroke="#2C8A6E" stroke-width="15" stroke-linecap="round" fill="none"/>
+            <path d="M329 276q18 8 18 26" stroke="#2C8A6E" stroke-width="15" stroke-linecap="round" fill="none"/>
+            <circle cx="300" cy="220" r="24" fill="#C68C63"/>
+            <path d="M276 218a24 24 0 0 1 48 0q0-27.6-24-27.6-24 0-24 27.6z" fill="#33291F"/>
+            <circle cx="320.6" cy="208" r="10.1" fill="#33291F"/>
+            <path d="M289.9 220.5q3.84 3.84 7.68 0" stroke="#3B2F26" stroke-width="2.16" fill="none" stroke-linecap="round"/>
+            <path d="M302.4 220.5q3.84 3.84 7.68 0" stroke="#3B2F26" stroke-width="2.16" fill="none" stroke-linecap="round"/>
+            <path d="M295.2 230.1q4.8 5.28 9.6 0" stroke="#3B2F26" stroke-width="2.16" fill="none" stroke-linecap="round"/>
+            <!-- new family (blue) -->
+            <path d="M466 326v-58q0-24 22-24h14q22 0 22 24v58z" fill="#2E6F95" opacity=".85"/>
+            <path d="M466 274q-22 6-30 24" stroke="#2E6F95" stroke-width="15" stroke-linecap="round" fill="none" opacity=".85"/>
+            <circle cx="433" cy="300" r="9" fill="#DBAE86"/>
+            <circle cx="495" cy="220" r="24" fill="#DBAE86"/>
+            <path d="M471 219a24 24 0 0 1 48 0q0-28.8-24-28.8-24 0-24 28.8z" fill="#33291F"/>
+            <path d="M484.9 220.5q3.84 3.84 7.68 0" stroke="#3B2F26" stroke-width="2.16" fill="none" stroke-linecap="round"/>
+            <path d="M497.4 220.5q3.84 3.84 7.68 0" stroke="#3B2F26" stroke-width="2.16" fill="none" stroke-linecap="round"/>
+            <path d="M490.2 230.1q4.8 5.28 9.6 0" stroke="#3B2F26" stroke-width="2.16" fill="none" stroke-linecap="round"/>
+            <!-- labels -->
+            <g font-family="'DM Sans',sans-serif" font-size="22" font-weight="600" fill="#4A4844" text-anchor="middle">
+              <text x="105" y="378">Previous family</text>
+              <text x="300" y="378">Helper</text>
+              <text x="495" y="378">Your family</text>
+            </g>
+            <g font-family="'DM Sans',sans-serif" font-size="18" fill="#77746D" text-anchor="middle">
+              <text x="202" y="404">recommends</text>
+              <text x="398" y="404">introduced to</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ 2 · HOW TRUST IS BUILT — four ways a helper joins the circle ═══ -->
+<section class="bg-paper" id="why">
+  <div class="wrap sec">
+
+    <div class="why-top">
+      <div class="why-illus rev">
+        <svg viewBox="0 0 460 210" role="img" aria-label="Illustration: a recommendation asked for in a group chat is kept inside the Helper Circle.">
+          <rect x="6" y="16" width="188" height="76" rx="18" fill="#FFFDF8" stroke="#2C8A6E" stroke-width="1.8" opacity=".9"/>
+          <path d="M44 92l-5 20 24-20z" fill="#FFFDF8" stroke="#2C8A6E" stroke-width="1.8" stroke-linejoin="round" opacity=".9"/>
+          <!-- textLength keeps the line inside the bubble even if Caveat fails to load. -->
+          <text x="100" y="62" font-family="'Caveat',cursive" font-size="27" fill="#C66740" text-anchor="middle" textLength="164" lengthAdjust="spacingAndGlyphs">&ldquo;anyone know a good helper?&rdquo;</text>
+          <text x="100" y="152" font-family="'DM Sans',sans-serif" font-size="15" fill="#77746D" text-anchor="middle">Lost in the chat</text>
+          <path d="M214 66h36m-10-9 10 9-10 9" stroke="#2C8A6E" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="352" cy="66" r="46" fill="#E8F1ED" stroke="#2C8A6E" stroke-width="2"/>
+          <circle cx="352" cy="46" r="9" fill="#2C8A6E" opacity=".82"/>
+          <circle cx="330" cy="80" r="9" fill="#E8825C" opacity=".82"/>
+          <circle cx="374" cy="80" r="9" fill="#2E6F95" opacity=".82"/>
+          <path d="M341 60l11-6 11 6M341 60l-11 14M363 60l11 14" stroke="#2C8A6E" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".55"/>
+          <text x="352" y="152" font-family="'DM Sans',sans-serif" font-size="15" fill="#1F2A24" text-anchor="middle">Kept in one circle</text>
+          <path d="M262 66h34" stroke="#2C8A6E" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-dasharray="1 8"/>
+        </svg>
+      </div>
+      <div class="why-copy rev">
+        <div class="kicker">How trust is built</div>
+        <h2>Four ways a helper joins the&nbsp;circle.</h2>
+        <p class="lede">Recommendations, employment histories and assessed experience &mdash; all in one&nbsp;place.</p>
+        <p class="why-note">Every listed helper carries at least one of these&nbsp;signals.</p>
       </div>
     </div>
 
-    <div class="jr-footer rev">
-      <div class="jr-foot-item"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6.5" stroke="#2F8F73" stroke-width="1.3"/><path d="M7.5 4.5v3.5l2 2" stroke="#2F8F73" stroke-width="1.3" stroke-linecap="round"/></svg> Most introductions arranged within 2&ndash;3&nbsp;days</div>
-      <div class="jr-foot-item"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.5L13 4v4.5c0 3.3-2.5 5.8-5.5 6.5C4.5 14.3 2 11.8 2 8.5V4l5.5-2.5z" stroke="#61666B" stroke-width="1.2" stroke-linejoin="round"/></svg> We coordinate every introduction, so both sides stay&nbsp;protected</div>
-    </div>
-
-    <div class="jr-cta-wrap rev">
-      <a href="browse.html" class="btn btn-green btn-lg">Meet helpers &mdash; free</a>
+    <div class="tb-grid">
+      <article class="tb rev">
+        <span class="bpill rec"><span class="tsig-mark" aria-hidden="true">🏆</span> Employer Recommended</span>
+        <p>A current or former employer recommends her, and Helper Circle confirms it with&nbsp;them.</p>
+      </article>
+      <article class="tb rev">
+        <span class="bpill ver"><span class="tsig-mark" aria-hidden="true">📅</span> Long-Term Employment</span>
+        <p>Several years with one family. Supported by employment records reviewed by Helper&nbsp;Circle.</p>
+      </article>
+      <article class="tb rev">
+        <span class="bpill done"><span class="tsig-mark" aria-hidden="true">✅</span> Completed Contracts</span>
+        <p>A record of completed employment in Singapore, reviewed by Helper Circle before&nbsp;listing.</p>
+      </article>
+      <article class="tb rev">
+        <span class="bpill assess"><span class="tsig-mark" aria-hidden="true">🔍</span> Helper Circle Assessed</span>
+        <p>Her work history and experience have been reviewed directly by Helper Circle before&nbsp;listing.</p>
+      </article>
     </div>
 
   </div>
 </section>
 
 
-<!-- ═══ REFERRAL BANNER ═══ -->
-<section class="ref-banner">
-  <div class="ref-banner-bg">
-    <div class="rblob rblob-a"></div>
-    <div class="rblob rblob-b"></div>
-    <div class="rblob rblob-c"></div>
+<!-- ═══ 3 · CURRENTLY AVAILABLE HELPERS ═══
+     Cards render from helpers-data.js (available helpers, soonest first, max 3).
+     If none are available, this section hides and #meet-circle below is shown
+     instead. That toggle lives in renderHome() — do not hardcode cards here. -->
+<section class="wrap sec" id="helpers" style="display:none">
+  <div class="shead rev">
+    <div class="kicker">Open to a new family</div>
+    <h2>Currently available.</h2>
   </div>
-  <div class="wrap ref-inner">
+
+  <div class="feat-row" id="avail-grid"></div>
+
+  <div class="avail-foot rev">
+    <a class="btn btn-ghost" href="browse.html">See all available helpers <span aria-hidden="true">&rarr;</span></a>
+  </div>
+</section>
+
+
+<!-- ═══ 3b · EMPTY STATE (shown only when no helper is available) ═══ -->
+<section class="wrap sec" id="meet-circle">
+  <div class="empty-pointer rev">
+    <div class="kicker">Meet helpers</div>
+    <h2>Introduced one at a&nbsp;time.</h2>
+    <p>Most profiles begin as a recommendation from a previous family. Others come from helpers with long employment histories, a record of completed employment in Singapore, or experience reviewed directly by Helper&nbsp;Circle.</p>
+    <a class="btn btn-primary btn-lg" href="browse.html">Meet our circle <span aria-hidden="true">&rarr;</span></a>
+  </div>
+</section>
+
+
+<!-- ═══ 4 · REAL EXPERIENCES ═══ -->
+<section class="bg-paper" id="for-helpers">
+  <div class="wrap sec">
+    <div class="shead">
+      <div class="kicker">Real experiences</div>
+      <h2>What families and helpers&nbsp;say.</h2>
+    </div>
+
+    <!-- Publication consent confirmed for all six on 7 Sep 2026.
+         Card roles, order and wording follow the V19 prototype exactly. -->
+    <div class="rx-grid">
+
+      <figure class="rx rx-feature rev">
+        <span class="rx-tag fam"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-6 8 6"/><path d="M6 10v10h12V10"/></svg> From a family</span>
+        <p class="rx-q">If you want helpers with a good track record and appreciated by their previous employers, this is definitely a good&nbsp;platform.</p>
+        <figcaption class="rx-by"><span class="rx-av" aria-hidden="true">N</span><span><b>Nicole</b>Hiring family</span></figcaption>
+      </figure>
+
+      <figure class="rx rev">
+        <span class="rx-tag fam"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-6 8 6"/><path d="M6 10v10h12V10"/></svg> From a family</span>
+        <p class="rx-q">&ldquo;We could all meet together, ask our questions and feel comfortable before&nbsp;deciding.&rdquo;</p>
+        <figcaption class="rx-by"><span class="rx-av" aria-hidden="true">S</span><span><b>Sheila</b>Referring employer</span></figcaption>
+      </figure>
+
+      <figure class="rx rev">
+        <span class="rx-tag fam"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-6 8 6"/><path d="M6 10v10h12V10"/></svg> From a family</span>
+        <p class="rx-q">&ldquo;They made finding a new family for my helper a&nbsp;breeze.&rdquo;</p>
+        <figcaption class="rx-by"><span class="rx-av" aria-hidden="true">V</span><span><b>Vera</b>Referring employer</span></figcaption>
+      </figure>
+
+      <figure class="rx rx-help rev">
+        <span class="rx-tag help"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M5 20a7 7 0 0 1 14 0"/></svg> From a helper</span>
+        <p class="rx-q">&ldquo;Thank you for your help to find me a job. They appreciate my&nbsp;job.&rdquo;</p>
+        <figcaption class="rx-by"><span class="rx-av" aria-hidden="true">&#9702;</span><span>After joining a new family</span></figcaption>
+      </figure>
+
+      <figure class="rx rx-help rev">
+        <span class="rx-tag help"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M5 20a7 7 0 0 1 14 0"/></svg> From a helper</span>
+        <p class="rx-q">&ldquo;I am very good&hellip; Yes, I&rsquo;m very happy, Ma&rsquo;am. Madam is very&nbsp;good.&rdquo;</p>
+        <figcaption class="rx-by"><span class="rx-av" aria-hidden="true">&#9702;</span><span>In her own words</span></figcaption>
+      </figure>
+
+      <figure class="rx rx-help rev">
+        <span class="rx-tag help"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M5 20a7 7 0 0 1 14 0"/></svg> From a helper</span>
+        <p class="rx-q">&ldquo;I met a new friend who asked where I met my employer, and I proudly mentioned Helper&nbsp;Circle.&rdquo;</p>
+        <figcaption class="rx-by"><span class="rx-av" aria-hidden="true">&#9702;</span><span>Shared with permission</span></figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ 5 · HOW IT WORKS + PRICING ═══ -->
+<section class="wrap sec" id="how">
+  <div class="shead center rev">
+    <div class="kicker">How it works</div>
+    <h2>Four steps, one clear&nbsp;fee.</h2>
+  </div>
+
+  <div class="jr-steps">
+    <div class="jr-step rev">
+      <div class="jr-top">
+        <span class="jr-ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2C8A6E" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="10.6" cy="10.6" r="6.4"/><path d="M15.4 15.4L20 20"/></svg></span>
+        <div><div class="jr-num">01</div><h3>Browse helpers</h3></div>
+      </div>
+      <p>See available profiles and why each helper is&nbsp;listed.</p>
+    </div>
+    <div class="jr-step rev">
+      <div class="jr-top">
+        <span class="jr-ico peach"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C66740" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5L12 13l9-5.5"/><rect x="3" y="5.5" width="18" height="13" rx="1.6"/></svg></span>
+        <div><div class="jr-num">02</div><h3>Request an introduction</h3></div>
+      </div>
+      <p>We coordinate the first connection. You choose whom to&nbsp;meet.</p>
+    </div>
+    <div class="jr-step rev">
+      <div class="jr-top">
+        <span class="jr-ico sand"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#8A7440" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="M15 10l6-3v10l-6-3"/></svg></span>
+        <div><div class="jr-num">03</div><h3>Meet and decide</h3></div>
+      </div>
+      <p>Speak with the helper directly, with no&nbsp;obligation.</p>
+    </div>
+  </div>
+
+  <div class="jr-step4 rev" id="pricing">
+    <div class="jr-s4-head">
+      <span class="jr-s4-num" aria-hidden="true">04</span>
+      <h3 class="jr-s4-t">Proceed only if both&nbsp;agree.</h3>
+    </div>
+    <p class="jr-s4-sub">Paid by the hiring employer only, after both sides agree to&nbsp;proceed.</p>
+
+    <div class="jr-grid">
+      <div class="jr-fee-col">
+        <div class="jr-lab">Our fee</div>
+        <div class="jr-amount-row"><span class="jr-amount">S$699</span></div>
+        <p class="jr-fee-sub">One-time successful-match fee</p>
+        <ul class="jr-fee-list">
+          <li>Helpers never pay Helper Circle</li>
+          <li>No salary deductions</li>
+          <li>No agency loans</li>
+        </ul>
+      </div>
+      <div class="jr-inc-col">
+        <div class="jr-lab">What&rsquo;s included</div>
+        <ul class="jr-inc">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.2l3.6 3.6L14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Suitable introductions</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.2l3.6 3.6L14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Interview and feedback coordination</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.2l3.6 3.6L14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Agreement and employment documents</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8.2l3.6 3.6L14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Work Permit or transfer processing</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="jr-tp">
+      <div class="jr-tp-head">
+        <p class="jr-tp-h">Other costs, paid directly to providers</p>
+      </div>
+      <ul class="jr-tp-list">
+        <li><span class="jr-tp-name">MOM permit fee</span><span class="jr-tp-desc">paid to Ministry of Manpower</span></li>
+        <li><span class="jr-tp-name">Insurance premium</span><span class="jr-tp-desc">paid to your chosen insurer</span></li>
+        <li><span class="jr-tp-name">Medical check</span><span class="jr-tp-desc">if required by MOM</span></li>
+      </ul>
+      <p class="jr-tp-foot">These costs are set by external providers, not&nbsp;us. <a href="faq.html" class="jr-tp-link">See FAQ &rarr;</a></p>
+    </div>
+  </div>
+
+  <div class="jr-footer rev">
+    <div class="jr-foot-item"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><circle cx="7.5" cy="7.5" r="6.5" stroke="#2F8F73" stroke-width="1.3"/><path d="M7.5 4.5v3.5l2 2" stroke="#2F8F73" stroke-width="1.3" stroke-linecap="round"/></svg> Browse and interview before&nbsp;paying</div>
+    <div class="jr-foot-item"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M7.5 1.5L13 4v4.5c0 3.3-2.5 5.8-5.5 6.5C4.5 14.3 2 11.8 2 8.5V4l5.5-2.5z" stroke="#61666B" stroke-width="1.2" stroke-linejoin="round"/></svg> We coordinate every introduction, so both sides stay&nbsp;supported</div>
+  </div>
+
+  <div class="jr-cta-wrap rev">
+    <a href="browse.html" class="btn btn-green btn-lg">Meet helpers &mdash; free</a>
+  </div>
+</section>
+
+
+<!-- ═══ 6 · FAQ PREVIEW (full answers live on faq.html) ═══ -->
+<section class="bg-paper" id="faq-preview">
+  <div class="wrap sec">
+    <div class="aligned-740">
+      <div class="shead rev">
+        <div class="kicker">FAQ</div>
+        <h2>Questions employers&nbsp;ask.</h2>
+      </div>
+      <div class="faq-list rev">
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">Is Helper Circle an employment agency?</button>
+          <div class="faq-a"><div>
+            <p>Helper Circle is the customer-facing brand for services provided by Helper&nbsp;Talent, a licensed employment agency in Singapore (EA Licence No.&nbsp;26C3645). Introducing and matching helpers with employers, and handling the employment process, are regulated&nbsp;services.</p>
+            <p>The experience is designed to stay closer to transparent direct hiring. You can browse the available helper profiles yourself instead of receiving only an agency-selected shortlist. Helpers may be listed because a current or former employer recommends them, because they have a strong long-term or completed employment record, or because Helper Circle has assessed their experience and employment background&nbsp;directly.</p>
+            <p>You decide whom you wish to meet and hire. Helper Circle coordinates the experience for you, while Helper&nbsp;Talent handles the regulated employment and Work&nbsp;Permit&nbsp;process.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">What does the S$699 fee cover?</button>
+          <div class="faq-a"><div>
+            <p>Everything listed in step four above: your requirement review, suitable introductions, interview and feedback coordination, expectation alignment, the service agreement and employment documents, and the Work Permit or transfer through to&nbsp;arrival.</p>
+            <p>No fee is charged for browsing or interviewing. It is payable only when both sides agree to proceed, and government and third-party charges are&nbsp;separate.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">How does Helper Circle decide which helpers to list?</button>
+          <div class="faq-a"><div>
+            <p>Every listed helper carries at least one clear trust&nbsp;signal:</p>
+            <p><strong>Employer Recommended</strong> &mdash; a current or former employer recommends her, and Helper Circle confirms this with&nbsp;them.<br>
+               <strong>Long-Term Employment</strong> &mdash; several years with one family, supported by employment records reviewed by Helper&nbsp;Circle.<br>
+               <strong>Completed Contracts</strong> &mdash; a record of completed employment in Singapore, reviewed before&nbsp;listing.<br>
+               <strong>Helper Circle Assessed</strong> &mdash; her work history and experience have been reviewed directly by Helper Circle before&nbsp;listing.</p>
+            <p>These signals come from different sources and are not meant to imply that every helper has been personally recommended by a previous&nbsp;employer.</p>
+          </div></div>
+        </div>
+
+      </div>
+      <div class="faq-foot rev">
+        <a class="btn btn-ghost" href="faq.html">View all frequently asked questions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ 7 · CLOSING: founder + referral ═══ -->
+<section class="closing">
+  <div class="wrap closing-grid">
 
     <div class="rev">
+      <div class="kicker on-ink">Why Helper Circle</div>
+      <h2>Good recommendations should stay&nbsp;visible.</h2>
+      <p class="founder-q">&ldquo;When we started looking for a helper for our own family, we realised many of the best recommendations disappeared within days. Helper Circle was created to keep those recommendations visible and help them reach families who are actively&nbsp;searching.&rdquo;</p>
+      <p class="cite">&mdash; Kate, founder</p>
+    </div>
+
+    <div class="ref-side rev">
       <div class="ref-avs">
-        <div class="ref-circle" aria-hidden="true"></div>
-        <div class="ref-circle" aria-hidden="true"></div>
-        <div class="ref-circle" aria-hidden="true"></div>
-        <span class="ref-av-ct">A curated circle of trusted referrals</span>
+        <span class="ref-circle" aria-hidden="true"></span>
+        <span class="ref-circle" aria-hidden="true"></span>
+        <span class="ref-circle" aria-hidden="true"></span>
+        <span class="ref-av-ct">A circle built from real recommendations</span>
       </div>
-      <h2 class="ref-hl">Know a good&nbsp;helper?</h2>
-      <p class="ref-sub" style="max-width:420px">Refer someone you trust.<br>We'll handle the&nbsp;follow-up.</p>
+      <h3>Know a good&nbsp;helper?</h3>
+      <p>Refer someone you trust. We&rsquo;ll handle the&nbsp;follow-up.</p>
       <div class="ref-chips">
-        <span class="chip chip-dk">
-          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M5.5 1l1 2.8 3 .3-2.2 2 .7 2.9L5.5 7.7 3 9l.7-2.9-2.2-2 3-.3z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>
-          Quick referral
-        </span>
-        <span class="chip chip-dk">
-          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4" stroke="currentColor" stroke-width="1"/><path d="M5.5 3.5v2.5l1.5 1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
-          5&ndash;10 minutes
-        </span>
-        <span class="chip chip-dk">
-          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M7 3l2 2.5-2 2.5" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          We'll handle the rest
-        </span>
+        <span class="chip-dk"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M5.5 1l1 2.8 3 .3-2.2 2 .7 2.9L5.5 7.7 3 9l.7-2.9-2.2-2 3-.3z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg> Quick referral</span>
+        <span class="chip-dk"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><circle cx="5.5" cy="5.5" r="4" stroke="currentColor" stroke-width="1"/><path d="M5.5 3.5v2.5l1.5 1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg> 5&ndash;10 minutes</span>
+        <span class="chip-dk"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 5.5h7M7 3l2 2.5-2 2.5" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg> We&rsquo;ll handle the rest</span>
       </div>
-      <a href="refer.html" class="btn btn-peach">Refer a Helper</a>
-    </div>
-
-    <div class="rev">
-      <div class="ref-card">
-        <div class="ref-card-ttl">From the family behind Helper Circle</div>
-        <blockquote class="ref-card-quote">
-          <p>When we started looking for a helper for our own family, we realised that many of the best referrals disappeared within days. The helpers who came most highly recommended often never reached families who were actively searching for&nbsp;them.</p>
-          <p class="ref-card-belief">Helper Circle started from a simple belief: good referrals shouldn&rsquo;t disappear.</p>
-        </blockquote>
-        <p class="ref-card-cite">&mdash; Kate, Founder</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="refer.html">Refer a helper</a>
+        <a class="btn btn-ghost" href="browse.html">Browse helpers</a>
       </div>
     </div>
 
   </div>
 </section>
 
+</main>
 
-<!-- ═══ FOOTER ═══ -->
+
+<!-- ═══ FOOTER (production content, V19 licence treatment) ═══ -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-inner">
@@ -662,7 +880,7 @@
         <a href="feedback.html">Share Feedback</a>
       </nav>
 
-            <p class="footer-aside">
+      <p class="footer-aside">
         <a href="for-families.html">For families saying goodbye to a helper &rarr;</a>
       </p>
 
@@ -672,6 +890,14 @@
         <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>
       </div>
 
+      <div class="foot-licence">
+        <span>Helper Talent · UEN 53518791B</span>
+        <span>Licensed Employment Agency</span>
+        <span>EA Licence No. 26C3645</span>
+      </div>
+
+      <p class="foot-legal">Helper Circle is the customer-facing brand. Regulated employment and Work&nbsp;Permit services are provided by <strong>Helper&nbsp;Talent</strong> (UEN&nbsp;53518791B), a licensed employment agency &mdash; EA&nbsp;Licence No.&nbsp;26C3645.</p>
+
     </div>
   </div>
 </footer>
@@ -679,54 +905,41 @@
 <script src="script.js"></script>
 <script src="helpers-data.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script>
-      function trackSwipe(gridEl, dotsEl) {
-        if (!gridEl || !dotsEl.length) return;
-        gridEl.addEventListener('scroll', () => {
-          const card = gridEl.firstElementChild;
-          if (!card) return;
-          const gap = parseInt(getComputedStyle(gridEl).gap) || 16;
-          const cardW = card.offsetWidth + gap;
-          const idx = Math.min(Math.round(gridEl.scrollLeft / cardW), dotsEl.length - 1);
-          dotsEl.forEach((d, i) => d.classList.toggle('active', i === idx));
-        }, { passive: true });
-      }
 
-      trackSwipe(
-        document.querySelector('.benefit-grid'),
-        document.querySelectorAll('.benefit-grid + .swipe-hint .swipe-hint-dot')
-      );
-
-      trackSwipe(
-        document.querySelector('.preview .hcard-grid'),
-        document.querySelectorAll('.preview .swipe-hint .swipe-hint-dot')
-      );
-
-      trackSwipe(
-        document.querySelector('.testimonials-grid'),
-        document.querySelectorAll('.testimonials-grid + .swipe-hint .swipe-hint-dot')
-      );
-    </script>
-
-<!-- Tap-to-reveal for compact .hcard overlays on touch devices -->
+<!-- FAQ preview accordion -->
 <script>
 (function () {
-  if (window.matchMedia('(hover: hover)').matches) return;
-  document.addEventListener('click', function (e) {
-    var card = e.target.closest('.hcard[data-toggle-overlay]');
-    if (!card) {
-      document.querySelectorAll('.hcard.is-open').forEach(function (c) { c.classList.remove('is-open'); });
-      return;
-    }
-    if (card.classList.contains('hcard--full')) return;
-    if (!card.classList.contains('is-open')) {
-      e.preventDefault();
-      document.querySelectorAll('.hcard.is-open').forEach(function (c) { if (c !== card) c.classList.remove('is-open'); });
-      card.classList.add('is-open');
-    }
-  }, true);
+  document.querySelectorAll('.faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.parentElement, panel = item.querySelector('.faq-a');
+      var open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.style.maxHeight = open ? (panel.scrollHeight + 'px') : '0px';
+    });
+  });
+})();
+</script>
+
+<!-- Reveal-on-scroll safety net.
+     script.js already reveals .rev elements; this only fills in for anything
+     still hidden (no IntersectionObserver, reduced motion, or a section the
+     shared script did not pick up), so body copy can never be stuck at
+     opacity:0. Adding .in twice is harmless. -->
+<script>
+(function () {
+  var items = document.querySelectorAll('main.v19 .rev');
+  if (!items.length) return;
+  function revealAll() {
+    Array.prototype.forEach.call(items, function (el) { el.classList.add('in'); });
+  }
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      !('IntersectionObserver' in window)) { revealAll(); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  Array.prototype.forEach.call(items, function (el) { io.observe(el); });
+  window.addEventListener('load', function () { setTimeout(revealAll, 1500); });
 })();
 </script>
 </body>
 </html>
-

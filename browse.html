@@ -517,6 +517,9 @@
     .mcard-grid .mcard-badge .tsig-mark { font-size: .82rem; line-height: 1; }
     .mcard-grid .mcard-badge--ref { background: #2C8A6E; }
     .mcard-grid .mcard-badge--ver { background: #2E6F95; }
+    .mcard-grid .mcard-badge--cc { background: #C66740; }
+    .mcard-grid .mcard-badge--assess { background: #8A7440; }
+    .mcard-grid .mcard-badge--neutral { background: #8C8C86; }
 
     /* Trust subline — shown for both signals now */
     .mcard-grid .mcard-trust {
@@ -681,8 +684,9 @@
       <div class="bf-row">
         <span class="bf-group-label">Trust</span>
         <button type="button" class="bf-chip" data-group="signal" data-val="referred"><span class="tsig-mark" aria-hidden="true">🏆</span> Employer Recommended</button>
-        <button type="button" class="bf-chip bf-chip--ver" data-group="signal" data-val="verified"><span class="tsig-mark" aria-hidden="true">📅</span> Long-Term Family Retention</button>
-        <button type="button" class="bf-chip bf-chip--cc" data-group="signal" data-val="completed"><span class="tsig-mark" aria-hidden="true">✅</span> Completed Contract</button>
+        <button type="button" class="bf-chip bf-chip--ver" data-group="signal" data-val="verified"><span class="tsig-mark" aria-hidden="true">📅</span> Long-Term Employment</button>
+        <button type="button" class="bf-chip bf-chip--cc" data-group="signal" data-val="completed"><span class="tsig-mark" aria-hidden="true">✅</span> Completed Contracts</button>
+        <button type="button" class="bf-chip bf-chip--assess" data-group="signal" data-val="assessed"><span class="tsig-mark" aria-hidden="true">🔍</span> Helper Circle Assessed</button>
       </div>
       <div class="bf-row">
         <span class="bf-group-label">Experience</span>

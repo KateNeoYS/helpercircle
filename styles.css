@@ -7983,24 +7983,49 @@ body.profile-page { padding-top: 68px; }
 .hc-card .hc-badge--cc { background:#fff; color:var(--cc-ink,#9C4A22); border:1.5px solid var(--cc-line,#C66740); box-shadow:0 1px 6px rgba(31,42,36,.14); }
 .hc-card .hc-badge--cc::before { display:none; }
 
-.mcard-badge--cc { background:#fff; color:var(--cc-ink,#9C4A22); border:1.5px solid var(--cc-line,#C66740); }
-.mcard-badge--ref, .mcard-badge--ver, .mcard-badge--cc { text-transform:none; letter-spacing:.01em; }
+.mcard-badge--cc { background:#C66740; color:#fff; }
+.mcard-badge--assess { background:#8A7440; color:#fff; }
+.mcard-badge--neutral { background:#8C8C86; color:#fff; }
+.mcard-badge--ref, .mcard-badge--ver, .mcard-badge--cc, .mcard-badge--assess, .mcard-badge--neutral { text-transform:none; letter-spacing:.01em; }
 .mcard--cc { border-left-color:var(--cc-line,#C66740); }
 .mcard--cc .mcard-cta { color:var(--cc-ink,#9C4A22); }
+.mcard--assess { border-left-color:#8A7440; }
+.mcard--assess .mcard-cta { color:#8A7440; }
 
-.tsig--cc { background:#fff; color:var(--cc-ink,#9C4A22); border:1.5px solid var(--cc-line,#C66740); }
+.tsig--cc { background:#C66740; color:#fff; }
+.tsig--assess { background:#8A7440; color:#fff; }
 
-.bf-chip.is-on.bf-chip--cc { background:#fff; color:var(--cc-ink,#9C4A22); border-color:var(--cc-line,#C66740); }
+.bf-chip.is-on.bf-chip--cc { background:#C66740; color:#fff; border-color:#C66740; }
+.bf-chip.is-on.bf-chip--assess { background:#8A7440; color:#fff; border-color:#8A7440; }
 
 /* Fix (pre-existing): the retention badge on profile pages referenced
    .tsig--verified / .tsig--ver, but only .tsig--ret was ever styled — so
    it rendered unstyled. Alias all three to the solid blue so every
-   Long-Term Family Retention badge renders consistently. */
+   Long-Term Employment badge renders consistently. */
 .tsig--ver, .tsig--verified { background:#2E6F95; color:#fff; }
 
 /* Solid trust pills must always render white text, even where a profile's own
    inline <style> block sets only the background (the pattern in the verified
    profiles). Specificity here beats a bare .tsig--verified inline rule.
-   NOTE: .tsig--cc is deliberately excluded — the Completed Contract pill is
-   dark green on white by design. */
-.tsig.tsig--rec, .tsig.tsig--ret, .tsig.tsig--ver, .tsig.tsig--verified { color: #fff; }
+   All four trust pills now render solid with white text to match the
+   home-page and browse badge set. */
+.tsig.tsig--rec, .tsig.tsig--ret, .tsig.tsig--ver, .tsig.tsig--verified, .tsig.tsig--cc, .tsig.tsig--assess { color: #fff; }
+
+/* ═══════════════════════════════════════════════════════════
+   FOUR-SIGNAL TRUST BADGES (home-page photo pills)
+   Appended last so it wins over the legacy .hc-badge / --rec / --ret
+   rules. homeBadge() in helpers-data.js emits hc-badge--ref / --ver /
+   --cc / --assess. Colour encodes the signal; matches the browse cards.
+     ref    Employer Recommended   → sage
+     ver    Long-Term Employment   → blue
+     cc     Completed Contracts    → terracotta
+     assess Helper Circle Assessed → muted gold/sand
+     neutral (unrecognised signal) → grey fail-safe
+   ═══════════════════════════════════════════════════════════ */
+.hc-badge--ref,    .hc-card .hc-badge--ref    { background:#2C8A6E; color:#fff; }
+.hc-badge--ver,    .hc-card .hc-badge--ver    { background:#2E6F95; color:#fff; }
+.hc-badge--cc,     .hc-card .hc-badge--cc     { background:#C66740; color:#fff; }
+.hc-badge--assess, .hc-card .hc-badge--assess { background:#8A7440; color:#fff; }
+.hc-badge--neutral,.hc-card .hc-badge--neutral{ background:#8C8C86; color:#fff; }
+.hc-badge--ref::before, .hc-badge--ver::before, .hc-badge--cc::before,
+.hc-badge--assess::before, .hc-badge--neutral::before { display:none; }

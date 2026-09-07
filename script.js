@@ -299,7 +299,7 @@ if (refBanner && refChips.length) {
     var sub = placed
       ? "This profile is kept up as a record. She is no longer available to hire, but we introduce new helpers regularly."
       : "This profile is no longer taking enquiries. We introduce new helpers regularly.";
-    if (h.statusLabel) sub = esc(h.statusLabel) + ". " + sub;
+    if (h.statusLabel) sub = h.statusLabel + ". " + sub;
 
     return (
       '<div class="profile-ask-inner">' +

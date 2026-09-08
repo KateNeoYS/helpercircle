@@ -1448,7 +1448,7 @@ window.HELPERS = [
     id: "ivy",
     name: "Ivy",
     initial: "C.",
-    status: "hidden",
+    status: "available",
     statusLabel: "Transfer date to be&nbsp;confirmed",
     line: "Filipino &middot; 33 &middot; Childcare, cooking &amp;&nbsp;household",
     summary: "Nearly six years with one Singapore family &mdash; her only employer here, supported by employment records we reviewed. She took their younger child at five months and has had both children&nbsp;since.",

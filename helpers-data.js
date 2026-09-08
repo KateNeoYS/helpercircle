@@ -1445,6 +1445,28 @@ window.HELPERS = [
     profile: "profile-sally.html"
   },
   {
+    id: "ivy",
+    name: "Ivy",
+    initial: "C.",
+    status: "hidden",
+    statusLabel: "Transfer date to be&nbsp;confirmed",
+    line: "Filipino &middot; 33 &middot; Childcare, cooking &amp;&nbsp;household",
+    summary: "Nearly six years with one Singapore family &mdash; her only employer here, supported by employment records we reviewed. She took their younger child at five months and has had both children&nbsp;since.",
+    referredBy: "",
+    signal: "verified",
+    verifiedYears: 5,
+    nationality: "Filipino",
+    yearsSG: "Since December 2020",
+    bestFit: "A family with young children who want someone who has actually&nbsp;stayed",
+    strengths: ["Nearly six years, one family", "A baby from five months old", "Used to a busy, shared household"],
+    skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping"],
+    age: 33,
+    salary: "",
+    availability: "transfer",
+    photo: "images/ivy.jpeg",
+    profile: "profile-ivy.html"
+  },
+  {
     id: "belinda",
     name: "Belinda",
     initial: "",

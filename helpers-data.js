@@ -1412,7 +1412,7 @@ window.HELPERS = [
     nationality: "Filipino",
     languages: "English (good)",
     yearsSG: "Eleven years",
-    bestFit: "A large home that needs running properly, by someone who has also raised a child from&nbsp;newborn",
+    bestFit: "A household that wants the home run well and a steady hand with children &mdash; she has done&nbsp;both",
     strengths: ["Ten years, one family", "Housekeeping at scale", "Raised a child from newborn"],
     skills: ["Housekeeping", "Cooking", "Childcare", "Infant Care"],
     age: 38,

@@ -8029,3 +8029,63 @@ body.profile-page { padding-top: 68px; }
 .hc-badge--neutral,.hc-card .hc-badge--neutral{ background:#8C8C86; color:#fff; }
 .hc-badge--ref::before, .hc-badge--ver::before, .hc-badge--cc::before,
 .hc-badge--assess::before, .hc-badge--neutral::before { display:none; }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   COMPLETED CONTRACTS — third trust signal
+   APPEND to the END of styles.css. Do not replace the file.
+
+   Colour is --terra (#C66740), NOT a new colour: index.html already
+   styles `main.v19 .badge-done { background: var(--terra) }`, so the
+   homepage pill is done. These rules bring the browse cards and the
+   profile "Trust signals" block into line with that choice.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --clr-done: #C66740;      /* terra — matches index.html's badge-done */
+  --clr-done-dk: #A9512E;
+}
+
+/* ── Browse / marketplace card badge ── */
+.mcard-badge--done {
+  background: var(--clr-done);
+  color: #fff;
+  border-color: var(--clr-done);
+}
+
+/* ── Card hover accent, matching .mcard--ref / .mcard--ver ── */
+.mcard--done:hover,
+.mcard--done:focus-visible {
+  border-color: var(--clr-done);
+}
+
+/* ── Homepage pill, only for the pre-V19 .hc-badge markup.
+      V19's index.html uses .badge-done and already has this. ── */
+.hc-badge--done {
+  background: var(--clr-done);
+  color: #fff;
+  border-color: var(--clr-done);
+}
+
+/* ── Profile page "Trust signals" block ──
+   profile-elsie.html carries these inline too, so that page renders
+   correctly even before this file is merged. Future Completed
+   Contracts profiles can drop the inline copy once this is in. ── */
+.psig--done {
+  border-left: 3px solid var(--clr-done);
+  padding-left: 18px;
+}
+.tsig--done {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--clr-done);
+  color: #fff;
+  font-size: .84rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+  padding: 7px 15px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.tsig--done .tsig-mark { font-size: .95rem; line-height: 1; }

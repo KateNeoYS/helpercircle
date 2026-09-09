@@ -1929,8 +1929,8 @@ window.HELPERS = [
   // Home-page photo badge: green pill (referred) · blue pill (verified) — colour is the signal
   function homeBadge(h) {
     var k = signalKey(h);
-    var mod   = k === "verified" ? "ver"    : k === "completed" ? "done"        : "ref";
-    var glyph = k === "verified" ? "\uD83D\uDCC5" : k === "completed" ? "\uD83D\uDCCB" : "\uD83C\uDFC6";
+    var mod   = k === "verified" ? "ver"    : k === "completed" ? "cc"     : "ref";
+    var glyph = k === "verified" ? "\uD83D\uDCC5" : k === "completed" ? "\u2705" : "\uD83C\uDFC6";
     return '<span class="hc-badge hc-badge--' + mod + '"><span class="tsig-mark" aria-hidden="true">' + glyph + '</span> ' + signalLabel(h) + '</span>';
   }
 
@@ -2050,8 +2050,8 @@ window.HELPERS = [
     var key = signalKey(h);
     var v = (key === "verified");
     var done = (key === "completed");
-    var mod = v ? "ver" : done ? "done" : "ref";
-    var glyph = v ? "\uD83D\uDCC5" : done ? "\uD83D\uDCCB" : "\uD83C\uDFC6";
+    var mod = v ? "ver" : done ? "cc" : "ref";
+    var glyph = v ? "\uD83D\uDCC5" : done ? "\u2705" : "\uD83C\uDFC6";
     var skills = skillList(h);
     var ticks = skills.slice(0, 3).map(function (s) {
       return '<li><svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7.4l3 3 6-6.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' + s + '</li>';

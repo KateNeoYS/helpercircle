@@ -1468,6 +1468,29 @@ window.HELPERS = [
     profile: "profile-ivy.html"
   },
   {
+    id: "elsie",
+    name: "Elsie",
+    initial: "B.",
+    status: "hidden",
+    statusLabel: "Available 30 October&nbsp;2026",
+    availFrom: "2026-10-30",
+    line: "Filipino &middot; 38 &middot; Cooking, household &amp;&nbsp;dogs",
+    summary: "Three completed Singapore contracts since 2022, every one ending as a clean transfer &mdash; Western and Asian cooking for expatriate households, and two large dogs in her current&nbsp;job.",
+    referredBy: "",
+    signal: "completed",
+    contracts: 3,
+    nationality: "Filipino",
+    yearsSG: "Since February 2022",
+    bestFit: "A household that wants the cooking taken seriously and a large home kept properly, with school-age children and no nervousness about&nbsp;dogs",
+    strengths: ["Three completed contracts", "Western &amp; Asian cooking", "Comfortable with large dogs"],
+    skills: ["Cooking", "Housekeeping", "Pets"],
+    age: 38,
+    salary: "S$1,000",
+    availability: "transfer",
+    photo: "images/elsie.jpeg",
+    profile: "profile-elsie.html"
+  },
+  {
     id: "belinda",
     name: "Belinda",
     initial: "",
@@ -1814,9 +1837,22 @@ window.HELPERS = [
        "verified"           → 📅 Long-Term Family Retention  (4+ yrs, same employer)
      For a verified helper: signal:"verified" + verifiedYears (e.g. 10) OR renewals (e.g. 3).
      (Legacy "recommended"/"retention" still map correctly.) */
-  function signalKey(h) { return (h.signal === "verified" || h.signal === "retention") ? "verified" : "referred"; }
-  function signalLabel(h) { return signalKey(h) === "verified" ? "Long-Term Family Retention" : "Employer Recommended"; }
+  function signalKey(h) {
+    if (h.signal === "completed" || h.signal === "contracts") return "completed";
+    return (h.signal === "verified" || h.signal === "retention") ? "verified" : "referred";
+  }
+  function signalLabel(h) {
+    var k = signalKey(h);
+    return k === "verified"  ? "Long-Term Family Retention"
+         : k === "completed" ? "Completed Contracts"
+         : "Employer Recommended";
+  }
   function signalSub(h) {
+    if (signalKey(h) === "completed") {
+      if (h.completedSub) return h.completedSub;
+      if (h.contracts) return h.contracts + " completed contracts in Singapore";
+      return "Completed employment in Singapore, reviewed before listing";
+    }
     if (signalKey(h) !== "verified") return "Recommended by current or former employer";
     if (h.verifiedSub) return h.verifiedSub;
     if (h.verifiedYears || h.retentionYears) return (h.verifiedYears || h.retentionYears) + " years with same employer";
@@ -1892,9 +1928,10 @@ window.HELPERS = [
   }
   // Home-page photo badge: green pill (referred) · blue pill (verified) — colour is the signal
   function homeBadge(h) {
-    return signalKey(h) === "verified"
-      ? '<span class="hc-badge hc-badge--ver"><span class="tsig-mark" aria-hidden="true">\uD83D\uDCC5</span> Long-Term Family Retention</span>'
-      : '<span class="hc-badge hc-badge--ref"><span class="tsig-mark" aria-hidden="true">\uD83C\uDFC6</span> Employer Recommended</span>';
+    var k = signalKey(h);
+    var mod   = k === "verified" ? "ver"    : k === "completed" ? "done"        : "ref";
+    var glyph = k === "verified" ? "\uD83D\uDCC5" : k === "completed" ? "\uD83D\uDCCB" : "\uD83C\uDFC6";
+    return '<span class="hc-badge hc-badge--' + mod + '"><span class="tsig-mark" aria-hidden="true">' + glyph + '</span> ' + signalLabel(h) + '</span>';
   }
 
   /* ── Home page: compact cards into #avail-grid (available only, max 3) ──
@@ -2012,6 +2049,9 @@ window.HELPERS = [
   function fullCard(h, wrapClass, statusPhrase) {
     var key = signalKey(h);
     var v = (key === "verified");
+    var done = (key === "completed");
+    var mod = v ? "ver" : done ? "done" : "ref";
+    var glyph = v ? "\uD83D\uDCC5" : done ? "\uD83D\uDCCB" : "\uD83C\uDFC6";
     var skills = skillList(h);
     var ticks = skills.slice(0, 3).map(function (s) {
       return '<li><svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7.4l3 3 6-6.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' + s + '</li>';
@@ -2022,16 +2062,18 @@ window.HELPERS = [
 
     // Trust subline — for BOTH signals. Referred uses the specific referral
     // (who + how long); verified uses the duration with one employer.
-    var trustLine = v ? signalSub(h) : (h.referredBy || signalSub(h));
+    var trustLine = (v || done) ? signalSub(h) : (h.referredBy || signalSub(h));
 
     // The recommendation itself: an employer's own words (referred), or the
     // quiet MOM record (verified). This sits above skills by design.
     var recBlock = "";
-    if (!v && h.quote) {
+    if (!v && !done && h.quote) {
       recBlock = '          <blockquote class="mcard-quote">' + h.quote +
                  (h.quoteCite ? '<cite>' + h.quoteCite + '</cite>' : '') + '</blockquote>\n';
     } else if (v) {
-      recBlock = '          <p class="mcard-verifyline">Confirmed against official MOM employment&nbsp;records.</p>\n';
+      recBlock = '          <p class="mcard-verifyline">Supported by employment records reviewed by Helper&nbsp;Circle.</p>\n';
+    } else if (done) {
+      recBlock = '          <p class="mcard-verifyline">A record of completed employment in Singapore, reviewed before&nbsp;listing.</p>\n';
     }
 
     // Availability pill on the photo (kept, per the marketplace cards).
@@ -2041,7 +2083,7 @@ window.HELPERS = [
 
     return (
 '    <div class="mcard-wrap ' + wrapClass + '" data-signal="' + key + '" data-skills="' + dataSkills + '" data-nat="' + natCountry(h) + '" data-avail="' + availOf(h) + '">\n' +
-'      <a href="' + h.profile + '" class="mcard mcard--' + (v ? 'ver' : 'ref') + '" aria-label="View ' + plain(fullName(h)) + '\u2019s profile">\n' +
+'      <a href="' + h.profile + '" class="mcard mcard--' + mod + '" aria-label="View ' + plain(fullName(h)) + '\u2019s profile">\n' +
 '        <div class="mcard-media">\n' +
 '          <img src="' + h.photo + '" alt="" loading="lazy"/>\n' +
 availPill +
@@ -2051,7 +2093,7 @@ availPill +
 '            <h3 class="mcard-name">' + nameHtml + '</h3>\n' +
 '            <p class="mcard-nat">' + h.nationality + '</p>\n' +
 '          </div>\n' +
-'          <span class="mcard-badge mcard-badge--' + (v ? 'ver' : 'ref') + '"><span class="tsig-mark" aria-hidden="true">' + (v ? '\uD83D\uDCC5' : '\uD83C\uDFC6') + '</span> ' + signalLabel(h) + '</span>\n' +
+'          <span class="mcard-badge mcard-badge--' + mod + '"><span class="tsig-mark" aria-hidden="true">' + glyph + '</span> ' + signalLabel(h) + '</span>\n' +
 '          <p class="mcard-trust">' + trustLine + '</p>\n' +
 '          <p class="mcard-summary">' + h.summary + '</p>\n' +
 recBlock +

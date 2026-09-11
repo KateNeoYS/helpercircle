@@ -16,18 +16,6 @@
 
   <style>
 
-    /* ─── Draft banner — REMOVE AT GO-LIVE ─── */
-    .draft-banner {
-      background: #FFF3DC;
-      border-bottom: 1px solid #EAD3A0;
-      color: #7A5712;
-      font-size: .9rem;
-      line-height: 1.55;
-      padding: 14px 24px;
-      text-align: center;
-    }
-    .draft-banner-inner { max-width: 720px; margin: 0 auto; }
-    .draft-banner strong { color: #5E440D; }
 
     /* ─── Page container ─── */
     .profile-page { background: var(--clr-white); }
@@ -231,24 +219,6 @@
       margin: 32px 0 0;
     }
 
-    /* ─── DRAFT-ONLY NOTES — REMOVE AT GO-LIVE ─── */
-    .draft-notes {
-      background: #FFFBF5;
-      border: 2px dashed #E8825C;
-      border-radius: 12px;
-      padding: 28px 32px;
-      margin: 48px auto;
-      max-width: 720px;
-    }
-    .draft-notes h3 {
-      font-family: var(--fd, 'Cormorant Garamond', serif);
-      font-size: 1.4rem;
-      color: #9B5B3A;
-      margin: 0 0 14px;
-    }
-    .draft-notes ul { margin: 0; padding-left: 22px; color: var(--clr-text-2); line-height: 1.7; }
-    .draft-notes li { margin-bottom: 10px; }
-    .draft-notes li strong { color: #C66740; }
 
     /* ─── MOBILE ADJUSTMENTS ─── */
     @media (max-width: 640px) {
@@ -292,13 +262,6 @@
   </style>
 </head>
 <body class="profile-page">
-
-<!-- ═══ DRAFT BANNER — REMOVE AT GO-LIVE ═══ -->
-<div class="draft-banner">
-  <div class="draft-banner-inner">
-    <strong>DRAFT &mdash; not live.</strong> The badge needs confirming with her employer, and two short placements on her employment record still need&nbsp;explaining.
-  </div>
-</div>
 
 <!-- ═══ HEADER ═══ -->
 <header class="site-header" id="site-header">
@@ -422,9 +385,19 @@
         <p class="profile-fact-value">Five placements since December&nbsp;2015, supported by employment records we&nbsp;reviewed. One of them is the current seven and a half&nbsp;years. Two are short &mdash; ten weeks in early 2017 and three months over the winter of 2018&ndash;19 &mdash; and both sit either side of her two years in&nbsp;Istanbul. Her years in Taiwan, China and Turkey are her own&nbsp;account.</p>
       </div>
 
-      <div class="profile-fact profile-fact-tbc">
-        <p class="profile-fact-label">Why she&rsquo;s moving on &mdash; TBC</p>
-        <p class="profile-fact-value">Not yet known. Every other profile answers this, and families ask it first.</p>
+      <div class="profile-fact">
+        <p class="profile-fact-label">What her family pay her</p>
+        <p class="profile-fact-value">She joined them on $650 and is on $1,200&nbsp;now &mdash; nearly double, over seven&nbsp;years. Families do not raise a salary like that for someone they are tolerating, and she is candid that her employer has been kind to&nbsp;her.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">What she is asking</p>
+        <p class="profile-fact-value">$1,200 is her current basic, and the figure to work&nbsp;from. She is at the upper end of the roster, and seven years of raises are the reason&nbsp;why.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Why she&rsquo;s moving on</p>
+        <p class="profile-fact-value">A change of environment, after seven and a half years in the same&nbsp;home. She speaks warmly of the family she is with &mdash; they have raised her from $650 to $1,200 over those years &mdash; and they are happy to speak with an interested family&nbsp;directly.</p>
       </div>
 
       <div class="profile-fact">
@@ -472,21 +445,6 @@
 
   </div>
 </section>
-
-<!-- ═══ DRAFT NOTES — REMOVE AT GO-LIVE ═══ -->
-<div class="draft-notes">
-  <h3>Open items before go-live</h3>
-  <ul>
-    <li><strong>No photo.</strong> The hero shows a placeholder. She needs a 480&times;480 portrait like the others.</li>
-    <li><strong>The badge is not yet earned.</strong> &#127942; requires confirming the recommendation directly with the referrer. Her employers are willing to speak &mdash; but until you have spoken to them, this is a claim we have not checked. One call earns it; without it she is &#128197; verified-only, with the usual regulatory caveat.</li>
-    <li><strong>Three short placements are missing from her account.</strong> Her employment record shows Dec 2015&ndash;Jun 2016 and Jun 2016&ndash;Jan 2017 (likely one family who moved house &mdash; her &ldquo;only one year&rdquo;), then Jan&ndash;Mar 2017 (10 weeks) and Dec 2018&ndash;Mar 2019 (3 months). The last two are unexplained and sit either side of Istanbul. Ask her before a family does.</li>
-    <li><strong>The 2012&ndash;2014 gap.</strong> Taiwan ends 2012, China starts 2014. Unexplained.</li>
-    <li><strong>Why she is leaving.</strong> Not known, and it is the first thing a family asks.</li>
-    <li><strong>Salary and rest days.</strong> Nothing on file.</li>
-    <li><strong>Her employment record may be truncated</strong> &mdash; the screenshot cuts off below the June 2015 row.</li>
-    <li><strong>Go-live:</strong> delete this box, the draft banner and their two CSS blocks; swap the placeholder for the real photo; add her to <code>helpers-data.js</code>; keep the noindex tag.</li>
-  </ul>
-</div>
 
 <!-- ═══ ASK ═══ -->
 <section class="profile-ask" id="ask">

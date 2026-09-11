@@ -1357,7 +1357,7 @@ window.HELPERS = [
     id: "jane",
     name: "Jane",
     initial: "",
-    status: "hidden",                                  // badge unconfirmed; reason for transfer given but stated by her to be incomplete
+    status: "available",
     statusLabel: "Available March&nbsp;2027",
     availFrom: "2027-03-01",
     line: "Filipino &middot; 43 &middot; Childcare from newborn &amp;&nbsp;cooking",
@@ -1555,7 +1555,7 @@ window.HELPERS = [
     quoteCite: "&mdash; Sheila, her current employer",
     nationality: "Filipino",
     yearsSG: "Since May 2015",
-    bestFit: "A family with a baby or small children, particularly where the nights are the hard&nbsp;part",
+    bestFit: "A family with a baby or small children and no pets, particularly where the nights are the hard&nbsp;part",
     strengths: ["Six years, one family", "Night feeds without complaint", "Four children at once"],
     skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping"],
     age: 46,

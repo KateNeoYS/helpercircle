@@ -1520,8 +1520,9 @@ window.HELPERS = [
     id: "kathy",
     name: "Kathy",
     initial: "",
-    status: "hidden",                                  // employer not yet told; no availability date
-    statusLabel: "Availability to be&nbsp;confirmed",
+    status: "available",
+    statusLabel: "Available end October&nbsp;2026",
+    availFrom: "2026-10-31",
     line: "Myanmar &middot; 48 &middot; Elderly, dementia &amp; stroke&nbsp;care",
     summary: "Nearly five years with one family caring for a grandfather with dementia, and a year since with a bedridden stroke&nbsp;patient. Certified in aged care, first aid and CPR, with sixteen years in&nbsp;Singapore.",
     referredBy: "",

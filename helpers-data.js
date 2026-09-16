@@ -1494,6 +1494,29 @@ window.HELPERS = [
     profile: "profile-jennym.html"
   },
   {
+    id: "kathy",
+    name: "Kathy",
+    initial: "",
+    status: "hidden",                                  // employer not yet told; no availability date
+    statusLabel: "Availability to be&nbsp;confirmed",
+    line: "Myanmar &middot; 48 &middot; Elderly, dementia &amp; stroke&nbsp;care",
+    summary: "Nearly five years with one family caring for a grandfather with dementia, and a year since with a bedridden stroke&nbsp;patient. Certified in aged care, first aid and CPR, with sixteen years in&nbsp;Singapore.",
+    referredBy: "",
+    signal: "verified",
+    verifiedYears: 4,
+    verifiedSub: "4 yrs 8 mths with one family",
+    nationality: "Myanmar",
+    yearsSG: "Since October 2010",
+    bestFit: "A family with an elderly parent or a dependent adult who need real nursing-style care &mdash; dementia, stroke recovery, or someone no longer&nbsp;mobile",
+    strengths: ["Dementia care, nearly five years", "Bedridden stroke care", "Aged Care &amp; CPR certified"],
+    skills: ["Elderly Care", "Childcare", "Infant Care", "Cooking", "Housekeeping"],
+    age: 48,
+    salary: "",
+    availability: "transfer",
+    photo: "images/kathy.jpeg",
+    profile: "profile-kathy.html"
+  },
+  {
     id: "dency",
     name: "Dency",
     initial: "O.",

@@ -1494,6 +1494,29 @@ window.HELPERS = [
     profile: "profile-jennym.html"
   },
   {
+    id: "win",
+    name: "Win",
+    initial: "",
+    status: "available",
+    statusLabel: "Available October&nbsp;2026",
+    availFrom: "2026-10-15",
+    line: "Myanmar &middot; 34 &middot; Elderly care &middot;&nbsp;Mandarin",
+    summary: "Eight years caring for her own grandmother after a stroke, then three and a half years in Singapore in almost nothing but elderly&nbsp;care. Mandarin-speaking, and looking for eldercare&nbsp;again.",
+    referredBy: "",
+    signal: "assessed",
+    assessedSub: "Interviewed by Helper Circle; four households, all eldercare",
+    nationality: "Myanmar",
+    yearsSG: "Since February 2023",
+    bestFit: "A household with an elderly parent who needs real daily care, especially one more comfortable in Mandarin than in&nbsp;English",
+    strengths: ["Eight years, her own grandmother", "Bedbound &amp; personal care", "Mandarin-speaking"],
+    skills: ["Elderly Care", "Cooking", "Housekeeping"],
+    age: 34,
+    salary: "",
+    availability: "transfer",
+    photo: "images/win.jpeg",
+    profile: "profile-win.html"
+  },
+  {
     id: "meriana",
     name: "Meriana",
     initial: "L.",
@@ -2006,6 +2029,7 @@ window.HELPERS = [
      For a verified helper: signal:"verified" + verifiedYears (e.g. 10) OR renewals (e.g. 3).
      (Legacy "recommended"/"retention" still map correctly.) */
   function signalKey(h) {
+    if (h.signal === "assessed" || h.signal === "assess") return "assessed";
     if (h.signal === "completed" || h.signal === "contracts") return "completed";
     return (h.signal === "verified" || h.signal === "retention") ? "verified" : "referred";
   }
@@ -2013,9 +2037,14 @@ window.HELPERS = [
     var k = signalKey(h);
     return k === "verified"  ? "Long-Term Family Retention"
          : k === "completed" ? "Completed Contracts"
+         : k === "assessed"  ? "Helper Circle Assessed"
          : "Employer Recommended";
   }
   function signalSub(h) {
+    if (signalKey(h) === "assessed") {
+      if (h.assessedSub) return h.assessedSub;
+      return "Interviewed by Helper Circle, employment records reviewed";
+    }
     if (signalKey(h) === "completed") {
       if (h.completedSub) return h.completedSub;
       if (h.contracts) return h.contracts + " completed contracts in Singapore";
@@ -2097,8 +2126,8 @@ window.HELPERS = [
   // Home-page photo badge: green pill (referred) · blue pill (verified) — colour is the signal
   function homeBadge(h) {
     var k = signalKey(h);
-    var mod   = k === "verified" ? "ver"    : k === "completed" ? "cc"     : "ref";
-    var glyph = k === "verified" ? "\uD83D\uDCC5" : k === "completed" ? "\u2705" : "\uD83C\uDFC6";
+    var mod   = k === "verified" ? "ver" : k === "completed" ? "cc" : k === "assessed" ? "assess" : "ref";
+    var glyph = k === "verified" ? "\uD83D\uDCC5" : k === "completed" ? "\u2705" : k === "assessed" ? "\uD83D\uDD0D" : "\uD83C\uDFC6";
     return '<span class="hc-badge hc-badge--' + mod + '"><span class="tsig-mark" aria-hidden="true">' + glyph + '</span> ' + signalLabel(h) + '</span>';
   }
 
@@ -2218,8 +2247,9 @@ window.HELPERS = [
     var key = signalKey(h);
     var v = (key === "verified");
     var done = (key === "completed");
-    var mod = v ? "ver" : done ? "cc" : "ref";
-    var glyph = v ? "\uD83D\uDCC5" : done ? "\u2705" : "\uD83C\uDFC6";
+    var asd = (key === "assessed");
+    var mod = v ? "ver" : done ? "cc" : asd ? "assess" : "ref";
+    var glyph = v ? "\uD83D\uDCC5" : done ? "\u2705" : asd ? "\uD83D\uDD0D" : "\uD83C\uDFC6";
     var skills = skillList(h);
     var ticks = skills.slice(0, 3).map(function (s) {
       return '<li><svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7.4l3 3 6-6.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' + s + '</li>';
@@ -2230,18 +2260,20 @@ window.HELPERS = [
 
     // Trust subline — for BOTH signals. Referred uses the specific referral
     // (who + how long); verified uses the duration with one employer.
-    var trustLine = (v || done) ? signalSub(h) : (h.referredBy || signalSub(h));
+    var trustLine = (v || done || asd) ? signalSub(h) : (h.referredBy || signalSub(h));
 
     // The recommendation itself: an employer's own words (referred), or the
     // quiet MOM record (verified). This sits above skills by design.
     var recBlock = "";
-    if (!v && !done && h.quote) {
+    if (!v && !done && !asd && h.quote) {
       recBlock = '          <blockquote class="mcard-quote">' + h.quote +
                  (h.quoteCite ? '<cite>' + h.quoteCite + '</cite>' : '') + '</blockquote>\n';
     } else if (v) {
       recBlock = '          <p class="mcard-verifyline">Supported by employment records reviewed by Helper&nbsp;Circle.</p>\n';
     } else if (done) {
       recBlock = '          <p class="mcard-verifyline">A record of completed employment in Singapore, reviewed before&nbsp;listing.</p>\n';
+    } else if (asd) {
+      recBlock = '          <p class="mcard-verifyline">Interviewed by Helper Circle, with her employment records&nbsp;reviewed.</p>\n';
     }
 
     // Availability pill on the photo (kept, per the marketplace cards).

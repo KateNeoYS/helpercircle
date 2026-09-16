@@ -1488,7 +1488,7 @@ window.HELPERS = [
     strengths: ["Nearly three years, one family", "Infants to school age", "Comfortable with pets"],
     skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping", "Pets"],
     age: 35,
-    salary: "S$850",
+    salary: "",
     availability: "transfer",
     photo: "images/jennym.jpeg",
     profile: "profile-jennym.html"
@@ -1511,7 +1511,7 @@ window.HELPERS = [
     strengths: ["Four completed contracts", "Newborns \u2014 twice", "Cooking in every household"],
     skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping"],
     age: 37,
-    salary: "S$900",
+    salary: "",
     availability: "transfer",
     photo: "images/dency.jpeg",
     profile: "profile-dency.html"

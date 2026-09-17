@@ -1494,6 +1494,28 @@ window.HELPERS = [
     profile: "profile-jennym.html"
   },
   {
+    id: "shiji",
+    name: "Shiji",
+    initial: "V.",
+    status: "available",
+    statusLabel: "Available now",
+    availFrom: "2026-09-17",
+    line: "Indian &middot; 44 &middot; Cooking, children &amp; special-needs&nbsp;care",
+    summary: "Ten years and eight months with one Singapore family &mdash; the cooking, the household, their children and a child with special&nbsp;needs. Recommended by the family she is with now, who are releasing her because their own circumstances have&nbsp;changed.",
+    referredBy: "Recommended by her current employer, who answered our questions about her&nbsp;directly",
+    signal: "referred",
+    nationality: "Indian",
+    yearsSG: "Since April 2011",
+    bestFit: "A calm household that wants the cooking taken seriously and the home run without close supervision, and where a child may need extra&nbsp;patience",
+    strengths: ["Ten years, one family", "Cooking", "Special-needs childcare"],
+    skills: ["Cooking", "Childcare", "Housekeeping"],
+    age: 44,
+    salary: "",
+    availability: "transfer",
+    photo: "images/shiji.jpeg",
+    profile: "profile-shiji.html"
+  },
+  {
     id: "win",
     name: "Win",
     initial: "",

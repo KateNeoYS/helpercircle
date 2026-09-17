@@ -1504,6 +1504,8 @@ window.HELPERS = [
     summary: "Ten years and eight months with one Singapore family &mdash; the cooking, the household, their children and a child with special&nbsp;needs. Recommended by the family she is with now, who are releasing her because their own circumstances have&nbsp;changed.",
     referredBy: "Recommended by her current employer, who answered our questions about her&nbsp;directly",
     signal: "referred",
+    quote: "&ldquo;Good in cooking, and can care for both normal and special needs&nbsp;children.&rdquo;",
+    quoteCite: "&mdash; her current employer",
     nationality: "Indian",
     yearsSG: "Since April 2011",
     bestFit: "A calm household that wants the cooking taken seriously and the home run without close supervision, and where a child may need extra&nbsp;patience",

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Judy — nearly six years with one family | Helper Circle</title>
+  <title>Judy — Filipino helper, recommended by her employer, Chinese home cooking &amp; household | Helper Circle</title>
   <meta name="description" content="Judy is a Filipino helper recommended by the family she works for now. Nearly six years with one family before them, everyday Chinese cooking, and a household she runs largely on her own."/>
 
   <!-- Profiles kept noindex by convention -->
@@ -255,9 +255,23 @@
     /* verified-tier badge colour safeguard */
     .tsig--verified { background: #2E6F95; }
     .psig--verified .tsig-mark { filter: none; }
+
+    /* ─── No longer available notice ─── */
+    .unavail-banner {
+      background: #F4F2EE; border-bottom: 1px solid var(--clr-border-warm, #E8DFD0);
+      padding: 14px 24px; text-align: center;
+      font-size: .95rem; color: var(--clr-text-2, #4A4A46); line-height: 1.55;
+    }
+    .unavail-banner strong { color: var(--clr-text, #1E1E1E); font-weight: 600; }
+    .unavail-banner a { color: var(--clr-primary, #2C8A6E); }
   </style>
 </head>
 <body class="profile-page">
+
+<!-- ═══ NO LONGER AVAILABLE ═══ -->
+<div class="unavail-banner">
+  <strong>Judy is no longer available.</strong> She has found an employer&nbsp;herself. Her profile stays up as a record &mdash; <a href="browse.html">see who is available now</a>.
+</div>
 
 <!-- ═══ HEADER ═══ -->
 <header class="site-header" id="site-header">
@@ -287,15 +301,15 @@
 
       <div class="profile-hero-text">
         <h1 class="profile-name">Judy</h1>
-        <p class="profile-descriptor">Filipino national &middot; Chinese home cooking &amp; household &middot; Eight years in&nbsp;Singapore</p>
+        <p class="profile-descriptor">Filipino &middot; 41 &middot; Chinese home cooking, household &amp; pet&nbsp;care</p>
 
         <p class="profile-verified-line">
           <strong>Recommended by Esther, the family she works for now</strong> &mdash; a household she has largely run on her own, and nearly six years with one family before&nbsp;that.
         </p>
 
         <div class="profile-hero-cta">
-          <a href="#ask" class="btn btn-green">Ask about Judy</a>
-          <span class="profile-hero-cta-meta">We respond within 1&ndash;2 business&nbsp;days</span>
+          <a href="browse.html" class="btn btn-green">See helpers available now</a>
+          <span class="profile-hero-cta-meta">No longer&nbsp;available</span>
         </div>
       </div>
 
@@ -334,7 +348,8 @@
       <span class="profile-chip">Gardening</span>
       <span class="profile-chip">Car washing</span>
       <span class="profile-chip">Landed homes throughout</span>
-      <span class="profile-chip">Grown children &amp; young ones</span>
+      <span class="profile-chip">Grown children, not little ones</span>
+      <span class="profile-chip">Pet care</span>
     </div>
   </div>
 </section>
@@ -387,7 +402,7 @@
 
       <div class="profile-fact">
         <p class="profile-fact-label">Children</p>
-        <p class="profile-fact-value">Mostly older children and young&nbsp;adults. The brief 2024 household had three small ones, aged six, four and&nbsp;one.</p>
+        <p class="profile-fact-value">Older children and young adults. Looking after little ones has not really been her&nbsp;work &mdash; the only young children in her record were in the two-month 2024 household, aged six, four and&nbsp;one. A family who need hands-on care of a baby or toddler should look&nbsp;elsewhere.</p>
       </div>
 
       <div class="profile-fact">
@@ -464,27 +479,6 @@
 </section>
 
 <!-- ═══ ASK ═══ -->
-<section class="profile-ask" id="ask">
-  <div class="profile-ask-inner">
-    <span class="profile-ask-kicker">Interested?</span>
-    <h2 class="profile-ask-h">Ask about Judy</h2>
-    <p class="profile-ask-sub">Tell us a little about your household and we&rsquo;ll be in touch within 1&ndash;2 business&nbsp;days. We&rsquo;ll only move forward if it feels like a genuine&nbsp;fit.</p>
-    <form id="form-ask" action="https://formspree.io/f/mredjvwg" method="POST">
-      <input type="hidden" name="helper-name" value="Judy"/>
-      <input type="hidden" name="_subject" value="Helper Circle — Interest in Judy"/>
-      <div class="ask-field"><label for="ask-name">Your name</label><input type="text" id="ask-name" name="name" required placeholder="Jane Tan" autocomplete="name"/></div>
-      <div class="ask-field"><label for="ask-email">Email</label><input type="email" id="ask-email" name="email" required placeholder="you@email.com" autocomplete="email"/></div>
-      <div class="ask-field"><label for="ask-phone">Phone <span class="ask-field-opt">(optional, but helps)</span></label><input type="tel" id="ask-phone" name="phone" placeholder="+65 9123 4567" autocomplete="tel"/></div>
-      <div class="ask-field"><label for="ask-household">Briefly, your household</label><textarea id="ask-household" name="household" rows="3" required placeholder="Who lives at home, ages, any pets, what your typical day looks like&hellip;"></textarea></div>
-      <div class="ask-field"><label for="ask-why">Why Judy? <span class="ask-field-opt">(optional)</span></label><textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you&rsquo;re hoping for&hellip;"></textarea></div>
-      <button type="submit" class="btn btn-green ask-submit">Send to Helper Circle</button>
-      <p class="ask-foot-note">We read every message personally. If Judy seems like a fit for your household, we&rsquo;ll set up a short call to talk through the next&nbsp;step.</p>
-      <div class="ask-success" hidden><p>Thank you. We&rsquo;ve received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p></div>
-      <div class="ask-error" hidden><p>Something didn&rsquo;t go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p></div>
-    </form>
-  </div>
-</section>
-
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-inner">

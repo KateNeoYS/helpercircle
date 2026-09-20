@@ -1496,6 +1496,29 @@ window.HELPERS = [
     profile: "profile-jennym.html"
   },
   {
+    id: "rekha",
+    name: "Rekha",
+    initial: "",
+    status: "hidden",                                  // LIVE-READY: flip to "available" once images/rekha.jpeg exists
+    statusLabel: "Available 8 December&nbsp;2026",
+    availFrom: "2026-12-08",
+    line: "Indian &middot; 43 &middot; South Indian, North Indian &amp; Western&nbsp;cooking",
+    summary: "South Indian, North Indian and Western cooking from&nbsp;scratch, with certificates in infant care and elderly&nbsp;care. Seven years in Singapore, and nearly two with the family she is with&nbsp;now.",
+    referredBy: "",
+    signal: "assessed",
+    assessedSub: "Interviewed by Helper Circle; certified in infant and elderly care",
+    nationality: "Indian",
+    yearsSG: "Since October 2019",
+    bestFit: "A small household that wants the cooking taken seriously &mdash; open to children, an elderly parent, and pets she has not looked after&nbsp;before",
+    strengths: ["South, North Indian &amp; Western cooking", "Infant &amp; elderly care certificates", "Babies and toddlers"],
+    skills: ["Cooking", "Childcare", "Infant Care", "Housekeeping"],
+    age: 43,
+    salary: "",
+    availability: "transfer",
+    photo: "images/rekha.jpeg",
+    profile: "profile-rekha.html"
+  },
+  {
     id: "maryjane",
     name: "Mary Jane",
     initial: "R.",

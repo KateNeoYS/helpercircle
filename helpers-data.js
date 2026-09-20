@@ -1499,7 +1499,7 @@ window.HELPERS = [
     id: "rekha",
     name: "Rekha",
     initial: "",
-    status: "available",
+    status: "hidden",                                  // holding for an employer referral letter
     statusLabel: "Available 8 December&nbsp;2026",
     availFrom: "2026-12-08",
     line: "Indian &middot; 43 &middot; South Indian, North Indian &amp; Western&nbsp;cooking",

@@ -1499,7 +1499,7 @@ window.HELPERS = [
     id: "rekha",
     name: "Rekha",
     initial: "",
-    status: "hidden",                                  // LIVE-READY: flip to "available" once images/rekha.jpeg exists
+    status: "available",
     statusLabel: "Available 8 December&nbsp;2026",
     availFrom: "2026-12-08",
     line: "Indian &middot; 43 &middot; South Indian, North Indian &amp; Western&nbsp;cooking",

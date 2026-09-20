@@ -1759,8 +1759,8 @@ window.HELPERS = [
     id: "julie",
     name: "Julie",
     initial: "E.",
-    status: "available",
-    statusLabel: "Available 3 November&nbsp;2026",
+    status: "hidden",                                 // found an employer herself, Sep 2026
+    statusLabel: "No longer available",
     availFrom: "2026-11-03",
     line: "Filipino &middot; 46 &middot; Childcare, night care &amp;&nbsp;cooking",
     summary: "Recommended in writing by the family she works for now, whose baby she took from eleven months, night feeds&nbsp;included &mdash; six years with one family before that, and four children in her household&nbsp;now. Leaving only because she has matters to settle at&nbsp;home.",

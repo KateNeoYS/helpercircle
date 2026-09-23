@@ -1490,7 +1490,7 @@ window.HELPERS = [
     nationality: "Myanmar",
     yearsSG: "Since October 2016",
     bestFit: "A household caring for an elderly parent or grandparent, particularly one who is unwell, immobile or needs daily medical&nbsp;routines",
-    strengths: ["Nearly eight years, one family", "Advanced medical care", "Caregiver-course trained"],
+    strengths: ["Nearly eight years, one family", "Advanced medical care", "525-hour nursing certificate"],
     skills: ["Elderly Care", "Caregiving", "Cooking", "Housekeeping"],
     age: 42,
     salary: "",

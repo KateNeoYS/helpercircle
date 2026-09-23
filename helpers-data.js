@@ -1523,8 +1523,8 @@ window.HELPERS = [
     id: "maryjane",
     name: "Mary Jane",
     initial: "R.",
-    status: "available",
-    statusLabel: "Available now",
+    status: "hidden",                                 // found an employer herself, Sep 2026
+    statusLabel: "No longer available",
     availFrom: "2026-09-19",
     line: "Filipino &middot; 50 &middot; Newborns, cooking, baking &amp;&nbsp;dogs",
     summary: "Sixteen years in Singapore, nearly ten of them across two expatriate families who took her&nbsp;travelling &mdash; Europe twice a year with one, Asia with the&nbsp;other. Two newborns from their first weeks, the cooking and the&nbsp;baking. She arrived at her current family already recommended by the family before&nbsp;them.",
@@ -1617,8 +1617,8 @@ window.HELPERS = [
     id: "meriana",
     name: "Meriana",
     initial: "L.",
-    status: "available",
-    statusLabel: "Available 30 October&nbsp;2026",
+    status: "hidden",                                 // found an employer herself, Sep 2026
+    statusLabel: "No longer available",
     availFrom: "2026-10-30",
     line: "Indonesian &middot; 33 &middot; School-age childcare &amp;&nbsp;cooking",
     summary: "Two completed contracts across four and a half years in Singapore &mdash; two boys for two years, then a girl she has had since she was&nbsp;five. Available only because her family no longer need a&nbsp;helper.",

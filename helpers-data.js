@@ -1540,7 +1540,7 @@ window.HELPERS = [
     quoteCite: "&mdash; Marselina, on the grandmother she looks&nbsp;after",
     nationality: "Indonesian",
     yearsSG: "Since September 2022",
-    bestFit: "A household without young children &mdash; a couple, an older household, or a family with an elderly parent at home, and comfortable with&nbsp;dogs",
+    bestFit: "A couple, an older household, or a family with an elderly parent at home &mdash; school-age children are fine, but she has asked not to take on a child under&nbsp;three",
     strengths: ["Four years, one family", "Eldercare", "Reading law, online"],
     skills: ["Elderly Care", "Cooking", "Housekeeping", "Pets"],
     age: 29,

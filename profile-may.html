@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>May — Filipino helper, eldercare, cooking and household, four years in Kuwait | Helper Circle</title>
-  <meta name="description" content="May is a Filipino helper caring for two elderly people in a Singapore household of five, with four years of housework in Kuwait before that. Recommended by her current employer. Available now."/>
+  <title>May — joined a new family, October 2026 | Helper Circle</title>
+  <meta name="description" content="May joined a new family on 6 October 2026 through Helper Circle. Her profile is kept here for reference."/>
 
   <!-- Profiles kept noindex by convention -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
@@ -264,21 +264,35 @@
     .profile-cooking { padding: 44px 0 8px; }
     .cook-gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
+      align-items: start;              /* stops rows stretching the tiles tall */
       gap: 14px;
       margin-top: 22px;
     }
     .cook-gallery-grid img {
       width: 100%;
+      height: auto;
       aspect-ratio: 1 / 1;
+      align-self: start;               /* aspect-ratio decides the height, not the row */
       object-fit: cover;
+      object-position: center;
+      background: #EFE7D8;
       border-radius: 14px;
       display: block;
       box-shadow: 0 4px 14px rgba(31,42,36,0.08);
     }
+    @media (max-width: 560px) {
+      .cook-gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
   </style>
 </head>
 <body class="profile-page">
+
+<div class="draft-banner">
+  <div class="draft-banner-inner">
+    <strong>NO LONGER AVAILABLE</strong> &mdash; May joined a new family on 6 October&nbsp;2026. Her profile is kept here for&nbsp;reference. <a href="browse.html">See who is available &rarr;</a>
+  </div>
+</div>
 
 <header class="site-header" id="site-header">
   <div class="wrap header-inner">
@@ -313,8 +327,8 @@
         </p>
 
         <div class="profile-hero-cta">
-          <a href="#ask" class="btn btn-green">Ask about May</a>
-          <span class="profile-hero-cta-meta">Available&nbsp;now</span>
+          <a href="browse.html" class="btn btn-green">See who is available</a>
+          <span class="profile-hero-cta-meta">May joined a new family on 6 October&nbsp;2026</span>
         </div>
       </div>
     </div>
@@ -422,27 +436,6 @@
   </div>
 </section>
 
-
-<section class="profile-ask" id="ask">
-  <div class="profile-ask-inner">
-    <span class="profile-ask-kicker">Interested?</span>
-    <h2 class="profile-ask-h">Ask about May</h2>
-    <p class="profile-ask-sub">Tell us a little about your household and we&rsquo;ll be in touch within 1&ndash;2 business&nbsp;days. We&rsquo;ll only move forward if it feels like a genuine&nbsp;fit.</p>
-    <form id="form-ask" action="https://formspree.io/f/mredjvwg" method="POST">
-      <input type="hidden" name="helper-name" value="May"/>
-      <input type="hidden" name="_subject" value="Helper Circle — Interest in May"/>
-      <div class="ask-field"><label for="ask-name">Your name</label><input type="text" id="ask-name" name="name" required placeholder="Jane Tan" autocomplete="name"/></div>
-      <div class="ask-field"><label for="ask-email">Email</label><input type="email" id="ask-email" name="email" required placeholder="you@email.com" autocomplete="email"/></div>
-      <div class="ask-field"><label for="ask-phone">Phone <span class="ask-field-opt">(optional, but helps)</span></label><input type="tel" id="ask-phone" name="phone" placeholder="+65 9123 4567" autocomplete="tel"/></div>
-      <div class="ask-field"><label for="ask-household">Briefly, your household</label><textarea id="ask-household" name="household" rows="3" required placeholder="Who lives at home, ages, any pets, what your typical day looks like&hellip;"></textarea></div>
-      <div class="ask-field"><label for="ask-why">Why May? <span class="ask-field-opt">(optional)</span></label><textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you&rsquo;re hoping for&hellip;"></textarea></div>
-      <button type="submit" class="btn btn-green ask-submit">Send to Helper Circle</button>
-      <p class="ask-foot-note">We read every message personally. If May seems like a fit for your household, we&rsquo;ll set up a short call to talk through the next&nbsp;step.</p>
-      <div class="ask-success" hidden><p>Thank you. We&rsquo;ve received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p></div>
-      <div class="ask-error" hidden><p>Something didn&rsquo;t go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p></div>
-    </form>
-  </div>
-</section>
 
 <footer class="site-footer">
   <div class="wrap">

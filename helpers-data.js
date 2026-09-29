@@ -1490,7 +1490,7 @@ window.HELPERS = [
     quoteCite: "&mdash; Kelly L., her employer of four&nbsp;years",
     nationality: "Filipino",
     yearsSG: "Since 2019",
-    bestFit: "A household that cooks Chinese and keeps a clear routine of its own, ideally with a dog &mdash; children of school age are fine, babies and eldercare are&nbsp;not",
+    bestFit: "A household that keeps a clear routine of its own, ideally with a dog &mdash; children of school age are fine, babies and eldercare are&nbsp;not",
     strengths: ["Two contracts, completed", "Patient with dogs", "Chinese home cooking"],
     skills: ["Cooking", "Housekeeping", "Pets", "Childcare"],
     age: 35,

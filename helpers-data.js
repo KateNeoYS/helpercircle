@@ -699,7 +699,7 @@ window.HELPERS = [
     name: "Hijrah",
     initial: "",
     status: "placed",
-    statusLabel: "Joined a new family &middot; October&nbsp;2026",
+    statusLabel: "Joined a new family &middot; 4 Oct&nbsp;2026",
     matchedSeq: 24,
     availFrom: "2026-09-11",
     line: "Indonesian &middot; 40 &middot; Infants, toddlers, cooking &amp; baking",

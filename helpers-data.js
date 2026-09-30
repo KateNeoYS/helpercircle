@@ -1244,7 +1244,7 @@ window.HELPERS = [
     initial: "",
     status: "placed",
     matchedSeq: 20,
-    statusLabel: "Joined a new family &middot; end Sep&nbsp;2026",
+    statusLabel: "Joined a new family &middot; 29 Sep&nbsp;2026",
     availFrom: "2026-09-30",
     line: "Filipino &middot; 53 &middot; Children &amp; household",
     summary: "Recommended in writing by the family she is with now, who have left their son in her sole care overnight &mdash; seventeen years in Singapore, nearly ten of them with one&nbsp;family.",

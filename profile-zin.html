@@ -215,6 +215,18 @@
       .profile-fact { padding: 20px 18px; }
     }
 
+    /* ─── CERTIFICATES ─── */
+    .profile-certs { background: var(--clr-cream, #FCF7EE); padding: 56px 0 60px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
+    .profile-certs-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .profile-certs-hdr { font-family: var(--fd, 'Cormorant Garamond', serif); font-weight: 500; font-size: clamp(1.7rem, 3.5vw, 2.1rem); letter-spacing: -0.008em; color: var(--clr-text, #1F2A24); margin: 0 0 12px; }
+    .profile-certs-sub { font-size: 1rem; color: var(--clr-text-muted, #5A6661); line-height: 1.65; margin: 0 0 28px; max-width: 60ch; }
+    .profile-certs-grid { display: grid; grid-template-columns: repeat(2, 1fr); align-items: start; gap: 18px; }
+    .profile-cert-tile { margin: 0; align-self: start; background: var(--clr-white, #FFFFFF); border: 1px solid var(--clr-border-warm, #E8DFD0); border-radius: 10px; overflow: hidden; box-shadow: 0 1px 3px rgba(31,42,36,.08); }
+    /* Documents are never cropped — width drives, height follows. */
+    .profile-cert-tile img { display: block; width: 100%; height: auto; align-self: start; }
+    .profile-cert-tile figcaption { font-size: .82rem; color: var(--clr-text-muted, #5A6661); line-height: 1.55; padding: 12px 14px 14px; }
+    @media (max-width: 560px) { .profile-certs-grid { grid-template-columns: 1fr; gap: 14px; } }
+
     /* ─── ASK ABOUT FORM ─── */
     .profile-ask { background: var(--clr-white, #FFFFFF); padding: 56px 0 72px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
     .profile-ask-inner { max-width: 560px; margin: 0 auto; padding: 0 24px; }
@@ -374,11 +386,28 @@
 
       <p>She has not yet cared for an elderly person in a working&nbsp;role. The training is real and recent; the experience is ahead of&nbsp;her. A family who wants someone already practised at this is not the right family for her, and we would rather say so&nbsp;now.</p>
 
-      <p><strong>Where she&rsquo;d suit&nbsp;next.</strong> She has asked us for eldercare, and the right home for that would be one with a largely independent elderly&nbsp;parent &mdash; company, meals, the house and a steady&nbsp;routine &mdash; where someone has the patience to teach a willing twenty-three-year-old rather than expecting her to arrive already&nbsp;knowing. She is not the right fit for heavy nursing&nbsp;care. And it is worth saying that her two years in a preschool make her a more natural fit for a family with young children than her certificate alone would&nbsp;suggest &mdash; if that is your household, she is worth a&nbsp;conversation.</p>
+      <p><strong>Where she&rsquo;d suit&nbsp;next.</strong> She has asked us for eldercare, and the right home for that would be one with a largely independent elderly&nbsp;parent &mdash; company, meals, the house and a steady&nbsp;routine &mdash; where someone has the patience to teach a willing twenty-three-year-old rather than expecting her to arrive already&nbsp;knowing.</p>
     </div>
 
-    <p class="profile-foot">Her employment history and certificates are available to interested families, with her&nbsp;consent.</p>
+    <p class="profile-foot">Her full employment history is available to interested families, with her&nbsp;consent.</p>
 
+  </div>
+</section>
+
+<section class="profile-certs">
+  <div class="profile-certs-inner">
+    <h2 class="profile-certs-hdr">Her certificates.</h2>
+    <p class="profile-certs-sub">Both documents as she gave them to&nbsp;us. We have blacked out her identity-card number, her parents&rsquo; names and the examination reference&nbsp;numbers &mdash; nothing that bears on what she studied or when.</p>
+    <div class="profile-certs-grid">
+      <figure class="profile-cert-tile">
+        <img src="images/zin-cert-nurse.jpeg" alt="Certificate of training, Nurse Aid Training Course, January to June 2026" width="480" height="853" loading="lazy"/>
+        <figcaption>Nurse aide training, January to June&nbsp;2026 &mdash; anatomy and physiology, basic caring, communication, infection control, maternal and child care, nutrition, emergency care, common&nbsp;disease. A training certificate, not a nursing&nbsp;qualification.</figcaption>
+      </figure>
+      <figure class="profile-cert-tile">
+        <img src="images/zin-cert-school.jpeg" alt="Matriculation examination pass certificate, March 2020, with notarised English translation" width="607" height="854" loading="lazy"/>
+        <figcaption>Matriculation examination passed in March&nbsp;2020 &mdash; Myanmar, English, mathematics, chemistry, physics and&nbsp;economics. The English translation is notarised.</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 

@@ -34,6 +34,32 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "joana",
+    name: "Joana Mae",
+    initial: "C.",
+    status: "available",
+    statusLabel: "Available December&nbsp;2026",
+    availFrom: "2026-12-01",
+    line: "Filipino &middot; 37 &middot; Children from birth, cooking &amp;&nbsp;household",
+    summary: "Six years and eight months with one family &mdash; her only employer in&nbsp;Singapore. Three children in that&nbsp;household: the eldest from one year old, and twins she has had since they were&nbsp;born. No transfers, no gaps, nothing else on her&nbsp;record.",
+    referredBy: "",
+    signal: "verified",
+    verifiedYears: 6,
+    verifiedSub: "Six years eight months with one family, her only employer in Singapore",
+    quote: "",
+    quoteCite: "",
+    nationality: "Filipino",
+    yearsSG: "Since January 2020",
+    bestFit: "A family with young children, particularly one expecting a baby or with more than one small child at once \u2014 she has done exactly that, from birth, for six years",
+    strengths: ["Six years, one family", "Twins from birth", "One employer, no transfers"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
+    age: 37,
+    salary: "",
+    availability: "transfer",
+    photo: "images/joana.jpeg",
+    profile: "profile-joana.html"
+  },
+  {
     id: "maricel",
     name: "Maricel",
     initial: "P.",
@@ -54,7 +80,7 @@ window.HELPERS = [
     strengths: ["Fifteen years, three long families", "A child from infancy, twice", "Cooks \u2014 photographs"],
     skills: ["Childcare", "Cooking", "Housekeeping", "Pet Care"],
     age: 49,
-    salary: "",
+    salary: "From S$950",
     availability: "transfer",
     photo: "images/maricel.jpeg",
     profile: "profile-maricel.html"

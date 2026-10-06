@@ -34,6 +34,30 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "jennilynm",
+    name: "Jennilyn",
+    initial: "M.",
+    status: "available",
+    statusLabel: "Available end November / 1 December&nbsp;2026",
+    availFrom: "2026-11-30",
+    line: "Filipino &middot; 39 &middot; Children, cooking, household &amp;&nbsp;pets",
+    summary: "Three years and eight months with her current family, who have agreed to speak for&nbsp;her &mdash; two children she took at six and eight, a household and a&nbsp;pet. Before them, four children in one home, the youngest&nbsp;two. Two employers in five years, and she is still with the&nbsp;second.",
+    referredBy: "Her current employer of three and a half years has agreed to speak with families considering her",
+    signal: "referred",
+    quote: "",
+    quoteCite: "",
+    nationality: "Filipino",
+    yearsSG: "Since May 2021",
+    bestFit: "A family with children of primary-school age or older who want the cooking and the house in the same pair of hands, and who have a pet",
+    strengths: ["Three years eight months, one family", "Four children in one home", "Comfortable with pets"],
+    skills: ["Childcare", "Cooking", "Housekeeping", "Pet Care"],
+    age: 39,
+    salary: "",
+    availability: "transfer",
+    photo: "images/jennilynm.jpeg",
+    profile: "profile-jennilynm.html"
+  },
+  {
     id: "ida",
     name: "Ida",
     initial: "P.",

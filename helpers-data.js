@@ -34,6 +34,30 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "sunshine",
+    name: "Sunshine",
+    initial: "B.",
+    status: "available",
+    statusLabel: "Available 20 October&nbsp;2026",
+    availFrom: "2026-10-20",
+    line: "Filipino &middot; 33 &middot; A child from five months, Indian &amp; Filipino&nbsp;cooking",
+    summary: "Four years and seven months with her current family, who have written her a reference as she&nbsp;leaves &mdash; she has had their child from five months old to&nbsp;five. Nine years in&nbsp;Singapore. Cooks Filipino, Indian, Chinese and vegetarian&nbsp;food.",
+    referredBy: "Recommended in writing by Divya&nbsp;P., her employer of four and a half&nbsp;years",
+    signal: "referred",
+    quote: "\u201cShe maintained a clean&nbsp;house, she was kind and caring towards our&nbsp;child\u2026 She is friendly and ensured that everything met our family\u2019s specific&nbsp;preferences.\u201d",
+    quoteCite: "&mdash; Divya P., her employer 2022\u20132026",
+    nationality: "Filipino",
+    yearsSG: "Since September 2017",
+    bestFit: "A family with a young child who want Indian or Filipino food cooked at home, and who are comfortable setting out what they want rather than leaving it to her",
+    strengths: ["Four and a half years, one family", "A child from five months", "Indian &amp; Filipino cooking"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
+    age: 33,
+    salary: "S$950&ndash;1,000",
+    availability: "transfer",
+    photo: "images/sunshine.jpeg",
+    profile: "profile-sunshine.html"
+  },
+  {
     id: "joana",
     name: "Joana Mae",
     initial: "C.",

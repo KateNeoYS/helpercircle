@@ -34,6 +34,30 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "jennilyn",
+    name: "Jennilyn",
+    initial: "C.",
+    status: "available",
+    statusLabel: "Available 10&ndash;11 November&nbsp;2026",
+    availFrom: "2026-11-10",
+    line: "Filipino &middot; 32 &middot; South Indian cooking, children &amp;&nbsp;household",
+    summary: "Two years with an Indian family in Singapore, cooking their food from&nbsp;scratch &mdash; curries, dal, sambar, biryani, four kinds of rice, and chapatti, idli and dosa from her own&nbsp;batter. Her employer has agreed to speak with families considering&nbsp;her.",
+    referredBy: "Her current employer of two years has agreed to speak with families considering her",
+    signal: "referred",
+    quote: "",
+    quoteCite: "",
+    nationality: "Filipino",
+    yearsSG: "Since April 2022",
+    bestFit: "An Indian or vegetarian household who want their own food cooked properly at home rather than approximated",
+    strengths: ["Full South Indian kitchen", "Dosa &amp; idli from scratch", "Two years, Indian household"],
+    skills: ["Cooking", "Childcare", "Housekeeping", "Pet Care"],
+    age: 32,
+    salary: "S$750",
+    availability: "transfer",
+    photo: "images/jennilyn.jpeg",
+    profile: "profile-jennilyn.html"
+  },
+  {
     id: "sunshine",
     name: "Sunshine",
     initial: "B.",

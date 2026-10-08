@@ -34,6 +34,31 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "tanti",
+    name: "Tanti",
+    initial: "W.",
+    status: "available",
+    statusLabel: "Available mid-October&nbsp;2026",
+    availFrom: "2026-10-15",
+    line: "Indonesian &middot; 38 &middot; After-school care, cooking &amp;&nbsp;household",
+    summary: "Her current job is after-school care for a primary-school boy and cooking the family&rsquo;s&nbsp;dinner. Two years in Singapore across three&nbsp;households, none longer than eight and a half&nbsp;months, and no employer recommendation behind&nbsp;her.",
+    referredBy: "",
+    signal: "assessed",
+    assessedSub: "Interviewed by Helper Circle; employment record reviewed, no employer reference",
+    quote: "",
+    quoteCite: "",
+    nationality: "Indonesian",
+    yearsSG: "Since November 2024",
+    bestFit: "A family with school-age children who want the after-school hours covered \u2014 the fetching, the homework and the evening meal",
+    strengths: ["After-school care &amp; dinner", "Chinese home cooking", "English &amp; Malay"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
+    age: 38,
+    salary: "S$750",
+    availability: "transfer",
+    photo: "images/tanti.jpeg",
+    profile: "profile-tanti.html"
+  },
+  {
     id: "jean",
     name: "Jean",
     initial: "A.",

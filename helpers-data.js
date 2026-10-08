@@ -34,6 +34,32 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "jean",
+    name: "Jean",
+    initial: "A.",
+    status: "available",
+    statusLabel: "Available 31 October&nbsp;2026",
+    availFrom: "2026-10-31",
+    line: "Filipino &middot; 35 &middot; School-age children, cooking &amp;&nbsp;household",
+    summary: "Three years and five months with her current family, who renewed her&nbsp;contract &mdash; the same child from five years old to&nbsp;nine, the school run, the activities and the&nbsp;reading. Four years with one family in Saudi Arabia before&nbsp;that.",
+    referredBy: "",
+    signal: "verified",
+    verifiedYears: 3,
+    verifiedSub: "Three years five months with her current family, her only employer in Singapore",
+    quote: "",
+    quoteCite: "",
+    nationality: "Filipino",
+    yearsSG: "Since May 2023",
+    bestFit: "A family with a child of three or older who want the school day in steady hands \u2014 the mornings, the fetching, the activities and the reading",
+    strengths: ["Three years five months, one family", "One child, five to nine", "Cooks \u2014 photographs"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
+    age: 35,
+    salary: "S$850&ndash;900",
+    availability: "transfer",
+    photo: "images/jean.jpeg",
+    profile: "profile-jean.html"
+  },
+  {
     id: "jennilynm",
     name: "Jennilyn",
     initial: "M.",
@@ -1692,7 +1718,7 @@ window.HELPERS = [
     strengths: ["Two contracts, completed", "Patient with dogs", "Chinese home cooking"],
     skills: ["Cooking", "Housekeeping", "Pets", "Childcare"],
     age: 35,
-    salary: "",
+    salary: "S$850",
     availability: "transfer",
     photo: "images/karen.jpeg",
     profile: "profile-karen.html"

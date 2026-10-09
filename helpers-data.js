@@ -34,6 +34,31 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "cynthia",
+    name: "Cynthia",
+    initial: "Q.",
+    status: "available",
+    statusLabel: "Available December&nbsp;2026",
+    availFrom: "2026-12-07",
+    line: "Filipino &middot; 37 &middot; Children, Indian &amp; Chinese cooking &amp;&nbsp;household",
+    summary: "Two years with her first Singapore family, caring for their baby and running the&nbsp;flat &mdash; and cooking Indian food from&nbsp;scratch: baingan bharta, paneer and cauliflower&nbsp;curry. Her contract ends in December and she would like a household where she can take on&nbsp;more.",
+    referredBy: "",
+    signal: "assessed",
+    assessedSub: "Interviewed by Helper Circle; employment record reviewed",
+    quote: "",
+    quoteCite: "",
+    nationality: "Filipino",
+    yearsSG: "Since December 2024",
+    bestFit: "A family with school-age children who want the house run and their own food cooked properly \u2014 particularly an Indian or vegetarian household",
+    strengths: ["Two years, one family", "Indian cooking from scratch", "A baby from early"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
+    age: 37,
+    salary: "S$800&ndash;850",
+    availability: "transfer",
+    photo: "images/cynthia.jpeg",
+    profile: "profile-cynthia.html"
+  },
+  {
     id: "choele",
     name: "Choele",
     initial: "B.",

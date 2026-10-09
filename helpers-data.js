@@ -49,7 +49,7 @@ window.HELPERS = [
     quoteCite: "",
     nationality: "Indonesian",
     yearsSG: "Since November 2024",
-    bestFit: "A family with an elderly parent who needs real physical help, or one with school-age children who want the after-school hours covered \u2014 the fetching, the homework and the evening meal",
+    bestFit: "A family with an elderly parent who needs real physical help, or one with children of any age who want the day running and the after-school hours covered \u2014 the fetching, the homework and the evening meal",
     strengths: ["Four years eldercare", "After-school care &amp; dinner", "Bak kut teh, steamed fish"],
     skills: ["Elderly Care", "Childcare", "Cooking", "Housekeeping"],
     age: 38,

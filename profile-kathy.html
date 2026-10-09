@@ -418,9 +418,9 @@
 
       <p><strong>July to August&nbsp;2025</strong> &mdash; two months as a health care assistant at Red Crowns Senior Living, a residential care&nbsp;company. Bathing, feeding and mobility for elderly residents, working to care plans alongside&nbsp;nurses. She did this between jobs, of her own accord, to add facility experience to what she had learned in&nbsp;homes.</p>
 
-      <p><strong>September 2025 to now</strong> &mdash; a couple in a four-room flat, and a bedridden stroke&nbsp;patient. This is the most demanding work she has done: bathing, dressing, toileting, feeding, turning to prevent pressure sores, and transfers she manages with the second helper in the&nbsp;house. The two of them work a rota, including overnight.</p>
+      <p><strong>September 2025 to now</strong> &mdash; a couple in a four-room flat, and a bedridden stroke&nbsp;patient. This is the most demanding work she has done: bathing, dressing, toileting, feeding, turning to prevent pressure sores, and transfers she manages with the second helper in the&nbsp;house. Night duty is shared &mdash; two nights a week for her, rotated between the second helper and her&nbsp;employer &mdash; and she is given eight hours to&nbsp;rest.</p>
 
-      <p><strong>Where she&rsquo;d suit&nbsp;next:</strong> a family with an elderly parent or a dependent adult at home. She has done dementia over years and stroke care at its heaviest, and she has the certificates to go with the&nbsp;experience. What she has asked for is a household where the rest days and the sleep are real, which is a fair thing to settle before anyone&nbsp;starts.</p>
+      <p><strong>Where she&rsquo;d suit&nbsp;next:</strong> a family with an elderly parent or a dependent adult at home. She has done dementia over years and stroke care at its heaviest, and she has the certificates to go with the&nbsp;experience. One thing to settle at the outset: she would rather not take a role built around carrying and wheelchair&nbsp;transfers. She has done them, always with a second pair of hands, and would prefer her next job not to depend on&nbsp;them.</p>
     </div>
 
     <p class="profile-foot">Her CV, certificates and employment history are available to interested families, with her&nbsp;consent.</p>
@@ -475,7 +475,7 @@
       errorEl = form.querySelector('.ask-error'), fields = form.querySelectorAll('.ask-field'), noteEl = form.querySelector('.ask-foot-note');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (submitBtn) { submitBtn.disabled = true; submitBtn.dataset.originalText = submitBtn.textContent; submitBtn.textContent = 'Sending\u2026'; }
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.dataset.originalText = submitBtn.textContent; submitBtn.textContent = 'Sending…'; }
     if (errorEl) errorEl.hidden = true;
     fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
       .then(function (res) { if (res.ok) { fields.forEach(function (f){f.style.display='none';}); if(submitBtn)submitBtn.style.display='none'; if(noteEl)noteEl.style.display='none'; if(successEl)successEl.hidden=false; } else { throw new Error('fail'); } })

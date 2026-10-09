@@ -34,6 +34,29 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "choele",
+    name: "Choele",
+    initial: "B.",
+    status: "available",
+    statusLabel: "Available any&nbsp;time",
+    availFrom: "2026-10-09",
+    line: "47 &middot; Children from newborn, cooking &amp;&nbsp;household",
+    summary: "Six years and five months with her current family, who have written her a reference as she&nbsp;leaves &mdash; she took their youngest from&nbsp;birth. In Singapore since&nbsp;2000, across homes from an HDB flat to a three-storey landed&nbsp;house.",
+    referredBy: "Recommended in writing by Emmeline&nbsp;A., her employer of six and a half&nbsp;years",
+    signal: "referred",
+    quote: "\u201cShe does not simply do her&nbsp;duties. She thinks about our family and our children\u2019s&nbsp;wellbeing\u2026 Any family who has the opportunity to have her will be very&nbsp;fortunate.\u201d",
+    quoteCite: "&mdash; Emmeline A., her employer 2020\u20132026",
+    yearsSG: "Since 2000",
+    bestFit: "A family with young children \u2014 she has taken a child from birth and kept him six years \u2014 and equally at home with older children, teenagers and a large house",
+    strengths: ["Six and a half years, one family", "A child from birth", "Newborn to teenager"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
+    age: 47,
+    salary: "S$850&ndash;900",
+    availability: "transfer",
+    photo: "images/choele.jpeg",
+    profile: "profile-choele.html"
+  },
+  {
     id: "tanti",
     name: "Tanti",
     initial: "W.",

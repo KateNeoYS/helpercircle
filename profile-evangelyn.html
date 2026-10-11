@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Evangelyn — Filipino helper, nine and a half years with one family, recommended | Helper Circle</title>
+  <meta name="description" content="Evangelyn is a Filipino helper with nine and a half years in one Singapore household, raising their son from one to eleven, and recommended by that family. Filipino and Western cooking. Available now."/>
+
+  <!-- Profiles kept noindex by convention -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
+  <link rel="stylesheet" href="styles.css"/>
+
+  <style>
+
+    /* ─── Page container ─── */
+    .profile-page { background: var(--clr-white); }
+    .profile-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── HERO ─── */
+    .profile-hero { padding: 56px 0 48px; background: var(--clr-white); }
+    .profile-hero-inner { display: flex; gap: 36px; align-items: flex-start; flex-wrap: wrap; }
+
+    .profile-photo {
+      flex: 0 0 180px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .profile-hero-text { flex: 1 1 320px; min-width: 0; }
+    .profile-name {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      letter-spacing: -0.012em;
+      color: var(--clr-text);
+      margin: 0 0 6px;
+      text-wrap: balance;
+      line-height: 1.05;
+    }
+    .profile-descriptor {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--clr-text-muted);
+      margin: 0 0 18px;
+    }
+
+    .profile-verified-line {
+      font-size: .95rem;
+      color: var(--clr-text-2);
+      line-height: 1.6;
+      margin: 0 0 16px;
+      padding: 14px 0 14px 18px;
+      border-left: 2px solid var(--clr-primary);
+      background: linear-gradient(to right, var(--clr-primary-bg) 0%, transparent 70%);
+      border-radius: 0 4px 4px 0;
+    }
+    .profile-verified-line strong { color: var(--clr-primary); font-weight: 600; }
+
+    .profile-quote {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic;
+      font-size: 1.18rem;
+      line-height: 1.55;
+      color: var(--clr-text-2);
+      margin: 24px 0 12px;
+      text-wrap: balance;
+    }
+    .profile-quote-attr { font-size: .85rem; color: var(--clr-text-muted); margin: 0 0 28px; }
+
+    .profile-hero-cta { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .profile-hero-cta-meta { font-size: .87rem; color: var(--clr-text-muted); font-style: italic; }
+
+    /* ─── AT A GLANCE ─── */
+    .profile-glance { padding: 36px 0 12px; background: var(--clr-white); }
+    .profile-section-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--clr-primary);
+      margin: 0 0 14px;
+    }
+    .profile-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .profile-chip {
+      font-size: .88rem;
+      color: var(--clr-text-2);
+      background: var(--clr-cream);
+      border: 1px solid var(--clr-border-warm);
+      padding: 7px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    /* ─── KEY FACTS GRID ─── */
+    .profile-facts { padding: 36px 0; background: var(--clr-white); }
+    .profile-facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0;
+      border-top: 1px solid var(--clr-border-warm);
+      border-left: 1px solid var(--clr-border-warm);
+    }
+    .profile-fact {
+      padding: 22px 22px;
+      border-right: 1px solid var(--clr-border-warm);
+      border-bottom: 1px solid var(--clr-border-warm);
+      background: var(--clr-white);
+    }
+    .profile-fact-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--clr-text-muted);
+      margin: 0 0 8px;
+    }
+    .profile-fact-value { font-size: 1rem; line-height: 1.55; color: var(--clr-text); margin: 0; }
+    .profile-fact-value strong { font-weight: 600; }
+    .profile-fact-value em { color: var(--clr-text-muted); font-style: italic; font-size: .9rem; }
+
+    /* ─── NOTES ─── */
+    .profile-notes {
+      padding: 56px 0;
+      background: var(--clr-cream);
+      border-top: 1px solid var(--clr-border-warm);
+    }
+    .profile-notes-hdr {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: clamp(1.7rem, 3.5vw, 2.1rem);
+      letter-spacing: -0.008em;
+      color: var(--clr-text);
+      margin: 0 0 8px;
+      text-wrap: balance;
+    }
+    .profile-notes-sub { font-size: .95rem; color: var(--clr-text-muted); margin: 0 0 32px; font-style: italic; }
+    .profile-notes-prose p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--clr-text-2);
+      margin: 0 0 1.1em;
+      text-wrap: pretty;
+    }
+    .profile-notes-prose p:last-child { margin-bottom: 0; }
+
+    .profile-foot { font-style: italic; color: var(--clr-text-muted); font-size: .92rem; margin: 32px 0 0; }
+
+    /* ─── MOBILE ADJUSTMENTS ─── */
+    @media (max-width: 640px) {
+      .profile-hero { padding: 40px 0 36px; }
+      .profile-hero-inner { gap: 24px; justify-content: center; }
+      .profile-photo { flex: 0 0 140px; width: 140px; height: 140px; margin: 0 auto; align-self: center; }
+      .profile-hero-text { text-align: center; }
+      .profile-verified-line { text-align: left; }
+      .profile-hero-cta { display: flex; justify-content: center; }
+      .profile-facts-grid { grid-template-columns: 1fr; }
+      .profile-fact { padding: 20px 18px; }
+    }
+
+    /* ─── COOKING GALLERY ─── */
+    .profile-cooking { background: var(--clr-cream, #FCF7EE); padding: 56px 0 60px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
+    .profile-cooking-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .profile-cooking-hdr { font-family: var(--fd, 'Cormorant Garamond', serif); font-weight: 500; font-size: clamp(1.7rem, 3.5vw, 2.1rem); letter-spacing: -0.008em; color: var(--clr-text, #1F2A24); margin: 0 0 12px; }
+    .profile-cooking-sub { font-size: 1rem; color: var(--clr-text-muted, #5A6661); line-height: 1.65; margin: 0 0 28px; max-width: 60ch; }
+    .profile-cooking-grid { display: grid; grid-template-columns: repeat(3, 1fr); align-items: start; gap: 12px; }
+    .profile-cooking-tile { margin: 0; align-self: start; border-radius: 10px; overflow: hidden; background: #EFE7D8; box-shadow: 0 1px 3px rgba(31,42,36,.08); }
+    .profile-cooking-tile img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; align-self: start; object-fit: cover; object-position: center; }
+    .profile-cooking-grid--two { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    @media (max-width: 560px) {
+      .profile-cooking-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
+
+    /* ─── ASK ABOUT FORM ─── */
+    .profile-ask { background: var(--clr-white, #FFFFFF); padding: 56px 0 72px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
+    .profile-ask-inner { max-width: 560px; margin: 0 auto; padding: 0 24px; }
+    .profile-ask-kicker { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--clr-primary); background: var(--clr-primary-bg); padding: 4px 10px; border-radius: 4px; margin-bottom: 12px; }
+    .profile-ask-h { font-family: var(--fd, 'Cormorant Garamond', serif); font-weight: 500; font-size: clamp(1.7rem, 3.5vw, 2.1rem); letter-spacing: -0.008em; color: var(--clr-text); margin: 0 0 12px; text-wrap: balance; }
+    .profile-ask-sub { font-size: 1rem; color: var(--clr-text-muted); line-height: 1.65; margin: 0 0 28px; }
+    .ask-field { margin-bottom: 16px; }
+    .ask-field label { display: block; font-size: .85rem; font-weight: 600; color: var(--clr-text); margin-bottom: 6px; }
+    .ask-field-opt { font-weight: 400; color: var(--clr-text-muted); font-size: .8rem; }
+    .ask-field input, .ask-field textarea { width: 100%; padding: 11px 13px; font-size: .98rem; font-family: inherit; color: var(--clr-text); background: var(--clr-white, #FFFFFF); border: 1px solid var(--clr-border, #E8E2D4); border-radius: 6px; transition: border-color .15s; }
+    .ask-field input:focus, .ask-field textarea:focus { outline: none; border-color: var(--clr-primary); }
+    .ask-field textarea { resize: vertical; min-height: 80px; }
+    .ask-submit { width: 100%; margin-top: 4px; }
+    .ask-foot-note { font-size: .82rem; color: var(--clr-text-muted); margin: 14px 0 0; line-height: 1.55; }
+    .ask-success, .ask-error { background: var(--clr-primary-bg); border-left: 3px solid var(--clr-primary); padding: 16px 18px; border-radius: 0 8px 8px 0; margin-top: 12px; }
+    .ask-error { background: #FFF0EB; border-left-color: #E8825C; }
+    .ask-success p, .ask-error p { margin: 0; color: var(--clr-text-2); line-height: 1.6; }
+  </style>
+</head>
+<body class="profile-page">
+
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark" aria-hidden="true"><span class="logo-hc">hc</span></div>
+      <span class="logo-text">Helper<strong>Circle</strong></span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="browse.html" class="nav-a">Meet Helpers</a>
+      <a href="refer.html" class="nav-a">Refer a Helper</a>
+      <a href="index.html#how" class="nav-a">How It Works</a>
+      <a href="faq.html" class="nav-a">FAQ</a>
+      <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
+    </nav>
+    <a href="refer.html" class="btn btn-green btn-sm hdr-cta">Refer a Helper</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="profile-hero">
+  <div class="profile-wrap">
+    <div class="profile-hero-inner">
+
+      <img class="profile-photo" src="images/evangelyn.jpeg" alt="Evangelyn" width="180" height="180" loading="eager"/>
+
+      <div class="profile-hero-text">
+        <h1 class="profile-name">Evangelyn</h1>
+        <p class="profile-descriptor">Filipino &middot; 52 &middot; Childcare, cooking &amp;&nbsp;household</p>
+
+        <p class="profile-verified-line">
+          <strong>Nine and a half years with one Singapore family</strong>, looking after their son from the age of one until he was&nbsp;eleven &mdash; and recommended by that family&nbsp;directly. Fourteen years as a helper in&nbsp;all, four of them in&nbsp;Bahrain.
+        </p>
+
+        <div class="profile-hero-cta">
+          <a href="#ask" class="btn btn-green">Ask about Evangelyn</a>
+          <span class="profile-hero-cta-meta">Available&nbsp;now</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="profile-trust">
+  <div class="profile-wrap">
+    <p class="profile-section-label">Trust signals</p>
+    <div class="psig psig--rec">
+      <span class="tsig tsig--rec"><span class="tsig-mark" aria-hidden="true">&#127942;</span> Employer Recommended</span>
+      <ul class="psig-list">
+        <li><strong>Recommended by Nikki</strong>, the employer she was with for <strong>nine years and six&nbsp;months</strong> &mdash; August&nbsp;2016 to February&nbsp;2026 &mdash; who answered our questions about her&nbsp;directly</li>
+        <li>She looked after their son from the age of one until he was&nbsp;eleven. Her employer describes her as a second mother to&nbsp;him, and the two are still&nbsp;close &mdash; they meet on her day off, and he marks her birthday with&nbsp;her</li>
+        <li>Her employer&rsquo;s account: if the boy was unwell, Evangelyn was the one who took him to the&nbsp;doctor, and the family never had to worry about&nbsp;it</li>
+        <li>She helped him with English and Tagalog and sat with his schoolwork through the lower primary&nbsp;years</li>
+        <li><strong>That job ended for a reason that had nothing to do with her work</strong> &mdash; a change in the family&rsquo;s own pass status meant they could no longer employ a&nbsp;helper</li>
+      </ul>
+      <p class="psig-note">Our strongest trust&nbsp;signal &mdash; a family she spent nine and a half years with, recommending her&nbsp;directly.</p>
+    </div>
+  </div>
+</section>
+
+<section class="profile-glance">
+  <div class="profile-wrap">
+    <p class="profile-section-label">At a glance</p>
+    <div class="profile-chips">
+      <span class="profile-chip">Nine and a half years, one&nbsp;family</span>
+      <span class="profile-chip">A boy from one to&nbsp;eleven</span>
+      <span class="profile-chip">Filipino &amp; Western&nbsp;cooking</span>
+      <span class="profile-chip">Fourteen years&rsquo;&nbsp;experience</span>
+      <span class="profile-chip">Four years in&nbsp;Bahrain</span>
+      <span class="profile-chip">Available&nbsp;now</span>
+    </div>
+  </div>
+</section>
+
+<section class="profile-facts">
+  <div class="profile-wrap">
+    <p class="profile-section-label">The essentials</p>
+    <div class="profile-facts-grid">
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Available from</p>
+        <p class="profile-fact-value"><strong>Now.</strong> She can transfer any time up to the third week of&nbsp;November. Transfer within&nbsp;Singapore.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Nine and a half years, one family</p>
+        <p class="profile-fact-value">August&nbsp;2016 to February&nbsp;2026 &mdash; one unbroken registration on her employment&nbsp;record, which means that family renewed her contract again and&nbsp;again.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">The boy she raised</p>
+        <p class="profile-fact-value">From one year old to&nbsp;eleven. The routine, the cooking, the school&nbsp;run &mdash; and later his English, his Tagalog and his&nbsp;schoolwork.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Why that job ended</p>
+        <p class="profile-fact-value">The family&rsquo;s own pass status&nbsp;changed, and they were no longer able to employ a&nbsp;helper. Nothing to do with her&nbsp;work &mdash; they are the ones recommending her&nbsp;now.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Cooking</p>
+        <p class="profile-fact-value">Filipino and Western food, cooked properly from&nbsp;scratch &mdash; pancit palabok, tokwa&rsquo;t baboy, Filipino spaghetti, carbonara, a seafood boil, beef with broccoli and&nbsp;cashews. Photographs&nbsp;below.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Before Singapore</p>
+        <p class="profile-fact-value">Four years in&nbsp;Bahrain, where she did much of the&nbsp;cooking. Fourteen years as a domestic helper in&nbsp;all.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Since February 2026</p>
+        <p class="profile-fact-value">Two short&nbsp;placements, both in households that turned out not to&nbsp;suit. Set out plainly&nbsp;below &mdash; neither was about the standard of her&nbsp;work.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">What suits her next</p>
+        <p class="profile-fact-value">Children past the toddler&nbsp;stage. Her long-term employer is clear that she is still strong and does the house well, but that a child under two is not the best use of&nbsp;her.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="profile-notes">
+  <div class="profile-wrap">
+    <h2 class="profile-notes-hdr">Her record</h2>
+    <p class="profile-notes-sub">Fourteen years as a helper, nine and a half of them with one Singapore&nbsp;family.</p>
+
+    <div class="profile-notes-prose">
+      <p><strong>Four years in&nbsp;Bahrain.</strong> Her first work abroad, before Singapore. She did a good deal of the cooking there, and it is where her Western dishes come&nbsp;from.</p>
+
+      <p><strong>August 2016 to February&nbsp;2026 &mdash; nine years and six&nbsp;months.</strong> One family, one flat, one&nbsp;boy &mdash; hers to look after from the age of one until he was&nbsp;eleven. The cooking, the house, the school run, and as he grew, his English and his Tagalog and his&nbsp;homework. Her employer calls her a second mother to&nbsp;him; the two still see each other on her day off. The job ended in February because the family&rsquo;s own pass status changed and they could no longer employ a helper &mdash; and that same family is the one recommending her&nbsp;now.</p>
+
+      <p><strong>February to June&nbsp;2026 &mdash; about three&nbsp;months.</strong> A Singaporean Chinese household with children of eight and eighteen, and a grandmother who came&nbsp;over often. She left because she was not given enough&nbsp;food. Each time she asked whether she could cook a little more, she was told there was already&nbsp;plenty. That is her account, and she is willing to talk it through with a family on a&nbsp;call.</p>
+
+      <p><strong>June 2026 to now.</strong> A Filipino household whose children are already&nbsp;adults, where most of the work is the dog and the&nbsp;house. It is a family who have not had a helper&nbsp;before, and the day is not planned out&nbsp;loud: she is often not told in advance whether anyone will be eating at&nbsp;home, so she cooks in case, and then the food is not&nbsp;needed. Her former employer, who referred her, puts it simply &mdash; they are not used to having a helper, and it has not worked&nbsp;out.</p>
+
+      <p><strong>Where she&rsquo;d suit&nbsp;next.</strong> A family with school-age children who want the cooking and the house in the same pair of hands, and who would rather keep someone for years than change&nbsp;often. She does her best work where the day is set out&nbsp;clearly &mdash; told what is wanted and left to get on with&nbsp;it, which is how the nine and a half years&nbsp;worked. At 52 she is still strong and takes the housework in her&nbsp;stride; a baby under two is not the best use of what she is good&nbsp;at.</p>
+    </div>
+
+    <p class="profile-foot">Her employment history and her referee&rsquo;s contact details are available to interested families, with her&nbsp;consent.</p>
+
+  </div>
+</section>
+
+<section class="profile-cooking">
+  <div class="profile-cooking-inner">
+    <h2 class="profile-cooking-hdr">From her&nbsp;kitchen</h2>
+    <p class="profile-cooking-sub">Photographs Evangelyn took of her own&nbsp;cooking &mdash; Filipino spaghetti, a seafood boil, beef with broccoli and cashews, carbonara, pancit palabok, and tokwa&rsquo;t&nbsp;baboy.</p>
+    <div class="profile-cooking-grid">
+      <figure class="profile-cooking-tile"><img src="images/evangelyn-food-1.jpeg" alt="Filipino-style spaghetti with grated cheese" width="720" height="720" loading="lazy"/></figure>
+      <figure class="profile-cooking-tile"><img src="images/evangelyn-food-2.jpeg" alt="Seafood boil with prawns, corn, potatoes and sausage" width="720" height="720" loading="lazy"/></figure>
+      <figure class="profile-cooking-tile"><img src="images/evangelyn-food-3.jpeg" alt="Beef with broccoli, peppers, mushrooms and cashews" width="720" height="720" loading="lazy"/></figure>
+      <figure class="profile-cooking-tile"><img src="images/evangelyn-food-4.jpeg" alt="Carbonara with mushroom and bacon" width="720" height="720" loading="lazy"/></figure>
+      <figure class="profile-cooking-tile"><img src="images/evangelyn-food-5.jpeg" alt="Pancit palabok with prawns, egg and pork" width="720" height="720" loading="lazy"/></figure>
+      <figure class="profile-cooking-tile"><img src="images/evangelyn-food-6.jpeg" alt="Tokwa&rsquo;t baboy — fried tofu and pork with spring onion" width="720" height="720" loading="lazy"/></figure>
+    </div>
+  </div>
+</section>
+
+<section class="profile-ask" id="ask">
+  <div class="profile-ask-inner">
+    <span class="profile-ask-kicker">Interested?</span>
+    <h2 class="profile-ask-h">Ask about Evangelyn</h2>
+    <p class="profile-ask-sub">Tell us a little about your household and we&rsquo;ll be in touch within 1&ndash;2 business&nbsp;days. We&rsquo;ll only move forward if it feels like a genuine&nbsp;fit.</p>
+    <form id="form-ask" action="https://formspree.io/f/mredjvwg" method="POST">
+      <input type="hidden" name="helper-name" value="Evangelyn"/>
+      <input type="hidden" name="_subject" value="Helper Circle — Interest in Evangelyn"/>
+      <div class="ask-field"><label for="ask-name">Your name</label><input type="text" id="ask-name" name="name" required placeholder="Jane Tan" autocomplete="name"/></div>
+      <div class="ask-field"><label for="ask-email">Email</label><input type="email" id="ask-email" name="email" required placeholder="you@email.com" autocomplete="email"/></div>
+      <div class="ask-field"><label for="ask-phone">Phone <span class="ask-field-opt">(optional, but helps)</span></label><input type="tel" id="ask-phone" name="phone" placeholder="+65 9123 4567" autocomplete="tel"/></div>
+      <div class="ask-field"><label for="ask-household">Briefly, your household</label><textarea id="ask-household" name="household" rows="3" required placeholder="Who lives at home, ages, any pets, what your typical day looks like&hellip;"></textarea></div>
+      <div class="ask-field"><label for="ask-why">Why Evangelyn? <span class="ask-field-opt">(optional)</span></label><textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you&rsquo;re hoping for&hellip;"></textarea></div>
+      <button type="submit" class="btn btn-green ask-submit">Send to Helper Circle</button>
+      <p class="ask-foot-note">We read every message personally. If Evangelyn seems like a fit for your household, we&rsquo;ll set up a short call to talk through the next&nbsp;step.</p>
+      <div class="ask-success" hidden><p>Thank you. We&rsquo;ve received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p></div>
+      <div class="ask-error" hidden><p>Something didn&rsquo;t go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p></div>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <p class="footer-heart">Started by a Singapore family who knew there had to be a better&nbsp;way.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="browse.html">Meet Helpers</a><span class="footer-nav-sep">·</span>
+        <a href="refer.html">Refer a Helper</a><span class="footer-nav-sep">·</span>
+        <a href="index.html#how">How It Works</a><span class="footer-nav-sep">·</span>
+        <a href="faq.html">FAQ</a><span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">Contact</a>
+      </nav>
+      <p class="footer-aside"><a href="for-families.html">For families saying goodbye to a helper &rarr;</a></p>
+      <div class="footer-legal-strip"><span>© <span id="year"></span> Helper Circle · Singapore</span><span class="footer-nav-sep">·</span><a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('form-ask'); if (!form) return;
+  var submitBtn = form.querySelector('button[type="submit"]'), successEl = form.querySelector('.ask-success'),
+      errorEl = form.querySelector('.ask-error'), fields = form.querySelectorAll('.ask-field'), noteEl = form.querySelector('.ask-foot-note');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.dataset.originalText = submitBtn.textContent; submitBtn.textContent = 'Sending…'; }
+    if (errorEl) errorEl.hidden = true;
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(function (res) { if (res.ok) { fields.forEach(function (f){f.style.display='none';}); if(submitBtn)submitBtn.style.display='none'; if(noteEl)noteEl.style.display='none'; if(successEl)successEl.hidden=false; } else { throw new Error('fail'); } })
+      .catch(function () { if(errorEl)errorEl.hidden=false; if(submitBtn){submitBtn.disabled=false;submitBtn.textContent=submitBtn.dataset.originalText||'Send to Helper Circle';} });
+  });
+})();
+</script>
+<script>var y=document.getElementById('year');if(y){y.textContent=new Date().getFullYear();}</script>
+</body>
+</html>

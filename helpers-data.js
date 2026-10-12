@@ -34,6 +34,30 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "sesty",
+    name: "Sesty",
+    initial: "",
+    status: "available",
+    statusLabel: "Available end October&nbsp;2026",
+    availFrom: "2026-10-31",
+    line: "Indonesian &middot; 36 &middot; Elderly care &amp;&nbsp;household",
+    summary: "Four of her five Singapore placements have been elderly&nbsp;care &mdash; a catheter, a stroke, and a gentleman of 78 with cancer whom she nursed through his last&nbsp;year. His family have recommended her&nbsp;directly. She is looking for one household she can settle&nbsp;in.",
+    referredBy: "Recommended in writing by the sister of the gentleman she cared for",
+    signal: "referred",
+    quote: "\u201cShe took very good care of my brother and always treated him with warmth and&nbsp;respect\u2026 She is strong and capable, and handled his daily needs with patience, even on difficult&nbsp;days.\u201d",
+    quoteCite: "&mdash; the sister of the gentleman she cared for, 2025\u20132026",
+    nationality: "Indonesian",
+    yearsSG: "Since March 2023",
+    bestFit: "A family with an elderly parent who needs real care \u2014 someone no longer steady on their feet, or no longer mobile at all",
+    strengths: ["Wheelchair transfers", "Catheter &amp; stroke care", "End-of-life care"],
+    skills: ["Elderly Care", "Cooking", "Housekeeping"],
+    age: 36,
+    salary: "S$650&ndash;700",
+    availability: "transfer",
+    photo: "images/sesty.jpeg",
+    profile: "profile-sesty.html"
+  },
+  {
     id: "evangelyn",
     name: "Evangelyn",
     initial: "",

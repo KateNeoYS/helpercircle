@@ -34,6 +34,30 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "nurfatimah",
+    name: "Nurfatimah",
+    initial: "",
+    status: "available",
+    statusLabel: "Available by end October&nbsp;2026",
+    availFrom: "2026-10-31",
+    line: "Young children, cooking &amp;&nbsp;household",
+    summary: "Recommended by the family she is with&nbsp;now, who are passing her on for one reason&nbsp;only &mdash; their house is too big for one pair of&nbsp;hands. Two and a half years in Singapore, almost all of it with young&nbsp;children, and trusted alone with a six-year-old and a two-year-old while their mother is at&nbsp;work.",
+    referredBy: "Recommended by Hazirah, the employer she is with now",
+    signal: "referred",
+    quote: "\u201cShe is trustworthy, honest\u2026 She is&nbsp;patient. I can leave my two kids, six and two, at home when I work if I need&nbsp;to. She is a good person and&nbsp;helper &mdash; that\u2019s why I want to find a good employer for&nbsp;her.\u201d",
+    quoteCite: "&mdash; Hazirah, her employer since April&nbsp;2026",
+    nationality: "",
+    yearsSG: "Since April 2024",
+    bestFit: "A Malay-speaking family with young children, in a flat rather than a large house \u2014 children and cooking as the job, with the housework at a scale one person can carry",
+    strengths: ["Young children, two and up", "Eighteen months with one family", "Cooking &amp; household"],
+    skills: ["Childcare", "Cooking", "Housekeeping"],
+    age: null,
+    salary: "S$650",
+    availability: "transfer",
+    photo: "images/nurfatimah.jpeg",
+    profile: "profile-nurfatimah.html"
+  },
+  {
     id: "sesty",
     name: "Sesty",
     initial: "",
@@ -331,8 +355,9 @@ window.HELPERS = [
     id: "zinmimi",
     name: "Zin",
     initial: "",
-    status: "available",
-    statusLabel: "Available now",
+    status: "placed",
+    statusLabel: "Joining a new family &middot; October&nbsp;2026",
+    matchedSeq: 30,    // match order, higher = more recent (shows leftmost)
     line: "Myanmar &middot; 23 &middot; Young children, basic caregiving &amp;&nbsp;household",
     summary: "Two years working in a preschool in Yangon, and a nurse aide training certificate behind&nbsp;that. One short placement in Singapore, which ended at her own&nbsp;request &mdash; she is open about&nbsp;why.",
     referredBy: "",
@@ -1655,9 +1680,9 @@ window.HELPERS = [
     id: "nida",
     name: "Nida",
     initial: "",
-    status: "hidden",                                  // found an employer herself, Sep 2026
-    statusLabel: "No longer available",
-    availFrom: "2026-10-25",
+    status: "available",                               // re-listed Oct 2026; left the Sep placement after 2 days
+    statusLabel: "Transfer date to be&nbsp;confirmed",
+    availFrom: "2026-10-12",
     line: "Filipino &middot; 55 &middot; Childcare, elderly care &amp;&nbsp;household",
     summary: "Eleven years with one family &mdash; caring for an elderly member with dementia while getting two children to school and back, year after year. Recommended in writing by the family she is with&nbsp;now.",
     referredBy: "Recommended in writing by Ms Gu, her employer of eleven&nbsp;years",
@@ -1670,7 +1695,7 @@ window.HELPERS = [
     strengths: ["Two children, school age to grown", "Dementia care", "Childcare &amp; eldercare at once"],
     skills: ["Childcare", "Elderly Care", "Cooking", "Housekeeping"],
     age: 55,
-    salary: "",
+    salary: "S$850",
     availability: "transfer",
     photo: "images/nida.jpeg",
     profile: "profile-nida.html"
@@ -2186,8 +2211,9 @@ window.HELPERS = [
     id: "kathy",
     name: "Kathy",
     initial: "",
-    status: "available",
-    statusLabel: "Available end October&nbsp;2026",
+    status: "placed",
+    statusLabel: "Joining a new family &middot; 7 Nov&nbsp;2026",
+    matchedSeq: 31,    // match order, higher = more recent (shows leftmost)
     availFrom: "2026-10-31",
     line: "Myanmar &middot; 48 &middot; Elderly, dementia &amp; stroke&nbsp;care",
     summary: "Nearly five years with one family caring for a grandfather with dementia, and a year since with a bedridden stroke&nbsp;patient. Certified in aged care, first aid and CPR, with sixteen years in&nbsp;Singapore.",

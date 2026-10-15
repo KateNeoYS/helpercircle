@@ -256,8 +256,8 @@ window.HELPERS = [
     id: "ida",
     name: "Ida",
     initial: "P.",
-    status: "available",
-    statusLabel: "Available December&nbsp;2026",
+    status: "hidden",                                  // employer declined to release her, Oct 2026
+    statusLabel: "No longer available",
     availFrom: "2026-12-01",
     line: "Indonesian &middot; 46 &middot; Cooking, household &amp; school-age&nbsp;children",
     summary: "Ten years and two months with one family &mdash; her only employer in&nbsp;Singapore, with no transfers and no gaps since August&nbsp;2016. They are returning to India, and have agreed to speak for&nbsp;her. Western, Malay and simple Chinese&nbsp;cooking.",
@@ -281,7 +281,7 @@ window.HELPERS = [
     name: "Jennilyn",
     initial: "C.",
     status: "placed",
-    statusLabel: "Joined a new family &middot; 18 Nov&nbsp;2026",
+    statusLabel: "Joined a new family &middot; 23 Nov&nbsp;2026",
     matchedSeq: 32,    // match order, higher = more recent (shows leftmost)
     availFrom: "2026-11-10",
     line: "Filipino &middot; 32 &middot; Children of any age, cooking &amp;&nbsp;household",
@@ -1518,10 +1518,13 @@ window.HELPERS = [
     profile: "profile-eni.html"
   },
   {
+    id: "yiyi",
     name: "Yi Yi",
     initial: "",
-    status: "hidden",
-    statusLabel: "Available mid-July&nbsp;2026",
+    status: "available",                               // re-listed Oct 2026 as a new-permit hire
+    statusLabel: "Available mid-Nov to end&nbsp;2026",
+    availFrom: "2026-11-15",
+    salary: "From S$750",
     line: "Myanmar &middot; 41 &middot; Elderly care, cooking &amp; housekeeping",
     summary: "Six years with one Singapore family within thirteen years here, supported by employment records we reviewed &mdash; experienced in elderly care and running a home&nbsp;independently.",
     referredBy: "",

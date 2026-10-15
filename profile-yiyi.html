@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Yi Yi — Helper Circle</title>
-  <meta name="description" content="Yi Yi — Long-Term Employment Verified. Myanmar helper, thirteen years in Singapore including six in one home, verified against MOM employment records. Elderly care, cooking and housekeeping."/>
+  <meta name="description" content="Yi Yi — Long-Term Family Retention. Myanmar helper, thirteen years in Singapore including six in one home, verified against MOM employment records. Elderly care, cooking and housekeeping. Available as a new work permit hire."/>
 
   <!-- noindex by convention — all live profiles carry this -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
@@ -18,25 +18,6 @@
     /* Clear the fixed 68px site-header so nothing hides beneath it */
     body.profile-page { background: var(--clr-white); padding-top: 68px; }
     .profile-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-
-    /* ─── Draft banner (static — sits below the header, never clipped) ─── */
-    .draft-banner {
-      background: #FFF0EB;
-      border-bottom: 1px solid var(--clr-coral, #E8825C);
-      padding: 12px 24px; text-align: center;
-    }
-    .draft-banner-inner {
-      max-width: 720px; margin: 0 auto;
-      font-size: .9rem; color: #9B5B3A; line-height: 1.5;
-    }
-    .draft-banner-inner strong { color: #C66740; font-weight: 700; letter-spacing: .02em; }
-
-    /* ─── TBC marker (draft-only; remove at go-live) ─── */
-    .tbc {
-      background: #FCEBDF; color: #B5612F; font-style: normal;
-      padding: 0 5px; border-radius: 4px; font-size: .9em; font-weight: 600;
-      box-shadow: inset 0 0 0 1px #E8B894;
-    }
 
     /* ─── HERO ─── */
     .profile-hero { padding: 40px 0 32px; background: var(--clr-white); }
@@ -79,6 +60,21 @@
     }
     .verify-card-fact { font-size: 1.02rem; font-weight: 600; color: var(--clr-text); margin: 0; line-height: 1.35; }
     .verify-card-fact span { font-weight: 400; color: var(--clr-text-muted); font-size: .92rem; }
+
+    /* ─── Route notice (how a family would hire her) ─── */
+    .route-note {
+      background: var(--clr-cream, #FBF6EE);
+      border: 1px solid var(--clr-border-warm, #E8DFD0);
+      border-left: 4px solid var(--clr-peach, #E8825C);
+      border-radius: 12px; padding: 18px 20px; margin: 0 0 4px;
+    }
+    .route-note-title {
+      font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      color: #9B5B3A; margin: 0 0 8px;
+    }
+    .route-note p { font-size: .98rem; line-height: 1.6; color: var(--clr-text-2); margin: 0 0 10px; }
+    .route-note p:last-child { margin-bottom: 0; }
+    .route-note strong { color: var(--clr-text); font-weight: 600; }
 
     /* CTA */
     .profile-hero-cta { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; }
@@ -125,15 +121,6 @@
 
     .muted-note { font-size: .9rem; font-style: italic; color: var(--clr-text-muted); margin: 14px 0 0; line-height: 1.6; }
 
-    /* Training / credentials list */
-    .cred { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
-    .cred li { display: flex; justify-content: space-between; gap: 16px; align-items: baseline;
-      border-bottom: 1px dashed var(--clr-border-warm); padding-bottom: 12px; }
-    .cred li:last-child { border-bottom: none; padding-bottom: 0; }
-    .cred-main { font-size: .98rem; color: var(--clr-text); line-height: 1.45; }
-    .cred-main span { display: block; font-size: .88rem; color: var(--clr-text-muted); margin-top: 2px; }
-    .cred-date { flex: 0 0 auto; font-size: .85rem; font-style: italic; color: var(--clr-text-muted); white-space: nowrap; }
-
     /* Verification details — reuse the blue card, full width */
     .verify-detail { background: #EAF2F7; border: 1px solid #CBDDE9; border-left: 4px solid #2E6F95; border-radius: 12px; padding: 18px 20px; }
     .verify-detail ul { list-style: none; margin: 10px 0 0; padding: 0; }
@@ -148,9 +135,8 @@
       .profile-photo { flex: 0 0 150px; width: 150px; height: 150px; margin: 0 auto; }
       .profile-hero-text { text-align: center; }
       .profile-meta { justify-content: center; }
-      .verify-card, .profile-hero-cta { text-align: left; }
+      .verify-card, .route-note, .profile-hero-cta { text-align: left; }
       .profile-hero-cta { justify-content: center; }
-      .cred li { flex-direction: column; gap: 2px; }
     }
 
     /* ─── ASK ABOUT FORM ─── */
@@ -170,22 +156,6 @@
     .ask-success, .ask-error { background: var(--clr-primary-bg); border-left: 3px solid var(--clr-primary); padding: 16px 18px; border-radius: 0 8px 8px 0; margin-top: 12px; }
     .ask-error { background: #FFF0EB; border-left-color: #E8825C; }
     .ask-success p, .ask-error p { margin: 0; color: var(--clr-text-2); line-height: 1.6; }
-
-    /* ─── Draft-only: disabled CTA + Kate notes (remove/enable at go-live) ─── */
-    .btn-disabled {
-      background: var(--clr-cream-dk, #EFE7D8); color: var(--clr-text-muted, #5A6661);
-      cursor: not-allowed; padding: 12px 24px; border-radius: 999px;
-      font-weight: 600; font-size: .95rem; border: 1px solid var(--clr-border-warm, #E8DFD0);
-    }
-    .draft-notes {
-      background: #FFFBF5; border: 2px dashed #E8825C; border-radius: 12px;
-      padding: 26px 30px; margin: 40px auto; max-width: 720px;
-    }
-    .draft-notes h3 { font-family: var(--fd, 'Cormorant Garamond', serif); font-size: 1.35rem; color: #9B5B3A; margin: 0 0 12px; }
-    .draft-notes ul { margin: 0; padding-left: 22px; color: var(--clr-text-2); line-height: 1.7; }
-    .draft-notes li { margin-bottom: 10px; }
-    .draft-notes li strong { color: #C66740; }
-    .draft-notes code { background: #F3E7D6; padding: 1px 5px; border-radius: 4px; font-size: .9em; }
   </style>
 </head>
 <body class="profile-page">
@@ -223,7 +193,7 @@
 
         <div class="profile-meta">
           <span>41 years old</span><span class="sep">·</span>
-          <span>Available from mid-July&nbsp;2026 (currently overseas)</span><span class="sep">·</span>
+          <span>Available mid-November to end&nbsp;2026</span><span class="sep">·</span>
           <span>13 years in&nbsp;Singapore</span>
         </div>
 
@@ -235,7 +205,7 @@
             </svg>
           </span>
           <div>
-            <p class="verify-card-title">Long-Term Employment Verified</p>
+            <p class="verify-card-title">Long-Term Family Retention</p>
             <p class="verify-card-fact">Six years in one home <span>· 2017&ndash;2023</span></p>
           </div>
         </div>
@@ -252,12 +222,23 @@
 
 <div class="profile-wrap">
 
-  <!-- ═══ WHY FAMILIES CONSIDER YI YI ═══ -->
+  <!-- ═══ HOW A FAMILY WOULD HIRE HER ═══ -->
   <section class="profile-block" style="border-top:none">
+    <p class="profile-section-label">How a family would hire her</p>
+    <div class="route-note">
+      <p class="route-note-title">Not a transfer &mdash; a new work permit</p>
+      <p>Yi Yi is working in Singapore at the moment, and her plan is to return home before starting with a new&nbsp;family. That means a family hiring her would <strong>apply for a new work permit and bring her back in</strong>, rather than taking over an existing&nbsp;one.</p>
+      <p>Practically, that means a <strong>new permit application, a medical examination, the security bond, insurance and an air&nbsp;ticket</strong>, and a gap of some weeks between agreeing and her&nbsp;starting. A transfer within Singapore is quicker and cheaper; this is&nbsp;not that, and we would rather you knew it from the&nbsp;outset.</p>
+      <p>She is looking to start between <strong>mid-November and the end of the&nbsp;year</strong>, and will only make arrangements to leave once a family has&nbsp;committed. We will talk the sequence and the costs through with you properly before anything is&nbsp;decided.</p>
+    </div>
+  </section>
+
+  <!-- ═══ WHY FAMILIES CONSIDER YI YI ═══ -->
+  <section class="profile-block">
     <p class="profile-section-label">Why families consider Yi Yi</p>
     <ul class="hl">
-      <li><strong>Long, stable employment</strong> &mdash; six years in one home (2017&ndash;2023), with her employment length verified against MOM&nbsp;records.</li>
-      <li><strong>Thirteen years of experience</strong> &mdash; elderly care, cooking and housekeeping across four Singapore&nbsp;households.</li>
+      <li><strong>Long, stable employment</strong> &mdash; six years in one home (2017&ndash;2023), with her employment length confirmed against MOM&nbsp;records.</li>
+      <li><strong>Thirteen years of experience</strong> &mdash; elderly care, cooking and housekeeping across several Singapore&nbsp;households.</li>
       <li><strong>Experienced in elderly care</strong> &mdash; including extended daily care for an elderly family member with high daily&nbsp;needs.</li>
       <li><strong>Independent and well-organised</strong> &mdash; cooks Asian and basic Western food, and runs a household on her&nbsp;own.</li>
     </ul>
@@ -275,7 +256,7 @@
     </div>
     <div class="facts">
       <div><p class="fact-k">Longest stay</p><p class="fact-v">Six years in one home (2017&ndash;2023)</p></div>
-      <div><p class="fact-k">Experience</p><p class="fact-v">13 years across four Singapore households (2013&ndash;2026)</p></div>
+      <div><p class="fact-k">Experience</p><p class="fact-v">13 years in Singapore, 2013 to the present</p></div>
       <div><p class="fact-k">Elderly care</p><p class="fact-v">Extended daily care for a less-mobile elderly person &mdash; mobility, feeding, hygiene and health monitoring, working under the guidance of nurses and&nbsp;doctors</p></div>
       <div><p class="fact-k">Cooking</p><p class="fact-v">Asian dishes and basic Western</p></div>
       <div><p class="fact-k">Languages</p><p class="fact-v">English &middot; Burmese</p></div>
@@ -309,7 +290,7 @@
       <li>Households wanting an experienced helper focused on housekeeping, cooking and elderly&nbsp;care.</li>
       <li>Families needing patient, experienced daily care for an elderly or less-mobile family&nbsp;member.</li>
       <li>Families who value someone independent and well-organised, able to manage a home on her&nbsp;own.</li>
-      <li>Families who value long, stable&nbsp;service.</li>
+      <li>Families who can work to her&nbsp;timeline &mdash; a new permit rather than a transfer, and a start date some weeks&nbsp;out.</li>
     </ul>
     <p class="muted-note">Yi Yi&rsquo;s recent experience is in close elderly care; she is equally comfortable with general housekeeping and&nbsp;cooking.</p>
   </section>
@@ -318,13 +299,13 @@
   <section class="profile-block">
     <p class="profile-section-label">Verification details</p>
     <div class="verify-detail">
-      <p style="margin:0;font-size:1rem;color:var(--clr-text)"><strong>Employment in Singapore from 2013 to 2026</strong> &mdash; her employment lengths confirmed against her <strong>MOM employment records</strong>.</p>
+      <p style="margin:0;font-size:1rem;color:var(--clr-text)"><strong>Employment in Singapore from 2013</strong> &mdash; her employment lengths confirmed against her <strong>MOM employment records</strong>.</p>
       <ul>
-        <li>Her resume shows four Singapore placements between 2013 and 2026, with a <strong>six-year period in one home (2017&ndash;2023)</strong> as her longest&nbsp;stay.</li>
-        <li>Her most recent role (2023&ndash;2026) was close daily care for an elderly family&nbsp;member.</li>
+        <li>Her record shows several Singapore placements since 2013, with a <strong>six-year period in one home (2017&ndash;2023)</strong> as her longest&nbsp;stay.</li>
+        <li>She returned to work in Singapore in <strong>July&nbsp;2026</strong> and is in that household&nbsp;now. She is looking for her next family and will talk that through with you on a&nbsp;call.</li>
       </ul>
     </div>
-    <p class="muted-note">MOM records confirm her employment and its length, rather than offering a personal recommendation. Her cooking, languages and other details are&nbsp;self-reported.</p>
+    <p class="muted-note">MOM records confirm her employment and its length, rather than offering a personal&nbsp;recommendation. No former employer has given a written recommendation for this&nbsp;profile. Her cooking, languages and other details are&nbsp;self-reported.</p>
   </section>
 
 </div>
@@ -336,7 +317,7 @@
     <h2 class="profile-ask-h">Ask about Yi Yi</h2>
     <p class="profile-ask-sub">Tell us a little about your household and we'll be in touch within 1&ndash;2 business&nbsp;days. We'll only move forward if it feels like a genuine&nbsp;fit.</p>
     <form id="form-ask" action="https://formspree.io/f/mredjvwg" method="POST">
-      <input type="hidden" name="helper-name" value="Yi Yi Aye"/>
+      <input type="hidden" name="helper-name" value="Yi Yi"/>
       <input type="hidden" name="_subject" value="Helper Circle — Interest in Yi Yi"/>
       <div class="ask-field">
         <label for="ask-name">Your name</label>
@@ -359,7 +340,7 @@
         <textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you're hoping for&hellip;"></textarea>
       </div>
       <button type="submit" class="btn btn-green ask-submit">Send to Helper Circle</button>
-      <p class="ask-foot-note">We read every message personally. If Yi Yi seems like a fit for your household, we'll set up a short call to talk through the next&nbsp;step.</p>
+      <p class="ask-foot-note">We read every message personally. If Yi Yi seems like a fit for your household, we'll set up a short call to talk through the next&nbsp;step &mdash; including the permit timeline and what it&nbsp;costs.</p>
       <div class="ask-success" hidden>
         <p>Thank you. We've received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p>
       </div>
@@ -405,7 +386,7 @@
   var noteEl = form.querySelector('.ask-foot-note');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (submitBtn) { submitBtn.disabled = true; submitBtn.dataset.originalText = submitBtn.textContent; submitBtn.textContent = 'Sending\u2026'; }
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.dataset.originalText = submitBtn.textContent; submitBtn.textContent = 'Sending…'; }
     if (errorEl) errorEl.hidden = true;
     var data = new FormData(form);
     fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })

@@ -1596,8 +1596,8 @@ window.HELPERS = [
     name: "Yi Yi",
     initial: "",
     status: "available",                               // re-listed Oct 2026 as a new-permit hire
-    statusLabel: "Hire from overseas &middot; mid-Nov to end&nbsp;2026",
-    availFrom: "2026-11-15",
+    statusLabel: "Hire from overseas &middot; December&nbsp;2026",
+    availFrom: "2026-12-01",
     salary: "From S$750",
     line: "Myanmar &middot; 41 &middot; Elderly care, cooking &amp; housekeeping",
     summary: "Six years with one Singapore family within thirteen years here, supported by employment records we reviewed &mdash; experienced in elderly care and running a home&nbsp;independently.",

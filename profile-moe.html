@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Moe S. — Myanmar helper, stroke and dementia care, nurse aide trained | Helper Circle</title>
+  <meta name="description" content="Moe S. is a Myanmar helper with five and a half years in one household caring for a man after a stroke — transfers, catheter care, medication and meals. Nurse aide trained. A hire from overseas, able to fly at any time."/>
+
+  <!-- Profiles kept noindex by convention -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
+  <link rel="stylesheet" href="styles.css"/>
+
+  <style>
+
+    /* ─── Page container ─── */
+    .profile-page { background: var(--clr-white); }
+    .profile-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── HERO ─── */
+    .profile-hero { padding: 56px 0 48px; background: var(--clr-white); }
+    .profile-hero-inner { display: flex; gap: 36px; align-items: flex-start; flex-wrap: wrap; }
+
+    .profile-photo {
+      flex: 0 0 180px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .profile-hero-text { flex: 1 1 320px; min-width: 0; }
+    .profile-name {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      letter-spacing: -0.012em;
+      color: var(--clr-text);
+      margin: 0 0 6px;
+      text-wrap: balance;
+      line-height: 1.05;
+    }
+    .profile-descriptor {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--clr-text-muted);
+      margin: 0 0 18px;
+    }
+
+    .profile-verified-line {
+      font-size: .95rem;
+      color: var(--clr-text-2);
+      line-height: 1.6;
+      margin: 0 0 16px;
+      padding: 14px 0 14px 18px;
+      border-left: 2px solid var(--clr-primary);
+      background: linear-gradient(to right, var(--clr-primary-bg) 0%, transparent 70%);
+      border-radius: 0 4px 4px 0;
+    }
+    .profile-verified-line strong { color: var(--clr-primary); font-weight: 600; }
+
+    .profile-quote {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic;
+      font-size: 1.18rem;
+      line-height: 1.55;
+      color: var(--clr-text-2);
+      margin: 24px 0 12px;
+      text-wrap: balance;
+    }
+    .profile-quote-attr { font-size: .85rem; color: var(--clr-text-muted); margin: 0 0 28px; }
+
+    .profile-hero-cta { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .profile-hero-cta-meta { font-size: .87rem; color: var(--clr-text-muted); font-style: italic; }
+
+    /* ─── AT A GLANCE ─── */
+    .profile-glance { padding: 36px 0 12px; background: var(--clr-white); }
+    .profile-section-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--clr-primary);
+      margin: 0 0 14px;
+    }
+    .profile-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .profile-chip {
+      font-size: .88rem;
+      color: var(--clr-text-2);
+      background: var(--clr-cream);
+      border: 1px solid var(--clr-border-warm);
+      padding: 7px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    /* ─── KEY FACTS GRID ─── */
+    .profile-facts { padding: 36px 0; background: var(--clr-white); }
+    .profile-facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0;
+      border-top: 1px solid var(--clr-border-warm);
+      border-left: 1px solid var(--clr-border-warm);
+    }
+    .profile-fact {
+      padding: 22px 22px;
+      border-right: 1px solid var(--clr-border-warm);
+      border-bottom: 1px solid var(--clr-border-warm);
+      background: var(--clr-white);
+    }
+    .profile-fact-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--clr-text-muted);
+      margin: 0 0 8px;
+    }
+    .profile-fact-value { font-size: 1rem; line-height: 1.55; color: var(--clr-text); margin: 0; }
+    .profile-fact-value strong { font-weight: 600; }
+    .profile-fact-value em { color: var(--clr-text-muted); font-style: italic; font-size: .9rem; }
+
+    /* ─── NOTES ─── */
+    .profile-notes {
+      padding: 56px 0;
+      background: var(--clr-cream);
+      border-top: 1px solid var(--clr-border-warm);
+    }
+    .profile-notes-hdr {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: clamp(1.7rem, 3.5vw, 2.1rem);
+      letter-spacing: -0.008em;
+      color: var(--clr-text);
+      margin: 0 0 8px;
+      text-wrap: balance;
+    }
+    .profile-notes-sub { font-size: .95rem; color: var(--clr-text-muted); margin: 0 0 32px; font-style: italic; }
+    .profile-notes-prose p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--clr-text-2);
+      margin: 0 0 1.1em;
+      text-wrap: pretty;
+    }
+    .profile-notes-prose p:last-child { margin-bottom: 0; }
+
+    .profile-foot { font-style: italic; color: var(--clr-text-muted); font-size: .92rem; margin: 32px 0 0; }
+
+    /* ─── MOBILE ADJUSTMENTS ─── */
+    @media (max-width: 640px) {
+      .profile-hero { padding: 40px 0 36px; }
+      .profile-hero-inner { gap: 24px; justify-content: center; }
+      .profile-photo { flex: 0 0 140px; width: 140px; height: 140px; margin: 0 auto; align-self: center; }
+      .profile-hero-text { text-align: center; }
+      .profile-verified-line { text-align: left; }
+      .profile-hero-cta { display: flex; justify-content: center; }
+      .profile-facts-grid { grid-template-columns: 1fr; }
+      .profile-fact { padding: 20px 18px; }
+    }
+
+    /* ─── COOKING GALLERY ─── */
+    .profile-cooking { background: var(--clr-cream, #FCF7EE); padding: 56px 0 60px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
+    .profile-cooking-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .profile-cooking-hdr { font-family: var(--fd, 'Cormorant Garamond', serif); font-weight: 500; font-size: clamp(1.7rem, 3.5vw, 2.1rem); letter-spacing: -0.008em; color: var(--clr-text, #1F2A24); margin: 0 0 12px; }
+    .profile-cooking-sub { font-size: 1rem; color: var(--clr-text-muted, #5A6661); line-height: 1.65; margin: 0 0 28px; max-width: 60ch; }
+    .profile-cooking-grid { display: grid; grid-template-columns: repeat(3, 1fr); align-items: start; gap: 12px; }
+    .profile-cooking-tile { margin: 0; align-self: start; border-radius: 10px; overflow: hidden; background: #EFE7D8; box-shadow: 0 1px 3px rgba(31,42,36,.08); }
+    .profile-cooking-tile img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; align-self: start; object-fit: cover; object-position: center; }
+    .profile-cooking-grid--two { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    @media (max-width: 560px) {
+      .profile-cooking-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
+
+    /* ─── ASK ABOUT FORM ─── */
+    .profile-ask { background: var(--clr-white, #FFFFFF); padding: 56px 0 72px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
+    .profile-ask-inner { max-width: 560px; margin: 0 auto; padding: 0 24px; }
+    .profile-ask-kicker { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--clr-primary); background: var(--clr-primary-bg); padding: 4px 10px; border-radius: 4px; margin-bottom: 12px; }
+    .profile-ask-h { font-family: var(--fd, 'Cormorant Garamond', serif); font-weight: 500; font-size: clamp(1.7rem, 3.5vw, 2.1rem); letter-spacing: -0.008em; color: var(--clr-text); margin: 0 0 12px; text-wrap: balance; }
+    .profile-ask-sub { font-size: 1rem; color: var(--clr-text-muted); line-height: 1.65; margin: 0 0 28px; }
+    .ask-field { margin-bottom: 16px; }
+    .ask-field label { display: block; font-size: .85rem; font-weight: 600; color: var(--clr-text); margin-bottom: 6px; }
+    .ask-field-opt { font-weight: 400; color: var(--clr-text-muted); font-size: .8rem; }
+    .ask-field input, .ask-field textarea { width: 100%; padding: 11px 13px; font-size: .98rem; font-family: inherit; color: var(--clr-text); background: var(--clr-white, #FFFFFF); border: 1px solid var(--clr-border, #E8E2D4); border-radius: 6px; transition: border-color .15s; }
+    .ask-field input:focus, .ask-field textarea:focus { outline: none; border-color: var(--clr-primary); }
+    .ask-field textarea { resize: vertical; min-height: 80px; }
+    .ask-submit { width: 100%; margin-top: 4px; }
+    .ask-foot-note { font-size: .82rem; color: var(--clr-text-muted); margin: 14px 0 0; line-height: 1.55; }
+    .ask-success, .ask-error { background: var(--clr-primary-bg); border-left: 3px solid var(--clr-primary); padding: 16px 18px; border-radius: 0 8px 8px 0; margin-top: 12px; }
+    .ask-error { background: #FFF0EB; border-left-color: #E8825C; }
+    .ask-success p, .ask-error p { margin: 0; color: var(--clr-text-2); line-height: 1.6; }
+
+    /* ─── Route notice (how a family would hire her) ─── */
+    .profile-block-route { padding: 8px 0 36px; background: var(--clr-white); }
+    .route-note {
+      background: var(--clr-cream, #FBF6EE);
+      border: 1px solid var(--clr-border-warm, #E8DFD0);
+      border-left: 4px solid var(--clr-peach, #E8825C);
+      border-radius: 12px; padding: 18px 20px;
+    }
+    .route-note-title {
+      font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      color: #9B5B3A; margin: 0 0 8px;
+    }
+    .route-note p { font-size: .98rem; line-height: 1.6; color: var(--clr-text-2); margin: 0 0 10px; }
+    .route-note p:last-child { margin-bottom: 0; }
+    .route-note strong { color: var(--clr-text); font-weight: 600; }
+  </style>
+</head>
+<body class="profile-page">
+
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark" aria-hidden="true"><span class="logo-hc">hc</span></div>
+      <span class="logo-text">Helper<strong>Circle</strong></span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="browse.html" class="nav-a">Meet Helpers</a>
+      <a href="refer.html" class="nav-a">Refer a Helper</a>
+      <a href="index.html#how" class="nav-a">How It Works</a>
+      <a href="faq.html" class="nav-a">FAQ</a>
+      <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
+    </nav>
+    <a href="refer.html" class="btn btn-green btn-sm hdr-cta">Refer a Helper</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="profile-hero">
+  <div class="profile-wrap">
+    <div class="profile-hero-inner">
+
+      <img class="profile-photo" src="images/moe.jpeg" alt="Moe" width="180" height="180" loading="eager"/>
+
+      <div class="profile-hero-text">
+        <h1 class="profile-name">Moe&nbsp;S.</h1>
+        <p class="profile-descriptor">Myanmar &middot; 33 &middot; Elderly &amp; nursing-style&nbsp;care</p>
+
+        <p class="profile-verified-line">
+          <strong>Five years and seven months in one household, caring for a man who had had a&nbsp;stroke</strong> &mdash; wheelchair and bed transfers, catheter care, medication and&nbsp;meals. Trained as a nurse aide before she came, and that family is happy to take a reference&nbsp;call.
+        </p>
+
+        <div class="profile-hero-cta">
+          <a href="#ask" class="btn btn-green">Ask about Moe</a>
+          <span class="profile-hero-cta-meta">Hire from overseas &middot; can fly&nbsp;anytime</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="profile-trust">
+  <div class="profile-wrap">
+    <p class="profile-section-label">Trust signals</p>
+    <div class="psig psig--rec">
+      <span class="tsig tsig--rec"><span class="tsig-mark" aria-hidden="true">&#127942;</span> Employer Recommended</span>
+      <ul class="psig-list">
+        <li><strong>Her former employer is happy to take a reference call</strong> from any family seriously considering&nbsp;her &mdash; the household she spent five and a half years&nbsp;with</li>
+        <li><strong>Five years and seven months on one unbroken registration</strong>, December&nbsp;2020 to July&nbsp;2026, supported by the employment records we&nbsp;reviewed &mdash; which means that household renewed her contract more than&nbsp;once</li>
+        <li>Registered for <strong>cooking, general household and the care of a person with special&nbsp;needs</strong> throughout that&nbsp;period</li>
+        <li>She says the registration before&nbsp;it, February to December&nbsp;2020, was the same household under a different employer&nbsp;name &mdash; the permit moved from the mother to the daughter after the mother&nbsp;died. On her account that is six and a half years in one&nbsp;home; the records confirm the five years and seven&nbsp;months.</li>
+        <li><strong>Both of her Singapore jobs ended for the same reason</strong> &mdash; the person she was caring for passed&nbsp;away, and the family no longer needed a&nbsp;helper</li>
+      </ul>
+      <p class="psig-note">Our strongest trust&nbsp;signal &mdash; the family she spent five and a half years with, willing to speak for her&nbsp;directly. We arrange the call once a family has met her and is proceeding&nbsp;seriously. Nothing is in writing&nbsp;yet; the length of service is separately confirmed against the employment records we&nbsp;reviewed.</p>
+    </div>
+  </div>
+</section>
+
+<section class="profile-glance">
+  <div class="profile-wrap">
+    <p class="profile-section-label">At a glance</p>
+    <div class="profile-chips">
+      <span class="profile-chip">Five and a half years, one&nbsp;household</span>
+      <span class="profile-chip">Stroke &amp; dementia&nbsp;care</span>
+      <span class="profile-chip">Wheelchair &amp; bed&nbsp;transfers</span>
+      <span class="profile-chip">Catheter &amp; diaper&nbsp;care</span>
+      <span class="profile-chip">Nurse aide&nbsp;trained</span>
+      <span class="profile-chip">Reference call&nbsp;available</span>
+      <span class="profile-chip">Hire from&nbsp;overseas</span>
+    </div>
+  </div>
+</section>
+
+<section class="profile-facts">
+  <div class="profile-wrap">
+    <p class="profile-section-label">The essentials</p>
+    <div class="profile-facts-grid">
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Available from</p>
+        <p class="profile-fact-value"><strong>She is in Vietnam and can fly at any&nbsp;time</strong>, from Da Nang. This is a hire from&nbsp;overseas on a new work&nbsp;permit, not a transfer &mdash; set out&nbsp;below.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Five and a half years, one household</p>
+        <p class="profile-fact-value">December&nbsp;2020 to July&nbsp;2026 &mdash; a man of around fifty-six who had had a stroke and could not&nbsp;walk. By the end it was the two of them in the&nbsp;flat.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">What that care involved</p>
+        <p class="profile-fact-value">Showering, dressing and&nbsp;toileting; wheelchair and bed&nbsp;transfers; diaper changing and urinary catheter&nbsp;care; medication and vital&nbsp;signs. He was around sixty&nbsp;kilos.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Before that</p>
+        <p class="profile-fact-value">September&nbsp;2018 to October&nbsp;2019 &mdash; a lady of about eighty with&nbsp;dementia, who could still&nbsp;walk but needed help showering and&nbsp;moving. A household of&nbsp;four.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Training</p>
+        <p class="profile-fact-value">A three-month Nurse Aid Training&nbsp;certificate, and two years as a volunteer nurse assistant at a township hospital in&nbsp;Myanmar &mdash; patient hygiene, feeding, mobility and vital&nbsp;signs.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Cooking &amp; languages</p>
+        <p class="profile-fact-value">Simple Singaporean and Chinese&nbsp;dishes, and soft or restricted meals for someone&nbsp;elderly. Burmese&nbsp;natively, English at a conversational&nbsp;level. No Chinese or&nbsp;dialect &mdash; she is learning, and says so&nbsp;plainly.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="profile-notes">
+  <div class="profile-wrap">
+    <h2 class="profile-notes-hdr">Her record</h2>
+    <p class="profile-notes-sub">Two Singapore households since 2018, and nearly all of it eldercare.</p>
+
+    <div class="profile-notes-prose">
+      <p><strong>2016 to 2018 &mdash;&nbsp;Myanmar.</strong> Two years as a volunteer nurse assistant at a township&nbsp;hospital, helping the nurses with basic patient care: hygiene, feeding, mobility and watching vital&nbsp;signs. She took a three-month nurse aide course alongside&nbsp;it.</p>
+
+      <p><strong>September 2018 to October&nbsp;2019.</strong> Her first Singapore&nbsp;household &mdash; a lady of about eighty with&nbsp;dementia, living with her son and daughter-in-law. She could still walk, but needed help showering and getting about, and Moe cooked for the&nbsp;family as well as preparing softer meals for&nbsp;her. The job ended when the elderly lady passed&nbsp;away.</p>
+
+      <p><strong>February 2020 to July&nbsp;2026.</strong> One&nbsp;household, though her employment record shows it as two&nbsp;registrations: the work permit was first held by the mother of the family, and moved to her daughter after the mother&nbsp;died. The second of those registrations runs unbroken for five years and seven&nbsp;months.</p>
+
+      <p>The person in her care was one of the&nbsp;sons &mdash; a man of around fifty-six who had had a stroke and could not&nbsp;walk. Showering, dressing, toileting, transfers in and out of the wheelchair and the bed, catheter care, his medication and his&nbsp;meals. The household thinned over the&nbsp;years until it was the two of them in the&nbsp;flat. It ended in July&nbsp;2026 when he passed&nbsp;away.</p>
+
+      <p><strong>Where she&rsquo;d suit&nbsp;next.</strong> A household with an elderly or dependent adult who needs real physical&nbsp;care &mdash; someone no longer mobile, or recovering from a&nbsp;stroke. She has done five and a half years of exactly that, has the nurse aide training behind it, and is used to being the only pair of hands in the&nbsp;house. Her English is conversational rather than&nbsp;fluent and she speaks no Chinese, so a household that can give instructions in English would suit her&nbsp;best.</p>
+    </div>
+
+    <p class="profile-foot">Her employment record, her certificate and her referee&rsquo;s details are available to interested families, with her&nbsp;consent.</p>
+
+  </div>
+</section>
+
+<section class="profile-block-route">
+  <div class="profile-wrap">
+    <p class="profile-section-label">How a family would hire her</p>
+    <div class="route-note">
+      <p class="route-note-title">A hire from overseas &mdash; not a transfer</p>
+      <p>Moe is in Vietnam and can fly to Singapore at any&nbsp;time. A family hiring her would <strong>apply for a new work permit and bring her in</strong>, rather than taking over an existing&nbsp;one.</p>
+      <p>That means a <strong>new permit application, a medical examination, the security bond, insurance and an air&nbsp;ticket</strong>, and some weeks between agreeing and her&nbsp;starting. A transfer within Singapore is quicker and cheaper; this is&nbsp;not that, and we would rather you knew it from the&nbsp;outset. We will talk the sequence and the costs through with you properly before anything is&nbsp;decided.</p>
+    </div>
+  </div>
+</section>
+
+<section class="profile-ask" id="ask">
+  <div class="profile-ask-inner">
+    <span class="profile-ask-kicker">Interested?</span>
+    <h2 class="profile-ask-h">Ask about Moe</h2>
+    <p class="profile-ask-sub">Tell us a little about your household and we&rsquo;ll be in touch within 1&ndash;2 business&nbsp;days. We&rsquo;ll only move forward if it feels like a genuine&nbsp;fit.</p>
+    <form id="form-ask" action="https://formspree.io/f/mredjvwg" method="POST">
+      <input type="hidden" name="helper-name" value="Moe S."/>
+      <input type="hidden" name="_subject" value="Helper Circle — Interest in Moe S."/>
+      <div class="ask-field"><label for="ask-name">Your name</label><input type="text" id="ask-name" name="name" required placeholder="Jane Tan" autocomplete="name"/></div>
+      <div class="ask-field"><label for="ask-email">Email</label><input type="email" id="ask-email" name="email" required placeholder="you@email.com" autocomplete="email"/></div>
+      <div class="ask-field"><label for="ask-phone">Phone <span class="ask-field-opt">(optional, but helps)</span></label><input type="tel" id="ask-phone" name="phone" placeholder="+65 9123 4567" autocomplete="tel"/></div>
+      <div class="ask-field"><label for="ask-household">Briefly, your household</label><textarea id="ask-household" name="household" rows="3" required placeholder="Who lives at home, ages, any care needs, what your typical day looks like&hellip;"></textarea></div>
+      <div class="ask-field"><label for="ask-why">Why Moe? <span class="ask-field-opt">(optional)</span></label><textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you&rsquo;re hoping for&hellip;"></textarea></div>
+      <button type="submit" class="btn btn-green ask-submit">Send to Helper Circle</button>
+      <p class="ask-foot-note">We read every message personally. If Moe seems like a fit for your household, we&rsquo;ll set up a short call to talk through the next&nbsp;step &mdash; including the permit timeline and what it&nbsp;costs.</p>
+      <div class="ask-success" hidden><p>Thank you. We&rsquo;ve received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p></div>
+      <div class="ask-error" hidden><p>Something didn&rsquo;t go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p></div>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <p class="footer-heart">Started by a Singapore family who knew there had to be a better&nbsp;way.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="browse.html">Meet Helpers</a><span class="footer-nav-sep">·</span>
+        <a href="refer.html">Refer a Helper</a><span class="footer-nav-sep">·</span>
+        <a href="index.html#how">How It Works</a><span class="footer-nav-sep">·</span>
+        <a href="faq.html">FAQ</a><span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">Contact</a>
+      </nav>
+      <p class="footer-aside"><a href="for-families.html">For families saying goodbye to a helper &rarr;</a></p>
+      <div class="footer-legal-strip"><span>© <span id="year"></span> Helper Circle · Singapore</span><span class="footer-nav-sep">·</span><a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('form-ask'); if (!form) return;
+  var submitBtn = form.querySelector('button[type="submit"]'), successEl = form.querySelector('.ask-success'),
+      errorEl = form.querySelector('.ask-error'), fields = form.querySelectorAll('.ask-field'), noteEl = form.querySelector('.ask-foot-note');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.dataset.originalText = submitBtn.textContent; submitBtn.textContent = 'Sending…'; }
+    if (errorEl) errorEl.hidden = true;
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(function (res) { if (res.ok) { fields.forEach(function (f){f.style.display='none';}); if(submitBtn)submitBtn.style.display='none'; if(noteEl)noteEl.style.display='none'; if(successEl)successEl.hidden=false; } else { throw new Error('fail'); } })
+      .catch(function () { if(errorEl)errorEl.hidden=false; if(submitBtn){submitBtn.disabled=false;submitBtn.textContent=submitBtn.dataset.originalText||'Send to Helper Circle';} });
+  });
+})();
+</script>
+<script>var y=document.getElementById('year');if(y){y.textContent=new Date().getFullYear();}</script>
+</body>
+</html>

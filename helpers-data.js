@@ -69,14 +69,14 @@ window.HELPERS = [
     line: "Filipino &middot; 42 &middot; School-age children, cooking &amp;&nbsp;household",
     summary: "Two years with her first Singapore family, seen through to the end of the&nbsp;contract &mdash; the school mornings for a girl of&nbsp;nine, and Chinese home cooking she taught herself from&nbsp;YouTube. Newborn experience with her own&nbsp;children.",
     referredBy: "",
-    signal: "completed",
-    completedSub: "One two-year contract in Singapore, served in full",
+    signal: "assessed",
+    assessedSub: "Interviewed by Helper Circle; employment record reviewed",
     quote: "",
     quoteCite: "",
     nationality: "Filipino",
     yearsSG: "Since September 2024",
     bestFit: "A family with children \u2014 school-age, where she can take the mornings and the school run, or younger, which she has done with her own \u2014 who want home cooking in the same pair of hands",
-    strengths: ["One completed two-year contract", "School mornings &amp; runs", "Chinese cooking, self-taught"],
+    strengths: ["Two years, first family", "School mornings &amp; runs", "Chinese cooking, self-taught"],
     skills: ["Childcare", "Cooking", "Housekeeping"],
     age: 42,
     salary: "From S$850",
@@ -160,8 +160,8 @@ window.HELPERS = [
     id: "nurfatimah",
     name: "Nurfatimah",
     initial: "",
-    status: "hidden",
-    statusLabel: "No longer available",
+    status: "available",
+    statusLabel: "Available by end October&nbsp;2026",
     availFrom: "2026-10-31",
     line: "Young children, cooking &amp;&nbsp;household",
     summary: "Recommended by the family she is with&nbsp;now, who are passing her on for one reason&nbsp;only &mdash; their house is too big for one pair of&nbsp;hands. Two and a half years in Singapore, almost all of it with young&nbsp;children, and trusted alone with a six-year-old and a two-year-old while their mother is at&nbsp;work.",
@@ -1762,22 +1762,22 @@ window.HELPERS = [
     id: "ann",
     name: "Ann",
     initial: "",
-    status: "available",
-    statusLabel: "Available November&nbsp;2026",
-    availFrom: "2026-11-01",
+    status: "hidden",
+    statusLabel: "No longer available",
+    availFrom: "2026-09-24",
     line: "Filipino &middot; 35 &middot; Children, household &amp;&nbsp;cooking",
-    summary: "Five years with one Singapore family, who recommend her in&nbsp;writing &mdash; she raised their son from seven to twelve, ran the household on her own and learned Indian cooking along the&nbsp;way. She is in a second household now, with a child of eleven and an elderly member of the&nbsp;family. What she is looking for next is a family who will give her a proper break in the&nbsp;day &mdash; her day now runs from morning to evening without&nbsp;one.",
-    referredBy: "Recommended in writing by Rana, a former employer of five&nbsp;years",
+    summary: "Five years with one family in Singapore &mdash; her only employer here &mdash; who recommend her in writing. She raised their son from seven to twelve, runs a household on her own, and learned Indian cooking along the&nbsp;way.",
+    referredBy: "Recommended in writing by Rana, her employer of five&nbsp;years",
     signal: "referred",
     quote: "&ldquo;Five years is a meaningful period for someone to remain part of a household, and I appreciate the continuity, experience and support Ann has&nbsp;provided.&rdquo;",
-    quoteCite: "&mdash; Rana, her employer of five&nbsp;years",
+    quoteCite: "&mdash; Rana",
     nationality: "Filipino",
     yearsSG: "5 years with one family",
-    bestFit: "A family who will give her a proper break in the day and let her work to a settled routine \u2014 children of any age, pets and an elderly member at home are all fine with her, and Indian or mixed Asian cooking is welcome",
+    bestFit: "A family with children rather than elderly care, a settled routine, and a welcome for Indian or mixed Asian&nbsp;cooking",
     strengths: ["Raised a child from 7 to 12", "Five years, one family", "Learned Indian cooking"],
-    skills: ["Childcare", "Elderly Care", "Cooking", "Housekeeping", "Pets"],
+    skills: ["Childcare", "Cooking", "Housekeeping", "Pets"],
     age: 35,
-    salary: "From S$950",
+    salary: "S$1,000",
     availability: "transfer",
     photo: "images/ann.jpeg",
     profile: "profile-ann.html"
@@ -1975,8 +1975,8 @@ window.HELPERS = [
     id: "karen",
     name: "Karen",
     initial: "S.",
-    status: "hidden",
-    statusLabel: "No longer available",
+    status: "available",
+    statusLabel: "Available 15 November&nbsp;2026",
     availFrom: "2026-11-15",
     line: "Filipino &middot; 35 &middot; Household, Chinese cooking &amp;&nbsp;dogs",
     summary: "Two employers in seven years, both contracts completed &mdash; and the second has written her a&nbsp;reference. Four years running their household, the cooking, and their&nbsp;dog. Best in a home with a clear routine of its&nbsp;own.",
@@ -2823,7 +2823,7 @@ window.HELPERS = [
 
   /* ── Trust signals ──
        "referred" (default) → 🏆 Employer Recommended       (current/former employer recommendation)
-       "verified"           → 📅 Long-Term Family Retention  (4+ yrs, same employer)
+       "verified"           → 📅 Long-Term Employment  (several years, same employer)
      For a verified helper: signal:"verified" + verifiedYears (e.g. 10) OR renewals (e.g. 3).
      (Legacy "recommended"/"retention" still map correctly.) */
   function signalKey(h) {
@@ -2833,7 +2833,7 @@ window.HELPERS = [
   }
   function signalLabel(h) {
     var k = signalKey(h);
-    return k === "verified"  ? "Long-Term Family Retention"
+    return k === "verified"  ? "Long-Term Employment"
          : k === "completed" ? "Completed Contracts"
          : k === "assessed"  ? "Helper Circle Assessed"
          : "Employer Recommended";

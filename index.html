@@ -345,10 +345,13 @@
   main.v19 .jr-tp{
     margin-top:18px;background:#FCF6EF;border:1px solid #EBDFD2;border-radius:12px;padding:13px 16px}
   main.v19 .jr-tp-head{margin-bottom:11px}
+  main.v19 .jr-tp-head--sub{margin-top:18px;padding-top:14px;border-top:1px solid rgba(30,30,30,.08)}
+  @media(min-width:901px){main.v19 .jr-tp-list--3{grid-template-columns:repeat(3,1fr)}}
   main.v19 .jr-tp-h{font-family:var(--fd);font-size:1rem;font-weight:500;color:#7A6F63;margin:0}
   main.v19 .jr-tp-list{
-    list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
   main.v19 .jr-tp-list li{display:flex;flex-direction:column}
+  @media(max-width:900px){main.v19 .jr-tp-list{grid-template-columns:repeat(2,1fr)}}
   main.v19 .jr-tp-name{font-size:.85rem;font-weight:500;color:#1F2A24}
   main.v19 .jr-tp-desc{font-size:.74rem;color:#8A7B6E;margin-top:2px}
   main.v19 .jr-tp-foot{
@@ -727,7 +730,7 @@
       <div class="jr-fee-col">
         <div class="jr-lab">Our fee</div>
         <div class="jr-amount-row"><span class="jr-amount">S$699</span></div>
-        <p class="jr-fee-sub">One-time successful-match fee</p>
+        <p class="jr-fee-sub">One-time coordination fee</p>
         <ul class="jr-fee-list">
           <li>Helpers never pay Helper Circle</li>
           <li>No salary deductions</li>
@@ -753,6 +756,15 @@
         <li><span class="jr-tp-name">MOM permit fee</span><span class="jr-tp-desc">paid to Ministry of Manpower</span></li>
         <li><span class="jr-tp-name">Insurance premium</span><span class="jr-tp-desc">paid to your chosen insurer</span></li>
         <li><span class="jr-tp-name">Medical check</span><span class="jr-tp-desc">if required by MOM</span></li>
+        <li><span class="jr-tp-name">Security bond</span><span class="jr-tp-desc">S$5,000 for non-Malaysian helpers, usually arranged with your insurer</span></li>
+      </ul>
+      <div class="jr-tp-head jr-tp-head--sub">
+        <p class="jr-tp-h">If she is coming from overseas</p>
+      </div>
+      <ul class="jr-tp-list jr-tp-list--3">
+        <li><span class="jr-tp-name">Immigration paperwork</span><span class="jr-tp-desc">handled and charged by the overseas agent</span></li>
+        <li><span class="jr-tp-name">Overseas medical check</span><span class="jr-tp-desc">before she travels, paid to the overseas agent</span></li>
+        <li><span class="jr-tp-name">Flight to Singapore</span><span class="jr-tp-desc">paid to the overseas agent or flight provider</span></li>
       </ul>
       <p class="jr-tp-foot">These costs are set by external providers, not&nbsp;us. <a href="faq.html" class="jr-tp-link">See FAQ &rarr;</a></p>
     </div>

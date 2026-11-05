@@ -34,6 +34,32 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "rubyo",
+    name: "Ruby",
+    initial: "O.",
+    status: "available",
+    statusLabel: "Transfer &middot; available&nbsp;anytime",
+    availFrom: "2026-11-05",
+    line: "Filipino &middot; 48 &middot; Children from newborn, elderly care &amp;&nbsp;cooking",
+    summary: "Six years and eight months across two Singapore households with no gaps \u2014 a child from newborn to three, then an elderly lady after a stroke, and when that lady died her son asked Ruby to come and work for his own family, where she is still.",
+    referredBy: "",
+    signal: "verified",
+    verifiedYears: 3,
+    verifiedSub: "Three years seven months with her current family, across two registrations; six years eight months unbroken since March 2020",
+    quote: "",
+    quoteCite: "",
+    nationality: "Filipino",
+    yearsSG: "On and off since 2005",
+    bestFit: "A family with a baby, or a household with an elderly relative at home \u2014 she has done both properly and recently, and is comfortable with pets",
+    strengths: ["Six years eight months, two families", "A newborn through to three", "Stroke care &amp; tube feeding"],
+    skills: ["Childcare", "Infant Care", "Elderly Care", "Cooking", "Housekeeping", "Pet Care"],
+    age: 48,
+    salary: "From S$850",
+    availability: "transfer",
+    photo: "images/rubyo.jpeg",
+    profile: "profile-rubyo.html"
+  },
+  {
     id: "palae",
     name: "Palae",
     initial: "K.",

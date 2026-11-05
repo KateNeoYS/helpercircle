@@ -40,7 +40,7 @@ window.HELPERS = [
     status: "available",
     statusLabel: "Hire from overseas &middot; must fly by end&nbsp;November",
     availFrom: "2026-11-22",
-    line: "Myanmar &middot; Children, cooking &amp;&nbsp;household",
+    line: "Myanmar &middot; 31 &middot; Children, cooking &amp;&nbsp;household",
     summary: "Six years and seven months in Singapore across three households with no gaps on the record \u2014 and the family she gave two years to asked her to move to Vietnam with them, where she has been since. They will take a reference call.",
     referredBy: "The family she spent two years with in Singapore, who then asked her to move to Vietnam with them, is happy to take a reference call",
     signal: "referred",
@@ -53,7 +53,7 @@ window.HELPERS = [
     bestFit: "One or two children of about five or six and upward, or a household with an older relative at home \u2014 for a family who cook Western or Middle Eastern and want proper English in the house",
     strengths: ["Asked to move countries with a family", "Six and a half years in Singapore", "Excellent spoken English"],
     skills: ["Childcare", "Cooking", "Housekeeping", "Elderly Care"],
-    age: null,                                        // TODO age \u2014 not on the MOM record Kate sent
+    age: 31,
     salary: "S$800&ndash;900",
     availability: "overseas",
     photo: "images/palae.jpeg",

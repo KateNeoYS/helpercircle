@@ -34,6 +34,32 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "coney",
+    name: "Coney",
+    initial: "S.",
+    status: "available",
+    statusLabel: "Transfer &middot; 4 December&nbsp;2026",
+    availFrom: "2026-12-04",
+    line: "Filipino &middot; 54 &middot; School-age children, cooking &amp;&nbsp;household",
+    summary: "Nearly ten years with one family, then four with the family she is with now \u2014 fourteen years unbroken on her employment record, three households, no gaps. Recommended in writing at the end of a contract she completed in full.",
+    referredBy: "Recommended in writing by Rafancel&nbsp;Soltis, her employer of four&nbsp;years",
+    signal: "referred",
+    verifiedYears: 9,
+    verifiedSub: "Nine years eight months with one family, then four with her current household",
+    quote: "&ldquo;Coney is an honest, trustworthy, and dependable&nbsp;person. We have entrusted her with purchasing groceries and handling household&nbsp;errands, which she has carried out&nbsp;responsibly.&rdquo;",
+    quoteCite: "&mdash; Rafancel Soltis, her employer for the past four years",
+    nationality: "Filipino",
+    yearsSG: "On and off since 1993",
+    bestFit: "A family with school-age children who want the cooking, the marketing and the house in the same pair of hands \u2014 and who would like someone who stays",
+    strengths: ["Nearly ten years, one family", "Fourteen years unbroken", "The school fetch, trusted in writing"],
+    skills: ["Childcare", "Cooking", "Housekeeping", "Marketing", "Elderly Care"],
+    age: 54,
+    salary: "From S$750",
+    availability: "transfer",
+    photo: "images/coney.jpeg",
+    profile: "profile-coney.html"
+  },
+  {
     id: "rubyo",
     name: "Ruby",
     initial: "O.",

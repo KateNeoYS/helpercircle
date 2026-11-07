@@ -34,6 +34,32 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "otijah",
+    name: "Otijah",
+    initial: "",
+    status: "available",
+    statusLabel: "Transfer &middot; available&nbsp;anytime",
+    availFrom: "2026-11-06",
+    line: "Indonesian &middot; 42 &middot; Babies, children &amp;&nbsp;cooking",
+    summary: "Fifteen years in the Middle East from 2003, then seven in Singapore \u2014 Arabic, Indian, Chinese, Korean, Thai, Japanese and Indonesian food, and a small child in almost every job she has held. Her employer now will give a reference.",
+    referredBy: "Her current employer, a Singaporean&nbsp;family, will give a&nbsp;reference",
+    signal: "referred",
+    verifiedYears: 7,
+    verifiedSub: "Seven years in Singapore since August 2016, five households",
+    quote: "",
+    quoteCite: "",
+    nationality: "Indonesian",
+    yearsSG: "Since 2016",
+    bestFit: "A family with young children who want real cooking in the same pair of hands, especially a household whose kitchen is not the usual Singapore mix \u2014 Middle Eastern, Indian, Korean, Japanese. Fine with pets",
+    strengths: ["Fifteen years in the Middle East", "A baby in her hands now", "Seven cuisines, each learned in a home"],
+    skills: ["Childcare", "Infant Care", "Cooking", "Housekeeping", "Pet Care"],
+    age: 42,
+    salary: "S$800&ndash;900",
+    availability: "transfer",
+    photo: "images/otijah.jpeg",
+    profile: "profile-otijah.html"
+  },
+  {
     id: "vilma",
     name: "Vilma",
     initial: "A.",

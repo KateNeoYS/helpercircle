@@ -34,6 +34,31 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "geneve",
+    name: "Geneve",
+    initial: "B.",
+    status: "available",
+    statusLabel: "Transfer &middot; 2 December&nbsp;2026",
+    availFrom: "2026-12-02",
+    line: "Filipino &middot; 35 &middot; Chinese home cooking &amp;&nbsp;household",
+    summary: "Six years with one family in Hong Kong, then a two-year Singapore contract served in full \u2014 two years cooking Chinese for a family of five, which she did not renew only because their children had grown up.",
+    referredBy: "",
+    signal: "completed",
+    completedSub: "One two-year contract in Singapore, served in full; six years in Hong Kong before it",
+    quote: "",
+    quoteCite: "",
+    nationality: "Filipino",
+    yearsSG: "Since November 2024",
+    bestFit: "A family who want Chinese home cooking and a house kept properly \u2014 she did both for two years. A boy and a girl from primary-school age in Hong Kong. Not pets",
+    strengths: ["A two-year contract served in full", "Six years in Hong Kong", "Chinese home cooking"],
+    skills: ["Cooking", "Housekeeping", "Childcare"],
+    age: 35,
+    salary: "From S$800",
+    availability: "transfer",
+    photo: "images/geneve.jpeg",
+    profile: "profile-geneve.html"
+  },
+  {
     id: "krish",
     name: "Krish",
     initial: "",
@@ -267,7 +292,7 @@ window.HELPERS = [
     id: "raquel",
     name: "Raquel",
     initial: "B.",
-    status: "available",
+    status: "hidden",                                 // found a job herself — Nov 2026
     statusLabel: "Available December&nbsp;2026",
     availFrom: "2026-12-01",
     line: "Cooking, children &amp; a household run on her&nbsp;own",   // TODO nationality + age from MOM record

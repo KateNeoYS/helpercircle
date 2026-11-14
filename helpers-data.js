@@ -34,6 +34,31 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "susu",
+    name: "Su Su",
+    initial: "",
+    status: "available",
+    statusLabel: "Transfer &middot; timing to be&nbsp;confirmed",
+    availFrom: "2026-12-15",
+    line: "Myanmar &middot; 33 &middot; Elderly care, cooking &amp;&nbsp;household",
+    summary: "Nearly four years with one elderly lady \u2014 seventy-eight, unable to walk, living with dementia \u2014 in a household where Su Su was the only helper. It ended when that lady passed away.",
+    referredBy: "",
+    signal: "assessed",
+    assessedSub: "Employment record reviewed; interviewed by Helper Circle",
+    quote: "",
+    quoteCite: "",
+    nationality: "Myanmar",
+    yearsSG: "Since December 2019",
+    bestFit: "A household with an elderly person who needs real help with daily living, where she is the one pair of hands and the pace is steady. She is looking for a less stressful job with her weekends to rest",
+    strengths: ["Four years, one elderly lady", "Dementia &amp; immobility", "Sole helper in that household"],
+    skills: ["Elderly Care", "Cooking", "Housekeeping"],
+    age: 33,
+    salary: "From S$850",
+    availability: "transfer",
+    photo: "images/susu.jpeg",
+    profile: "profile-susu.html"
+  },
+  {
     id: "kimberly",
     name: "Kimberly",
     initial: "",

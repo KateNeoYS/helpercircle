@@ -34,6 +34,32 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "yati",
+    name: "Yati",
+    initial: "",
+    status: "available",
+    statusLabel: "Transfer &middot; timing to be&nbsp;confirmed",
+    availFrom: "2026-12-15",
+    line: "Myanmar &middot; 31 &middot; Household, cooking &amp;&nbsp;pets",
+    summary: "Three years and seven months with one household, on one unbroken registration \u2014 part of eight years in Singapore since February 2018. Comfortable with a large house and animals. She would like her next job to be elderly care.",
+    referredBy: "",
+    signal: "verified",
+    verifiedYears: 3,
+    verifiedSub: "Three years seven months with one household, August 2022 to April 2026; eight years in Singapore",
+    quote: "",
+    quoteCite: "",
+    nationality: "Myanmar",
+    yearsSG: "Since February 2018",
+    bestFit: "A household that wants the house and the cooking run properly, and is comfortable with animals. She has asked for elderly care next, which would be new ground for her in Singapore",
+    strengths: ["Three and a half years, one household", "Eight years in Singapore", "Three cats and a dog"],
+    skills: ["Housekeeping", "Cooking", "Pet Care", "Childcare"],
+    age: 31,
+    salary: "From S$750",
+    availability: "transfer",
+    photo: "images/yati.jpeg",
+    profile: "profile-yati.html"
+  },
+  {
     id: "susu",
     name: "Su Su",
     initial: "",

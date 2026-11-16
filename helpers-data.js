@@ -34,6 +34,30 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "princess",
+    name: "Princess",
+    initial: "",
+    status: "available",
+    statusLabel: "Transfer &middot; by 11 December&nbsp;2026",
+    availFrom: "2026-11-13",
+    line: "Filipino &middot; 43 &middot; Children, cooking &amp;&nbsp;household",
+    summary: "Four years with one family, and a written reference when they left Singapore. Eleven years here across four households, from toddlers to nine-year-olds, and cooking across Asian, Western and Filipino food.",
+    referredBy: "Recommended in writing by her employer of four years",
+    signal: "referred",
+    quote: "\u201cOver the last four&nbsp;years, Princess has demonstrated outstanding&nbsp;performance\u2026 reliable, well organised and can adapt to different&nbsp;situations.\u201d",
+    quoteCite: "&mdash; Jingyi, her employer from 2020 to&nbsp;2025",
+    nationality: "Filipino",
+    yearsSG: "Since 2015",
+    bestFit: "A family with children of about a year upward who want the cooking and the house in the same pair of hands \u2014 toddlers, the school run and after-school classes are all familiar ground. Not a fit for a newborn",
+    strengths: ["Four years, one family", "Children from one year up", "Asian, Western &amp; Filipino cooking"],
+    skills: ["Childcare", "Cooking", "Housekeeping", "Pet Care"],
+    age: 43,
+    salary: "From S$1,000",
+    availability: "transfer",
+    photo: "images/princess.jpeg",
+    profile: "profile-princess.html"
+  },
+  {
     id: "girlie",
     name: "Girlie",
     initial: "P.",

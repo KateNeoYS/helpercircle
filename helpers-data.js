@@ -34,6 +34,30 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "yetti",
+    name: "Yetti",
+    initial: "",
+    status: "available",
+    statusLabel: "Transfer &middot; 5 December&nbsp;2026",
+    availFrom: "2026-12-05",
+    line: "Indonesian &middot; 43 &middot; Children, household &amp;&nbsp;cooking",
+    summary: "Recommended in writing by the family she is with now \u2014 she ran their household and looked after their two boys, six and three. Two years of elderly care in Singapore before that, and four years with children in Indonesia.",
+    referredBy: "Recommended in writing by the family she is with now",
+    signal: "referred",
+    quote: "\u201cShe was patient and kind to our young&nbsp;children, often going the extra&nbsp;mile when they were taken&nbsp;ill or when we just needed support during the&nbsp;evening.\u201d",
+    quoteCite: "&mdash; Sarah, her employer this&nbsp;year",
+    nationality: "Indonesian",
+    yearsSG: "Since 2024",
+    bestFit: "A household that wants the house run properly with young children in it \u2014 she has had a six-year-old and a three-year-old together this year, a baby from two months old before that, and two years of elderly care besides",
+    strengths: ["Recommended by her current family", "Boys of six and three", "Two years of elderly care"],
+    skills: ["Childcare", "Housekeeping", "Cooking", "Elderly Care"],
+    age: 43,
+    salary: "From S$850",
+    availability: "transfer",
+    photo: "images/yetti.jpeg",
+    profile: "profile-yetti.html"
+  },
+  {
     id: "princess",
     name: "Princess",
     initial: "",

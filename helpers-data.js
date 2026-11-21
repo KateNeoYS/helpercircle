@@ -34,6 +34,30 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "gretchen",
+    name: "Gretchen",
+    initial: "",
+    status: "available",
+    statusLabel: "Transfer &middot; 30 November&nbsp;2026",
+    availFrom: "2026-11-30",
+    line: "Filipino &middot; 41 &middot; Children, cooking &amp;&nbsp;household",
+    summary: "Recommended in writing by the family she is with now. Seventeen years in Singapore, the first six of them with one household \u2014 and a baby of two months in her care alongside a three- and a six-year-old.",
+    referredBy: "Recommended in writing by the family she is with now",
+    signal: "referred",
+    quote: "\u201cShe has been especially good with our young&nbsp;children, showing genuine care, patience and&nbsp;responsibility\u2026 We have always felt comfortable entrusting our children to her&nbsp;care.\u201d",
+    quoteCite: "&mdash; Roger, her employer, November&nbsp;2026",
+    nationality: "Filipino",
+    yearsSG: "Since July 2009",
+    bestFit: "A family with young children, a baby among them if needed \u2014 she has a two-month-old in her care now and infant care on her record twice over. Thai, Chinese, Western and Japanese cooking, a year of elderly care, and comfortable with pets",
+    strengths: ["Nearly six years, one family", "A baby of two months now", "Thai, Chinese, Western &amp; Japanese"],
+    skills: ["Infant Care", "Childcare", "Cooking", "Housekeeping", "Elderly Care", "Pet Care"],
+    age: 41,
+    salary: "From S$900",
+    availability: "transfer",
+    photo: "images/gretchen.jpeg",
+    profile: "profile-gretchen.html"
+  },
+  {
     id: "daisyann",
     name: "Daisy Ann",
     initial: "",

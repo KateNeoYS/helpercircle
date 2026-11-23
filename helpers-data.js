@@ -34,6 +34,30 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "lenyp",
+    name: "Leny",
+    initial: "P.",
+    status: "available",
+    statusLabel: "Transfer &middot; 18 January&nbsp;2027",
+    availFrom: "2027-01-18",
+    line: "Filipino &middot; 52 &middot; Children, cooking &amp;&nbsp;household",
+    summary: "Ten years with one family, who recommended her in writing \u2014 two children taken from newborn, five years apart. Fifteen years in Singapore, Indian and Filipino cooking, and infants in three of her households.",
+    referredBy: "Recommended in writing by her employer of ten years",
+    signal: "referred",
+    quote: "\u201cShe looked after them from the time they were newborns and&nbsp;toddlers, and I always felt they were safe and well cared for with&nbsp;her.\u201d",
+    quoteCite: "&mdash; Pooja, her employer of ten&nbsp;years",
+    nationality: "Filipino",
+    yearsSG: "Since November 2011",
+    bestFit: "A family with children at any age \u2014 a baby among them if needed \u2014 who want the house run without being asked twice. Fourteen of her fifteen Singapore years have been in Indian households, so that kitchen comes with her. A small dog is fine, a large one is not",
+    strengths: ["Ten years, one family", "Two children from newborn", "Indian &amp; Filipino cooking"],
+    skills: ["Infant Care", "Childcare", "Cooking", "Housekeeping"],
+    age: 52,
+    salary: "From S$900",
+    availability: "transfer",
+    photo: "images/lenyp.jpeg",
+    profile: "profile-lenyp.html"
+  },
+  {
     id: "sukini",
     name: "Sukini",
     initial: "",

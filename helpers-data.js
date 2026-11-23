@@ -34,6 +34,30 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "sukini",
+    name: "Sukini",
+    initial: "",
+    status: "available",
+    statusLabel: "Transfer &middot; available&nbsp;now",
+    availFrom: "2026-11-24",
+    line: "Indonesian &middot; 53 &middot; Elderly care, cooking &amp;&nbsp;household",
+    summary: "Seventeen years and ten months with one household \u2014 the longest single placement on this site \u2014 on one unbroken registration. Twenty-five years in Singapore, four of them with a woman who could not walk, and a kitchen that runs Malay, Punjabi, Chinese and Western.",
+    referredBy: "Passed on directly by the family she is with now",
+    signal: "referred",
+    quote: "\u201cShe has been reliable and with our family for over a&nbsp;year\u2026 She is&nbsp;trustworthy, and was able to independently manage the&nbsp;house.\u201d",
+    quoteCite: "&mdash; Sherwin, her employer, November&nbsp;2026",
+    nationality: "Indonesian",
+    yearsSG: "Since November 2001",
+    bestFit: "A household with an elderly person who needs hands-on care, where the house is hers to run \u2014 she has done every stage of it across twenty-five years. Not a household with young children",
+    strengths: ["Nearly eighteen years, one family", "Four years of wheelchair care", "Malay, Punjabi, Chinese &amp; Western"],
+    skills: ["Elderly Care", "Cooking", "Housekeeping", "Pet Care"],
+    age: 53,
+    salary: "S$800&ndash;850",
+    availability: "transfer",
+    photo: "images/sukini.jpeg",
+    profile: "profile-sukini.html"
+  },
+  {
     id: "tracy",
     name: "Tracy",
     initial: "",

@@ -34,6 +34,30 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "ayeaye",
+    name: "Aye Aye",
+    initial: "N.",
+    status: "available",
+    statusLabel: "Transfer &middot; mid to late&nbsp;December",
+    availFrom: "2026-12-20",
+    line: "Myanmar &middot; 51 &middot; Babies, children &amp;&nbsp;cooking",
+    summary: "Her employer will take a reference call from any family proceeding seriously with her. Eighteen years in Singapore, newborns in three households, and six and a half years across one family and their relatives. English and Chinese.",
+    referredBy: "The family she is with now will speak for her directly",
+    signal: "referred",
+    quote: "",
+    quoteCite: "",
+    nationality: "Myanmar",
+    yearsSG: "Since May 2008",
+    bestFit: "A family with young children, a baby included \u2014 three newborns behind her, a toddler and a small boy in her care now, and she is used to a household where the parents are away and the day is hers. Chinese as well as English. Not a home with pets",
+    strengths: ["Newborns in three homes", "Six years, one family and their kin", "English and Chinese"],
+    skills: ["Infant Care", "Childcare", "Cooking", "Housekeeping"],
+    age: 51,
+    salary: "S$800",
+    availability: "transfer",
+    photo: "images/ayeaye.jpeg",
+    profile: "profile-ayeaye.html"
+  },
+  {
     id: "lenyp",
     name: "Leny",
     initial: "P.",

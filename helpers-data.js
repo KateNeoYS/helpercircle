@@ -34,6 +34,30 @@
    ════════════════════════════════════════════════════════════ */
 window.HELPERS = [
   {
+    id: "norillyn",
+    name: "Norillyn",
+    initial: "",
+    status: "available",
+    statusLabel: "Transfer &middot; December to mid-January",
+    availFrom: "2026-12-15",
+    line: "Filipino &middot; 54 &middot; Cooking, babies &amp;&nbsp;household",
+    summary: "Her employer will take a reference call from any family who has interviewed her. Twenty-one years in Singapore. She cooks three meals a day for the household she is in now \u2014 North Indian and whatever else is asked \u2014 and has taken a baby from two months old through to school.",
+    referredBy: "The family she is with now will speak for her directly",
+    signal: "referred",
+    quote: "",
+    quoteCite: "",
+    nationality: "Filipino",
+    yearsSG: "Since August 2005",
+    bestFit: "A household that wants the cooking taken seriously, with a baby or older children in it \u2014 or none. A landed house is fine if there are no small children, and she is comfortable with a dog. Not a busy toddler, and not an elderly person who needs lifting",
+    strengths: ["Twenty-one years in Singapore", "A baby from two months old", "Indian, Vietnamese &amp; Chinese cooking"],
+    skills: ["Infant Care", "Cooking", "Housekeeping", "Pet Care", "Elderly Care"],
+    age: 54,
+    salary: "S$850",
+    availability: "transfer",
+    photo: "images/norillyn.jpeg",
+    profile: "profile-norillyn.html"
+  },
+  {
     id: "mursini",
     name: "Mursini",
     initial: "",

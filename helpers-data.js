@@ -206,8 +206,8 @@ window.HELPERS = [
     id: "daisyann",
     name: "Daisy Ann",
     initial: "",
-    status: "available",
-    statusLabel: "Transfer &middot; available&nbsp;now",
+    status: "hidden",
+    statusLabel: "No longer available",
     availFrom: "2026-11-18",
     line: "Filipino &middot; 46 &middot; Children, cooking &amp;&nbsp;household",
     summary: "Two employers have written recommendations for her, including the family who kept her nine years. Fourteen years in Singapore across four households. She cooks for a mostly vegetarian family, follows new recipes, and bakes her own bread.",
@@ -2394,8 +2394,8 @@ window.HELPERS = [
     id: "yiyi",
     name: "Yi Yi",
     initial: "",
-    status: "available",                               // re-listed Oct 2026 as a new-permit hire
-    statusLabel: "Hire from overseas &middot; December&nbsp;2026",
+    status: "hidden",                               // re-listed Oct 2026 as a new-permit hire
+    statusLabel: "No longer available",
     availFrom: "2026-12-01",
     salary: "From S$750",
     line: "Myanmar &middot; 41 &middot; Elderly care, cooking &amp; housekeeping",

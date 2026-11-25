@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Sahati — Indonesian helper, ten years with one family, five cuisines | Helper Circle</title>
+  <meta name="description" content="Sahati is an Indonesian helper with twenty-one years in Singapore, ten of them with one family. She cooks Indian, Chinese, Western, Malay and Indonesian food, and her current employer is recommending her as he gives up his household. Transfer within Singapore."/>
+
+  <!-- Profiles kept noindex by convention -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
+  <link rel="stylesheet" href="styles.css"/>
+
+  <style>
+
+    /* ─── Page container ─── */
+    .profile-page { background: var(--clr-white); }
+    .profile-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── HERO ─── */
+    .profile-hero { padding: 56px 0 48px; background: var(--clr-white); }
+    .profile-hero-inner { display: flex; gap: 36px; align-items: flex-start; flex-wrap: wrap; }
+
+    .profile-photo {
+      flex: 0 0 180px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .profile-hero-text { flex: 1 1 320px; min-width: 0; }
+    .profile-name {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      letter-spacing: -0.012em;
+      color: var(--clr-text);
+      margin: 0 0 6px;
+      text-wrap: balance;
+      line-height: 1.05;
+    }
+    .profile-descriptor {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--clr-text-muted);
+      margin: 0 0 18px;
+    }
+
+    .profile-verified-line {
+      font-size: .95rem;
+      color: var(--clr-text-2);
+      line-height: 1.6;
+      margin: 0 0 16px;
+      padding: 14px 0 14px 18px;
+      border-left: 2px solid var(--clr-primary);
+      background: linear-gradient(to right, var(--clr-primary-bg) 0%, transparent 70%);
+      border-radius: 0 4px 4px 0;
+    }
+    .profile-verified-line strong { color: var(--clr-primary); font-weight: 600; }
+
+    .profile-quote {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-style: italic;
+      font-size: 1.18rem;
+      line-height: 1.55;
+      color: var(--clr-text-2);
+      margin: 24px 0 12px;
+      text-wrap: balance;
+    }
+    .profile-quote-attr { font-size: .85rem; color: var(--clr-text-muted); margin: 0 0 28px; }
+
+    .profile-hero-cta { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .profile-hero-cta-meta { font-size: .87rem; color: var(--clr-text-muted); font-style: italic; }
+
+    /* ─── AT A GLANCE ─── */
+    .profile-glance { padding: 36px 0 12px; background: var(--clr-white); }
+    .profile-section-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--clr-primary);
+      margin: 0 0 14px;
+    }
+    .profile-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .profile-chip {
+      font-size: .88rem;
+      color: var(--clr-text-2);
+      background: var(--clr-cream);
+      border: 1px solid var(--clr-border-warm);
+      padding: 7px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    /* ─── KEY FACTS GRID ─── */
+    .profile-facts { padding: 36px 0; background: var(--clr-white); }
+    .profile-facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0;
+      border-top: 1px solid var(--clr-border-warm);
+      border-left: 1px solid var(--clr-border-warm);
+    }
+    .profile-fact {
+      padding: 22px 22px;
+      border-right: 1px solid var(--clr-border-warm);
+      border-bottom: 1px solid var(--clr-border-warm);
+      background: var(--clr-white);
+    }
+    .profile-fact-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--clr-text-muted);
+      margin: 0 0 8px;
+    }
+    .profile-fact-value { font-size: 1rem; line-height: 1.55; color: var(--clr-text); margin: 0; }
+    .profile-fact-value strong { font-weight: 600; }
+    .profile-fact-value em { color: var(--clr-text-muted); font-style: italic; font-size: .9rem; }
+
+    /* ─── NOTES ─── */
+    .profile-notes {
+      padding: 56px 0;
+      background: var(--clr-cream);
+      border-top: 1px solid var(--clr-border-warm);
+    }
+    .profile-notes-hdr {
+      font-family: var(--fd, 'Cormorant Garamond', serif);
+      font-weight: 500;
+      font-size: clamp(1.7rem, 3.5vw, 2.1rem);
+      letter-spacing: -0.008em;
+      color: var(--clr-text);
+      margin: 0 0 8px;
+      text-wrap: balance;
+    }
+    .profile-notes-sub { font-size: .95rem; color: var(--clr-text-muted); margin: 0 0 32px; font-style: italic; }
+    .profile-notes-prose p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--clr-text-2);
+      margin: 0 0 1.1em;
+      text-wrap: pretty;
+    }
+    .profile-notes-prose p:last-child { margin-bottom: 0; }
+
+    .profile-foot { font-style: italic; color: var(--clr-text-muted); font-size: .92rem; margin: 32px 0 0; }
+
+    /* ─── MOBILE ADJUSTMENTS ─── */
+    @media (max-width: 640px) {
+      .profile-hero { padding: 40px 0 36px; }
+      .profile-hero-inner { gap: 24px; justify-content: center; }
+      .profile-photo { flex: 0 0 140px; width: 140px; height: 140px; margin: 0 auto; align-self: center; }
+      .profile-hero-text { text-align: center; }
+      .profile-verified-line { text-align: left; }
+      .profile-hero-cta { display: flex; justify-content: center; }
+      .profile-facts-grid { grid-template-columns: 1fr; }
+      .profile-fact { padding: 20px 18px; }
+    }
+
+    /* ─── COOKING GALLERY ─── */
+    .profile-cooking { background: var(--clr-cream, #FCF7EE); padding: 56px 0 60px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
+    .profile-cooking-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .profile-cooking-hdr { font-family: var(--fd, 'Cormorant Garamond', serif); font-weight: 500; font-size: clamp(1.7rem, 3.5vw, 2.1rem); letter-spacing: -0.008em; color: var(--clr-text, #1F2A24); margin: 0 0 12px; }
+    .profile-cooking-sub { font-size: 1rem; color: var(--clr-text-muted, #5A6661); line-height: 1.65; margin: 0 0 28px; max-width: 60ch; }
+    .profile-cooking-grid { display: grid; grid-template-columns: repeat(3, 1fr); align-items: start; gap: 12px; }
+    .profile-cooking-tile { margin: 0; align-self: start; border-radius: 10px; overflow: hidden; background: #EFE7D8; box-shadow: 0 1px 3px rgba(31,42,36,.08); }
+    .profile-cooking-tile img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; align-self: start; object-fit: cover; object-position: center; }
+    .profile-cooking-grid--two { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    @media (max-width: 560px) {
+      .profile-cooking-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
+
+    /* ─── ASK ABOUT FORM ─── */
+    .profile-ask { background: var(--clr-white, #FFFFFF); padding: 56px 0 72px; border-top: 1px solid var(--clr-border-warm, #E8DFD0); }
+    .profile-ask-inner { max-width: 560px; margin: 0 auto; padding: 0 24px; }
+    .profile-ask-kicker { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--clr-primary); background: var(--clr-primary-bg); padding: 4px 10px; border-radius: 4px; margin-bottom: 12px; }
+    .profile-ask-h { font-family: var(--fd, 'Cormorant Garamond', serif); font-weight: 500; font-size: clamp(1.7rem, 3.5vw, 2.1rem); letter-spacing: -0.008em; color: var(--clr-text); margin: 0 0 12px; text-wrap: balance; }
+    .profile-ask-sub { font-size: 1rem; color: var(--clr-text-muted); line-height: 1.65; margin: 0 0 28px; }
+    .ask-field { margin-bottom: 16px; }
+    .ask-field label { display: block; font-size: .85rem; font-weight: 600; color: var(--clr-text); margin-bottom: 6px; }
+    .ask-field-opt { font-weight: 400; color: var(--clr-text-muted); font-size: .8rem; }
+    .ask-field input, .ask-field textarea { width: 100%; padding: 11px 13px; font-size: .98rem; font-family: inherit; color: var(--clr-text); background: var(--clr-white, #FFFFFF); border: 1px solid var(--clr-border, #E8E2D4); border-radius: 6px; transition: border-color .15s; }
+    .ask-field input:focus, .ask-field textarea:focus { outline: none; border-color: var(--clr-primary); }
+    .ask-field textarea { resize: vertical; min-height: 80px; }
+    .ask-submit { width: 100%; margin-top: 4px; }
+    .ask-foot-note { font-size: .82rem; color: var(--clr-text-muted); margin: 14px 0 0; line-height: 1.55; }
+    .ask-success, .ask-error { background: var(--clr-primary-bg); border-left: 3px solid var(--clr-primary); padding: 16px 18px; border-radius: 0 8px 8px 0; margin-top: 12px; }
+    .ask-error { background: #FFF0EB; border-left-color: #E8825C; }
+    .ask-success p, .ask-error p { margin: 0; color: var(--clr-text-2); line-height: 1.6; }
+  </style>
+</head>
+<body class="profile-page">
+
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark" aria-hidden="true"><span class="logo-hc">hc</span></div>
+      <span class="logo-text">Helper<strong>Circle</strong></span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="browse.html" class="nav-a">Meet Helpers</a>
+      <a href="refer.html" class="nav-a">Refer a Helper</a>
+      <a href="index.html#how" class="nav-a">How It Works</a>
+      <a href="faq.html" class="nav-a">FAQ</a>
+      <a href="mailto:hello@helpercircle.sg" class="nav-a">Contact</a>
+    </nav>
+    <a href="refer.html" class="btn btn-green btn-sm hdr-cta">Refer a Helper</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="profile-hero">
+  <div class="profile-wrap">
+    <div class="profile-hero-inner">
+
+      <img class="profile-photo" src="images/sahati.jpeg" alt="Sahati" width="180" height="180" loading="eager"/>
+
+      <div class="profile-hero-text">
+        <h1 class="profile-name">Sahati</h1>
+        <p class="profile-descriptor">Indonesian &middot; 47 &middot; Cooking, children &amp;&nbsp;household</p>
+
+        <p class="profile-verified-line">
+          <strong>Ten years with one&nbsp;family</strong>, and twenty-one years in Singapore&nbsp;altogether. Five kitchens she can cook&nbsp;from &mdash; Indian, Chinese, Western, Malay and&nbsp;Indonesian &mdash; from dosa and biryani to rendang, chicken rice and a rack of&nbsp;lamb. Her employer is recommending her as he gives up his&nbsp;household.
+        </p>
+
+        <div class="profile-hero-cta">
+          <a href="#ask" class="btn btn-green">Ask about Sahati</a>
+          <span class="profile-hero-cta-meta">Transfer &middot; timing to be&nbsp;confirmed</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="profile-trust">
+  <div class="profile-wrap">
+    <p class="profile-section-label">Trust signals</p>
+    <div class="psig psig--rec">
+      <span class="tsig tsig--rec"><span class="tsig-mark" aria-hidden="true">&#127942;</span> Employer Recommended</span>
+      <ul class="psig-list">
+        <li><strong>Recommended by Mohandas</strong>, the employer she is with&nbsp;now, who is releasing her only because his work takes him out of Singapore for months at a&nbsp;time and he lives&nbsp;alone</li>
+        <li>He says her cleaning is very&nbsp;good, that she loves to&nbsp;cook, and that she runs the&nbsp;house, the&nbsp;laundry, the cooking and the marketing independently without&nbsp;supervision</li>
+        <li>Give her directions and an&nbsp;explanation, he&nbsp;says, and she is&nbsp;fine &mdash; including the errands and the Indian cooking his household&nbsp;wanted</li>
+        <li><strong>Ten years with one family</strong>, 2010 to&nbsp;2020 &mdash; two children taken from eighteen months and&nbsp;seven</li>
+        <li><strong>Twenty-one years in&nbsp;Singapore</strong>, with four households since 2010 and more before&nbsp;that</li>
+        <li><strong>We have spoken with her</strong> about each of her households and the work she did in&nbsp;them</li>
+      </ul>
+      <p class="psig-note">Our strongest trust&nbsp;signal &mdash; the family she works for&nbsp;now, recommending her&nbsp;directly. We arrange the call once a family has met her and is proceeding&nbsp;seriously.</p>
+    </div>
+  </div>
+</section>
+
+<section class="profile-glance">
+  <div class="profile-wrap">
+    <p class="profile-section-label">At a glance</p>
+    <div class="profile-chips">
+      <span class="profile-chip">Ten years, one&nbsp;family</span>
+      <span class="profile-chip">Twenty-one years in&nbsp;Singapore</span>
+      <span class="profile-chip">Five cuisines, properly&nbsp;cooked</span>
+      <span class="profile-chip">Indian&nbsp;households for most of&nbsp;it</span>
+      <span class="profile-chip">Runs a house on her&nbsp;own</span>
+      <span class="profile-chip">Comfortable with&nbsp;dogs</span>
+    </div>
+  </div>
+</section>
+
+<section class="profile-facts">
+  <div class="profile-wrap">
+    <p class="profile-section-label">The essentials</p>
+    <div class="profile-facts-grid">
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Available from</p>
+        <p class="profile-fact-value">Transfer within&nbsp;Singapore. <strong>Timing to be&nbsp;confirmed</strong> &mdash; ask us and we will have the date for&nbsp;you.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Why she is available</p>
+        <p class="profile-fact-value">Her employer lives&nbsp;alone and his work has taken him out of Singapore for most of the past&nbsp;year &mdash; four months, then two back, then three more. He no longer needs a helper at&nbsp;all, and is putting her forward&nbsp;himself.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Ten years, one household</p>
+        <p class="profile-fact-value">2010 to&nbsp;2020 &mdash; an Indian-Chinese family with a baby of eighteen months and a boy of&nbsp;seven. She had both children, the cooking and the&nbsp;house, and the grandmother when she came from&nbsp;Malaysia.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Cooking</p>
+        <p class="profile-fact-value">The widest range on this&nbsp;site. <strong>Indian</strong> &mdash; prata, idli, dosa, chapati, palak and matar&nbsp;paneer, biryani, the&nbsp;curries. <strong>Chinese</strong> &mdash; chicken&nbsp;rice, steamed&nbsp;fish, popiah, duck in black&nbsp;sauce, sushi, stir-fried&nbsp;greens. <strong>Western</strong> &mdash; roasts, pasta, steak, chicken&nbsp;milanese, pizza. <strong>Malay and Indonesian</strong> &mdash; rendang, soto, sate, gado&nbsp;gado, lontong&nbsp;sayur, kue.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Children she has cared for</p>
+        <p class="profile-fact-value">A baby of eighteen months and a boy of seven for ten&nbsp;years, a boy of four, a girl of two with the school&nbsp;run, and teenagers of sixteen and&nbsp;eighteen.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Indian households</p>
+        <p class="profile-fact-value">Four of her last five, including a vegetarian&nbsp;kitchen and a Pakistani one where she cooked rack of&nbsp;lamb, chicken pie and salmon alongside the&nbsp;biryani. The cooking comes with&nbsp;her.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Dogs</p>
+        <p class="profile-fact-value">A dog in the household she has just&nbsp;left, and another in a house years&nbsp;before. She is comfortable with&nbsp;them.</p>
+      </div>
+
+      <div class="profile-fact">
+        <p class="profile-fact-label">Best fit</p>
+        <p class="profile-fact-value">A household that eats&nbsp;well and wants one pair of hands to run the&nbsp;place. Children of any&nbsp;age, a dog, and a kitchen that asks for something different each&nbsp;night.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="profile-notes">
+  <div class="profile-wrap">
+    <h2 class="profile-notes-hdr">Notes from her&nbsp;employer</h2>
+    <p class="profile-notes-sub">From what Mohandas told us when he asked us to find her a new&nbsp;household.</p>
+
+    <div class="profile-notes-prose">
+      <p>He is a single man living&nbsp;alone, and the job has been a straightforward&nbsp;one: the housecleaning, the&nbsp;laundry, the cooking and the&nbsp;marketing. She does all of it&nbsp;independently, he&nbsp;says, with no&nbsp;trouble.</p>
+
+      <p>On the&nbsp;cooking: he wanted Indian food and she cooked&nbsp;it, no&nbsp;problem. She loves to&nbsp;cook, and will work from a recipe or a video when something is new to&nbsp;her.</p>
+
+      <p>On working with&nbsp;her: give her directions and an&nbsp;explanation and she is&nbsp;fine, including the errands outside the&nbsp;house. Her cleaning, he&nbsp;says, is very&nbsp;good.</p>
+
+      <p>He is letting her go only because his work keeps him out of the country for months at a&nbsp;time &mdash; four months in&nbsp;England, two back in&nbsp;Singapore, then three more&nbsp;away &mdash; and with no one else in the house there is no longer a job to&nbsp;do.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="profile-notes">
+  <div class="profile-wrap">
+    <h2 class="profile-notes-hdr">Her record</h2>
+    <p class="profile-notes-sub">In Singapore for twenty-one&nbsp;years. Her five most recent households, in&nbsp;full.</p>
+
+    <div class="profile-notes-prose">
+      <p><strong>2008 to 2009.</strong> A landed house with two&nbsp;helpers, a couple and four children from teenage&nbsp;upward, and a&nbsp;dog. She had the upstairs and the&nbsp;cooking, shared. She went back to Indonesia at the end of&nbsp;it, to care for her own&nbsp;daughter.</p>
+
+      <p><strong>2010 to 2020 &mdash; ten&nbsp;years.</strong> An Indian-Chinese family with a baby of eighteen months and a boy of&nbsp;seven, both of them&nbsp;hers, with the grandmother visiting from&nbsp;Malaysia. More Chinese cooking than&nbsp;Indian in that&nbsp;house. The longest thing on her&nbsp;record, by a long&nbsp;way.</p>
+
+      <p><strong>2020 to 2023 &mdash; three&nbsp;years.</strong> An Indian vegetarian family with a boy of&nbsp;four. A second child arrived during her&nbsp;time there and a second helper joined the&nbsp;household; when the family moved to a rented house and the costs&nbsp;rose, they kept the other helper and Sahati&nbsp;transferred.</p>
+
+      <p><strong>2023 to 2025 &mdash; two&nbsp;years.</strong> A Pakistani family with a girl of&nbsp;two, the school run from eight until&nbsp;one, and a kitchen that stretched&nbsp;her: Moroccan&nbsp;chicken, teriyaki and butter&nbsp;salmon, rack of lamb with rosemary and&nbsp;garlic, chicken pie in puff&nbsp;pastry, banana&nbsp;cake. The family bought a new house and could not carry a helper as well.</p>
+
+      <p><strong>2025 to 2026.</strong> An Indian family from the&nbsp;UK &mdash; the&nbsp;parents, a girl of eighteen, a boy of sixteen and a&nbsp;dog. They relocated to Amsterdam.</p>
+
+      <p><strong>Before&nbsp;that.</strong> Her work in Singapore goes back to&nbsp;2005, across further households in those earlier&nbsp;years. She is happy to talk any of them through at&nbsp;interview.</p>
+
+      <p><strong>Where she&rsquo;d suit&nbsp;next.</strong> A household that cares what comes out of the&nbsp;kitchen. Five cuisines, twenty-one years in Singapore and ten of them in one&nbsp;home, and an employer who says she runs the place without being&nbsp;watched. Children of any age are&nbsp;fine, and so is a&nbsp;dog.</p>
+    </div>
+
+    <p class="profile-foot">Her employment record and her full work history are available to interested&nbsp;families, with her&nbsp;consent.</p>
+
+  </div>
+</section>
+
+<section class="profile-ask" id="ask">
+  <div class="profile-ask-inner">
+    <span class="profile-ask-kicker">Interested?</span>
+    <h2 class="profile-ask-h">Ask about Sahati</h2>
+    <p class="profile-ask-sub">Tell us a little about your household and we&rsquo;ll be in touch within 1&ndash;2 business&nbsp;days. We&rsquo;ll only move forward if it feels like a genuine&nbsp;fit.</p>
+    <form id="form-ask" action="https://formspree.io/f/mredjvwg" method="POST">
+      <input type="hidden" name="helper-name" value="Sahati"/>
+      <input type="hidden" name="_subject" value="Helper Circle — Interest in Sahati"/>
+      <div class="ask-field"><label for="ask-name">Your name</label><input type="text" id="ask-name" name="name" required placeholder="Jane Tan" autocomplete="name"/></div>
+      <div class="ask-field"><label for="ask-email">Email</label><input type="email" id="ask-email" name="email" required placeholder="you@email.com" autocomplete="email"/></div>
+      <div class="ask-field"><label for="ask-phone">Phone <span class="ask-field-opt">(optional, but helps)</span></label><input type="tel" id="ask-phone" name="phone" placeholder="+65 9123 4567" autocomplete="tel"/></div>
+      <div class="ask-field"><label for="ask-household">Briefly, your household</label><textarea id="ask-household" name="household" rows="3" required placeholder="Who lives at home, how old the children are, what you like to eat&hellip;"></textarea></div>
+      <div class="ask-field"><label for="ask-why">Why Sahati? <span class="ask-field-opt">(optional)</span></label><textarea id="ask-why" name="why" rows="2" placeholder="What stood out, what you&rsquo;re hoping for&hellip;"></textarea></div>
+      <button type="submit" class="btn btn-green ask-submit">Send to Helper Circle</button>
+      <p class="ask-foot-note">We read every message personally. If Sahati seems like a fit for your household, we&rsquo;ll set up a short call to talk through the next&nbsp;step.</p>
+      <div class="ask-success" hidden><p>Thank you. We&rsquo;ve received your note and will be in touch within 1&ndash;2 business&nbsp;days.</p></div>
+      <div class="ask-error" hidden><p>Something didn&rsquo;t go through. Please try again, or email <a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a>&nbsp;directly.</p></div>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <p class="footer-heart">Started by a Singapore family who knew there had to be a better&nbsp;way.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="browse.html">Meet Helpers</a><span class="footer-nav-sep">·</span>
+        <a href="refer.html">Refer a Helper</a><span class="footer-nav-sep">·</span>
+        <a href="index.html#how">How It Works</a><span class="footer-nav-sep">·</span>
+        <a href="faq.html">FAQ</a><span class="footer-nav-sep">·</span>
+        <a href="mailto:hello@helpercircle.sg">Contact</a>
+      </nav>
+      <p class="footer-aside"><a href="for-families.html">For families saying goodbye to a helper &rarr;</a></p>
+      <div class="footer-legal-strip"><span>© <span id="year"></span> Helper Circle · Singapore</span><span class="footer-nav-sep">·</span><a href="mailto:hello@helpercircle.sg">hello@helpercircle.sg</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('form-ask'); if (!form) return;
+  var submitBtn = form.querySelector('button[type="submit"]'), successEl = form.querySelector('.ask-success'),
+      errorEl = form.querySelector('.ask-error'), fields = form.querySelectorAll('.ask-field'), noteEl = form.querySelector('.ask-foot-note');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.dataset.originalText = submitBtn.textContent; submitBtn.textContent = 'Sending…'; }
+    if (errorEl) errorEl.hidden = true;
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(function (res) { if (res.ok) { fields.forEach(function (f){f.style.display='none';}); if(submitBtn)submitBtn.style.display='none'; if(noteEl)noteEl.style.display='none'; if(successEl)successEl.hidden=false; } else { throw new Error('fail'); } })
+      .catch(function () { if(errorEl)errorEl.hidden=false; if(submitBtn){submitBtn.disabled=false;submitBtn.textContent=submitBtn.dataset.originalText||'Send to Helper Circle';} });
+  });
+})();
+</script>
+<script>var y=document.getElementById('year');if(y){y.textContent=new Date().getFullYear();}</script>
+</body>
+</html>
